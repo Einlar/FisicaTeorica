@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+\input{header.tex}
+
+\begin{document}
+\section{Lezione 4:\\ \large{Il Formalismo di Dirac}}
+\vspace{-1em}
+\begin{center}
+    \small{(18/10/2018)}
+\end{center}
+
+Formalismo di Dirac
+Spettro continuo \lambda\in \sigma_C\left(A\right), A\left|\lambda\right\rangle=\lambda\ket{\lambda} equazione agli autovalori "generalizzata".
+In che spazio sta \ket{\lambda}?
+XF_\lambda\left(x\right)=\lambdaF_\lambda\left(x\right)
+F_\lambda\left(x\right)=\delta \left(x-\lambda\right)\in \mathcal{S}^\prime\left(\mathbb{R}\right)
+S\left(\mathbb{R}\right)\subset L^2\left(\mathbb{R}\right)\subset \mathcal{S}^\prime\left(\mathbb{R}\right)
+
+Gerl'fand generalizza a \phi_A\subset H\subset \phi_A^\prime
+Proprietà di \phi_A:
+	1) \phi \left(A\right)\subseteq D\left(A\right)
+	2) {\bar{\phi}}_A=H
+	3) A è continuo in \phi_A nella topologia di \phi_A 
+	4) \phi_A è nucleare
+
+F_\lambda\in \phi_A′
+\lambda\in \sigma \left(A\right)
+
+Equazione agli autovalori: AF_\lambda=\lambdaF_\lambda che si deve intendere (come nel caso di S′)
+AF_\lambda\left(\varphi\right)\equiv F_\lambda\left(A\varphi\right)=\lambdaF_\lambda\left(\varphi\right) \forall \phi \in \phi_A
+ 
+Perciò: X\delta \left(\lambda-x\right)=\lambda\delta \left(\lambda-x\right) si intende come:
+\int dx x \delta \left(\lambda-x\right)\phi \left(x\right)=\int dx \lambda\delta \left(\lambda-x\right)\phi \left(x\right) \forall \phi \in S(R)
+
+Si dimostra che:
+	1) \forall A autoaggiunto \exists  almeno un \phi_A
+	2) Si può prendere \phi_A=S(\mathbb{R}^n) se A= polinomio di \vec{x} o \vec{p} + V(\vec{x})
+	Con V\in C^\infty\left(\mathbb{R}^n\right) con derivate limitate. Se V ha discontinuità in un insieme di misura nulla sulla N, \phi_A=\left\{\varphi\in\mathcal{S}\left(\mathbb{R}^n\right)|\varphi\left(x\right)=0\ \ \ x\in N\right\}
+
+(Con questa lezione vogliamo mostrare che esiste una maniera consistente di trattare il formalismo di Dirac)
+Conveniamo di:
+	1) Denotare con \bra{\lambda} gli autofunzionali in \phi_A^\prime, cioè se H è lo spazio astratto, allora l'equazione agli autovalori si scrive \bra{\lambda}A=\lambda\bra{\lambda}, \lambda\in \sigma \left(A\right)
+	(invece di scriverla in ket, la scriviamo in bra)
+	2) Denotare con |\phi ⟩ un ket in \phi_A e con \left\langle\lambda\middle|\varphi\right\rangle\equiv F_\lambda\left(\varphi\right) (con F_\lambda opportunamente normalizzato), cioè l'applicazione del bra \bra{\lambda} al ket \left|\varphi\right\rangle.
+	Se \left|\lambda\right\rangle\in H (\lambda\in \sigma_P(A)) allora \bra{\lambda}\phi ⟩ è semplicemente il prodotto scalare, per il quale vale la seguente uguaglianza:
+	\left\langle\varphi\middle|\lambda\right\rangle={\left\langle\lambda\middle|\varphi\right\rangle}^\ast (*)
+	3) Estendere (*) come definizione anche se \left\langle\lambda\right|\in \phi_A^\prime, ma \bra{\lambda}\notin H (altrimenti non avrebbe senso, dato che il prodotto scalare è su H, non su \phi_A. Cioè non posso prendere \phi \in \phi_A^\prime come bra)
+	4) Estendere la notazione \left\langle x\middle|\psi\right\rangle=\psi \left(x\right)\in L^2\left(\mathbb{R},\ dx\right) (per denotare \left|\psi\right\rangle\in H in rappresentazione x), denotando con \bra{\lambda}x⟩ l'autofunzionale \bra{\lambda} in rappresentazione x, cioè F_{\lambda\left(x\right)}\equiv \bra{\lambda}x⟩ e nuovamente se 
+	\left\langle x\middle|\lambda\right\rangle\equiv {\left\langle\lambda\middle| x\right\rangle}^\ast
+Allora si dimostra che \forall A autoaggiunto esiste una famiglia \left\{\left\langle\lambda_n,r\right|\in\mathcal{H}^\prime\subset\phi_A^\prime,\ \lambda_n\in\sigma_P\left(A\right),\ r=1,\ \ldots,\ d(\lambda_n)\right\} e \left\{\langle\lambda_n,\ r|\in\phi_A^\prime,\ \left\langle\lambda,\ r\right|\notin\mathcal{H},\ \lambda\in\sigma_C\left(A\right),\ r=1,\ \ldots,\ d\left(\lambda\right)\right\} tali che \forall \left|\varphi\right\rangle\in \phi_A, \left|\psi\right\rangle\in \phi_A
+\left|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,\ r\ket\langle\lambda_n,\ r|\varphi\ket}+\int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{|\lambda,\ r\ket\langle\lambda,\ r|\varphi\ket}}
+(controllare)
+
+\left\langle\psi\middle|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P(A)}\sum_{r=1}^{d(\lambda_n)}{\langle\psi|\lambda_n,\ r\ket\langle\lambda_{n,r}|\varphi\ket}+\int_{\sigma_{C\left(A\right)}}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{\langle\psi|\lambda,\ r\ket\langle\lambda,\ r|\varphi\ket}}
+Con \left\langle\psi\middle|\lambda,r\right\rangle={\left\langle\lambda,r\middle|\psi\right\rangle}^\ast
+Ma siccome \phi_A è denso in H queste formule per densità si estendono a ogni \left|\varphi\right\rangle, \left|\psi\right\rangle\in H
+
+Posso calcolare:
+\left\langle\psi\left|A\right|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d(\lambda_n)}{\lambda_n\langle\psi|\lambda_{n,r}\ket\langle\lambda_{n,r}|\varphi\ket}+ \int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{\lambda\langle\psi|\lambda,r\ket\langle\lambda,r|\varphi\ket}}
+Per \left|\psi\right\rangle=|\phi ⟩ si ha che:
+
+
+dP^A\left(\lambda\right)|_{\sigma_P\left(A\right)}
+= \sum_{\lambda_n\in\sigma_P\left(A\right)}{\delta\left(\lambda-\lambda_n\right)\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,r\ket\langle\lambda_n,\ r|d\lambda}}
+dP^A\left(\lambda\right)|_{\sigma_C\left(A\right)}=
+= \sum_{r=1}^{d(\lambda_n)}\left|\lambda,r\ \right\rangle\left\langle\lambda,r\right|d\lambda
+
+Formalmente, la completezza di Dirac:
+\mathbb{I}_\mathcal{H}=\sum_{\lambda_n\in\sigma_P(A)}{\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,r\ \ket\langle\lambda_n,\ r|}+\int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{|\lambda,r\ket\langle\lambda,r|}}}
+(se applicata ad una qualsiasi formula dà il risultato corretto)
+
+Vantaggi e svantaggi del formalismo di Dirac
+Vantaggi:
+	1) Semplicità ed eleganza, in particolare la completezza è potentissima
+	2) È basato anche per \sigma_C(A) su una equazione agli autovalori (per \lambda\in \sigma_P(A) la soluzione è in D(A), mentre se \lambda\in \sigma_C(A) non è neanche in H!)
+	3) La notazione di Dirac non ammette soluzioni che divergono a infinito (non stanno in \mathcal{S}^\prime\left(\mathbb{R}\right)). Per esempio, H=\frac{p^2}{2m}+V(x), \phi_H\subseteq S(R), \phi_H^\prime\subseteq S\left(\mathbb{R}\right)
+	Non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in \phi_H^\prime (un'onda piana invece non è in L^2, ma in S\left(\mathbb{R}\right) sì, e quindi funziona)
+
+Svantaggi:
+	1) \phi_A non è unico, non è "canonico" (mentre una famiglia spettrale è unica). 
+	2) La scrittura \int d\lambda \ket{\lambda}\bra{\lambda} è matematicamente imprecisa e la sua formalizzazione rigorosa richiede una matematica sofisticata (es. "nuclearità")
+	3) Se \left\langle\lambda\right|\notin \mathcal{H}^\prime≈H non rappresenta uno stato fisico (es. nel caso di un'onda piana e^{\frac{i}{\hbar}px}\notin L^2. Ma lì p=h/\lambda, e \nu =\frac{E}{h}, \lambda\nu =\frac{E}{p}=\frac{mc^2}{mv\gamma}=\frac{c^2}{v}>c. De Broglie considerò allora un pacchetto d'onde, con \int f_{p_0}\left(p\right)e^{\frac{i}{\hbar}px}dp\in L^2, purché f_{p_0}\in L^2(R, dp), dove f_{p_0} è una funzione "piccata" su un punto p_0. Ma allora in questo caso \frac{d\omega}{dk}=\frac{d\mathcal{E}}{dp}=v. Tuttavia, fisicamente si preferisce lavorare con l'onda piana - per semplicità - e nel caso vengano risultati infiniti si considerano le ipotesi di pacchetto d'onda), ma Dirac lo tratta analogamente agli altri stati (nel 99% di volte produrrà conti giusti, ma ci sono circostanti in cui si giunge ad assurdità)
+	4) Quando scrivete la completezza per X:
+	\int dx \left|x\right\rangle\left\langle x\right|=I
+	Assomiglia ad una "versione continua" del caso di una base \left\{|\lambda_n\ket\right\} ON, per cui H sembra non separabile, ma sappiamo che lo è:
+	\sum_{n}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=\mathbb{I}}
+	
+	Tuttavia tale relazione è comunque giusta (il formalismo di Dirac funziona, ma "va interpretato" nei suoi risultati)
+
+
+\end{document}

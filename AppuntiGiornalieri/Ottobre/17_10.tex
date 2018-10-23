@@ -1,0 +1,97 @@
+%\documentclass[12pt]{article}
+\begin{comment}
+\input{header.tex}
+
+\begin{document}
+\section{Lezione 3:\\ \large{Formulazione assiomatica Hilbertiana (o Standard)}}
+\vspace{-1em}
+\begin{center}
+    \small{(17/10/2018)}
+\end{center}
+\end{comment}
+
+\subsection{Spettro matematico}
+\begin{comment}
+Abbiamo definito lo spettro di un'osservabile $O$ descritta dall'operatore $A$ come:
+\begin{equation}
+\sigma \left(A\right)= \left\{a\in\mathbb{R}\ |\inf_{\psi\in D\left(A\right)}{\left(\Delta A\right)_{a,\psi}=0}\right\}
+\label{eqn:spettroA}
+\end{equation}
+\end{comment}
+Come già accennato in precedenza, esiste un modo più generale per definire lo spettro di un operatore. Lo \textbf{spettro matematico} di un operatore $A$ (anche non autoaggiunto,\marginpar{Nuova definizione di spettro $\sigma(A)$ di un operatore $A$} per esempio nel caso di un operatore unitario) è dato da:
+\[
+\sigma \left(A\right)_{\text{mat}}= \left\{\mathbb{C}\setminus \{ z\in\mathbb{C}\ |\ \left|\left|\left(A-z\mathbb{I}\right)^{-1}\right|\right|<\infty\right\}\}
+=\left\{z\in\mathbb{C}\ |\
+\left(A-z\mathbb{I}\right)^{-1}\notin\mathcal{B}(\mathcal{H})\right\}
+\]
+In altre parole, lo spettro di $A$ è dato da tutti i numeri complessi $z$ per cui $(A-z\bb{I})^{-1}$ non è un operatore limitato.\\
+In effetti, nel caso matriciale, se $a$ è un autovalore, allora $(A-a\bb{I})$ è singolare (è proprio la matrice di cui facciamo il $\op{ker}$ per calcolare gli autovettori associati ad $a$), e quindi l'inversa $\left(A-a\mathbb{I}\right)^{-1}\notin \mathcal{B}(\hs)$ proprio non esiste (e di certo non è un operatore limitato!).\\
+Verifichiamo che tale nuova definizione è equivalente a quella precedente (\ref{eqn:spettroA}) nel caso di operatori autoaggiunti ($A=A^\dag$).\\
+Innanzitutto, se lo spettro di $A$ è reale (come vogliamo che sia), allora ogni numero non reale $a\notin \bb{R}$ fa sì che $(A-a\bb{I})^{-1}$ sia un operatore limitato:
+\[ \sigma \left(A\right)_{\text{mat}}\subseteq \bb{R} \Rightarrow \left(A-a\mathbb{I}\right)^{-1}\in \mathcal{B}\left(\mathcal{H}\right), a\notin \bb{R} 
+\]
+Consideriamo ora gli $a\in \bb{R}$ che generano un $(A-a\bb{I})^{-1}$ limitato. Allora, per la limitatezza, vale:
+\[
+\norm{\left(A-a\mathbb{I}\right)^{-1}}<C
+\]
+Dimostriamo che tali $a$ non soddisfano la definizione in (\ref{eqn:spettroA}):
+\begin{align*}
+\inf_{\psi\in D\left(A\right)}{D\left(A\right)_{a,\psi}^2}
+&=\inf_{\psi\in D\left(A\right)}{\frac{\left|\left|\left(A-a\bb{I}\right)\psi\right|\right|^2}{\left|\left|\psi\right|\right|^2}}
+\underset{(a)}{=}\inf_\phi{\frac{\left|\left|\phi\right|\right|^2}{\left|\left|\left(A-a\bb{I}\right)^{-1}\phi\right|\right|^2}}=\\
+&\underset{(b)}{=}\frac{1}{\sup_\phi{\frac{\left|\left|\left(A-a\right)^{-1}\phi\right|\right|^2}{\left|\left|\phi\right|\right|^2}}}\underset{(c)}{=}\frac{1}{\left|\left|\left(A-a\bb{I}\right)^{-1}\right|\right|^2}>\frac{1}{C^2}
+\end{align*}
+In (a) si è definito $\phi = (A-a\bb{I})\psi$ per $\psi \in D\left(A\right)$, da cui $\left(A-a\mathbb{I}\right)^{-1}\phi =\psi$. In (b) portiamo tutto al denominatore, e l'estremo inferiore di una frazione con numeratore fissato si ottiene "massimizzando" il denominatore. Ma allora applicando Riesz (norma di un funzionale) in (c) si ha che l'$\inf$ di partenza è maggiore di un numero \textit{piccolo} ma certamente maggiore di $0$. Perciò gli $a \notin \sigma(A)_{\text{mat}}$, ossia quelli per cui $(A-a\bb{I})^{-1}\in\mathcal{B}(\hs)$, non sono autovalori per la (\ref{eqn:spettroA}). Perciò:
+\[
+\sigma(A)_{\text{mat}}^C \subseteq \sigma(A)^C \Leftrightarrow \sigma(A) \subseteq \sigma(A)_{\text{mat}}
+\]
+(dove $B^C$ è l'insieme complementare di $B$).\\
+Ci serve ora dimostrare l'inclusione inversa, ossia che tutti gli autovalori "matematici" siano anche autovalori per la (\ref{eqn:spettroA}).\\
+Se $a\in\sigma(A)_{\text{mat}}$, cioè se $\left(A-a\right)^{-1}\notin B\left(\mathcal{H}\right)$,  abbiamo 3 casi:
+\begin{enumerate}
+    \item 
+    $\displaystyle \exists  \psi_a\>|\> \left(A-a  \bb{I}\right)\psi_a=0\Rightarrow \left(\Delta A\right)_{a,\psi_a}=0$\\
+    In altre parole, come nel caso matriciale, esiste un autovettore $\psi_a$ di autovalore $a$ dell'operatore $A$, per cui $(A-a\bb{I})^{-1}$ \textbf{non è definito}.\\
+    Inoltre si ha che il codominio (o range) di $(A-a\bb{I})$  non è denso in $\hs$, poiché da esso manca il sottospazio generato da $\psi_a$ (che essendo un autovettore è costituito da vettori del tipo $a\psi_a$, che vengono rimossi nella differenza).\\
+    Questo caso corrisponde allo \textbf{spettro discreto} precedentemente definito.
+	\item $\left(A-a\right)^{-1}$ esiste in $D$ denso, è un \textbf{operatore illimitato}:
+	\[
+	\sup_{\phi\in D\left(A\right)}{\frac{\left|\left|\left(A-a\right)^{-1}\phi\right|\right|}{\left|\left|\phi\right|\right|}}=\infty 
+	\]
+	Ciò significa che possiamo trovare una sequenza di vettori $\phi_n$ di norma unitaria che fanno sì che $(A-a)^{-1}$ diverga. Matematicamente: 
+	\[ 
+	\exists \left\{\phi_n\right\}\subset D{(\left(A-a\right)}^{-1}), \left|\left|\phi_n\right|\right|=1 \text{ t.c. }\left|\left|\left(A-a\right)^{-1}\phi_n\right|\right|\xrightarrow[n\to\infty]{} \infty
+	\]
+	Ma allora esiste una sequenza di "autovettori approssimati" $\psi_n$ per cui $\norm{(A-a)\psi_n}\xrightarrow[n\to\infty]{} 0$. Infatti, definendo opportunamente:
+	\[
+	\psi_n=\frac{\left(A-a\right)^{-1}\phi_n}{\norm{\left(A-a\right)^{-1}\phi_n}}
+	\]
+	Si ha che:
+	\[
+	\norm{\left(A-a\right)\psi_n}=\frac{\norm{\left(A-a\right)\left(A-a\right)^{-1}\phi_n}}{\norm{\left(A-a\right)^{-1}\phi_n}}=\frac{\norm{\phi_n}}{\norm{\left(A-a\right)^{-1}\phi_n}}\xrightarrow[n\to\infty]{} 0
+	\]
+	Ma questi $\psi_n$ soddisfano la definizione di autovalori che abbiamo dato in (\ref{eqn:spettroA}):
+	\[
+	\inf_{\psi\in D\left(A\right)}{\left(\Delta A\right)_{a,\psi}^2}\leq \lim_{n\rightarrow\infty}{\left|\left|\left(A-a\right)\psi_n\right|\right|^2=0}
+	\]
+	(si è usata nuovamente la tecnica di calcolare l'$\inf$ maggiorandolo con l'$\inf$ di un sottoinsieme di tutte le $\psi$ che contiene solo le $\psi_n$ appena costruite).\\
+	Questo caso corrisponde allora allo \textbf{spettro continuo}.
+	\item Per esclusione, c'è anche il caso in cui non esiste $\psi_a$ autovettore, e quindi $(A-a\bb{I})^{-1}$ è definito, ma non con dominio denso (perciò non è possibile estenderlo univocamente a tutto $\hs$, e quindi ci saranno dei vettori di $\hs$ per cui non è definito).\\
+	Questo caso costituisce lo \textbf{spettro residuo}, che non ha alcuna interpretazione fisica.\\
+	Fortunatamente vale il seguente teorema:
+	\begin{thm}
+	Se $A$ è autoaggiunto o unitario allora non ha spettro residuo.
+	\end{thm}
+\end{enumerate}
+Avendo allora mostrato che tra le componenti dello spettro matematico $\sigma(A)_{\text{mat}}$ vi sono tutti gli autovalori che abbiamo già incontrato nell'esaminare lo spettro $\sigma(A)$, abbiamo dimostrato che $\sigma(A)_{\text{mat}} \subseteq \sigma(A)$, e ciò, unito all'inclusione inversa già discussa, fa sì che le due definizioni siano equivalenti.\\
+Notiamo infine che basta spostarsi di poco da un operatore autoaggiunto per perdere completamente diverse proprietà fisiche di fondamentale importanza. Per esempio, quando avevamo definito l'operatore momento $P_0$ (che non è autoaggiunto, in quanto la definizione giusta sarebbe quella di $P$), ponendo $\hs = L^2([0,1],dx)$:
+\begin{align*}
+P_0&=-i\hbar \frac{d}{dx}\\
+D\left(P_0\right)&=\left\{\psi\in\mathcal{H}\ |\ \ \psi\text{ regolare e } \psi\left(0\right)=\ \psi\left(1\right)=0\right\}
+\end{align*}
+\[
+-i\hbar \frac{d}{dx}\psi(x) = \lambda \psi(x); \quad \psi(x) = \lambda e^{i\frac{\lambda}{\hbar}x}
+\]
+Imponendo $\psi \left(0\right)=0$ si ha che non esiste alcun $\lambda$ autovalore.\\ Ciò significa che lo spettro di questo operatore (che non può essere l'insieme vuoto, come si può dimostrare in generale) è unicamente \textbf{residuo}, e quindi non ha interpretazione fisica.
+%Domanda: perché non continuo?
+%\end{document}

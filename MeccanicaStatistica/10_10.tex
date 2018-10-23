@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage[usenames, dvipsnames, table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{braket}
+\usepackage{tikz}
+\usepackage{gnuplottex}
+\usepackage{epstopdf}
+\usepackage{marginnote}
+\usepackage{float}
+\usetikzlibrary{tikzmark}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage[stable]{footmisc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth} 
+\usepackage{enumerate}
+\usepackage{mathdots}
+
+\renewcommand{\figurename}{Fig.}
+
+\PassOptionsToPackage{table}{xcolor}
+
+\usepackage{soul}
+
+\newcommand{\hlc}[2]{%
+  \colorbox{#1!50}{$\displaystyle#2$}}
+
+
+\usepackage[a4paper,
+            total={170mm,257mm},
+ left=20mm,
+ top=20mm]{geometry}
+
+\newcommand{\q}[1]{``#1''}
+\newcommand{\lamb}[2]{\Lambda^{#1}_{\>{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\sumn}[1]{\sum_{i=1}^{#1}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\fancyfoot[R]{Francesco Manzali, 2018-19} % other info in "inner" position of footer line
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}{Definizione}
+\newtheorem{oss}{Osservazione}
+
+\begin{document}
+%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\extrarowheight}{.75ex}
+\setlength\parindent{0pt} %Rimuove indentazione
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+\begin{comment} %INTESTAZIONE PRIMA PAGINA
+\begin{center}
+		\line (1,0){350} \\
+		\textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
+		[0.25in]
+		\huge{\bfseries Istituzioni di Fisica teorica}\\
+		[2mm]
+		\textsc{\normalsize Prof. Marchetti}\\
+		\line (1,0){350} \\
+		[0.5cm]
+		\textsc{\normalsize Anno accademico 2018-2019}\\ 
+
+	\end{center}
+\end{comment}
+
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+
+
+\section{Lezione 3}
+\vspace{-1em}
+\begin{center}
+    \small{(10/10/2018)}
+\end{center}
+%Editare \mu al posto di \gamma
+\textbf{Riepilogo}\\ %%Pag. 75-85
+Consideriamo lo spazio delle fasi $\mu$, i cui punti sono dati da \((q,p)\), e suddividiamolo in celle di dimensioni piccole (volume $\omega_i$) rispetto alla scala del sistema, ma comunque grande rispetto alla scala delle particelle che contengono.\\
+Contiamo quindi il numero $n_i$ di particelle in ogni cella. Uno stato microscopico è definito dalla collezione degli $n_i$ di tutte le celle: $\{n\}=\{n_i, \dots, n_M\}$. Se assegnamo un'unica energia $\mathcal{E}_i$ ad ogni celletta (che possiamo fare se le cellette sono ragionevolmente piccole), allora l'energia del sistema è data da:
+\[
+E = \sum_{i=1}^M n_i\mathcal{E}_i
+\]
+Tuttavia, poiché in fisica classica le particelle sono distinguibili (grazie alle loro traiettorie), possiamo "scambiare" particelle tra celle diverse, mantenendo gli stessi $n_i$ trovando così lo stesso \textit{stato macroscopico}, ma con una diversa \textit{configurazione microscopica}.\\
+Se consideriamo tutti i punti sullo spazio delle fasi (ciascuno dei quali identifica una configurazione microscopica) che corrispondono allo stesso stato macroscopico, si ha che tale insieme avrà un certo volume $W(\{n\})$. Consideriamo questo volume come una misura dell'\textit{importanza} dello stato $\{n\}$. Se consideriamo il volume associato ad una sola configurazione microscopica corrispondente allo stato $\{n\}$ otteniamo:
+\[
+\int_{\omega_1} d^3 q_1 d^3p_1 \int_{\omega_1} d^3\_2 d^3p_2 \cdots \int_{\omega_1}d^3 q_{n_1}d^3p_{n_1} \int_{\omega_2}d^3 q_{n_1+1}d^3 p_{n_1+1} \int_{\omega_2}\cdots
+\]
+Con ognuno degli integrali che dà luogo ad un "volume" $\omega_i$. Tenendo conto di ciò, e del fattore combinatorio che "conta" tutti i possibili stati ottenuti scambiando particelle tra cellette, si giunge a:
+\[
+W\{n\} =\ 1/(h^{3N})\ \frac{N!}{n_1! n_2! \dots n_M!} \omega_1^{n_1} \omega_2^{n_2} \dots \omega_M^{n_m}
+\]
+Il fattore $h$ serve a rendere $W$ adimensionale, in modo da poter calcolare il logaritmo e massimizzare più agevolmente.\\
+Teniamo poi conto dei vincoli dell'ensemble micronanonico (l'energia del sistema è costante, così come il suo numero di particelle):
+\[
+\sum_{i=1}^M n_i = N; \quad \sum_{i=1}^M n_i \mathcal{E}_i =\ E
+\]
+Con il metodo dei moltiplicatori di Lagrange:
+\[
+\ln W\{n\} -\alpha \left(\sum_{i=1}^M n_i - N \right) -\beta\left(\sum_{i=1}^M n_i \mathcal{E}_i - E\right)
+\]
+In approssimazione di Stirling: $\ln n! \approx n\ln n - n$ per $n\to \infty$, calcoliamo:
+\[
+N\ln N-N -\sum_{i=1}^M n_i \ln n_i + \sum_{i=1}^M n_i + \sum_{i=1}^M n_i \ln \omega_i -\alpha \left(\sum_{i=1}^M n_i - N\right ) -\beta\left(\sum_{i=1}^M n_i \mathcal{E}_i - E\right)
+\]
+Derivando rispetto a $n_k$:
+\[
+-\ln n_k +\ln \omega_k - \alpha - \beta\mathcal{E}_k =\ 0 \quad \forall k
+\]
+Esponenziando:
+\[
+\frac{n_k}{\omega_k} =\ e^{-\alpha -\beta\mathcal{E}_k} \Rightarrow n_k =\ \omega_k e^{-\alpha -\beta \mathcal{E}_k}
+\]
+Questo $n_k =\ \bar{n}_k$ è effettivamente un massimo. Esaminando il rapporto incrementale:
+\[
+\ln W\{\bar{n}+\Delta n\}-\ln W\{\bar{n}\} 0 -\frac{1}{2} \sum_{i=1}^M \frac{1}{\bar{n}_k} \Delta n_k^2 + \dots
+\]
+Notiamo ora che:
+\begin{equation}
+\bar{n}_k =\ \omega_k e^{-\alpha -\beta \mathcal{E}_k}
+\label{eqn:Maxwell}
+\end{equation}
+è esattamente la distribuzione di Maxwell.\\
+Maxwell la ricavò considerando un gas perfetto $N$, $V$, $m$, $T$, volendo trovare il numero di particelle contenute in un elemento $d^3 p\, d^3 q$ (piccolo rispetto alla scala del sistema, grande rispetto a quella microscopica), ossia $\int f_M(\vec{q}, \vec{p} d^3 p\, d^3 q =\ dN$. Trovò che:
+\[
+f_M(\vec{q}, \vec{p}) =\ \begin{cases}
+0 &\ \vec{q}\notin V\\
+\frac{N}{V} {(2\pi mk_B\ T)^{-3/2}} \exp{\left (-\frac{\vec{p}^2}{2mk_b T}\right )} & \vec{q} \in V
+\end{cases}
+\]
+
+Notò anche che:
+\[
+E\ =\ \int_V d^3 q \int d^3 p f_M(\vec{q}, \vec{p}) \frac{\vec{p}^2}{2m} =\ \frac{3}{2} N k_B\ T
+\]
+Maxwell derivò tutto ciò partendo da considerazioni di simmetria. Tuttavia non risulta chiaro perché tale distribuzione debba ritrovarsi all'equilibrio di un gas perfetto. Ciò fu chiarito da Boltzmann.\\
+
+Eravamo arrivati a:
+\[
+\bar{n}_k =\ \omega_k \exp(-\alpha -\beta\mathcal{E}_k)
+\]
+Come possiamo trovare $\alpha$ e $\beta$? Esaminiamo i vincoli:
+\begin{align*}
+N &=\ \sum_{i=1}^M \bar{n_i} =\ \sum_{i=1}^M \omega_i e^{-\alpha -\beta \mathcal{E}_i}\\
+E &=\ \sum_{i=1}^M \underbrace{\omega_i}_{\Delta^3 q_i \Delta^3 p_j} e^{-\alpha -\beta\mathcal{E_i}} \overbrace{\mathcal{E}_i}^{\vec{p}_i^2/(2m)} = \int_V d^3 q \int_{-\infty}^{+\infty} d^3 p\, \exp \left (-\alpha -\beta \frac{\vec{p}^2}{2m} \right ) \frac{\vec{p}^2}{2m}
+\end{align*}
+Dove l'integrale si intende con $d^3 q $ e $d^3 p$ "macroscopicamente infinitesimi", ossia non puntiformi (contengono comunque molte particelle!).\\
+\begin{align*}
+N\ &=\ \underbrace{\int_V d^3 q}_{=V} \int d^3 p\, e^{-\alpha} \exp\left(-\frac{\beta}{2}\frac{\vec{p}^2}{m}\right )\\
+E\ &= \int_V d^3q \int d^3 p\, e^{-\alpha} \exp\left(-\frac{\beta}{2}\frac{\vec{p}^2}{m}\right) \frac{\vec{p}^2}{2m}
+\end{align*}
+Scompongo il secondo integrale in coordinate, ottenendo il prodotto di tre integrali gaussiani:
+\begin{align*}
+&\int d^3 p\, e^{-\alpha} \exp\left(-\frac{\beta}{2}\frac{\vec{p}^2}{m}\right ) =\\
+&=\ \int_{-\infty}^{\infty} dp_x \, \exp\left(-\frac{\beta}{2}\frac{p_x^2}{m}\right ) \int_{-\infty}^{\infty} dp_y \exp\left(-\frac{\beta}{2}\frac{p_y^2}{m}\right )
+\int_{-\infty}^{\infty} dp_z \, \exp\left(-\frac{\beta}{2}\frac{p_z^2}{m}\right )
+ =\ \left (\ \frac{2\pi m}{\beta}\right)^{3/2}
+\end{align*}
+
+Per il secondo integrale, basta notare che:
+\[
+E =\ \int d^3 p\, \exp \left (-\frac{\beta}{2}\frac{\vec{p}^2}{m}\right ) \frac{\vec{p}^2}{2m} = -\frac{\partial}{\partial \beta} \int d^3 p\, \exp\left (-\frac{\beta}{2} \frac{\vec{p}^2}{m}\right ) = \frac{3}{2}\frac{1}{\beta} \left(\frac{2\pi m}{\beta} \right )^{3/2}
+\]
+
+Alla fine giungiamo quindi a:
+\begin{align*}
+N &=\ Ve^{-\alpha}\left (\ \frac{2\pi m}{\beta} \right)^{3/2}\\
+E\ &= V e^{-\alpha}\left (\ \frac{2\pi m}{\beta}^{3/2}\right ) \frac{3}{2} \frac{1}{\beta} =\ \frac{3}{2}N \frac{1}{\beta}
+\end{align*}
+\[
+\ln W\ \{\bar{n}+\Delta n\} - \ln W\{\bar{n}\} \approx -\frac{1}{2} \sumn{M} \bar{n}_i \left ( \frac{\Delta n}{\bar{n}_i}\right)^2
+\]
+possiamo vedere questa come una \textbf{media pesata} sulle celle di $\left ( \frac{\Delta n}{\bar{n}_i}\right)^2$, dove i pesi sono dati da $n_i$. Possiamo quindi scriverla come:
+\[
+\ln W\ \sim -\frac{1}{2}N \langle \left ( \frac{\Delta n}{\bar{n}_i}\right)^2 \rangle 
+\]
+Se $N\sim 10^{23}$, mettendo deviazioni dell'ordine di $10^{-4}$, il risultato sarà comunque un numero molto grande. Perciò:
+\[
+\frac{W\{\bar{n}+\Delta n\}}{W \{\bar{n}\}} \approx e^{-10^{15}}
+\]
+Perciò anche spostandosi "di poco" dallo stato di massimo volume, gli altri stati hanno un volume \textit{decisamente} più basso.\\
+\[
+\rho_{\text{micro}}(\vec{q}, \vec{p}; q,p) =\ \sum_{i=1}^N \delta^3 (\vec{q}-\vec{q}_i) \delta^3(\vec{p}-\vec{p}_i)
+\]
+\[
+\langle \rho_{\text{micro}}(\vec{q}, \vec{p}; q,p) \rangle =\ \frac{\int_{E\leq H \leq E+\Delta} dq\,dp\, \rho_{\text{micro}}(\vec{q},\vec{p}; q,p)}{\int_{E\leq H \leq E+\Delta} dq\,dp} = f_{MB}(\vec{q},\vec{p})
+\]
+poiché praticamente tutti gli stati microscopici corrispondo allo stato di volume massimo, che è descritto dalla distribuzione di Maxwell-Boltzmann.\\
+
+\section{Il secondo postulato}
+Nella Termodinamica macroscopica di equilibrio \textit{non tutte le quantità} hanno un corrispettivo microscopico che, mediato, le restituisce. Vi sono grandezze "proprie della termodinamica", la principale delle quali è l'\textbf{entropia} (in un sistema isolato).\\
+Non basta quindi la formula data dal primo postulato per "comprendere" tutta la termodinamica. Boltzmann pone l'entropia $S$, come funzione di $E$, $N$ e $V$ pari a:
+\[
+S(E,N,V) =k \ln \left (\Gamma(E,V,N) \right)
+\]
+dove
+\[
+\Gamma(E,N,V) =\frac{1}{h^{3N}}\int_{E\leq H(q,p)\leq E+\Delta} dq\,dp
+\]
+(CFR il denominatore di prima, che è un "volume adimensionalizzato della shell", che possiamo fare corrispondere ad una nozione di \textit{numero di stati} nella fisica classica).\\ %Inserire ref
+%Inserisci disegno (cerchio diviso in due parti)
+Consideriamo un sistema grande ripartito in due sottosistemi ragionevolmente grandi $1$ e $2$. Il sistema complessivo ha un'Hamiltoniana $H(q,p)$ che dipende da tutte le particelle di $1$ e $2$. Chiameremo $(q_1,p_1)$ le coordinate delle particelle che stanno in $1$ e $(q_2, p_2)$ le coordinate di quelle in $2$. Consideriamo poi che le particelle non possano mescolarsi (c'è una "barriera" tra $1$ e $2$), ma solo energia.\\
+Avremo quindi $N_1+N_2=N$, con tutti e tre i numeri costanti.\\
+Assumiamo poi che $H(q,p) =\ H_1(q_1,p_1) + H_2(q_2,p_2)$. Le interazioni, che sono certamente presenti, interessano però solo le particelle vicine all'interfaccia, e quindi un'eventuale termine $H_{12}(q_1, p_1, q_2, p_2)$ è proporzionale alla sua area. Se consideriamo $V \to \infty$, l'area cresce quadraticamente, mentre il volume ha una crescita cubica: possiamo quindi considerare solo le $H_1$ e $H_2$ (che dipendono dal\ "bulk", dal volume dei due sottosistemi) e trascurare le interazioni (che sono di ordine inferiore).\\
+Abbiamo allora che:
+\[
+S(E,N,V)\ =\ S_1(E_1, V_1, N_1) + S_2(E_2, V_2, N_2)
+\]
+con $E_1 + E_2 =\ E$ (il sistema è isolato, quindi $E$ si conserva).\\
+Supponiamo ora che $H_1(q_1, p_1) \geq 0$, $H_2(q_2, p_2) \geq 0$ (fissiamo a $0$ l'energia minima dei due sottosistemi).\\
+$
+\Gamma(E,V,N)$ è il "volume" su $(q,p)$ della shell $E\leq H(q,p) \leq E+2\Delta$.
+
+%Disegno: spazio delle fasi (q_1, p_1), shell tra E_1\leq H_1 \leq E_1+\Delta % di volume \Gamma_1  
+%e in (q_2, p_2) shell tra E-E_1 \leq H_2 \leq E_E_1 +\Delta
+Consideriamo i due spazi delle fasi di $1$ e $2$.\\
+Se individuo una shell $E_1\leq H_1 \leq E_1+\Delta$ di volume $\Gamma_1$ nello spazio $(q_1, p_1)$, ne devo selezionare un'altra $E-E_1 \leq H_2 \leq E-E_1 +\Delta$ con volume $\Gamma_2(E-E_1)$ su $(q_2, p_2)$.\\
+Sommando membro a membro:
+\[
+E \leq H_1(q_1, p_1) + H_2(q_2, p_2) \leq E+2\Delta
+\]
+Moltiplicando le due $\Gamma_1$ e $\Gamma_2$ ottengo allora un contributo alla $\Gamma$ totale. Un altro contributo sarà dato esaminando un'altra shell su $(q_1, p_1)$, a cui corrisponde un'altra $(q_2, p_2)$. $\Gamma$ sarà quindi data "spazzando" tutto lo spazio delle fasi.\\
+Sia quindi $E_i =\ i\Delta$, con\ $i =\ 0,1,2,\dots, \frac{E}{\Delta}$. Allora:
+\[
+\Gamma(E,N,V) =\sum_{i=0}^{E/\Delta} \Gamma_1(E_i, N_i,V_i) \Gamma_2(E-E_i, N_2, V_2)
+\]
+(stiamo considerando "tutte" le possibili ripartizioni dell'energia).\\
+Di nuovo, se il sistema comprende un sufficiente numero di particelle, su questa somma domina \textit{un unico termine di massimo} $\bar{E}_1$ tale che:
+\[
+\Gamma(E,N,V) \approx \bar{E}_1
+\]
+Proviamo a giustificarlo. La somma comprende un numero grande ma finito di termini. Possiamo scrivere:
+\[
+\Gamma_1(\bar{E}_1)\Gamma_2(E-\bar{E}_1) \leq \Gamma(E) \leq \left (\frac{E}{\Delta}+1\right ) \Gamma_1(\bar{E}_1)\Gamma_2(E-\bar{E}_1)
+\]
+(il termine maggiore moltiplicato per il numero di termini chiaramente maggiora la sommatoria. Allo stesso tempo, visto che tutti i termini sono positivi per ipotesi, la $\Gamma$ è maggiore del suo termine maggiore).\\
+Passando ai logaritmi:
+\[
+\underbrace{k\ln \Gamma_1(\bar{E}_1)}_{S_1} + \underbrace{k\ln(\Gamma_2(E-\bar{E}_1))}_{S_2} \leq k\ln\Gamma(E) \leq k\ln\Gamma_1(\bar{E}_1) + k\ln\Gamma_2(E-\bar{E}_1) + k\ln \left (\frac{E}{\Delta} +1 \right )
+\]
+Se $S$ è estensiva, ossia se $S_1 \propto N_1$ e $S_2 \propto N_2$, allora il termine finale, pari al logaritmo del numero di termini, è decisamente inferiore rispetto a termini che scalano linearmente con il numero di termini, e quindi possiamo trascurarlo:
+\[
+S(E,V,N) =\ S_1(\bar{E}_1,V_1,N_1) + S_2(E-\bar{E}_1, V_2, N_2)
+\]
+perciò l'entropia del sistema è \textit{dominata} da quella di un unico stato di \textit{massimo}.\\
+Chiaramente questo è solo un argomento di plausibilità (non una dimostrazione, del resto stiamo prendendo il risultato come postulato), l'effettiva dimostrazione sarà data dal confronto con gli esperimenti.
+
+%pag. 130-134
+\end{document}

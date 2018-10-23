@@ -1,0 +1,274 @@
+\documentclass[12pt]{article}
+\usepackage[usenames, dvipsnames, table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{gnuplottex}
+\usepackage{epstopdf}
+\usepackage{marginnote}
+\usepackage{float}
+\usetikzlibrary{tikzmark}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage[stable]{footmisc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth} 
+\usepackage{enumerate}
+
+\renewcommand{\figurename}{Fig.}
+
+\PassOptionsToPackage{table}{xcolor}
+
+\usepackage{soul}
+
+\newcommand{\hlc}[2]{%
+  \colorbox{#1!50}{$\displaystyle#2$}}
+
+
+\usepackage[a4paper,
+            total={170mm,257mm},
+ left=20mm,
+ top=20mm]{geometry}
+
+\newcommand{\q}[1]{``#1''}
+\newcommand{\lamb}[2]{\Lambda^{#1}_{\>{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\fancyfoot[R,LO]{Francesco Manzali, 2018-19} % other info in "inner" position of footer line
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}{Definizione}
+\newtheorem{oss}{Osservazione}
+
+\begin{document}
+%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\extrarowheight}{.75ex}
+\begin{center}
+		\line (1,0){350} \\
+		\textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
+		[0.25in]
+		\huge{\bfseries Meccanica Statistica}\\
+		[2mm]
+		\textsc{\normalsize Prof. Stella}\\
+		\line (1,0){350} \\
+		[0.5cm]
+		\textsc{\normalsize Anno accademico 2018-2019}\\ 
+
+	\end{center}
+
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+
+
+\section{Lezione 1 (mar 2/10)}
+\subsection{La Meccanica Statistica}
+La termodinamica è una teoria fenomenologica che descrive sistemi macroscopici, ma senza aspetti meccanicistici, al contrario di altre branche della fisica, come la meccanica classica.\\ Si pone allora il problema: è possibile conciliare queste due diverse modalità, per esempio dando un fondamento alla termodinamica sulla base di un modello microscopico e meccanicistico delle strutture dei materiali?\\
+È allora la \textbf{Meccanica Statistica} \marginpar{Scopo della Meccanica Statistica}a fungere da ponte tra le leggi quantistiche e quelle classiche che governano rispettivamente il mondo microscopico e i fenomeni macroscopici.\\
+Partiremo da una formulazione classica della meccanica statistica per introdurre i primi concetti (anche se le leggi effettive sono quelle quantistiche), che comunque rimane valida al limite classico di sistemi quantistici.\\
+Studieremo sistemi\marginpar{Idealità di un sistema} "\textit{debolmente interagenti}" (\textbf{ideali}), dove le interazioni tra le particelle sono trascurabili nel computo dell'energia totale, in modo da semplificare i conti. Ciò limita lo studio di alcuni fenomeni, per esempio nel caso delle transizioni di fase, dove le interazioni sono fondamentali (per esempio per spiegare i diagrammi Pv per liquidi reali).
+
+\subsection{Concetti base di Termodinamica}
+Consideriamo un sistema classico con un numero $N\sim{10}^{23}$ di particelle. Dopo un certo tempo, il sistema raggiunge uno stato "di equilibrio" dinamico, in cui alcuni parametri "globali" assumono un valore definito e stabile, come pressione, volume e temperatura.
+Possiamo descrivere il sistema con la sua hamiltoniana: \marginpar{Dinamica microscopica del sistema}
+\[H=\sum_{i=1}^{N}\frac{{\vec{p_i}}^2}{2m}+\sum_{i<j}{\phi\left(\left|{\vec{q}}_i-{\vec{q}}_j\right|\right)+\ \sum_{i=1}^{N}{U({\vec{q}}_i)}}\]
+dove $\phi$ è il potenziale d'interazione, mentre
+
+È la condizione di vincolo, dove $V$ è la regione in cui si trovano le particelle del sistema.
+Uno stato microscopico è dato dalle $6N$ coordinate di posizioni e impulsi delle singole particelle:
+${(\vec{q}}_1,{\vec{q}}_2,\cdots,{\vec{q}}_N,{\vec{p}}_1,{\vec{p}}_2,\cdots,{\vec{p}}_N)=(q,p)$.
+Consideriamo una trasformazione che va da uno stato $(q,p)$ a uno $(q_t, p_t)$. Il comportamento del sistema è regolato dalle equazioni di Hamilton:
+\[\dot{{\vec{p}}_i}=-\frac{\partial H}{\partial{\vec{q}}_i}; \quad \quad \dot{{\vec{q}}_i}=-\frac{\partial H}{\partial{\vec{p}}_i}\]
+Poiché $N\gg1$, è estremamente difficile comprendere il comportamento del sistema partendo solo da queste equazioni.
+In uno stato d'equilibrio sono definite delle grandezze macroscopiche: $P$, $V$, $T$, collegate tra loro da funzioni di stato $F\left(P,V,T\right)=0$
+Una trasformazione $A\leftrightarrow B$ si dice reversibile se tutti gli stati intermedi sono di equilibrio, ossia se, invertite le condizioni che hanno portato alla trasformazione, è possibile ritornare esattamente allo stato di partenza.\\
+Alcune proprietà (es. Volume, energia interna) sono dette \marginpar{Proprietà estensive o intensive}estensive, in quanto dipendono dal numero di particelle presenti nel sistema. Altre proprietà (es. Temperatura) non esibiscono questo comportamento e sono quindi dette intensive.
+Una funzione di variabili estensive è tale che:
+\[ \lambda U\left(N,V,T\right)=U(\lambda N,\ \lambda V,\ T)\]
+
+\subsection{Principi della termodinamica}
+\begin{enumerate}
+    \item Se considero una qualunque\marginpar{I principio} trasformazione tra uno stato iniziale A di equilibrio ad uno finale B, vale: $\Delta U=\Delta Q-\Delta W$, dove $Q$ è il calore assorbito dal sistema e $W$ il lavoro ceduto. La quantità $\Delta U$ dipende esclusivamente dagli stati iniziale e finale, e non dalla natura della trasformazione. Perciò è possibile considerare $\Delta U$ come una funzione di stato. In altre parole, $dU$ è un differenziale esatto.
+	\item $\int_{A}^{B}\frac{dQ}{T}$ non dipende dalla trasformazione (se reversibile). Possiamo quindi definire una funzione di stato, detta entropia,\marginpar{II principio: entropia} tale che $S\left(A\right)=S\left(0\right)+\int_{0}^{A}\frac{dQ}{T}$.
+	Perciò $\int_{A}^{B}{\frac{dQ}{T}=S\left(B\right)-S(A)}$ (per una trasformazione reversibile). Se invece la trasformazione è generica (quindi anche non reversibile), vale la disuguaglianza: $\int_{A}^{B}{\frac{dQ}{T}\le S\left(B\right)-S(A)}$.
+	Consideriamo una trasformazione adiabatica, ossia una in cui $dQ\equiv0$. Vale allora $0\leq S\left(B\right)-S(A)$, ossia una trasformazione all'interno di un sistema termicamente isolato ne aumenta l'entropia. Perciò se l'entropia iniziale non è quella massima, spontaneamente l'entropia tenderà ad assumere il massimo, per cui raggiungerà un equilibrio finale. 
+\end{enumerate}
+
+\subsection{Postulati della Meccanica Statistica}
+Discutiamo ora la natura dei postulati della Meccanica Statistica, necessari per fungere da ponte tra mondo microscopico e macroscopico, relativamente al caso di un insieme microcanonico\footnote{In inglese "microcanonical ensemble". Si tratta di un insieme statistico, ossia l'insieme di "tutte le configurazioni microscopiche" che possono generare un certo sistema fisico di cui non conosciamo esattamente al $100\%$ le condizioni inziali (cioè posizione e momento di ogni particella). In questo caso ci limitiamo anche ai sistemi che non scambiano né energia né materia con l'ambiente - e che quindi hanno $E$ e $N$ fissate. Altri ensemble, come quello canonico o grancanonico, rimuovono queste limitazioni, permettendo il solo scambio di energia (esempio sistema in un "bagno termico"), o di energia e particelle.} (ossia per sistemi termicamente isolati che si trovano all'equilibrio).\\
+Vogliamo, partendo dall'Hamiltoniana del sistema, ottenere una procedura di calcolo per determinare l'entropia in funzione di grandezze estensive (energia, volume, numero di particelle) $S(E,V,N)$, mantenendo le sue proprietà (es. estensività).
+\begin{enumerate}
+    \item Postulato di equiprobabilità a priori degli stati
+    microscopici.\marginpar{Equiprobabilità a priori degli stati microscopici} Per determinare una grandezza come l'energia $E$, consideriamo, nello spazio degli stati del sistema $\left(q,p\right)\in \Gamma$ tutti gli stati tali che $E\leq H\left(q,p\right)\leq E+\Delta$, ossia quelli contenuti tra due ipersuperfici di dimensione $6N-1$. Otteniamo un volume di stati, tutti di energia $E$. Consideriamo la funzione microscopica $g\left(q,p\right)$, che associa ad uno stato il valore della grandezza macroscopica associata. Il valore macroscopico di $g$, indicato con $\langle g\rangle$, è dato, secondo il primo postulato dalla media di ensemble:
+	\[ \left\langle g\right\rangle=\frac{\int_{E\le H\le E+\Delta}{dq\ dp\ g\left(q,p\right)}}{\int_{E\le H\le E+\Delta}{dq\ dp}}=\int_{E\le H\le E+\Delta}{\rho\left(q,p\right)\ g\left(q,p\right)dq\ dp}
+	\]
+    Con $dq\ dp=d^3q_1d^3q_2\cdots d^3q_Nd^3p_1d^3p_2\cdots d^3p_N$, mentre \[ \rho\left(q,p\right)=\frac{1}{\int_{E\le H\le E+\Delta}{dq\ dp\ }} \] è una densità di probabilità.
+\end{enumerate}
+%Unire le due sezioni 
+\section{Lezione 2}%Lezione 9-10
+Un sistema all'equilibrio (macroscopico) esibisce parametri macroscopici che sono costanti nel tempo. Ciò tuttavia contrasta con la rappresentazione dinamica, dove, in notazione hamiltoniana, lo stato del sistema è un punto $\left(q,p\right)\equiv\left({\vec{q}}_1,\ {\vec{q}}_2,\ \ldots,\ {\vec{q}}_N,\ {\vec{p}}_1,\ {\vec{p}}_2,\ \ldots,{\vec{p}}_N\right)$ in costante evoluzione secondo le equazioni di Hamilton. La Meccanica Statistica deve consentire di poter passare da questa rappresentazione di tipo a quella delle grandezze macroscopiche.
+
+Abbiamo enunciato il primo postulato. 
+Sia $g(q,p)$ una funzione dello stato microscopico, che per esempio potrebbe essere l'energia cinetica totale delle particelle, data da:
+\[
+g\left(q,p\right)= \sum_{i=1}^{N}\frac{{\vec{p}}_i^2}{2m}
+\]
+Nell'ensemble microcanonico, il primo postulato dà la seguente formula (per un sistema ad energia E):
+\[
+\left\langle g\right\rangle=\frac{\int_{E\le H\left(q,p\right)\le E+\Delta}{dq\ dpg\left(q,p\right)}}{\int{dq\ dp}}
+\]
+
+Con $dq dp=d^3q_1\cdots d^3q_N d^3p_1\cdots d^3p_N$ e $\Delta$ è un numero piccolo, che fa sì che l'integrale sia di volume (in modo da sfruttare il fatto che l'evoluzione temporale nello spazio delle fasi preserva i volumi - teorema di Liouville)
+Sto immaginando che in questa "shell" di stati di energia tra $E$ e $E+\Delta E$ vi siano tanti stati che vengono raggiunti tutti con la stessa probabilità, per cui basta integrare il valore di $g(q,p)$ sulla regione e normalizzare al volume della shell per trovare il valor medio.
+Tale integrazione è in genere molto complessa (se non in casi semplici, come per i gas perfetti). 
+
+Immaginiamo ora di voler sapere la densità di particelle ad un dato punto all'interno di un certo volume:
+\[
+\rho_{micro}\left(\vec{q};q,p\right)=\sum_{i=1}^{N}{\delta^3\left(\vec{q}-{\vec{q}}_i\right)}
+\]
+Tale che $\int d^3q  \rho_{micro}\left(\vec{q};q,p\right)=N$ (sto sommando il numero di particelle in tutte le posizioni, ottengo quindi il numero totale di particelle $N$).
+Funzioni del genere, che hanno una dipendenza anche da una posizione, sono dette campi microscopici. Il primo postulato si applica anche a funzioni di questo tipo.\\
+Se ora calcoliamo il valor medio:
+\[
+\left\langle\rho_{micro}(\vec{q})\right\rangle=\frac{\int_{E\le H\left(q,p\right)\le E+\Delta}{dq\ dp}\rho_{micro}\left(\vec{q};q,p\right)}{\int{dq\ dp}}= \rho_{macro}(\vec{q})
+\]
+Si ottiene una funzione densità che è smooth, al contrario di $\rho_{micro}$ che è estremamente singolare. Questa tecnica di integrazione dal microscopico al macroscopico permette perciò di "regolarizzare" funzioni altamente irregolari.\\
+Un processo analogo viene effettuato in fluidodinamica, quando si divide lo spazio in tanti cubetti "piccoli", ma non di dimensioni comparabili con la distanza media tra particelle. La fisica macroscopica agisce su questo livello: consideriamo in dettaglio un sistema, ma sfruttiamo anche le proprietà di insiemi di molte particelle (nei "cubetti" di fluido vi sono ${\sim 10}^{18}$ particelle).\\
+
+Possiamo ora considerare:
+\[
+\rho_{micro}^\prime\left(\vec{q},\vec{p};q,p\right)= \sum_{i=1}^{N}{\delta^3\left(\vec{q}-{\vec{q}}_i\right)\delta^3(\vec{p}-{\vec{p}}_i)}
+\]
+Che vada a "pescare" le particelle che si trovano in posizione $\vec{q}$ e hanno momento $\vec{p}$ (equivale a vedere quante particelle ci sono in un punto $P$ dello spazio $\gamma$ delle fasi, di dimensione $6N$).
+\[
+\left\langle\rho_{micro}\prime(\vec{q},\vec{p})\right\rangle=\frac{\int_{E\le H\left(q,p\right)\le E+\Delta}{dq\ dp}\rho_{micro}\left(\vec{q},\vec{p};q,p\right)}{\int{dq\ dp}}=\rho_{macro}(\vec{q},\vec{p})
+\]
+Eseguendo questo integrale nel caso di un gas perfetto si ottiene la  distribuzione di Maxwell (delle velocità di un gas perfetto).
+
+Boltzmann riuscì a dare un senso maggiore al primo postulato. Partì esaminando un gas perfetto, di energia E, volume V e numero di particelle N, con Hamiltoniana data da termine cinetico e potenziale di confinamento (ignoriamo le interazioni tra particelle, e consideriamo gli urti con le pareti come elastici, per cui l'energia si conserva).
+\[
+H\left(q,p\right)= \sum_{i=1}^{N}{\frac{{\vec{p}}_i^2}{2m}+\ \sum_{i=1}^{N}{U_V\left({\vec{q}}_i\right)}}
+\]
+Considero la divisione in M "cellette" dello spazio delle fasi, ciascuna delle quali di volume ${(\Delta}^3q \Delta^3p)_i=\omega_i$
+Se in ogni celletta vi sono $n_i$ particelle, con $n_i$ di ordine alto ($\sim{10}^{18}$) ma molto più basso del $N$ di Avogadro ($\sim{10}^{23}$), allora la collezione di tutti i numeri nelle cellette $\{n_1,n_2,\cdots,\ n_M\}=\{n\}$ definisce uno stato macroscopico del sistema. 
+Per ogni celletta sono ben definiti degli unici $q_i$ e $p_i$ (essendo le cellette molto piccole), e perciò possiamo approssimare l'energia come:
+\[
+E\approx\sum_{i=1}^{M}{n_i\frac{{\vec{p}}_i^2}{2m}}
+\]
+Più precisamente, le cellette non sono punti, e quindi contengono un range di momenti $p_i$. Perciò in realtà l'energia del sistema non è strettamente fissata - sarà compresa entro un certo $\Delta$ - e stiamo quindi considerando gli stati entro una "shell" nello spazio delle fasi.\\
+Boltzmann assegnò poi ad ogni stato macroscopico una sua "importanza", che è pari al volume degli stati microscopici che corrispondono a quello stesso stato macroscopico. Tale volume lo chiamiamo $W\{n\}$.
+
+Associamo ad ogni cella le sue particelle:
+\begin{align*}
+    \text{Cella 1} &\leftarrow\left({\vec{q}}_1,{\vec{p}}_1\right), \left({\vec{q}}_2,{\vec{p}}_2\right)\dots({\vec{q}}_{n_1},{\vec{p}}_{n_1})\\
+    \text{Cella 2} & \leftarrow\left({\vec{q}}_{n_1+1},{\vec{p}}_{n_1+1\ }\right)\dots\left({\vec{q}}_{n_1+n_2},{\vec{p}}_{n_1+n_2}\right)\\
+    \dots &\leftarrow \dots
+\end{align*}
+I contributi a $W$ saranno quindi:
+\[
+\int_{\omega_1}{d^3q_1\ d^3p_1\ \int_{\omega_1}{d^3q_2\ d^3\ p_2\cdots\int_{\omega_1}{d^3q_{n_1}\ d^3p_{n_1}\ \int_{\omega_2}{d^3q_{n_1+1}\ d^3p_{n_1+1}\cdots\int_{\omega_2}{d^3q_{n_1+n_2}\ d^3p_{n_1+n_2}}}\ }}}
+\]
+Dove con $\int_{\omega_i}$  si intende l'integrale sulla prima celletta. Ma i primi $n_1$ integrali danno semplicemente $\omega_1^{n_1}$, i successivi $\omega_2^{n_2}$ e così via, dove $\omega_i$ sono "volumi".
+In totale avremo: contributo a $W= \omega_1^{n_1}\omega_2^{n_2}\cdots\omega_M^{n_M}$ (dimensione: azione - ossia volume$\cdot$momento - alla $3^N$).
+
+Ma potrei anche scambiare delle particelle tra celle (in fisica classica ogni particella è definita da una traiettoria, e quindi in teoria sono distinguibili). Serve quindi considerare un fattore combinatorio.
+Per esempio, le prime $n_1$ particelle le posso scegliere in:
+\[
+\binom{N}{n_1}
+\]
+Mi restano ora $N-n_1$ particelle, e il numero di modi che ho per scegliere $n_2$ da esse da mettere nella cella $2$ è:
+\[
+\binom{N-n_1}{n_2}
+\]
+Generalizzando, il fattore combinatorio diviene:
+\[
+\binom{N}{n_1}\binom{N-n_1}{n_2}\binom{N-n_1-n_2}{n_3}\cdots\binom{N-n_1-n_2-\ldots-n_{M-1}}{n_M}=\frac{N!}{n_1!n_2!\cdots n_M!}
+\]
+Avremo quindi:
+\[
+W\{n\}=\frac{N!}{n_1!n_2!\cdots n_M!}\omega_1^{n_1}\omega_2^{n_2}\dots\omega_M^{n_M}
+\]
+Ci interessano però le combinazioni che soddisfano: 
+\begin{itemize}
+    \item $E= \sum_{i=1}^{M}{n_i\mathcal{E}_i}$  (conservazione sull'energia)
+    \item $N= \sum_{i=1}^{M}{n_i=N}$  (conservazione del numero di particelle)
+\end{itemize}
+Tra tutte le combinazioni che soddisfano questi constraint, ce ne è una che è "più importante" delle altre, nel senso che il volume W ad essa associata è massimo?\\
+
+Per prima cosa rimuovo le dimensioni a $W\{n\}\rightarrow\frac{W\{n\}}{h^{3N}}$, con un fattore $h$ arbitrario delle giuste dimensioni (che scopriremo poi essere la costante di Planck).
+Conviene massimizzare $\ln{\left(W\{n\}\right)}$ (essendo $W$ un prodotto). Salta fuori che esiste uno stato-massimo $\{\bar{n}\}$ per cui $W\{\bar{n}\}\sim\sum_{\{n\}} W\{n\}$  per $N\rightarrow \infty$ (la somma di tutti gli stati è dominata da quello stato, per cui la funzione macroscopica si può calcolare direttamente su quello stato. Gli altri addendi sono di fattori ${10}^{-23}$ più bassi - perciò la media di una funzione calcolata sugli stati sarà ben definita poiché il suo valore è effettivamente quello calcolato su un singolo stato "massimo". È anche per questo motivo che la fisica macroscopica mostra funzioni costanti nel tempo - anche se lo stato microscopico cambia in continuazione, è probabile che essa rimanga nel "volume colossale" di questo unico stato dominante, a cui è associato un solo valore della funzione. Ciò, a sua volta, è legato al fatto che stiamo considerando insiemi di tante particelle!).
+\[
+\ln{W\{n\}=\ln{\frac{N!}{n_1!n_2!\cdots n_{M!}}\ \omega_1^{n_1}\cdots\omega_M^{n_M}}}
+\]
+Per $N$ grande il fattoriale $N!$ è approssimato da Stirling:
+\[
+\ln{N!\approx N\ln{N}-N}
+\]
+(nel nostro caso ciò vale anche per gli $n_i$, visto che sono anch'essi di ordine ${10}^{18}$  circa).
+\[
+\ln{W=N\ln{N\ -N\ -\sum_{i=1}^{M}{(n_i\ln{n_i-n_i)}}}+\sum_{i=1}^{M}{n_i\ln{\omega_i}}}
+\]
+Visto che gli $n_i$ sono molto grandi, possiamo trattarli come variabili continue, e quindi calcolare derivate. Tuttavia come imporre i vincoli su energia e numero di particelle?\\
+Utilizziamo il metodo dei moltiplicatori di Lagrange, aggiungendo due termini: 
+\[
+\ln{W=N\ln{N\ -N\ -\sum_{i=1}^{M}{(n_i\ln{n_i-n_i)}}}+\sum_{i=1}^{M}{n_i\ln{\omega_i}}\ -\alpha\left(\sum_{i=1}^{M}{n_i-N}\right)-\beta\left(\sum_{i=1}^{M}{n_i\mathcal{E}_i-E}\right)}
+\]
+Quindi derivo per $n_k$ e pongo le derivate pari a $0$:
+\[
+-\ln{n_k-1+1+\ln{\omega_k-\alpha-\beta\mathcal{E}_k=0}}
+\]
+E si trova:
+\[
+{\bar{n}}_k= \omega_ke^{-\alpha-\beta\mathcal{E}_k}
+\]
+
+Facendo la derivata seconda:
+\[
+\ln{W\left(\{\bar{n}+\Delta n\}\right)-\ln{W\{\bar{n}\}=-\frac{1}{2}}}\sum_{i=1}^{M}{\frac{1}{{\bar{n}}_i}\left(\Delta n_i\right)^2}
+\]
+Scopriremo poi che $\beta=\frac{1}{k_BT}$, e che questa è la stessa legge che Maxwell aveva ottenuto partendo da principi di simmetria.
+
+%Pag. 127-130 [TO DO] Mettere reference
+\end{document}

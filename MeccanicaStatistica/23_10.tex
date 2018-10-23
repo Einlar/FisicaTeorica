@@ -1,0 +1,267 @@
+\documentclass[12pt]{article}
+
+\input{header.tex}
+
+\begin{document}
+
+%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\extrarowheight}{.75ex}
+\setlength\parindent{0pt} %Rimuove indentazione
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+\begin{comment} %INTESTAZIONE PRIMA PAGINA
+\begin{center}
+                \line (1,0){350} \\
+                \textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
+                [0.25in]
+                \huge{\bfseries Istituzioni di Fisica teorica}\\
+                [2mm]
+                \textsc{\normalsize Prof. Marchetti}\\
+                \line (1,0){350} \\
+                [0.5cm]
+                \textsc{\normalsize Anno accademico 2018-2019}\\ 
+
+        \end{center}
+\end{comment}
+
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+
+
+\section{Lezione 4:\\ \large{Il Secondo Principio e la termodinamica dei gas perfetti}}
+\vspace{-1em}
+\begin{center}
+    \small{(23/10/2018)}
+\end{center}
+\subsection{Riassuntino}
+Stavamo enunciando il II postulato dell'ensemble microcanonico. Per un sistema isolato con energia $E$, volume $V$ e $N$ poarticelle definiamo l'\textbf{entropia} come:
+\[
+S(E,V,N) =\ k\ln\underbrace{\left[\frac{1}{h^{3N}}\int_{E\leq H(q,p)\leq E+\Delta}dq\,dp\right]}_{\Gamma(E)}
+\]
+(la costante $h$ serve per "adimensionalizzare", e infatti ha le dimensioni di un'azione alla $3N$).\\
+Il calcolo dell'integrale el caso di un sistema interagente non è per nulla banale.\\
+Abbiamo cercato di dare argomenti di plausibilità per questo postulato (che del resto non si può dimostrare, essendo un postulato).\\
+In particolare siamo partiti mostrando che, con questa definizione, l'entropia è estensiva. Considerando un sistema diviso in $2$ sezioni non comunicanti ad energia $E$ abbiamo trovato:
+\[
+\Gamma(E) =\ \sum_{i=0}^{E/\Delta} \Gamma_1(E_i)\Gamma_2(E-E_i); \quad E_i =\ i\Delta
+\]
+In questa somma di termini (positivi) ce n'è uno massimo, presso l'energia $\bar{E}$. La somma totale sarà certamente maggiore di quest'ultimo, ma minore della somma di $E/\Delta$ volte il termine massimo (è come se calcolassi la somma sostituendo ad ogni termine il massimo di tutti):
+\[
+\Gamma_1(\bar{E}_1)\Gamma_2(E-\bar{E}_1)\leq \Gamma(E)\leq \left(\frac{E}{\Delta}+1\right )\Gamma_1(\bar{E}_1)\Gamma_2(E-\bar{E}_1)
+\]
+Calcolando i $\log$ e moltiplicando per $k$ ambo i membri:
+\[
+\underbrace{k\ln\Gamma_1(\bar{E}_1)}_{S_1(\bar{E}_1)}+\underbrace{k\ln\Gamma_2(E-\bar{E}_1)}_{S_2(E-\bar{E}_1)}\leq k\ln\Gamma(E)\leq \underbrace{k\ln\Gamma_1(\bar{E}_1)}_{S_1(\bar{E}_1)}+\underbrace{k\ln\Gamma_2(E-\bar{E}_1)}_{S_2(E-\bar{E}_1)} + \hlc{Yellow}{k\ln\left(\frac{E}{\Delta}+1\right)}
+\]
+Ma $S_1(\bar{E}_1)$ e $S_2(E-\bar{E}_1)$ crescono linearmente con $N$ (se l'entropia è estensiva), mentre il termine evidenziato cresce come $\ln N$, ed è quindi trascurabile. Ponendo $\bar{E}_2 = E-\bar{E}_1$ si ottiene:
+\[
+S(E) = S_1(\bar{E}_1)+S_2(\bar{E}_2)
+\]
+\textbf{Nota}: nonostante vi siano un sacco di modi per "spartire" l'energia tra i due sistemi, è solo uno che prevale - statisticamente - su tutti gli altri, ed è questo che si vede anche empiricamente.\\
+
+\subsection{23/10}
+Ma che energia hanno queste energie $\bar{E}_1$ e $\bar{E}_2$ a cui si \textit{assesta} il sistema? Abbiamo visto che corrispondono al massimo di $\Gamma$, perciò:
+
+\begin{align}
+&\frac{\partial}{\partial E_i}\left [k\ln(\Gamma_1(E_i)\Gamma_2(E-E_i))\right]\big|_{E_i = \bar{E}_1} = 0\nonumber \\
+&\Rightarrow \frac{\partial}{\partial E_i}\left[S_1(E_i)+S_2(E-E_i)\right]\big|_{\bar{E}_i} = 0\nonumber \\
+&\Rightarrow \frac{\partial S_1(E_1)}{\partial E_1}\big|_{\bar{E}_1} =\ \frac{\partial S_2}{\partial E_2}(E_2)\big|_{E_2=E-\bar{E}_1}
+\label{eqn:equilibrio-entropie}
+\end{align}
+All'equilibrio, le derivate delle entropie dei due sottosistemi rispetto alle loro energie sono uguali.\\
+In termodinamica abbiamo:
+\[
+dS = \frac{dQ}{T} \underset{(a)}{=} \frac{1}{T}(dE + p\,dV) =\frac{dE}{T}+\frac{P}{T}dV\Rightarrow \frac{dS}{dE} = \frac{1}{T}
+\]
+in (a) abbiamo applicato il I principio della termodinamica. Ma allora applicando quanto appena trovato a (\ref{eqn:equilibrio-entropie}) si ottiene:
+\[
+\frac{1}{T_1}=\frac{1}{T_2}=\frac{1}{T}
+\]
+Abbiamo cioè ottenuto che due sistemi all'equilibrio hanno la stessa temperatura.\\
+La \textit{temperatura} è quindi individuata con quel parametro che è uguale in tutte le sezioni di un sistema termodinamico all'equilibrio.\\
+In termodinamica abbiamo già osservato che se un sistema isolato subisce una trasformazione spontanea, allora la sua entropia può solo aumentare, e mai diminuire.\\
+Consideriamo per esempio un sistema in pareti adiabatiche. Possiamo pensare di aprire una nuova sezione del contenitore e far espandere liberamente il sistema ad un volume più grande. In questo processo la $S$ deve aumentare. Verifichiamolo.\\
+Ma per come è definita l'entropia:
+\[
+S =\ k\ln\Gamma(E); \quad \Gamma(E)=\frac{1}{h^{3N}}\int_{E\leq H \leq E+\Delta}dq\,dp
+\]
+Ampliare il volume del sistema, fa sì che si aumenti il dominio delle coordinate dell'integrale in $\Gamma(E)$. Essendo allora l'integrale di una quantità positiva ($1>0$), ne segue immediatamente che $\Gamma(E)$ cresce, e con esso l'entropia (come ci aspettiamo).
+
+\subsection{Gas perfetti}
+Consideriamo un sistema di particelle con hamiltoniana $H$:
+\[
+H(q,p) =\ \sum_{i=1}^N \frac{\vec{p}_i^{\,2}}{2m}+\sum_{i=1}^N U(\vec{q}_i); \quad U(\vec{q}) = \begin{cases}
++\infty &\text{se } \vec{q}\notin V\\
+0 &\text{se } \vec{q}\in V
+\end{cases}
+\]
+Definiamo:
+\[
+\Sigma(E)\equiv \frac{1}{h^{3N}}\int \int_{0\leq H(q,p)\leq E} dq\,dp
+\]
+Ma allora:
+\[
+\Gamma(E) = \Sigma(E+\Delta)-\Sigma(E)
+\]
+Nel dettaglio:
+\[
+\Sigma(E) \equiv \frac{1}{h^{3N}} \int_{0\leq H(q,p)\leq E} d^3q_1\int d^3q_2\cdots \int d^3q_N\int d^3 p_1\cdots \int d^3p_N
+\]
+Tutte le integrazioni sulle $q$ sono limitate (dalla condizione sulla $H$) all'interno del volume $V$ (se una particella uscisse, il potenziale avrebbe un contributo $+\infty$ all'integrale, portando decisamente $H>E+\Delta$.\\
+Per quanto riguarda i momenti avremo, inoltre, che l'energia cinetica di tutte le particelle non può superare $H$:
+\[
+\sum_{i=1}^N \vec{p}_i^{\,2}\leq 2mE
+\]
+Perciò:
+\[
+\Sigma(E) \equiv \frac{1}{h^{3N}} \int_V d^3q_1\int_V d^3q_2\cdots \int_V d^3q_N\underbrace{\int d^3 p_1\cdots \int d^3p_N}_{\sum_{i=1}^N \vec{p}_i^{\,2}\leq 2mE}
+\]
+Tale condizione fa sì che l'integrazione sia all'interno di una ipersfera a $3N$ dimensioni, raggio $R=\sqrt{2mE}$. Il volume di una tale ipersfera è (in quanto volume), un monomio in $R^n$:
+\[
+\Omega_n(R) = C_n R^n \Rightarrow \int_0^{+\infty} \frac{d}{dR}\Omega_n(R) = \int_0^{+\infty} n\, C_n\,R^{n-1}dR
+\]
+Utilizzando quest'espressione possiamo integrare facilmente una funzione $f(R)$ che dipende solo da $R$ (e non dai vari angoli in coordinate sferiche). Avremo infatti:
+\[
+\int_{S^n(\bb{R})} f(R) = \int_{0}^{+\infty} n\,C_n\,R^{n-1}f(R)\,dR
+\]
+Vediamo come ricavare il coefficiente $C^n$.\\
+Partiamo esaminando il caso di un integrale Gaussiano:
+\[
+\int_{-\infty}^{+\infty} dx\,e^{-x^2} =\pi^{\frac{1}{2}}
+\]
+Estendendo a $n$-dimensioni:
+\[
+(*)=\int_{-\infty}^{+\infty} dx_1 \int_{-\infty}^{+\infty} dx_2 \cdots \int_{-\infty}^{+\infty} dx_n\, \underbrace{e^{-(x_1^2+x_2^2+\dots+x_n^2)}}_{e^{-R^2}}=\pi^{\frac{n}{2}}
+\]
+Ma allora, riscrivendo in coordinate polari:
+\[
+\pi^{\frac{n}{2}} = nC_n\int_0^{+\infty} dR\,R^{n-1}e^{-R^2}\equiv (*)
+\]
+Quest'ultimo integrale può essere scritto in termini di funzione $\Gamma(n)$ di Eulero:
+\[
+\Gamma(n) =\int_0^{+\infty} dt\,t^{n-1}e^{-t}; \quad \Gamma(n+1)=n!
+\]
+con la sostituzione $R^2=t \Rightarrow R=t^{1/2}$, $dr = t^{-1/2}dt/2$:
+\[
+\int_0^{+\infty} \frac{1}{2}t^{-1/2} t^{\frac{1}{2}(n-1)}e^{-t}dt = \frac{1}{2}\int_0^{+\infty}t^{\frac{1}{2}-1}e^{-t}dt \underset{m=n/2}{=} \frac{1}{2}\int_0^{+\infty}t^{m-1}e^{-t}dt=\Gamma(m)
+\]
+Utilizzando il risultato in (*):
+\[
+\pi^{\frac{n}{2}} =\ nC_n \frac{1}{2}\int_0^{+\infty}dt\,t^{\frac{n}{2}-1}e^{-t}
+\]
+Ma per le proprietà della $\Gamma$:
+\[
+\frac{n}{2}\Gamma\left(\frac{n}{2}\right) =\Gamma\left(\frac{n}{2}+1\right)
+\]
+da cui:
+\[
+C_n = \frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}+1\right)}
+\]
+E sostituendo nell'espressione per la $\Sigma(E)$:
+\[
+\Sigma(E) = \frac{1}{h^{3N}}V^N \Omega_{3N}(\sqrt{2mE}) = \frac{1}{h^{3N}}V^N \frac{\pi^{\frac{3N}{2}}}{\Gamma\left(\frac{3N}{2}+1\right)}(2mE)^{\frac{3N}{2}}
+\]
+\begin{align*}
+\Sigma(E+\Delta)-\Sigma(E)&=\frac{V^N}{h^{3N}}\frac{\pi^{\frac{3}{2}N}}{\Gamma\left(\frac{3N}{2}+1\right)}(2m)^{\frac{3N}{2}}
+\left[(E+\Delta)^{\frac{3N}{2}}-E^{\frac{3N}{2}}\right] =\\
+&= \frac{V^N}{h^{3N}}\frac{\pi^{\frac{3}{2}N}}{\Gamma\left(\frac{3N}{2}+1\right)}(2m)^{\frac{3N}{2}} \left [\left(1+\frac{\Delta}{E}\right)^{\frac{3N}{2}}-1\right] \equiv \Gamma(E) 
+\end{align*}
+Se ogni particella ha un'energia media $u$, allora aumentando il numero di particelle l'energia del sistema cresce linearmente $E=Nu$, e così anche il volume. Portando $N\to\infty$
+\begin{align*}
+\Gamma(E) = \frac{V^N}{h^{3N}}\frac{\pi^{\frac{3}{2}N}}{\Gamma\left(\frac{3N}{2}+1\right)}(2m)^{\frac{3N}{2}} \underbrace{\left [\left(1+\frac{3}{2}\frac{\Delta}{\frac{3}{2}E}\right)^{\frac{3N}{2}}-1\right]}_{\xrightarrow[N\to\infty]{}\>\exp\left(\frac{3}{2}\frac{\Delta}{u}\right)-1}
+\end{align*}
+Prendendo il $\ln$ e moltiplicando per $k$:
+\[
+k\log\Gamma(E)=k\log\Sigma(E)+\hlc{Yellow}{k\log\left[\exp\left(\frac{3}{2}\frac{\Delta}{u}\right)-1\right]
+}\]
+Ma quest'ultimo termine evidenziato è fisso e finito, mentre il resto scala con il sistema. Perciò, per sistemi molto grandi, tale termine è trascurabile, e vale:
+\[
+S=k\log\Sigma(E)=k\ln\left\{
+\frac{1}{h^{3N}}V^N \frac{\pi^{\frac{3N}{2}}}{\Gamma\left(\frac{3N}{2}+1\right)}(2mE)^{\frac{3N}{2}}
+ \right \}
+\]
+(Il volume di una ipersfera ad altissima dimensionalità è praticamente dominato dalla sua superficie).\\
+Per $N$ alti possiamo usare l'approssimazione di Stirling:
+\[
+\ln\Gamma(n+1)=n\ln n-n \Rightarrow \ln\Gamma\left(\frac{3N}{2}+1\right)\approx \frac{3N}{2}\ln \frac{3N}{2}-\frac{3N}{2} = N\ln\left(\left(\frac{3N}{2}\right)^{\frac{3}{2}}\right)-\frac{3}{2}N
+\]
+e sostituendo nell'espressione dell'entropia:
+\begin{align*}
+S(E)&=kN\log\left(
+\frac{V}{h^3}\frac{\pi^{\frac{3}{2}}}{\left(\frac{3N}{2}\right)^{\frac{3}{2}}}
+(2mE)^{\frac{3}{2}}
+\right)+k\frac{3}{2}N =\\
+&= kN\log\left(V\left(\frac{4}{3}\frac{\pi m}{h^2}\right)^{\frac{3}{2}}\left(\frac{E}{N}\right)^{\frac{3}{2}}\right)+\frac{3}{2}kN
+\end{align*}
+%Qual è il problema in questa formula?
+Derivando rispetto ad $E$:
+\[
+\frac{\partial S}{\partial E}(E,N,V) = \frac{1}{T} = kN\frac{3}{2}\frac{1}{E}
+\]
+E infatti nella termodinamica classica per un gas perfetto avevamo $E=\frac{3}{2}Nk_B T$.\\
+Invece, facendo:
+\[
+\frac{\partial S}{\partial V}(E,N,V) =\frac{P}{T} = kN\frac{1}{V}=\frac{P}{T}
+\]
+e perciò:
+\[
+PV=NkT
+\]
+Ossia la termodinamica che deriviamo da questo modello non interagente e dai due postulati della meccanica statistica è consistente con quella che avevamo già determinato classicamente.\\
+Ritornando all'espressione per $S(E)$ che abbiamo attenuto, noi vorremmo, per l'estensività:
+\[
+S(\lambda E, \lambda V, \lambda N)=\lambda S(E,V,N)
+\]
+Ma calcolandola nel risultato a cui siamo giunti:
+\[
+S(\lambda E, \lambda V, \lambda N)= \bm{\lambda}kN\log\left(\hlc{Yellow}{\bm{\lambda}}V\left(\frac{4}{3}\frac{\pi m}{h^2}\right)^{\frac{3}{2}}\left(\frac{\cancel{\bm{\lambda}} E}{\cancel{\bm{\lambda}}N}\right)^{\frac{3}{2}}\right)+\frac{3}{2}kN\bm{\lambda}
+\]
+La presenza del $\lambda$ evidenziato fa sì che tale proprietà non sia verificata.\\
+Secondo Boltzmann ciò salta fuori dal fatto che stiamo considerando come stati distinti quelli costituiti scambiando particelle che sono \textit{indistinguibili} tra loro. Ma ciò è chiaro solo dal punto di vista quantistico (in MC, come abbiamo visto, a priori è tutto distinguibile).\\
+Tenendo conto di ciò, nel conteggio degli stati bisogna dividere per il numero delle "permutazioni indistinguibili" di $n$ particelle, ossia per $n!$
+\[
+\Gamma(E)=\frac{1}{N!}\frac{1}{h^{3N}}\int_{E\leq H \leq E+\Delta}dq\,dp
+\]
+Da:
+\[
+\ln \frac{1}{N!} = -N\ln N+N
+\]
+giungiamo, ripetendo i conti, ad una nuova espressione per $S(E)$:
+\[
+S(E,V,N)=kN\log\left(\frac{V}{N}\left(\frac{4}{3}\frac{\pi m}{h^2}\right)^{\frac{3}{2}}\left(\frac{E}{N}\right)^{\frac{3}{2}}\right ) + kN\frac{5}{2}
+\]
+che stavolta soddisfa la proprietà di omogeneità voluta.
+\end{document}
+

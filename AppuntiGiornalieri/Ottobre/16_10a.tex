@@ -1,0 +1,280 @@
+\begin{comment}
+%\documentclass[12pt]{article}
+\input{header.tex}
+
+\begin{document}
+\section{Lezione 3:\\ \large{Formulazione assiomatica Hilbertiana (o Standard)}}
+\vspace{-1em}
+\begin{center}
+    \small{(16/10/2018)}
+\end{center}
+\end{comment}
+%\subsection{Quali operatori rappresentano osservabili in MQ?}
+Riepilogando: abbiamo visto che $A$ deve essere lineare, di dominio denso, simmetrico (valor medi reali), e se vogliamo che esistano funzioni $f(A)$, si ha:
+\begin{equation}
+    \langle A \rangle_\psi = \int \lambda \, dP_\psi^A(\lambda) \Rightarrow A=A^\dag
+    \label{eqn:autoadjoint}
+\end{equation}
+\begin{oss}
+Sia\marginpar{$e^{iaA}$ è un operatore unitario} $f\left(\lambda\right)=e^{i\lambda a}, a\in \bb{R}$. Applicandola ad un operatore generico otteniamo, formalmente, $f(A) = e^{iaA}$. Dimostriamo che il nuovo operatore $f(A)$ è unitario.\\ Nella notazione formale di (\ref{eqn:operatoreformale}) si ha che:
+\[
+f(A) = e^{iaA} = \int e^{iaA} dP^A(\lambda)
+\]
+Calcolandone l'aggiunto:
+\begin{equation}
+\left(e^{iaA}\right)^\dag=\left(\int e^{ia\lambda}dP^A\left(\lambda\right)\right)^\dag
+\underset{(a)}{=}\int e^{-ia\lambda}dP^A\left(\lambda\right)\underset{(b)}{=}e^{-iaA}=\left(e^{iaA}\right)^{-1}
+\label{eqn:esponenzialeunitario}
+\end{equation}
+dove in (a) si è usato il fatto che $dP^A(\lambda)$ è autoaggiunto, e perciò l'unico cambiamento sta nel prendere il complesso coniugato dell'esponenziale. Riconosciamo allora in (b) la funzione $g(A) = e^{-iaA}$ scritta nel formalismo di (\ref{eqn:operatoreformale}), che è esattamente l'inversa di $f$, e ciò rende $f(A)$ un operatore unitario.
+\label{dim:esponenzialeunitario}
+\end{oss}
+\begin{oss}
+Dato un vettore in notazione di Dirac $\ket{\phi}$ il proiettore $P_\phi =\ket{\phi}\bra{\phi}$ è autoaggiunto, quindi descrive un'osservabile (per la corrispondenza biunovica tra autoaggiunti e famiglie spettrali), che corrisponde alla domanda: il sistema si trova nello stato $\ket{\phi}$?\\
+Il valor medio di $\ket{\phi}\bra{\phi}$ nello stato $\ket{\psi}$ è infatti dato da (assumendo stati normalizzati, con $\braket{\phi|\phi} = 1 = \braket{\psi|\psi}$):
+\[
+(\psi, P_\phi \psi) = 
+\braket{\psi|\phi}\braket{\phi|\psi} = |\braket{\psi|\phi}|^2
+\]
+che viene detto \textbf{probabilità di transizione}\marginpar{Probabilità di transizione} (e $\braket{\psi|\phi}$ ampiezza di transizione) da $\ket{\phi}$ a $\ket{\psi}$.\\
+Poiché tale probabilità è non nulla anche per $\ket{\phi}\neq\ket{\psi}$ (anche come raggi vettori), vediamo che in MQ \textbf{gli stati puri non sono mutualmente esclusivi}, come invece avviene nel caso classico,\marginpar{Stati puri distinti non sono mutualmente esclusivi} in cui o due punti (intesi nello spazio delle fasi $\Omega$) coincidono o sono distinti.\\
+In MQ, dando l'analogo delle condizioni iniziali (vettore nello spazio di Hilbert, stato puro = massima informazione), provando a fare una misura in generale posso ottenere il risultato di uno stato diverso. Alternativamente, se preparo il sistema ad un istante $t=0$ nello $\ket{\phi}$, a $t=0^+$ è possibile trovarlo nello stato $\ket{\psi}\neq\ket{\phi}$!\\
+Matematicamente ciò è dato dal fatto che due generici vettori, se moltiplicati scalarmente, non sempre devono dare un risultato nullo - tale ovvietà produce un risultato fisico per nulla intuitivo.\\
+Del resto, in MC gli stati puri sono costituiti da delta di Dirac, e il prodotto di due $\delta$ diverse è per forza nullo.
+\end{oss}
+\textbf{Esercizio}.\marginpar{Esempio (2) di famiglia spettrale: il momento} Si consideri la famiglia di operatori $\left\{P\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ definiti in $L^2\left(\mathbb{R},\ dx\right)$ da:
+\[
+\left(P\left(\lambda\right)\psi\right)\left(x\right)=\frac{1}{2\pi\hbar}\int_{\mathbb{R}}{\left(\int_{-\infty}^{\lambda}e^{i\frac{p}{\hbar}\left(x-x'\right)}dp\right)\psi\left(x'\right)dx'}
+\]
+Si dimostri che $P\left(\lambda\right)$ è una \textbf{famiglia spettrale} (solo il fatto che $P\left(\lambda\right)$ sono proiettori) e si trovi la corrispondente osservabile.\\
+
+Verifichiamo innanzitutto l'autoaggiuntezza, ossia che: $\left(P\left(\lambda\right)\right)^\dag=P\left(\lambda\right)$
+Partendo dagli elementi di matrice:
+\[
+\left(\phi,P\left(\lambda\right)\psi\right)=\left(P^\dag\left(\lambda\right)\phi,\psi\right)
+\]
+Svolgendo il prodotto scalare, il primo termine è pari a:
+\begin{align*}
+(\phi, P(\lambda)\psi) &= \int{\phi^*\left(x\right)}\int{\frac{1}{2\pi\hbar}\left(\int_{-\infty}^{\lambda}{e^{i\frac{p}{\hbar}\ \left(\bm{x-x'}\right)}\ }dp\right)\psi\left(x'\right)dx' d x}=\\
+&={\int\limits{\left(\frac{1}{2\pi\hbar}\int_{-\infty}^{\lambda}{\exp\left({i\frac{p}{\hbar}\left(\bm{x'-x}\right)}\right )dp\ \phi\left(x\right)dx}\right)}}^*\psi \left(x'\right)dx'
+\end{align*}
+dove si è "\textit{spostata l'azione dell'operatore al primo membro del prodotto scalare}", portando tutto ciò che dipenda da $x$ sotto lo stesso segno di integrale ed evidenziando una coniugazione complessa (si noti il cambio di segno nell'esponenziale).\\
+Possiamo ora notare che il termine tra parentesi è l'azione di $P^\dag (\lambda)$ su un $\phi$:
+\begin{align*}
+    \left(P^\dag\left(\lambda\right)\phi\right)\left(x'\right)=\frac{1}{2\pi\hbar}\int{\left(\int_{-\infty}^{\lambda}{\exp\left ({i\frac{p}{\hbar}\left(x'-x\right)}\right )dp}\right)\phi\left(x\right)dx=\left(P\left(\lambda\right)\phi\right)(x')}
+\end{align*}
+Dimostriamo quindi che $P$ è un proiettore, e cioè che $P^2\left(\lambda\right)=P\left(\lambda\right)$. La cosa non è immediata - ci servirà passare in una notazione più conveniente. Notando la presenza di esponenziali e integrali nella definizione di $P$, un'idea è di sfruttare le trasformate di Fourier\footnote{In effetti da Fisica Moderna possiamo già intuire che questo operatore sia l'operatore momento, che è ricavato a partire dall'operatore posizione tramite trasformate di Fourier}\\
+Osserviamo che se definiamo trasformata e antitrasformata di Fourier come:
+\begin{align*}
+\left(\mathcal{F}\psi\right)\left(p\right)&\equiv\frac{1}{\sqrt{2\pi\hbar}}\int_{\mathbb{R}}
+{\exp\left (\bm{-}{i\frac{p}{\hbar}x}\right )\psi\left(x\right)dx\ } = \widetilde{\psi}\left(p\right)\\
+(\mathcal{F}^{-1}\tilde{\psi})(x) &\equiv  \frac{1}{\sqrt{2\pi\hbar}}\int_\bb{R} \exp\left(i\frac{p}{\hbar}x\right) \tilde{\psi}(p)\, dp
+\end{align*}
+Possiamo riscrivere $(P(\lambda)\psi)(x)$ tramite trasformate di Fourier, e quindi usare le proprietà di queste ultime per dimostrare $P=P^2$. Partiamo dall'azione di $P(\lambda)$ su $\psi$:
+\[
+(P(\lambda)\psi)(x') = \int_\bb{R}\left[\frac{1}{2\pi \hbar} \int_{-\infty}^\lambda \exp\left (i\frac{p}{\hbar}(x'-x)\right )dp\right ]\psi(x) dx
+\]
+Notiamo che l'integrale "esterno" su $x$ è un \textit{integrale di convoluzione}, in quanto ha la struttura di:
+\[
+(f*g) = \int_\bb{R} f(x)g(x'-x)\,dx
+\]
+dove la $f(x) = \psi(x)$, e per la $g(x'-x)$ (che corrisponde al termine tra parentesi quadre, ossia all'integrale in $p$), riconosciamo la struttura di un'antitrasformata di Fourier, con due differenze chiave: un fattore $\sqrt{2\pi\hbar}$ in più e un dominio "troppo stretto" (non tutto $\bb{R}$).\\
+Per quanto riguarda il fattore basta tenerne conto, mentre per correggere il dominio passiamo ad un integrale su tutto $\bb{R}$, e annulliamo il suo valore fuori dalla regione che ci interessa moltiplicando la funzione integranda per l'opportuna funzione di Heaviside $H(\lambda-p)$.\\
+Possiamo quindi riscrivere:\footnote{Rinominando la variabile $x'$ con $x$ per comodità}:
+\begin{align*}
+\left(P\left(\lambda\right)\psi\right)\left(x\right)
+&=
+\int_\bb{R} \left [\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\frac{H\left(\lambda-p\right)}{\sqrt{2\pi\hbar}}\exp\left (+{i\frac{p}{\hbar}(x-x')}\right)\ dp\right ]\psi\left(x'\right)dx'=\\
+&=\mathcal{F}^{-1}\left(\frac{H\left(\lambda-p\right)}{\sqrt{2\pi\hbar}} \right )*\ \psi\left(x\right)
+\end{align*}
+Sfruttando "al contrario" la proprietà delle trasformate\footnote{Il fattore $1/\sqrt{2\pi\hbar}$ compare perché stiamo usando la "normalizzazione angolare" per le trasformate di Fourier}:
+\[
+\mathcal{F}^{-1}(\phi \psi) =\frac{1}{\sqrt{2\pi\hbar}} \mathcal{F}^{-1}(\phi) * \mathcal{F}^{-1}(\psi)
+\]
+Otteniamo:
+\begin{align*}
+(P(\lambda)\psi)(x) &= \mathcal{F}^{-1}\left ( \frac{H(\lambda-p)}{\sqrt{2\pi\hbar}}\right ) * \psi(x) = 
+\mathcal{F}^{-1}\left (\frac{H(\lambda-p)}{\sqrt{2\pi\hbar}}\right ) * \mathcal{F}^{-1}(\mathcal{F}\psi)(x) =\\
+&= \frac{1}{\sqrt{2\pi\hbar}} \mathcal{F}^{-1}(H(\lambda-p)*\mathcal{F}^{-1}(\mathcal{F}\psi)(x) 
+= \mathcal{F}^{-1}(H(\lambda-p)\mathcal{F}\psi)
+\end{align*}
+(dove si è usata la linearità dell'antitrasformata per portar fuori il fattore di normalizzazione $1/\sqrt{2\pi\hbar}$).\\
+%Aggiungi passaggio di estrazione del fattore per linearità
+Definendo:
+\[
+\phi(x) = (P(\lambda)\psi)(x) = \mathcal{F}^{-1}(H(\lambda-p)\mathcal{F}\psi)(x)
+\]
+Si ha che applicando $P(\lambda)$ a $\phi$ otteniamo $(P(\lambda)^2\psi)(x)$. Facendo allora il conto:
+\begin{align*}
+    (P(\lambda)\phi)(x) &= \mathcal{F}^{-1}(H(\lambda-p)\mathcal{F}\phi)(x) =\\
+    &= \mathcal{F}^{-1}[H(\lambda-p) \mathcal{F}\mathcal{F}^{-1}(H(\lambda-p)\mathcal{F}\psi)](x) =\\
+    &\underset{(a)}{=} \mathcal{F}^{-1}(H(\lambda-p)H(\lambda-p)\mathcal{F}\psi)(x) =\\
+    &\underset{(b)}{=} \mathcal{F}^{-1}(H(\lambda-p)\mathcal{F}\psi)(x) = (P(\lambda)\psi)(x)
+\end{align*}
+In (a) si è sfruttata la proprietà di Fourier, per cui trasformata e antitrasformata sono una l'inversa dell'altra (e la loro composizione è l'identità). Per (b), invece, basta notare che $H(\lambda-p)$ ha come valori solo $1$ e $0$ (in particolare è la funzione caratteristica di $]-\infty, \lambda]$) e quindi è pari al suo quadrato (come si era visto tra gli esempi di "funzioni unitarie").\\
+Avendo quindi dimostrato che $P$ è autoaggiunto e $P=P^2$ si ha che $P$ è un proiettore.\\
+Si può verificare (ma non lo faremo) che i $P(\lambda)$, $\lambda \in \bb{R}$ costituiscono una \textit{famiglia spettrale} (cioè soddisfano anche le altre tre proprietà che abbiamo elencato). Ogni famiglia spettrale è associata ad un'osservabile: esaminiamola.
+Sia $\ket{\psi}$ normalizzata ($\braket{\psi|\psi} = 1$). Il valor medio dell'operatore $A$ associato alla famiglia spettrale $P(\lambda)$ nello stato $\psi$ è dato da:
+\begin{equation}
+\langle A \rangle_\psi = \int \lambda d(\psi, P(\lambda)\psi)
+\label{eqn:valormediop}
+\end{equation}
+Espandendo il prodotto scalare: 
+\begin{align*}
+&d\left(\psi,P\left(\lambda\right)\psi\right)=d_\lambda\int \int \psi^*\left(x\right)
+\left ( \int_{-\infty}^{\bm{\lambda}}\frac{e^{i\frac{p}{\hbar}\left(x-x'\right)}}{2\pi\hbar}\ dp\right )
+\psi\left(x'\right)dx\ dx'=\\
+&\underset{(a)}{=}\left[\int\int\psi^*\left(x\right)
+\exp \left ({i\frac{\lambda}{\hbar}\left(x-x'\right)}\right ) \frac{1}{2\pi\hbar}\ \psi\left(x'\right)dx\ dx'\right]d\lambda =\\
+&\underset{(b)}{=} \underbrace{\left [ \frac{1}{\sqrt{2\pi\hbar }}\int_\bb{R} \left ( \psi(x) \exp \left (-i\frac{\lambda}{\hbar}x\right )\right )^*dx \right ]}_{(\mathcal{F}\psi)^*(\lambda)}
+\cdot 
+\underbrace{\left [ \frac{1}{\sqrt{2\pi\hbar}} \int_\bb{R} \psi(x') \exp\left (-i\frac{\lambda}{\hbar}x'\right )dx' \right ]}_{(\mathcal{F}\psi)(\lambda)}
+d\lambda =\\
+&= \left(\mathcal{F}\psi\right)^*\left(\lambda\right)\left(\mathcal{F}\psi\right)\left(\lambda\right)d\lambda=\left|\widetilde{\psi}\left(\lambda\right)\right|^2d\lambda 
+\end{align*}
+In (a) notiamo che la derivata per $\lambda$ agisce solo sull'integrale, e per il teorema fondamentale del calcolo restituisce la funzione integranda calcolata in $p = \lambda$. In (b) abbiamo "spezzato" l'esponenziale in due fattori, dove si riconosce la struttura delle trasformate di Fourier. Il prodotto di una trasformata per la sua complessa coniugata dà allora il modulo quadro.\\
+Sostituendo questo risultato in (\ref{eqn:valormediop}):
+\[
+\langle A \rangle_\psi = \int \lambda\, |\tilde{\psi}(\lambda)|^2\, d\lambda
+\]
+Possiamo finalmente calcolare il dominio di $A$, completandone la definizione (facendo riferimento al teorema in (\ref{eqn:dominiofamigliaspettrale})):
+\begin{align*}
+D\left(A\right)&= \left\{\psi\in L^2\ |\ \int\lambda^2\, \hlc{Yellow}{d\left(\psi,P\left(\lambda\right)\psi\right)}<\infty\right\}=\\
+&=\left\{\psi\in L^2\ |\ \int\lambda^2 \hlc{Yellow}{|\widetilde{\psi}\left(\lambda\right)|^2}\,d\lambda<\infty\right\} 
+\end{align*}
+Se ora esaminiamo:
+\begin{equation}
+\mathcal{F}\left(-i\hbar\frac{d}{dx}\psi\right)\left(p\right)=\frac{1}{\sqrt{2\pi\hbar}}\int_\bb{R} \exp\left (-i\frac{p}{\hbar}x\right )\left(-i\hbar\frac{d}{dx}\psi\left(x\right)\right)dx 
+\label{eqn:trasformatap}
+\end{equation}
+La condizione imposta nel determinare il dominio fa sì che $\psi \left(x\right)\xrightarrow[x\to \infty]{} 0$ (lo dimostreremo più avanti in un altro esempio). Ciò significa che \textbf{integrando per parti} il primo termine (che viene valutato tra $-\infty$ e $\infty$) si annulla, e perciò lo trascuriamo. Svolgendo quindi i conti rimanenti:
+\begin{align*}
+(\ref{eqn:trasformatap}) &= \cancel{-}\frac{1}{\sqrt{2\pi\hbar}}\int_\bb{R} \cancel{-}i\hbar \psi(x) \frac{d}{dx}\left(\exp\left(-i\frac{p}{\hbar}x\right)\right)dx =\\
+&= \frac{1}{\sqrt{2\pi\hbar}} \int_\bb{R} \hlc{Yellow}{i} \hlc{SkyBlue}{\hbar} \psi(x) \left(\hlc{Yellow}{-i}\frac{p}{\hlc{SkyBlue}{\hbar}}\exp\left ( -i\frac{p}{\hbar}x\right ) \right )dx=\\
+&= p\,\underbrace{\frac{1}{\sqrt{2\pi\hbar}}\int_\bb{R}\exp\left(-i\frac{p}{\hbar}x\right ) \psi(x) dx}_{\tilde{\psi}(p)} = p\,\tilde{\psi}(p)
+\end{align*}
+Ciò significa che la rappresentazione in posizioni e quella in momenti sono collegate da una trasformata di Fourier. Infatti vale, per il teorema di Plancherel\footnote{Il teorema di Plancherel enuncia che una trasformazione di Fourier è un'isometria rispetto alla norma di $L^2$ - e, visto che norma e prodotto scalare sono collegati dall'identità di polarizzazione - anche rispetto al prodotto scalare di $L^2$. In altre parole, il prodotto scalare tra due elementi di $L^2$ dà lo stesso risultato se fatto tra le trasformate di quei due elementi. Qui nello specifico si ha $(\tilde{\psi},A\tilde{\psi}) = (\psi, A_x \psi)$, dove $A=p$ (operatore momento in rappresentazione dei momenti), e $A_x = -i\hbar \frac{d}{dx} = \mathcal{F}(A)$ è lo "stesso operatore" in rappresentazione di posizioni.}:
+\[
+\langle A \rangle_\psi = \int \tilde{\psi}(p)^*\,p\,\tilde{\psi}(p) dp= \int \psi(x)^* \left ( -i\hbar \frac{d}{dx} \psi(x) \right ) dx
+\]
+Perciò l'operatore $A$ in $D(A)$, usando la rappresentazione in posizioni, è dato da:
+\[
+A = -i\hbar \frac{d}{dx}
+\]
+
+\subsection{Spettro di un operatore}
+Ci poniamo ora il problema di determinare quali valori si possono ottenere con una misura di un operatore autoaggiunto $A=A^\dag$ (o meglio, dell'osservabile da esso descritto).\\
+Nel caso $\dim{\mathcal{H}}<\infty$ si ha che $\sigma \left(A\right)= \left\{\lambda_n\text{ autovalori}\right\}$, analogamente al caso classico, dove un'osservabile è data da una funzione $f(q,p)$ i cui valori sono tutti autovalori ($\op{cod} f = \{\text{autovalori di }f\}$).\\
+Tuttavia, per $\dim{\mathcal{H}}=\infty$, sorgono fin da subito dei problemi.  Infatti, un autovalore è definito come:
+\[
+\left(\Delta O\right)_{\lambda,\psi_\lambda}=0 = \norm{(A-\lambda)\psi_\lambda}^2
+\]
+Con $\psi_\lambda$ autovettore di autovalore $\lambda$ 
+(l'equivalenza tra le due scritture è stata ricavata in (\ref{eqn:fluttuazione-autoaggiunto})).\\
+Proviamo a imporre tale condizione per trovare gli autovalori dell'operatore \textbf{posizione} su $\bb{R}$ $X\psi \left(x\right)=x\psi (x)$:
+\[
+\left\langle\left(X-a\right)^2\right\rangle_\psi=\int \left(x-a\right)^2\left|\psi\left(x\right)\right|^2dx=0\Rightarrow \left(x-a\right)^2\psi \left(x\right)=0\Rightarrow  \psi \left(x\right)=0 
+\]
+(un integrale di quantità positive è nullo se e solo se la funzione integranda è nulla, a meno di insiemi Lebesgue-trascurabili, e perciò in ogni caso corrisponde alla funzione $f\equiv 0$ in $L^2$, considerata come classe di equivalenza).\\
+Poiché l'unico risultato è la funzione nulla, ciò significa che in $L^2$ non esiste alcun autovalore diverso da $0$. Fisicamente vuol dire che non esiste la possibilità di localizzare una particella in un punto in MQ, e matematicamente che:
+\[
+\nexists\> \psi_n\>|\> \left(\Delta X\right)_{a,\psi_a}=0
+\]
+Come già visto in precedenza (nell'esempio sull'operatore momento), il fatto che compaia la sola soluzione nulla fa pensare che forse abbiamo imposto delle condizioni troppo stringenti. In effetti potremmo accontentarci di poter determinare la posizione in un range arbitrariamente fine (e quindi con precisione alta quanto si vuole), ma comunque di misura di Lebesgue non nulla, ossia non composto da un singolo punto (che richiederebbe una precisione infinita, cosa assurda).\\
+Matematicamente ciò corrisponde a cercare, tra tutte le $\psi \in D(X)$, quelle che si avvicinano molto alla situazione di fluttuazione nulla, ossia tali che l'\textit{estremo inferiore} della loro fluttuazione (che non è detto venga raggiunto, e quindi sia anche un minimo!) sia nullo:
+\[
+\inf_{\psi\in D\left(X\right)}{\left(\Delta X\right)_{a,\psi}}=0
+\]
+Possiamo allora costruire la successione di funzioni che "si stringono" su $a$, ossia che valgono $\sqrt{n}$ in un intervallino largo $1/n$ attorno ad $a$, per ogni $n$ finito:
+\[
+\psi_n\left(x\right)=\sqrt n \chi_{\left[a-\frac{1}{2n};a+\frac{1}{2n}\right]}\left(x\right)\in D\left(X\right) \quad \forall n < +\infty
+\]
+Così definite, le $\psi_n$ sono normalizzate:
+\[
+\left|\left|\psi_n\right|\right|^2= \int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}}{n\ dx}=1
+\]
+E l'applicazione dell'operatore $X$ su una $\psi_n$ è ben definita:
+\[
+\norm{x\psi_n}^2 = \int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}} x^2 n\,dx = \frac{nx^3}{3}\Big |^{a+\frac{1}{2n}}_{a-\frac{1}{2n}} < \infty
+\]
+Cerchiamo allora di calcolare gli autovalori con la richiesta "più larga" precedentemente discussa:
+\begin{align*}
+\inf_{\psi\in D\left(X\right)}{\left(\Delta X\right)_{a,\psi}^2}&\underset{(a)}{\leq} \inf_{n\in \bb{N}}{\left(\Delta X\right)_{a,\psi_n}^2}=
+\inf_{n\in\bb{N}}\int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}} \norm{X-\lambda}^2 \norm{\psi_\lambda}^2 = \\
+&= \inf_{n\in\bb{N}}{\int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}}{{n\left(x-a\right)}^2dx}} \\
+&\xRightarrow[(x-a)\to x]{} \inf_{n\in\bb{N}}{n\int_{-\frac{1}{2n}}^{\frac{1}{2n}}{x^2dx}=\inf_{n\in\bb{N}}{n\frac{2}{3}\left(\frac{1}{2n}\right)^3}}=0
+\end{align*}
+In (a) abbiamo maggiorato l'$\inf$ calcolato sull'insieme di \textit{tutte} le funzioni d'onda, con quello sull'insieme ben più ristretto delle $\psi_n$ "che si restringono" su $a$. Chiaramente, poiché stiamo escludendo molti casi, otterremo un valore di $\inf$ che sarà maggiore o uguale a quello generale. Poiché dimostriamo che quest'ultimo $\inf$ è esattamente $0$ (e l'estremo inferiore di un insieme di numeri positivi è al minimo $0$), abbiamo dimostrato l'uguaglianza.\\
+Ciò significa che la fluttuazione di $X$ attorno ad un qualsiasi $a\in \bb{R}$ può essere resa arbitrariamente piccola tramite un'opportuna successione $\left\{\psi_n(x)\right\}\subset D\left(X\right)\Rightarrow$.\\
+Definendo gli autovalori in questo modo, troveremo che lo spettro $\sigma \left(X\right)=\bb{R}$ come ci aspettiamo!\\
+
+\begin{axi}
+\textbf{Assioma (dello spettro)}\marginpar{Assioma dello spettro}
+L'insieme dei valori ottenibili da una misura dell'osservabile descritta dall'operatore autoaggiunto $A$ è dato da 
+\begin{equation}
+\sigma \left(A\right)= \left\{a\in\mathbb{R}\ |\inf_{\psi\in D\left(A\right)\setminus\{0\}}{\left(\Delta A\right)_{a,\psi}}=0\right\}
+\label{eqn:spettroA}
+\end{equation}
+\end{axi}
+\textbf{Nota}: chiaramente la funzione d'onda sempre nulla viene esclusa in queste considerazioni, in quanto banalmente per essa la fluttuazione è nulla (la sua norma è $0$). Se ciò non viene specificato sarà comunque da intendersi come sottinteso (come prima, nell'analisi dello spettro di $X$, ci siamo concentrati solo sulle $\psi$ non nulle).\\
+\textbf{Nota}: Da questa definizione si vede subito come uno spettro non contenga solamente gli autovalori (e quindi elementi "discreti"), ma tutte le misure possibili, che possono avere anche un range continuo (e che rispettano la condizione sull'$\inf$). Analizzeremo meglio la differenza tra queste due "classi di misure" nei prossimi paragrafi.
+
+\subsection{Osservazioni sullo spettro}
+\begin{enumerate}
+    \item Per come è definito lo spettro di un operatore autoaggiunto $A$, vi sono due possibilità: che l'$\inf = 0$ sia anche un minimo (ossia viene "raggiunto" da qualche funzione d'onda), oppure non lo sia.
+    \begin{itemize}
+	\item Tra i punti di $\sigma\left(A\right)$ vi sono quelli attorno ai quali le fluttuazioni possono annullarsi, per cui:
+	\[
+	\exists\> \psi_a\in D\left(A\right)\>|\>\left(\Delta A\right)_{a,\psi_a}=0
+	\]
+	Questi valori di $a$ sono\marginpar{Spettro discreto} detti costituire lo \textbf{spettro discreto} $\sigma_d\left(A\right)$ (o \textbf{puntuale} $\sigma_P(A))$ di $A$. In effetti sono quelli analoghi al caso finito dimensionale, con $\dim{\mathcal{H}}<\infty$. Come questi ultimi, in particolare, sono le soluzioni dell'equazione agli autovalori:
+	\[
+	\left(\Delta A\right)_{a,\psi_a}^2=\left|\left|\left(A-a\right)\psi_a\right|\right|^2=0\Rightarrow \left(A-a\right)\psi_a=0
+	\]
+	Perciò gli $\psi_a$ sono detti gli \textbf{autovettori} di $A$ appartenenti all'\textbf{autovalore} $a$ e $\left(A-a\right)\psi_a=0$ è l'\textbf{equazione agli autovalori}.\\
+	\textbf{Nota:} lo spettro discreto è costituito al più da un insieme numerabile di punti. Se così non fosse, avremmo un insieme non numerabile di autovettori ortogonali tra loro nello spazio di Hilbert, cosa che è assurda perché $\hs$ è separabile. Tuttavia, lo spettro discreto potrebbe essere denso\footnote{ciò si verifica, per esempio, nel caso di elettroni in un cristallo disordinato. La scoperta di ciò valse un premio Nobel in fisica nel 1977 a Philip Warren Anderson} in $\hs$.
+	\item D'altro canto, i punti dello spettro di $\sigma \left(A\right)$ in cui la fluttuazione ha estremo inferiore nullo in $D(A)$, ma \textbf{non minimo}, sono detti \textbf{spettro continuo}\marginpar{Spettro continuo} $\sigma_C\left(A\right)$ di $A$ e per essi \textbf{non c'è} autovettore $\psi_a\in D(A)$.\\
+	(Come vedremo, nel formalismo di Dirac c'è una caratterizzazione più semplice di $\sigma_C(A)$)\\
+	\end{itemize}
+	\item È intuitivo che lo spettro\marginpar{Trasformazioni unitarie preservano lo spettro} non possa dipendere dalle trasformazioni unitarie ("rotazioni" dello spazio infinito-dimensionale): essendo una caratteristica \textit{fisica}, cioè misurabile, non deve dipendere dal modo che adottiamo per descriverlo o determinarlo.\\
+	Se $U$ è \textbf{unitario} e $A$ è autoaggiunto:
+	\[
+	\sigma \left(U^\dag A\ U\right)= \sigma \left(A\right)
+	\]
+	Osserviamo innanzitutto che se $U^\dag A U\psi \in \hs \Rightarrow U\psi \in D(A)$. Definiamo $\phi \equiv U\psi$.\\
+	Allora si ha che se $\phi \in D\left(A\right)$, possiamo sempre trovare un $\psi$ t.c. $U\psi =\phi$ ($U$ è unitario, perciò invertibile) e allora $U^\dag\phi =U^\dag U \psi =\psi$, con $\psi \in D(U^\dag A U)$.\\
+	Perciò vale:
+	\begin{equation}
+	    \psi \in D\left(U^\dag A\ U\right)\Leftrightarrow \phi =U\psi \in D(A)
+	    \label{eqn:relazionedomini}
+	\end{equation}
+	Calcolando l'estremo inferiore:
+	\begin{align*}
+	   &\inf_{\psi \in D(U^\dag A U)} \left (\Delta(U^\dag A U) \right )^2_{a,\psi}
+	   =\inf_{\psi \in D(U^\dagger A U)} \norm{(U^\dag A U-a)\psi}^2 =\\
+	   = &\inf_{\psi \in D(U^\dag A U)} \norm{(U^\dag A U - U^\dag a U)\psi}^2 = \inf_{\psi \in D(U^\dagger A U)} \norm{U^\dag(A-a)U\psi}^2 =\\
+	   \underset{(a)}{=} &\inf_{\psi \in D(U^\dagger A U)} \norm{(A-a)U\psi}^2 \underset{(a)}{=} \inf_{\phi \in D(A)} \norm{(A-a)\phi}^2 = \inf_{\phi \in D(A)} (\Delta A)^2_{a,\phi}
+	\end{align*}
+	dove in (a) si è usato il fatto che un operatore unitario preserva la norma, mentre in (b) si è usata $U\psi = \phi$ e la relazione sui domini trovata in (\ref{eqn:relazionedomini}).
+	
+	\begin{comment}
+	\begin{align*} %Sistemare sintassi [TO DO]
+	\inf_{\psi\in D\left(U^{\dag A}\ U\right)}{\left(\Delta\left(U^\dag\ A\ U\right)\right)_{a,\psi}^2&=\inf_{\psi\in D\left(U^\dag A\ U\right)}{\left|\left|\left(U^\dag A\ U-a\right)\psi\right|\right|^2}}=\inf_{\psi\in D\left(U^\dag A\ U\right)}{\left|\left|U^\dag\left(A-a\right)U\psi\right|\right|^2}\\
+	&=\inf_{\psi\in D\left(U^\dag A U\right)}{\left|\left|\left(A-a\right)U\psi\right|\right|=\inf_{\phi\in D\left(A\right)}{\left|\left|\left(A-a\right)\phi\right|\right|^2}=\inf_{\phi\in D\left(A\right)}{\left(\Delta A\right)_{a,\phi}^2\ }}
+	\end{align*}
+	\end{comment}
+	otteniamo la tesi.\\
+	In particolare ciò significa che lo spettro di un operatore autoaggiunto non dipende dalla sua rappresentazione in uno spazio di Hilbert concreto (come tutte le quantità confrontabili con l'esperimento), perché gli isomorfismi tra spazi di Hilbert concreti in cui si rappresentano le osservabili sono unitari.\\
+	Perciò: 
+	$\sigma \left(-i\hbar\frac{d}{dx}\right)$ in $L^2(\bb{R}, dx)$ è uguale a $\sigma \left(p\right)$ in $L^2(\bb{R},dp)$.\\
+	Per esercizio, verificalo per $X$ (posizione). Come è rappresentato in $L^2(\bb{R}, dp)$?
+	\begin{oss}
+	Se $A$ è limitato e autoaggiunto:\marginpar{Operatore limitato $\leftrightarrow$ spettro limitato}
+	\[
+	\left|\left|A\right|\right|=\sup_{\lambda\in\sigma\left(A\right)}{\left|\lambda\right|}
+	\]
+	Quindi $A$ è limitato (in senso matematico) se e solo se l'insieme dei valori ottenibili dalla misura è limitato. Abbiamo perciò un'altra corrispondenza tra l'idea matematica di risultato e l'idea fisica di misura sperimentale.
+	\end{oss}
+
+\end{enumerate}
+%\end{document}

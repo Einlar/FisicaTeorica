@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{gnuplottex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[landscape]{geometry}
+%\usepackage{epstopdf}
+
+%\usepackage{graphicx}
+\begin{document}
+\hspace{-11.5em}
+\begin{gnuplot}[terminal=epslatex, terminaloptions=color dashed,terminaloptions={size 25cm,15cm}]
+            set mxtics 5
+            set mytics 10
+            
+            f(x) = 2.798877328344893e-9*(-1 +exp(20.824884911579353*x))
+            set xrange [0.2:0.8]
+            set logscale y
+            
+            set style line 12 lc rgb '#808080' lt 0 lw 1
+          
+            set grid back ls 12 
+            
+            
+            set xlabel "$V_D (V)$"
+            set ylabel "$I_D (A)$"
+            
+            set format y '$10^{%T}$'
+            set key bottom right
+            set samples 15000
+            set title "Diodo 1N4148" 
+            set title  font ",20" norotate
+            plot f(x) title "Fit" lc rgb "blue", "DatiVI.txt" u 1:2:3 w yerrorbars lc rgb "black" title "Misurazioni"
+            
+            
+\end{gnuplot}
+\end{document}

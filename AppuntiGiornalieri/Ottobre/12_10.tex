@@ -1,0 +1,258 @@
+%\documentclass[12pt]{article}
+%\input{header.tex}
+
+%\begin{document}
+%\section{Lezione 3:\\ \large{Formulazione assiomatica Hilbertiana (o Standard)}}
+%\vspace{-1em}
+%\begin{center}
+%    \small{(8/10/2018)}
+%\end{center}
+%\textbf{Come rappresentare matematicamente le osservabili in MQ}.\\
+Utilizzando la definizione di \textbf{aggiunto} si possono definire due importanti \textbf{classi} di operatori limitati, che ci torneranno utili più avanti:
+\begin{enumerate}
+    \item \textbf{Proiettori}\marginpar{Proiettori} $P\in\mathcal{B}(\mathcal{H})$ è un proiettore se $P=P^\dag$ e $P=P^2$.\\
+    In particolare, ogni vettore $\psi\in\mathcal{H}$, $\left|\left|\psi\right|\right|=1$, definisce un proiettore $P_\psi$:
+    \begin{equation}
+	P_\psi\phi=\left(\psi,\phi\right)\psi\quad \forall\phi\in\mathcal{H}
+	\label{eqn:proiettore}
+	\end{equation}
+	In notazione di Dirac $P_\psi=\left|\psi\right\rangle\left\langle\psi\right|$ e $P_\psi\left|\phi\right\rangle=\left|\psi\right\rangle\left\langle\psi\middle|\phi\right\rangle$\\
+	Un proiettore $P_\psi$ non è altro che quell'operatore che se applicato ad un vettore ne restituisce la sua proiezione lungo $\psi$ (intesa come vettore\footnote{Nel senso, non come semplice "lunghezza della proiezione", ma come un vettore che punta nella direzione su cui si proietta e che viene riscalato alla lunghezza della proiezione.}).\\
+	L'analogo delle funzioni dei proiettori sono le funzioni caratteristiche $\chi_\Delta$. Infatti tali funzioni sono a valori reali (e quindi la simmetria è immediatamente verificata) e hanno come valori solo $0$ e $1$, che non cambiano dopo essere stati elevati al quadrati\footnote{In particolare sono gli unici numeri reali con questa proprietà.} (e quindi soddisfano anche $P=P^2$)\footnote{In effetti moltiplicando scalarmente una funzione caratteristica $\chi_\Delta$ con una qualsiasi altra funzione si ottiene la "proiezione" di quest'ultima sull'intervallo $\Delta$, cioè una funzione che è nulla ovunque e vale quanto la funzione originaria entro $\Delta$. Ipoteticamente, se scomponessimo $\bb{R}$ in intervalli e sommassimo le proiezioni su ciascuno di essi generate dalle funzioni caratteristiche riotterremo la funzione di partenza, così come sommando le proiezioni di un vettore sui vettori di una base si riottiene il vettore di partenza}.
+	\item \textbf{Unitari}:\marginpar{Operatori unitari} Un operatore $U$ \textbf{limitato} $U\in \mathcal{B}(\hs)$ è unitario se soddisfa:
+	\begin{equation}
+	UU^\dag=U^\dag U=\bb{I}
+	\label{eqn:unitario}
+	\end{equation}
+	Nota: in $\dim{\mathcal{H}=\infty}$ vanno dimostrate entrambe le uguaglianze, in quanto potrebbero esserci operatori $U$ per cui $U U^\dag = \bb{I}$ ma non $U^\dag U = \bb{I}$.\\
+	In generale se dato $A\in B\left(\mathcal{H}\right) \exists B\>|\> AB=BA=I$, diciamo che $B$ è l'\textbf{inverso} di $A$ e lo denotiamo con $A^{-1}$. Perciò un'altra maniera per definire gli operatori unitari è: $U$ unitario $\Leftrightarrow U^\dag=U^{-1}$.\\
+	Nelle funzioni a variabile complessa l'analogo dell'aggiunto è il complesso coniugato. Perciò le funzioni "unitarie" sono quelle della forma $e^{i\alpha\left(x\right)}$ (il loro complesso coniugato $e^{-i\alpha(x)}$ è effettivamente pari al loro inverso).
+\end{enumerate}
+\textbf{Esempio} \marginpar{Esempio: l'operatore momento e la necessità di operatori autoaggiunti}
+Consideriamo l'operatore $P_0$ in $\mathcal{H}=L^2(\left[0,1\right], dx)$\footnote{Tale spazio corrisponde fisicamente a quello delle funzioni d'onda nella buca di potenziale 1-dimensionale di profondità infinita tra $0$ e $1$, ossia alla "scatola" con pareti impenetrabili in una dimensione}:
+\[
+P_0=-i\hbar\frac{d}{dx};\quad D\left(P_0\right)=\left\{\psi\>|\> \psi\left(0\right)= \psi\left(1\right)=0\text{  e regolari}\right\}
+\]
+$P_0$ è l'operatore del momento, e per il suo dominio abbiamo scelto tutte le funzioni sufficientemente regolari (in modo che la derivata sia definita) che si annullano in $0$ e $1$ (essendo qui il potenziale pari a $\infty$).\\
+Dimostriamo che $P_0$ è simmetrico, ossia che $P_0\subseteq P_0^\dag$, e che $\forall\phi, \psi\in D\left(P_0\right)$ si ha $\left(\psi, P_0\phi\right)=\left(P_0\psi, \phi\right)$
+\begin{align*}
+(\psi,P_0\phi) &= \int_0^1 \psi^*(x) \left ( -i\hbar \frac{d}{dx} \phi \right)(x) dx =\\
+&\underset{(a)}{=} \hlc{Yellow}{-i\hbar (\psi^*\phi)(x)|_0^1} + i\hbar \int_0^1 \frac{d}{dx}\psi^*(x) \phi(x) dx = (P_0\psi, \phi)
+\end{align*}
+In (a) si è integrato per parti, e il termine evidenziato è nullo in quanto $\psi\left(0\right)= \phi\left(0\right)=0$ e $\psi\left(1\right)= \phi\left(1\right)=0$, per come abbiamo scelto il dominio $D(P_0)$.\\
+Quali sarebbero i possibili risultati di misura del momento di $P_0$? Basta risolvere l'equazione agli autovalori:
+\[
+-i\hbar\frac{d}{dx}\psi_\lambda\left(x\right)=\lambda\psi\left(x\right)\Rightarrow \psi_\lambda\left(x\right)=c e^{\frac{i}{\hbar}\lambda x}
+\]
+Ma imponendo la $\psi_\lambda\left(0\right)=0\Rightarrow c=0$ non esiste alcuna $\psi_\lambda$ che non sia identicamente nulla.\\
+In realtà a noi interessa solo che il termine evidenziato sparisca, in modo che il momento sia un operatore simmetrico. Perciò, considerando sia $\psi$ che $\phi$ che si annullano ai bordi abbiamo imposto una condizione molto forte, quando basterebbe imporre che $\psi(0) = \psi(1)$.\\
+Definiamo una "nuova versione" dell'operatore $P_0$, che chiamiamo $P$ per distinguerla da quella vecchia, in cui il dominio è allargato considerando la nuova condizione (meno impositiva):
+\[
+P=-i\hbar\frac{d}{dx}; \quad D(P) = \{\psi\>|\> \psi(0) = \psi(1), \psi \text{ regolare}\}
+\] %Ho scambiato \phi e \psi in questa parte per mantenere la notazione uniforme con il calcolo fatto per P_0
+Analogamente a prima dobbiamo verificare che $P$ sia simmetrico $\left(\psi, P\phi\right)=(P\psi,\phi)$, con $\psi, \phi \in D(P)$, e $D(P)\subseteq D(P^\dag)$.\\
+%$\phi\in D(P) \psi\in D\left(P^\dag\right)$
+Ma perché il termine evidenziato si annulli ora non basta più la condizione specificata sulle $\psi$. Infatti (essendo $\psi(0) = \psi(1) \Rightarrow \psi(0)^* = \psi(1)^*$ per ipotesi):
+\[
+(\psi^* \phi)_0^1 = \psi^*(1)\phi(1) - \psi^*(0)\phi(0) = 0 = \psi(0)^*(\phi(1)-\phi(0))
+\]
+Bisogna quindi imporre una condizione anche sulle $\phi$, e in particolare che $\phi\left(0\right)= \phi\left(1\right)$. Perciò:
+\[
+D(P^\dag) = \{ \phi \>|\> \phi(0) = \phi(1), \text{ e $\phi$ regolare}\}
+\]
+Notiamo allora che $D(P) = D(P^\dag)$, ed essendo $P$ simmetrico possiamo scrivere $P=P^\dag$.\\
+\textbf{Nota}: Per $P_0$ avevamo imposto solo la regolarità per le $\phi$, e quindi il dominio di $P_0^\dag$ era effettivamente più grande di quello di $P_0$. Ora, stringendo il dominio da una parte, si è allargato quello dall'altra. Qui abbiamo ristretto $P^\dag$ e allargato $P$, e alla fine abbiamo ottenuto che i due hanno lo stesso dominio.\\
+Se ripetiamo per $P$ il calcolo dello spettro:
+\[
+-i\hbar\frac{d}{dx}\psi_\lambda\left(x\right)=\lambda\psi\left(x\right)
+\]
+la cui soluzione, imponendo che $\psi\left(0\right)=\psi\left(1\right)$ come da richiesta del dominio, porta a:
+\[
+1=e^{i\frac{\lambda}{\hbar}0}=e^{\frac{i\lambda}{\hbar}1};\quad \lambda_n=2\pi n\hbar
+\]
+Stavolta, $P$ non è solo simmetrico, ma soddisfa anche $P=P^\dag$.
+
+\begin{dfn}
+$A$ simmetrico si dice \textbf{autoaggiunto}\marginpar{Operatore autoaggiunto} se $A=A^\dag\Leftrightarrow D\left(A\right)=D\left(A^\dag\right)$ e $\forall\psi\in D(A), A\psi=A^\dag\psi$.
+\end{dfn}
+In effetti, nel processo di "allargare un dominio" e "accorciare quello del suo aggiunto" l'unico "punto speciale" è quello in cui entrambi i domini sono uguali. Nel definire operatori, richiedere che sia soddisfatta questa condizione (ossia che siano autoaggiunti e non semplicemente simmetrici) è \textit{matematicamente soddisfacente}, sembra naturale, non arbitrario.\\
+Il fatto che la stessa condizione si ritrovi esaminando "entità fisiche" - come abbiamo visto nell'esempio del momento (è l'unico modo perché sia simmetrico e dia risultati sensati) - è uno di quei casi speciali in cui la fisica segue le nostre idee di "regole naturali".\\
+Tuttavia, seppur tutto questo sia matematicamente naturale e soddisfacente, è necessaria una giustificazione "fisica" del perché succede.\\
+In effetti una spiegazione di ciò salta fuori da una proprietà naturale che non abbiamo ancora richiesto.\\
+
+Tra le richieste per le osservabili\marginpar{Operatori autoaggiunti e funzioni degli osservabili} nella descrizione matematica di un sistema fisico c'era la possibilità di definire funzioni di osservabili $f(O)$ dell'osservabile $O$. Qual è la relazione tra richiedere ciò e la proprietà dell'autoaggiuntezza?\\
+
+Partiamo dal caso \textbf{finito dimensionale}.\\
+Se $\dim{\mathcal{H}<\infty}$, allora ogni $A$ simmetrico è anche autoaggiunto, perché $D\left(A\right)\subset \hs \subset D(A^\dag)$.\marginpar{Autovalori di $A$ autoaggiunto sono anche autovalori dell'osservabile}\\
+Verifichiamo che gli autovalori di $A$ sono proprio gli autovalori ottenibili dall'osservabile descritto da $A$.\\
+Ricordiamo che se il valor medio dell'osservabile $O$ nello stato $\Sigma$ è $\lambda=\left\langle O\right\rangle_\Sigma$, e la fluttuazione di $O$ nello stato $\Sigma$ è nulla:
+\begin{equation}
+\left(\Delta O\right)_\Sigma^2=\left\langle\left(O-\left\langle O\right\rangle_\Sigma\right)^2\right\rangle_\Sigma=0
+\label{eqn:fluttuanulla}
+\end{equation}
+allora diciamo che $\lambda$ è \textbf{autovalore} di $O$ e ovviamente  $\lambda \in \sigma \left(O\right)$.\\
+Prendendo $\norm{\psi}=1$ ($\psi$ normalizzato), in MQ scriviamo che $(\psi,A\psi) = \lambda$. Allora la condizione di $\lambda$ autovalore (\ref{eqn:fluttuanulla}) si scrive come\footnote{Nella differenza $A-(\psi,A\psi)$, in cui apparentemente stiamo sottraendo un numero da una matrice, si intende che $(\psi,A\psi)$ è opportunamente moltiplicato per la matrice identità $\bb{I}$, che ometteremo per brevità di notazione.}:
+\[
+0=\left(\psi, \left[A-\left(\psi,A\psi\right)\right]^2\psi\right) =
+\]
+Vogliamo verificare che da essa discenda che $\lambda$ sia autovalore di $A$.\\
+Sappiamo che $A=A^\dag$ (autoaggiunto) e in particolare $\left(\psi,A\psi\right)\in\mathbb{R}$.\\
+"Trasportando indietro" uno dei due fattori del quadrato, per la definizione di \textit{aggiunto}, scriviamo:
+\[
+=\left(\left[A^\dag-\left(\psi,A\psi\right)^*\right]\psi, \left[A-\left(\psi,A\psi\right)\right)\psi\right]=
+\]
+Poiché $A$ è autoaggiunto, e quindi $A=A^\dag$:
+\begin{align}
+\nonumber =\left(\left[A-\left(\psi,A\psi\right)\right]\psi,\left[A-\left(\psi,A\psi\right)\right]\psi\right)=\norm{\left[A-\left(\psi,A\psi\right)\right]\psi}^2&=\left|\left|\left(A-\lambda\right)\psi\right|\right|^2 = 0\\
+\label{eqn:fluttuazione-autoaggiunto}
+ &\Rightarrow A\psi=\lambda\psi
+\end{align}
+Abbiamo quindi dimostrato che tutti gli autovalori \textit{in senso matematico} sono autovalori \textit{in senso fisico}, cioè che tra i valori $\lambda \in \sigma \left(O\right)$ si trovano gli autovalori (matematici) di $A$.
+\[
+\sigma\left(A\right)\supseteq\left\{\lambda\text{ autovalori dell'operatore } A\right\}
+\]
+Resta dimostrare se tali autovalori "matematici" coincidono con \textit{tutti e soli} gli autovalori (in senso fisico).\\
+
+\begin{thm}
+Se $\psi_n$ e $\psi_m$ sono autovettori\marginpar{Decomposizione spettrale} (anche se $\dim{\mathcal{H}=\infty}$) di $A$ simmetrico, appartenenti agli autovalori $\lambda_n$, $\lambda_m$, con $\lambda_n\neq \lambda_m$, allora $\left(\psi_n, \psi_m\right)=0$
+\end{thm}
+\textbf{Dim:} Poiché $A\psi_m = \lambda_m \psi_m$ (def. di autovettore $\psi_m$ di $A$ con autovalore $\lambda_m$) allora $\left(\psi_n, A\psi_m\right)=\lambda_m\left(\psi_n, \psi_m\right)$.\\
+Poiché $A$ è simmetrica, vale $(\psi, A \phi) = (A \psi, \phi)$, da cui:
+\[ (\psi_n, A\psi_m) = (A\psi_n, \psi_m) = \lambda_n (\psi_n, \psi_m)\]\\
+Unendo le due uguaglianze:
+\[
+\lambda_m (\psi_n, \psi_m) = \lambda_n (\psi_n, \psi_m) \Rightarrow 0 = (\lambda_n -\lambda_m)(\psi_n, \psi_m) \Rightarrow (\psi_n, \psi_m) = 0
+\]
+(essendo $\left(\lambda_n-\lambda_m\right)\neq 0$).\\
+In particolare in $\dim{\mathcal{H}<\infty}$ ogni $A$ simmetrico è anche hermitiano (autoaggiunto).\\ %Hermitiano = aggiunto (o autoaggiunto)?
+
+Per le matrici hermitiane\marginpar{Proprietà di operatori autoaggiunti} (ossia auto-aggiunte, uguali alla propria trasposta coniugata) sappiamo (teorema spettrale) che possiamo scegliere gli autovettori $\psi_n$ come una base ON di $\hs$. Ciò implica che:
+\begin{enumerate}
+    \item $\displaystyle \forall \psi \in \hs \> \psi = \sum_{n}{\left(\psi_n, \psi\right)\psi_n}$
+    cioè ogni vettore $\psi \in \hs$ può essere espresso in maniera univoca come somma delle sue proiezioni sugli autovettori $\psi_n$ ortogonali.\\
+    In notazione di Dirac ciò è dato dalla \textbf{completezza}:
+    \[
+	\left|\psi\right\rangle=\sum_{n}{|\psi_n\rangle \langle\psi_n|\psi\rangle }
+	\]
+	Con $\sum_{n}{\left|\psi_n\right\rangle\left\langle\psi_n\right|=\mathbb{I}}$
+	\item $\displaystyle A\psi = \sum_{n}{\left(\psi_n, A\psi\right)\psi_n \underset{(a)}{=} \sum_{n}{\left(A\psi_n, \psi\right)\psi_n \underset{(b)}{=}\sum_{n}{\lambda_n\left(\psi_n, \psi\right)\psi_n}}}$\\
+	dove in (a) si è usata la simmetria di $A$, e in (b) la definizione di $\psi_n$ autovettore di $A$ con autovalore $\lambda_n$ ($A\psi_n = \lambda_n \psi_n$).\\
+	Applicando quanto appena visto al calcolo dei valor medi dell'osservabile descritto da $A$ nello stato $\psi$:
+	\[
+	\langle A \rangle_\psi = \frac{(\psi,A\psi)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{(\psi_n, \psi)(\psi, \psi_n)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{|(\psi_n, \psi)|^2}{\norm{\psi}^2}
+	\]
+	(che è consistente perché $\left(\psi_n, \psi_m\right)=0$ se $\lambda_n\neq \lambda_m$), dove i $\lambda_n$ sono autovalori, e il restante fattore $\displaystyle p_n \frac{\left|\psi_n,\psi\right|^2}{\left|\left|\psi\right|\right|^2}$ è compreso tra $0$ e $1$, e lo interpretiamo come probabilità.\\
+	Ma allora:
+	\[
+	\sum_{n}{\frac{\left|{(\psi}_n, \psi)\right|^2}{\left|\left|\psi\right|\right|^2}=\sum_{n}\frac{\langle\psi|\psi_n\rangle \langle\psi_n|\psi\rangle }{\langle\psi|\psi\rangle }=1 }
+	\]
+	Poiché allora per il teorema spettrale\marginpar{Gli autovalori di $A$ sono tutti e soli quelli "fisici" di $O$} la somma delle probabilità associate agli autovalori è esattamente $1$, si ha che gli autovalori esauriscono tutte le possibilità.\\
+	Quindi:
+	\begin{align*}
+	    \sigma \left(A\right)&=\left\{\text {insieme dei valori che posso ottenere misurando } A\right\}= \\
+	    &=\left\{\lambda_n:\text{ insieme degli autovalori di } A\right\}
+	\end{align*}
+\item Possiamo sfruttare la decomposizione spettrale per calcolare funzioni di $A$\marginpar{Funzioni $f(A)$}.\\
+Partiamo definendo $P_n$ come il proiettore associato a $\psi_n$, che se applicato ad un vettore lo proietta nel sottospazio 1-dimensionale generato da $\psi_n$. Possiamo riscrivere gli elementi di matrice di $A$ usando $P_n$:
+	\[
+	\left(\psi, A\phi\right)=\sum_{n}{\lambda_n\left(\psi,P_n\phi\right)}=\left(\psi, \left(\sum_{n}{\lambda_n P_n}\right)\right) \Rightarrow A=\sum_{n}{\lambda_n P_n}
+	\]
+	Abbiamo perciò ottenuto $A$ come la somma delle sue "proiezioni" $\lambda_n P_n$.\\
+	Ma allora data una funzione $f$:
+	\begin{equation}
+	f\left(A\right)=\sum_{n}{f\left(\lambda_n\right)P_n}
+	\label{eqn:funzioniop}
+	\end{equation}
+	E lo spettro $\sigma \left(f\left(A\right)\right)=f(\sigma \left(A\right))$. 
+	In questo modo giustifichiamo anche in MQ la richiesta che avevamo fatto nei paragrafi di descrizione matematica di un sistema fisico, quando si era supposta l'esistenza di funzioni $g(O)$ di un osservabile $O$. Poiché qui l'osservabile è descritto dall'operatore $A$, se la corrispondenza tra i due è ben definita dobbiamo poter definire funzioni $f(A)$, che sono appunto descritte nel modo appena presentato.
+\end{enumerate}
+
+\textbf{Riepilogando}:
+\begin{itemize}
+    \item Le osservabili sono descritte da operatori $A$ lineari (in modo che dipendano dallo stato e non dal vettore usato per rappresentarlo), con dominio $D(A)$ denso in $\hs$ (vogliamo che siano definiti per "tutti" gli stati, e gli altri li vogliamo poter approssimare) %Forse la linearità ha a che fare con l'ambiguità a meno di una fase
+    \item Gli operatori $A$ sono \textbf{simmetrici} ($\forall \psi \in D(A)$ si ha $A^\dag \psi = A\psi$), in modo che i valori medi siano reali
+    \item Gli operatori $A$ sono \textbf{autoaggiunti} ($A = A^\dag$ con $D(A) = D(A^\dag)$) in modo che si possano definire funzioni di osservabili.
+\end{itemize}
+
+%ESEMPIO
+\textbf{Esempio numerico}. 
+Proviamo a fare un esempio concreto di decomposizione spettrale\marginpar{Esempio di decomposizione spettrale}, in $\hs = \mathbb{C}^3$. Un operatore lineare su $\bb{C}^3$ è quindi dato da una matrice $3\times 3$ a valori complessi. Consideriamo $A$ data da:
+\[
+A=\left(\begin{matrix}2&-i&i\\i&2&1\\-i&1&2\\\end{matrix}\right) 
+\]
+Si verifica immediatamente che $A$ è uguale alla sua trasposta coniugata, e quindi definisce un operatore simmetrico, che è anche autoaggiunto (essendo $\bb{C}^3$ finito-dimensionale): $A = A^\dag$.\\
+\begin{enumerate}
+    \item Determiniamo gli \textbf{autovalori} $\lambda$ di $A$. Da $\op{det}(A-\lambda \bb{I}) \overset{!}{=} 0$, otteniamo
+    $
+    (2-\lambda)[(2-\lambda^2)-1]-i(-2i+\lambda i -1)-i(-i -2i +\lambda i) = -\lambda^3 + 6\lambda^2 - 9\lambda = -\lambda(\lambda -3)^2 = 0$\\
+    Perciò gli autovalori sono $\lambda_1 = 0$ (senza degenerazione) e $\lambda_2 = 3$ (con degenerazione $2$).\\
+    \item Troviamo gli \textbf{autovettori} associati a $\lambda_1, \lambda_2$.
+    \begin{itemize}
+    \item Per $\lambda_1 =0$, avremo un autovettore $\left|\psi_0\right\rangle$
+	\begin{align*}
+	\left(A-0\mathbb{I}\right)\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)&=0\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)=\left(\begin{matrix}0\\0\\0\\\end{matrix}\right)\\
+	\left(\begin{matrix}2&-i&i\\i&2&1\\-i&1&2\\\end{matrix}\right)\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)=\left(\begin{matrix}0\\0\\0\\\end{matrix}\right)
+	&\Rightarrow
+	\begin{cases}
+	2a-ib+ic=0 & (a)\\
+	ia+2b+c=0 & (b)\\
+	-ia+b+2c=0 & (c)
+	\end{cases}\\
+	&\Rightarrow 
+	\begin{cases}
+	a=ib & (a \text{ dopo sost. })\\
+	c=-b & (b+c)
+	\end{cases}\\
+	&\Rightarrow \left|\psi_0\right\rangle=N\left(\begin{matrix}i\\1\\-1\\\end{matrix}\right)=\frac{1}{\sqrt3}\left(\begin{matrix}i\\1\\-1\\\end{matrix}\right)
+	\end{align*}
+	Dove abbiamo scelto di normalizzare il vettore a $1$ (cioè in modo che  $\left\langle\psi_0\middle|\psi_0\right\rangle=1$)
+	\item Per $\lambda_2=3$, avremo due autovettori $\left|\psi_{3,1}\right\rangle$, $\left|\psi_{3,2}\right\rangle$
+	\begin{align*}
+	\left(A-3\mathbb{I}\right)\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)=0\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)&=\left(\begin{matrix}0\\0\\0\\\end{matrix}\right)\\
+	\left(\begin{matrix}-1&-i&i\\i&-1&1\\-i&1&-1\\\end{matrix}\right)\left(\begin{matrix}a\\b\\c\\\end{matrix}\right)=\left(\begin{matrix}0\\0\\0\\\end{matrix}\right)& \Rightarrow 
+	\begin{cases}
+	-a -ib +ic = 0 & (a)\\
+	ia -b +c =0 & (b)\\
+	-ia +b -c = 0 (c)
+	\end{cases}
+	\Rightarrow 
+	-ia+b -c=0
+	\end{align*}
+	(Notiamo infatti che le a-b-c sono equazioni equivalenti, infatti (c) = -(b) e (a) = i(b), quindi basta prendere una qualunque tra le tre. In questo caso otteniamo un autospazio di dimensione massima (2), pari alla degenerazione dell'autovalore $\lambda_2$).\\
+	Riscrivendo $c = -ia + b$, possiamo prendere un autovettore del tipo:
+	\[
+	\left|\psi_3\right\rangle= \left(\begin{matrix}a\\b\\-ia+b\\\end{matrix}\right)=a\left(\begin{matrix}1\\0\\-i\\\end{matrix}\right)+b\left(\begin{matrix}0\\1\\1\\\end{matrix}\right)
+	\]
+	Cerchiamo una qualsiasi combinazione di $a$ e $b$ per ottenere un vettore che sia normale a $\ket{\psi_0}$. Prendendo per esempio $a=0$ e $b=1$ e normalizzando otteniamo:
+	\[
+	\left|\psi_{3,2}\right\rangle=\frac{1}{\sqrt2}\left(\begin{matrix}0\\1\\1\\\end{matrix}\right)
+	\]
+	E si ha immediatamente che $\braket{\psi_{3,2}|\psi_0} = 0$.\\
+	Cerchiamo ora un altro autovettore nello stesso autospazio che sia ortogonale a $\braket{\psi_{3,1}}$:
+	\[
+	\left\langle\psi_{3,1}\middle|\psi_{3,2}\right\rangle=0 \Rightarrow
+	\begin{pmatrix}a&b&-ia+b\end{pmatrix}\left(\begin{matrix}0\\1\\1\\\end{matrix}\right)=0\Rightarrow b=i \frac{a}{2}
+	\]
+	Che, assieme alla condizione $c=-ia+b$ di prima, per $a=2$ produce:
+	\[
+	\left|\psi_{3,1}\right\rangle=N\left(\begin{matrix}2\\i\\i-2i\\\end{matrix}\right)=\frac{1}{\sqrt6}\left(\begin{matrix}2\\i\\-i\\\end{matrix}\right)
+	\]
+\end{itemize}
+\item Otteniamo ora i \textbf{proiettori} a partire dagli autovalori. Partendo dalla definizione di (\ref{eqn:proiettore}) in notazione di Dirac, e riconoscendo che in $\bb{C}^3$ un "bra" è un vettore-riga $1\times 3$ (essendo un funzionale che agisce su vettori di dim. 3) mentre un "ket" è un normale vettore-colonna $3\times 1$, basta svolgere dei prodotti matriciali, che daranno come risultato un operatore (ossia una matrice $3\times 3$, dato che moltiplichiamo $(3\times 1) \cdot (1\times 3)$):
+\begin{align*}
+	P_0&=\left|\psi_0\right\rangle\left\langle\psi_0\right|=\frac{1}{\sqrt3}\left(\begin{matrix}i\\1\\-1\\\end{matrix}\right)\frac{1}{\sqrt3}\left(\begin{matrix}-i\\1\\-1\\\end{matrix}\right)=\frac{1}{3}\left(\begin{matrix}1&i&-i\\-i&1&-1\\i&-1&1\\\end{matrix}\right)\\
+	P_{3,1}&=|\psi_{3,1}\rangle \langle \psi_{3,1}|=\frac{1}{6}\left(\begin{matrix}4&-2i&2i\\2i&1&-1\\-2i&-1&1\\\end{matrix}\right)\\
+	P_{3,2}&=\left|\psi_{3,2}\right\rangle\left\langle\psi_{3,2}\right|=\frac{1}{2}\left(\begin{matrix}0&0&0\\0&1&1\\0&1&1\\\end{matrix}\right)
+	\end{align*}
+\textbf{Nota}: moltiplicando ciascun proiettore per il suo autovalore riotteniamo l'operatore iniziale (come ci si aspetta, dato che stiamo sommando le sue "proiezioni" - intese come operatori):
+\[
+0\cdot P_0+3\cdot P_{3,1}+3\cdot P_{3,2}=A
+\]
+Possiamo poi usare la decomposizione spettrale per calcolare funzioni di $A$, tramite la formula in (\ref{eqn:funzioniop}). Per esempio:
+\begin{align*}
+    e^A&=e^0P_0+e^3P_{3,1}+e^3P_{3,1}\\
+    \cos A &= \cos 0 P_0 + \cos 3 P_{3,1} + \cos 3 P_{3,2}
+\end{align*}
+\end{enumerate}
+
+%\end{document}

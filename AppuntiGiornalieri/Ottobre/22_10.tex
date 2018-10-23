@@ -1,0 +1,215 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+\begin{document}
+%\section{Lezione 5:\\ \large{Evoluzione temporale}} %portare a section gli enti della descrizione matematica e usare chapter, magari trasferire la class a book - per poter usare chapter/part) (ma fixare il problema dei marginpar che compaiono a sinistra per pagine pari DONE
+\section{Evoluzione temporale}
+\vspace{-1em}
+\begin{center}
+    \small{(22/10/2018)}
+\end{center}
+Occupiamoci ora di analizzare le regole che in MQ determinano l'evoluzione temporale di un sistema da un certo stato $\ket{\psi_1}$ a un altro $\ket{\psi_2}$.
+
+\subsection{Formulazione di Heisenberg}
+Nella formulazione di Heisenberg si parte dalla descrizione matematica della regola combinatoria di Ritz-Rydberg:
+\begin{align*}
+q_{mn}\left(t\right)&=q_{mn}e^{i\omega_{mn}t}\\
+\dot{q_{mn}}\left(t\right)&=i\omega_{mn}e^{i\omega_{mn}t}\underset{(a)}{=}
+\frac{\mathcal{E}_n-\mathcal{E}_m}{i\hbar}q_{mn}\left(t\right)=\frac{\left[q,H\right]_{mn}}{i\hbar}
+\end{align*}
+dove in (a) si è sostituita l'espressione per l'energia $\mathcal{E}=\hbar \omega$
+(dove $H$ matrice diagonale delle energie $\mathcal{E}_i$)\\
+Estendendo ad una generica osservabile $A$ si ottiene perciò:
+$A^H\left(t\right)$
+\[
+\frac{dA^H(t)}{dt}=\frac{[A^H(t), H]}{i\hbar}
+\]
+\subsection{Formulazione di Schrodinger}
+Schrodinger, invece, partì da un'analogia con l'ottica geometrica, e riutilizzò il formalismo ondulatorio per l'elettromagnetismo, giungendo a scrivere l'equazione:
+\[
+i\hbar \frac{\partial}{\partial t} \psi(t) = H\psi(t)
+\]
+
+\subsection{Formulazione di Dirac}
+Abbiamo appena visto due "descrizioni dell'evoluzione temporale". Ma qual è esattamente la relazione tra di esse? (Ci aspettiamo siano equivalenti, ma come?)\\
+Di nuovo, l'identificazione tra i due modi di procedere fu effettuata da Dirac.\\
+Considereremo in questo corso i soli \textbf{sistemi isolati}, per cui vale l'\textbf{omogeneità del tempo}\index{Omogeneità del tempo}\marginpar{Omogeneità del tempo}: essendo non "perturbati", fare le misure "prima" o "dopo" non cambia il risultato, contano solo gli intervalli di tempo \textit{relativi} tra due misurazioni successive.\\ Matematicamente, l'evoluzione temporale del sistema è quindi data da una traslazione temporale che forma un gruppo additivo isomorfo a $\bb{R}$.
+Ciò corrisponde al fatto che, se il sistema $\Sigma$ diviene $\Sigma\left(t_1\right)$ ad un tempo $t_1$ e $\Sigma\left(t_2\right)$ dopo un ulteriore $t_2$, a $\Sigma\left(t_2\right)$ posso arrivare a tale stato "finale" in maniera completamente equivalente partendo da $\Sigma$ e lasciando passare un tempo $t_1+t_2$ (dato che non ci saranno perturbazioni nel frattempo).\\
+
+Consideriamo la probabilità di transizione da $\ket{\phi}$ a $\ket{\psi}$ data da: $\braket{\phi|\psi}^2$. 
+Se l'evoluzione temporale è data da $\ket{\phi}\to \ket{\phi \left(t\right)}$ dopo un certo $t$, $\ket{\psi}\to \ket{\psi\left(t\right)}$ dopo un certo $t$, allora, per omogeneità del tempo:
+\[
+\left|\left\langle\phi\left(t\right)\middle|\psi\left(t\right)\right\rangle\right|^2=\braket{\phi|\psi}^2
+\]
+Se così non fosse vi sarebbero istanti "ben riconoscibili", e le misure dipenderebbero dal "valore assoluto del tempo".\\
+
+Allora, un operatore che descrive l'evoluzione temporale per $\ket{\phi}\to |\phi^\prime\rangle$, $\ket{\psi}\to |\psi^\prime\rangle$, deve preservare le probabilità di transizione:
+\[
+\braket{\phi|\psi}^2=\left|\left\langle\phi^\prime\middle|\psi^\prime\right\rangle\right|^2
+\]
+Un operatore che soddisfa tutto ciò è, per esempio, un $U$ unitario:
+\[
+\left|\phi^\prime\right\rangle=U\ket{\phi}
+\]
+Infatti:
+\begin{equation}
+\left|\left\langle\phi^\prime\middle|\psi^\prime\right\rangle\right|^2=\left|\left\langle U\phi\middle| U\psi\right\rangle\right|^2=\left|\left\langle\phi\middle| U^\dag U\psi\right\rangle\right|^2\underset{(a)}{=}\braket{\phi|\psi}^2
+\label{eqn:prob-unitario}
+\end{equation}
+dove in (a) si è applicata la definizione di operatore unitario, per cui $U^\dag U=\bb{I}$.\\
+
+Matematicamente la condizione da rispettare è un modulo-quadro: avremo quindi un'altra soluzione, per un operatore "invertente" che denotiamo come $\bar{U}$ e chiamiamo antiunitario.
+\begin{dfn}
+Un operatore antiunitario $\bar{U}$ è un operatore antilineare che soddisfa ${\bar{U}}^\dag U=\bb{I}$, dove ${\bar{U}}^\dag$ è definito da:
+\[
+\left(\chi,\bar{U}\psi\right)=\left({\bar{U}}^\dag\chi,\psi\right)^\ast=\left(\psi,{\bar{U}}^\dag\chi\right)
+\]
+(Si noti "l'inversione" del prodotto scalare)
+\end{dfn}
+In effetti, $\bar{U}$ verifica la condizione dell'omogeneità del tempo:
+\begin{equation}
+\left|\left\langle\phi^\prime\middle|\psi^\prime\right\rangle\right|^2=\left|\left\langle\bar{U}\phi,\ \bar{U}\psi\right\rangle\right|^2=\left|\left\langle\psi,\ {\bar{U}}^\dag\bar{U}\phi\right\rangle\right|^2=\left|\left\langle\psi\middle|\phi\right\rangle\right|^2=\braket{\phi|\psi}^2
+\label{eqn:prob-antiunitario}
+\end{equation}
+Notiamo che in (\ref{eqn:prob-unitario}) e (\ref{eqn:prob-antiunitario}), $U$ e $\bar{U}$  sono definiti a meno di una fase (che non cambia la probabilità di transizione), consistentemente con il fatto che gli stati puri sono caratterizzati da raggi vettori e non vettori.\\
+Ci si potrebbe chiedere se anche altri operatori (oltre a quelli unitari e antiunitari) soddisfino la condizione sulle probabilità di transizione.\\
+Fortunatamente, la questione è risolta dal seguente teorema:
+\begin{thm}
+Le mappe tra raggi vettori\marginpar{Teorema di Wigner} di $\hs$ che preservano le probabilità di transizioni sono descritte tutte o da operatori unitari o da operatori antiunitari definiti a meno di una fase.
+\[
+\hat{U}=\left\{e^{i\alpha}U,\ U\text{ unitario}\right\}; \quad 
+\widehat{\bar{U}}=\left\{e^{i\alpha}U,\ \bar{U}\text{ unitario}\right\}
+\]
+Detti \textbf{raggi operatori} unitari o antiunitari.
+\end{thm}
+L'evoluzione temporale di un sistema conservativo deve però essere descritta dalle traslazioni temporali, che costituiscono un gruppo per addizione isomorfo a $\bb{R}$.\\
+Concretamente stiamo chiedendo che l'operatore di evoluzione temporale sia "indicizzato" dal tempo, ossia che l'operatore al tempo $t_1+t_2$ si ottenga dalla composizione dell'operatore al tempo $t_1$ e quello al tempo $t_2$. In altre parole, la composizione di due "evoluzioni temporali" è ancora un'evoluzione temporale (come è ovvio che debba essere).\\
+Cerchiamo quindi una mappa:
+\[
+t\to \hat{U}(t)\> \text{ (o $\widehat{\bar{U}}(t)$)}
+\]
+con la proprietà:
+\[
+\hat{U}\left(t_1\right)\hat{U}\left(t_2\right)=\hat{U}\left(t_1+t_2\right)
+\]
+(ed equivalentemente per l'antiunitario).\\
+Poiché i membri di ogni classe $\hat{U}$ sono definiti a meno di una fase, possiamo scegliere degli operatori unitari rappresentativi dei raggi $\hat{U}\left(t_1\right)$, $\hat{U}\left(t_2\right)$, $\hat{U}\left(t_1+t_2\right)$ in modo che:
+\[
+U\left(t_1\right)U\left(t_2\right)=e^{i\alpha\left(t_1,t_2\right)}U\left(t_1+t_2\right)
+\]
+Notiamo allora che solo gli operatori unitari soddisfano questa ulteriore condizione. Infatti, imponendola per quelli antiunitari:
+\[
+\bar{U}\left(t_1\right)\bar{U}\left(t_2\right)=e^{i\alpha\left(t_1,t_2\right)}\bar{U}\left(t_1+t_2\right)
+\]
+che è impossibile perché $\bar{U}\left(t_1+t_2\right)$ è antiunitario, ma il prodotto di due operatori antiunitari $\bar{U}\left(t_1\right)\bar{U}\left(t_2\right)$ è unitario! (è come se stessi "invertendo il segno" due volte) %Dimostrare
+
+\subsection{Concetti di teoria dei gruppi}
+Introduciamo ora alcuni concetti elementari di teoria dei gruppi, per meglio formalizzare i risultati appena ottenuti. 
+\begin{dfn}
+Una \textbf{rappresentazione lineare}\marginpar{Rappresentazione lineare di un gruppo} di un gruppo $G$ su uno spazio vettoriale $V$ è una mappa da $G$ negli operatori lineari invertibili $O\in \mathcal{L}(V)$ (dove $\mathcal{L}$ è l'insieme degli operatori lineari invertibili su $V$) che preserva la struttura di gruppo:
+\begin{align*}
+    G&\to L\left(V\right)\\
+g&\mapsto O\left(g\right)
+\end{align*}
+con le proprietà:
+\[
+O\left(g_1\right)O\left(g_2\right)=O\left(g_1g_2\right); \quad O(e) = \bb{I}
+\]
+(dove $e$ è l'elemento neutro del gruppo).\\
+Tale rappresentazione si dice:
+\begin{itemize}
+    \item \textbf{unitaria} se $V=\hs$ è di Hilbert e gli operatori $O$ sono unitari
+    \item (unitaria) \textbf{proiettiva} se è definita da operatori unitari a meno di una fase, ovvero da raggi operatori unitari
+    \item \textbf{continua} se la mappa $g\mapsto O(g)$ è continua
+\end{itemize}
+\end{dfn}
+Quindi $t\mapsto \hat{U}(t)$ è proiettiva in $\hs$.\\
+Riepilogando, ciò fisicamente deriva dal fatto che se un sistema è isolato, le proprietà fisiche non possono dipendere dall'istante in cui sono misurate. Tra di esse ci sono le probabilità di transizione, che perciò devono rimanere invariate per traslazioni temporali. Poiché in fisica misuriamo solo raggi vettori (si ha accesso solo a fasi relative tra due vettori, ma non alla fase "assoluta" di ciascuno di essi), per forza gli operatori di evoluzione temporale non possono dipendere dalla particolare fase "assoluta" del singolo vettore, ossia dal peculiare rappresentativo all'interno della classe dei raggi vettori - e da qui la necessità di dare una mappa proiettiva.\\
+Sfortunatamente, la teoria proiettiva è molto più complicata di quella semplicemente unitaria.
+\textit{Cerchiamo di ridurre l'analisi delle proiettive a quelle unitarie.}\\
+Fortunatamente, però, ci sono risultati (comodi) che collegano i due tipi di rappresentazioni. Prima di introdurli ci occorre il concetto di gruppo di ricoprimento universale.
+\begin{dfn}
+Dato un gruppo $G$\marginpar{Ricoprimento universale di un gruppo}, definiamo $\widetilde{G}$, il gruppo di \textbf{ricoprimento} (o rivestimento) \textbf{universale} di G, come il più piccolo gruppo che ha le seguenti proprietà:
+\begin{enumerate}
+    \item Omeomorfo a $G$, cioè esiste una mappa $\pi :\widetilde{G}\to G$ che preserva la struttura di gruppo:
+    \[
+	\pi \left({\widetilde{g}}_1\right)\pi \left({\widetilde{g}}_2\right)=\pi \left({\widetilde{g}}_1{\widetilde{g}}_2\right), {\widetilde{g}}_1,{\widetilde{g}}_2\in \widetilde{G}; \quad
+	\pi \left(\widetilde{e}\right)=e
+	\]
+	\item $\widetilde{G}$ è semplicemente connesso, cioè ogni cammino chiuso in $\widetilde{G}$, $\left\{\widetilde{g}\left(t\right),\ t\in\left[0,1\right],\ \widetilde{g}\left(0\right)=\widetilde{g}(1)\right\}$ si può deformare con continuità a un punto.
+\end{enumerate}
+\end{dfn}
+Facciamo alcuni esempi: %Inserire disegnetti
+\begin{itemize}
+\item Se $G=\left(\mathbb{R},+\right)$, un cammino chiuso è uno che "va avanti e indietro" sulla retta reale. Ma allora basta "spostare" il punto estremo (quello raggiunto quando "si gira indietro") e farlo coincidere con quello iniziale - cosa che si può fare con continuità. Allora il rivestimento universale di $\bb{R}$ è $\bb{R}$ stesso:
+\[
+\widetilde{\mathbb{R}}=\bb{R}
+\]
+\item Sia invece $G=U\left(1\right)= \left\{e^{i\alpha},\text{ con l'operazione di moltiplicazione}\right\}$ (infatti $e^{i\alpha}e^{i\beta}=e^{i\left(\alpha+\beta\right)}$).\\
+$G$ non è semplicemente connesso: in effetti posso rappresentarlo come una circonferenza, e se considero un cammino chiuso che "si avvolge completamente su di essa", non c'è modo di contrarlo ad un punto. Perciò questo caso non si può risolvere come prima.\\
+Potremmo però considerare una "spirale" infinita in tre dimensioni, la cui proiezione sul piano è la circonferenza originaria. Stando sulla spirale, un percorso che è chiuso nella sua proiezione è in realtà aperto e contraibile. Tale spirale è isomorfa a $\bb{R}$, e quindi si ha:
+\[\widetilde{U}\left(1\right)\approx \bb{R}
+\]
+\end{itemize}
+\begin{thm}
+Sotto assunzioni deboli\marginpar{Teorema di Bargmann} su $G$, esiste una corrispondenza biunivoca tra le rappresentazioni proiettive continue di un gruppo $G$ e le rappresentazioni unitarie del suo gruppo di ricoprimento universale $\widetilde{G}$.
+\end{thm}
+
+Nel caso delle traslazioni temporali $G\cong \bb{R}\cong \widetilde{\mathbb{R}}=\widetilde{G}$ il teorema di Bargmann ci dice che nelle equazioni:
+\[
+U\left(t_1\right)U\left(t_2\right)=e^{i\alpha\left(t_1,t_2\right)}U\left(t_1+t_2\right)
+\]
+possiamo sempre scegliere $\alpha \left(t_1,t_2\right)=0\Rightarrow U\left(t_1\right)U\left(t_2\right)=U\left(t_1+t_2\right)$.\\
+Quindi $\left\{U\left(t\right),\ t\in\mathbb{R}\right\}$ è un \textbf{gruppo continuo a un parametro} (cioè $g\left(t\right)g\left(s\right)=g(t+s)$, $g\left(0\right)=e$, $g(t)$ continuo in $t$) di operatori unitari.
+
+\begin{thm}
+Dato un gruppo continuo\marginpar{Teorema di Stone} ad un parametro di operatori unitari $U(t)$ in $\hs$, esiste un dominio denso $D\left(A\right)$ in $\hs$ in cui, $\forall \psi \in D\left(A\right)$, (in topologia forte):
+\[
+\exists \lim_{t\rightarrow0}{\frac{U\left(t\right)-A}{it}\psi\equiv}\frac{1}{i}\frac{dU\left(t\right)}{dt}\psi \equiv A\psi
+\]
+con A operatore autoaggiunto in $D\left(A\right)$ e $U\left(t\right)=e^{itA}$ unitario (l'unitarietà di questa forma era già stata dimostrata in (\ref{eqn:esponenzialeunitario}))\\
+Tale risultato è analogo a uno già visto nel corso di Fisica Matematica, per cui ad ogni quantità fisica è associato un "flusso", ossia un modo di trasformare le funzioni del sistema (come se usassimo l'espressione di una grandezza come hamiltoniana). Qui $A$ è un operatore che descrive un'osservabile, e l'esponenziale dell'operatore dà questo "flusso".
+\end{thm}
+Poiché in MC il generatore dell'evoluzione temporale è l'Hamiltoniana:
+\[
+\frac{df}{dt}=\left\{f,H\right\}
+\]
+Con un argomento di analisi dimensionale, poiché $t$ ha le dimensioni del tempo, per rendere l'esponente di $e^{itA}$ adimensionale:
+\[
+\left[A\right]=\left[t\right]^{-1}; \quad
+\left[H\right]=\left[energia\right]; \quad
+\left[\hbar\right]=\left[\text{energia}\right]\left[t\right]
+\]
+Perciò $A=-\frac{H}{\hbar}$ (il meno si aggiunge per riprodurre la notazione di Schrodinger).
+
+\begin{axi}
+L'evoluzione \marginpar{Assioma dell'evoluzione degli stati puri}di uno stato descritto da $\psi \in \hs$ di un \textbf{sistema isolato} in MQ è data da:
+\[
+\psi \left(t\right)=U\left(t\right)\psi 
+\]
+Con:
+\[
+U\left(t\right)=e^{-\frac{i}{\hbar}Ht}
+\]
+Ove $\hs$ è l'hamiltoniana quantistica, che descrive l'energia del sistema.\\
+\textit{Questa è l'equazione più generale possibile, che vale per qualsiasi $\psi$!}
+\end{axi}
+Se in più $\psi \in D(H)$, allora, da Stone otteniamo l'equazione di Schrodinger:
+\[
+i\hbar \frac{\partial}{\partial t}\psi(t) = i\hbar \frac{\partial U(t)}{\partial t}\psi = HU(t)\psi = H\psi(t) 
+\]
+
+\textbf{Nota}: Sebbene l'evoluzione $U(t)$ sia definita per ogni $\psi \in \hs$, solo per le $\psi \in D(H)$ ha senso l'equazione di Schrodinger. Questo, tra l'altro, risolve il problema che può dar luogo a fraintendimenti nella soluzione all'equazione di Schrodinger:
+\[
+	H\psi =\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V\left(x\right)\right)\psi \left(x\right)
+\]
+	Perché tale equazione sia ben definita, $\psi^{\prime\prime}(x)$ deve almeno esistere q.o., ma questo non è garantito per $\psi \in L^2$! Questa non è una restrizione su $\psi \in L^2$, ma su $D(H)$. Perciò, per preparare uno stato $\ket{\psi}$ deve essere in $L^2$, per applicare Schrodinger deve essere definita l'Hamiltoniana, per cui serve la derivata seconda. Dall'equazione di Schrodinger si otterranno soluzioni che saranno generalmente più regolari delle generiche $\psi \in L^2$.\\
+	Tuttavia, essendo $H$ autoaggiunto in $D\left(H\right)$, usando Stone, se conosciamo la sua famiglia spettrale $P^H\left(\lambda\right)$:
+	\[
+	U\left(t\right)\psi =\int e^{-\frac{it\lambda}{\hbar}}dP^H\left(\lambda\right)\psi 
+	\]
+	Allora (nel caso senza degenerazione, per semplicità):
+	\[ %Sistemare ket
+	U(t)\ket{\psi} = \sum_{\mathcal{E}_n \in \sigma_P(H)} \exp\left (-\frac{i}{\hbar}\mathcal{E}_n t\right) \ket{\mathcal{E}_n}\braket{\mathcal{E}_n |\psi} +
+	\int_{\sigma_C(H)} \exp\left(-\frac{i}{\hbar}\mathcal{E}t\right ) \ket{\mathcal{E}}\braket{\mathcal{E}|\psi}\, d\mathcal{E} \quad \forall \ket{\psi}\in \hs
+	\]
+Per esercizio, prova a risolvere l'equazione di Schrodinger per $\psi \left(x\right)=1$ tra $0$ e $1$ (che vale $0$ altrimenti), e poi applicare quest'altro metodo di soluzione. Si vedrà che nel primo caso si ottiene una soluzione assurda (non essendo nel dominio di $H$), mentre il secondo è il metodo giusto.
+\end{document}

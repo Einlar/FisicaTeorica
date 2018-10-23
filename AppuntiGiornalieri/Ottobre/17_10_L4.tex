@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+
+\input{header.tex}
+
+\begin{document}
+\section{Lezione 4:\\ \large{Il Formalismo di Dirac}}
+\vspace{-1em}
+\begin{center}
+    \small{(17-18/10/2018)}
+\end{center}
+Osserviamo ora più nel dettaglio la notazione di Dirac, finora occasionalmente utilizzata senza definizioni precise.\\
+In effetti, Dirac elaborò il suo formalismo ciò senza utilizzare spazi di Hilbert - che del resto ancora non esistevano. Solo tramite la teoria delle distribuzioni e una matematica decisamente sofisticata è possibile però dare pienamente senso alla sua notazione, che assume così i caratteri e la consistenza propri della matematica.\\
+L'idea alla base della notazione di Dirac è quella di partire dal formalismo per lo spettro discreto e applicarlo, in maniera naturale, anche quello continuo. Vediamo come.\\
+\subsection{Formalismo per lo spettro discreto}
+Sia $A$ un operatore autoaggiunto, il cui spettro è solo dato dagli autovalori "di algebra lineare", e quindi è puramente puntuale: $\sigma \left(A\right)= \sigma_P\left(A\right)= \left\{\lambda_n\right\}$.\\
+In notazione di Dirac, l'equazione agli autovalori diviene:
+\[
+A \left|\lambda_n\right\rangle=\lambda_n|\lambda_n \rangle 
+\]
+Per semplicità ci limiteremo per ora ai casi in cui i $\lambda_n$ non presentano degenerazione, ossia per cui ad ogni autovalore corrisponde un solo autovettore\footnote{Nel caso finito dimensionale questa è la situazione delle matrici diagonalizzabili}.\\
+Sappiamo che i $\ket{\lambda_n}$  costituiscono una base ON, quindi possiamo scrivere un qualsiasi altro ket o bra come somme delle loro proiezioni su di essi:
+\begin{equation}
+\left|\psi\right\rangle=\sum_{n}{|\lambda_n\rangle \langle\lambda_n|\psi\rangle }; \quad 
+\langle \phi |=\sum_{n}{\langle\phi|\lambda_n\rangle \langle\lambda_n|}
+\label{eqn:bra-ket}
+\end{equation}
+Ove $\langle \lambda_n|$ sono i funzionali in $\mathcal{H}^\ast$ associati a $|\lambda_n \rangle$  per Riesz.\\
+La relazione di Parseval diviene:
+\begin{equation}
+\left\langle\phi\middle|\psi\right\rangle=\sum_{n}{\langle\phi|\lambda_n\rangle \langle\lambda_n|\psi\rangle }
+\label{eqn:parseval-relazione}
+\end{equation}
+Si ha che (\ref{eqn:bra-ket}) e (\ref{eqn:parseval-relazione}) sono compatibili solamente se:
+\[
+\left\langle\lambda_n\middle|\lambda_m\right\rangle=\delta_{mn}
+\]
+Tale risultato è sintetizzato nella \textbf{completezza di Dirac}:
+\[
+\sum_{n}{|\lambda_n\rangle \langle\lambda_n|}=\bb{I}
+\]
+In questo modo è allora definita anche la rappresentazione spettrale di $A$:
+\[
+A\sum_{n}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=\sum_{n}{\lambda_n\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=A}}
+\]
+\subsection{Formalismo per lo spettro continuo}
+Se invece $\lambda \in \sigma_C\left(A\right)$, che senso ha l'equazione agli autovalori $A\left|\lambda\right\rangle=\lambda |\lambda  \rangle$?\\
+Infatti, come abbiamo visto, se $\lambda \in \sigma_C(A)$, $|\lambda\rangle$  non può essere un autovettore in $\hs$!\\
+Non è però escluso che possa esserlo in uno spazio "più grande" di $\hs$.\\
+Prendiamo per esempio l'operatore posizione $A=X$, che agisce su $\ket{\lambda}$ come $X\ket{\lambda} = x \ket{\lambda}$. Allora l'equazione agli autovalori diviene (nella rappresentazione in posizioni):
+\[
+X\ket{\lambda} = \lambda\ket{\lambda} \Rightarrow x\ket{\lambda} = \lambda\ket{\lambda} \Rightarrow (x-\lambda)\ket{\lambda} = 0
+\]
+Un \textit{oggetto} che soddisfa questa condizione (e che quindi può fungere da "autovettore" generalizzato) è la delta di Dirac. Indichiamola con $\delta(x-\lambda) = \braket{x|\lambda}$. Sostituendola al posto dell'autovettore:
+\[
+(x-\lambda )\langle x | \lambda \rangle = 0 \Rightarrow (x-\lambda)\delta(x-\lambda) = 0
+\]
+%Sistemare qui [TO DO]
+Manteniamo allora, formalmente, la struttura dell'equazione agli autovalori come nel caso discreto:
+\[
+A\ket{\lambda} = \lambda \ket{\lambda}
+\]
+anche se effettivamente tali autovalori $\lambda$ non esistono in $\hs$.\\
+Ripetendo allora gli stessi ragionamenti di prima, consideriamo un operatore $A$ il cui spettro $\sigma(A)$ sia puramente continuo:
+\[
+\lambda \in \sigma_C\left(A\right)=\sigma (A)
+\]
+(di nuovo, limitiamoci al caso di autovalori senza degenerazione).\\
+Allora bra e ket sono dati da:
+\begin{equation}
+\left|\psi\right\rangle= \int_{\sigma_C(A)}{d\lambda\ \left|\lambda\right\rangle\langle\lambda|\psi\rangle };\quad
+\left\langle\phi\right|= \int_{\sigma_{C\left(A\right)}}{d\lambda\ \left\langle\phi\middle|\lambda\right\rangle\langle\lambda|}
+\label{eqn:bra-ket-continui}
+\end{equation}
+E la relazione di Parseval diviene:
+\begin{equation}
+    A\left|\lambda\right\rangle=\lambda 
+\left\langle\phi\middle|\psi\right\rangle= \int_{\sigma_{C\left(A\right)}}{d\lambda\ \langle\phi|\lambda\rangle \langle\lambda|\psi\rangle }
+    \label{eqn:parseval-continui}
+\end{equation}
+%Inserire equazione agli autovalori
+E (\ref{eqn:bra-ket-continui}) è compatibile con (\ref{eqn:parseval-continui}) solamente se vale:
+\[
+\left\langle\lambda\middle|\lambda'\right\rangle= \delta \left(\lambda-\lambda'\right)
+\]
+Che si sintetizza nella \textit{completezza}:
+\[
+\int_{\sigma_{C\left(A\right)}}{d\lambda\left|\lambda\right\rangle\left\langle\lambda\right|}=\bb{I}
+\]
+La rappresentazione spettrale di un operatore $A$ è dunque:
+\[
+A\int d\lambda  \left|\lambda\right\rangle\left\langle\lambda\right|=\int d\lambda\,\lambda \left|\lambda\right\rangle\left\langle\lambda\right|=A 
+\]
+\subsection{Formalismo per uno spettro generale}
+Il formalismo di Dirac si generalizza subito allo spettro più generale (sia discreto che continuo) $\sigma \left(A\right)= \sigma_P(A)\cup \sigma_C\left(A\right)$ e con degenerazioni.\\
+Preso un autovalore $\lambda_n\in \sigma_P(A)$ o un autovalore generalizzato ($\lambda \in \sigma_C(A)$) diremo che esso ha \textbf{degenerazione} $d(\lambda_n)$ o $d\left(\lambda\right)$ se le equazioni agli autovalori corrispondenti (nel senso di Dirac) hanno $d\left(\lambda_n\right)$ o $d\left(\lambda\right)$ soluzioni indipendenti (in $\hs$) che denotiamo rispettivamente con $\ket{\lambda_{n}, r}$ (per $r=1,\dots, d(\lambda_n$) e $\ket{\lambda, r}$ (per $r = 1,\dots, d(\lambda)$, con $d(\lambda) \in \bb{N}$ e potenzialmente $\infty$).\\ 
+Allora la completezza si scrive:
+\[
+\sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d\left(\lambda_n\right)}{\left|\lambda_n,r\right\rangle\left\langle\lambda_n,r\right|+\int_{\sigma_C\left(A\right)}\sum_{r=1}^{d\left(\lambda\right)}\left|\lambda,r\right\rangle\left\langle\lambda,r\right|=\mathbb{I}_\mathcal{H}}
+\]
+E tramite essa possiamo scrivere ogni funzione:
+\[
+f\left(A\right)= \sum_{\lambda_n\in\sigma_D\left(A\right)} f\left(\lambda_n\right)\sum_{r=1}^{d\left(\lambda_n\right)}\left|\lambda_n,r\right\rangle\left\langle\lambda_n,r\right|+\int_{\sigma_C\left(A\right)}{d\lambda f\left(\lambda\right)}\sum_{r=1}^{d\left(\lambda\right)}{\left|\lambda,r\right\rangle\langle\lambda,r|}
+\]
+Notiamo che anche in casi "semplici" è necessario la completezza nel caso più generale.\\
+Per esempio, sia $H$ l'Hamiltoniana dell'atomo di idrogeno 
+\[
+\sigma \left(H\right)=\left\{-\frac{c}{n^2},n\in\mathbb{N}\right\}\cup \left\{x>0,x\in\mathbb{R}\right\}
+\]
+Infatti, negli stati in cui l'elettrone è legato l'energia è quantizzata, con degenerazione $n^2$, ma quando è libero possiamo scegliere una qualsiasi energia in un range continuo, e un qualsiasi numero di stati hanno una determinata energia (degenerazione infinita). Abbiamo perciò sia uno spettro discreto (con degenerazione) che uno continuo (con degenerazione addirittura $\infty$).
+
+\subsection{Spazio degli autovettori dello spettro continuo}
+Come visto prima, se $\lambda \in \sigma_C(A)$ gli autovettori $\ket{\lambda}$, $\ket{\lambda,r}$ non si trovano in $\hs$, ma in uno spazio più grande (sono autovettori "generalizzati"). Definiamolo.\\
+Sia $\braket{x|\lambda} \equiv F_\lambda(x)$. Applicandovi l'operatore posizione $X$ otteniamo:
+\[
+XF_\lambda(x) = \lambda F_\lambda(x); \quad F_\lambda(x) = \delta(x-\lambda) \notin L^2(\bb{R})
+\]
+dove $\delta(x-\lambda)$ è una distribuzione, e perciò appartiene a $\mathcal{S}'(\bb{R})$. Analogamente con il momento, sia $\braket{x|\mu}\equiv F_\mu(x)$:
+\[
+P F_\mu(x) = \mu F_\mu(x); \quad F_\mu(x) = \exp\left ( i\frac{\mu}{\hbar}x\right ) \notin L^2(\bb{R}),\> \in \mathcal{S}'(\bb{R})
+\] %Perché l'esponenziale? SIgnfiicato di F_\mu?
+Il fatto che le soluzioni dell'equazione agli autovalori non siano in $L^2(\bb{R})$ significa che esse non corrispondono a "stati fisici", fisicamente possibili. In particolare, ciò vuol dire che non è possibile localizzare una particella perfettamente in un punto, né assegnarle un singolo momento definito.\\
+$\mathcal{S}'\left(\mathbb{R}\right)$ è più precisamente lo spazio dei funzionali lineari continui su $\hs(\bb{R})$, che è lo spazio delle funzioni $\mathcal{C}^\infty$ che descrescono all'infinito (assieme a tutte le loro derivate) più rapidamente di $x^{-n} \forall n$.\\
+Possiamo generalizzare a $n$-dimensioni:
+\begin{itemize}
+    \item $\mathcal{S}\left(\mathbb{R}^n\right)=$ funzioni $\mathcal{C}^\infty$ su $\mathbb{R}^n$ che decrescono più velocemente della norma $\left|\left|x\right|\right|^{-m} \forall m$
+    \item $\mathcal{S}'(\bb{R}^n)$ = spazio dei funzionali lineari continui su $\mathcal{S}(\bb{R}^n)$
+\end{itemize}
+\begin{oss}
+Notiamo che anche "funzioni regolarissime" non appartengono a $\mathcal{S}'(\bb{R})$. Infatti, le distribuzioni regolari (descritte da funzioni) in $\mathcal{S}'(R)$ non possono crescere più rapidamente  di un polinomio in $x$, per $x\rightarrow \infty$, e perciò $e^x\notin \mathcal{S}'\left(\mathbb{R}\right)$.
+\end{oss}
+Sappiamo poi (da metodi) che vale la seguente catena di inclusioni:
+\begin{equation}
+S\left(\mathbb{R}\right)\subset L^2\left(\mathbb{R}\right)\subset \mathcal{S}'\left(\mathbb{R}\right)
+\label{eqn:triplettametodi}
+\end{equation}
+L'idea è perciò quella di risolvere l'equazione agli autovalori nello "spazio più grande" $\mathcal{S}'(R)$. Continuando gli esempi su posizione $X$ e momento $P$ visti sopra, potremo trovare soluzioni $\forall \lambda \in \bb{R}$ e perciò avremo, come desiderato, che:
+\[
+\sigma(X) = \bb{R} = \sigma_C(X); \quad \sigma(P) = \bb{R} = \sigma_C(X)
+\]
+La differenza tra "autovettori" generalizzati che stanno in $\mathcal{S}'$ e autovettori "di algebra lineare" che stanno in $\hs$ è alla base della differenza tra \textit{spettro discreto} e \textit{spettro continuo}.\\
+Concretamente, se la soluzione all'equazione agli autovalori è $\in \mathcal{S}'\left(\mathbb{R}\right)$, ma $\notin \hs$ si ottiene lo \textbf{spettro continuo}, se invece è $\in \hs$ si ha lo \textbf{spettro discreto}.\\
+
+L'idea (di Gel'fand) per trovare lo\marginpar{Spettro di un operatore $A$ autoaggiunto per Gel'fand} spettro di un operatore autoaggiunto $A$ nel formalismo di Dirac sta quindi nel trovare uno spazio $\phi_A \subset \hs$ tale che:
+\begin{equation}
+\phi_A \subset \hs \approx \hs' \subset \phi_A'
+\label{tripletta-gelfand}
+\end{equation}
+Tale catena di inclusioni, che generalizza quella vista in (\ref{eqn:triplettametodi}), è detta \textbf{tripletta di Gelfand}, e $\phi_A$ è detto \textbf{spazio di Hilbert equipaggiato} (o \textit{rigged}).\\
+Perché allora il formalismo di Dirac sia ben definito, è necessario fare le seguenti richieste nella definizione di $\phi_A$:
+\begin{enumerate}
+    \item $\displaystyle \phi_A\subseteq D\left(A\right)$
+	\item $\phi_A$ è denso in $\hs$ nella topologia di $\hs$, $\bar{\mathcal{S}}\left(\mathbb{R}\right)=L^2(R)$
+	\item $A$ è continuo in $\phi_A$ nella topologia di $\phi_A$
+	\item $\phi_A$ è "nucleare" cioè i funzionali lineari continui sullo spazio delle coppie $\phi_A\times \phi_A$ (con $f,g\in \mathcal{S}(\bb{R})\times \mathcal{S}\left(\mathbb{R}\right))$ sono lineari e continui anche nello spazio delle combinazioni lineari (eventualmente infinite) dei prodotti come $f\left(x,y\right)\in S\left(\mathbb{R}^2\right)$.\\
+	
+	%%[TO DO] Sistemare questa parte!
+	(lo spazio dei funzionali lineari continui su $\mathcal{S}\left(\mathbb{R}\right)\times \mathcal{S}\left(\mathbb{R}\right)$ sono lineari continui su $\mathcal{S}(\mathbb{R}^2)$)\\
+	Cerchiamo di "giustificare" la richiesta di nuclearità. 
+	Se $\sigma \left(A\right)=\sigma_P(A)$ (senza degenerazione):
+	\[
+	\sum_{n}{|\lambda_n\rangle \langle\lambda_n|}=\mathbb{I}_\mathcal{H}
+	\left\langle\phi\left|A\right|\psi\right\rangle=\left\langle\phi\middle|\mathbb{I}A\mathbb{I}\right\rangle= 
+	= \sum_{n,m}{\left\langle\phi\middle|\lambda_n\right\rangle\left\langle\lambda_n\left|A_{nm}\right|\lambda_m\right\rangle\left\langle\lambda_m\middle|\psi\right\rangle=\ \sum_{n,m}{A_{nm}\phi_n^\ast\psi_{nm}}} 
+	\left\langle\lambda_m\middle|\psi\right\rangle= \psi_m
+	\left\langle\lambda_n\ \middle|\phi\right\rangle=\phi_n
+	\left\langle\phi\left|A\right|\psi\right\rangle
+	\] è lineare sia in $\phi_n^\ast$ che in $\psi_n$, ma è lineare anche in $\phi_n^\ast\psi_n$ (e in tutte le loro combinazioni lineari).\\
+	Se si vuole generalizzare allo spettro continuo $\sigma \left(A\right)= \sigma_C\left(A\right)$ senza degenerazione (per semplicità)
+	\[
+	\int_{\sigma_C\left(A\right)}{d\lambda\ \left|\lambda\right\rangle\langle\lambda|}=\mathbb{I}_\mathcal{H}
+	\left\langle\phi\left|A\right|\psi\right\rangle=\left\langle\phi\left|\mathbb{I}A\mathbb{I}\right|\psi\right\rangle=\int d\lambda  \lambda'\left\langle\phi\middle|\lambda'\right\rangle\left\langle\lambda\left|a\right|\lambda'\right\rangle\left\langle\lambda'\middle|\psi\right\rangle=\int d\lambda  d\lambda'\left\langle\lambda\left|A\right|\lambda'\right\rangle\left\langle\lambda|\phi\right\rangle^\ast\left\langle\lambda\middle|\psi\right\rangle
+	\]
+	Ma ciò è falso in $L^2$, infatti con $A=I$\\
+	Siano $f,g\in L^2$
+	\[
+	\left(f,\mathbb{I}g\right)=\int k\left(x,y\right)f^\ast\left(x\right)g\left(y\right)dx dy
+	=\int f^\ast\left(x\right) g\left(x\right)dx
+	\] lineare e continuo in $f^\ast$ e in $g$
+	Non esiste alcun funzionale lineare continuo
+	$ k\left(x,y\right) su L^2\left(\mathbb{R}\right)\otimes L^2\left(\mathbb{R}\right) su L^2(\mathbb{R}^2)$ che per Riesz dovrebbe appartenere a $L^2\left(\mathbb{R}^2\right)$, ma $k\left(x,y\right)=\delta \left(x-y\right)\notin L^2\left(\mathbb{R}^2\right)$
+	Ma $\in \mathcal{S}'\left(\mathbb{R}^2\right)$
+\end{enumerate}
+%Copiare da onenote!
+\end{document}
