@@ -1,15 +1,8 @@
-%\documentclass[12pt]{article}
-\begin{comment}
-\input{header.tex}
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+%\input{header.tex}
 
 \begin{document}
-\section{Lezione 3:\\ \large{Formulazione assiomatica Hilbertiana (o Standard)}}
-\vspace{-1em}
-\begin{center}
-    \small{(17/10/2018)}
-\end{center}
-\end{comment}
-
 \subsection{Spettro matematico}
 \begin{comment}
 Abbiamo definito lo spettro di un'osservabile $O$ descritta dall'operatore $A$ come:
@@ -41,12 +34,12 @@ Dimostriamo che tali $a$ non soddisfano la definizione in (\ref{eqn:spettroA}):
 \underset{(a)}{=}\inf_\phi{\frac{\left|\left|\phi\right|\right|^2}{\left|\left|\left(A-a\bb{I}\right)^{-1}\phi\right|\right|^2}}=\\
 &\underset{(b)}{=}\frac{1}{\sup_\phi{\frac{\left|\left|\left(A-a\right)^{-1}\phi\right|\right|^2}{\left|\left|\phi\right|\right|^2}}}\underset{(c)}{=}\frac{1}{\left|\left|\left(A-a\bb{I}\right)^{-1}\right|\right|^2}>\frac{1}{C^2}
 \end{align*}
-In (a) si è definito $\phi = (A-a\bb{I})\psi$ per $\psi \in D\left(A\right)$, da cui $\left(A-a\mathbb{I}\right)^{-1}\phi =\psi$. In (b) portiamo tutto al denominatore, e l'estremo inferiore di una frazione con numeratore fissato si ottiene "massimizzando" il denominatore. Ma allora applicando Riesz (norma di un funzionale) in (c) si ha che l'$\inf$ di partenza è maggiore di un numero \textit{piccolo} ma certamente maggiore di $0$. Perciò gli $a \notin \sigma(A)_{\text{mat}}$, ossia quelli per cui $(A-a\bb{I})^{-1}\in\mathcal{B}(\hs)$, non sono autovalori per la (\ref{eqn:spettroA}). Perciò:
+In (a) si è definito $\phi = (A-a\bb{I})\psi$ per $\psi \in D\left(A\right)$, da cui $\left(A-a\mathbb{I}\right)^{-1}\phi =\psi$. In (b) portiamo tutto al denominatore, e l'estremo inferiore di una frazione con numeratore fissato si ottiene \q{massimizzando} il denominatore. Ma allora applicando Riesz (norma di un funzionale) in (c) si ha che l'$\inf$ di partenza è maggiore di un numero \textit{piccolo} ma certamente maggiore di $0$. Perciò gli $a \notin \sigma(A)_{\text{mat}}$, ossia quelli per cui $(A-a\bb{I})^{-1}\in\mathcal{B}(\hs)$, non sono autovalori per la (\ref{eqn:spettroA}). Perciò:
 \[
 \sigma(A)_{\text{mat}}^C \subseteq \sigma(A)^C \Leftrightarrow \sigma(A) \subseteq \sigma(A)_{\text{mat}}
 \]
 (dove $B^C$ è l'insieme complementare di $B$).\\
-Ci serve ora dimostrare l'inclusione inversa, ossia che tutti gli autovalori "matematici" siano anche autovalori per la (\ref{eqn:spettroA}).\\
+Ci serve ora dimostrare l'inclusione inversa, ossia che tutti gli autovalori \q{matematici} siano anche autovalori per la (\ref{eqn:spettroA}).\\
 Se $a\in\sigma(A)_{\text{mat}}$, cioè se $\left(A-a\right)^{-1}\notin B\left(\mathcal{H}\right)$,  abbiamo 3 casi:
 \begin{enumerate}
     \item 
@@ -62,7 +55,7 @@ Se $a\in\sigma(A)_{\text{mat}}$, cioè se $\left(A-a\right)^{-1}\notin B\left(\m
 	\[ 
 	\exists \left\{\phi_n\right\}\subset D{(\left(A-a\right)}^{-1}), \left|\left|\phi_n\right|\right|=1 \text{ t.c. }\left|\left|\left(A-a\right)^{-1}\phi_n\right|\right|\xrightarrow[n\to\infty]{} \infty
 	\]
-	Ma allora esiste una sequenza di "autovettori approssimati" $\psi_n$ per cui $\norm{(A-a)\psi_n}\xrightarrow[n\to\infty]{} 0$. Infatti, definendo opportunamente:
+	Ma allora esiste una sequenza di \q{autovettori approssimati} $\psi_n$ per cui $\norm{(A-a)\psi_n}\xrightarrow[n\to\infty]{} 0$. Infatti, definendo opportunamente:
 	\[
 	\psi_n=\frac{\left(A-a\right)^{-1}\phi_n}{\norm{\left(A-a\right)^{-1}\phi_n}}
 	\]
@@ -94,4 +87,4 @@ D\left(P_0\right)&=\left\{\psi\in\mathcal{H}\ |\ \ \psi\text{ regolare e } \psi\
 \]
 Imponendo $\psi \left(0\right)=0$ si ha che non esiste alcun $\lambda$ autovalore.\\ Ciò significa che lo spettro di questo operatore (che non può essere l'insieme vuoto, come si può dimostrare in generale) è unicamente \textbf{residuo}, e quindi non ha interpretazione fisica.
 %Domanda: perché non continuo?
-%\end{document}
+\end{document}

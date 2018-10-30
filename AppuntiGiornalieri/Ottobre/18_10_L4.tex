@@ -1,16 +1,179 @@
-\documentclass[12pt]{article}
+\documentclass[../../FisicaTeorica.tex]{subfiles}
 
-\input{header.tex}
+%\input{header.tex}
 
 \begin{document}
 \section{Lezione 4:\\ \large{Il Formalismo di Dirac}}
 \vspace{-1em}
-\begin{center}
-    \small{(18/10/2018)}
-\end{center}
 
+% Questa parte non era formattata. Ho messo la mia parte, ma non ho ovviamente eliminato la tua che si trova in un commento successivo.
+\lesson{11}{18/10/2018}
+Spettro continuo $\lambda \in \sigma_c(A)$, $A \ket{\lambda} = \lambda \ket{\lambda}$ equazione agli autovalori \q{generalizzati}.
+Ma in che spazio sta $\ket\lambda$?
+\[
+X F_\lambda(x) = \lambda F_\lambda(x) \qquad F_\lambda(x) = \delta(x - \lambda) \in \mS'(\RR)
+\]
+\[
+\mathcal S(\RR) \subset L^2(\RR) \subset \mS'(\RR)
+\]
+A generalizzati $\Phi_A \subset \hs \subset \Phi'_A$ proprietà di $\Phi_A$
+
+1) $\Phi_A \subseteq \dom(A)$
+
+2) $\Phi_A = \hs$
+
+3) $A$ è continuo in $\Phi_A$ nella topologia di $\Phi_A$
+
+4) $\Phi_A$ è \q{nucleare}
+
+$F_\lambda \in \Phi'_A$, $\lambda \in \sigma(A)$
+equazione agli autovalori $A F_\lambda = \lambda F_\lambda$ che si deve intendere (come nel caso di $\mS'$)
+\[
+A F_\lambda (\varphi) \equiv F_\lambda (A \varphi) = \lambda F_\lambda(\varphi) \qquad \forall \varphi \in \Phi_A
+\]
+Pertanto
+\[
+\delta(\lambda - x) = \lambda \delta(\lambda - x)
+\]
+è interpretata come
+\[
+\int d x \, x \delta(\lambda - x) \phi(x) = \int \de x \lambda \delta(\lambda - x) \varphi(x) \qquad \forall \varphi \in \mS(\RR)
+\]
+$A F_\lambda (\varphi)$ è continuo e $A \varphi$ con $A$ continuo.
+
+Si dimostra che
+
+1) $\forall A$ autoaggiunto $\exists$ almeno un $\Phi_A$
+
+2) si può prendere $\Phi_A = \mS(\RR^n)$ se $A$ è un polinomio di $\vec x$ e $\vec p$ + $V(\vec x)$
+
+Con $V \in {\mathcal C}^\infty(\RR^n)$ con derivate limitate. Se $V$ ha discontinuità in un insieme di misura nulla $\mathcal N$
+\[
+\Phi_A = \set{\varphi \in \mS(\RR^n) \,\, | \,\, \varphi(x) = 0 \,\, x \in \mathcal N}
+\]
+
+Conveniamo di
+
+1) denotare con $\bra\lambda$ gli autofunzionali in $\Phi'_A$, cioè se $\hs$ è lo spazio astratto, allora l'equazione agli autovalori si scrive
+\[
+\bra\lambda \, A = \lambda \bra\lambda \qquad \qquad \lambda \in \sigma(A)
+\]
+(invece che scriverla in ket la scriviamo in bra)
+
+2) denotare con $\ket\varphi$ un ket in $\Phi_A$ e con
+\[
+\braket{\lambda}{\varphi} \equiv F_\lambda (\varphi)
+\]
+(con $F-\lambda$ opportunamente normalizzato), cioè l'applicazione del bra $\bra\lambda$ al ket $\ket\varphi$.
+Se $\ket\lambda \in \hs$ ($\lambda \in \sigma_p(A)$) allora $\braket{\lambda}{\varphi}$ è semplicemente il prodotto scalare per il quale vale
+\[
+\braket{\varphi}{\lambda} = \braket{\lambda}{\varphi}^* \qquad \qquad (\star)
+\]
+Si noti che non ha nessun significato $\braket{\varphi}{\lambda}$ (non abbiamo definito un prodotto scalare).
+
+3) Estendere come definizione $(\star)$ anche se $\bra\lambda \in \Phi'_A$ ma $\bra\lambda \notin \hs$.
+
+4) Estendere la notazione $\braket{x}{\psi} = \psi(x) \in L^2(\RR, d x)$ (per denotare $\ket\psi \in \hs$ in rappresentazione $x$) denotando con $\langle{x}|{x}\rangle$ l'autofunzionale $\bra{\lambda}$ in rappresentazione $x$, cioè $F_\lambda(x) \equiv \braket{\lambda}{x}$ e nuovamente se 
+\[
+\braket{x}{\lambda} \equiv \braket{\lambda}{x}^*
+\]
+
+Allora si dimostra che $\forall A$ autoaggiunto esistono:
+\[
+\set{\bra{\lambda_{n,r},r} \in \hs' \subset \Phi'_A, \lambda_n \in \sigma_p(A), r = 1,\dots,d(\lambda_n)}
+\]
+e
+\[
+\set{\bra{\lambda,r} \in \Phi'_A, \bra{\lambda,r} \notin \hs, \lambda \in \sigma_c(A), r = 1, \dots, d(\lambda)}
+\]
+tali che per ogni $\ket\psi \in \Phi_A$, $\ket\chi \in \Phi_A$
+\[
+\ket\varphi = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \braket{\lambda_n r}{\varphi} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} {\ket{\lambda,r} \braket{\lambda,r}{\varphi}}
+\]
+\[
+\braket{\psi}{\varphi} = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \braket{\psi}{\lambda_n, r} \braket{\lambda_n, r}{\varphi} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} \braket{\psi}{\lambda,r} \braket{\lambda,r}{\varphi}
+\]
+Dove $\braket{\psi}{\lambda,r} \braket{\lambda,r}{\psi}^*$
+
+Ma siccome $\Phi_A$ è denso in $\hs$ queste formule per densità si estendono a ogni $\ket{\varphi_0}$, $\ket\phi \in \hs$
+
+Posso calcolare
+\[
+\bra\psi A \ket\varphi = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \lambda_n \braket{\varphi}{\lambda_n, r} \braket{\lambda_n, r}{\varphi} + \int_{\sigma_c(A)} \de\lambda \sum_{r = 1}^{d(\lambda)} \braket{\varphi}{\lambda,r} \braket{\lambda,r}{\varphi}
+\]
+per $\ket\psi = \ket\varphi$ si ha che $\avg{A}_\varphi = \int \lambda \de (\varphi, P^A(\lambda) \varphi)$
+
+\[
+\de P^A(\lambda) \bigg|_{\sigma_p(A)} = \sum_{\lambda_n \in \sigma_p(A)} \delta(\lambda - \lambda_n) \sum_{r = 1}^{d(\lambda_n)} \ket{\lambda_n, r} \bra{\lambda_n, r} \de \lambda
+\]
+\[
+\de P^A(\lambda) \bigg|_{\sigma_c(A)} = \sum_{r = 1}^{d(\lambda)} \ket{\lambda, r} \bra{\lambda, r} \de\lambda
+\]
+\[
+{\mathbb I}_\hs = \sum_{\lambda_n \in \sigma_p(A)} \sigma_{r = 1}^{d(\lambda_n)} \ket{\lambda_n, r} \bra{\lambda_n, r} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} \ket{\lambda,r} \bra{\lambda,r}
+\]
+
+Vantaggi e svantaggi del formalismo di Dirac
+
+Vantaggi 
+
+1) Semplicità ed eleganza, in particolare la completezza è molto potente.
+
+2) È basato anche per lo spettro continuo $\sigma_c(A)$ su un'equazione agli autovalori.
+
+C'è un modo semplice per vedere se un punto è dello spettro discreto o continuo: per $\lambda \in \sigma_p(A)$ è in $\dom(A)$, $\lambda \notin \sigma_p(A)$ non è in $\hs$.
+
+Scartiamo le soluzioni che divergono esponenzialmente (figura accanto) perché non stanno in $\mS'$. Quanto larga posso prendere la soluzione? La rappresentazione di Dirac funziona solo in $\mS'$.
+%devo includere l'immagine dove si toglie l'esponenziale
+
+Esempio. Se prendiamo l'Hamiltoniana $H = \frac{p^2}{2m} + V(x)$, $\Phi_H \subset \mS'(\RR)$, e $\Phi'_H \subset \mS(\RR)$
+Non posso dunque prendere le soluzioni che divergono esponenzialmente perché stanno in $\Phi'_H$.
+
+Svantaggi
+
+1) $\phi_A$ non è unico (non c'è un $\phi_A$ \qm{canonico}). La scelta del $\phi_A$ ha una certa arbitrarietà. Questo non piace a certi matematici.
+
+2) La scrittura $\int \de\lambda \ket\lambda\bra\lambda$ è matematicamente imprecisa, e la sua formalizzazione rigorosa richiede una matematica sofisticata (per esempio la \qm{nuclearità}).
+
+3) Se $\bra\lambda \notin \hs' \simeq \hs$ non rappresenta uno stato fisico.
+È analogo al caso di de Broglie:
+\[
+p = \frac{h}{\lambda} \qquad \nu = \frac{\mathcal E}{h}
+\]
+\[
+\lambda \nu = \frac{\mE}{p} = \frac{m c^2 \gamma}{m \nu \gamma} = \frac{c^2}{\nu} > c
+\]
+Un onda piana non appartiene ad $L^2$, quindi $e^{\frac{i}{\hbar}p_0 x} \notin L^2$, ma se si prende
+\[
+\int f_{p_0}(p) e^{\frac{i}{\hbar} p} x \de p
+\]
+può stare in $L^2$ purchè $f_{p_0} \in L^2(\RR, \de p)$, e la velocità effettiva della particella è quella di gruppo:
+\[
+\deriv{\omega}{k} = \deriv{\mE}{p} = \nu
+\]
+
+4) Quando si scrive la completezza (per esempio) per $X$, con Dirac si scrive come
+\[
+\int \de x \ket x \bra x = \id
+\]
+assomiglia ad una base \qm{continua} nel caso di una base $\set{\lambda_n}$ ortonormale
+\[
+\sum_n \ket{\lambda_n} \bra{\lambda_n} = \id
+\]
+Ma 
+\[
+\bra x \in \Phi'_X (\bra x \notin \hs)
+\]
+non è base in $\hs$, e comunque non viola la separabilità di $\hs$!
+
+
+
+
+
+%% Questi sono i tuoi appunti:
+\begin{comment}
 Formalismo di Dirac
-Spettro continuo \lambda\in \sigma_C\left(A\right), A\left|\lambda\right\rangle=\lambda\ket{\lambda} equazione agli autovalori "generalizzata".
+Spettro continuo \lambda\in \sigma_C\left(A\right), A\left|\lambda\right\rangle=\lambda\ket{\lambda} equazione agli autovalori \q{generalizzata}.
 In che spazio sta \ket{\lambda}?
 XF_\lambda\left(x\right)=\lambdaF_\lambda\left(x\right)
 F_\lambda\left(x\right)=\delta \left(x-\lambda\right)\in \mathcal{S}^\prime\left(\mathbb{R}\right)
@@ -77,15 +240,15 @@ Vantaggi:
 	Non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in \phi_H^\prime (un'onda piana invece non è in L^2, ma in S\left(\mathbb{R}\right) sì, e quindi funziona)
 
 Svantaggi:
-	1) \phi_A non è unico, non è "canonico" (mentre una famiglia spettrale è unica). 
-	2) La scrittura \int d\lambda \ket{\lambda}\bra{\lambda} è matematicamente imprecisa e la sua formalizzazione rigorosa richiede una matematica sofisticata (es. "nuclearità")
-	3) Se \left\langle\lambda\right|\notin \mathcal{H}^\prime≈H non rappresenta uno stato fisico (es. nel caso di un'onda piana e^{\frac{i}{\hbar}px}\notin L^2. Ma lì p=h/\lambda, e \nu =\frac{E}{h}, \lambda\nu =\frac{E}{p}=\frac{mc^2}{mv\gamma}=\frac{c^2}{v}>c. De Broglie considerò allora un pacchetto d'onde, con \int f_{p_0}\left(p\right)e^{\frac{i}{\hbar}px}dp\in L^2, purché f_{p_0}\in L^2(R, dp), dove f_{p_0} è una funzione "piccata" su un punto p_0. Ma allora in questo caso \frac{d\omega}{dk}=\frac{d\mathcal{E}}{dp}=v. Tuttavia, fisicamente si preferisce lavorare con l'onda piana - per semplicità - e nel caso vengano risultati infiniti si considerano le ipotesi di pacchetto d'onda), ma Dirac lo tratta analogamente agli altri stati (nel 99% di volte produrrà conti giusti, ma ci sono circostanti in cui si giunge ad assurdità)
+	1) \phi_A non è unico, non è \q{canonico} (mentre una famiglia spettrale è unica). 
+	2) La scrittura \int d\lambda \ket{\lambda}\bra{\lambda} è matematicamente imprecisa e la sua formalizzazione rigorosa richiede una matematica sofisticata (es. \q{nuclearità})
+	3) Se \left\langle\lambda\right|\notin \mathcal{H}^\prime≈H non rappresenta uno stato fisico (es. nel caso di un'onda piana e^{\frac{i}{\hbar}px}\notin L^2. Ma lì p=h/\lambda, e \nu =\frac{E}{h}, \lambda\nu =\frac{E}{p}=\frac{mc^2}{mv\gamma}=\frac{c^2}{v}>c. De Broglie considerò allora un pacchetto d'onde, con \int f_{p_0}\left(p\right)e^{\frac{i}{\hbar}px}dp\in L^2, purché f_{p_0}\in L^2(R, dp), dove f_{p_0} è una funzione \q{piccata} su un punto p_0. Ma allora in questo caso \frac{d\omega}{dk}=\frac{d\mathcal{E}}{dp}=v. Tuttavia, fisicamente si preferisce lavorare con l'onda piana - per semplicità - e nel caso vengano risultati infiniti si considerano le ipotesi di pacchetto d'onda), ma Dirac lo tratta analogamente agli altri stati (nel 99% di volte produrrà conti giusti, ma ci sono circostanti in cui si giunge ad assurdità)
 	4) Quando scrivete la completezza per X:
 	\int dx \left|x\right\rangle\left\langle x\right|=I
-	Assomiglia ad una "versione continua" del caso di una base \left\{|\lambda_n\ket\right\} ON, per cui H sembra non separabile, ma sappiamo che lo è:
+	Assomiglia ad una \q{versione continua} del caso di una base \left\{|\lambda_n\ket\right\} ON, per cui H sembra non separabile, ma sappiamo che lo è:
 	\sum_{n}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=\mathbb{I}}
 	
-	Tuttavia tale relazione è comunque giusta (il formalismo di Dirac funziona, ma "va interpretato" nei suoi risultati)
-
+	Tuttavia tale relazione è comunque giusta (il formalismo di Dirac funziona, ma \q{va interpretato} nei suoi risultati)
+\end{comment}
 
 \end{document}

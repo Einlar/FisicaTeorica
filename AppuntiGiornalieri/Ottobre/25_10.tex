@@ -1,0 +1,377 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\lesson{14}{25/10/2018}
+%\section{Evoluzione temporale in\ \MQ}
+Nel caso più generale, tenendo conto anche della degenerazione degli autovalori, la formula (\ref{eqn:evoluzionetemporale_nodeg}) diviene:
+\begin{align}
+    \psi(t)&=U(t)\psi = e^{-i\frac{t}{\hbar}H}\psi=\int e^{-i\frac{t}{\hbar}\lambda}dP^H(\lambda)\psi \qquad \forall \psi \in \hs\nonumber\\
+    \ket{\psi(t)} &= \sum_{\mathcal{E}_n\in \sigma_P(H)} e^{-i\frac{t}{\hbar}\mathcal{E}_n}\sum_{r=1}^{d(\mathcal{E}_n)}\ket{\mathcal{E}_{n},r}\braket{\mathcal{E}_{n},r|\psi}
++\int_{\sigma_C(H)}d\mathcal{E} e^{-i\frac{\mathcal{E}}{\hbar}t}\sum_{r=1}^{d(\lambda)}\ket{\mathcal{E},r}\braket{\mathcal{E},r|\psi}
+\end{align}
+Se inoltre $\psi$ appartiene al dominio dell'operatore energia ($\psi \in D(H)$), allora $\psi(t)$ si può ottenere anche risolvendo l'equazione di Schrödinger:
+\[
+i\hbar \frac{\partial \psi(t)}{\partial t}=H\psi(t)
+\]
+Analogamente al caso degli stati puri, \marginpar{Evoluzione degli stati misti} uno \textbf{stato misto} $\rho=\sum_i c_i\ket{\phi_i}\bra{\phi_i}$ evolve come:
+\[
+\rho(t)=\sum_i c_i\ket{\phi_i(t)}\bra{\phi_i(t)}=\sum_i c_i U(t)\ket{\phi_i}\braket{\phi_i|U^\dag(t)}=U(t)\rho U^\dag(t)
+\]
+Se tutte le $\ket{\phi_i}\in D(H)$ allora vale anche un'equazione analoga a quella di Schrödinger. Partiamo scrivendo la relazione per le $\ket{\phi_i}$ e quella duale per le $\bra{\phi_i}$ (per cui basta calcolare un complesso coniugato):
+\begin{align*}
+i\hbar \frac{\partial}{\partial t}\ket{\phi_i(t)} &= H\ket{\phi_i(t)}\\
+-i\hbar \frac{\partial}{\partial t}\bra{\phi_i(t)}&=\bra{\phi_i(t)}H
+\end{align*}
+Perciò per $\sum_i c_i \ket{\phi_i}\bra{\phi_i}$ si ottiene l'\textbf{equazione di von Neumann}:\\
+\begin{equation}
+i\hbar \frac{\partial}{\partial t}\rho(t) = \sum_i c_i\left(H\ket{\phi_i(t)}\bra{\phi_i(t)}-\ket{\phi_i(t)}\bra{\phi_i(t)}H \right) = [H,\rho(t)]
+\end{equation}
+
+\subsection{Visuali di Schrödinger e Heisenberg}
+Abbiamo finora discusso l'evoluzione temporale degli stati. Agli effetti potremmo "condensare" la descrizione completa dell'evoluzione di un sistema fisico nella variazione dei suoi stati, e quindi assumere che le osservabili restino sempre le stesse, ossia che gli operatori che le descrivono non dipendano dal tempo.\\
+Tale convenzione fa parte della cosiddetta \textbf{visuale di\ Schrödinger}\marginpar{Visuale di Schrödinger} dell'evoluzione\footnote{In inglese "Schrödinger picture"}:
+\begin{align}
+    \psi &\to \psi(t) = U(t)\psi\,U^\dag (t)
+    \label{eqn:visuale_schrodinger}
+    \\
+    A &\to A\nonumber
+\end{align}
+Del resto, sperimentalmente abbiamo accesso esclusivamente ai valor medi, che evolvono come:
+\begin{equation}
+\langle A\rangle_{\psi(t)}=\bra{\psi(t)}A\ket{\psi(t)}=\bra{\psi}U^\dag(t)AU(t)\ket{\psi} = \bra{\psi}A^H(t)\ket{\psi} = \langle A^H(t)\rangle_\psi
+\label{eqn:evoluzione_valor_medi}
+\end{equation}
+ove $A^H(t) = U^\dag(t)AU(t)$.\\
+
+L'equazione (\ref{eqn:evoluzione_valor_medi}) suggerisce un approccio diverso: focalizzarci sull'evoluzione delle osservabili ($A^H(t)$) e tenere fissi gli stati.\\
+Così facendo si ottiene la \textbf{visuale di Heisenberg}\marginpar{Visuale di Heisenberg}\index{Visuali dell'evoluzione} dell'evoluzione\footnote{Chiaramente entrambi gli approcci danno luogo agli stessi risultati sperimentali - che in una teoria coerente devono rimanere fissi indipendentemente dalla descrizione.}:
+\begin{align}
+    \psi &\to \psi
+    \label{eqn:visuale_heisenberg}
+    \\
+    A &\to A^H(t)=U^\dag (t)A\,U(t)
+    \nonumber
+\end{align}
+Confrontando (\ref{eqn:visuale_schrodinger}) con (\ref{eqn:visuale_heisenberg}) si può notare una differenza nell'ordine degli aggiunti. Ciò non sorprende: avevamo notato un qualcosa di simile anche in \MC, quando scrivendo l'evoluzione degli stati in (\ref{eqn:evoluzione_stati_MC}) si otteneva un segno $-$, che non c'era nel caso dell'evoluzione delle sole osservabili.\\
+Se il commutatore $[A^H(t), H]$ esiste, allora otteniamo l'\textbf{equazione di Heisenberg}:
+\begin{equation}
+i\hbar \frac{\partial}{\partial t}A^H(t) = i\hbar \frac{d}{dt}(U^t(t)AU(t))
+) = i\hbar \frac{dU^\dag(t)}{dt}AU(t)+i\hbar U^\dag(t)A\frac{dU(t)}{dt} = -HU^\dag(t)AU(t)
+\label{eqn:equazione_heisenberg}
+\end{equation}
+Sostituendo le espressioni per $U(t)$ e $U^\dag(t)$:
+\[
+U^\dag(t)=\exp\left(i\frac{t}{\hbar}H\right); \quad U(t)=\exp\left(-\frac{i}{\hbar}tH\right)
+\]
+otteniamo:
+\[
+(\ref{eqn:equazione_heisenberg}) = -HU^\dag(t)AU(t)+U^\dag(t)AU(t)H=[A^H(t),H]
+\]
+E allora:
+\[
+\frac{dA^H(t)}{dt}=\frac{[A^H(t),H]}{i\hbar}
+\]
+Confrontando l'espressione appena trovata con quella classica:
+\[
+\frac{df}{dt}=\{f,H\}
+\]
+si potrebbe dire (come fece Dirac) che il commutatore $[\cdot,\cdot]/(i\hbar)$ non è altro che la versione \q{quantizzata} delle parentesi di Poisson classiche:
+\[
+\{\cdot,\cdot\} \to \frac{[\cdot,\cdot]}{i\hbar}
+\]
+Perciò, per un sistema isolato, l'evoluzione temporale in \MQ procede in un modo molto "classico", e soprattutto è completamente \textbf{deterministica}.\\
+Tuttavia, prima o poi sarà necessario fare una misura, e in quel momento il sistema non potrà più essere considerato isolato, e in particolare esibirà un comportamento quantistico (probabilistico).\\
+Facciamo ora qualche esempio per familiarizzare con il formalismo, e discuteremo poi la teoria delle misura (cosa succede ad un sistema quantistico a seguito di una misurazione).\\
+
+\subsection{Buca infinitamente profonda in 1D}
+Consideriamo una buca di potenziale infinitamente profonda tra $[-\frac{a}{2},\frac{a}{2}]$, in una dimensione\footnote{Fisicamente tale sistema descrive \q{pareti impenetrabili}, sia classicamente che quantisticamente}.\\
+%Inserire figura della buca [IMMAGINE]
+L'energia della particella è data da:
+\[
+H=\frac{p^2}{2m}+V(x); \quad V(x)=\begin{cases}
+0 & |x|<\frac{a}{2}\\
+V_0\to +\infty & |x|\geq \frac{a}{2}
+\end{cases}
+\]
+Consideriamo gli stati con energia fissata $\mathcal{E}$, e confrontiamo le previsioni di \MC e \MQ per il comportamento della particella.
+
+\subsubsection{In Meccanica Classica}
+Classicamente non vi è alcuna limitazione sui valori di energia che può assumere la particella, e perciò 
+$\sigma(H) = \bb{R}_+$.\\
+Supponiamo di sapere solo che l'energia è $\mathcal{E}$ (ossia, siamo sicuri che facendo una misura di energia si troverà con certezza $\mathcal{E}$). Nello spazio delle fasi, ciò corrisponde a considerare tutti i punti che hanno la $x$ tra\footnote{Se così non fosse, $H\to\infty$ per come abbiamo definito il potenziale, e perciò certamente non varrebbe $\mathcal{E}$} $-a/2$ e $+a/2$, e $p$ tale che l'energia cinetica $p^2/2m$ sia esattamente pari a $\mathcal{E}$. Nessuno di tali punti è preferibile ad un altro, e quindi lo stato è dato da una distribuzione uniforme:
+\begin{equation}
+\rho_\mathcal{E}(x,p)=A\,\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\delta\left(\frac{p^2}{2m}-\mathcal{E}\right)
+\label{eqn:stato_classico}
+\end{equation}
+dove $\chi$ è la funzione caratteristica, e $A$ è la costante di normalizzazione, che troviamo imponendo che l'integrale di $\rho_\mathcal{E}(x,p)$ sullo spazio delle fasi sia esattamente $1$:
+\begin{equation}
+\int_\bb{R} \chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\,dx\, \int_\bb{R} dp\,A\,\delta\left(\frac{p^2}{2m}-\mathcal{E}\right) =
+\int_{-\frac{a}{2}}^{\frac{a}{2}} dx\,\int_{\bb{R}} dp\, A\,\delta\left(\frac{p^2}{2m}-\mathcal{E}\right) \overset{!}{=} 1
+\label{eqn:normalizzazione_buca_classica}
+\end{equation}
+Ricordiamo che vale la seguente identità\footnote{Pag. 31 di \cite{spazi_hilbert}} per la composizione della delta di Dirac con una funzione differenziabile $g(x)$:
+\[
+\delta(g(x))=\sum_{i}\frac{\delta(x-a_i)}{|g'(a_i)}
+\]
+dove $a_i$ sono gli zeri (semplici) di $g(x)$.\\
+Applicandola al nostro caso:
+\begin{align*}
+\delta\left(\frac{p^2}{2m}-\mathcal{E}\right) &=\frac{1}{|p|/m}\Big|_{p=\pm \sqrt{2m\mathcal{E}}} (\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}}))
+= \\
+&=\hlc{Yellow}{\frac{m}{\sqrt{2m\mathcal{E}}}(\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}}))}
+\end{align*}
+Sostituendo nell'integrale in (\ref{eqn:normalizzazione_buca_classica}) otteniamo:
+\begin{align*}
+(\ref{eqn:normalizzazione_buca_classica}) &= a\underbrace{\int_\bb{R} A
+\hlc{Yellow}{
+\sqrt{\frac{m}{2\mathcal{E}}}\left(
+\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}})
+\right)\,dp 
+}
+}_{=2} = 2a\sqrt{\frac{m}{2\mathcal{E}}}A =\\
+&= a\sqrt{\frac{\mathcal{E}}{2m}}A\overset{!}{=}1\Rightarrow A=\frac{1}{a}\sqrt{\frac{\mathcal{E}}{2m}}
+\end{align*}
+Perciò lo stato (\ref{eqn:stato_classico}) è:
+\[
+\rho_\mathcal{E}(x,p)=\frac{1}{a} \sqrt{\frac{\mathcal{E}}{2m}}\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\delta\left(\frac{p^2}{2m}-\mathcal{E}\right)
+\]
+Notiamo che \textbf{non si tratta di uno stato puro} (ossia non è possibile scriverlo come una combinazione \textit{finita} di $\delta$ di Dirac). In effetti vi sono $2$ valori possibili per il momento, e $\infty$ per la posizione.\\
+
+Possiamo naturalmente calcolare la probabilità che la particella si trovi in un certo range.\\
+Per esempio, la densità di probabilità che il valore di posizione sia $\lambda \in \left[-\frac{a}{2},\frac{a}{2}\right]$:
+\begin{align*}
+w^X_{\rho_\mathcal{E}}(\lambda) &= \frac{d}{d\lambda}\int_{-\frac{a}{2}}^{\frac{a}{2}} dp\,\rho_\mathcal{E}(x,p)H(\lambda-x)= \int_{\frac{a}{2}}^{\frac{a}{2}} dx \int_\bb{R} dp\, \rho_\mathcal{E}(x,p)\delta(\lambda-x)=\\
+&=\int_{-\frac{a}{2}}^{\frac{a}{2}} \frac{\delta(\lambda-x)}{a}dx = \frac{1}{a}
+\end{align*}
+come ci si aspetta da una distribuzione uniforme.\\
+Per quanto riguarda i momenti, abbiamo solo due valori possibili (uno positivo e uno negativo). Per esempio, potremmo calcolare la probabilità che, una misura del sistema nello stato  $\rho_{\mathcal{E}}$ trovi esattamente $\sqrt{2m\mathcal{E}}$:
+\begin{align*}
+\mathcal{P}^p_{\rho_\mathcal{E}}(\{\sqrt{2m\mathcal{E}}\})&=\int_\bb{R} \int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p) \rho_\mathcal{E}(x,p)\,dx\,dp = \\
+& =
+\frac{1}{a}\sqrt{\frac{\mathcal{E}}{2m}}
+\underbrace{\int_\bb{R} 
+\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\,dx}_{a}
+\int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p)\, \delta\left(\frac{p^2}{2m}-\mathcal{E}\right)\,dp = \\
+&= \cancel{a} \frac{1}{\cancel{a}}\int_\bb{R} dp\,\sqrt{\frac{\mathcal{E}}{2m}} \sqrt{\frac{m}{2\mathcal{E}}}[
+\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}})]\chi_{\{2m\mathcal{E}\}}(p) =\\
+&= \sqrt{\frac{\mathcal{E}}{2m}}\sqrt{\frac{m}{2\mathcal{E}}} = \frac{1}{2}
+\end{align*}
+
+
+\subsubsection{In Meccanica Quantistica}
+Si dimostra che, analogamente al caso classico, per $V_0\to +\infty$ la particella può avere solo posizioni in $[-\frac{a}{2},\frac{a}{2}]$)\footnote{A priori in \MQ non è ovvio, e ci ritorneremo più avanti}. Perciò $\hs=L^2\left(\left[-\frac{a}{2},\frac{a}{2}\right] dx\right)$.\\
+Per prima cosa definiamo bene la $H$ quantistica, che deve essere un operatore autoaggiunto:
+\[
+H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
+\]
+Occorre perciò che il dominio $D(H)$ sia tale che $H = H^\dag$.\\
+\textbf{Nota}: Specificare il dominio dell'hamiltoniana è \textbf{fondamentale} per definire tale operatore. Un'errata definizione porta a risultati assurdi!\\
+
+Prendiamo $\psi \in D(H^\dag)$, $\varphi \in D(H)$ e verifichiamo:
+\begin{equation}
+(\psi, H\varphi) = (H^\dag \psi,\varphi)
+\label{eqn:autoaggiuntezza_H}
+\end{equation}
+Espandendo i prodotti scalari e \q{spostando} la derivata seconda sulla $\psi$ con un'integrazione per parti (in (a) e in (b)):
+\begin{align*}
+-\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}} \psi^*(x) \varphi''(x)dx &\underset{(a)}{=} -\frac{\hbar^2}{2m}\psi^*\varphi' \big|_{-\frac{a}{2}}^{\frac{a}{2}} + \frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}(x)\varphi'(x)dx\\
+&\underset{(b)}{=} \hlc{SkyBlue}{-\frac{\hbar^2}{2m}\psi^*\varphi'\big|_{-\frac{a}{2}}^{\frac{a}{2}}+\frac{\hbar^2}{2m}{\psi^*}'\varphi\big|_{-\frac{a}{2}}^{\frac{a}{2}}} - \underbrace{\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}''(x)\varphi(x)dx}_{=(H^\dag \psi,\varphi)}
+\end{align*}
+Perciò l'uguaglianza (\ref{eqn:autoaggiuntezza_H}) è verificata se i due termini evidenziati si annullano. Vogliamo allora imporre condizioni su $\varphi$\ in modo che si verifichi proprio questo, e che soprattutto da ciò automaticamente segua che le stesse condizioni debbano valere anche su $\psi$:
+\begin{equation}
+\psi^*\varphi'-{\psi^*}'\varphi\big|_{-\frac{a}{2}}^{\frac{a}{2}}=0\Rightarrow \text{ Stesse condizioni su $\psi$ }
+\label{eqn:annullamento_autoaggiuntezza}
+\end{equation}
+Proviamo imponendo:
+\[
+\varphi\left(\frac{a}{2}\right)=0=\varphi\left(-\frac{a}{2}\right)
+\]
+Si ottiene da (\ref{eqn:annullamento_autoaggiuntezza}):
+\[
+\psi^*\varphi'\big|_{-\frac{a}{2}}^{\frac{a}{2}} \Rightarrow \psi\left(\frac{a}{2}\right)=0=\psi\left(-\frac{a}{2}\right)
+\]
+essendo $(\varphi'\frac{a}{2}), \varphi'(-\frac{a}{2})$ arbitrarie.\\
+In questo modo l'operatore $H$ è autoaggiunto. Possiamo allora scrivere il suo dominio:
+\[
+D(H)= \left \{\varphi \in \hs\>|\> \varphi \text{ regolare (vale l'integrazione per parti per $\varphi$ e $\varphi'$) }, \varphi\left(\pm \frac{a}{2}\right) =  0\right \}
+\]
+Cerchiamo lo spettro discreto $\sigma_P(H)$ risolvendo l'equazione agli autovalori in $D(H)$:
+\[
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\varphi_{\mathcal{E}}(x) = \mathcal{E}\varphi_{\mathcal{E}}(x)
+\]
+che ha la forma dell'equazione differenziale di un oscillatore armonico di pulsazione $k$:
+\begin{equation}
+\frac{d^2}{dx^2}\varphi_\mathcal{E}(x)+\underbrace{\frac{2m\mathcal{E}}{\hbar^2}}_{k^2}\varphi_\mathcal{E}(x)=0 \Rightarrow k = \frac{\sqrt{2m\mathcal{E}}}{\hbar}
+\label{eqn:oscillatore_armonico}
+\end{equation}
+E perciò l'integrale generale è dato da:
+\[
+\varphi_\mathcal{E}=c_+(x) e^{ikx}+c_- e^{-ikx}
+\]
+Imponendo che la soluzione si annulli agli estremi della buca (come richiesto nel dominio di $H$):
+\begin{equation}
+\varphi_\mathcal{E}\left(\pm\frac{a}{2}\right)=0\Rightarrow
+\begin{cases}
+c_+ e^{ik\frac{a}{2}}+c_- e^{-ik\frac{a}{2}}=0\\
+c_+ e^{-ik\frac{a}{2}} + c_- e^{ik\frac{a}{2}} = 0
+\end{cases}
+\Rightarrow 
+\begin{pmatrix}
+e^{ik\frac{a}{2}} & e^{-ik\frac{a}{2}}\\
+e^{-ik\frac{a}{2}} & e^{ik\frac{a}{2}}
+\end{pmatrix}
+\begin{pmatrix}
+c_+\\
+c_-
+\end{pmatrix} = 0
+\label{eqn:condizioni_contorno_buca}
+\end{equation}
+Se la matrice delle esponenziali è invertibile, allora si ottiene immediatamente la soluzione nulla ($c_+=0=c_-$), che non definisce alcuno stato fisico. L'unica possibilità è che allora tale matrice sia singolare, e ciò si verifica se:
+\begin{equation}
+\op{det}\begin{pmatrix}
+e^{ik\frac{a}{2}} & e^{-ik\frac{a}{2}}\\
+e^{-ik\frac{a}{2}} & e^{ik\frac{a}{2}}
+\end{pmatrix}
+ = 0 \Rightarrow e^{ika} = e^{-ika}\Leftrightarrow \sin(ka)=0
+\label{eqn:matrice_singolare}
+\end{equation}
+Otteniamo perciò un insieme discreto di soluzioni, le cui pulsazioni soddisfano: $k_n a = n\pi$ $n\in \bb{Z}$. Sostituendo in (\ref{eqn:oscillatore_armonico}) otteniamo che gli autovalori dell'energia, ossia i possibili risultati che si possono ottenere da una misura dell'energia della particella nella buca, sono:
+\begin{equation}
+    \mathcal{E}_n = \frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2
+    \label{eqn:autovalori_buca}
+\end{equation}
+Cerchiamo ora gli autovettori $\varphi_{\mathcal{E}_n}$ (o autofunzioni) ad essi associati\footnote{Ometteremo nei prossimi passaggi la $n$ a pedice per economia di notazione}. Una \q{furbizia} per ottenerli più velocemente è riscrivere la condizione per la singolarità (\ref{eqn:matrice_singolare}) come:
+\begin{align*}
+\sin(k_n a) = 2\sin\left (k_n\frac{a}{2}\right )\cos\left (k_n \frac{a}{2}\right)=0 \\ \Rightarrow 
+\underbrace{\sin\left(\frac{k_n a}{2}\right) = 0}_{(a)}\>\lor\>
+\underbrace{\cos\left(\frac{k_n a}{2}\right) = 0}_{(b)}
+\end{align*}
+Esaminiamo separatamente i casi (a) e (b).
+\begin{enumerate}[label=\alph*)]
+\item $\displaystyle \sin k_n \frac{a}{2} = 0\Rightarrow k_n \frac{a}{2}=n\pi \Rightarrow k_n = \frac{2n\pi}{a}$.\\
+Riscrivendo poi il $\sin$ come:
+\begin{align*}
+\sin\left(k_n\frac{a}{2}\right)=0&\Rightarrow \frac{1}{2i}\left[
+\exp\left(ik_n\frac{a}{2}\right)-\exp\left(-ik_n\frac{a}{2}\right)
+\right] = 0\\
+&\Rightarrow \exp\left({ik_n\frac{a}{2}}\right)=\exp\left({-ik_n\frac{a}{2}}\right)
+\end{align*}
+E quindi possiamo semplificare l'espressione (\ref{eqn:condizioni_contorno_buca}), da cui ricaviamo:
+\begin{align*}
+c_+ + c_- = 0 &\Rightarrow c_- = -c_+\\
+\varphi_\mathcal{E}^{2n}(x)&=A\sin \left(\frac{2n\pi}{a}\right) x
+\end{align*}
+Notiamo che $n\neq 0$ (se così non fosse si otterrebbe la soluzione nulla, che non è fisica), e inoltre $n$ e $-n$ corrispondono allo stesso stato:
+\[
+\varphi_\mathcal{E}^{2n}(x)=-\varphi_{\mathcal{E}}^{-2n}(x)
+\]
+Normalizzando:
+\begin{align*}
+1 &\overset{!}{=} \int_{-\frac{a}{2}}^{\frac{a}{2}} |\varphi_\mathcal{E}^{2n}(x)|^2 dx = \int_{-\frac{a}{2}}^{\frac{a}{2}} |A|^2 \sin^2 \frac{2n\pi x}{a}dx = |A|^2 \frac{a}{2} \\
+&\Rightarrow \varphi_\mathcal{E}^{2n}(x)=\sqrt{\frac{2}{a}}\sin \left(\frac{2n\pi}{a}x\right)
+\end{align*}
+essendo la media integrale di $\sin^2$ pari a $1/2$.
+\item Analogamente, per la condizione (b) avremo:
+\[
+\cos\frac{k_n a}{2}=0 \Rightarrow k_n = (2n+1)\frac{\pi}{a}
+\]
+e riscrivendo il $\cos$ tramite esponenziali si ottiene:
+\begin{align*}
+\cos\left(\frac{k_n a}{2}\right ) &= \frac{1}{2}\left [
+\exp\left(i k_n \frac{a}{2}\right)+\exp\left(-ik_n\frac{a}{2}\right)
+\right ] = 0\\
+&\Rightarrow \exp\left({ik_n \frac{a}{2}}\right)=-\exp\left({-ik_n\frac{a}{2}}\right)
+\end{align*}
+Possiamo allora semplificare la (\ref{eqn:condizioni_contorno_buca}):
+\begin{align*}
+c_+ \exp\left({-ik_n\frac{a}{2}}\right)+c_- \exp\left({ik_n \frac{a}{2}}\right)=0 &\Rightarrow c_+ = +c_-
+\end{align*}
+La normalizzazione è identica al caso precedente, e alla fine si ottiene:
+\begin{align*}
+\varphi_{\mathcal{E}}^{2n+1}(x)&=\sqrt{\frac{2}{a}}\cos\left(\frac{(2n+1)\pi}{a} x\right)
+\end{align*}
+\end{enumerate}
+Alla fine, le soluzioni dell'equazione agli autovalori in $D(H)$ sono quindi:
+\[
+\varphi_n(x) = \begin{cases}
+\sqrt{\frac{2}{a}}\cos\left(\frac{n\pi x}{a}\right) & n \text{ dispari } >0\\
+\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi x}{a}\right) &
+n \text{ pari } > 0
+\end{cases}
+\]
+Abbiamo quindi dimostrato che esiste una (sola) soluzione $\forall n \in \bb{N}$, per cui la degenerazione di $\sigma_P(H)=1$.\\
+Inoltre, poiché $\{\varphi_n\}_{n\in\bb{N}}$ costituisce una base ortonormale per $L^2([-\frac{a}{2},\frac{a}{2}],dx)$, lo spettro è esclusivamente puntuale, e quindi non c'è $\sigma_C(H)$.\\
+\subsubsection{Differenze tra \MC e \MQ}
+\begin{itemize}
+\item In \MC l'energia assume valori \textbf{continui} $\sigma(H_{clas.})=\bb{R}_+$, mentre in \MQ lo spettro è \textbf{discreto}:
+\[
+\sigma(H_q)=\{\mathcal{E}_n =\ \frac{\hbar^2 k_n^2}{2m} = \hbar^2 \frac{n^2 \pi^2}{2m a^2}, \> n\in \bb{N}\}
+\]
+In questo senso i sistemi quantistici sono \q{più indeformabili}: per modificarli è necessario dare un certo contributo minimo di energia, mentre nel caso classico basta qualsiasi contributo energetico, per quanto piccolo.
+\item Mentre in \MC la conoscenza di $\mathcal{E}$ \textbf{non} è massimale (\textbf{stato misto}), in \MQ lo è (\textbf{stato puro}).
+\item La particella quantistica \q{ha dei punti in cui preferisce trovarsi}, e dei punti in cui proprio non si può trovare. Ciò è molto controintuitivo se la pensiamo come particella (\q{biglia}) classica, ma facile da comprendere in un'ottica ondulatoria: un'onda stazionaria presenta infatti dei nodi fissi in cui l'ampiezza dell'oscillazione è nulla.
+\end{itemize}
+Il momento in questo dominio compatto non è definito (come abbiamo visto nel primo esempio di sezione \ref{sec:momento_compatto}). Possiamo però calcolare la densità di probabilità della posizione:
+\[
+w_{\varphi_n}^X(\lambda) = \int dx\, \delta(\lambda-x) |\varphi_n(x)|^2 = |\varphi_n(\lambda)|^2 = \frac{2}{a}\begin{cases}
+\cos^2 \left(\frac{n\pi \lambda}{a}\right) & n \text{ dispari }\\
+\sin^2\left(\frac{n\pi \lambda}{a}\right) & n \text{ pari}
+\end{cases}
+\]
+\begin{figure}[H]
+    \centering
+    \input{Grafici/Bucainfinita.tex}
+    \caption{Grafico delle autofunzioni $\varphi_n(x)$ per la buca infinita e delle relative densità di probabilità $w_{\varphi_n}^X(\lambda)$}
+    \label{fig:plot_bucainfinita}
+\end{figure}
+
+\textbf{Nota}: se consideriamo un potenziale \q{smussato}, che non tende di scatto a $\infty$ ma \q{in maniera continua} con una salita ripida, classicamente ci aspettiamo che la particella \q{rallenti} su tali salite, e quindi ci trascorra più tempo - ci aspettiamo di trovarla più facilmente in quelle parti. In realtà, quantisticamente, quelle sono le posizioni in cui la probabilità è minore).\\
+
+%Inserire disegno [IMMAGINE] Grafico del potenziale smussato e della densità di probabilità della posizione, che è massima al centro della buca
+La probabilità $P^X_{\varphi_n}(\lambda)$ non è poi uniforme come nel caso classico, ma tende ad esso per $n\to\infty$, infatti, dalle formule di bisezione per $\sin$ e $\cos$:
+\begin{align*}
+\left\{\cos^2 \left(\frac{n\pi x}{a}\right),\>
+\sin^2 \left(\frac{n\pi x}{a}\right)\right\} &= \frac{1}{2}\left(1\pm \cos \frac{2n\pi x}{a} \right)\xrightarrow[n\to\infty]{\mathcal{S}^*} +\frac{1}{2}\\
+P_{\varphi_n}^X(\lambda) &\xrightarrow[n\to\infty]{} \frac{2}{a}\frac{1}{2} = \frac{1}{a}
+\end{align*}
+Dove si fa uso della convergenza debole\footnote{CFR pag. 24 di \cite{spazi_hilbert}} in $\mathcal{S}^*$.\\
+
+Proviamo ora ad esaminare l'evoluzione temporale del sistema partendo dallo stato iniziale 
+\begin{equation}
+\psi(x,t_0) = \cos\frac{\pi}{a} x+2\sin\frac{2\pi}{a}x
+\label{eqn:stato_iniziale}
+\end{equation}
+Per prima cosa dobbiamo riscrivere la $\ket{\psi(t_0)}$ nella base degli autostati di $H$, e quindi applicare l'evoluzione temporale:
+\begin{align}
+\ket{\psi(t_0)} &= \sum_n \ket{\varphi_n}\braket{\varphi_n|\psi(t_0)}\nonumber \\
+\label{eqn:evoluzione_autovalori}
+\ket{\psi(t)} &= \sum_n \underbrace{\exp\left(-\frac{i}{\hbar}\mathcal{E}_n(t-t_0)\right)}_{U(t)}\ket{\varphi_n}\braket{\varphi_n|\psi(t_0)}
+\end{align}
+
+Riepilogando, il procedimento è questo:
+\begin{enumerate}
+\item Normalizzare $\norm{\psi(t_0)}^2 = 1$\\
+\item Risolvere l'equazione agli autovalori per $H$, imponendo le condizioni al contorno date dal dominio di $H$, in modo da trovare le autofunzioni $\varphi_{\mathcal{E}_n}$ associate agli autovalori $\mathcal{E}_n$.
+\item Scrivere $\ket{\psi(t_0)}$ e l'operatore di evoluzione $U(t)$ in termini di autovalori e autovettori di $H$, e poi applicare la formula (\ref{eqn:evoluzione_autovalori}).
+\end{enumerate}
+
+In questo caso abbiamo già risolto l'equazione agli autovalori, trovando le $\varphi_n$ associate agli autovalori $\mathcal{E}_n$. Scrivendo $\ket{\psi(t_0)}$ in tale base e normalizzando:
+\begin{align*}
+\ket{\psi(t_0)} &= A\sqrt{\frac{a}{2}}(\ket{\varphi_1}+2\ket{\varphi_2})\\
+\braket{\psi(t_0)|\psi(t_0)} &= |A|^2 \frac{a}{2}(1+4)\Rightarrow A=\sqrt{\frac{2}{5a}}
+\end{align*}
+dove si è usato il fatto che le $\ket{\varphi_i}$ sono ortonormali.\\
+Applicando allora l'evoluzione temporale:
+\begin{align}
+\ket{\psi(t_0)} &= \frac{1}{\sqrt{5}}(\ket{\varphi_1}+2\ket{\varphi_2})\nonumber\\
+\label{eqn:evoluzione_buca_t}
+\braket{x|\psi(t)} &= \frac{1}{\sqrt{5}}
+\left (
+\exp\left(-\frac{i}{\hbar}\mathcal{E}_1(t-t_0)\right) \underbrace{\braket{x|\varphi_1(t)}}_{\varphi_1(x)} + 2\exp\left(-\frac{i}{\hbar}\mathcal{E}_2(t-t_0)\right)
+\underbrace{\braket{x|\varphi_2}}_{\varphi_2(x)} \right)\\
+\mathcal{E}_i &= \frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2
+\end{align}
+%\bra{\mathcal{E}_n}H\ket{\mathcal{E}_n}=H_{nm}
+\end{document}
+

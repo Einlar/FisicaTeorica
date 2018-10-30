@@ -1,15 +1,10 @@
-\begin{comment}
-%\documentclass[12pt]{article}
+\documentclass[../../FisicaTeorica.tex]{subfiles}
 
-\input{header.tex}
+%\input{header.tex}
 
 \begin{document}
-\section{Lezione 3:\\ \large{Formulazione assiomatica Hilbertiana (o Standard)}}
-\vspace{-1em}
-\begin{center}
-    \small{(15/10/2018)}
-\end{center}
-\end{comment}
+
+\subsection{Autoaggiuntezza in dimensione $\infty$: famiglie spettrali}
 Potremmo essere tentati di estendere questa\marginpar{Decomposizione spettrale in $\op{dim}\hs =\infty$: problemi iniziali} strategia per costruire una funzione di un'osservabile $O$ ($f(O)$) anche nel caso $\op{dim}\hs = \infty$, per esempio in $\hs = L^2(\bb{R}, dx)$.\\
 Tuttavia, ciò porta subito a dei problemi.\\
 Per esempio, sia $X$ l'operatore autoaggiunto ($X=X^\dag$) con dominio $D(X) = \{\psi \in L^2(\bb{R}, dx)\>|\>x\psi \in L^2(\bb{R})\}$ che agisce su $\psi$ come $X\psi = x\psi$.\\
@@ -21,14 +16,14 @@ Applicando la definizione di $X$:
 \[
 X\psi_\lambda(x) = x\psi_\lambda(x) \Rightarrow (x-\lambda)\psi_\lambda (x) = 0
 \]
-Scartiamo la soluzione banale $\psi_\lambda(x) \equiv 0$ che non è fisica\footnote{La posizione di una particella non può essere "da nessuna parte"!}, ma allora l'equazione di sopra deve valere solo per $x = \lambda$.\\
+Scartiamo la soluzione banale $\psi_\lambda(x) \equiv 0$ che non è fisica\footnote{La posizione di una particella non può essere \q{da nessuna parte}!}, ma allora l'equazione di sopra deve valere solo per $x = \lambda$.\\
 Tuttavia $\{x = \lambda \}$ ha misura di Lebesgue nulla: in altre parole stiamo cercando una soluzione (non nulla) che sia $0$ per tutte le $x$ tranne $\lambda$ (ossia tranne un insieme Lebesgue-trascurabile). Ma tale funzione, in $L^2$, è quella nulla, che abbiamo appena scartato!\\
 Siamo costretti ad affermare perciò che $X$ non possiede autovettori - e con ciò termina il primo tentativo di generalizzare la decomposizione spettrale al caso infinito-dimensionale: come possiamo trovare una base ON di autovettori se di autovettori non ce ne sono?\\
 
 Proviamo a tornare al caso $\op{dim}\hs < \infty$ e studiare una strategia alternativa che possa essere generalizzata.\\
-Poco fa, per dimostrare che gli autovalori "matematici" (di un operatore) sono tutti e soli quelli "fisici" (dell'osservabile rappresentato) nel caso infinito-dimensionale avevamo fatto uso di un argomento probabilistico (le probabilità $p_n$ associate agli autovalori $\lambda_n$ \textit{esauriscono} tutte le possibilità). Potremmo perciò cercare di partire da qui, riesaminando la struttura probabilistica nel caso finito-dimensionale - essenzialmente declinando quanto detto nei paragrafi di descrizione di un sistema fisico %Inserire ref alla parte di probabilità dopo teoria della misura
+Poco fa, per dimostrare che gli autovalori \q{matematici} (di un operatore) sono tutti e soli quelli \q{fisici} (dell'osservabile rappresentato) nel caso infinito-dimensionale avevamo fatto uso di un argomento probabilistico (le probabilità $p_n$ associate agli autovalori $\lambda_n$ \textit{esauriscono} tutte le possibilità). Potremmo perciò cercare di partire da qui, riesaminando la struttura probabilistica nel caso finito-dimensionale - essenzialmente declinando quanto detto nei paragrafi di descrizione di un sistema fisico %Inserire ref alla parte di probabilità dopo teoria della misura
 alla luce di quanto appena visto sulle proprietà degli operatori e sulla decomposizione spettrale.\\
-Partiamo\marginpar{Struttura probabilistica per operatori in MQ} dallo scrivere l'equivalente di (\ref{eqn:POdef})\footnote{$P^O(\lambda) = H(\lambda-O)$} per un operatore, tramite la decomposizione spettrale: %[REF]
+Partiamo\marginpar{Struttura probabilistica per operatori in \MQ} dallo scrivere l'equivalente di (\ref{eqn:POdef})\footnote{$P^O(\lambda) = H(\lambda-O)$} per un operatore, tramite la decomposizione spettrale: %[REF]
 \begin{equation} 
 P^A\left(\lambda\right)=\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}\equiv H(\lambda-A) 
 \label{eqn:PA}
@@ -43,18 +38,20 @@ Nel caso degli operatori basta quindi calcolare il valor medio dell'operatore de
 \left\langle A\right\rangle_\psi= \int_\bb{R} \lambda P^A_\Sigma(\lambda) =\int_{\mathbb{R}}{\lambda\, d \underbrace{(\psi,P^A\left(\lambda\right)\psi)}_{P_\psi^A(\lambda)}}
 \label{eqn:valormedioA}
 \end{equation}
-Abbiamo quindi adattato la scrittura "probabilistica" dei valor medi anche al caso degli operatori.\\
-Formalmente possiamo anche "estrarre" il valor medio dall'integrale, come avevamo fatto in (\ref{eqn:osservabileformale})\footnote{$O = \int_\bb{R} \lambda\, dP^O \Rightarrow f(O) = \int_\bb{R} f(\lambda)\, dP^O(\lambda)$}, ottenendo un'uguaglianza che - essendo vera in ogni stato - deve valere anche rimuovendo il valor medio: %[REF]
+Abbiamo quindi adattato la scrittura \q{probabilistica} dei valori medi anche al caso degli operatori.\\
+Formalmente possiamo anche \q{estrarre} il valor medio dall'integrale, come avevamo fatto in (\ref{eqn:osservabileformale})\footnote{$O = \int_\bb{R} \lambda\, dP^O \Rightarrow f(O) = \int_\bb{R} f(\lambda)\, dP^O(\lambda)$}, ottenendo un'uguaglianza che - essendo vera in ogni stato - deve valere anche rimuovendo il valor medio: %[REF]
 \begin{equation}
 A=\int \lambda\, dP^A(\lambda); \quad f(A) = \int f(\lambda)\,dP^A(\lambda)
 \label{eqn:operatoreformale}
 \end{equation}
 Specifichiamo nel dettaglio cosa significa la notazione in (\ref{eqn:valormedioA}):
-\begin{align*}
-d_\lambda (\psi,\ P^A (\lambda )\psi )&\underset{(\ref{eqn:PA})}{=}d_\lambda (\psi,\ \sum_{n} H(\lambda-\lambda_n )P_n\psi )=\\
-&\underset{(a)}{=}\sum_{n} d_\lambda\sum_{n} H (\lambda-\lambda_n ) (\psi,\ \psi_n ) (\psi_n,\psi )=\\
-&\underset{(b)}{=}\sum_n \delta (\lambda-\lambda_n ) |(\psi_n,\ \psi)|^2 d\lambda
-\end{align*}
+\begin{align}
+d_\lambda (\psi,\ P^A (\lambda )\psi )&\underset{(\ref{eqn:PA})}{=}d_\lambda (\psi,\ \sum_{n} H(\lambda-\lambda_n )P_n\psi )=\nonumber\\
+&\underset{(a)}{=}\sum_{n} d_\lambda\sum_{n} H (\lambda-\lambda_n ) (\psi,\ \psi_n ) (\psi_n,\psi )=
+\label{eqn:dPA_op}
+\\
+&\underset{(b)}{=}\sum_n \delta (\lambda-\lambda_n ) |(\psi_n,\ \psi)|^2 d\lambda\nonumber
+\end{align}
 In (a) si è usata la definizione di proiettore, (in notazione di Dirac) $P_n = \ket{\psi_n}\bra{\psi_n}$, da cui $(\psi, P_n \psi) = \bra{\psi}\ket{\psi_n}\bra{\psi_n}\ket{\psi}$, e si è portato fuori dal prodotto scalare il termine reale $H(\lambda-\lambda_n)$.\\
 In (b) si è calcolata la derivata della somma, ricordando che la derivata distribuzionale della Heaviside è la $\delta$ di Dirac, e notando che $(\psi, \psi_n) = (\psi_n,\psi)^*$, e il prodotto dei complessi coniugati dà il modulo quadro.\\
 Possiamo ora calcolare l'integrale completo di (\ref{eqn:valormedioA}):
@@ -67,14 +64,14 @@ Poniamo, seguendo la notazione già stabilita alla sezione precedente:
 \[ 
 P_\psi^A(\lambda) = (\psi, P^A(\lambda)\psi)
 \]
-Si tratta di una funzione reale, che interpretiamo come la probabilità che effettuata una misura di $A$ nello stato $\sigma$ essa abbia un valore $\leq \lambda$. Osserviamone l'andamento nel dettaglio.
+Si tratta di una funzione reale, che interpretiamo come la probabilità che effettuata una misura di $A$ nello stato $\psi$ essa abbia un valore $\leq \lambda$. Osserviamone l'andamento nel dettaglio.
 \begin{figure}
     \centering
     \includegraphics{Immagini/Heaviside.pdf}
     \caption{Andamento di $P_\psi^A(\lambda)$}
     \label{fig:Pautov}
 \end{figure}
-Supponiamo di porre sulla retta reale gli autovalori, in ordine crescente. In particolare, vi sarà un autovalore minimo $\lambda_1$, prima del quale la $P_\psi^A\left(\lambda\right)$ è nulla. Quando incontra il primo autovalore vi è un "gradino" (dato dalla Heaviside), e allo stesso modo per i successivi autovalori, con "il salto" tra ciascuno che è dato dal peso $\left|\psi_n,\ \psi\right|^2$, come illustrato in figura \ref{fig:Pautov}.\\
+Supponiamo di porre sulla retta reale gli autovalori, in ordine crescente. In particolare, vi sarà un autovalore minimo $\lambda_1$, prima del quale la $P_\psi^A\left(\lambda\right)$ è nulla. Quando incontra il primo autovalore vi è un \q{gradino} (dato dalla Heaviside), e allo stesso modo per i successivi autovalori, con \q{il salto} tra ciascuno che è dato dal peso $\left|\psi_n,\ \psi\right|^2$, come illustrato in figura \ref{fig:Pautov}.\\
 Alla fine (dopo tutti gli autovalori), giungerà ovviamente a $1$, essendo normalizzata la $\psi$ normalizzata: $\norm{\psi}=1$. Perciò:
 \[
 \sum_{n}\left|(\psi_n,\ \psi\right)|^2=1
@@ -83,7 +80,7 @@ In particolare:
 \[
 P_\psi^A\left(\lambda\right)=\text{ probabilità in una misura di A nello stato $\psi$  di trovare un valore }\leq \lambda 
 \]
-Perciò costruendo l'operatore $P^A$ grazie alla decomposizione spettrale possiamo ricreare la struttura probabilistica (e in particolare ottenere la "probabilità cumulativa" $P^A_\psi$).\\
+Perciò costruendo l'operatore $P^A$ grazie alla decomposizione spettrale possiamo ricreare la struttura probabilistica (e in particolare ottenere la \q{probabilità cumulativa} $P^A_\psi$).\\
 Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$} degli operatori $\left\{P^A\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ dati da $P^A(\lambda) = \sum_n H(\lambda-\lambda_n)P_n$
 (siamo sempre nel caso di $\dim{\mathcal{H}}<\infty$). L'idea è di richiedere le stesse proprietà anche nel caso infinito-dimensionale, in modo da svincolarsi dalle equazioni agli autovalori e poter generalizzare.
 \begin{enumerate}
@@ -100,14 +97,14 @@ Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$
 	\end{equation}
 	Dove si ha che:
 	\begin{align*}
-	P_nP_m\psi&=P_n\left(\psi_m,\psi\right)\psi_m =\left(\psi_m,\psi\right)\left(\psi_n,\psi_m\right)\psi_n =\\
+	P_nP_m\psi&\underset{(a)}{=}P_n\left(\psi_m,\psi\right)\psi_m \underset{(b)}{=}\left(\psi_m,\psi\right)\left(\psi_n,\psi_m\right)\psi_n \underset{(c)}{=}\\
 	&= \delta_{nm}(\psi_m, \psi) \psi_n = 
-	\braket{\psi_m | \psi} \psi_n \delta_{mn} = 
-	P_n\psi \delta_{nm}
+	\delta_{nm}\underbrace{\braket{\psi_m | \psi}\ket{\psi_n}}_{P_n\psi}  \underset{(d)}{=} 
+	P_n\psi\,\delta_{nm}
 	\end{align*}
 	%[TO DO] \delta_{mn} è una delta di Kronecker, non di Dirac!
-	Nei primi passaggi si è prima applicato $P_m$ a $\psi$, che genera $\ket{\psi_m}\braket{\psi_m|\psi}$, e quindi $P_n$ a $\ket{\psi_m}$ appena generato, che porta a $\braket{\psi_n, \psi_m}\ket{\psi_n} \braket{\psi_m|\psi}$. Ma per un operatore simmetrico come $A$ (che è autoaggiunto) possiamo scegliere una base di autovettori $\psi_n$ ON, per cui $\braket{\psi_n|\psi_m} = \delta_{mn}$ (è pari a $1$ per la normalizzazione solo quando moltiplico lo stesso autovettore, altrimenti è nulla perché sto considerando autovettori ortogonali). Nell'ultimo passaggio usiamo la $\delta$ per identificare $n=m$, e riconoscere in $\braket{\psi_m | \psi}\ket{\psi_n}$ il proiettore $P_n$ applicato a $\psi$.\\
-	Se consideriamo solo l'operatore "puro" avremo perciò $P_n P_m = \hlc{Yellow}{P_n \delta_{nm}}$\\
+	In (a) si applica $P_m$ a $\psi$, che genera $\ket{\psi_m}\braket{\psi_m|\psi}$, mentre in (b) si applica $P_n$ al $\ket{\psi_m}$ appena generato, che porta a $\braket{\psi_n, \psi_m}\ket{\psi_n} \braket{\psi_m|\psi}$. Ma per un operatore simmetrico come $A$ (che è autoaggiunto) possiamo scegliere una base ortonormale di autovettori $\psi_n$, per cui in (c) $\braket{\psi_n|\psi_m} = \delta_{mn}$ (il prodotto scalare restituisce $1$ per la normalizzazione solo quando un vettore è moltiplicato per se stesso, e altrimenti $0$ perché gli autovettori sono ortogonali tra loro). Infine in (d) usiamo la $\delta$ per identificare $n=m$, e riconoscere in $\braket{\psi_m | \psi}\ket{\psi_n}$ il proiettore $P_n$ applicato a $\psi$.\\
+	Se consideriamo solo l'operatore \q{puro} avremo perciò $P_n P_m = \hlc{Yellow}{P_n \delta_{nm}}$\\
 	Sostituendo questo risultato in (\ref{eqn:PAquadro}):
 	\begin{align*}
 	P^A(\lambda)^2 &= \sum_{n,m} H(\lambda -\lambda_n)H(\lambda-\lambda_m) \hlc{Yellow}{P_n P_m} = \\
@@ -135,7 +132,7 @@ Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$
 	H\left(\min{\left\{\lambda,\ \lambda '\right\}}-\lambda^{\prime\prime}\right)
 	\]
 	\item $\displaystyle \lim_{\lambda\rightarrow\lambda_0^+}{P^A\left(\lambda\right)}=P^A(\lambda_0) $\\
-	Poiché la Heaviside\marginpar{$P^A(\lambda)$ sono continui a destra} è $1$ in $0$ (è continua da destra, ma non da sinistra), perciò il "valore da sopra" è lo stesso della funzione in quel punto. Più precisamente:
+	Poiché la Heaviside\marginpar{$P^A(\lambda)$ sono continui a destra} è $1$ in $0$ (è continua da destra, ma non da sinistra), perciò il \q{valore da sopra} è lo stesso della funzione in quel punto. Più precisamente:
 	\[
 	\lim_{x\rightarrow 0^+}{H \left(x\right)}=1; \quad 
 	\lim_{x\rightarrow 0^-}{H\left(x\right)}=0
@@ -268,6 +265,6 @@ Dove $P^A\left(\lambda\right)$ è la \textbf{famiglia spettrale} di $A$ e $\fora
 	\end{thm}
 	\item \textbf{Attenzione}: Conoscere $P^A$ e $P^B$ non porta alla conoscenza di $P^{A+B}$.\\
 	Per esempio, $A=\frac{p^2}{2m}, B=V\left(x\right)$, con $\sigma \left(A\right)= \mathbb{R}_+, \sigma \left(V\left(x\right)\right)=\op{cod} V(x)$ sono entrambi operatori a spettro continuo. Tuttavia la loro somma ha uno spettro discreto: sono per esempio i livelli energetici di una buca infinita.\\
-	(In MC, d'altro canto, conoscere $P^A$ e $P^B$ porta subito alla conoscenza di $P^{A+B}$.)\\
+	(In \MC, d'altro canto, conoscere $P^A$ e $P^B$ porta subito alla conoscenza di $P^{A+B}$.)\\
 \end{enumerate}
-%\end{document}
+\end{document}

@@ -4,33 +4,31 @@
 
 \begin{document}
 \section{L'operatore momento}
+In questa sezione si analizza l'osservabile momento in meccanica quantistica. Tale analisi, oltre ad essere fondamentale in fisica, mostra come il cambiamento del dominio degli operatori in meccanica quantistica possa modificare completamente la fisica del sistema.
 \subsection{Momento in $\bb{R}$}
-\begin{center}
-    \small{(18-19/10/2018)}
-\end{center}
-Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ "a dominio reale", cioè su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice "regolarità".\\
+Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ \q{a dominio reale}, cioè su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice \q{regolarità}.\\
 In particolar modo, è necessario chiedere che:
 \begin{itemize}
     \item Esista la derivata $\psi'$ \textit{quasi ovunque}.
-    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e sia "integrabile alla Lebesgue su ogni compatto":
+    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e sia \q{integrabile alla Lebesgue su ogni compatto}:
     \[
-    \int_a^b \psi'(x)dx = \psi(b)-\psi(a)\>\forall [a,b]\in \bb{R}
+    \int_a^b \psi'(x)dx = \psi(b)-\psi(a) \qquad \forall [a,b] \subset \bb{R}
     \]
 \end{itemize}
-\textbf{Nota}: È necessario che le condizioni siano così "larghe". Per esempio, potremmo essere tentati di sintetizzarle chiedendo che $\psi \in C^1$. Ciò, tuttavia, fa perdere l'autoaggiuntezza dell'operatore, e perciò fa sì che il suo spettro non sia più solamente reale!\\
+\textbf{Nota}: È necessario che le condizioni siano così \q{larghe}. Per esempio, potremmo essere tentati di sintetizzarle chiedendo che $\psi \in \mathcal C^1$. Ciò, tuttavia, fa perdere l'autoaggiuntezza dell'operatore, e perciò fa sì che il suo spettro non sia più solamente reale!\\
 Definiamo perciò il dominio di $P$ come:
 \begin{align*}
 D\left(P\right)= \big\{\psi\in L^2\left(\mathbb{R},\ dx\right)\ \ |\ \ 
-&\exists\psi^\prime\ q.o.\, \int_{a}^{b}{\psi^\prime\left(x\right)dx}=\psi\left(b\right)-\psi\left(a\right)\ \forall\left[a,b\right]\in\mathbb{R},\\
+&\exists\psi^\prime\ q.o.\, \int_{a}^{b}{\psi^\prime\left(x\right)dx}=\psi\left(b\right)-\psi\left(a\right)\ \forall\left[a,b\right]\subset\mathbb{R},\\
 &\psi^\prime\in L^2(\mathbb{R},\ dx)\ \big\}
 \end{align*}
-\textbf{Nota}: per \textit{definire} un operatore è necessario indicarne in maniera esplicita il dominio. Come vedremo tra poco, infatti, lo "stesso operatore" su domini diversi può dar luogo a risultati assurdi, o essere associato a diverse osservabili.\\
+\textbf{Nota}: per \textit{definire} un operatore è necessario indicarne in maniera esplicita il dominio. Come vedremo tra poco, infatti, lo \q{stesso operatore} su domini diversi può dar luogo a risultati assurdi, o essere associato a diverse osservabili.\\
 
 Fissate queste condizioni, si ha subito che se $\psi$ , $\psi^\prime\in L^2(R, dx)$ allora $\psi(x)$ si annulla all'infinito:
 \[
 \lim_{x\rightarrow\pm\infty}{\psi\left(x\right)}=0
 \]
-A priori non è nemmeno ovvio che tale limite esista. Potremmo per esempio considerare una funzione che si annulla ovunque, se non in determinati intervalli (di misura non nulla), in cui "salta" a un certo valore positivo. Calibrando opportunamente la larghezza dei "salti" e distanziandoli tra loro si può far sì che l'integrale di tale $\psi$ converga a un valore finito - e quindi che $\psi \in L^2$. Tuttavia, poiché tali "salti" sono sempre presenti, per quanto grande sia $M$, per $x>M$ la funzione assume valori che non si avvicinano a $0$ più del valore del "salto", e perciò il limite a $\infty$ non esiste.\\
+A priori non è nemmeno ovvio che tale limite esista. Potremmo per esempio considerare una funzione che si annulla ovunque, se non in determinati intervalli (di misura non nulla), in cui \q{salta} a un certo valore positivo. Calibrando opportunamente la larghezza dei \q{salti} e distanziandoli tra loro si può far sì che l'integrale di tale $\psi$ converga a un valore finito - e quindi che $\psi \in L^2$. Tuttavia, poiché tali \q{salti} sono sempre presenti, per quanto grande sia $M$, per $x>M$ la funzione assume valori che non si avvicinano a $0$ più del valore del \q{salto}, e perciò il limite a $\infty$ non esiste.\\
 Tuttavia, se $\psi$ e $\psi' \in L^2(\bb{R})$, allora lo sono anche su $\mathbb{R}_+$: $\psi$,$\psi^\prime\in L^2([0, +\infty [, dx)$. Ma allora:
 \[
 \int_0^\infty dx (\psi^*(x)\psi'(x)+{\psi^*}'(x)\psi(x)) = \int_0^\infty dx \frac{d}{dx}(\psi^*(x), \psi(x)) = \norm{\psi(\infty)}^2 - \norm{\psi(0)}^2
@@ -70,16 +68,18 @@ Ripetendo gli stessi passaggi di prima, si arriva a dover definire le condizioni
 \[
 \phi^*(x)\psi(x)\big|_{0}^{+\infty} = \cancel{\phi^*(+\infty)\psi(+\infty)} - \phi^*(0)\psi(0) = 0
 \]
-Il problema è che dalle condizioni che abbiamo imposto finora sappiamo solo che $\psi$ si annulla all'infinito, ma nulla si sa sul suo comportamento in $0$. È quindi necessario imporre un'altra condizione - ma non c'è modo di farlo in maniera "simmetrica". Se infatti risolvessimo ponendo $\psi(0) = 0$ non dovremmo fare la stessa richiesta per la $\phi$ (non sarebbe necessario), e quindi $D(P) \subset D(P^\dag)$. Viceversa, se imponessimo $\phi(0) = 0$ avremmo la situazione opposta, con $D(P) \supset D(P^\dag)$.\\
+Il problema è che dalle condizioni che abbiamo imposto finora sappiamo solo che $\psi$ si annulla all'infinito, ma nulla si sa sul suo comportamento in $0$. È quindi necessario imporre un'altra condizione - ma non c'è modo di farlo in maniera \q{simmetrica}. Se infatti risolvessimo ponendo $\psi(0) = 0$ non dovremmo fare la stessa richiesta per la $\phi$ (non sarebbe necessario), e quindi $D(P) \subset D(P^\dag)$. Viceversa, se imponessimo $\phi(0) = 0$ avremmo la situazione opposta, con $D(P) \supset D(P^\dag)$.\\
 Perciò, se richiediamo che il momento $P$ nell'intervallo $\bb{R}_+$ sia simmetrico, allora non può essere autoaggiunto, e quindi \textit{non è un'osservabile}.\\
 Qual è il significato fisico di ciò?\\
 ipotizziamo per assurdo che $P$ su $\bb{R}_+$ sia un'osservabile. Allora avremo degli autovalori, per esempio $p$ autovalore di $P$. Facendo quindi una misura del momento troveremmo allora $p$, e sapremmo per certo che $p>0$.\\
-Con un'analogia semiclassica, "fissare un momento" significa considerare un'onda piana\footnote{Pensandola con il principio di indeterminazione: l'onda piana ha estensione infinita - quindi non conosciamo la sua posizione con nessuna precisione - ma ha un \textit{unico} momento $p$}. Tuttavia, un'onda piana "confinata" a $\bb{R}_+$ vuol dire che "si è riflessa" sul piano per $x=0$, ed è quindi in realtà la sovrapposizione di un'onda incidente e una riflessa - che hanno momenti di segno opposto\footnote{In altre parole, facendo oscillare una fune "infinitamente lunga" ma collegata ad un punto fisso - oltre il quale non c'è più nulla, e che corrisponde all'\textit{estremo del dominio}, ossia $x=0$, si crea un'\textit{onda stazionaria}, che classicamente si ottiene come sovrapposizione di due onde con verso opposto di propagazione}. Perciò anche in questo caso non è possibile ottenere una misura univoca del momento - e infatti l'operatore $P$ su $\bb{R}_+$ non corrisponde a osservabili.
+Con un'analogia semiclassica, \q{fissare un momento} significa considerare un'onda piana\footnote{Pensandola con il principio di indeterminazione: l'onda piana ha estensione infinita - quindi non conosciamo la sua posizione con nessuna precisione - ma ha un \textit{unico} momento $p$}. Tuttavia, un'onda piana \q{confinata} a $\bb{R}_+$ vuol dire che \q{si è riflessa} sul piano per $x=0$, ed è quindi in realtà la sovrapposizione di un'onda incidente e una riflessa - che hanno momenti di segno opposto\footnote{In altre parole, facendo oscillare una fune \q{infinitamente lunga} ma collegata ad un punto fisso - oltre il quale non c'è più nulla, e che corrisponde all'\textit{estremo del dominio}, ossia $x=0$, si crea un'\textit{onda stazionaria}, che classicamente si ottiene come sovrapposizione di due onde con verso opposto di propagazione}. Perciò anche in questo caso non è possibile ottenere una misura univoca del momento - e infatti l'operatore $P$ su $\bb{R}_+$ non corrisponde a osservabili.
 
 %%19-10
 \subsection{Momento in $[0,2\pi]$}
+\lesson{12}{19/10/2018}
+\label{sec:momento_compatto}
 È invece possibile definire l'operatore momento su $[0,2\pi]$, cioè ponendo $\hs = L^2([0,2\pi],dx)$.\\
-Nella costruzione del suo dominio inizialmente consideriamo un operatore "test" $\tilde{P}$, che poi raffiniremo al $P$ vero e proprio. Poniamo quindi:
+Nella costruzione del suo dominio inizialmente consideriamo un operatore \q{test} $\tilde{P}$, che poi raffiniremo al $P$ vero e proprio. Poniamo quindi:
 \[
 D\left(\widetilde{P}\right)= \left\{\psi\in L^2\left(\left[0,2\pi\right],dx\right)\ \ |\ \ \psi\text{ regolari},\psi\left(0\right)=\psi\left(2\pi\right)=0\right\}
 \]
@@ -102,8 +102,8 @@ In effetti $\tilde{P}$ non produce risultati fisici. Risolvendo infatti l'equazi
     &\Rightarrow \ln \psi_\lambda = \frac{i\lambda}{\hbar}x + c \Rightarrow \psi_\lambda\left(x\right)=A e^{-i\frac{\lambda}{\hbar}x}
 \end{align*}
 Quando si impone (come richiesto dalle condizioni sul dominio di $\tilde{P}$) che $\psi_\lambda\left(0\right)=0$ si ottiene solo una funzione nulla - che non ha senso fisico.\\
-La ragione intuitiva per cui ciò non funziona è che, come nel caso di $\mathbb{R}_+$, una situazione semiclassica in cui il momento è perfettamente definito è quella di un'onda piana, ma un'onda "confinata tra due punti" è un'onda stazionaria, che è sovrapposizione di due onde con versi opposti, e perciò anche in questo caso resta indefinita la direzione di $p$, e si giunge ad una contraddizione.\\
-Tuttavia, in questo caso, possiamo "aggiustare" la situazione. Per distinguere i conti dal caso precedente, chiameremo $P_0$ questa "versione" del momento.\\
+La ragione intuitiva per cui ciò non funziona è che, come nel caso di $\mathbb{R}_+$, una situazione semiclassica in cui il momento è perfettamente definito è quella di un'onda piana, ma un'onda \q{confinata tra due punti} è un'onda stazionaria, che è sovrapposizione di due onde con versi opposti, e perciò anche in questo caso resta indefinita la direzione di $p$, e si giunge ad una contraddizione.\\
+Tuttavia, in questo caso, possiamo \q{aggiustare} la situazione. Per distinguere i conti dal caso precedente, chiameremo $P_0$ questa \q{versione} del momento.\\
 Perché sia simmetrico, come abbiamo visto, vogliamo che si annulli il primo termine dell'integrazione per parti:
 \[
 \phi^\ast\left(2\pi\right)\psi\left(2\pi\right)-\phi^\ast\left(0\right)\psi \left(0\right)=0
@@ -117,7 +117,7 @@ Ne segue che la condizione da imporre sulle $\phi$ è:
 \left(\phi^\ast\left(2\pi\right)-\phi^\ast\left(0\right)\right)\psi \left(0\right)=0\Rightarrow \phi \left(2\pi\right)=\phi \left(0\right)
 \]
 ossia la stessa che abbiamo appena imposto alle $\psi$. Perciò $D\left(P_0\right)=D\left(P_0^\dag\right)$ e si ha l'autoaggiuntezza desiderata.\\
-Matematicamente, la condizione che abbiamo appena imposto è una condizione di \textbf{periodicità}. In effetti, l'aver scelto $2\pi$  suggerisce di mappare il sistema su una circonferenza, dove allora ha senso che la particella abbia un momento ben definito (basti pensare, semiclassicamente, ad un'onda che "gira" su una circonferenza - il suo verso è definito, e non vi sono riflessioni).\\
+Matematicamente, la condizione che abbiamo appena imposto è una condizione di \textbf{periodicità}. In effetti, l'aver scelto $2\pi$  suggerisce di mappare il sistema su una circonferenza, dove allora ha senso che la particella abbia un momento ben definito (basti pensare, semiclassicamente, ad un'onda che \q{gira} su una circonferenza - il suo verso è definito, e non vi sono riflessioni).\\
 Risolvendo allora l'equazione agli autovalori si giunge sempre a:
 \[
 \psi\left(x\right)=A e^{i\frac{\lambda}{\hbar}x}
@@ -131,7 +131,7 @@ Si ottiene che $\lambda = n\hbar$, $n\in \bb{Z}$, e quindi lo spettro è solo pu
 \int_{0}^{2\pi}{\left|e^{i\frac{\lambda}{\hbar}x}\right|^2dx=2\pi<\infty}
 \]
 %DOMANDA: A cosa serve quest'integrale (forse per indicare che tali \psi sono in L^2 e che quindi sono "fisiche"?
-Troviamo quindi un'importante differenza tra fisica classica e quantistica. Se consideriamo una particella che gira su un cerchio, in MC possiamo avere un qualsiasi valore del momento, ma in MQ solo certi valori "quantizzati"\footnote{Potremmo riconoscere in ciò la condizione trovata da de Broglie: perché ogni particella ha un comportamento ondulatorio, solo i momenti che fanno sì che "l'onda interferisca costruttivamente con se stessa" sono ammessi}: $p=\hbar n$, $n\in \bb{Z}$.\\
+Troviamo quindi un'importante differenza tra fisica classica e quantistica. Se consideriamo una particella che gira su un cerchio, in \MC possiamo avere un qualsiasi valore del momento, ma in \MQ solo certi valori \q{quantizzati}\footnote{Potremmo riconoscere in ciò la condizione trovata da de Broglie: perché ogni particella ha un comportamento ondulatorio, solo i momenti che fanno sì che \q{l'onda interferisca costruttivamente con se stessa} sono ammessi}: $p=\hbar n$, $n\in \bb{Z}$.\\
 
 In realtà la scelta che abbiamo fatto sulla restrizione del dominio di $\psi$ per avere l'autoaggiuntezza non è l'unica che si può fare.\\
 Se vogliamo che:
@@ -139,7 +139,7 @@ Se vogliamo che:
 \phi^\ast\left(x\right)\psi \left(x\right)\big|_0^{2\pi}=0
 \label{eqn:integrazioneperpartizero}
 \end{equation}
-Potremmo, matematicamente, imporre anche solo che $\psi \left(2\pi\right)=e^{i\gamma}\psi \left(0\right)$ (ossia che la $\psi$ sia una funzione "periodica" che torna nello stesso punto con uno sfasamento fisso dato da $\gamma$). Definiamo un operatore $P_\gamma$ che incorpora questa condizione nel suo dominio.\\
+Potremmo, matematicamente, imporre anche solo che $\psi \left(2\pi\right)=e^{i\gamma}\psi \left(0\right)$ (ossia che la $\psi$ sia una funzione \q{periodica} che torna nello stesso punto con uno sfasamento fisso dato da $\gamma$). Definiamo un operatore $P_\gamma$ che incorpora questa condizione nel suo dominio.\\
 Se $\gamma =0$ ritroviamo il caso di prima, ma generalmente $\gamma \in [0, 2\pi [$. Qual è allora la condizione da imporre sulle $\phi$?\\
 Imponendo (\ref{eqn:integrazioneperpartizero}) con la nuova condizione sulle $\psi$, otteniamo:
 \[
@@ -188,10 +188,10 @@ Quindi, se consideriamo solo gli operatori (rimuovendo le $\psi(x)$) giungiamo a
 \[
 e^{-i\frac{\gamma}{2\pi}x}\left(-i\hbar\frac{d}{dx}\right)e^{i\frac{\gamma}{2\pi}x}=\frac{\gamma\hbar}{2\pi}\underbrace{-i\hbar \frac{d}{dx}}_{P_0} = \frac{\gamma \hbar}{2\pi} + P_0
 \]
-Perciò le $\psi_n(x)$ sono gli autovettori corrispondenti ad un operatore "momento + costante". A che osservabile si riferisce?\\
+Perciò le $\psi_n(x)$ sono gli autovettori corrispondenti ad un operatore \q{momento + costante}. A che osservabile si riferisce?\\
 
 Per capire il significato fisico di $P_\gamma$ ci riconduciamo ad un caso classico. Consideriamo un solenoide strettamente interno alla circonferenza in cui si muove la particella perpendicolare al piano della circonferenza con flusso magnetico $\phi$.\\
-Poiché il campo magnetico è nullo su $S^1$ classicamente la particella non risente del flusso $\phi$  del campo magnetico, ma quantisticamente invece "sente" $\phi$  topologicamente. Infatti possiamo scrivere $\phi$ in termini di potenziale vettore $\vec{A}$, che non è nullo su $S^1$:
+Poiché il campo magnetico è nullo su $S^1$ classicamente la particella non risente del flusso $\phi$  del campo magnetico, ma quantisticamente invece \q{sente} $\phi$  topologicamente. Infatti possiamo scrivere $\phi$ in termini di potenziale vettore $\vec{A}$, che non è nullo su $S^1$:
 \[
 \phi =\int_{\Sigma}{\vec{B}\cdot d\Sigma=\oint_{S^1}{\vec{A}\cdot d\vec{l}}}=2\pi A
 \]
@@ -227,14 +227,14 @@ Lo sfasamento che acquisisce una $\psi$ dopo un \textit{ciclo} è detto \textbf{
 \[
 e^{\oint_{\mathcal{C}}{\left\langle\psi\right|d\psi\rangle\ }}
 \]
-dove $\mathcal{C}$ è una famiglia di funzioni d'onda "sfasate" (vedi sotto).\\
+dove $\mathcal{C}$ è una curva chiusa nello spazio degli stati (o delle funzioni).\\
 Con questa definizione la fase di Berry è un'osservabile. Mostriamo che il suo valore è non nullo se calcolata lungo un percorso ciclico (per esempio una circonferenza).\\
 %[Done] (correggere negli appunti vecchi la i nella fase di Berry) OK
 Partiamo considerando:
 \[
 \psi_n\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{i\left(n+\frac{\gamma}{2\pi}\right)x}
 \]
-Le $\psi_n$ sono definite a meno di una fase "attorno al cerchio", ossia a meno di una $\psi_\alpha(x)$:
+Le $\psi_n$ sono definite a meno di una fase \q{attorno al cerchio}, ossia a meno di una $\psi_\alpha(x)$:
 \[
 \{\psi_\alpha(x)\>|\>\psi_{2\pi}(x) = e^{i\gamma} \psi_0(x)\}; \quad \alpha \in [0,2\pi[
 \]
@@ -253,10 +253,10 @@ e quindi calcolare l'integrale per la fase di Berry:
 e^{\oint_{\mathcal{C}}\left\langle\psi\middle| d\psi\right\rangle}&=\exp{\int_{0}^{2\pi}{d\alpha\ i\left(\frac{\gamma}{2\pi}+n\right)}}=\exp{i\ 2\pi\left(\frac{\gamma}{2\pi}+n\right)}=e^{i\gamma} 
 \end{align*}
 
-\section{Stati misti in MQ}
+\section{Stati misti in \MQ}
 Supponiamo di non conoscere in quale stato puro $\ket{\phi}$ il sistema si trovi, ma solo di sapere che può essere negli stati puri $\left|\phi_1\right\rangle,\dots, |\phi_n\rangle $ (che consideriamo normalizzati, $\braket{\phi_i|\phi_i}=1$) con probabilità $p_1\dots p_n$, $\sum_{i=1}^{n}p_i=1$.\\
 \textbf{Nota}: $n$ è per forza numerabile, ma le $\phi$ non hanno vincoli di ortogonalità, e le $p_i$ sono probabilità classiche.\\
-Dalle regole della probabilità, se $\Sigma$ denota lo stato di informazione non massimale (misto) sopra descritto e $A$ è un'osservabile, allora il valor medio di A nello stato $\Sigma$ è dato da una "media pesata" dei valor medi dei singoli stati puri:
+Dalle regole della probabilità, se $\Sigma$ denota lo stato di informazione non massimale (misto) sopra descritto e $A$ è un'osservabile, allora il valor medio di A nello stato $\Sigma$ è dato da una \q{media pesata} dei valor medi dei singoli stati puri:
 \[
 \langle A \rangle_\Sigma = \sum_{i=1}^n p_i\bra{\phi_i}A\ket{\phi_i}
 \]
@@ -292,7 +292,7 @@ Il termine evidenziato è detto \textbf{matrice densità}:\marginpar{Matrice di 
 Dalla sua definizione segue che: \marginpar{Proprietà della matrice densità}
 \begin{enumerate}
     \item $\rho$ è simmetrico\marginpar{$\rho$ è simmetrico}, ossia $\displaystyle \rho = \rho^\dag$, in quanto $A$ è autoaggiunto, $p_i$ è reale e $\left(\middle|\phi\right\rangle{\left\langle\phi\middle|\right)}^\dag=\left|\phi\right\rangle\left\langle\phi\right|$
-	\item $\rho$ è \textbf{positivo}\marginpar{$\rho$ è positivo} ($\rho \geq 0$), cioè produce solo "valor medi positivi": $\forall \psi \left\langle\psi\right|\rho \ket{\psi}\geq 0$. Infatti:
+	\item $\rho$ è \textbf{positivo}\marginpar{$\rho$ è positivo} ($\rho \geq 0$), cioè produce solo \q{valor medi positivi}: $\forall \psi \left\langle\psi\right|\rho \ket{\psi}\geq 0$. Infatti:
 	\begin{align*}
 	    \left\langle\psi\left|\rho\right|\psi\right\rangle&=\sum_{i}p_i\left\langle\psi\middle|\phi_i\right\rangle\left\langle\phi_i\middle|\psi\right\rangle=
 	    \sum_i p_i \braket{\psi|\phi_i}(\braket{\psi|\phi_i})^* =
@@ -306,7 +306,7 @@ Dalla sua definizione segue che: \marginpar{Proprietà della matrice densità}
 	\]
 \end{enumerate}
 \begin{dfn}\marginpar{Descrizione matematica di uno stato}
-Uno \textbf{stato} (misto o puro) in MQ è descritto da un operatore $\rho$ che soddisfa 1-3.
+Uno \textbf{stato} (misto o puro) in \MQ è descritto da un operatore $\rho$ che soddisfa 1-3.
 \end{dfn}
 Gli \textbf{stati puri} sono descritti dalle $\rho$ che soddisfano $\rho =\rho^2$. In tal caso $\rho$  è un proiettore, ma poiché la traccia di $\rho$ deve fare $1$, deve essere unidimensionale (cioè c'è un solo $p_i=1$ e tutti gli altri sono $0$, poiché solo i numeri $0$ e $1$ sono uguali al loro quadrato\footnote{In particolare, se ci fosse un $p_i \neq 0,1$ allora non si avrebbe $\rho = \rho^2$, e se vi fossero più di un $p_i$ pari a $1$ allora $\op{Tr}\rho > 1$, e nel caso non ve ne fosse nessuno $\op{Tr}\rho = 0$, che va contro alla definizione di matrice di densità}).\\
 Ma allora in tal caso la somma è ridotta a un solo elemento (tutti gli altri sono annullati dalle $p_i = 0$), e quindi $\rho =\ket{\psi}\bra{\psi}$ per un qualche $\ket{\psi}\in \hs$ normalizzato  ($\braket{\psi|\psi}=1$).\\
@@ -387,7 +387,7 @@ Nel caso \textbf{classico} possiamo scrivere uno stato come combinazione convess
 \rho \left(q,p\right)=\int dq_0\,dp_0 \rho \left(q_0,p_0\right) \underbrace{\delta \left(q-q_0\right)\delta \left(p-p_0\right)}_{\text{Stati puri}}
 \]
 È quindi ben definita (dalla $\rho(q,p)$) la \textit{famiglia} degli stati puri che definiscono lo stato misto.\\
-In MQ la situazione è diversa. Dall'autoaggiuntezza di $\rho$  ($\rho = \rho^\dag$) si ha che esistono autovettori $\ket{\lambda_n}$ di $\rho$ che formano una base ON. Possiamo allora
+In \MQ la situazione è diversa. Dall'autoaggiuntezza di $\rho$  ($\rho = \rho^\dag$) si ha che esistono autovettori $\ket{\lambda_n}$ di $\rho$ che formano una base ON. Possiamo allora
 decomporre $\rho$ spettralmente:
 \[
 \rho =\sum_{n}{\lambda_n|\lambda_n\rangle\langle\lambda_n|};\quad \op{Tr}\left(\rho\right)=1= \sum_{n}\lambda_n
@@ -398,5 +398,5 @@ Abbiamo allora ottenuto una descrizione completamente equivalente a quella che a
 \]
 in cui, tra l'altro, le $\ket{\phi_i}$ non devono neppure essere ON.\\
 Perciò si hanno famiglie \textit{diverse} di stati puri che danno la stessa informazione dello stato misto!\\
-In MC posso comunque sapere gli stati puri da cui parto - non so la loro combinazione esatta), ma in MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
+In \MC posso comunque sapere gli stati puri da cui parto - non so la loro combinazione esatta), ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
 \end{document}

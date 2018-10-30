@@ -1,0 +1,42 @@
+\begin{gnuplot}[terminal=epslatex, terminaloptions=color dashed,terminaloptions={size 15cm,18cm}]
+set multiplot layout 2,1 title "Buca infinita di potenziale in 1D"
+psi1(x) = sqrt(2)*cos(pi*x)
+psi2(x) = sqrt(2)*sin(2*pi*x)
+psi3(x) = sqrt(3)*cos(3*pi*x)
+set xrange[-0.6:0.6]
+set samples 10000
+set lmargin 3
+set bmargin 0
+set rmargin 3
+set tmargin 2
+
+
+set yrange[-1.9:1.9]
+set ytics -1.5,.5,1.5
+set style rect fc lt -1 fs solid 0.15 noborder
+set obj rect from -0.6, graph 0 to -0.5, graph 1
+set obj rect from 0.5, graph 0 to 0.6, graph 1
+
+set style line 1 lt 1 lw 6 lc rgb "#006d2c"
+set style line 2 lt 1 lw 4 lc rgb "#2ca25f"
+set style line 3 lt 1 lw 2 lc rgb "#99d8c9"
+set style line 12 lt 2 dt 2 lw 1 lc rgb "#dddddd"
+set grid ytics, xtics ls 12
+
+set xtics ("" 0)
+set key title "$\\varphi_n(x)$"
+plot (x<0.5 && x > -0.5) ? psi1(x) : 0 ls 1 title "$n=1$", (x<0.5 && x > -0.5) ? psi2(x) : 0 ls 2 title "$n=2$", (x<0.5 && x > -0.5) ? psi3(x) : 0 ls 3 title "$n=3$
+
+f1(x) = 2*cos(pi*x)**2
+f2(x) = 2*sin(2*pi*x)**2
+f3(x) = 2*cos(3*pi*x)**2
+set tmargin 0
+set bmargin 2
+set xtics ("$-\\displaystyle\\frac{a}{2}$" -0.5, "$0$" 0, "$+\\displaystyle\\frac{a}{2}$" 0.5) offset 0,-0.4
+
+set yrange[0:2.1]
+set ytics 0,.4,2
+set key title "$w_{\\varphi_n}^X(\\lambda)$"
+
+plot (x<0.5 && x > -0.5) ? f1(x) : 0 ls 1 title "$n=1$", (x<0.5 && x > -0.5) ? f2(x) : 0 ls 2 title "$n=2$", (x<0.5 && x > -0.5) ? f3(x) : 0 ls 3 title "$n=3$"
+\end{gnuplot}

@@ -1,6 +1,6 @@
-\documentclass[12pt]{article}
+\documentclass[../../FisicaTeorica.tex]{subfiles}
 
-\input{header.tex}
+%\input{header.tex}
 
 \begin{document}
 \section{Lezione 4:\\ \large{Il Formalismo di Dirac}}
@@ -12,7 +12,7 @@ Osserviamo ora più nel dettaglio la notazione di Dirac, finora occasionalmente 
 In effetti, Dirac elaborò il suo formalismo ciò senza utilizzare spazi di Hilbert - che del resto ancora non esistevano. Solo tramite la teoria delle distribuzioni e una matematica decisamente sofisticata è possibile però dare pienamente senso alla sua notazione, che assume così i caratteri e la consistenza propri della matematica.\\
 L'idea alla base della notazione di Dirac è quella di partire dal formalismo per lo spettro discreto e applicarlo, in maniera naturale, anche quello continuo. Vediamo come.\\
 \subsection{Formalismo per lo spettro discreto}
-Sia $A$ un operatore autoaggiunto, il cui spettro è solo dato dagli autovalori "di algebra lineare", e quindi è puramente puntuale: $\sigma \left(A\right)= \sigma_P\left(A\right)= \left\{\lambda_n\right\}$.\\
+Sia $A$ un operatore autoaggiunto, il cui spettro è solo dato dagli autovalori \q{di algebra lineare}, e quindi è puramente puntuale: $\sigma \left(A\right)= \sigma_P\left(A\right)= \left\{\lambda_n\right\}$.\\
 In notazione di Dirac, l'equazione agli autovalori diviene:
 \[
 A \left|\lambda_n\right\rangle=\lambda_n|\lambda_n \rangle 
@@ -45,12 +45,12 @@ A\sum_{n}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=\sum_{n}{\lam
 \subsection{Formalismo per lo spettro continuo}
 Se invece $\lambda \in \sigma_C\left(A\right)$, che senso ha l'equazione agli autovalori $A\left|\lambda\right\rangle=\lambda |\lambda  \rangle$?\\
 Infatti, come abbiamo visto, se $\lambda \in \sigma_C(A)$, $|\lambda\rangle$  non può essere un autovettore in $\hs$!\\
-Non è però escluso che possa esserlo in uno spazio "più grande" di $\hs$.\\
+Non è però escluso che possa esserlo in uno spazio \q{più grande} di $\hs$.\\
 Prendiamo per esempio l'operatore posizione $A=X$, che agisce su $\ket{\lambda}$ come $X\ket{\lambda} = x \ket{\lambda}$. Allora l'equazione agli autovalori diviene (nella rappresentazione in posizioni):
 \[
 X\ket{\lambda} = \lambda\ket{\lambda} \Rightarrow x\ket{\lambda} = \lambda\ket{\lambda} \Rightarrow (x-\lambda)\ket{\lambda} = 0
 \]
-Un \textit{oggetto} che soddisfa questa condizione (e che quindi può fungere da "autovettore" generalizzato) è la delta di Dirac. Indichiamola con $\delta(x-\lambda) = \braket{x|\lambda}$. Sostituendola al posto dell'autovettore:
+Un \textit{oggetto} che soddisfa questa condizione (e che quindi può fungere da \q{autovettore} generalizzato) è la delta di Dirac. Indichiamola con $\delta(x-\lambda) = \braket{x|\lambda}$. Sostituendola al posto dell'autovettore:
 \[
 (x-\lambda )\langle x | \lambda \rangle = 0 \Rightarrow (x-\lambda)\delta(x-\lambda) = 0
 \]
@@ -101,7 +101,7 @@ E tramite essa possiamo scrivere ogni funzione:
 \[
 f\left(A\right)= \sum_{\lambda_n\in\sigma_D\left(A\right)} f\left(\lambda_n\right)\sum_{r=1}^{d\left(\lambda_n\right)}\left|\lambda_n,r\right\rangle\left\langle\lambda_n,r\right|+\int_{\sigma_C\left(A\right)}{d\lambda f\left(\lambda\right)}\sum_{r=1}^{d\left(\lambda\right)}{\left|\lambda,r\right\rangle\langle\lambda,r|}
 \]
-Notiamo che anche in casi "semplici" è necessario la completezza nel caso più generale.\\
+Notiamo che anche in casi \q{semplici} è necessario la completezza nel caso più generale.\\
 Per esempio, sia $H$ l'Hamiltoniana dell'atomo di idrogeno 
 \[
 \sigma \left(H\right)=\left\{-\frac{c}{n^2},n\in\mathbb{N}\right\}\cup \left\{x>0,x\in\mathbb{R}\right\}
@@ -109,7 +109,7 @@ Per esempio, sia $H$ l'Hamiltoniana dell'atomo di idrogeno
 Infatti, negli stati in cui l'elettrone è legato l'energia è quantizzata, con degenerazione $n^2$, ma quando è libero possiamo scegliere una qualsiasi energia in un range continuo, e un qualsiasi numero di stati hanno una determinata energia (degenerazione infinita). Abbiamo perciò sia uno spettro discreto (con degenerazione) che uno continuo (con degenerazione addirittura $\infty$).
 
 \subsection{Spazio degli autovettori dello spettro continuo}
-Come visto prima, se $\lambda \in \sigma_C(A)$ gli autovettori $\ket{\lambda}$, $\ket{\lambda,r}$ non si trovano in $\hs$, ma in uno spazio più grande (sono autovettori "generalizzati"). Definiamolo.\\
+Come visto prima, se $\lambda \in \sigma_C(A)$ gli autovettori $\ket{\lambda}$, $\ket{\lambda,r}$ non si trovano in $\hs$, ma in uno spazio più grande (sono autovettori \q{generalizzati}). Definiamolo.\\
 Sia $\braket{x|\lambda} \equiv F_\lambda(x)$. Applicandovi l'operatore posizione $X$ otteniamo:
 \[
 XF_\lambda(x) = \lambda F_\lambda(x); \quad F_\lambda(x) = \delta(x-\lambda) \notin L^2(\bb{R})
@@ -118,7 +118,7 @@ dove $\delta(x-\lambda)$ è una distribuzione, e perciò appartiene a $\mathcal{
 \[
 P F_\mu(x) = \mu F_\mu(x); \quad F_\mu(x) = \exp\left ( i\frac{\mu}{\hbar}x\right ) \notin L^2(\bb{R}),\> \in \mathcal{S}'(\bb{R})
 \] %Perché l'esponenziale? SIgnfiicato di F_\mu?
-Il fatto che le soluzioni dell'equazione agli autovalori non siano in $L^2(\bb{R})$ significa che esse non corrispondono a "stati fisici", fisicamente possibili. In particolare, ciò vuol dire che non è possibile localizzare una particella perfettamente in un punto, né assegnarle un singolo momento definito.\\
+Il fatto che le soluzioni dell'equazione agli autovalori non siano in $L^2(\bb{R})$ significa che esse non corrispondono a \q{stati fisici}, fisicamente possibili. In particolare, ciò vuol dire che non è possibile localizzare una particella perfettamente in un punto, né assegnarle un singolo momento definito.\\
 $\mathcal{S}'\left(\mathbb{R}\right)$ è più precisamente lo spazio dei funzionali lineari continui su $\hs(\bb{R})$, che è lo spazio delle funzioni $\mathcal{C}^\infty$ che descrescono all'infinito (assieme a tutte le loro derivate) più rapidamente di $x^{-n} \forall n$.\\
 Possiamo generalizzare a $n$-dimensioni:
 \begin{itemize}
@@ -126,18 +126,19 @@ Possiamo generalizzare a $n$-dimensioni:
     \item $\mathcal{S}'(\bb{R}^n)$ = spazio dei funzionali lineari continui su $\mathcal{S}(\bb{R}^n)$
 \end{itemize}
 \begin{oss}
-Notiamo che anche "funzioni regolarissime" non appartengono a $\mathcal{S}'(\bb{R})$. Infatti, le distribuzioni regolari (descritte da funzioni) in $\mathcal{S}'(R)$ non possono crescere più rapidamente  di un polinomio in $x$, per $x\rightarrow \infty$, e perciò $e^x\notin \mathcal{S}'\left(\mathbb{R}\right)$.
+Notiamo che anche \q{funzioni regolarissime} non appartengono a $\mathcal{S}'(\bb{R})$. Infatti, le distribuzioni regolari (descritte da funzioni) in $\mathcal{S}'(R)$ non possono crescere più rapidamente  di un polinomio in $x$, per $x\rightarrow \infty$, e perciò $e^x\notin \mathcal{S}'\left(\mathbb{R}\right)$.
 \end{oss}
 Sappiamo poi (da metodi) che vale la seguente catena di inclusioni:
 \begin{equation}
 S\left(\mathbb{R}\right)\subset L^2\left(\mathbb{R}\right)\subset \mathcal{S}'\left(\mathbb{R}\right)
 \label{eqn:triplettametodi}
 \end{equation}
-L'idea è perciò quella di risolvere l'equazione agli autovalori nello "spazio più grande" $\mathcal{S}'(R)$. Continuando gli esempi su posizione $X$ e momento $P$ visti sopra, potremo trovare soluzioni $\forall \lambda \in \bb{R}$ e perciò avremo, come desiderato, che:
+L'idea è perciò quella di risolvere l'equazione agli autovalori nello \q{spazio più grande} $\mathcal{S}'(R)$. Continuando gli esempi su posizione $X$ e momento $P$ visti sopra, potremo trovare soluzioni $\forall \lambda \in \bb{R}$ e perciò avremo, come desiderato, che:
 \[
 \sigma(X) = \bb{R} = \sigma_C(X); \quad \sigma(P) = \bb{R} = \sigma_C(X)
 \]
-La differenza tra "autovettori" generalizzati che stanno in $\mathcal{S}'$ e autovettori "di algebra lineare" che stanno in $\hs$ è alla base della differenza tra \textit{spettro discreto} e \textit{spettro continuo}.\\
+\lesson{11}{18/10/2018}
+La differenza tra \q{autovettori} generalizzati che stanno in $\mathcal{S}'$ e autovettori \q{di algebra lineare} che stanno in $\hs$ è alla base della differenza tra \textit{spettro discreto} e \textit{spettro continuo}.\\
 Concretamente, se la soluzione all'equazione agli autovalori è $\in \mathcal{S}'\left(\mathbb{R}\right)$, ma $\notin \hs$ si ottiene lo \textbf{spettro continuo}, se invece è $\in \hs$ si ha lo \textbf{spettro discreto}.\\
 
 L'idea (di Gel'fand) per trovare lo\marginpar{Spettro di un operatore $A$ autoaggiunto per Gel'fand} spettro di un operatore autoaggiunto $A$ nel formalismo di Dirac sta quindi nel trovare uno spazio $\phi_A \subset \hs$ tale che:
@@ -151,11 +152,11 @@ Perché allora il formalismo di Dirac sia ben definito, è necessario fare le se
     \item $\displaystyle \phi_A\subseteq D\left(A\right)$
 	\item $\phi_A$ è denso in $\hs$ nella topologia di $\hs$, $\bar{\mathcal{S}}\left(\mathbb{R}\right)=L^2(R)$
 	\item $A$ è continuo in $\phi_A$ nella topologia di $\phi_A$
-	\item $\phi_A$ è "nucleare" cioè i funzionali lineari continui sullo spazio delle coppie $\phi_A\times \phi_A$ (con $f,g\in \mathcal{S}(\bb{R})\times \mathcal{S}\left(\mathbb{R}\right))$ sono lineari e continui anche nello spazio delle combinazioni lineari (eventualmente infinite) dei prodotti come $f\left(x,y\right)\in S\left(\mathbb{R}^2\right)$.\\
+	\item $\phi_A$ è \q{nucleare} cioè i funzionali lineari continui sullo spazio delle coppie $\phi_A\times \phi_A$ (con $f,g\in \mathcal{S}(\bb{R})\times \mathcal{S}\left(\mathbb{R}\right))$ sono lineari e continui anche nello spazio delle combinazioni lineari (eventualmente infinite) dei prodotti come $f\left(x,y\right)\in S\left(\mathbb{R}^2\right)$.\\
 	
 	%%[TO DO] Sistemare questa parte!
 	(lo spazio dei funzionali lineari continui su $\mathcal{S}\left(\mathbb{R}\right)\times \mathcal{S}\left(\mathbb{R}\right)$ sono lineari continui su $\mathcal{S}(\mathbb{R}^2)$)\\
-	Cerchiamo di "giustificare" la richiesta di nuclearità. 
+	Cerchiamo di \q{giustificare} la richiesta di nuclearità. 
 	Se $\sigma \left(A\right)=\sigma_P(A)$ (senza degenerazione):
 	\[
 	\sum_{n}{|\lambda_n\rangle \langle\lambda_n|}=\mathbb{I}_\mathcal{H}

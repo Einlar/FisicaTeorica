@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+
+\input{header.tex}
+
+\begin{document}
+
+\section{Lezione 5}
+\vspace{-1em}
+\begin{center}
+    \small{(24/10/2018)}
+\end{center}
+\section{Riassuntino}
+\begin{equation}
+S(E,V,N) = Nk_B \ln\left[V\left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E}{N}\right)^\frac{3}{2}\right]+\frac{3}{2}k_B N
+\label{eqn:entropianonestensiva}
+\end{equation}
+
+\begin{equation}
+S=k\ln\left[\Gamma(E)\right] = k\ln[\Sigma(E)]
+\end{equation}
+Ma tale formula non soddisfa l'omogeneità $S(\lambda N, \lambda V, \lambda E)=\lambda S(N,V,E)$.\\
+
+\section{24/10}
+Si può notare ciò nel \textbf{paradosso di Gibbs}. Consideriamo un sistema a "due compartimenti", con $N_1,V_1$ in $1$ e $N_2,V_2$ in $2$, e $N_1+N_2=N$, $V_1+V_2=V$, pieni dello stesso gas perfetto. La parete tra i due impedisce lo scambio di particelle.\\
+All'equilibrio, vogliamo che:
+\[
+\frac{N_1}{V_1} = \frac{N_2}{V_2}; \quad \frac{E_1}{N_1}=\frac{E_2}{N_2}
+\]
+(essendo $E_i = \frac{3}{2}N_i k_B T$).\\
+Se ora rimuoviamo la paratia, ci aspettiamo che "non succeda nulla": effettivamente il sistema non "cambia" a livello fisico. In particolare, ci aspettiamo che anche l'entropia del sistema rimanga la stessa. Tuttavia, se calcoliamo:
+\begin{align*}
+S_1 &= k N_1 \ln\left[V_1 \left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E_1}{N_1}\right)^\frac{3}{2}\right]+\frac{3}{2}kN_1\\
+S_2 &= k N_2 \ln\left[V_2 \left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E_2}{N_2}\right)^\frac{3}{2}\right]+\frac{3}{2}kN_2
+\end{align*}
+Tuttavia, l'entropia totale del sistema:
+\[
+S=kN\ln\left[(V_1+V_2)\left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E_1+E_2}{N_1+N_2}\right)^\frac{3}{2}\right]
+\]
+differisce da $S_1 + S_2$ per un termine:
+\[
+\Delta S = kN_1\ln\left(\frac{V_1+V_2}{V_1}\right)+kN_2\ln\left(\frac{V_1+V_2}{V_2}\right)
+\]
+Tale fattore andrebbe bene se i gas contenuti in $1$ e in $2$ fossero diversi (e allora il mescolamento sarebbe effettivamente irreversibile), ma di certo non in questo caso, in cui sono effettivamente uguali.\\
+Del resto, tale calcolo porterebbe a risultati assurdi, per cui l'entropia di un sistema dipenderebbe dal "numero di scompartimenti" che sono stati uniti nella preparazione del sistema!\\
+Il problema si risolve rendendo estensiva la (\ref{eqn:entropianonestensiva}), ossia apportando la modifica che "rende le particelle dello stesso gas indistinguibili":
+\[
+S(E,V,N) = Nk_B \ln\left[\frac{V}{\bm{N!}}\left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E}{N}\right)^\frac{3}{2}\right]+\frac{3}{2}k_B N
+\]
+
+\subsection{Esercizio}
+Abbiamo visto che il valore di una grandezza macroscopica è dato "mediando" sullo spazio delle fasi:
+\[
+\langle b\rangle = \frac{\displaystyle \int_{E\leq H\leq E+\Delta}dq\,dp\,b(q,p)}{\displaystyle \int_{E\leq H\leq E+\Delta}dq\,dp}
+\]
+
+Consideriamo un sistema in due "scompartimenti" %Inserisci disegno
+ che però non sono divisi da una parete (possono scambiarsi particelle), il primo con $V_1$, $N_1$, e il secondo con $V_2$, $N_2$.\\
+Consideriamo noti il numero totale di particelle $N=N_1+N_2$, il volume $V=V_1+V_2$ e l'energia $E$ del sistema. Possiamo calcolare la probabilità che $N_1$ particelle si trovino in $1$? Possiamo cioè calcolare le probabilità delle varie possibili ripartizioni di particelle tra i due volumi?
+\[
+\Sigma(E)=\frac{1}{N! h^{3N}} (V_1+V_2)^N \Omega_{3N}(E)
+\]
+Qual è il volume associato a $N_1$ particelle a sinistra e $N-N_1$ a destra?\\
+Lavoriamo inizialmente considerando le particelle distinguibili, e poi compensiamo l'ambiguità dividendo per un opportuno fattore.\\
+Il volume degli stati in cui esattamente $N_1$ particelle sono in $1$ è dato da:
+\[
+\Sigma_{N_1}(E) =
+\frac{1}{N!\,h^{3N}} {{N}\choose{N_1}} V_1^{N_1}V_2^{N-N_1} \Omega_{3N}(E) =\ \frac{1}{N!\,h^{3N}} \frac{N!}{N_1! (N-N_1)!}V_1^{N_1} V_2^{N-N_1}\Omega_{3N}(E)
+\]
+(stiamo considerando tutte le combinazioni possibili per scegliere le $N_1$ particelle che stanno in $1$ a partire da un gruppo di $N$ particelle totali (coefficiente binomiale. Ad ognuna di queste combinazioni è associato un volume $V_1^{N_1} V_2^{N_2}$ spaziato dalle $q$, e un $\Omega_{3N}(E)$ spaziato dalle $p$. Dopodiché si adimensionalizza con $h^{3N}$ e si divide per le permutazioni $N!$ per l'indistinbuibilità delle particelle).\\
+Dividendo per il volume di \textit{tutti} gli stati, pari a $(V_1+V_2)^N \Omega_{3N}(E)$, otteniamo la probabilità:
+\[
+P(N_1)=\frac{N!}{N_1!(N-N_1)!}\frac{V_1^{N_1}V_2^{N-N_1}}{(V_1+V_2)^N}
+\]
+Passiamo al logaritmo per cercare l'$N_1$ che massimizza la probabilità:
+\[
+\ln P(N_1)=N\ln N-N-N_1\ln N_1 + N_1 -(N-N_1)\ln(N-N_1)+N-N_1 + N_1\ln V+(N-N_1)\ln V_2 -N\ln V
+\]
+Imponendo che la derivata si annulli (per il massimo):
+\[
+\frac{\partial}{\partial N_1}\ln P(N_1) = 0
+\]
+Otteniamo la condizione:
+\[
+\frac{\bar{N}_1}{V_1} = \frac{N-\bar{N}_1}{V_2}
+\]
+(fisicamente: le particelle si distribuiscono omogeneamente in entrambe le sottosezioni)\\
+e calcolando la derivata seconda in $\bar{N}_1$ ci accorgiamo che è effettivamente un massimo:
+\[
+\frac{\partial^2 \ln P(N_1)}{\partial N_1^2}\big|_{\bar{N}_1} = -\frac{1}{\bar{N}_1}-\frac{1}{N-\bar{N}_1} < 0
+\]
+
+\[
+\rho_m(q,p) = \begin{cases}
+\frac{1}{\displaystyle \int_{E\leq H \leq E+\Delta} dq\,dp} & E\leq H(q,p) \leq E+\Delta\quad \Omega_{3N}(E)\\
+0 & \text{altrimenti}
+\end{cases}
+\]
+
+\section{Ensemble canonico}
+Consideriamo un sistema in contatto con un serbatoio termico a temperatura $T$, con cui può scambiare energia. Sperimentalmente, ciò è più semplice da realizzare dell'ensemble microcanonico, per cui è necessario un completo isolamento termico. Qui, invece che fissare l'energia, stiamo fissando la \textit{temperatura}.\\
+Introduciamo un potenziale termico noto come energia libera di Helmholtz:
+\[
+A=E-TS
+\]
+Consideriamo una transizione da uno stato $A$ a uno stato $B$. Sappiamo che:
+\[
+\int_A^B \frac{dQ}{T}\leq S_B-S_A
+\]
+(con l'uguaglianza che vale solo se la trasformazione è reversibile).\\
+Se consideriamo $T$ costante, l'espressione diviene:
+\[
+\frac{Q}{T}\leq S_B-S_A
+\]
+Applicando allora il primo principio della termodinamica:
+\[
+Q = \Delta E + W= E_B-E_A + W \leq (S_B-S_A)T
+\]
+Otteniamo:
+\[
+\Delta E+W\leq T\Delta S \Rightarrow W \leq \Delta -(\Delta E-T\Delta S) = -\Delta A
+\]
+Ma se il sistema non fa lavoro sull'ambiente, $W=0$, allora:
+\[
+-\Delta A \geq 0\Rightarrow \Delta A\leq 0
+\]
+Da qui nasce l'appellativo di \textit{potenziale termodinamico}. Se la trasformazione è reversibile, $-\Delta A$ dà esattamente il lavoro, e a seguito di trasformazioni "libere" tende a diminuire (proprio come una particella carica positivamente tende ad andare verso i punti in cui il potenziale è minore).\\
+Consideriamo $A$ funzione di $N,V,T$ (mentre si aveva $S(E,N,V)$). Il passaggio da $S$ ad $A$ è detto \textit{trasformazione di Legendre.}\\
+Partendo dalla relazione:
+\[
+\frac{\partial S}{\partial E}(E,N,V)=\frac{1}{T} \Rightarrow E=E(N,V,T)
+\]
+e definiamo allora $A(N,V,T)$ sostituendo:
+\[
+A(N,V,T)=E(N,V,T)-TS(E(N,V,T),N,V)
+\]
+Derivando rispetto alla temperatura:
+\[
+\frac{\partial A}{\partial T}=\hlc{Yellow}{\frac{\partial E}{\partial T}(T,V,N)} - S(E(T,V,N), V,N)-\hlc{Yellow}{T}\underbrace{\hlc{Yellow}{\frac{\partial S}{\partial E}(E,V,N)}}_{1/T}\frac{\partial E}{\partial T}(T,V,N)
+\]
+dove i termini evidenziati si elidono. Si ottiene quindi:
+\[
+-\frac{\partial A}{\partial T} = S
+\]
+
+Derivando invece $A$ rispetto a $V$:
+\[
+\frac{\partial A}{\partial V}(T,V,N) = \bcancel{\frac{\partial E}{\partial V}(T,V,N)}-\bcancel{T\frac{\partial S}{\partial E}\frac{\partial E}{\partial V}}-T\frac{\partial S}{\partial V} = -T\frac{\partial S}{\partial V} = -p
+\]
+Infatti:
+\[
+dS= \frac{dE}{T}+\frac{p dV}{T} \Rightarrow \frac{\partial S}{\partial V}=\frac{p}{T}
+\]
+
+Ritorniamo a considerare un sistema $1$ a contatto con un serbatoio termico $2$. Globalmente, $1+2$ è un sistema isolato, a cui perciò possiamo applicare l'ensemble microcanonico. Agli effetti, possiamo vedere tale sistema come quello "diviso in due scompartimenti", solo che qui il II scompartimento è enormemente più grande.\\
+Avevamo trovato:
+\begin{equation}
+\Gamma(E)=\sum_{i=0}^{E/\Delta}\Gamma_1(E_i)\Gamma_2(E-E_i); \quad \Delta \ll 1; \>E_i=i\Delta,\>i=0,1,\dots,\frac{E}{\Delta}
+\label{eqn:gammaE_12}
+\end{equation}
+Il sistema $2$ in questa situazione è però fortemente dominante: vogliamo studiare le conseguenze di ciò. In particolare, qual è la probabilità $P_H$ di avere il sottosistema $1$ in uno stato microscopico con $E_i\leq H_1(q_1, p_1)\leq E_i+\Delta$? Notiamo che questa situazione è data da uno dei singoli termini della somma in (\ref{eqn:gammaE_12}). Dividendo allora per tutte le possibilità troviamo la probabilità cercata:
+\[
+P_H =\ \frac{\displaystyle \Gamma_1(E_i)\Gamma_2(E-E_i)}{\displaystyle \sum_{j=0}^{E/\Delta}\Gamma_1(E_j)\Gamma_2(E-E_j)
+}
+=
+\frac{\displaystyle
+\frac{\Gamma_1(E_i)\Gamma_2(E-E_i)}{\Gamma_2(E)}
+}{
+\displaystyle
+\frac{\displaystyle \sum_{j=0}^{E/\Delta} \Gamma_1(E_j)\Gamma_2(E-E_j)}{\Gamma_2(E)}
+}
+\]
+Dalla definizione di entropia nell'ensemble microcanonico:
+\begin{align*}
+\frac{\Gamma_2(E-E_i)}{\Gamma_2(E)}&=\exp\left(
+\frac{S_2}{k}(E-E_i)-\frac{S_2}{k}(E)
+\right) =\\
+&\underset{(a)}{=} 
+\exp\left(-\frac{1}{k}\frac{\partial S_2}{\partial E}\big|_E E_i -\frac{1}{2k}\frac{\partial^2 S_2(E)}{\partial E^2}(E_i)^2+\dots \right) =\\
+&= \exp\left(-\frac{1}{k_B T}E_i - \frac{1}{2k_B}\frac{\partial^2 S_2(E)}{\partial E^2}(E_i)^2+\dots\right)
+\end{align*}
+dove in (a) si è fatta un'espansione in serie di\ Taylor.\\
+Ma la derivata seconda:
+\[
+\frac{\partial^2 S_2(E)}{\partial E^2}=\frac{\partial}{\partial E}\frac{1}{T}=-\frac{1}{T^2}\frac{\partial T}{\partial E}; \quad d\frac{1}{T}=-\frac{1}{T}dT
+\]
+Essendo il serbatoio termico molto grande, $\frac{\partial T}{\partial E}$ deve essere $0$ (non posso cambiarne la temperatura, per quanta energia ci trasferisca). E in effetti:
+\[
+\frac{\partial E}{\partial T}=C_{V,2}
+\]
+(capacità termica del sistema $2$ a voluime costante).\\
+(Notiamo che così facendo spariscono completamente le caratteristiche materiali del sistema $2$, e rimangono solo alcune proprietà "universali").\\
+\[
+P_H = \frac{\displaystyle \Gamma_1(E_1) \exp\left(-\frac{E_i}{k_B T}\right )}{\displaystyle \sum_{j=0}^{E/\Delta} \Gamma_1(E_j) \exp\left(-\frac{E_j}{k_B T}\right)}
+\]
+
+\end{document}
+
