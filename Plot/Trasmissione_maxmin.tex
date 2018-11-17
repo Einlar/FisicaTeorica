@@ -1,0 +1,32 @@
+\begin{gnuplot}[terminal=epslatex, terminaloptions=color dashed,terminaloptions={size 15cm,13cm}]
+
+set samples 10000
+
+set style line 1 lt 1 lw 6 lc rgb "#006d2c"
+set style line 2 lt 1 lw 4 lc rgb "#2ca25f"
+set style line 3 lt 1 lw 2 lc rgb "#99d8c9"
+set style line 12 lt 2 dt 2 lw 1 lc rgb "#dddddd"
+set grid ytics, xtics ls 12
+
+massa=1
+hbar=1
+energia=1.5
+vbar = 1
+
+k1= sqrt(2*massa*energia)/hbar
+k2=sqrt(2*massa*(energia-vbar))/hbar
+
+T(x) = (4*k1**2 * k2**2)/((k1**2 - k2**2)**2 * sin(k2*x)**2 + 4*k1**2 * k2**2)
+ 
+set xrange[0:8]
+set yrange[0:1.05]
+
+lambda2 = 2*pi/k2
+set xtics ("$\\frac{\\lambda_2}{4}$" lambda2/4, "$\\frac{\\lambda_2}{2}$" lambda2/2, "$\\frac{3\\lambda_2}{4}$" lambda2*3/4, "$\\lambda_2$" lambda2)
+set xlabel "$a$"
+set ylabel "$\\mathbb{T}(a)$"
+
+set key center right
+set key title "$\\mathcal{E}=1.5 > \\bar{V}=1$"
+plot T(x) title "$\\mathbb{T}(a)$" lc rgb "black", 1 title "$\\mathbb{T}^{max}$" dt 5 lc rgb "red" lw 2, T(lambda2/4) title "$\\mathbb{T}^{min}$" dt 5 lc rgb "blue" lw 2, 1-T(x) title "$\\mathbb{R}(a)$" lc rgb "orange"
+\end{gnuplot}

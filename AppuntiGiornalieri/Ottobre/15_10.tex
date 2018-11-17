@@ -25,7 +25,7 @@ Poco fa, per dimostrare che gli autovalori \q{matematici} (di un operatore) sono
 alla luce di quanto appena visto sulle proprietà degli operatori e sulla decomposizione spettrale.\\
 Partiamo\marginpar{Struttura probabilistica per operatori in \MQ} dallo scrivere l'equivalente di (\ref{eqn:POdef})\footnote{$P^O(\lambda) = H(\lambda-O)$} per un operatore, tramite la decomposizione spettrale: %[REF]
 \begin{equation} 
-P^A\left(\lambda\right)=\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}\equiv H(\lambda-A) 
+P^A\left(\lambda\right)=\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}\equiv H(\lambda \mathbb{I} - A) 
 \label{eqn:PA}
 \end{equation}
 (che si intende valida per ogni stato $\psi$. Nota: con $P^A(\lambda)$ indichiamo un operatore che dipende da $\lambda$, non una funzione reale a valori reali!)\\
@@ -78,7 +78,7 @@ Alla fine (dopo tutti gli autovalori), giungerà ovviamente a $1$, essendo norma
 \]
 In particolare:
 \[
-P_\psi^A\left(\lambda\right)=\text{ probabilità in una misura di A nello stato $\psi$  di trovare un valore }\leq \lambda 
+P_\psi^A\left(\lambda\right)=\text{ probabilità in una misura di $A$ nello stato $\psi$  di trovare un valore }\leq \lambda 
 \]
 Perciò costruendo l'operatore $P^A$ grazie alla decomposizione spettrale possiamo ricreare la struttura probabilistica (e in particolare ottenere la \q{probabilità cumulativa} $P^A_\psi$).\\
 Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$} degli operatori $\left\{P^A\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ dati da $P^A(\lambda) = \sum_n H(\lambda-\lambda_n)P_n$

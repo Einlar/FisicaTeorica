@@ -1,0 +1,19 @@
+\begin{gnuplot}[terminal=epslatex, terminaloptions=color dashed,terminaloptions={size 12cm,10cm}]
+
+set samples 10000
+
+set style line 1 lt 1 lw 6 lc rgb "#006d2c"
+set style line 2 lt 1 lw 4 lc rgb "#2ca25f"
+set style line 3 lt 1 lw 2 lc rgb "#99d8c9"
+set style line 12 lt 2 dt 2 lw 1 lc rgb "#dddddd"
+set grid ytics, xtics ls 12
+
+
+set xlabel "$\\mathcal{E}/\\bar{V}$"
+set ylabel "$\\mathbb{T}$"
+
+set yrange[0:1.1]
+set xrange[0.8:3]
+set key bottom right
+plot "Plot/Dati/Trasmissione.txt" u 1:2 w lines title "$\\mathbb{T}(\\mathcal{E}/\\bar{V})$" lc rgb "blue" lw 2
+\end{gnuplot}

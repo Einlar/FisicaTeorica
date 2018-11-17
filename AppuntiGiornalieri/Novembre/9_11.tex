@@ -1,0 +1,267 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{Titolo}}
+\vspace{-1em}
+\begin{center}
+    \small{(9/11/2018)}
+\end{center}
+
+\subsection{Buca finitamente profonda}
+\begin{figure}[H]
+\centering
+\input{Immagini/9_11/GraficoPotenziale.tex}
+\caption{Potenziale della buca finitamente profonda}
+\end{figure}
+
+Consideriamo il caso della \textit{buca di potenziale finita}, per cui il potenziale ha la forma $V(x)=\bar{V}\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)$.\\
+Se $\mathcal{E}>0$ la situazione è analoga a quella della barriera di potenziale per $\mathcal{E}>\bar{V}$, solo che qui $\bar{V}<0$ e lì $\bar{V}>0$. In entrambi i casi $\sigma(H)$ è continuo con degenerazione $2$.\\
+Anche qui c'è il fenomeno di \textit{risonanza di trasmissione} - una particella \textit{con abbastanza energia} per oltrepassare la barriera ha una probabilità di essere riflessa. In particolare per certe energie la particella \textit{trascorre} più tempo nella regione della buca, e per altri di meno (rispettivamente al tempo calcolato classicamente). Possiamo intuire questo fenomeno se \textit{estendiamo} gli stati discreti presenti nella buca \q{al di sopra} di essa. Quando una particella ha l'energia che \textit{corrisponderebbe} a uno stato discreto \textit{esteso} allora \q{è in risonanza} e trascorre più tempo nella regione della buca.\\
+
+D'altro canto, per $\bar{V}<\mathcal{E}<0$, posti:
+\[
+\chi=\frac{\sqrt{-2m\mathcal{E}}}{\hbar}; \quad k_2=\frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\]
+Le autofunzioni di $H$ sono:
+\[
+\varphi_\mathcal{E}(x)=\begin{cases}
+c^1_+ e^{\chi x} + c^1_- e^{-\chi x} & x<-\frac{a}{2} \quad (1)\\
+c^2_+ e^{ik_2 x} + c^2_- e^{-ik_2 x} & -\frac{a}{2}<x<\frac{a}{2}\quad (2)\\
+c^3_+ e^{ik_3 x}+c^3_- e^{-ik_3 x} & x > \frac{a}{2} \quad (3)
+\end{cases}
+\]
+Poiché le autofunzioni (che siano corrispondenti a $\mathcal{E}$ dello spettro discreto o continuo, e quindi siano in\ $\hs$ o $\mathcal{S}'$) non possono divergere esponenzialmente, abbiamo immediatamente che $c^1_- = c^3_+ = 0$.\\
+
+Non serve ora svolgere tutti i conti. Notiamo infatti che, dal caso della barriera con\ $\mathcal{E}<\bar{V}$ otteniamo quello della buca con le sostituzioni:
+\begin{align*}
+k_1 &\to -i\chi\\
+c^3_+ &= 0 =\ c^1_-
+\end{align*}
+\[
+\begin{pmatrix}
+c^3_+\\
+c^3_-
+\end{pmatrix} = (M'M)
+\begin{pmatrix}
+c^1_+\\
+c^1_- = 0
+\end{pmatrix}
+\]
+\[
+0 = c^3_+ = (M'M)_{11} \underbrace{c^1_+}_{\neq 0}\Rightarrow (M'M)_{11}=0 
+\]
+\[
+0 = (M'M)_{11} \underset{k_1\to-i\chi}{=}e^{-\chi a}
+\left [
+\frac{\chi^2-k_2^2-\overbrace{\sin k_2 a}^{(e^{ik_2 a}-e^{-ik_2 a})/(2i)} + \overbrace{\cos(k_2 a)}^{e^{(ik_2 a}+e^-ik_2 a)/2} 2\chi k_2}{2\chi k_2}
+\right ]
+\]
+(*):
+\[
+(ik_2 + \chi)^2 e^{ik_2 a}=(-ik_2 + \chi)^2 e^{-ik_2 a} \underset{\sqrt{\cdot}}{\Rightarrow} \frac{\chi + ik_2}{\chi-ik_2} = \pm e^{ik_2 a} \Rightarrow c^2_+ = \pm c^2_-
+\]
+\[
+c^2_+ = M_{11}c^1_+; \quad c^2_- = M_{21} c^1_+
+\]
+\begin{align*}
+M_{11} &= \frac{1}{2i}(\chi + ik_2)e^{ik_2 \frac{a}{2}}e^{-\chi\frac{a}{2}}\\
+M_{21} &= -\frac{1}{2i}(\chi-ik_2)e^{ik_2 \frac{a}{2}}e^{-\chi\frac{a}{2}}
+\end{align*}
+\[
+\varphi_\mathcal{E}(-x)=\pm \varphi_\mathcal{E}(x)
+\]
+Prendendo il $+$ otteniamo una funzione pari, e con il $-$ una dispari.\\
+Da (*):
+\begin{align*}
+\op{Re}&\Rightarrow \frac{\chi^2-k_2^2}{\chi^2+k_2^2} = \pm \cos k_2 a\\
+\op{Im} &\Rightarrow \frac{2k \chi}{\chi^2 + k_2^2}=\pm \sin k_2 a
+\end{align*}
+
+\[
+-1+2\left(\frac{\mathcal{E}}{-\bar{V}}\right)=\frac{\chi^2-k_2^2}{\chi^2+k_2^2}=\pm \cos k_2 a = -1+2\begin{cases}
+\cos^2\left(k_2\frac{a}{2}\right)\\
+\sin^2\left(k_2 \frac{a}{2}\right)
+\end{cases}
+\]
+[TO DO: Correggere segni di $\bar{V}$ in modo che la radici siano ben definite]\\
+Soluzione:
+\begin{align*}
+(1):\>
+\begin{cases}
+|\cos \frac{k_2 a}{2}| = \sqrt{\frac{\mathcal{E}}{\bar{V}}} = \frac{k_2}{\bar{k}}\\
+\sin k_2 a >0
+\end{cases} \quad (2):\
+\begin{cases}
+|\sin \frac{k_2 a}{2} | = \frac{\mathcal{E}}{\bar{V}}\\
+\sin \frac{k_2 a}{2} < 0
+\end{cases}
+\end{align*}
+\begin{figure}
+\centering
+\input{Immagini/9_11/Intersezioni.tex}
+\caption{(1) e (2) in funzione di $k_2$, plot di membro sx, dx e intersezioni (soluzioni)}
+\end{figure}
+\[
+\bar{k}=\frac{\sqrt{-2m\bar{V}}}{\hbar}
+\]
+Le soluzioni a (1) e (2) sono le soluzioni dell'equazioen agli autovalori per $H$ con $\mathcal{E}<0$. Notiamo che è unicamente discreto, e quindi le autofunzioni $\varphi_\mathcal{E}(x)\in L^2$. 
+\[
+\sigma(H)\Big|_{\mathcal{E}<0}=\sigma_P(H) \text{ e non degenere (degenerazione $1$)}
+\]
+Se $\bar{V}\to\infty$ la retta $k_2/\bar{k}$ tende all'asse $x$ ed esaminandone le intersezioni con $\cos$ e $\sin$ ritroviamo i risultati della buca infinitamente profonda.\\
+
+\subsection{Regole generali per $\sigma(H)$ per potenziali in $1D$ (con al più salti)}
+\begin{figure}[H]
+\centering
+\input{Immagini/9_11/PotenzialeGenerico.tex}
+\caption{Potenziale $V(x)$ generico}
+\end{figure}
+
+Consideriamo un potenziale generico $V(x)$, con $V(x\to + \infty)=0$, con al più discontinuità di salto, e $V(x\to-\infty) > 0$.\\
+Si hanno tre possibili situazioni qualitative:
+\begin{enumerate}
+\item $\min V(x) < \mathcal{E} < 0$. Allora per $x\to \pm \infty$, $\varphi_\mathcal{E}\sim e^{\mp c_\pm x}$ (non può divergere, e in particolare $\varphi_\mathcal{E}\in \hs$).\\
+Lo spettro è non degenere (deg. 1) perché se $\psi_1$ e $\psi_2$ sono soluzioni corrispondenti alla stessa energia $\mathcal{E}$:
+\begin{align*}
+\psi_1'' + \frac{2m}{\hbar^2}(\mathcal{E}-V(x))\psi_1 &= 0\\
+\psi_2'' + \frac{2m}{\hbar^2}(\mathcal{E}-V(x))\psi_2 &= 0
+\end{align*}
+Dividendo la prima per $\psi_1$ e la seconda per $\psi_2$ si ha:
+
+\begin{align*}
+\frac{\psi_1''}{\psi_1}=\frac{2m}{\hbar^2}((V(x)-\mathcal{E})=\frac{\psi_2''}{\psi_2} &\Rightarrow \psi_1''\psi_2 - \psi_1\psi_2'' = 0\\
+&= \frac{d}{dx}(\psi_1' \psi_2 - \psi_1 \psi_2') = 0
+\end{align*}
+E quindi $(\psi_1'\psi_2 - \psi_1 \psi_2')$ deve essere costante.\\
+Per regolarità $\mathcal{E}\in \sigma_P(H) \Rightarrow  \exists \psi_{1/2}(\pm\infty)$ e quindi deve essere $0$ (essendo in $\hs$). Ma allora:
+\[
+(\psi_1' \psi_2 - \psi_1 \psi_2')(x=\infty)=0\Rightarrow \ln \psi_1 = \ln \psi_2 + \text{cost} \Rightarrow \psi_1(x)=\psi_2(x)e^{?\text{cost}}
+\]
+e quindi $\psi_1$ e $\psi_2$ differiscono per un fattore moltplicativo, ossia definiscono lo \textbf{stesso stato}.\\
+Perciò:
+\[
+\sigma(H)\Big|_{V_{min} < \mathcal{E} < 0} \text{ non degenere }
+\]
+\item Se invece $0 < \mathcal{E} < V(-\infty)$ la soluzione ha l'andamento:
+\[
+\varphi_\mathcal{E}(x) = \begin{cases}
+c_+ e^{ikx} + c_-e^{-ikx} & x\to\infty\\
+e^{\chi x} & x\to-\infty
+\end{cases} \quad \chi =\ \frac{\sqrt{2m(V(+\infty)-\mathcal{E})}}{\hbar}
+\]
+Poiché la soluzione oscilla infinitamente $\notin \hs$, e quindi lo spettro di $H$ è continuo:
+\[
+\sigma(H)\Big|_{0<\mathcal{E}<V(-\infty)} \text{ è continuo }
+\]
+Perché $\varphi_\mathcal{E}(-\infty) = 0$ possiamo applicare gli stessi ragionamenti del teorema visto al punto precedente e quindi affermare che la degenerazione di $\sigma(H)$ è $1$ (non degenerato).
+\item Nel caso $\mathcal{E} > V(-\infty)$ ($> V(+\infty)$). Le soluzioni:
+\[
+\varphi_\mathcal{E}(x) = \begin{cases}
+c^1_+ e^{ikx} + c^1_- e^{-ikx} & x\to +\infty\\
+c^2_+ e^{ik_1 x} + c^2_- e^{-ik_1 x} & x\to -\infty
+\end{cases}
+\]
+con
+\[
+k_1 =\ \frac{\sqrt{2m(\mathcal{E}-V(-\infty))}}{\hbar}
+\]
+Anche in questo caso le autofunzioni non sono in $\hs$ (presentano oscillazioni infinite) e allora:
+\[
+\sigma(H)\Big|_{\mathcal{E}>V(-\infty)} \text{ è continuo con deg. 2}
+\]
+(degenerazione: $4$ costanti da determinare - $2$ condizioni di raccordo $= 2$).
+\end{enumerate}
+Se definiamo la parità $\mathcal{P}$:
+\[
+(\mathcal{P}\psi)(x)=\psi(-x)
+\]
+Se $V(x)=V(-x)$ allora se $\varphi_\mathcal{E}(x)$ è soluzione dell'equazione di Schrodinger stazionaria,a nche $\varphi_\mathcal{E}(-x)$ lo è, e se lo spettro $\sigma(H)$ è non degenere deve essere $\varphi_\mathcal{E}(x)=c \varphi_\mathcal{E}(-x) = c^2\varphi_\mathcal{E}(x)$, e quindi $c=\pm 1$.\\
+Vi sono solo due possibilità: o $\varphi_\mathcal{E}(x) =\varphi_\mathcal{E}(-x)$ pari, oppure $\varphi_\mathcal{E}(x)=-\varphi_\mathcal{E}(-x)$ dispari.\\
+Perciò in tal caso gli autostati di $H$ sono anche autostati della parità $\mathcal{P}$.
+
+\subsection{Esercizio}
+Una particella di massa $m$ si trova nello stato fondamentale (cioè di energia minima) in una buca di potenziale infinita in $[0,a]$. Al tempo $t = 0$ la parete impenentrabile posta in $a$ viene improvvisamente spostata in $x=2a$. \begin{enumerate}
+\item Calcolare la probabilità che al tempo $\bar{t}>0$ l'energia della particella sia uguale a quella a $t=0^-$
+\item Che sia invece minore.
+\end{enumerate}
+%[PLOT] della funzione d'onda a t=0^- e t=0^+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{Immagini/Im5.jpeg}
+\caption{Funzione d'onda $\psi$ per $t=0^-$ e $t=0^+$}
+\end{figure}
+\begin{itemize}
+\item Per $t<0$, $\sigma(H_1)$ è quello della buca in $[0,a]$, e gli autovalori sono:
+\[
+\mathcal{E}^1_n = \frac{\hbar^2}{2m}\frac{\pi^2 n^2}{a^2}
+\]
+\item Per $t>0$, la buca è in $[0,2a]$ e gli autovalori saranno:
+\[
+\mathcal{E}^2_n = \frac{\hbar^2}{2m}\frac{\pi^2 m^2}{4a^2}
+\]
+\end{itemize}
+Dopo il cambiamento del sistema, la $\psi$ non è più autofunzione di $H$. Confrontando le due espressioni per gli autovalori, si ha che:
+\[
+\mathcal{E}^1_1 = \mathcal{E}^2_2
+\]
+Quindi per rispondere alla prima richiesta occorre calcolare $W_{\psi(t>0)}^{H_2} (\mathcal{E}_2^2)$, ossia la probabilità che una misura di energia a $t>0$ dia come risultato $\mathcal{E}_2^2$.\\
+In notazione di Dirac:
+\begin{align*}
+W_{\psi(t)}^{H_2}(\mathcal{E}_2^2)&=|\braket{\psi(t)|\mathcal{E}_2^2}|^2 = |\bra{\psi(0^+)}e^{i\frac{t}{\hbar}H_2}\ket{\mathcal{E}_2^2}|^2 = \\
+&=|\braket{\psi(0^+)|\mathcal{E}^2_2} e^{i\frac{t}{\hbar}\mathcal{E}_2^2}|^2 = |\braket{\psi(0^+)|\mathcal{E}_2^2}|^2
+\end{align*}
+dove abbiamo semplificato l'evoluzione temporale riducendola al calcolo della $\psi$ in $t=0^+$.\\
+Abbiamo quindi:
+\[
+\psi(x,t=0^-) = \begin{cases}
+\sqrt{\frac{2}{a}} \sin \frac{\pi}{a}x & x \in [0,a]\\
+0 & \text{altrove}
+\end{cases}
+\]
+\[
+\psi(x,t=0^+) = \begin{cases}
+\psi(x,t=0^-) & x \in [0,a]\\
+0 & \text{altrove}
+\end{cases}
+\]
+ed è già normalizzata in $L^2([0,2a],dx)$ (era normalizzata prima, e abbiamo aggiunto solo degli zeri).\\
+Calcoliamo l'autofunzione di $H_2$:
+\[
+\braket{x|\mathcal{E}_n^2}=\varphi_n(x)=\sqrt{\frac{1}{a}} \sin \frac{\pi x n}{2a}
+\]
+Se vogliamo quindi calcolare il prodotto scalare (per esprimere la $\psi$ sulla base delle autofunzioni di $H_2$):
+\begin{align*}
+\braket{\psi(0^+)|\mathcal{E}_2^2} &= \int_0^a \sqrt{\frac{2}{a}}\sin \frac{\pi x}{a} \sqrt{\frac{2}{a}}\sin \frac{2\pi x}{2a} dx +\int_a^{2a} 0\cdot \sqrt{\frac{1}{a}} \sin \frac{2\pi x}{2a}dx =\\
+&= \frac{\sqrt{2}}{a}\int_0^a \sin^2 \frac{\pi x}{a}= \frac{\sqrt{2}}{a}\frac{a}{2}=\frac{1}{\sqrt{2}}
+\end{align*}
+E allora:
+\[
+W^{H_2}_{\psi(t>0)}(\mathcal{E}_2) = \frac{1}{2}
+\]
+Per rispondere alla domanda $2$, dato che l'unico autovalore di $H_2$ con energia minore di $\mathcal{E}_2^2=\mathcal{E}_1^1$ è quello per $n=1$, basta calcolare $W^{H_2}_{\psi(t)}(\mathcal{E}_1^2)$.\\
+Utilizzando la notazione di Dirac:
+\[
+W^{H_2}_{\psi(t)}(\mathcal{E}_1^2) = |\braket{\psi(0^+)|\mathcal{E}_1^2}|^2
+\]
+Calcolando:
+
+\begin{align*}
+\braket{\psi(0^+)|\mathcal{E}_1^2} &= \int_0^a \sqrt{\frac{2}{a}} \sin \frac{\pi x}{a} \sqrt{\frac{1}{a}} \sin \frac{\pi x}{2a} dx\underset{(a)}{=} \frac{\sqrt{2}}{a} \int_0^a \frac{1}{2} \left [
+\cos \frac{\pi a}{2a}-\cos \frac{3\pi x}{2a}
+\right ]dx =\\
+&\underset{(b)}{=}\frac{\sqrt{2}}{a}\frac{1}{2}\left [
+\frac{2a}{\pi} \sin y \Big |_0^{\frac{\pi}{2}} - \frac{2a}{3\pi}\sin y \Big|_{0}^{\frac{3}{2}\pi}\right ] = \sqrt{2}\left [
+\frac{1}{\pi}+\frac{1}{3\pi}
+\right] = \sqrt{2}\frac{4}{3\pi}
+\end{align*}
+dove in (a) si è usata la formula di prostaferesi:
+\[
+\sin \alpha \sin \beta= \frac{1}{2}[\cos(\alpha-\beta)-\cos(\alpha+\beta)]
+\]
+e in (b) si è effettuato il cambio di variabili $y=\pi x/(2a)$.
+Arriviamo quindi:
+\[
+W_{\psi(t)}^{H_2}(\mathcal{E}_1^2)=\frac{32}{9\pi^2}
+\]
+\end{document}

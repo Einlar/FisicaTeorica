@@ -1,0 +1,30 @@
+\begin{gnuplot}[terminal=epslatex, terminaloptions=color dashed,terminaloptions={size 15cm,13cm}]
+set multiplot layout 2,1 title "Autofunzioni $|\\psi_E(x)|$"
+
+set style line 1 lt 1 lw 6 lc rgb "#006d2c"
+set style line 2 lt 1 lw 4 lc rgb "#2ca25f"
+set style line 3 lt 1 lw 2 lc rgb "#99d8c9"
+set style line 12 lt 2 dt 2 lw 1 lc rgb "#dddddd"
+set grid ytics, xtics ls 12
+
+set lmargin 3
+set bmargin 0
+set rmargin 3
+set tmargin 2
+
+set yrange [0.3:2]
+set ytics .6,.4,1.8
+set xtics ("" -5, "" 0, "" 5) offset 0,-0.4
+set key bottom right
+
+set arrow from -5, graph 0 to -5, graph 1 nohead dt 2 lc rgb "red" lw 1
+set arrow from 5, graph 0 to 5, graph 1 nohead dt 2 lc rgb "red" lw 1
+
+plot "Plot/Dati/TMax.txt" u 1:2 w lines lc rgb "blue" lw 2 title "$\\psi_E(x): k_2 = 5\\pi/(2a)$"
+
+set tmargin 0
+set bmargin 2
+set xtics ("$-\\displaystyle\\frac{a}{2}$" -5, "$0$" 0, "$+\\displaystyle\\frac{a}{2}$" 5) offset 0,-0.4
+
+plot "Plot/Dati/TMin.txt" u 1:2 w lines lc rgb "red" lw 2 title "$\\psi_E(x): k_2 = 5\\pi/(2a)$"
+\end{gnuplot}

@@ -1,15 +1,8 @@
-\documentclass[12pt]{article}
-
-\input{header.tex}
-
+\documentclass[../MeccanicaStatistica.tex]{subfiles}
 \begin{document}
-
 \section{Lezione 5}
-\vspace{-1em}
-\begin{center}
-    \small{(24/10/2018)}
-\end{center}
 \section{Riassuntino}
+\lesson{5}{24/10/2018}
 \begin{equation}
 S(E,V,N) = Nk_B \ln\left[V\left(\frac{4\pi m}{3h^2}\right)^\frac{3}{2}\left(\frac{E}{N}\right)^\frac{3}{2}\right]+\frac{3}{2}k_B N
 \label{eqn:entropianonestensiva}
@@ -97,34 +90,38 @@ e calcolando la derivata seconda in $\bar{N}_1$ ci accorgiamo che è effettivame
 \]
 
 \section{Ensemble canonico}
-Consideriamo un sistema in contatto con un serbatoio termico a temperatura $T$, con cui può scambiare energia. Sperimentalmente, ciò è più semplice da realizzare dell'ensemble microcanonico, per cui è necessario un completo isolamento termico. Qui, invece che fissare l'energia, stiamo fissando la \textit{temperatura}.\\
-Introduciamo un potenziale termico noto come energia libera di Helmholtz:
+Consideriamo un sistema in contatto con un serbatoio termico a temperatura $T$ costante (ossia di capacità termica infinita), con cui può scambiare energia.\\
+Tale situazione è di grande interesse sperimentale: è infatti di gran lunga più semplice \textit{stabilizzare la temperatura} di un sistema ponendolo in un bagno termico che realizzare un sistema a energia fissata (come richiesto dall'ensemble microcanonico), per cui è necessario un completo e assoluto isolamento termico.\\
+Prima di tutto, introduciamo un potenziale termico $A$ noto come \textbf{energia libera di Helmholtz},\marginpar{Energia libera di Helmholtz}\index{Potenziale di Helmholtz} definito come:
 \[
 A=E-TS
 \]
-Consideriamo una transizione da uno stato $A$ a uno stato $B$. Sappiamo che:
-\[
+con $E$ l'energia interna del sistema, $T$ la temperatura assoluta e $S$ l'entropia.\\
+Consideriamo ora una transizione da uno stato $A$ a uno stato $B$. Dalla termodinamica sappiamo che:
+\begin{equation}
 \int_A^B \frac{dQ}{T}\leq S_B-S_A
-\]
-(con l'uguaglianza che vale solo se la trasformazione è reversibile).\\
-Se consideriamo $T$ costante, l'espressione diviene:
+\label{eqn:entropy_integral}
+\end{equation}
+dove l'uguaglianza si ha solo se la trasformazione è reversibile.\\
+Nel caso del sistema nel bagno termico la $T$ è costante, e quindi la (\ref{eqn:entropy_integral}) diviene:
 \[
-\frac{Q}{T}\leq S_B-S_A
+\frac{Q}{T}\leq S_B-S_A \Rightarrow Q \leq (S_B-S_A)T
 \]
-Applicando allora il primo principio della termodinamica:
+Applicando allora il primo principio della termodinamica per calcolare $Q$:
 \[
-Q = \Delta E + W= E_B-E_A + W \leq (S_B-S_A)T
+Q = \hlc{Yellow}{\Delta E} + W= \hlc{Yellow}{E_B-E_A} + W \leq (S_B-S_A)T
 \]
-Otteniamo:
+Si ottiene quindi che:
 \[
-\Delta E+W\leq T\Delta S \Rightarrow W \leq \Delta -(\Delta E-T\Delta S) = -\Delta A
+\Delta E+W\leq T\Delta S \Rightarrow W \leq -(\Delta E-T\Delta S) = -\Delta A
 \]
-Ma se il sistema non fa lavoro sull'ambiente, $W=0$, allora:
+Ma se il sistema non fa lavoro sull'ambiente, ossia $W=0$, si ha:
 \[
 -\Delta A \geq 0\Rightarrow \Delta A\leq 0
 \]
-Da qui nasce l'appellativo di \textit{potenziale termodinamico}. Se la trasformazione è reversibile, $-\Delta A$ dà esattamente il lavoro, e a seguito di trasformazioni "libere" tende a diminuire (proprio come una particella carica positivamente tende ad andare verso i punti in cui il potenziale è minore).\\
-Consideriamo $A$ funzione di $N,V,T$ (mentre si aveva $S(E,N,V)$). Il passaggio da $S$ ad $A$ è detto \textit{trasformazione di Legendre.}\\
+Da qui nasce l'appellativo di \textit{potenziale termodinamico}: a seguito di trasformazioni \q{libere} $A$ tende a diminuire - il sistema si \q{sposta} verso stati ad $A$ basso proprio come una particella carica positivamente tende ad andare verso i punti in cui il potenziale è minore.\\
+In particolare, se il sistema subisce una \textit{trasformazione reversibile} allora vale l'uguaglianza, e si ha $-\Delta A = W$, ossia il lavoro svolto dal sistema corrisponde alla variazione (negativa) del potenziale $A$.\\
+Consideriamo $A$ come funzione di $N,V,T$ (mentre si aveva $S(E,N,V)$). Il passaggio da $S$ ad $A$ è detto \textit{trasformazione di Legendre.}\\
 Partendo dalla relazione:
 \[
 \frac{\partial S}{\partial E}(E,N,V)=\frac{1}{T} \Rightarrow E=E(N,V,T)

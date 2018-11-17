@@ -85,7 +85,7 @@ D\left(\widetilde{P}\right)= \left\{\psi\in L^2\left(\left[0,2\pi\right],dx\righ
 \]
 Ma $\widetilde{P}$ così definito non può essere autoaggiunto, poiché $D(\widetilde{P})\subset D({\widetilde{P}}^\dag)$. Infatti, partendo come prima dalla condizione di simmetria:
 \[
-\left(\widetilde{P}\phi,\psi\right)=\left(\phi,\widetilde{P}\psi\right)\quad \phi\in D(\tilde{P}^\dag), \> \psi \in D(\tilde{P})
+\left(\phi,\tilde{P}\psi\right)=(\tilde{P}^\dag\phi,\psi);\quad \phi\in D(\tilde{P}^\dag), \> \psi \in D(\tilde{P})
 \]
 quando si giunge all'integrazione per parti, il primo termine il primo termine (quello evidenziato in giallo all'inizio) si annulla solamente per la condizione che abbiamo imposto sulle $\psi$:
 \[
@@ -99,7 +99,7 @@ da cui $D(\tilde{P})\subset D(\tilde{P}^\dag)$.\\
 In effetti $\tilde{P}$ non produce risultati fisici. Risolvendo infatti l'equazione agli autovalori (per separazione delle variabili):
 \begin{align*}
     &\tilde{P}\ket{\lambda} = \lambda \ket{\lambda} \Rightarrow -i\hbar\frac{d}{dx}\psi_\lambda = \lambda\psi_\lambda \Rightarrow \frac{\psi_\lambda'}{\psi_\lambda} = \frac{i\lambda}{\hbar}\\
-    &\Rightarrow \ln \psi_\lambda = \frac{i\lambda}{\hbar}x + c \Rightarrow \psi_\lambda\left(x\right)=A e^{-i\frac{\lambda}{\hbar}x}
+    &\Rightarrow \ln \psi_\lambda = \frac{i\lambda}{\hbar}x + c \Rightarrow \psi_\lambda\left(x\right)=A e^{i\frac{\lambda}{\hbar}x}
 \end{align*}
 Quando si impone (come richiesto dalle condizioni sul dominio di $\tilde{P}$) che $\psi_\lambda\left(0\right)=0$ si ottiene solo una funzione nulla - che non ha senso fisico.\\
 La ragione intuitiva per cui ciò non funziona è che, come nel caso di $\mathbb{R}_+$, una situazione semiclassica in cui il momento è perfettamente definito è quella di un'onda piana, ma un'onda \q{confinata tra due punti} è un'onda stazionaria, che è sovrapposizione di due onde con versi opposti, e perciò anche in questo caso resta indefinita la direzione di $p$, e si giunge ad una contraddizione.\\

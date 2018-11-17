@@ -1,71 +1,8 @@
-\documentclass[12pt]{article}
-
-\input{header.tex}
-
+\documentclass[../MeccanicaStatistica.tex]{subfiles}
 \begin{document}
-
-%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
-\setlength{\aboverulesep}{0pt}
-\setlength{\belowrulesep}{0pt}
-\setlength{\extrarowheight}{.75ex}
-\setlength\parindent{0pt} %Rimuove indentazione
-\newgeometry{inner=20mm,
-            outer=49mm,% = marginparsep + marginparwidth 
-                       %   + 5mm (between marginpar and page border)
-            top=20mm,
-            bottom=25mm,
-            marginparsep=6mm,
-            marginparwidth=30mm}
-
-\makeatletter
-\renewcommand{\@marginparreset}{%
-  \reset@font\small
-  \raggedright
-  \slshape
-  \@setminipage
-}
-\makeatother
-
-\begin{comment} %INTESTAZIONE PRIMA PAGINA
-\begin{center}
-                \line (1,0){350} \\
-                \textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
-                [0.25in]
-                \huge{\bfseries Istituzioni di Fisica teorica}\\
-                [2mm]
-                \textsc{\normalsize Prof. Marchetti}\\
-                \line (1,0){350} \\
-                [0.5cm]
-                \textsc{\normalsize Anno accademico 2018-2019}\\ 
-
-        \end{center}
-\end{comment}
-
-\newgeometry{inner=20mm,
-            outer=49mm,% = marginparsep + marginparwidth 
-                       %   + 5mm (between marginpar and page border)
-            top=20mm,
-            bottom=25mm,
-            marginparsep=6mm,
-            marginparwidth=30mm}
-
-\makeatletter
-\renewcommand{\@marginparreset}{%
-  \reset@font\small
-  \raggedright
-  \slshape
-  \@setminipage
-}
-\makeatother
-
-
-
 \section{Lezione 4:\\ \large{Il Secondo Principio e la termodinamica dei gas perfetti}}
-\vspace{-1em}
-\begin{center}
-    \small{(23/10/2018)}
-\end{center}
 \subsection{Riassuntino}
+\lesson{4}{23/10/2018}
 Stavamo enunciando il II postulato dell'ensemble microcanonico. Per un sistema isolato con energia $E$, volume $V$ e $N$ poarticelle definiamo l'\textbf{entropia} come:
 \[
 S(E,V,N) =\ k\ln\underbrace{\left[\frac{1}{h^{3N}}\int_{E\leq H(q,p)\leq E+\Delta}dq\,dp\right]}_{\Gamma(E)}

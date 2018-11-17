@@ -1,110 +1,8 @@
-\documentclass[12pt]{article}
-\usepackage[usenames, dvipsnames, table]{xcolor}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{comment}
-\usepackage{wrapfig}
-\usepackage{booktabs}
-\usepackage{tikz}
-\usepackage{gnuplottex}
-\usepackage{epstopdf}
-\usepackage{marginnote}
-\usepackage{float}
-\usetikzlibrary{tikzmark}
-\usepackage{graphicx}
-\usepackage{cancel}
-\usepackage{bm}
-\usepackage{mathtools}
-\usepackage{hyperref}
-\usepackage{ragged2e}
-\usepackage[stable]{footmisc}
-\DeclareMathOperator{\sech}{sech}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arcCot}
-\DeclareMathOperator{\arccsc}{arcCsc}
-\DeclareMathOperator{\arccosh}{arcCosh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsech}{arcsech}
-\DeclareMathOperator{\arccsch}{arcCsch}
-\DeclareMathOperator{\arccoth}{arcCoth} 
-\usepackage{enumerate}
-
-\renewcommand{\figurename}{Fig.}
-
-\PassOptionsToPackage{table}{xcolor}
-
-\usepackage{soul}
-
-\newcommand{\hlc}[2]{%
-  \colorbox{#1!50}{$\displaystyle#2$}}
-
-
-\usepackage[a4paper,
-            total={170mm,257mm},
- left=20mm,
- top=20mm]{geometry}
-
-\newcommand{\q}[1]{``#1''}
-\newcommand{\lamb}[2]{\Lambda^{#1}_{\>{#2}}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-
-\newcommand{\bb}[1]{\mathbb{#1}}
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{} % clear all header fields
-\renewcommand{\headrulewidth}{0pt} % no line in header area
-\fancyfoot{} % clear all footer fields
-\fancyfoot[R,LO]{Francesco Manzali, 2018-19} % other info in "inner" position of footer line
-
-\newtheorem{thm}{Teorema}[section]
-\newtheorem{dfn}{Definizione}
-\newtheorem{oss}{Osservazione}
-
+\documentclass[../MeccanicaStatistica.tex]{subfiles}
 \begin{document}
-%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
-\setlength{\aboverulesep}{0pt}
-\setlength{\belowrulesep}{0pt}
-\setlength{\extrarowheight}{.75ex}
-\begin{center}
-		\line (1,0){350} \\
-		\textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
-		[0.25in]
-		\huge{\bfseries Meccanica Statistica}\\
-		[2mm]
-		\textsc{\normalsize Prof. Stella}\\
-		\line (1,0){350} \\
-		[0.5cm]
-		\textsc{\normalsize Anno accademico 2018-2019}\\ 
-
-	\end{center}
-
-\newgeometry{inner=20mm,
-            outer=49mm,% = marginparsep + marginparwidth 
-                       %   + 5mm (between marginpar and page border)
-            top=20mm,
-            bottom=25mm,
-            marginparsep=6mm,
-            marginparwidth=30mm}
-
-\makeatletter
-\renewcommand{\@marginparreset}{%
-  \reset@font\small
-  \raggedright
-  \slshape
-  \@setminipage
-}
-\makeatother
-
-
-
-\section{Lezione 1 (mar 2/10)}
+\section{Lezione 1}
 \subsection{La Meccanica Statistica}
+\lesson{1}{2/10/2018}
 La termodinamica è una teoria fenomenologica che descrive sistemi macroscopici, ma senza aspetti meccanicistici, al contrario di altre branche della fisica, come la meccanica classica.\\ Si pone allora il problema: è possibile conciliare queste due diverse modalità, per esempio dando un fondamento alla termodinamica sulla base di un modello microscopico e meccanicistico delle strutture dei materiali?\\
 È allora la \textbf{Meccanica Statistica} \marginpar{Scopo della Meccanica Statistica}a fungere da ponte tra le leggi quantistiche e quelle classiche che governano rispettivamente il mondo microscopico e i fenomeni macroscopici.\\
 Partiremo da una formulazione classica della meccanica statistica per introdurre i primi concetti (anche se le leggi effettive sono quelle quantistiche), che comunque rimane valida al limite classico di sistemi quantistici.\\
@@ -148,7 +46,7 @@ Vogliamo, partendo dall'Hamiltoniana del sistema, ottenere una procedura di calc
 \end{enumerate}
 %Unire le due sezioni 
 \section{Lezione 2}%Lezione 9-10
-Un sistema all'equilibrio (macroscopico) esibisce parametri macroscopici che sono costanti nel tempo. Ciò tuttavia contrasta con la rappresentazione dinamica, dove, in notazione hamiltoniana, lo stato del sistema è un punto $\left(q,p\right)\equiv\left({\vec{q}}_1,\ {\vec{q}}_2,\ \ldots,\ {\vec{q}}_N,\ {\vec{p}}_1,\ {\vec{p}}_2,\ \ldots,{\vec{p}}_N\right)$ in costante evoluzione secondo le equazioni di Hamilton. La Meccanica Statistica deve consentire di poter passare da questa rappresentazione di tipo a quella delle grandezze macroscopiche.
+\lesson{2}{9/10/2018} Un sistema all'equilibrio (macroscopico) esibisce parametri macroscopici che sono costanti nel tempo. Ciò tuttavia contrasta con la rappresentazione dinamica, dove, in notazione hamiltoniana, lo stato del sistema è un punto $\left(q,p\right)\equiv\left({\vec{q}}_1,\ {\vec{q}}_2,\ \ldots,\ {\vec{q}}_N,\ {\vec{p}}_1,\ {\vec{p}}_2,\ \ldots,{\vec{p}}_N\right)$ in costante evoluzione secondo le equazioni di Hamilton. La Meccanica Statistica deve consentire di poter passare da questa rappresentazione di tipo a quella delle grandezze macroscopiche.
 
 Abbiamo enunciato il primo postulato. 
 Sia $g(q,p)$ una funzione dello stato microscopico, che per esempio potrebbe essere l'energia cinetica totale delle particelle, data da:

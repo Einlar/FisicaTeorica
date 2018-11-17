@@ -1,0 +1,27 @@
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.55]
+\draw[->,color=black] (-8.494387027773634,0.) -- (9.293322703354024,0.);
+\foreach \x in {-8.,-7.,-6.,-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.,6.,7.,8.,9.}
+\draw[shift={(\x,0)},color=black] (0pt,-2pt);
+\draw[->,color=black] (0.,-5.795646939212975) -- (0.,4.380206694230023);
+\foreach \y in {-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-8.494387027773634,-5.795646939212975) rectangle (9.293322703354024,4.380206694230023);
+\draw [line width=1.2pt,color=qqqqff] (-8.494387027773634,0.)-- (-4.501858550554776,0.);
+\draw [dash pattern=on 2pt off 2pt,color=qqqqff] (-4.501858550554776,0.)-- (-4.501858550554776,-4.720199120914791);
+\draw [line width=1.2pt,color=qqqqff] (-4.501858550554776,-4.720199120914791)-- (4.501858550554776,-4.720199120914791);
+\draw [dash pattern=on 2pt off 2pt,color=qqqqff] (4.501858550554776,-4.720199120914791)-- (4.501858550554776,0.);
+\draw [line width=1.2pt,color=qqqqff] (4.501858550554776,0.)-- (9.,0.);
+\draw (-5.241319392261099,1.5277626835956077) node[anchor=north west] {$-\frac{a}{2}$};
+\draw (4.053159566346146,1.5918625490031226) node[anchor=north west] {$\frac{a}{2}$};
+\draw (-7.084190220260811,-3.968800775098799) node[anchor=north west] {$\overline V < 0$};
+\draw (-7.949538261234589,1.1431634911505182) node[anchor=north west] {$V = 0$};
+\draw (8.31579991632809,-0.186908716055417) node[anchor=north west] {$x$};
+\draw (-2.276701103739822,4.2359819970631145) node[anchor=north west] {$V(x)$};
+\draw (-8.485438406347642,-1.7573554185395333) node[anchor=north west] {regione 1};
+\draw (-3.818323745652703,-3.215627356560498) node[anchor=north west] {regione 2};
+\draw (5.543481192467652,-1.8054303175951694) node[anchor=north west] {regione 3};
+\begin{scriptsize}
+\draw [fill=black] (0.,0.) circle (1.0pt);
+\end{scriptsize}
+\end{tikzpicture}

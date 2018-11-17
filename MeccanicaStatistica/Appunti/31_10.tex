@@ -1,0 +1,256 @@
+\documentclass[../MeccanicaStatistica.tex]{subfiles}
+\begin{document}
+\section{Lezione 6}
+\lesson{6}{31/10/2018}
+Si stava impostando l'insieme canonico. Mentre nel microcanonico si considera un sistema isolato (di cui si enunciano i postulati), nell'insieme canonico si vuole trattare, sempre con metodi statistici, un sistema a contatto con un serbatoio termico, che ha la funzione di tenerlo a temperatura fissata.
+
+Si arriva dunque alla probabilità che il sottosistema 1 sia in stati $(q_1, p_1)$ tali che 
+\[
+E_i \le H_1(q_1,p_1) \le E_i + \Delta
+\]
+Questa probabilità è
+\[
+P = \frac{\Gamma_1(E_i) e^{-\frac{E_i}{kT}}}{\sum_j \Gamma_1(E_i) e^{-\frac{E_j}{\kB T}}}
+\]
+dove $T$ è la temperatura del serbatoio.
+
+Siccome il sistema 1 è il sistema che si vuole descrivere si può togliere l'\q{1}, e sottointendere le condizioni descritte, quindi le formule si semplificano.
+
+Queste equazioni si sono trovate solo applicando i postulati del microcanonico al sistema complessivo. Si tratta di capire come si precisano i \q{postulati} dell'ensemble canonico. La probabilità si può scrivere come
+\[
+P = \frac{\frac{1}{h^{3N} N!} \int_{E_i \le H(q,p) \le E_i + \Delta} \de q \de p \, e^{- \beta E_i}}{\sum \dots}
+\]
+Se $\Delta$ è scelto molto piccolo si può sostituire $E_i$ con $H(q,p)$, (infatti $E_i \le H(q,p) \le E_i + \Delta$) pertanto
+\[
+P = \frac{\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta H(q,p)}}{\sum \dots}
+\]
+Ma se penso in termini di una densità (analogamente alla densità microcanonica) la densità canonica $\rho_C(q,p)$ è data da
+\[
+\rho_C(q,p) = \frac{}e^{- \beta H(q,p)}{\int \de q' \de p' \, e^{-\beta H(q',p')}}
+\]
+e, a differenza della densità microcanonica, si avrà una dipendenza dalla temperatura $T$ e non dall'energia.
+
+A questo punto se ho una funzione macroscopica $b(q,p)$ si avrà
+\[
+\avg{b} = \frac{\int \de q \de p \, e^{- \beta H(q,p)} b(q,p)}{\int \de q \de p \, e^{- \beta H(q,p)}}
+\]
+
+Sempre in analogia con il caso microcanonico, si scriveva
+\[
+S = k \ln\Gamma(E)
+\]
+
+Nel caso canonico si rispolvera la termodinamica del sistema \emph{termostatato}: anziché considerare l'entropia si considera l'energia libera di Helmholtz
+\[
+A = E - TS
+\]
+Nella situazione di sistema termostatato ha delle proprietà di potenziale, ovvero se c'è lavoro $W$ compiuto dal sistema allora $W \le - \Delta A$, quindi il lavoro è sempre limitato (l'uguale viene raggiunto se la trasformazione è \emph{reversibile}).
+
+Si ha che $A(N,V,T)$, e si verifica (già fatto) che
+\[
+\pderiv{A}{V} = - P \qquad \pderiv{A}{T} = - S
+\]
+
+Quello che vogliamo ora è capire se in questo contesto si può individuare il candidato naturale dell'energia libera di Helmholtz.
+
+Definiamo la quantità adimensionale
+\[
+Q_N(V,T) = \frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \frac{H(q,p)}{kT}}
+\]
+detta funzione di ripartizione canonica.
+
+Si ha quindi
+\[
+e^{-\beta A} \equiv Q_N(V,T) \quad \implies \quad A = - k T \ln Q_N(V,T)
+\]
+Questa è una sorta di postulato (in realtà deriva dai postulati del microcanonico).
+Come nel caso precedente si stabilisce un \q{ponte} con la termodinamica. In questo caso questo collegamento è l'energia libera di Helmholtz.
+
+Se voglio esprimere un valor medio $\avg H$, si ha
+\[
+\avg H = \frac{\frac{1}{h^{3N} N!} \int \de q \de p e^{- \beta H(q,p)} H(q,p)}{Q_N}
+\]
+e ciò è consistente con la definizione di valor medio di $b$, data la definizione di $Q_N$. Si noti che adesso possiamo scrivere
+\[
+\avg H = \frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A]} H(q,p)
+\]
+Ma ad esempio quanto vale il valor medio di $1$?
+\[
+\avg 1 = \frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A]} 1 \ = \ 1
+\]
+Pertanto derivando $1$ si ottiene $0$:
+\[
+\pderiv{}{\beta} \left[\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A(N,V,T)]}\right] = 0
+\]
+Ma risolvendo la derivata si ottiene:
+\[
+\pderiv{}{\beta} \left[\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A(N,V,T)]}\right]
+\]
+\[
+= \frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A(N,V,T)]} \left[ -H(q,p) + A + \beta \partial{A}{\beta} \right] = 0
+\]
+Ma valgono le formule,
+\[
+\beta = \frac{1}{k T} \quad \to \quad \beta \pderiv{}{\beta} = - T \pderiv{}{T}
+\de \beta = -\frac{1}{kT^2} \de T
+\]
+Pertanto si può riscrivere
+\[
+\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H(q,p) - A(N,V,T)]} \left[ -H(q,p) + A + \beta \partial{A}{\beta} \right] = -\avg H + A - T \pderiv{A}{T} = 0
+\]
+Ma in termodinamica vale
+\[
+A = \avg H + T \pderiv{A}{T}
+\]
+e dunque ciò che abbiamo trovato è consistente con ciò che si sa dalla termodinamica.
+
+Si pone a questo punto subito un problema di equivalenza di insiemi statistici: la termodinamica del microcanonico è la stessa di quella del canonico? A prima vista sembra che tutti gli stati vengono essere perlustrati da questa integrazione (non ho più la shell). Se i sistemi sono estensivi molto grandi viene fuori che questa equivalenza c'è.
+
+Quanto fluttua nell'integrazione l'Hamiltoniano? Se si fa il valor medio, quanto vale la quantità seguente:
+\[
+\frac{\sqrt{\avg{(H - \avg{H})^2}}}{\avg H}
+\]
+Questo rapporto, che fornisce una misura della deviazione percentuale, scopriremo che va come $1/N^{1/2}$, pertanto
+\[
+\frac{\sqrt{\avg{(H - \avg{H})^2}}}{\avg H} \sim \frac{1}{\sqrt{N}}
+\]
+
+
+Si noti che
+\[
+\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H - A]}(H - \avg H) = 0
+\]
+Ma quindi
+\[
+\pderiv{}{\beta} \left[\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H - A]}(H - \avg H) \right] = 0
+\]
+e svolgendo la derivata si ottiene
+\[
+\frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta [H - A]} \left[-H + A - T \pderiv{A}{T} \right][H - \avg H] - \pderiv{}{\beta} \avg H = 0
+\]
+Si ha dunque
+\[
+- \pderiv{}{\beta} \avg H = k T^2 \pderiv{H}{T}
+\]
+\[
+\avg{(-H + \avg H)(H - \avg H)} + k T^2 \pderiv{\avg H}{T}
+\]
+A sto punto viene fuori che
+\[
+\avg{(H - \avg H)^2} = k T^2 \pderiv{\avg H}{T} = k T^2 C_V
+\]
+infatti $\pderiv{\avg H}{T} = C_V$ è la capacità termica a volume costante del sistema.
+
+Il mio sistema immagino diventi sempre più grande (V, N crescono in proporzione). La capacità termica di un sistema che cresce cresce come $N$, ma quindi $C_V \propto N$, e $\avg H \propto N$, pertanto in un sistema sensato viene fuori che
+\[
+\frac{\sqrt{\avg{(H - \avg H)^2}}}{\avg H}
+\]
+
+
+La termodinamica di sua natura non introduce fluttuazioni. La statistica invece mette in ballo risultati che sono affetti in linea di principio da fluttuazioni. Ma tali fluttuazioni sono trascurabili, pertanto è naturale comparare i risultati della termodinamica con quelli della meccanica statistica. 
+
+In sistemi relativamente piccoli tali fluttuazioni non sono più trascurabili, e in queste situazioni la termodinamica è diversa. In questo corso ci si limita al caso in cui le fluttuazioni sono trascurabili.
+
+Questo ensemble è più \q{maneggiabile} rispetto a quello del microcanonico.
+
+\[
+Q_N = \sum_{i = 0}^{+\infty} \Gamma(E_i) E^{\frac{E_i}{k T}}
+\]
+Ma per le regole del canonico
+\[
+Q_N = e^{- \beta A}
+\]
+mentre 
+\[
+Q_N \simeq \frac{1}{\Delta} \sum_{i = 0}^{+\infty} \Gamma(E_i) E^{\frac{E_i}{k T}} \Delta = \frac{1}{\Delta} \int_0^{+\infty} \de E \, \Gamma(E) \, e^{-\frac{E}{k T}}
+\]
+\[
+\propto \int_0^{+ \infty} \de E \, e^{\frac{S(E)}{k} - \frac{E}{k T}}
+\]
+SCHEMA $E$ ed $\overline E$, con \q{impulso} (gaussiana) molto stretto su $\vect E$
+\[
+\pderiv{S}{E}(E) \bigg|_{\overline E} = \frac{1}{T}
+\]
+\[
+\frac{1}{T_{\text{micro}}(\overline E)} = \frac{1}{T}
+\]
+Ma $\overline E \propto N$, e il peso statistico dell'integrale è tutto intorno al picco della gaussiana.
+$\overline E$ è quell'$E$ che devo prendere nel microcanonico per far si che nel canonico si ottenga la temperatura voluta. Quell'integrale per grandi valori di $N$ è supposto semplificarsi in un qualosa dove quello che conta è solo il valore di massimo dell'integrando per una grandezza che poi si considererà irrilevante (dipendente dalla capacità termica).
+
+Ricordando che
+\[
+\Gamma(n) = \int_0^{+\infty} \de t e^{-t} t^{n-1} \overset{n \to \infty}{\sim} \sqrt{2 \pi n} e^{n \ln n - n}
+\]
+
+L'integrale diventa il valore massimo della funzione per la larghezza della gaussiana. Questi risultati fanno vedere il meccanismo di dominanza quando $n$ va a $\infty$.
+
+Andiamo ad applicare tutto ciò all'esempio più semplice: il gas perfetto.
+\[
+H(q,p) = \sum_{i = 1}^N \frac{\vect p_i^2}{2m} + \sum_{i = 1}^N U_V(\vect q_i)
+\]
+\[
+Q_N(V,T) = \frac{1}{N! h^{3N}} \int \de^3 q_1 \dots \de^3 q_N \int \de^3 p_1 \dots \de^3 p_N \ \prod_i e^{-\frac{\beta}{2} \frac{\vect p_i^2}{m}} \prod_j e^{- \beta U(\vect q_j)}
+\]
+\[
+= \frac{1}{N! h^{3N}} \prod_j \int \de^3 q_j e^{- \beta U_V(\vect q_j)} \prod_i \int \de^3 p_i e^{- \beta \frac{\vect p_i^2}{2m}}
+\]
+Questi integrali sono già noti dalla distribuzione di Maxwell-Boltzmann:
+\[
+\int \de^3 p e^{- \beta \frac{\vect p^2}{2m}} = \left(\frac{2 m \pi}{\beta}\right)^{3/2}
+\]
+e questo è dovuto al fatto che
+\[
+\int_{- \infty}^{+ \infty} e^{- \lambda x^2} \de x = \sqrt{\frac{\pi}{\lambda}}
+\]
+
+
+Definiamo dunque le \emph{lunghezza d'onda termica}
+\[
+\Lambda = \sqrt{\frac{h^2}{2 \pi m k T}} = \sqrt{\frac{h^2 \beta}{2 \pi m}}
+\]
+e dunque la $Q$ del gas perfetto è
+\[
+Q_N = \frac{V^N}{N! \Lambda^{3N}}
+\]
+
+A questo punto si scrive 
+\[
+A = - k T \ln Q_N = - k T \ln \frac{V^N}{N! \Lambda^{3N}} \overset{\text{Stirling}}{=} - k T N \ln\left(\frac{V}{N \Lambda^3}\right) + k T N
+\]
+
+
+La seguente è una regola molto utile per fare conti. La definizione di $Q_N$ è
+\[
+Q_N(V,T) = \frac{1}{h^{3N} N!} \int \de q \de p \, e^{- \beta H(q,p)}
+\]
+Si noti che la derivata rispetto a $\beta$ del logaritmo di $Q_N$ è il valor medio di $H$.
+\[
+\pderiv{}{\beta} \ln Q_N = \frac{\frac{1}{h^{3N} N!} \int \de q \de p e^{- \beta H(q,p)} H(q,p)}{\frac{1}{h^{3N} N!} \int \de q \de p e^{- \beta H(q,p)}} = \avg H
+\]
+\[
+-\pderiv{}{\beta} \left[N \ln\left(\frac{V}{N \Lambda^3}\right) + N \right] = \frac{3}{2} N \frac{1}{\beta}
+\]
+dove $\Lambda^3 \propto \beta^{3/2}$. Questo risultato è sensato, infatti è noti che l'energia del gas perfetto è $\frac{3}{2}NkT$. Per trovare l'entropia uso la definizione:
+\[
+S = - \pderiv{A}{T} = k N \ln\left(\frac{V}{N} \underbrace{\frac{1}{\Lambda^3}}_{\propto T^{3/2}} \right) - k N - \frac{5}{2} k N - \pderiv{}{T} k N T \ln(T^{3/2})
+\]
+\[
+S(E,V,N) = k N \ln\left(\frac{V}{N}  \left(\frac{E}{N}\right)^{3/2} \left(\frac{4 \pi m}{3 h^2}\right)^{3/2} \right) - \frac{5}{2} k N
+\]
+
+Questo è un risultato di equivalenza importante.
+
+Inoltre:
+\[
+-\pderiv{A}{V} = P = \frac{k T N}{V}
+\]
+E anche questa è nota, anche questo è un risultato di equivalenza.
+
+Provare: calcolare il valor medio canonico
+\[
+\avg{ \underbrace{\sum_{i = 1}^N \de^2(\vect q - \vect q_i) \delta^3 (\vect p - \vect p_i)}_{(\vect q, \vect p) \in \mathcal M} }
+\]
+
+
+\end{document}
+

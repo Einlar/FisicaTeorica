@@ -1,0 +1,572 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+\begin{comment}
+\textbf{Commento sulle puntate precedenti}\\ %Inserire nella lezione del 25/10, dove c'è il [TO DO]
+Quando avevamo detto:
+\[
+\cos\left(\frac{2\pi n x}{a}\right)\xrightarrow[\mathcal{S}']{n\to\infty}0
+\]
+Significa precisamente:
+\[
+\int dx \cos\left(\frac{2\pi n x}{a}\right) \varphi(x)\xrightarrow[n\to\infty]{}0\quad \forall \varphi \in \mathcal{S}(\bb{R})
+\]
+(L'idea è che per $n$ molto grande, la fluttuazione è molto frequente, e quindi \textit{in media} la funzione è nulla).\\
+Ciò è vero per il \textbf{teorema di\ Riemann-Lebesgue}, per cui una $f\in L'(\bb{R})$ si ha che:
+\[
+\int dx f(x) e^{ikx}\xrightarrow[n\to\infty]{} 0
+\]
+(e quindi in particolare è vero per le funzioni nello spazio di Schwartz, dato che $\mathcal{S}(\bb{R})\subset L'(\bb{R})$)
+\end{comment}
+\subsection{Il potenziale a gradino}
+Applichiamo\lesson{17}{7/11/2018} la procedura generale vista nella sottosezione precedente ad un esempio concreto.\\
+\begin{center}
+\input{Immagini/gradinoesmussato.tex}
+\end{center}
+%[IMMAGINE] Potenziale a gradino e potenziale "regolarizzato" smussato (passa da 0 a $\bar{V}>0$ linearmente) [DONE]
+Consideriamo il \textit{potenziale a gradino} $V(x)=\bar{V}H(x)$.\\
+Fisicamente si tratta di un'\textit{idealizzazione} del potenziale di un campo elettrico frenante che agisce su una regione molto piccola, per cui la crescita (che comunque resta lineare) può essere vista come \textit{quasi istantanea}.\\
+
+Cominciamo considerando il sistema in \textbf{Meccanica Classica}.\marginpar{Comportamento in \MC} In particolare, esaminiamo il comportamento di una particella che si trova inizialmente a $x(t=0) = x_0 < 0$ (è cioè a \textit{sinistra} del gradino) e si muove verso di esso con un momento iniziale $p(t=0)=p_0 > 0$. La sua hamiltoniana $H$ (pari all'energia $\mathcal{E}$ della particella) è quindi data da\footnote{Attenzione a non confondere $H$ dell'hamiltoniana con $H(x)$ funzione di Heaviside!}:
+\[
+H=\frac{p^2}{2m}+\bar{V}H(x)=\mathcal{E}
+\]
+%Prova a calcolare \dot{x}^2 e i due casi x<0, x\geq 0, e raccordare. oppore normalizza con una crescita lineare il potenziale e prendi il limite
+Poiché $p$ deve essere un numero reale, si ha che, per certi valori dell'energia $\mathcal{E}$ (che rimane costante) la particella non può accedere a tutte le posizioni. Infatti, se risolviamo per $p$:
+\[
+p=\pm \sqrt{2m(\mathcal{E}-\bar{V}H(x))}\Rightarrow \begin{cases}
+\mathcal{E}>\bar{V} \Rightarrow \text{ $p\in\bb{R}$ $\forall x \in \bb{R}$}\\
+\mathcal{E}<\bar{V} \Rightarrow \text{ $p\in\bb{R}$ solo per $x < 0$ }
+\end{cases}
+\]
+dato che, se $\mathcal{E}<\bar{V}$, per $x>0$ l'espressione sotto radice è negativa. Fisicamente ciò corrisponde al fatto che una particella con troppa poca energia \textit{non} può attraversare il gradino del potenziale.\\
+Esaminiamo l'evoluzione temporale (classica) del sistema.\\ \begin{expl} \textbf{Derivazione dell'equazione del moto}
+La particella parte da $x_0$, e si muove (inizialmente verso destra) a velocità:
+\[
+\dot{x}=\frac{\partial H}{\partial p}=\frac{p}{m} = \frac{\pm \sqrt{2m(\mathcal{E}-\bar{V}H(x))}}{m}=\pm \sqrt{\frac{2}{m}(\mathcal{E}-\bar{V}H(x))}
+\]
+Basta allora integrare per trovare l'equazione del moto. Per $x<0$, per cui $H(x)=0$, si trova:
+\[
+x(t)=x(t=0)\pm t\sqrt{\frac{2}{m}\mathcal{E}}
+\]
+Che in termini delle condizioni iniziali (e imponendo $p_0 > 0$) diviene:
+\[
+x_1(t)=x_0 + \frac{p_0}{m}t
+\]
+Il dominio di questa soluzione non è tutto $t\in \bb{R}$, perché siamo partiti supponendo $x<0$:
+\[
+x_1(t)<0\Rightarrow t < -x_0 \frac{m}{p_0} = \frac{|x_0| m}{p_0} \equiv t_0
+\]
+Quindi $x_1(t)$ vale per $t\in (-\infty, t_0)$.\\
+Per $x>0$, d'altro canto, $H(x)=1$, e quindi l'equazione da integrare è:
+\[
+\dot{x}=\pm \sqrt{\frac{2}{m}(\mathcal{E}-\bar{V})}
+\]
+che, come già osservato, ha soluzione reale solo per $\mathcal{E}>\bar{V}$. Integrando otteniamo:
+\[
+x_2(\tau)=x(\tau =0)\pm \tau\sqrt{\frac{2}{m}(\underbrace{\mathcal{E}}_{\frac{p_0^2}{2m}}-\bar{V})}=x(\tau=0)\pm
+\frac{1}{m}\sqrt{(p_0^2 - 2m\bar{V})}\tau
+\]
+Dove $x(\tau=0)=0$ per raccordo, e $\tau = t-t_0$ (dato che la particella che parte a $t=0$ in $x_0$ raggiunge a $t=t_0$ il gradino, dove si ha il \textit{passaggio} all'altra soluzione).\\
+Notiamo poi che solo la soluzione con il $+$ ha senso, dato che l'altra ha un dominio temporale nullo (rappresenta una particella che \q{torna indietro}, ma allora $x_2(\tau=0^+)<0$, e quindi esce dall'ipotesi che abbiamo fatto prima di integrare).\\
+Perciò, se $\mathcal{E}>\bar{V}$, con $x_0 < 0$, $p_0>0$, la soluzione finale si ottiene unendo $x_1(t)$ e $x_2(\tau)$:
+\[
+x(t)_{\mathcal{E}>\bar{V}}=\begin{cases}
+x_0 + \frac{p_0}{m}t & t<t_0\\
+\frac{1}{m}\sqrt{p_0^2-2m\bar{V}}(t-t_0) & t\geq t_0
+\end{cases}
+\]
+D'altro canto, se $\mathcal{E}<\bar{V}$, la regione $x>0$ è proibita. Quando la particella vi arriva può perciò solo \q{tornare indietro}\footnote{Se non si è convinti di ciò, si può provare a considerare un potenziale \textit{continuo}, che cresce linearmente tra $-a$ e $a$ da $0$ a $\bar{V}$, quindi risolvere il moto e prendere il limite per $a\to0$. In tal caso nella regione \textit{di crescita lineare} la particella subisce un'accelerazione negativa. Se non ha abbastanza energia per superare tale regione, allora ritornerà in $x=0$ con momento $-p_0$.}, e quindi passare alla soluzione per $x<0$ che è compatibile con un momento iniziale negativo. Avremo quindi:
+\[
+x(t)_{\mathcal{E}<\bar{V}}=\begin{cases}
+x_0 + \frac{p_0}{m}t & t<t_0\\
+-\frac{p_0}{m}(t-t_0) & t\geq t_0
+\end{cases}
+\]
+\end{expl}
+Osservando che $-p_0 t_0 /m = x_0$, possiamo riscrivere in maniera più sintetica le soluzioni:
+\begin{align*}
+x(t) &= -\frac{p_0}{m}|t-t_0| && \mathcal{E}<\bar{V}\\
+x(t)&=-\frac{p_0}{m}(t_0-t)H(t_0-t)+\frac{1}{m}\sqrt{p_0^2-2m\bar{V}}(t-t_0)H(t-t_0)\quad &&\mathcal{E}>\bar{V}
+\end{align*}
+Perciò per $\mathcal{E}<\bar{V}$ la particella \textit{sbatte} contro il gradino di potenziale e \textbf{immediatamente} torna indietro, mentre per $\mathcal{E}>\bar{V}$ la particella \textit{supera} \textbf{immediatamente} il gradino.\\
+Vedremo che in \MQ non si verifica nulla di tutto ciò: particelle di alta energia avranno una certa probabilità di essere riflesse, e in ogni caso il gradino avrà un \textit{tempo di attraversamento} non istantaneo.
+
+\begin{center}
+\input{Immagini/gradinoeimpulso.tex}
+\end{center}
+%[IMMAGINE] Pacchetto d'onda che si muove verso il gradino ideale [DONE]
+Consideriamo ora l'analogo sistema \textbf{quantistico}. \marginpar{Comportamento in \MQ}
+La particella classica è sostituita da un \textbf{pacchetto d'onde} inizialmente \textit{piccato} attorno a $x_0$ e con momento \textit{piccato} attorno a $p_0$.\\
+\begin{expl}
+\textbf{Richiami sulla nozione di pacchetto d'onda}\\
+Un \textbf{pacchetto d'onda} non è altro che \q{un'onda di dimensioni finite}, ossia una perturbazione dello spazio che ha valori $\neq 0$ solo in una \textbf{regione ristretta}, come in genere si verifica sperimentalmente, dato che non si ha a che fare con segnali infiniti.\\
+%Inserire immagine
+Matematicamente, un pacchetto d'onda si ottiene dalla sovrapposizione di un numero arbitrario di onde ideali (es. onde piane), ciascuna con una certa lunghezza d'onda $\lambda$ e un relativo numero d'onda (\textit{angolare}) $k = 2\pi/\lambda$. Scegliendo bene i termini della somma, si ottiene un'interferenza costruttiva in una regione limitata, e distruttiva in tutto il resto dello spazio.\\
+\textbf{Nota}: per \textit{localizzare} il pacchetto è necessario incrementare le regioni di interferenza distruttiva, e quindi considerare nella somma un numero maggiore di termini, ossia più possibili scelte per $k$. Al diminuire dell'\textit{incertezza sulla posizione} del pacchetto corrisponde il crescere dell'\textit{incertezza sul suo momento}, e viceversa.\\
+In generale, partendo da un pacchetto con andamento arbitrario $\psi(x,t)$, la sua rappresentazione in momenti (o $k$, o frequenze, dato che $\omega$ è funzione di $k$) si ottiene per trasformata di Fourier:
+\[
+\tilde{\psi}(k,t)=\mathcal{F}[\psi(x,t)](k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}
+\psi(x,t) e^{-ikx}\,dx
+\]
+E il passaggio inverso si ottiene mediante l'antitrasformata:
+\[
+\psi(x,t)=\mathcal{F}^{-1}[\tilde{\psi}(k,t)](x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\tilde{\psi}(k,t)e^{ikx}\,dk
+\]
+Perciò basta fissare $\psi(x,t)$ o $\tilde{\psi}(k,t)$ per ricavare l'altro. Per esempio potremmo partire fissando l'\textit{energia} del pacchetto, ossia il range delle $k$ delle onde che lo compongono. Fissiamo allora la funzione $\tilde{\psi}(k,t)$ che dà l'ampiezza delle singole onde-componenti a seconda del loro $k$. Se separiamo componente dell'ampiezza da quella dell'evoluzione temporale:
+\[
+\tilde{\psi}(k,t)=\tilde{f}(k)e^{-i\omega(k)t}
+\]
+giungiamo alla scrittura di un generico pacchetto come:
+\begin{equation}
+\psi(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\tilde{f}(k) e^{i(kx-\omega(k)t)}dk
+\label{eqn:generico_pacchetto}
+\end{equation}
+Se la funzione $\omega=\omega(k)$ è lineare, allora tutte le onde che compongono il pacchetto \textit{si muovono alla stessa velocità}, che è detta \textit{velocità di fase} ed è data da:
+\[
+v=\frac{\omega(k)}{k}
+\]
+(per cui se $\omega(k)=\bar{v}k$ si ha immediatamente $v\equiv \bar{v}$).\\
+In tal caso il mezzo in cui si propaga l'onda è detto \textbf{non dispersivo} (un esempio è il vuoto per un'onda classica): dato che tutte le componenti del pacchetto si muovono in maniera \textit{sincrona}, il pacchetto \q{non si sfalda} e mantiene lo stesso \q{profilo} (envelope). In particolare la velocità del pacchetto è la stessa delle onde che lo compongono. Ecco perché la funzione $\omega = \omega(k)$ è detta \textbf{relazione di dispersione.}\\
+Se invece $\omega=\omega(k)$ non è lineare, si ha \textbf{dispersione}. In tal caso non è detto che il pacchetto, ossia \q{l'inviluppo} della sovrapposizione delle onde, in genere \textbf{non} viaggia alla stessa velocità delle onde che lo compongono, ma a una certa $v_g$, detta \textbf{velocità di gruppo}, che ora deriviamo.\\
+Chiaramente, ha senso parlare di \q{velocità di un pacchetto} è \q{ben localizzato}, ossia se la sovrapposizione avviene tra onde di simili $k$. Ciò si ha se scegliamo la $\tilde{f}(k)$ con un picco \textit{sharp} attorno a $k_0$. Possiamo allora \textit{linearizzare} $\omega(k)$ sviluppandola in serie di Taylor attorno a $k_0$ (che è il \textit{massimo} che ci interessa) e troncando al primo ordine:
+\begin{equation}
+\omega(k)\approx \underbrace{\omega(k_0)}_{\omega_0} + \underbrace{\frac{\partial \omega(k)}{\partial k}\Big|_{k=k_0}}_{\omega_0'}(k-k_0)
+\label{eqn:linearizzazione}
+\end{equation}
+Sostituendo (\ref{eqn:linearizzazione}) in (\ref{eqn:generico_pacchetto}) otteniamo (omettendo il fattore di normalizzazione per semplicità):
+\begin{align*}
+\psi(x,t)_{lin}&=\int_{-\infty}^{+\infty}\tilde{f}(k)e^{i[kx-(\omega_0+\omega_0'(k-k_0)]t}\,dk=\\
+&=\int_{-\infty}^{+\infty}\tilde{f}(k)\exp\left [i\left(
+\textcolor{Blue}{+k_0 x}-\omega_0 t \textcolor{Blue}{- k_0 x } +k_0 \omega_0' t+ kx-k\omega_0't
+\right)\right ] =\\
+&=\hlc{Yellow}{e^{i(k_0x-\omega_0 t)}}\hlc{SkyBlue}{\int_{-\infty}^{+\infty} dk\,\tilde{f}(k) e^{i(k-k_0)(x-\omega_0't)}}
+\end{align*}
+e $\psi(x,t)_{lin}$ è un'approssimazione molto buona di $\psi(x,t)$ se $\tilde{f}(k)$ ha un picco molto stretto attorno a $k_0$. In quest'approssimazione il pacchetto è dato da una componente localizzata di \textit{segnale} (in azzurro) che costituisce l'\textit{inviluppo} (envelope) del pacchetto, ossia la sua \q{sagoma}. Tale espressione è moltiplicata per il termine in giallo, che è una normalissima onda piana con numero d'onda $k_0$, che si muove alla velocità di fase $\omega_0/k_0$. L'espressione azzurra, invece, dipende da $t$ per una $e^{i(x-\omega_0't)}$, e quindi i suoi massimi si propagano alla \textbf{velocità di gruppo} (in quanto è quella dell'inviluppo) che sarà proprio la $\omega_0'$:
+\[
+\omega_0' = \frac{d\omega}{dk}\Big|_{k=k_0}
+\]
+\textbf{Nota}: se $\omega(k)$ è decrescente (cosa che può succedere localmente in un mezzo irregolare) è possibile che la velocità di gruppo sia di segno opposto a quella di fase: si ha allora che le onde componenti si muovono in una direzione, mentre l'inviluppo \textit{risale} lungo il verso opposto!\footnote{Delle animazioni carine dei vari casi si trovano su wikipedia, a \url{http://en.wikipedia.org/wiki/Group_velocity} e \url{http://en.wikipedia.org/wiki/Wave_packet}}
+\end{expl}
+ Utilizzando la relazione (già vista per il fotone):
+\begin{equation}
+p = \hbar k \Rightarrow k = \frac{p}{\hbar}
+\label{eqn:momento_fotone}
+\end{equation}
+possiamo usare le $k$ come variabili, che sono più comode per una trattazione ondulatoria. Da $\mathcal{E}=p^2/(2m)$ si ha poi $p=\sqrt{2m\mathcal{E}}$, e giungiamo quindi a:
+\begin{equation}
+k=\frac{\sqrt{2m\mathcal{E}}}{\hbar} \Rightarrow \mathcal{E}(k)=\frac{k^2 \hbar^2}{2m}
+\label{eqn:kappa-en}
+\end{equation}
+Un'onda piana in 1D ha la forma generale di $u(x,t)=e^{i(kx-\omega t)}$. Un pacchetto d'onda è la combinazione di \textit{infinite} onde, la cui ampiezza dipende da $k$ ed è regolata da una funzione $A(k)$ che descrive la \q{forma} del pacchetto $\bar{\psi}$. Avremo quindi:
+\[
+\bar{\psi}(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} A(k)\,u(x,t)\,dk
+\]
+dove il coefficiente $1/\sqrt{2\pi}$ compare per convenzioni legate alle trasformate di Fourier\footnote{In effetti, la $u(x,t)$ così scritta ha la forma di una trasformata di Fourier. Per approfondimenti vedere i \textit{richiami} all'inizio di questa sezione}. 
+%Ripassare bene i pacchetti d'onda e inserire maggiori ref qui
+Nel caso quantistico non tutte le $u(x,t)$ sono ammesse, ma solo quelle che sono autofunzioni di $H$, e che quindi indichiamo come $\varphi_{\mathcal{E}}(x)$. Per le ampiezze usiamo invece la notazione $\tilde{f}_{k_0}(k)$, dove il pedice indica la posizione del \textit{picco}, e la $\sim$ ne evidenzia la natura di trasformata di Fourier.\\
+Un'ultima importante modifica sta nel variare gli estremi di integrazione: vogliamo infatti considerare la particella che inizialmente si muove verso il gradino, e che quindi ha $p$ (e di conseguenza $k$) positivo. Basta allora partire da $0$ invece che da $-\infty$.\footnote{Come vedremo, le funzioni d'onda si evolvono in maniera \textit{dispersiva}. La presenza di $k<0$ provocherebbe quindi un veloce \q{sfaldarsi} dell'onda, che - seppur fisicamente accettabile - non corrisponde in questo caso all'analogia classica che stiamo portando avanti.}\\
+Definiamo allora il pacchetto d'onda iniziale come:
+%Se prendessi dei k negativi avrei un'onda che "si sfalda" dilatandosi anche in direzione opposta. 
+\begin{equation}
+\psi(x,t=0)=\frac{1}{\sqrt{2\pi}}\int_0^{\infty} dk\,\tilde{f}_{k_0}(k) \varphi_\mathcal{E}(x)
+\label{eqn:pacchettoiniziale}
+\end{equation}
+La $\tilde{f}_{k_0}(k)$ è nello specifico una funzione positiva piccata su $k_0$ (ossia il valor medio $\langle k\rangle_{\tilde{f}_{k_0}}\approx k_0$) - e perciò è analoga alla particella classica di momento iniziale $p_0$. Portando avanti l'analogia classica abbiamo ora due casi: il pacchetto d'onda ha \q{nel complesso} un'energia più bassa della barriera di potenziale, oppure ne ha una più alta. Esaminiamoli separatamente.
+\paragraph{Energia più bassa del gradino}
+Scegliamo in questo caso $\tilde{f}_{k_0}(k)$ con un \textit{supporto}\footnote{Dove il supporto di una funzione  è il range delle coordinate nel dominio per cui ha valore non nullo.} $\Delta$ tale che:
+\[
+\mathcal{E}(k) =
+\frac{\hbar^2 k^2}{2m}<\bar{V} \quad \forall k\in \Delta
+\]
+In questo modo anche le onde \q{più energetiche} che compongono il pacchetto non hanno comunque abbastanza energia (almeno classicamente) per superare il gradino (come per la particella con $\mathcal{E}<V$).\\
+Per esempio potremmo prendere:
+\[
+\tilde{f}_{k_0}(k)=\chi_{\left[k_0-\frac{a}{2}, k_0+\frac{a}{2}\right]}(k)
+\]
+%[DOMANDA] Ma le \varphi_{\mathcal{E}} non dovrebbero dipendere anche da $k$ oltre che da x? Beh è ovvio, dato che sono associate ad una certa \mathcal{E}... ma allora dovrebbero dipendere anche dal tempo? No perché il sistema non cambia col tempo (forse dovrei specificarlo)
+
+Per studiare l'evoluzione temporale di $\psi(x,t)$ dobbiamo prima trovare le $\varphi_\mathcal{E}(x)$, che saranno autovettori (eventualmente generalizzati) dell'operatore:
+\[
+H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\bar{V}H(x)
+\]
+con una \textit{fase} per i coefficienti di $\varphi_\mathcal{E}(x)$ scelta opportunamente perché $\psi(x,0)$ sia piccata attorno a $x_0$.\\
+
+Risolviamo quindi l'equazione agli autovalori:
+\begin{align}
+H\varphi_\mathcal{E}(x)&=\mathcal{E}\varphi_\mathcal{E}(x)\nonumber \\
+\left(-\frac{\hbar^2}{2m} \frac{d^2}{dx^2}+\bar{V}H(x)\right)\varphi_{\mathcal{E}}(x)&=\mathcal{E}\varphi_\mathcal{E}(x)
+\label{eqn:eqz_step}
+\end{align}
+Per risolverla conviene spezzare il dominio e raccordare poi le soluzioni. Per $x<0$ si ha che $H(x)=0$, e quindi (\ref{eqn:eqz_step}) diviene:
+\begin{align}
+\varphi_{\mathcal{E}}''(x)+\frac{2m\mathcal{E}}{\hbar^2}\varphi_\mathcal{E}(x)=0 &\Rightarrow t^2 + \frac{2m\mathcal{E}}{\hbar^2}=0\Rightarrow t_{1,2}=\pm\frac{i}{\hbar}\sqrt{2m\mathcal{E}}=\pm ik
+\nonumber
+\\
+&\Rightarrow \varphi_{\mathcal{E}}(x)=c_+^1 e^{ikx}+c_-^1 e^{-ikx}; \quad x < 0
+\label{eqn:conti_negativi}
+\end{align} 
+Analogamente, per $x\geq 0$ si ha che $H(x)=1$, e quindi l'equazione diviene:
+\begin{align}
+\varphi_{\mathcal{E}}''(x)+\frac{2m}{\hbar^2}\underbrace{(\mathcal{E}-\bar{V})}_{<0}\varphi_\mathcal{E}(x)=0 &\Rightarrow t_{1,2}=\pm \overbrace{\frac{\sqrt{2m(\bar{V}-\mathcal{E})}}{\hbar}}^{\chi}
+\nonumber
+\\
+&\Rightarrow \varphi_\mathcal{E}(x)=c^2_+e^{\chi x}+c_-^2e^{-\chi x};\quad x\geq 0
+\label{eqn:conti_positivi}
+\end{align}
+Riepilogando:
+\begin{equation}
+\varphi_\mathcal{E}(x) = 
+\begin{cases}
+c^1_+ e^{ikx} + c^1_- e^{-ikx} & x<0\\
+\hlc{Yellow}{\bcancel{c^2_+}}e^{\chi x} + c^2_- e^{-\chi x} & x\geq0
+\end{cases} \quad \chi=\frac{\sqrt{2m(\bar{V}-\mathcal{E})}}{\hbar};
+\quad k=\frac{\sqrt{2m\mathcal{E}}}{\hbar}
+\label{eqn:autofunzioni}
+\end{equation}
+Dalla teoria sappiamo che le autofunzioni $\varphi_\mathcal{E}(x)$ appartengono a $\hs$ se corrispondono a un autovalore $\mathcal{E} \in \sigma_P(H)$ dello spettro discreto, o al più a $\mathcal{S}'$ se invece $\mathcal{E}\in\sigma_C(H)$. In entrambi i casi \textbf{non} possono perciò divergere esponenzialmente. Ne segue allora che $c^2_+ = 0$, sennò la seconda soluzione divergerebbe per $x\to\infty$.\\
+Notiamo poi che $H$ non ha spettro discreto in questo caso: infatti $\varphi_\mathcal{E}(x)\notin L^2(\bb{R})$, poiché l'integrale del modulo quadro diverge:
+\[
+\int_{-\infty}^\Lambda |\varphi_\mathcal{E}(x)|^2 \xrightarrow[\Lambda \to +\infty]{}+\infty
+\]
+data la presenza di termini $e^{ikx}$ che oscillano all'infinito.\\
+Perciò avremo che:
+\[
+\sigma(H)\Big|_{\mathcal{E}<\bar{V}}=\sigma_C(H)\Big|_{0<\mathcal{E}<\bar{V}}
+\]
+Notiamo che le $\varphi$ dipendono da $3$ coefficienti, e imponendo le $2$ equazioni di \textit{raccordo} (per continuità e derivabilità) resta un coefficiente non determinato, e quindi la degenerazione degli autovalori è $1$.\\
+Le equazioni di raccordo per $\varphi_{\mathcal{E}}$ e $\varphi'_{\mathcal{E}}$ portano a:
+\begin{align}
+\lim_{x\to 0^-}\varphi_\mathcal{E}(x) \overset{!}{=}\lim_{x\to 0^+}\varphi_\mathcal{E}(x) &\Rightarrow c^1_+ + c^1_- =\ c^2_- \label{eqn:cont}
+\\
+\lim_{x\to 0^-}\varphi'_\mathcal{E}(x) \overset{!}{=}\lim_{x\to 0^+}\varphi'_\mathcal{E}(x) &\Rightarrow 
+ik(c^1_+ - c^1_-) = -\chi c^2_- \label{eqn:deriv}
+\end{align}
+Dividendo per $ik$ la (\ref{eqn:deriv}) e sommando membro a membro con (\ref{eqn:cont}) si può ricavare immediatamente $c^2_-$:
+\begin{align*}
+c_-^2 = \frac{2}{1+\frac{i\chi}{k}}c_+^1\Rightarrow c^1_- = c^2_--c^1_+ = \frac{1-i\frac{\chi}{k}}{1+i\frac{\chi}{k}}c_+^1
+\end{align*}
+Scriviamo le costanti in rappresentazione polare (più comoda per le trasformate di Fourier). Notando che il termine $A_+=1+i\frac{\chi}{k}$ si ripete, partiamo da quello:
+\begin{align*}
+A_+=1+i\frac{\chi}{k}&=\left|1+i\frac{\chi}{k}\right|e^{i\theta(k)}\\
+\tan\theta(k)&=\frac{\hlc{Yellow}{\chi}}{\hlc{SkyBlue}{k}}
+=
+\hlc{Yellow}{\frac{\sqrt{2m(\bar{V}-\mathcal{E})}}{\hbar}} \hlc{SkyBlue}{\frac{\hbar}{\sqrt{2m\mathcal{E}}}
+}=\sqrt{\frac{\bar{V}-\mathcal{E}}{\mathcal{E}}} =\sqrt{\frac{\bar{V}}{\mathcal{E}}-1}=\\
+&= \sqrt{\frac{\bar{k}^2}{k^2}-1}; \quad \bar{k}=\frac{\sqrt{2m\bar{V}}}{\hbar}
+\end{align*}
+dove $\bar{k}$ è il numero dell'onda che ha la stessa energia $\bar{V}$ del gradino. Il complesso coniugato $A_- =\ 1-i\frac{\chi}{k}$ ha quindi lo stesso modulo e angolo $\theta(k)$ opposto.\\
+Le costanti $c_-^1$ e $c_-^2$ divengono quindi:
+\begin{align}
+c^2_- &= \frac{2}{|1+i\frac{\chi}{k}|e^{i\theta(k)}}c^1_+ = \frac{2 c^1_+}{|1+i\frac{\chi}{k}|}e^{-i\theta(k)}
+\label{eqn:c2-}
+\\
+c^1_- &= \frac{|1-i\frac{\chi}{k}|e^{-i\theta(k)}}{|1+i\frac{\chi}{k}|e^{i\theta(k)}}c^1_+ = c^1_+ e^{-2i\theta(k)}
+\label{eqn:c1-}
+\end{align}
+Conviene ora \textit{collegare} le costanti alle condizioni iniziali. In particolare, possiamo scegliere $c^1_+$ (che è un \textit{parametro libero} dato dalla degenerazione degli stati) in modo che il pacchetto sia piccato attorno a $x_0$ all'istante iniziale. In particolare poniamo:
+\begin{equation}
+c^1_+ = e^{-ikx_0}
+\label{eqn:c1+}
+\end{equation}
+Verifichiamo che in tal modo il pacchetto d'onda sia davvero piccato in $x_0$. Calcoliamo la (\ref{eqn:pacchettoiniziale}) per $\varphi_\mathcal{E}(x)$ in (\ref{eqn:autofunzioni}) in $x<0$. Con la scelta fatta per $c^1_+$ otteniamo:
+\begin{equation}
+\psi(x,t=0)=\frac{1}{\sqrt{2\pi}}\int_0^\infty dk\, \tilde{f}_{k_0}(k) e^{-ikx_0}(\hlc{Yellow}{e^{ikx}}+\hlc{SkyBlue}{e^{-2i\theta(k)}e^{-ikx}})
+\label{eqn:pacchettonegativo}
+\end{equation}
+Concentriamoci sul termine evidenziato in giallo, che corrisponde all'onda \textit{incidente}. A meno di un fattore costante si ha:
+\begin{equation}
+\psi(x,0)_i\propto \int_0^{+\infty}\tilde{f}_{k_0}(k) e^{ik(x-x_0)} dk \underset{(a)}{=}\int_0^{+\infty} \tilde{f}_{0}(k')e^{i(k'+k_0)(x-x_0)}dk
+\label{eqn:pacchetto_max1}
+\end{equation}
+dove in (a) si è effettuato il cambio di variabile $k\to k'+k_0$, e si è \textit{traslata} la funzione $\tilde{f}_{k_0}(k)$:
+\[
+\tilde{f}_{k_0}(k+k_0) = \tilde{f}_{0}(k')
+\]
+che, nella nuova variabile $k'$, è ora piccata in $0$ (nei prossimi passaggi rimuoveremo l'apice per alleggerire la notazione).\\
+Notiamo ora la presenza di un termine $e^{ik_0(x-x_0)}$ che corrisponde all'onda piana \q{di fondo} del pacchetto d'onda\footnote{Possiamo vedere le costituenti del pacchetto come una componente di \textit{segnale} data da $e^{ik(x-x_0)}$ e un fondo sinusoidale comune a tutte dato da $e^{ik_0(x-x_o)}$}
+%Inserire interpretazione grafica
+ che non dipende da $k$ e quindi possiamo estrarre dall'integrale:
+\begin{equation}
+(\ref{eqn:pacchetto_max1}) = \hlc{Yellow}{e^{ik_0(x-x_0)}}\int_0^{+\infty} \tilde{f}_0(k) e^{ik(x-x_0)}dk
+\label{eqn:pacchetto_max2}
+\end{equation}
+Il fattore evidenziato \textit{non} modifica la posizione dei massimi, e quindi ce ne disinteressiamo. Giungiamo allora a:
+\begin{equation}
+\psi(x,0)_i\propto\int_0^{+\infty}\tilde{f}_0(k)e^{ik(x-x_0)}dk
+\label{eqn:pacchetto_max3}
+\end{equation}
+che ha un picco in $x_0$. Infatti, calcolandone derivata prima:
+\begin{align*}
+\frac{d}{dx}\int_0^{+\infty}\tilde{f}_0(k)e^{ik(x-x_0)}dk \Big|_{x=x_0}&=\int_0^{+\infty}\tilde{f}_0(k)\,ik\,e^{ik(x-x_0)}dk\Big|_{x=x_0}=\\
+&=\int_0^{+\infty} \tilde{f}_0(k)\,ik\,dk \underset{(a)}{\approx} 0
+\end{align*}
+dove l'integrale in (a) corrisponde, a meno di un fattore $i$, al valor atteso di $\tilde{f}_0(k)$ su $[0,+\infty)$. Ma la $\tilde{f}_0(k)$ (limitata e a supporto compatto) è piccata in $k=0$, per cui gli unici valori per cui è $\neq 0$ sono per $k$ piccoli, e perciò l'integrale va a $0$.\\
+Esaminando la derivata seconda otteniamo:
+\[
+\frac{d^2}{dx^2}\int_0^{+\infty}
+\tilde{f}_0(k)e^{ik(x-x_0)}
+ \Big|_{x=x_0} = \int_0^{+\infty} dk (-k^2)\tilde{f}_0(k) < 0
+\]
+per cui $x=x_0$ è proprio un massimo per $\psi(x,0)_i$.\\
+Notiamo che tutti i ragionamenti effettuati valgono indipendentemente dal segno di $k$, e perciò si giunge alla stessa conclusione anche esaminando il termine evidenziato in azzurro nella (\ref{eqn:pacchettonegativo}).\\
+Perciò l'intera $\psi(x,0)$ ha massimo in $x=x_0$, come volevamo.\\
+
+Sostituendo allora (\ref{eqn:autofunzioni}) in (\ref{eqn:pacchettoiniziale})\ assieme alle espressioni trovate per le costanti in (\ref{eqn:c1-}) e (\ref{eqn:c1+}), giungiamo all'espressione per il pacchetto a $t=0$:
+\begin{equation}
+\psi(x,0)=\begin{cases}
+\displaystyle
+\frac{1}{\sqrt{2\pi}}\int_0^\infty dk \tilde{f}_{k_0}(k) \left[
+e^{ik(x-x_0)}+e^{-ik(x+x_0)}e^{-2i\theta(k)}
+\right] & x < 0\\ \displaystyle
+\frac{1}{\sqrt{2\pi}}\int_0^\infty dk \tilde{f}_{k_0}(k) \frac{2}{\left|1+i\frac{\chi}{k} \right|}e^{-\chi x}e^{-ikx_0}e^{-i\theta(k)} & x\geq 0
+\end{cases}
+\label{eqn:pacchettoinizialerisolto}
+\end{equation}
+%Ma quindi fin dall'inizio c'è un'onda riflessa? E allora come faccio a sapere che inizialmente l'onda è piccata in x0? - perché la parte di onda riflessa che c'è all'inizio è "trascurabile", nel senso che è quella che corrisponde alla riflessione della componente stazionaria dell'onda iniziale (quella e^{ik_0 x} "di fondo" che genera le code.
+%CFR note del prof. Feruglio per i conti
+L'evoluzione di uno stato puro, come da assioma, è data da:%Inserire ref [TO DO] all'Assioma dell'evoluzione degli stati puri
+\[
+\varphi_\mathcal{E}(x)\xrightarrow[t]{}\varphi_\mathcal{E}(x)e^{-i\frac{\mathcal{E}}{\hbar}t}
+\]
+In analogia con l'onda piana classica $u(x,t)=e^{i(kx-\omega t)}$, poniamo:
+\begin{equation}
+\omega \equiv \frac{\mathcal{E}}{\hbar} = \frac{k^2 \hbar}{2m}
+\label{eqn:omega}
+\end{equation}
+\textbf{Nota}: $\omega$ non è una funzione lineare di $k$, e quindi il pacchetto d'onda subisce un effetto di \textit{dispersione}: le onde che lo compongono viaggiano a \textit{velocità di fase} differenti (e che dipendono da $k$) e quindi ci aspettiamo che il pacchetto \q{non mantenga la stessa forma} nel muoversi verso il gradino.\\
+L'evoluzione temporale è allora data dalla sostituzione $\varphi_\mathcal{E}\to \varphi_\mathcal{E}(x)e^{-i\omega t}$, che, in (\ref{eqn:pacchettoinizialerisolto}) porta a:
+\[
+\psi(x,t)=\begin{cases}\displaystyle
+\frac{1}{\sqrt{2\pi}} \int_0^\infty dk \tilde{f}_{k_0}(k)
+\left[
+\overbrace{
+e^{i[k(x-x_0)-\omega t]}}^{\psi_i \text{ incidente }}
++ \overbrace{e^{-i[k(x+x_0)+\omega t]}e^{-2i\theta(k)}}^{\psi_r \text{ riflessa }} 
+\right] & x < 0
+\\ \displaystyle
+\frac{1}{\sqrt{2\pi}} \int_0^\infty dk \tilde{f}_{k_0}(k) \frac{2}{\left |1+i\frac{\chi}{k} \right|}e^{-\chi x}e^{-ikx_0}e^{-i[\theta(k)+\omega t]} & x\geq 0
+\end{cases}
+\]
+Ritroviamo perciò per $x<0$ la sovrapposizione di un'onda incidente con una riflessa, e per $x\geq 0$ si ha un'onda che decresce esponenzialmente (a causa del termine $e^{-\chi x}$).\\
+Poiché il picco del pacchetto d'onda rappresenta la \q{posizione più probabile} della particella, possiamo calcolare il suo andamento per confrontarlo con il caso classico.\\
+Poiché $\tilde{f}_{k_0}$ è piccata su $k_0$, esaminiamo la funzione integranda per quel valore di $k$. Per $x<0$ e $\psi_i$ incidente, il massimo di ordine $0$ è dato dall'annullarsi della derivata:
+\begin{align}
+\frac{\partial}{\partial k}\Big|_{k_0} \psi_i\overset{!}{=}0 &\Rightarrow \cancel{i}\left [(x-x_0)-\frac{d \omega}{d k}t \right ]\cancel{e^{i[k(x-x_0)-\omega t)]}}=0\nonumber\ \\
+&\Rightarrow x-x_0 -\frac{d\omega}{dk}\Big|_{k_0}t=0
+\label{eqn:evoluzionemax}
+\end{align}
+Ricordando la definizione di $\omega$ in (\ref{eqn:omega}) si ha:
+\[
+\omega = \frac{k^2\hbar}{2m} \Rightarrow \frac{d\omega}{dk} = \frac{k\hbar}{m}
+\]
+%Approfondimento: d\omega/dk è la velocità di gruppo del pacchetto d'onda!
+Sostituendo in (\ref{eqn:evoluzionemax}) si ottiene allora l'equazione del moto \textit{classica}:
+\[
+x=x_0+\frac{\hlc{Yellow}{\hbar k_0}}{m}t\underset{(\ref{eqn:momento_fotone})}{=}x_0 + \frac{\hlc{Yellow}{p_0}}{m}t=\frac{p_0}{m}(t-t_0)
+\]
+Perciò, prima dell'urto, il sistema si comporta \q{classicamente}, con il picco che arriva al gradino a $t=t_0$.\\
+Se invece esaminiamo, per $x<0$, il picco per $\psi_r$ (sempre calcolando il massimo di ordine $0$ per $k_0$), dobbiamo considerare anche un altro termine:
+\begin{equation}
+x=-x_0-\frac{\hbar k_0 }{m}t-2\frac{d\theta}{dk}(k_0) = \frac{p_0}{m}(t_0-t) - \underbrace{2\frac{d\theta}{dk}(k_0)}_{\text{offset della riflessione}}
+\label{eqn:motoclassicoriflesso}
+\end{equation}
+Perciò è come se l'onda riflessa non ripartisse da $x=0$, ma da un punto diverso. Calcolando la derivata:
+\begin{align*}
+\tan\theta(k)=\frac{\chi}{k}=\sqrt{\frac{\bar{k}^2}{k^2}-1} &\Rightarrow \theta(k)=\arctan\left(
+\sqrt{\frac{\bar{k}^2}{k^2}-1}\,
+ \right)\\
+&\Rightarrow \frac{d\theta}{dk}(k_0)=-\frac{1}{\sqrt{\bar{k}^2-k_0^2}} <0
+\end{align*}
+Sostituendo in (\ref{eqn:motoclassicoriflesso}) si giunge a:
+\[
+x= \frac{p_0}{m}(t_0-t) + \underbrace{\frac{2}{\sqrt{\bar{k}^2-k_0^2}}}_{\bar{x} > 0}
+\]
+Perciò il picco dell'onda riflessa riparte da un punto $\bar{x}>0$ che si trova \q{oltre} il gradino di potenziale. Ciò significa che l'onda \q{riemerge} dal gradino con un certo ritardo, dato dividendo l'offset per la \textit{velocità}:
+\[
+\tau = \frac{\displaystyle -2\frac{d\theta}{dk}(k_0)}{
+\displaystyle 
+\frac{\hbar k_0}{m} 
+}
+=\frac{2}{\sqrt{\bar{k}^2-k_0^2}}\frac{m}{\hbar k_0} > 0
+\]
+Classicamente\marginpar{Differenze con il caso classico per $\mathcal{E}<\bar{V}$} ciò non ha senso: è come se una pallina che sbatte contro il muro si fermasse per un certo $\tau$ prima di rimbalzare!\\
+Ancora più stupefacente: vi è una soluzione anche per $x>0$, dove classicamente l'energia cinetica è negativa, sebbene questo contributo sia esponenzialmente depresso ($e^{-\chi x}$). Tale $\psi(t)$ corrisponde a un'\textit{onda di probabilità evanescente} con probabilità massima a $\tau/2$.\\ %Verificare!
+Perciò, graficamente, il pacchetto \textit{entra leggermente} nel gradino di potenziale, e quando \textit{non riesce più ad andare avanti} \textit{rimbalza indietro}. Questo \textit{tentativo di entrata} produce il ritardo che viene osservato.\\
+
+\paragraph{Energia più alta del gradino} 
+Cosa succede invece se l'energia del pacchetto è maggiore del potenziale $\bar{V}$ del gradino?\\
+Ripetendo i conti dall'equazione agli autovalori, il risultato in (\ref{eqn:conti_negativi}) vale ancora, ma stavolta in (\ref{eqn:conti_positivi}) si ha un'espressione negativa dentro la radice, e perciò la parte per $x>0$ è differente:
+\begin{equation}
+\varphi_{\mathcal{E}>\bar{V}}(x)=\begin{cases}
+c^1_+ e^{ikx}+c^1_- e^{-ikx} & x < 0\\
+c^2_+ e^{ik_2 x} + \cancel{c^2_-}e^{-ik_2 x} & x\geq 0
+\end{cases} \quad k_2=\frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\label{eqn:autofunzioni_energetiche}
+\end{equation}
+
+Le condizioni di raccordo sono:
+\begin{align}
+\varphi_\mathcal{E}(0^-)=\varphi_\mathcal{E}(0^+) &\Rightarrow c^1_+ + c^1_- = c^2_+ + c_-^2
+\label{eqn:raccordo_continua}
+\\
+\varphi'_\mathcal{E}(0^-)=\varphi_\mathcal{E}(0^+) &\Rightarrow ik(c_+^1 - c_-^1)=ik_2(c_+^2-c_-^2)
+\label{eqn:raccordo_derivata}
+\end{align}
+Lo spettro è nuovamente solo continuo (le soluzioni oscillano all'infinito, e quindi non sono in $\hs$):
+\[
+\sigma(H)\Big|_{\mathcal{E}>\bar{V}}=\sigma_C(H)\Big|_{\mathcal{E}>\bar{V}}
+\]
+Abbiamo $4$ coefficienti e $2$ equazioni di raccordo, per cui la degenerazione degli autovalori è $4-2=2$.\\
+Notiamo che $c^2_- \neq 0$ conduce alla soluzione di una particella che, giungendo da $x=+\infty$, attraversa il gradino da destra a sinistra. Poiché ci interessa invece la dinamica di attraversamento da sinistra a destra, imponiamo $c^2_-=0$.\\
+Allora dividendo (\ref{eqn:raccordo_derivata}) per $ik$ e sommando membro a membro con (\ref{eqn:raccordo_continua}), si ricava immediatamente $c^2_+$, e di conseguenza $c^1_-$:
+\begin{equation}
+c_+^2 = \frac{2}{1+\frac{k_2}{k}}c_+^1; \quad c_-^1=c^2_+-c^1_+=\frac{1-\frac{k_2}{k}}{1+\frac{k_2}{k}}c_+^1
+\label{eqn:costanti_energetiche}
+\end{equation}
+Sostituendo in (\ref{eqn:autofunzioni_energetiche}) e in (\ref{eqn:pacchettoiniziale}):
+\begin{align*}
+\psi_\mathcal{E}(x,t) = 
+\begin{cases}
+\displaystyle
+\frac{1}{\sqrt{2\pi}}\int_0^{+\infty} dk \tilde{f}_{k_0}(k) \left[
+\underbrace{
+e^{i[k(x-x_0)-\omega t]}}_{\psi_i}
++
+\frac{1-\frac{k_2}{k}}{1+\frac{k_2}{k}}
+\underbrace{e^{-i[k(x+x_0)+\omega t]}}_{\psi_r}
+\right]
+& x <0 \\
+\displaystyle
+\frac{1}{\sqrt{2\pi}}\int_0^{+\infty} dk\,\tilde{f}_{k_0}(k) \frac{2}{1+\frac{k_2}{k}}\underbrace{e^{i[k_2 x - kx_0-\omega t]}}_{\psi_t} & x\geq 0
+\end{cases}
+\end{align*}
+%Valuta paragone tra coefficienti di $\psi_i$ e $\psi_r$ e $\psi_t$ e i coefficienti di Fresnel in MC
+Notiamo che, nonostante la particella abbia \textit{classicamente} abbastanza energia per superare il gradino di potenziale, vi è ancora una soluzione $\psi_r$ corrispondente ad una riflessione, a cui è associata una probabilità finita.\\
+Di nuovo, ciò va contro l'intuizione: nonostante il potenziale \textit{non basti a frenare} una particella troppo energetica, c'è comunque una certa probabilità che essa venga riflessa!\\
+
+\subsubsection{L'equazione di continuità}
+Cerchiamo di quantificare la componente riflessa e trasmessa dell'onda. Per farlo ci servirà un modo per esaminare l'evoluzione non della funzione d'onda, ma del suo modulo quadro, che esprime le probabilità che ci interessano.\\
+Partendo dall'equazione di Schrodinger possiamo giungere alla relazione che ci interessa sul modulo quadro, derivando la cosiddetta \textbf{equazione di continuità} per la densità di probabilità. Limitiamoci al caso unidimensionale, in cui l'equazione di Schrodinger è: 
+\begin{equation}
+i\hbar \frac{\partial \psi}{\partial t}(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi(x,t)+V(x)\psi(x,t)
+\label{eqn:schrodinger1D}
+\end{equation}
+e la sua (duale) complessa coniugata è data da:
+\begin{equation}
+-i\hbar \frac{\partial \psi^*}{\partial t}(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi^*(x,t)+V(x)\psi^*(x,t)
+\label{eqn:schrodinger1Dduale}
+\end{equation}
+Moltiplicando (\ref{eqn:schrodinger1D}) per $\psi^*$ e (\ref{eqn:schrodinger1Dduale}) per $\psi$ e sottraendo membro a membro si giunge a:
+\begin{align}
+\nonumber
+\span
+i\hbar\underbrace{\left(
+\psi^*\frac{\partial \psi}{\partial t}+\frac{\partial \psi^*}{\partial t}\psi
+\right)}_{\frac{\partial}{\partial t}(\psi^*\psi)=\frac{\partial }{\partial t}|\psi(x,t)|^2} =-\frac{\hbar^2}{2m}\left [
+\psi^*\left(\frac{\partial^2}{\partial x^2}+\bcancel{V}\right) \psi-\psi\left(\frac{\partial^2}{\partial x^2}+\bcancel{V}\right) \psi^*
+\right ]\span\span\span\\
+\nonumber
+&\Rightarrow &&
+\frac{\partial}{\partial t}|\psi(x,t)|^2 + \frac{\hbar}{2mi}\left [
+\underbrace{\psi^*\frac{\partial^2 \psi}{\partial x^2}
++\textcolor{Blue}{\frac{\partial \psi^*}{\partial x}\frac{\partial \psi}{\partial x}}
+}_{\frac{\partial}{\partial x}\left (\psi^* \frac{\partial \psi}{\partial x} \right)}-\underbrace{\frac{\partial^2 \psi^*}{\partial x^2}\psi
+ \textcolor{Blue}{-\frac{\partial \psi^*}{\partial x}\frac{\partial \psi}{\partial x}}
+ }_{\frac{\partial}{\partial x}\left(\psi\frac{\partial \psi^*}{\partial x}\right)}\right ] &=0\\
+\nonumber
+&\Rightarrow && \frac{\partial}{\partial t}|\psi(x,t)|^2 +
+\frac{\partial}{\partial x}
+\underbrace{\left[\frac{\hbar}{2mi}
+\left(
+\psi^*(x,t)\frac{\partial \psi(x,t)}{\partial x} - \frac{\partial \psi^*(x,t)}{\partial x} \psi(x,t)
+ \right) \right]}_{j(x,t)}
+ &= 0\\
+&\Rightarrow  && \frac{\partial}{\partial t}|\psi(x,t)|^2 +\frac{\partial}{\partial x}j(x,t) = 0 \span
+\label{eqn:probability_continuity}
+\end{align}
+L'equazione (\ref{eqn:probability_continuity}) è detta \textbf{equazione di continuità} per la probabilità\index{Equazione di continuità}. Si tratta di una relazione analoga a quella già ricavata per i fluidi o per la conservazione locale di carica dalle leggi di Maxwell. Intuitivamente, significa che la \textit{probabilità} che una particella si trovi in un dato punto $x$ al tempo $t$ (codificata dal modulo quadro della sua funzione d'onda $\psi(x,t)$) può variare solamente a seguito della variazione delle probabilità dei punti circostanti. In altre parole, se la probabilità di trovarsi a $x=0$ aumenta, quella nei punti \textbf{limitrofi} deve essere diminuita, cioè la probabilità \q{non fa salti}, ma si propaga come un \textit{fluido} che scorre e si addensa nelle regioni \q{più probabili}. La variazione di probabilità in una regione sarà quindi pari al \q{flusso} di probabilità che attraversa il suo bordo: in particolare la probabilità salirà se il flusso è entrante (negativo), e scenderà se il flusso è uscente (positivo) e rimarrà costante se il flusso è nullo. Tale idea, espressa matematicamente in forma differenziale, è in sintesi quella dell'equazione (\ref{eqn:probability_continuity}).\\
+
+
+Nel caso particolare di una autofunzione di $H$:
+\[
+\varphi_\mathcal{E}(x,t)=\exp\left({-\frac{i}{\hbar}\mathcal{E}t}\right)\varphi_{\mathcal{E}}(x)
+\Rightarrow |\varphi_\mathcal{E}(x,t)|^2=
+\underbrace{\left |\exp\left({-\frac{i}{\hbar}\mathcal{E}t}\right)\right|
+}_{=1}|\varphi_\mathcal{E}(x)|^2 =|\varphi_\mathcal{E}(x)|^2
+\]
+Perciò la densità di probabilità associata alle autofunzioni è \textit{costante} nel tempo. Sostituendo nell'equazione di continuità:
+\[
+\frac{\partial}{\partial t}|\varphi_\mathcal{E}(x,t)|^2=0=
+\frac{d}{dx}j(x)
+\]
+\lesson{18}{8/11/2018}
+Dove la corrente di probabilità $j(x)$ ha la forma vista nei passaggi per giungere a (\ref{eqn:probability_continuity}):
+\[
+j(x)=\frac{\hbar}{2mi}\left(\varphi_\mathcal{E}(x)^* \frac{d\varphi_\mathcal{E}(x)}{dx}-\frac{d\varphi_\mathcal{E}(x)^*}{dx}\varphi_\mathcal{E}(x)\right)
+\]
+In cui sostituiamo la $\varphi_\mathcal{E}(x)$ ricavata in (\ref{eqn:autofunzioni_energetiche}):
+\[
+\varphi_\mathcal{E}(x) = \begin{cases}
+c^1_+ e^{ikx}+c^1_- e^{-ikx} & x < 0\\
+c^2_+ e^{ik_2 x} + c^2_- e^{-i k_2 x} & x\geq 0
+\end{cases} \quad k=\frac{\sqrt{2m\mathcal{E}}}{\hbar};\quad k_2=\frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\]
+Svolgendo allora i conti per ricavare $j(x)$, per $x<0$ otteniamo:
+\begin{align*}
+\varphi_\mathcal{E}(x)&=c^1_+ e^{ikx} + c^1_- e^{-ikx} && \varphi_\mathcal{E}^*(x)=c^{1*}_+ e^{-ikx}+c^{1*}_-e^{ikx}\\
+\varphi_\mathcal{E}'(x)&=ik(c^1_+ e^{ikx}-c^1_-e^{-ikx})&&\varphi_\mathcal{E}'^*(x)=ik(-c^{1*}_+e^{-ikx}+c^{1*}_-e^{ikx})
+\end{align*}
+\begin{align*}
+\Rightarrow j(x<0) &= \frac{\hbar}{2mi}ik \big [
+(c^{1*}_+e^{-ikx}+c^{1*}_-e^{ikx})(c^1_+ e^{ikx}-c^1_-e^{-ikx})-
+\\&\quad
+-(-c^{1*}_+ e^{-ikx}+c_-^{1*}e^{ikx})(c^1_+e^{ikx}+c^1_-e^{-ikx})\big ] =\\
+&=\frac{\hbar k}{2m}\big[
+c^{1*}_+ c^1_+ - \bcancel{c^{1*}_+c^1_-e^{-2ikx}} + \cancel{c^{1*}_-c^1_+e^{2ikx}}-c^{1*}_-c^1_-\\
+&\quad-(-c^{1*}_+c^1_+-\bcancel{c^{1*}_+c^1_-e^{-2ikx}}+\cancel{c^{1*}_-c^1_+ e^{2ikx}}+c^{1*}_-c^1_-)\big] =\\
+&=\frac{\hbar k}{2m}\big[2|c^1_+|^2-2|c^1_-|^2
+\big] =\frac{\hbar k}{m}(\underbrace{|c^1_+|^2}_{j_i}-\underbrace{|c^1_-|^2}_{j_r})
+\end{align*}
+D'altro canto, per $x\geq 0$:
+\begin{align*}
+\varphi_\mathcal{E}(x)&=c^2_+ e^{ik_2x} && \varphi_\mathcal{E}^*(x)=c^{2*}_+e^{-ik_2x}\\
+\varphi'_\mathcal{E}(x)&=ik_2 c^2_+ e^{ik_2 x} && \varphi_\mathcal{E}'^*(x)=-ik_2 c^{2*}_+ e^{-ik_2 x}
+\end{align*}
+\begin{align*}
+\Rightarrow j(x>0)&=\frac{\hbar}{2mi}ik_2\big[(c^{2*}_+ e^{-ik_2 x})(c^2_+ e^{ik_2 x})-(-c^{2*}_+e^{-ik_2 x})(c^2_+ e^{ik_2}x)\big] =\\
+&=\frac{\hbar k_2}{2m}\big[2 |c^2_+|^2\big] = \frac{\hbar k_2}{m}\underbrace{|c^2_+|^2}_{j_t}
+\end{align*}
+Ma dall'equazione di continuità sappiamo che:
+\[
+\frac{d}{dx}j(x)=0
+\]
+ossia $j(x) \equiv j$ è costante e non dipende dalla $x$. Ma allora deve essere:
+\begin{equation}
+j(x<0)=j(x>0) \Rightarrow  |c^1_+|^2-|c^1_-|^2=\frac{k_2}{k}|c^2_+|^2
+\label{eqn:pareggio_correnti}
+\end{equation}
+Definiamo allora il \textbf{coefficiente di riflessione} $R$ come il rapporto tra l'intensità della corrente di probabilità in $x<0$ che va verso destra ($\hbar k |c^1_+|^2/m$) e quella che va verso sinistra ($\hbar k |c^1_-|^2/m$):
+\[
+R=\left| \frac{j_r}{j_i} \right |=\left | \frac{c^1_-}{c^1_+}\right |^2
+\]
+Il \textbf{coefficiente di trasmissione} $T$ è invece dato dal rapporto tra l'intensità di corrente in $x>0$ che ha superato il gradino e va verso destra ($\hbar k_2 |c^2_+|^2/m$) e quella che in $x<0$ si avvicina al gradino andando verso destra ($\hbar k |c^1_+|^2/m$):
+\[
+T=\left | \frac{j_t}{j_i} \right |
+=\frac{k_2}{k}\left | \frac{c^2_+}{c^1_+}\right |^2
+\]
+L'equazione (\ref{eqn:pareggio_correnti}) collega i due termini $R$ e $T$:
+\[
+|c^1_+|^2 - |c^1_-|^2 = \frac{k_2}{k}
+|c^2_+|^2 \Rightarrow 1=
+\underbrace{\left |\frac{c^1_-}{c^1_+}\right |^2}_{R} +
+\underbrace{\frac{k_2}{k}\left | \frac{c^2_+}{c^1_+}\right |^2}_{T} \Rightarrow 1=R+T
+\]
+Per la scelta di $c^1_+=e^{-ikx_0}$, con $|c^1_+|=1$, dalle espressioni dei coefficienti ricavate in (\ref{eqn:costanti_energetiche}) si ha:
+\[
+R=\left(\frac{k-k_2}{k+k_2}\right)^2;\quad T=
+\frac{4k^2}{(k+k_2)^2}
+\]
+
+\end{document}
+

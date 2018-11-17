@@ -2,14 +2,14 @@
 
 \begin{document}
 %\section{?}
-\section{Calcolo di probabilità}
+\subsection{Calcolo di probabilità}
 \lesson{15}{26/10/2018}
 Dato un'osservabile $A$ e uno stato $\psi$, sia $P^A_\psi(A)$ la famiglia spettrale di $A$, allora la probabilità di ottenere un risultato in un insieme $\Delta\subseteq \bb{R}$ misurando $A$ nello stato $\psi$ è data dalla formula generale:
 \begin{equation}
 P^A_\psi(\Delta) = \int_\bb{R} \chi_\Delta(\lambda)\,dP^A(\lambda)
 \label{eqn:prob_generale}
 \end{equation}
-\subsection{Spettro discreto}
+\subsubsection{Spettro discreto}
 Se lo spettro dell'operatore è unicamente discreto, espandendo la (\ref{eqn:dPA_op}):
 \[
 dP^A_\psi(\lambda)\big|_{\sigma_P(A)}=\sum_{\lambda_n\in\sigma_P(A)}\delta(\lambda-\lambda_n)\sum_{r=1}^{d(\lambda_n)}\braket{\psi|\lambda_{n},r}\braket{\lambda_{n,}r|\psi}d\lambda
@@ -36,7 +36,7 @@ Dove in (a) si è usata la definizione della funzione caratteristica:
 \]
 per far \q{collassare} l'integrale.\\
 $P_\psi^A(\{\lambda_n\})$ è dunque la probabilità che una misura di $A$ nello stato $\psi$ restituisca $\lambda_n$.\\
-\subsection{Spettro continuo}
+\subsubsection{Spettro continuo}
 Se lo spettro è continuo, la misura \q{non pesa i punti} (ossia i punti sono considerati insiemi Lebesgue-trascurabili) e quindi la probabilità di ottenere un certo (singolo) valore di $A$ è nulla. L'unica cosa che possiamo fare è definire una densità di probabilità:
 \begin{equation}
 w_\psi^A(\lambda)=\frac{dP_\psi^A(\lambda)}{d\lambda} = \sum_{r=1}^{d(\lambda)}|\langle\psi|\lambda,r\rangle|^2
@@ -48,7 +48,7 @@ dP_\psi^A(\lambda)\Big|_{\sigma_C(A)}=\sum_{r=1}^{d(\lambda)}\braket{\psi|\lambd
 \]
 Stiamo qui considerando i $\lambda$ normalizzati in modo che $\braket{\lambda,r|\lambda,r'}=\delta(\lambda-\lambda')\delta_{rr'}$.
 
-\subsection{Applicazione alla buca infinita}
+\subsubsection{Applicazione alla buca infinita}
 Applichiamo quanto appena trovato al caso della buca infinitamente profonda in una dimensione. In (\ref{eqn:evoluzione_buca_t}) avevamo ricavato l'evoluzione temporale del sistema a partire da uno stato iniziale, ottenendo:
 \begin{equation}
 \ket{\psi(t)}=\frac{1}{\sqrt{5}}\left(\exp\left(-i\frac{\mathcal{E}_1}{\hbar}(t-t_0)\right)\ket{\varphi_1}
@@ -82,7 +82,7 @@ W_{\psi(t)}^H(\mathcal{E}_1) &= \left| \bra{\varphi_1}
 \end{align*}
 essendo le autofunzioni ortonormali: $\braket{\varphi_1|\varphi_1}=1$ e $\braket{\varphi_1|\varphi_2}=0$.
 
-\section{Note sull'equazione di Schrödinger}
+\subsection{Note sull'equazione di Schrödinger}
 Occupiamoci ora di esaminare cosa succederebbe se risolvessimo, inappropriatamente, l'equazione di Schrödinger per uno stato che non è nel dominio di $H$. Confronteremo quindi il risultato con la soluzione effettiva (come si era lasciato per esercizio alcune lezioni fa).\\
 Utilizziamo come sistema su cui eseguire i conti la buca infinita tra $[-\frac{a}{2},\frac{a}{2}]$, e consideriamo $\psi(x,t=0)=1$, che non è nel dominio di $H$:
 \[
@@ -134,7 +134,7 @@ che, in rappresentazione in posizioni, porta ad un risultato del tutto diverso d
 \]
 Perciò bisogna sempre \q{spacchettare} la funzione d'onda nelle autofunzioni di $H$ e procedere in accordo.\\
 
-\section{Teoria della misura}
+\subsection{Teoria della misura}
 Occupiamoci ora di definire cosa succede a seguito di una misurazione su un sistema.\\
 Abbiamo visto che l'evoluzione temporale in un sistema isolato in \MQ è deterministica (come in \MC). Tuttavia, non appena vogliamo ricavare informazioni dobbiamo eseguire misure, e perciò non possiamo più considerare isolato il sistema (dobbiamo interagire con esso!) e, come discusso nel primo capitolo, un disturbo causato dalla misura \textbf{non} può essere ridotto arbitrariamente come in \MC.\\
 Ma allora come cambia uno stato a seguito di una misura?\\

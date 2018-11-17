@@ -1,0 +1,242 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+%\section{Lezione ?:\\ \large{Titolo}}
+\vspace{-1em}
+\begin{center}
+    \small{(12/11/2018)}
+\end{center}
+\section{Conseguenze degli assiomi} %Nuovo capitolo
+\textbf{Principio di indeterminazione}. Possiamo ora enunciare il principio di indeterminazione\index{Principio di indeterminazione} per una qualsiasi coppia di variabili (non siamo più confinati a posizione-momento).\\
+Supponiamo di voler misurare simultaneamente due osservabili $A$ e $B$: che vincolo abbiamo sulla precisione della misura simultanea?\\
+Una delle conseguenze degli assiomi è il \textit{principio di indeterminazione} che generalizza a coppie di osservabili arbitrarie quello trovato (euristicamente) da Heisenberg nel 1927 per $X$ e $P$.\\
+Ricordiamo che la fluttuazione di una osservabile $A$ in uno stato $\psi$ è definita come:
+\[
+(\Delta A)_\psi = \sqrt{\langle(A-\langle A\rangle_\psi)^2\rangle_\psi}
+\]
+\begin{thm}
+Siano $A$ e $B$ \marginpar{Principio di indeterminazione} autoaggiunti (ossia corrispondenti a osservabili) in $D(A)$ e $D(B)$. Supponiamo che esista un dominio $D \subset \{\psi \in \hs | \psi, A\psi, B\psi \in D(A)\cap D(B)\}$ denso in $\hs$ 
+(ossia tale che applicare $A$ o $B$ ad un elemento dell'intersezione dei domini $D(A)\cap D(B)$ produce un risultato che resta ancora nell'intersezione). Questa scelta del dominio è tale che tutte le operazioni usate in seguito siano ben definite.\\
+Vale allora, $\forall \psi \in D$:
+\[
+(\Delta A)_\psi (\Delta B)_\psi \geq \left |\frac{\langle [A,B]\rangle_\psi}{2i} \right |
+\]
+\end{thm}
+\textbf{Dimostrazione}. Definiamo per semplicità di notazione:
+\[
+\bar{A}=A-\langle A \rangle_\psi \bb{I}; \quad \bar{B}=B-\langle B \rangle_\psi \bb{I}
+\]
+Allora:
+\[
+[A,B]=[\bar{A},\bar{B}]; \quad (\Delta A)^2_\psi = \langle \bar{A}^2 \rangle_\psi
+\]
+Per proprietà del prodotto scalare:
+\[
+\langle \left(\frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi} \right)^\dag \left ( \frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi }\right ) \rangle \geq 0
+\]
+dato che:
+\[
+\langle c^\dag c\rangle_= \langle c\psi | c\psi \rangle =\norm{c\psi}^2 \geq 0
+\]
+Sviluppando i prodotti:
+\[
+\underbrace{\frac{\langle \bar{A}^2 \rangle_\psi}{(\Delta A)^2_\psi}}_{=1} +
+\underbrace{\frac{\langle \bar{B}^2\rangle_\psi}{(\Delta B)^2_\psi}}_{=1} \mp i \frac{\langle \bar{B}\bar{A}-\bar{A}\bar{B}\rangle_\psi}{(\Delta A)_\psi (\Delta B)_\psi}\geq 0
+\]
+(per come abbiamo definito $(\Delta A)^2_\psi$, $(\Delta B)^2_\psi$.\\
+Ma allora:
+\[
+\mp \frac{\langle [\bar{A},\bar{B}]\rangle_\psi}{2i} = \mp \frac{\langle [A,B]\rangle_\psi}{2i}\leq (\Delta A)_\psi (\Delta B)_\psi \Rightarrow (\Delta A)_\psi (\Delta B)_\psi \geq \left |\frac{\langle [A,B]\rangle_\psi}{2i} \right |
+\]
+dato che:
+\[
+|x|\leq a \leftrightarrow \begin{cases}
+x \leq a\\
+-x \leq a
+\end{cases}
+\]
+
+In particolare, se $A=X$ e $B=P$, $D=\mathcal{S}(\bb{R})$, $\forall \psi \in D$:
+\[
+(\Delta X)_\psi (\Delta P)_\psi \geq \left | 
+\frac{\langle [X,P]\rangle_\psi}{2i}
+\right | = \frac{\hbar}{2}
+\]
+Il principio di indeterminazione di Heisenberg è quindi \textbf{solo} una conseguenza dell'algebra $[X,P]=i\hbar$.\\
+
+\textbf{Osservazioni}
+\begin{itemize}
+\item Il principio di indeterminazione vale anche per \textbf{stati misti}.\marginpar{Indeterminazione degli stati misti} Se $A$, $B \in \mathcal{B}(\hs)$, ($D=\hs$), definiamo:
+\[
+\langle A\rangle_\rho = \op{Tr} \rho A; \quad (\Delta A)^2_\rho = \op{Tr}(\rho(A-\op{Tr}(\rho A))^2
+\]
+Vale allora il teorema di prima:
+\[
+(\Delta A)_\rho (\Delta B)_\rho \geq \left |
+\frac{\langle [A,B]\rangle_\rho}{2i}
+\right|
+\]
+Infatti:
+\[
+\rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}; \quad \langle c^\dag c\rangle_\psi \geq 0 \Rightarrow \op{Tr}\rho(c^\dag c)=\sum_i p_i\bra{\psi_i}c^\dag c\ket{\psi_i}\geq 0
+\]
+\item Talvolta\marginpar{Importanza delle ipotesi del teorema} il principio di indeterminazione \textbf{sembra violato}, ma ciò è dovuto a \textit{problemi di dominio}, per cui cadono le ipotesi fatte nel teorema.\\
+Per esempio, sia $\hs=L^2[-\frac{1}{2}, \frac{1}{2}], dx)$, $X$ è limitato in $\hs$, e quindi $D(X)=\hs$.\\
+Per $P=-i\hbar\frac{d}{dx}$ con condizioni periodiche per $D(P)$ (in modo che sia autoaggiunto).\\
+Poiché $X$ è limitato, $(\Delta X)_\psi \leq 1$ (non posso avere un'indeterminazione più grande del dominio!), se scegliamo come $\psi$ un autostato $\psi_n$ di $P$, dove $\sigma(P)$ è unicamente discreto, sappiamo che:
+\[
+(\Delta P)_{\psi_n} = 0
+\]
+Ma allora:
+\[
+(\Delta X)_{\psi_n}(\Delta P)_{\psi_n}=0
+\]
+in apparente violazione del principio di indeterminazione.\\
+Tuttavia, notiamo che applicando $X$ a $\psi_n(x)$ non otteniamo un elemento nel dominio di $P$ (e quindi non può stare nell'intersezione tra $D(X)\cap D(P)$ come richiesto dalle ipotesi del teorema). Infatti:
+\[
+-i\hbar \frac{d}{dx}\psi_n(x)=\lambda_n \psi_n(x)\Rightarrow \psi_n(x)=\exp\left( -i\frac{\lambda_n}{\hbar}x\right)
+\]
+Imponendo le condizioni di contorno:
+\[
+\psi\left(\frac{1}{2}\right)\overset{!}{=}\psi\left(-\frac{1}{2}\right) \Rightarrow \lambda_n = 2\pi n\hbar
+\]
+E sostituendo nella soluzione:
+\[
+\psi_n(x)=e^{-i2\pi x n}
+\]
+Tuttavia:
+\[
+X\psi_n(x)=x\psi_n(x) \notin D(P)
+\]
+perché non è periodica.\\
+Quindi:
+\[
+\psi_n \notin D=\{\psi\in \hs|\psi, X\psi, P\psi \in D(X)\cap D(P) = D(P)\}
+\]
+
+\end{itemize}
+
+\subsection{Osservabili compatibili}
+Il principio di indeterminazione implica che in generale non è possibile effettuare misure simultanee arbitrariamente precise se il commutatore $[A,B]\neq 0$, ma suggerisce che se $[A,B]=0$ ciò potrebbe essere possibile. Dimostriamo che, in effetti, \textbf{simultanea misurabilità} e \textbf{commutatività} sono in corrispondenza biunivoca.\\
+Iniziamo col caso di spettro discreto e premettiamo una nozione matematica.\\
+\begin{dfn}
+Se $\hs_1$ \marginpar{Somma diretta} e $\hs_2$ sono spazi di Hilbert, l'insieme delle \textbf{coppie} $\{\psi_1 \in \hs_1, \psi_2 \in \hs_2\}$ denotate $\psi_1 \oplus \psi_2$ con il prodotto scalare:
+\[
+(\psi_1 \oplus \psi_2, \varphi_1 \oplus \varphi_2)\equiv (\psi_1, \varphi_1)_{\hs_1} + (\psi_2, \varphi_2)_{\hs_2}
+\] 
+è uno spazio di Hilbert detto \textbf{somma diretta} di $\hs_1$ e $\hs_2$ e denotato con $\hs_1 \oplus \hs_2$.\\
+Nel caso finito dimensionale, $\hs_1 \cong \bb{C}^N$, $\hs_2 \cong \bb{C}^M$, si ha:
+\[
+\hs_1 \oplus \hs_2 \cong \bb{C}^{N+M}
+\]
+e i suoi vettori sono vettori colonna del tipo:
+\[
+\begin{pmatrix}
+\psi_1 \in \bb{C}^N\\
+\psi_2 \in \bb{C}^M
+\end{pmatrix}
+\]
+Si noti che tra spazi di Hilbert in somma diretta non si ha \q{interferenza}, cioè tutti gli stati di $\hs_1$ pensati in $\hs_1 \oplus \hs_2$, ossia come $\psi_1 \oplus 0$, sono ortogonali a quelli di $\hs_2$ pensati in $\hs_1\oplus \hs_2$ come $0\oplus \psi_2$.
+\end{dfn}
+
+\begin{dfn}
+Due osservabili\marginpar{Osservabili compatibili} \textbf{limitate} a \textbf{spettro discreto} si dicono \textbf{compatibili}\index{Compatibilità} se una misura di prima specie di una osservabile eseguita su un autostato dell'altra la lascia nello stesso autovalore (ma non necessariamente nello stesso autostato), cosicché l'ordine delle misure di $A$ e $B$ è irrilevante, e sia $A$ e $B$ sono simultaneamente misurabili. 
+\end{dfn}
+
+\begin{thm}
+Se $A$ e $B$ sono autoaggiunti e limitati e a spettro discreto sono \textbf{compatibili} se e solo se \textbf{commutano}.\ Allora ammettono una \textbf{base ortonormale di autovettori comuni}.
+\end{thm}
+\textbf{Dimostrazione} Compatibilità $\Rightarrow$ commutatività.\\
+Sia $\sigma(A)=\{\lambda_n\}_{n\in N}$, $\sigma(B)=\{\mu_m\}_{m\in M}$. Definiamo lo spazio degli autovettori comuni di $A$ e $B$ di autovalori $\lambda_n, \mu_m$:
+\[
+\hs_{(\lambda_n, \mu_m)}=\{\ket{\phi}\in \hs| A\ket{\phi}=\lambda_n \ket{\phi}, 
+B\ket{\phi}=\mu_m \ket{\phi}
+\}
+\]
+che è ben definito poiché se $\ket{\phi}\in \hs_{\lambda_n}= \{\ket{\psi}\in \hs| A\ket{\psi}=\lambda_n\ket{\psi}\}$ per la compatibilità $B\ket{\phi} \in \hs_{\lambda_n}$ e viceversa.\\
+Se $\hs_{(\lambda_n, \mu_m)}\neq 0$ diremo che $(\lambda_n, \mu_m)$ autovalori comuni di $A$ e $B$ e lo spettro:
+\[
+\sigma(A,B)\equiv \{
+(\lambda_n, \mu_m) \in \sigma(A) \times \sigma(B) \text{ autovalori comuni }
+\} \subseteq \sigma(A)\times \sigma(B)
+\]
+(è solo un sottoinsieme, dato che per una certa scelta di $\lambda_n$ potrebbe essere che non tutti i $\mu_m$\ sono ammessi!)\\
+Essendo $\hs_{(\lambda_n, \mu_m)}$ di Hilbert ammette una base ortonormale:
+\[
+\{\ket{(\lambda_n, \mu_m), j}, j = 1, \dots, \op{dim}\hs_{(\lambda_n, \mu_m)}\equiv d(\lambda_n, \mu_m)\}
+\]
+(dove $j$ indica la degenerazione dell'autovettore, nel caso alla stessa coppia di autovalori corrispondano più autovettori).\\
+Inoltre, se $(\lambda_n, \mu_m)\neq (\lambda_{n'}, \mu_{m'})$ gli stati in $\hs_{(\lambda_n, \mu_m)}$ sono ortogonali agli stati in $\hs_{(\lambda_{n'}, \mu_{m'})}$ in quanto autostati di autovalori diversi di operatori autoaggiunti a spettro discreto.\\ %Come avevamo già visto, mettere un ref
+Quindi:
+\[
+\hs = \bigoplus_{(\lambda_n, \mu_m)\in \sigma(A,B)} \hs_{(\lambda_n, \mu_m)}
+\]
+e $\{\ket{(\lambda_n, \mu_m), j}\}, j=1, \dots, d(\lambda_n, \mu_m), (\lambda_m, \mu_m)\in \sigma(A,B)\}$ è una base ortonormale in $\hs$ di autovettori comuni.\\
+Pertanto posso esprimere ogni vettore di $\hs$ come combinazione lineare di elementi di questa base. $\forall \ket{\psi}\in \hs$ vale:
+(*)\[
+\ket{\psi}=\sum_{\substack{n\in N\\m\in M}} \sum_{j=1}^{d(\lambda_n, \mu_m)}c_{nmj}\ket{(\lambda_n, \mu_m),j}
+\]
+Essendo $\ket{(\lambda_n, \mu_m), j}$ autostati di $A$ e di $B$:
+\[
+(AB-BA)\ket{(\lambda_n, \mu_m), j} = (A\mu_m -B\lambda_n)\ket{(\lambda_n, \mu_m),j}= (\lambda_n \mu_m - \mu_m \lambda_n)\ket{(\lambda_n, \mu_m),j} =\ 0
+\]
+e per (*) si ha:
+\[
+[A,B]\ket{\psi} = 0; \quad \forall \ket{\psi}\in \hs
+\]
+
+Dimostriamo ora il viceversa, ossia che commutatività $\Rightarrow$ compatibilità.\\
+Sia $[A,B]=0$, $\ket{\phi_n}$ autostato di $A$ di autovalore $\lambda_n$, allora:
+\[
+AB\ket{\phi_n}\underset{(a)}{=}BA\ket{\phi_n} \underset{(b)}{=} \lambda_n B\ket{\phi_n}
+\]
+In (a) si è usata la commutatività, e in $(b)$ il fatto che sia un autostato di $A$. Otteniamo quindi che $B\ket{\phi_n}$ è autostato di $A$ di autovalore $\lambda_n$.\\
+Poiché $\hs_{\lambda_n}$ è ortogonale a $\hs_{\lambda_n'}$ perché $\lambda_n\neq \lambda_{n'}$ (autospazi di autovalori distinti), si ha che:
+\[
+\bra{\underbrace{\phi_{n'}}_{\in \hs_{\lambda_{n'}}}}\underbrace{B \ket{\phi_n}}_{\in \hs_{\lambda_n}}=0 \quad \lambda_n \neq \lambda_{n'}
+\]
+Quindi $B$ mappa $\hs_{\lambda_n}$ in se stesso e $\hs=\oplus_{n\in N}\hs_{\lambda_n}$ e $B$ ristretto a $\hs_{\lambda_n}$ (denotato $B\Big|_{\hs_{\lambda_n}}$) è autoaggiunto in $\hs_{\lambda_n}$, cioè $B$ è \q{diagonale a blocchi}:
+\[
+B=\begin{pmatrix}
+\boxed{B\Big|_{\hs_{\lambda_1}}} & 0 & 0\\
+0 & \boxed{B\Big|_{\hs_{\lambda_2}}} & 0\\
+0 & 0 & \ddots
+\end{pmatrix}
+\]
+Essendo $B\Big|_{\hs_{\lambda_n}}$ autoaggiunto in\ $\hs_{\lambda_n}$ ammette in $\hs_{\lambda_n}$ una base di autovettori, ciascuno corrispondente a una coppia $\lambda_n \in \sigma(A)$, $\mu_m \in \sigma(B)$ che denotiamo $\ket{(\lambda_n, \mu_m), j}$. Essi sono autovettori comuni di $A$ e $B$ e pertanto $A$ e $B$ sono compatibili.
+\begin{flushright}
+$\square$
+\end{flushright}
+
+Poiché gli operatori autoaggiunti sono in corrispondenza biunivoca con le loro famiglie spettrali e queste famiglie spettrali sono composte di operatori limitati a spettro discreto (sono proiettori, quindi con solo autovalori $0$ e $1$) è naturale la definizione:
+
+\begin{dfn}
+$A$ e $B$ si dice che \textbf{commutano}\marginpar{Commutatività di operatori} se commutano le corrispondenti famiglie spettrali. 
+\end{dfn}
+Nel caso di operatori limitati a spettro discreto le due cose sono equivalenti.\\
+In effetti, se $A$ e $B$ sono limitati e a spettro discreto possiamo scrivere le famiglie spettrali:
+\begin{align*}
+P^A(\lambda) &= \sum_{\lambda_n \in \sigma(A)}\sum_{r=1}^{d(\lambda_n)}H(\lambda-\lambda_n)\ket{\lambda_n,r}\bra{\lambda_n, r}\\
+P^B(\mu) &= \sum_{\mu_m \in \sigma(B)}\sum_{s=1}^{d(\mu_m)}H(\mu-\mu_m)\ket{\mu_m, s}\bra{\mu_m, s}
+\end{align*}
+sono le loro famiglie spettrali e quindi 
+\[
+[P^A(\lambda), P^B(\mu)]=0 \Leftrightarrow [\ket{\lambda_n,r}\bra{\lambda_n, r}, \ket{\mu_m, s}\bra{\mu_m, s}] = 0 \quad \forall \lambda_n, \mu_m
+\]
+Ma poiché:
+\begin{align*}
+A &= \sum_{\lambda_n \in \sigma(A)}\lambda_n \sum_{r=1}^{d(\lambda_n)}\ket{\lambda_n,r}\bra{\lambda_n,r}\\
+B &= \sum_{\mu_m \in \sigma(B)} \mu_m \sum_{s=1}^{d(\mu_m)}\ket{\mu_m, s}\bra{\mu_m, s}
+\end{align*}
+e allora $\leftrightarrow [A,B]=0$ e la definizione coincide con la precedente.\\
+Ma per $A$, $B$ autoaggiunti in generale entrano problemi di dominio nella definizione di commutatore e la definizione data (di \q{commutano}) risulta la definizione corretta  perché valga:
+ \begin{thm}
+ $A$ e $B$ autoaggiunti sono compatibili (proprietà fisica) se e solo se commutano (proprietà algebrica).
+ \end{thm}
+ (Dimostrazione omessa)\\
+ 
+ Nella prossima lezione ci concentreremo sull'analizzare le caratteristiche di un insieme massimale su cui sono definite coppie di operatori.
+
+\end{document}
+
