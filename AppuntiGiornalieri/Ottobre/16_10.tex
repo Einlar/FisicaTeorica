@@ -36,9 +36,9 @@ In \MQ, dando l'analogo delle condizioni iniziali (vettore nello spazio di Hilbe
 Matematicamente ciò è dato dal fatto che due generici vettori, se moltiplicati scalarmente, non sempre devono dare un risultato nullo - tale ovvietà produce un risultato fisico per nulla intuitivo.\\
 Del resto, in \MC gli stati puri sono costituiti da delta di Dirac, e il prodotto di due $\delta$ diverse è per forza nullo.
 \end{oss}
-\textbf{Esercizio}.\marginpar{Esempio (2) di famiglia spettrale: il momento} Si consideri la famiglia di operatori $\left\{P\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ definiti in $L^2\left(\mathbb{R},\ dx\right)$ da:
+\textbf{Esercizio}.\index{Famiglia spettrale!operatore momento $P$} \marginpar{Esempio (2) di famiglia spettrale: il momento} Si consideri la famiglia di operatori $\left\{P\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ definiti in $L^2\left(\mathbb{R},\ dx\right)$ da:
 \[
-\left(P\left(\lambda\right)\psi\right)\left(x\right)=\frac{1}{2\pi\hbar}\int_{\mathbb{R}}{\left(\int_{-\infty}^{\lambda}e^{i\frac{p}{\hbar}\left(x-x'\right)}dp\right)\psi\left(x'\right)dx'}
+\left(P\left(\lambda\right)\psi\right)\left(x\right)=\frac{1}{2\pi\hbar}\textcolor{Blue}{\int_{\mathbb{R}}}{\left(\int_{-\infty}^{\lambda}e^{i\frac{p}{\hbar}\left(x-x'\right)}dp\right)\psi\left(x'\right)\textcolor{Blue}{dx'}}
 \]
 Si dimostri che $P\left(\lambda\right)$ è una \textbf{famiglia spettrale} (solo il fatto che $P\left(\lambda\right)$ sono proiettori) e si trovi la corrispondente osservabile.\\
 
@@ -49,24 +49,25 @@ Partendo dagli elementi di matrice:
 \]
 Svolgendo il prodotto scalare, il primo termine è pari a:
 \begin{align*}
-(\phi, P(\lambda)\psi) &= \int{\phi^*\left(x\right)}\int{\frac{1}{2\pi\hbar}\left(\int_{-\infty}^{\lambda}{e^{i\frac{p}{\hbar}\ \left(\bm{x-x'}\right)}\ }dp\right)\psi\left(x'\right)dx' d x}=\\
-&={\int\limits{\left(\frac{1}{2\pi\hbar}\int_{-\infty}^{\lambda}{\exp\left({i\frac{p}{\hbar}\left(\bm{x'-x}\right)}\right )dp\ \phi\left(x\right)dx}\right)}}^*\psi \left(x'\right)dx'
+(\phi, P(\lambda)\psi) &= \textcolor{Red}{\int_{\bb{R}}}{\phi^*\left(x\right)}
+\textcolor{Blue}{\int_{\bb{R}}}{\frac{1}{2\pi\hbar}\left(\int_{-\infty}^{\lambda}{e^{i\frac{p}{\hbar}\ \left(\bm{x-x'}\right)}\ }dp\right)\psi\left(x'\right)\textcolor{Blue}{dx'} \textcolor{Red}{d x}}=\\
+&={\textcolor{Red}{\int_{\bb{R}}} \textcolor{Blue}{\int_{\bb{R}}} {\left(\frac{1}{2\pi\hbar}\int_{-\infty}^{\lambda}{\exp\left({i\frac{p}{\hbar}\left(\bm{x'-x}\right)}\right )dp\ \phi\left(x\right)\textcolor{Red}{dx}}\right)}}^*\psi \left(x'\right)\textcolor{Blue}{dx'}
 \end{align*}
 dove si è \q{\textit{spostata l'azione dell'operatore al primo membro del prodotto scalare}}, portando tutto ciò che dipenda da $x$ sotto lo stesso segno di integrale ed evidenziando una coniugazione complessa (si noti il cambio di segno nell'esponenziale).\\
 Possiamo ora notare che il termine tra parentesi è l'azione di $P^\dag (\lambda)$ su un $\phi$:
 \begin{align*}
-    \left(P^\dag\left(\lambda\right)\phi\right)\left(x'\right)=\frac{1}{2\pi\hbar}\int{\left(\int_{-\infty}^{\lambda}{\exp\left ({i\frac{p}{\hbar}\left(x'-x\right)}\right )dp}\right)\phi\left(x\right)dx=\left(P\left(\lambda\right)\phi\right)(x')}
+    \left(P^\dag\left(\lambda\right)\phi\right)\left(x'\right)=\frac{1}{2\pi\hbar}\textcolor{Red}{\int_{\bb{R}}}{\left(\int_{-\infty}^{\lambda}{\exp\left ({i\frac{p}{\hbar}\left(x'-x\right)}\right )dp}\right)\phi\left(x\right)\textcolor{Red}{dx}=\left(P\left(\lambda\right)\phi\right)(x')}
 \end{align*}
 Dimostriamo quindi che $P$ è un proiettore, e cioè che $P^2\left(\lambda\right)=P\left(\lambda\right)$. La cosa non è immediata - ci servirà passare in una notazione più conveniente. Notando la presenza di esponenziali e integrali nella definizione di $P$, un'idea è di sfruttare le trasformate di Fourier\footnote{In effetti da Fisica Moderna possiamo già intuire che questo operatore sia l'operatore momento, che è ricavato a partire dall'operatore posizione tramite trasformate di Fourier}\\
 Osserviamo che se definiamo trasformata e antitrasformata di Fourier come:
 \begin{align*}
-\left(\mathcal{F}\psi\right)\left(p\right)&\equiv\frac{1}{\sqrt{2\pi\hbar}}\int_{\mathbb{R}}
-{\exp\left (\bm{-}{i\frac{p}{\hbar}x}\right )\psi\left(x\right)dx\ } = \widetilde{\psi}\left(p\right)\\
+\left(\mathcal{F}\psi\right)\left(p\right)&\equiv\frac{1}{\sqrt{2\pi\hbar}}\textcolor{Red}{\int_{\bb{R}}}
+{\exp\left (\bm{-}{i\frac{p}{\hbar}x}\right )\psi\left(x\right)\textcolor{Red}{dx}\ } = \widetilde{\psi}\left(p\right)\\
 (\mathcal{F}^{-1}\tilde{\psi})(x) &\equiv  \frac{1}{\sqrt{2\pi\hbar}}\int_\bb{R} \exp\left(i\frac{p}{\hbar}x\right) \tilde{\psi}(p)\, dp
 \end{align*}
 Possiamo riscrivere $(P(\lambda)\psi)(x)$ tramite trasformate di Fourier, e quindi usare le proprietà di queste ultime per dimostrare $P=P^2$. Partiamo dall'azione di $P(\lambda)$ su $\psi$:
 \[
-(P(\lambda)\psi)(x') = \int_\bb{R}\left[\frac{1}{2\pi \hbar} \int_{-\infty}^\lambda \exp\left (i\frac{p}{\hbar}(x'-x)\right )dp\right ]\psi(x) dx
+(P(\lambda)\psi)(x') = \textcolor{Red}{\int_{\bb{R}}}\left[\frac{1}{2\pi \hbar} \int_{-\infty}^\lambda \exp\left (i\frac{p}{\hbar}(x'-x)\right )dp\right ]\psi(x) \textcolor{Red}{dx}
 \]
 Notiamo che l'integrale \q{esterno} su $x$ è un \textit{integrale di convoluzione}, in quanto ha la struttura di:
 \[
@@ -78,7 +79,7 @@ Possiamo quindi riscrivere:\footnote{Rinominando la variabile $x'$ con $x$ per c
 \begin{align*}
 \left(P\left(\lambda\right)\psi\right)\left(x\right)
 &=
-\int_\bb{R} \left [\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\frac{H\left(\lambda-p\right)}{\sqrt{2\pi\hbar}}\exp\left (+{i\frac{p}{\hbar}(x-x')}\right)\ dp\right ]\psi\left(x'\right)dx'=\\
+\textcolor{Blue}{\int_{\bb{R}}}\left [\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\frac{H\left(\lambda-p\right)}{\sqrt{2\pi\hbar}}\exp\left (+{i\frac{p}{\hbar}(x-x')}\right)\ dp\right ]\psi\left(x'\right)\textcolor{Blue}{dx'}=\\
 &=\mathcal{F}^{-1}\left(\frac{H\left(\lambda-p\right)}{\sqrt{2\pi\hbar}} \right )*\ \psi\left(x\right)
 \end{align*}
 Sfruttando \q{al contrario} la proprietà delle trasformate\footnote{Il fattore $1/\sqrt{2\pi\hbar}$ compare perché stiamo usando la \q{normalizzazione angolare} per le trasformate di Fourier}:
@@ -172,7 +173,7 @@ Proviamo a imporre tale condizione per trovare gli autovalori dell'operatore \te
 (un integrale di quantità positive è nullo se e solo se la funzione integranda è nulla, a meno di insiemi Lebesgue-trascurabili, e perciò in ogni caso corrisponde alla funzione $f\equiv 0$ in $L^2$, considerata come classe di equivalenza).\\
 Poiché l'unico risultato è la funzione nulla, ciò significa che in $L^2$ non esiste alcun autovalore diverso da $0$. Fisicamente vuol dire che non esiste la possibilità di localizzare una particella in un punto in \MQ, e matematicamente che:
 \[
-\nexists\> \psi_n\>|\> \left(\Delta X\right)_{a,\psi_a}=0
+\nexists\> \psi_a\>|\> \left(\Delta X\right)_{a,\psi_a}=0
 \]
 Come già visto in precedenza (nell'esempio sull'operatore momento), il fatto che compaia la sola soluzione nulla fa pensare che forse abbiamo imposto delle condizioni troppo stringenti. In effetti potremmo accontentarci di poter determinare la posizione in un range arbitrariamente fine (e quindi con precisione alta quanto si vuole), ma comunque di misura di Lebesgue non nulla, ossia non composto da un singolo punto (che richiederebbe una precisione infinita, cosa assurda).\\
 Matematicamente ciò corrisponde a cercare, tra tutte le $\psi \in D(X)$, quelle che si avvicinano molto alla situazione di fluttuazione nulla, ossia tali che l'\textit{estremo inferiore} della loro fluttuazione (che non è detto venga raggiunto, e quindi sia anche un minimo!) sia nullo:
@@ -247,7 +248,7 @@ L'insieme dei valori ottenibili da una misura dell'osservabile descritta dall'op
 	   &\inf_{\psi \in D(U^\dag A U)} \left (\Delta(U^\dag A U) \right )^2_{a,\psi}
 	   =\inf_{\psi \in D(U^\dagger A U)} \norm{(U^\dag A U-a)\psi}^2 =\\
 	   = &\inf_{\psi \in D(U^\dag A U)} \norm{(U^\dag A U - U^\dag a U)\psi}^2 = \inf_{\psi \in D(U^\dagger A U)} \norm{U^\dag(A-a)U\psi}^2 =\\
-	   \underset{(a)}{=} &\inf_{\psi \in D(U^\dagger A U)} \norm{(A-a)U\psi}^2 \underset{(a)}{=} \inf_{\phi \in D(A)} \norm{(A-a)\phi}^2 = \inf_{\phi \in D(A)} (\Delta A)^2_{a,\phi}
+	   \underset{(a)}{=} &\inf_{\psi \in D(U^\dagger A U)} \norm{(A-a)U\psi}^2 \underset{(b)}{=} \inf_{\phi \in D(A)} \norm{(A-a)\phi}^2 = \inf_{\phi \in D(A)} (\Delta A)^2_{a,\phi}
 	\end{align*}
 	dove in (a) si è usato il fatto che un operatore unitario preserva la norma, mentre in (b) si è usata $U\psi = \phi$ e la relazione sui domini trovata in (\ref{eqn:relazionedomini}).
 	

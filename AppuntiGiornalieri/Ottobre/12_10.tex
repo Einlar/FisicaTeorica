@@ -2,7 +2,7 @@
 %\input{header.tex}
 
 %\begin{document}
-\textbf{Come rappresentare matematicamente le osservabili in \MQ}.\\
+%\textbf{Come rappresentare matematicamente le osservabili in \MQ}.\\
 
 
 \subsection{Proiettori e operatori unitari}
@@ -128,14 +128,15 @@ Resta dimostrare se tali autovalori \q{matematici} coincidono con \textit{tutti 
 Se $\psi_n$ e $\psi_m$ sono autovettori\marginpar{Decomposizione spettrale} (anche se $\dim{\mathcal{H}=\infty}$) di $A$ simmetrico, appartenenti agli autovalori $\lambda_n$, $\lambda_m$, con $\lambda_n\neq \lambda_m$, allora $\left(\psi_n, \psi_m\right)=0$
 \end{thm}
 \begin{proof} Dalla definizione di autovettore $\psi_m$ di $A$ con autovalore $\lambda_m$ si ha che $A\psi_m = \lambda_m \psi_m$ e dunque $\left(\psi_n, A\psi_m\right)=\lambda_m\left(\psi_n, \psi_m\right)$.
-Poiché $A$ è simmetrica, vale $(\psi, A \phi) = (A \psi, \phi)$, da cui:
+Poiché $A$ è simmetrica, vale $(\psi, A \phi) = (A \psi, \phi)$, e poiché anche $\psi_n$ è autovettore si hai:
 \[ (\psi_n, A\psi_m) = (A\psi_n, \psi_m) = \lambda_n (\psi_n, \psi_m)\]\\
 Unendo le due uguaglianze (essendo $\left(\lambda_n-\lambda_m\right)\neq 0$) si ottiene:
 \[
 \lambda_m (\psi_n, \psi_m) = \lambda_n (\psi_n, \psi_m) \quad \Rightarrow \quad 0 = (\lambda_n -\lambda_m)(\psi_n, \psi_m) \quad \Rightarrow \quad (\psi_n, \psi_m) = 0
 \]
 \end{proof}
-
+%[TO DO] Inserire nota a pié di pagina sulla differenza tra simmetrico - hermitiano - autoaggiunto
+%CFR https://physics.stackexchange.com/questions/68826/differences-between-symmetric-hermitian-self-adjoint-and-essentially-self-adj
 Si noti che in $\dim{\mathcal{H}<\infty}$ ogni $A$ simmetrico è anche hermitiano (autoaggiunto).\\ %Hermitiano = aggiunto (o autoaggiunto)?
 
 Per le matrici hermitiane\marginpar{Proprietà di operatori autoaggiunti} (ossia auto-aggiunte, uguali alla propria trasposta coniugata) sappiamo (dal teorema spettrale) che possiamo scegliere gli autovettori $\psi_n$ come una base ON di $\hs$. Ciò implica che:
@@ -153,7 +154,7 @@ Per le matrici hermitiane\marginpar{Proprietà di operatori autoaggiunti} (ossia
 	\[
 	\langle A \rangle_\psi = \frac{(\psi,A\psi)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{(\psi_n, \psi)(\psi, \psi_n)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{|(\psi_n, \psi)|^2}{\norm{\psi}^2}
 	\]
-	(che è consistente perché $\left(\psi_n, \psi_m\right)=0$ se $\lambda_n\neq \lambda_m$), dove i $\lambda_n$ sono autovalori, e il restante fattore $\displaystyle p_n \frac{\left|\psi_n,\psi\right|^2}{\left|\left|\psi\right|\right|^2}$ è compreso tra $0$ e $1$, e lo interpretiamo come probabilità.\\
+	(che è consistente perché $\left(\psi_n, \psi_m\right)=0$ se $\lambda_n\neq \lambda_m$), dove i $\lambda_n$ sono autovalori, e il restante fattore $\displaystyle p_n = \frac{\left|\psi_n,\psi\right|^2}{\left|\left|\psi\right|\right|^2}$ è compreso tra $0$ e $1$, e lo interpretiamo come probabilità.\\
 	Ma allora:
 	\[
 	\sum_{n}{\frac{\left|{(\psi}_n, \psi)\right|^2}{\left|\left|\psi\right|\right|^2}=\sum_{n}\frac{\langle\psi|\psi_n\rangle \langle\psi_n|\psi\rangle }{\langle\psi|\psi\rangle }=1 }
@@ -170,7 +171,8 @@ Partiamo definendo $P_n$ come il proiettore associato a $\psi_n$, che se applica
 	\left(\psi, A\phi\right)=\sum_{n}{\lambda_n\left(\psi,P_n\phi\right)}=\left(\psi, \left(\sum_{n}{\lambda_n P_n}\right)\right) \Rightarrow A=\sum_{n}{\lambda_n P_n}
 	\]
 	Abbiamo perciò ottenuto $A$ come la somma delle sue \q{proiezioni} $\lambda_n P_n$.\\
-	Ma allora data una funzione $f$:
+	Ma allora data una funzione reale $f$, possiamo \q{calcolarla in $A$}
+	calcolandola su tutte le \textit{proiezioni} e sommando i risultati, nel seguente modo:
 	\begin{equation}
 	f\left(A\right)=\sum_{n}{f\left(\lambda_n\right)P_n}
 	\label{eqn:funzioniop}

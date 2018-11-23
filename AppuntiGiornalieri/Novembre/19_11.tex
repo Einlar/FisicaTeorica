@@ -1,0 +1,204 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{Titolo}}
+\vspace{-1em}
+\begin{center}
+    \small{(19/11/2018)}
+\end{center}
+
+Consideriamo un sistema formato da due particelle indistinguibili. Allora uno stato del sistema è $\psi(\vect x^{(1)}, \vect x^{(2)})$ e lo spazio degli stati è $L^2(\mathbb R^6, d^3 x^{(1)}, d^3 x^{(2)})$. Quello che ci chiediamo è: qual è la relazione tra questo spazio e gli spazi $L^2(\mathbb R^3, d^3 x^{(1)})$ e $L^2(\mathbb R^3, d^3 x^{(2)})$? Per rispondere a questa domanda è necessaria una digressione sui prodotti tensori.
+
+\subsection{Il prodotto tensore di spazi}
+
+\begin{dfn}[Spazio prodotto tensore]
+Dati due spazi di Hilbert $\hs_1$ e $\hs_2$ siano $\varphi_1 \in \hs_1$ e $\varphi_2 \in \hs_2$. Si denota con $\varphi_1 \otimes \varphi_2$ la forma bilineare su $\hs_1 \times \hs_2$ definita da
+\[
+(\varphi_1 \otimes \varphi_2) (\underbrace{\{ \psi_1 , \psi_2 \}}_{\in \hs_1 \times \hs_2}) = (\varphi_1, \psi_1)_{\hs_1} (\varphi_2, \psi_2)_{\hs_2} 
+\]
+Sia $\mathcal E$ l’insieme delle combinazioni lineari finite di questa forma bilineare. Possiamo considerare $\mathcal E$ uno spazio pre-Hilbertiano se definiamo il prodotto scalare di $\mathcal E$ nel modo seguente:
+\begin{equation}
+\label{eqn:scalareformebilineari}
+(\varphi_1 \otimes \varphi_2, \chi_1 \otimes \chi_2) = (\varphi_1, \chi_1)_{\hs_1} (\varphi_2, \chi_2)_{\hs_2}
+\end{equation}
+ed esteso per linearità. Denotiamo con $\hs_1 \otimes \hs_2$ il prodotto tensore tra gli spazi $\hs_1$ e $\hs_2$ come lo spazio di Hilbert ottenuto per completamento nella norma indotta dal prodotto scalare \eqref{scalareformebilineari}.
+\end{dfn}
+
+In pratica un generico $\psi \in \hs_1 \otimes \hs_2$ è della forma
+\[
+\psi = \sum_{n,m} c_{nm} \psi_n^{(1)} \otimes \psi_m^{(2)}
+\]
+dove $\psi_n^{(1)} \in \hs_1$ e $\psi_m^{(2)} \in \hs_2$, è infinita e intesa convergente nella norma definita mediante il prodotto scalare \eqref{scalareformebilineari}.
+
+Il seguente teorema permette di trovare una base di uno spazio prodotto a partire da quella degli spazi di partenza.
+\begin{thm}
+Se $\{e_n^{(1)}\}_{n \in \mathbb N}$ è una base per $\hs_1$ e $\{e_n^{(2)}\}_{m \in \mathbb N}$ è una base per $\hs_2$ allora $\{e_n^{(1)} \otimes e_m^{(2)}\}_{n \in \mathbb N, m \in \mathbb N}$ è una base per $\hs_1 \otimes \hs_2$.
+\end{thm}
+\begin{proof}
+Omessa.
+\end{proof}
+
+È possibile osservare che valgono i seguenti is
+\begin{itemize}
+\item $L^2(\mathbb R^n, d^n x) \otimes L^2(\mathbb R^m, d^m y) \simeq L^2(\mathbb R^{n+m}, d^n x d^m y)$, dove l’isomorfismo $U: \phi_n(x) \otimes \psi_m(y) \to \phi_n(x) \psi_m(y)$ è esteso per linearità e continuità.
+\item $L^2(\mathbb R^n, d^n x) \otimes \mathbb C^\ell \simeq L^2(\mathbb R^n, d^n x) \oplus L^2(\mathbb R^n, d^n x) \oplus \dots \oplus L^2(\mathbb R^n, d^n x)$, $\ell$ volte. Dunque un generico elemento di questo spazio è il vettore 
+\[
+\begin{pmatrix} \psi_1(x) \\ \psi_2(x) \\ \vdots \\ \psi_\ell(x) \end{pmatrix} \qquad \text{con} \quad  \psi_i(x) \in L^2(\mathbb R^n, d^n x) \quad i = 1, \dots, \ell
+\]
+\item Ricordando che
+\[
+\mathbb R^3 \simeq \mathbb R_+ \times \mathbb S^2  \qquad \text{e} \qquad \underbrace{d^3 x}_{\in \mathbb R^3} = \underbrace{r^2 \de r}_{\in \mathbb R_+} \cdot \underbrace{\de \Omega}_{\in \mathbb S^2}
+\]
+dove $d \Omega = d \theta \sin\theta \de\varphi$, si ottiene l’isomorfismo $L^2(\mathbb R^3, d^3 x) \simeq L^2(\mathbb R_+, r^2 \de r) \otimes L^2(S^2, d \Omega)$.
+\end{itemize}
+
+\begin{dfn}[Operatori sullo spazio prodotto]
+È possibile definire operatori sullo spazio $\hs_1 \otimes \hs_2$ della forma $A^{(1)} \otimes A^{(2)}$ con l’operatore $A^{(1)}$ che agisce su $\hs_1$ mentre l’operatore $A^{(2)}$ agisce su $\hs_2$.  L’operatore sullo spazio prodotto è definito per estensione
+\[
+(A^{(1)} \otimes A^{(2)})(\varphi^{(1)} \otimes \varphi^{(2)}) = A^{(1)} \varphi^{(1)} \otimes A^{(2)} \varphi^{(2)}
+\]
+\end{dfn}
+
+\begin{remark}
+Attenzione: anche se la definizione è quella precedente, gli operatori in $\hs_1 \otimes \hs_2$ sono in generale della forma
+\[
+\sum_{m,n} c_{mn}  A_m^{(1)} \otimes A_n^{(2)}
+\]
+In particolare $A^{(1)} \otimes \mathbb{I}^{(2)}$ e $\mathbb{I}^{(1)} \otimes A^{(2)}$ commutano tra di loro. Infatti
+\begin{align}
+(A^{(1)} \otimes \mathbb{I}^{(2)}) (\mathbb{I}^{(1)} \otimes A^{(2)}) (\varphi^{(1)} \otimes \varphi^{(2)}) & = (A^{(1)} \otimes \mathbb{I}^{(2)}) (\varphi^{(1)} \otimes  A^{(2)} \varphi^{(2)}) \notag \\
+& = (A^{(1)} \varphi^{(1)} \otimes A^{(2)} \varphi^{(2)}) = (\mathbb{I}^{(1)} \otimes A^{(2)}) (A^{(1)} \varphi^{(1)} \otimes \varphi^{(2)}) \notag \\
+& = (\mathbb{I}^{(1)} \otimes A^{(2)}) (A^{(1)} \otimes \mathbb{I}^{(2)}) (\varphi^{(1)} \otimes \varphi^{(2)}) \notag
+\end{align}
+\end{remark}
+
+\subsection{Assioma dei sistemi composti}
+
+Il fatto che vi sia l’isomorfismo
+\[
+\unserbrace{L^2(\mathbb R^3, d^3 x)}_{\psi(\vect x) \in} \otimes \unserbrace{L^2(\mathbb R^3, d^3 x)}_{\psi(\vect y) \in} \simeq \underbrace{L^2(\mathbb R^6, d^3 x \, d^3 y)}_{\psi(\vect x, \vect y) \in}
+\]
+suggerisce il seguente
+\begin{axi}[Sui sistemi composti]
+Quando un sistema quantistico consiste in $N$ sistemi distinguibili a cui sono associati gli spazi di Hilbert $\hs_i$ ($i = 1, \dots, N$) allora sistema complessivo si associa lo spazio di Hilbert
+\[
+\bigotimes_{i = 1}^N \hs_i = \hs_1 \otimes \hs_2 \otimes \dots \otimes \hs_N
+\]
+e le osservabili $A^{(i)}$ del sistema $i$-esimo nel sistema complessivo sono date da
+\[
+\mathbb{I}^{(1)} \otimes \dots \otimes \mathbb{I}^{(i-1)} \otimes A^{(i)} \otimes \mathbb{I}^{(i+1)} \otimes \dots \otimes \mathbb{I}^{(N)}
+\]
+\end{axi}
+
+\begin{notation}
+In notazione di Dirac se $\ket{\psi^{(1)}} \in \hs_1$ e $\ket{\phi^{(2)}} \in \hs_2$ lo stato appartenente al prodotto tensore $\hs_1 \times \hs_2$ è semplicemente denotato con $\ket{\psi^{(1)}} \ket{\phi^{(2)}}$.
+\end{notation}
+\begin{remark}
+Come conseguenza delle commutazioni tra osservabili corrispondenti a sottosistemi diversi, se $\mathca C_i$ è un ICOC per il sistema $S_i$ allora un ICOC per $S = \bigcup_{i = 1}^{N} S_i$ è $\{ \mathcal C_i \}_{i = 1, \dots, \mathbb N}$.
+\end{remark}
+
+Si osservi che l’assioma che abbiamo appena enunciato ha conseguenze sorprendenti sugli spazi degli stati. Si consideri ad esempio un sistema di due particelle quantistiche. L’onda di probabilità associata al sistema non vive più in tre dimensioni, bensì in sei! Tante più sono le particelle, tante più sono le particelle e tanto più la dimensione dello spazio su cui sono definite le funzioni aumenta. Questo fatto è controintuitivo se si pensa che le ampiezze di probabilità delle particelle potrebbero essere semplicemente sommate. In realtà sommando le ampiezze di probabilità verrebbe persa molta informazione, e il sistema sarebbe quello di una sola particella. % (IMMAGINE somma funzioni d’onda)
+Si può pensare il tutto in analogia con lo spazio delle fasi della meccanica classica: lo spazio delle fasi aumenta di dimensione all’aumentare del numero di particelle. Tuttavia è fondamentale ricordare che \emph{non} esiste propriamente un analogo dello spazio delle fasi in meccanica quantistica.
+
+Quindi la \qm{combinazione} di due sistemi, come due particelle, non è in 1D ma in 2D. Questo appunto deriva dalla struttura lineare dello spazio di Hilbert.
+
+\begin{es}[Polarizzazione dei fotoni]
+Consideriamo i due possibili stati di polarizzazione di un fotone: $\ket{x}$ e $\ket{y}$. Quando entrambi i fotoni hanno polarizzazione $x$ si avrà lo stato $\ket{x^{(1)}}\ket{x^{(2)}}$ nello spazio prodotto, mentre se entrambi sono in polarizzazione $y$ lo stato sarà $\ket{y^{(1)}}\ket{y^{(2)}}$. Ma sappiamo che questi due stati possono trovarsi, come nel caso di una particella, in una sovrapposizione data da $\ket{x^{(1)}}\ket{x^{(2)}} + \ket{y^{(1)}}\ket{y^{(2)}}$. Se questo è lo stato del sistema composto, allora nel caso un fotone sia in polarizzazione $x$ anche l'altro deve esserlo (e lo stesso vale per $y$). Tuttavia in questo stato un fotone non ha polarizzazione ben definita, eppure gli stati dei singoli fotoni sono influenzati reciprocamente. Si è quindi persa la nozione individuale di sottosistema, che lascia il posto alla nozione di sistema quantistico composto, la quale chiaramente non ha analogo classico.
+\end{es}
+
+\begin{oss}
+Per la linearità degli spazi vettoriali, nel nostro caso spazi di Hilbert, e per la definizione di prodotto tensore, esistono stati del sistema composto che non sono scrivibili come prodotto tensore di stati dei sottosistemi. Stati di questo tipo si dicono \emph{entangled} (\q{allacciati}). Questi stati descrivono le situazioni in cui le proprietà dei sottosistemi non sono indipendenti. Questo fatto costituisce la cosiddetta \q{realtà allacciata} dei sottosistemi quantistici.
+
+Questo fenomeno è ovviamente puramente quantistico e non ha analogo classico. Questo anche perché per descriverlo è necessario definire la nozione di prodotto tensore.
+
+Il fenomeno dell'entanglement può essere dedotto esclusivamente dagli assiomi della meccanica quantistica. Tuttavia non ha solo ripercussioni teoriche, come il paradosso EPR, ma anche pratiche e tecnologiche, come il teletrasporto quantistico, il computer quantistico e la crittografia quantistica.
+\end{oss}
+
+
+
+\section{Simmetrie}
+Ricapitolando l'evoluzione temporale dei sistemi quantistici:
+\begin{itemize}
+\item Per l'\emph{omogeneità del tempo} le traslazioni temporali devono lasciare invarianti le probabilità di traslazione;
+\item Per il \emph{teorema di Wigner} le uniche trasformazioni che rispettano questo sono quelle unitarie e antiunitarie a meno di una fase, dunque le traslazioni temporali sono rappresentate proiettivamente su $\hs$;
+\item Per il \emph{teorema di Bargmann} Le rappresentazioni proiettive unitarie possono essere ridotte a quelle unitarie del relativo gruppo di ricoprimento universale, quindi le traslazioni $U(t)$ formano in realtà un gruppo ad un parametro di operatori unitari;
+\item Per il \emph{teorema di Stone} esiste un operatore $H$ (identificata fisicamente come l'hamiltoniana), tale che $U(t) = e^{-\frac{i}{\hbar} t H}$.
+\end{itemize}
+
+Dunque partendo solo dall'ipotesi di omogeneità del tempo è possibile costruire un operatore che descrive l'evoluzione nel tempo degli stati fisici. La simmetria di traslazione temporale (identificata dal gruppo ad un parametro di operatori $U(t)$) \q{genera} l'osservabile $H$, il quale è una costante dell'evoluzione, cioè è conservata.
+
+Tutto questo avviene considerando le simmetrie di traslazione temporale, ma cosa avviene se si considerano le simmetrie di traslazione spaziale o quelle di rotazione? Prima di rispondere chiariamo il concetto di simmetria.
+
+\begin{dfn}
+Una \emph{simmetria fisica} è una mappa $A \mapsto A'$ dall'algebra delle osservabili in sé stessa e una mappa $\ket{\psi} \mapsto \ket{\psi'}$ dallo spazio degli stati puri in sé stesso, che preserva la struttura dell'algebra e i valori medi, ovvero
+\[
+\alpha A + \beta B \mapsto \alpha A' + \beta B' \quad \quad \quad A B \mapsto A' B'
+\]
+\[
+\bra\psi A \ket\psi = \bra{\psi'} A' \ket{\psi'} \qquad \forall \ket\psi, \ket{\psi'}, A, A'
+\]
+\end{dfn}
+
+In \MQ il proiettore $\ket\phi \bra\phi$ preserva la probabilità di transizione, infatti
+\[
+\bra\psi (\ket\phi \bra\phi) \ket\psi = \braket{\psi|\phi} \braket{\phi|\psi}
+\]
+da cui si ottiene che
+\[
+\braket{\psi'|\phi'} \braket{\phi'|\psi'} = \braket{\psi|\phi} \braket{\phi|\psi}
+\]
+Allora per il teorema di Wigner $\ket{\psi'} = U \ket\psi$ dove $U$ è unitario oppure è antiunitario (e in quel caso si indica con $\overline U$). Quindi
+\[
+A' = U A U \qquad \text{oppure} \qquad A' = \overline U A \overline U^\dag
+\]
+con gli operatori $U$ e $\overline U$ definiti a meno di una fase (raggi vettori).
+
+\begin{dfn}[Simmetria dinamica]
+Una simmetria fisica tale che
+\[
+H \mapsto H' = U H U^\dag = H
+\]
+e che dunque lascia invariata l'hamiltoniana $H$ è detta \emph{simmetria dinamica}.
+\end{dfn}
+
+Se le simmetrie fisiche sono descritte da un gruppo continuo $G$, allora $U$ è necessariamente unitaria (è escluso $\overline U$). Infatti dato $g \in G$, per la struttura di gruppo se $\hat U$ è un raggio vettore unitario deve valere
+\[
+\hat U (g_1) \hat U (g_2) = \hat U (g_1, g_2) \quad \iff \quad U(g_1) U(g_2) = e^{i \alpha (g_1, g_2)} U(g_1, g_2)
+\]
+ma questo fatto non vale per le $\overline U$ antiunitarie, infatti
+\[
+\overline U(g_1) \overline U(g_2) = e^{i \alpha (g_1, g_2)} \overline U(g_1, g_2)
+\]
+non è possibile perché il prodotto tra due trasformazioni antiunitarie è fornisce sempre una trasformazione unitaria.
+
+Se la simmetria è descritta da un gruppo a un parametro i operatori unitari $U(\lambda)$, con $\lambda \in \mathbb R$, ovviamente $U(0) = \mathbb{I}$ e $U(\lambda_1)U(\lambda_2) = U(\lambda_1 + \lambda_2)$. Il teorema di Stone ci assicura che esiste un operatore autoaggiunto $A$, detto \emph{generatore} di $U(\lambda),$ tale che in un dominio denso $D(A)$ valga
+\[
+A = i \frac{d U(\lambda)}{d \lambda}\bigg|_{\lambda = 0}
+\]
+
+Se inoltre $U$ è una simmetria dinamica allora $A$ commuta con l'operatore hamiltoniano $H$. Infatti vale $U(\lambda) H U(\lambda)^\dag = H$, dove l'ultimo $H$ è indipendente da $\lambda$. Pertanto derivando rispetto a $\lambda$ e calcolando la derivata in $\lambda = 0$ si ottiene
+\begin{align}
+0 & = \frac{d}{d \lambda} H \bigg|_{\lambda = 0} = \frac{d}{d \lambda} [U(\lambda) H U(\lambda)^\dag] \bigg|_{\lambda = 0} \notag \\
+& = \frac{d}{d \lambda} U(\lambda) \bigg|_{\lambda = 0} H U(0)^\dag + U(0) \frac{d}{d \lambda} H \bigg|_{\lambda = 0} U(0)^\dag + U(0) H \frac{d}{d \lambda} \overbrace{U(\lambda)^{-1}}^{(U^\dag = U^{-1})} \bigg|_{\lambda = 0} \notag \\
+& = \frac{A}{i} H \mathbb{I} + \mathbb{I} 0 \mathbb{I} + \mathbb{I} H \left(- U(0)^{-2} \frac{d}{d \lambda} U(\lambda) \bigg|_{\lambda = 0} \right) \notag \\
+& = \frac{A H}{i} + 0 - H \mathbb{I}^2 \frac{A}{i} \notag \\
+& = \frac{AH - HA}{i} = \frac{[A,H]}{i} \notag
+\end{align}
+
+Ma se vale ciò allora in visuale di Heisenberg
+\[
+\deriv{A^H(t)}{t} = \frac{[A^H(t), H]}{i \hbar} = \frac{U(t) \overbrace{[A,H]}^{= 0} U(t)^\dag}{i \hbar} = 0
+\]
+In pratica il generatore \emph{non evolve nel tempo}, e $A^H(t) = A$. Questa è la versione quantistica delle costanti del moto classiche. Il fatto visto con la traslazione temporale è generalizzabile: vi è un importante legame tra simmetrie continue e leggi di conservazione.
+
+\subsection{Parentesi sulla teoria dei gruppi}
+\begin{dfn}[Gruppo di Lie]
+Un gruppo $G$ i cui elementi $g \in G$ sono parametrizzabili in modo analitico in funzione di $n$ parametri $x_1, x_2, \dots, x_n$ reali o complessi cosicché si può scrivere $g = g(x_1, x_2, \dots, x_n)$ è detto \emph{gruppo di Lie} a $n$ parametri (reali o complessi).
+\end{dfn}
+
+\begin{es}
+Le traslazioni in $\mathbb R^3$ formano un gruppo di Lie a tre parametri reali, e ugualmente vale per le rotazioni in $\mathbb R^3$. Le trasformazioni di Lorentz formano il \emph{gruppo di Lorentz} il quale ha sei parametri, mentre il gruppo di Poincaré ha anche le traslazioni, ed è un gruppo di Lie a 10 parametri.
+\end{es}
+
+\end{document}

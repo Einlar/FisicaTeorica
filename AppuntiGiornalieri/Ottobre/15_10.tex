@@ -35,7 +35,7 @@ Ma allora da (\ref{eqn:Omedio})\footnote{$\langle O \rangle_\Sigma = \int_\bb{R}
 \]
 Nel caso degli operatori basta quindi calcolare il valor medio dell'operatore definito in (\ref{eqn:PA}), e si ottiene quindi, nel caso normalizzato (ossia con $\norm{\psi} = 1$):
 \begin{equation}
-\left\langle A\right\rangle_\psi= \int_\bb{R} \lambda P^A_\Sigma(\lambda) =\int_{\mathbb{R}}{\lambda\, d \underbrace{(\psi,P^A\left(\lambda\right)\psi)}_{P_\psi^A(\lambda)}}
+\left\langle A\right\rangle_\psi= \int_\bb{R} \lambda dP^A_\Sigma(\lambda) =\int_{\mathbb{R}}{\lambda\, d \underbrace{(\psi,P^A\left(\lambda\right)\psi)}_{P_\psi^A(\lambda)}}
 \label{eqn:valormedioA}
 \end{equation}
 Abbiamo quindi adattato la scrittura \q{probabilistica} dei valori medi anche al caso degli operatori.\\
@@ -47,7 +47,7 @@ A=\int \lambda\, dP^A(\lambda); \quad f(A) = \int f(\lambda)\,dP^A(\lambda)
 Specifichiamo nel dettaglio cosa significa la notazione in (\ref{eqn:valormedioA}):
 \begin{align}
 d_\lambda (\psi,\ P^A (\lambda )\psi )&\underset{(\ref{eqn:PA})}{=}d_\lambda (\psi,\ \sum_{n} H(\lambda-\lambda_n )P_n\psi )=\nonumber\\
-&\underset{(a)}{=}\sum_{n} d_\lambda\sum_{n} H (\lambda-\lambda_n ) (\psi,\ \psi_n ) (\psi_n,\psi )=
+&\underset{(a)}{=}\sum_{n} d_\lambda H (\lambda-\lambda_n ) (\psi,\ \psi_n ) (\psi_n,\psi )=
 \label{eqn:dPA_op}
 \\
 &\underset{(b)}{=}\sum_n \delta (\lambda-\lambda_n ) |(\psi_n,\ \psi)|^2 d\lambda\nonumber
@@ -171,11 +171,12 @@ H(\lambda-A) = P(\lambda)
 (per chiarire, prova a pensare tutto ciò in termini di spazi finito-dimensionali).\\
 Con questa strategia non abbiamo usato autovettori/autovalori, e perciò tramite questa è possibile estendere quanto detto nel caso finito-dimensionale all'infinito-dimensionale.
 
-\textbf{Esempio} \marginpar{Esempio (1) di famiglia spettrale: operatore posizione}
+\textbf{Esempio}\index{Famiglia spettrale!operatore posizione $X$} \marginpar{Esempio (1) di famiglia spettrale: operatore posizione}
 In $\hs =L^2(\bb{R}, dx)$, consideriamo la \textbf{famiglia spettrale}:
-\[
+\begin{equation}
 \left(P\left(\lambda\right)\psi\right)\left(x\right)=H\left(\lambda-x\right)\psi \left(x\right)
-\]
+\label{eqn:famiglia_spettrale_x}
+\end{equation}
 Verifichiamo che soddisfa tutte le proprietà:
 \begin{enumerate}
     \item $H$ reale e $H^2=H$, quindi è un proiettore.
@@ -230,11 +231,11 @@ Riepilogando: \marginpar{Riepilogo delle \textbf{proprietà} delle \textbf{osser
 \end{enumerate}
 Enunciamo questi risultati, che abbiamo costruito nei paragrafi precedenti e che sono estensivamente corroborati dall'evidenza, come \textbf{assiomi} del formalismo quantistico.
 \begin{axi}
-Le \textbf{osservabili}\marginpar{Assioma delle osservabili} di un sistema quantistico, i cui \textbf{stati puri} sono descritti dai \textbf{raggi vettori} di $\hs$, sono descritti da \textbf{operatori autoaggiunti} $A=A^\dag$ in $\hs$.
+Le \textbf{osservabili}\marginpar{Assioma delle osservabili}\index{Assioma!delle osservabili} di un sistema quantistico, i cui \textbf{stati puri} sono descritti dai \textbf{raggi vettori} di $\hs$, sono descritti da \textbf{operatori autoaggiunti} $A=A^\dag$ in $\hs$.
 \end{axi}
 
 \begin{axi}
-La \textbf{probabilità}\marginpar{Assioma della probabilità} che una misura di $A$ nello stato $\psi$ (ricavata ripetendo tante volte la misura sperimentale nelle stesse condizioni) sia in $]-\infty , \lambda]$ è data da:
+La \textbf{probabilità}\marginpar{Assioma della probabilità}\index{Assioma!della probabilità} che una misura di $A$ nello stato $\psi$ (ricavata ripetendo tante volte la misura sperimentale nelle stesse condizioni) sia in $]-\infty , \lambda]$ è data da:
 \[
 P_\psi^A\left(\lambda\right)=\frac{(\psi,\ P^A\left(\lambda\right)\psi)}{\norm{\psi}^2}
 \]

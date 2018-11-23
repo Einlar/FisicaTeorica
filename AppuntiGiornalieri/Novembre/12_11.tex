@@ -2,89 +2,165 @@
 
 \begin{document}
 
-%\section{Lezione ?:\\ \large{Titolo}}
-\vspace{-1em}
-\begin{center}
-    \small{(12/11/2018)}
-\end{center}
-\section{Conseguenze degli assiomi} %Nuovo capitolo
-\textbf{Principio di indeterminazione}. Possiamo ora enunciare il principio di indeterminazione\index{Principio di indeterminazione} per una qualsiasi coppia di variabili (non siamo più confinati a posizione-momento).\\
+\section{Principio di indeterminazione}
 Supponiamo di voler misurare simultaneamente due osservabili $A$ e $B$: che vincolo abbiamo sulla precisione della misura simultanea?\\
 Una delle conseguenze degli assiomi è il \textit{principio di indeterminazione} che generalizza a coppie di osservabili arbitrarie quello trovato (euristicamente) da Heisenberg nel 1927 per $X$ e $P$.\\
 Ricordiamo che la fluttuazione di una osservabile $A$ in uno stato $\psi$ è definita come:
-\[
+\begin{equation}
 (\Delta A)_\psi = \sqrt{\langle(A-\langle A\rangle_\psi)^2\rangle_\psi}
-\]
+\label{eqn:def_fluttuazione}
+\end{equation}
 \begin{thm}
-Siano $A$ e $B$ \marginpar{Principio di indeterminazione} autoaggiunti (ossia corrispondenti a osservabili) in $D(A)$ e $D(B)$. Supponiamo che esista un dominio $D \subset \{\psi \in \hs | \psi, A\psi, B\psi \in D(A)\cap D(B)\}$ denso in $\hs$ 
-(ossia tale che applicare $A$ o $B$ ad un elemento dell'intersezione dei domini $D(A)\cap D(B)$ produce un risultato che resta ancora nell'intersezione). Questa scelta del dominio è tale che tutte le operazioni usate in seguito siano ben definite.\\
+\label{thm:uncertainty_principle}
+Siano $A$ e $B$ \marginpar{Principio di indeterminazione}\index{Principio di indeterminazione}autoaggiunti (ossia corrispondenti a osservabili) in $D(A)$ e $D(B)$. Supponiamo che esista un \textbf{dominio \q{comune}} $D \subset \{\psi \in \hs | \psi, A\psi, B\psi \in D(A)\cap D(B)\}$ denso in $\hs$ 
+(ossia tale che applicare $A$ o $B$ ad un elemento dell'intersezione dei domini $D(A)\cap D(B)$ produce un risultato che resta ancora nell'intersezione). Questa scelta del dominio è tale che tutte le operazioni usate in seguito siano ben definite, e in particolare abbia senso calcolare il \textbf{commutatore} $[A,B]$.\\
 Vale allora, $\forall \psi \in D$:
 \[
-(\Delta A)_\psi (\Delta B)_\psi \geq \left |\frac{\langle [A,B]\rangle_\psi}{2i} \right |
+(\Delta A)_\psi (\Delta B)_\psi \geq \left |\frac{\langle [A,B]\rangle_\psi}{2i} \right | = \frac{1}{2}\left|\langle [A,B]\rangle_\psi\right|
 \]
 \end{thm}
+In altre parole, per il \textit{principio di indeterminazione}, il valor medio del commutatore $[A,B]$ di due operatori autoaggiunti costituisce, a meno di un fattore, un \textit{limite inferiore} al prodotto delle incertezze su $A$ e $B$.\\
 \textbf{Dimostrazione}. Definiamo per semplicità di notazione:
-\[
+\begin{equation}
 \bar{A}=A-\langle A \rangle_\psi \bb{I}; \quad \bar{B}=B-\langle B \rangle_\psi \bb{I}
-\]
-Allora:
-\[
-[A,B]=[\bar{A},\bar{B}]; \quad (\Delta A)^2_\psi = \langle \bar{A}^2 \rangle_\psi
-\]
-Per proprietà del prodotto scalare:
+\label{eqn:AB_traslate}
+\end{equation}
+Abbiamo cioè \textit{traslato} i valor medi di $A$ e $B$ a $0$.\\
+Per la linearità del commutatore si ha:
+\begin{equation}
+[\bar{A},\bar{B}]=[A-\avg{A},B-\avg{B}]=[A,B]-[A,\avg{B}]-[\avg{A},B]+[\avg{A},\avg{B}]=[A,B]
+\label{eqn:commutatore_identity}
+\end{equation}
+dato che i valor medi, essendo numeri reali, commutano sempre.\\
+Inoltre, sostituendo (\ref{eqn:AB_traslate}) in (\ref{eqn:def_fluttuazione}) si ottiene:
+\begin{equation}
+(\Delta A)^2_\psi = \langle \bar{A}^2 \rangle_\psi; \quad (\Delta B)^2_\psi = \langle \bar{B}^2 \rangle_\psi
+\label{eqn:prodotto_scalare_indeterminazione}
+\end{equation}
+Consideriamo il seguente prodotto scalare:
 \[
 \langle \left(\frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi} \right)^\dag \left ( \frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi }\right ) \rangle \geq 0
 \]
-dato che:
+che è sempre non negativo, dato che, per un generico operatore $c$, vale, dalla definizione di valor medio:
 \[
-\langle c^\dag c\rangle_= \langle c\psi | c\psi \rangle =\norm{c\psi}^2 \geq 0
+\langle c^\dag c\rangle= (c,c^\dag c \psi)=( c\psi, c\psi ) =\norm{c\psi}^2 \geq 0
 \]
-Sviluppando i prodotti:
+Sviluppando allora i prodotti in (\ref{eqn:prodotto_scalare_indeterminazione}):
+\begin{align*}
+&\langle \left( \frac{\bar{A}^\dag}{(\Delta A)_\psi}\mp i \frac{\bar{B}^\dag}{(\Delta B)_\psi}\right)\left(\frac{\bar{A}}{(\Delta A)_\psi} \pm i \frac{\bar{B}}{(\Delta B)_\psi}\right)\rangle \geq 0\\
+\underset{(\ref{eqn:prodotto_scalare_indeterminazione})}{\Rightarrow} & \underbrace{\frac{\langle \bar{A}^2 \rangle_\psi}{(\Delta A)^2_\psi}}_{=1} +
+\underbrace{\frac{\langle \bar{B}^2\rangle_\psi}{(\Delta B)^2_\psi}}_{=1} \mp i \frac{\overbrace{\langle \bar{B}\bar{A}-\bar{A}\bar{B}\rangle_\psi}^{\langle[\bar{B},\bar{A}]\rangle_\psi}}{(\Delta A)_\psi (\Delta B)_\psi}\geq 0\\
+\Rightarrow &2 \geq\mp i\frac{\langle [\bar{A},\bar{B}]\rangle_\psi}{(\Delta A)_\psi (\Delta B)_\psi} \Rightarrow (\Delta A)_\psi(\Delta B)_\psi\geq\mp\frac{i}{2}\langle [\bar{A},\bar{B}]\rangle_\psi
+\end{align*}
+Da cui si ha:
 \[
-\underbrace{\frac{\langle \bar{A}^2 \rangle_\psi}{(\Delta A)^2_\psi}}_{=1} +
-\underbrace{\frac{\langle \bar{B}^2\rangle_\psi}{(\Delta B)^2_\psi}}_{=1} \mp i \frac{\langle \bar{B}\bar{A}-\bar{A}\bar{B}\rangle_\psi}{(\Delta A)_\psi (\Delta B)_\psi}\geq 0
+(\Delta A)_\psi(\Delta B)_\psi \underset{(a)}{\geq} \left|\frac{i}{2}\langle[\bar{A},\bar{B}]\rangle_\psi\right|\underset{(b)}{=}\left |\frac{\langle[\bar{A},\bar{B]\rangle_\psi}}{2i}\right|\underset{(\ref{eqn:commutatore_identity})}{=}
+\left |\frac{\langle [A,B]\rangle_\psi}{2i} \right |
 \]
-(per come abbiamo definito $(\Delta A)^2_\psi$, $(\Delta B)^2_\psi$.\\
-Ma allora:
-\[
-\mp \frac{\langle [\bar{A},\bar{B}]\rangle_\psi}{2i} = \mp \frac{\langle [A,B]\rangle_\psi}{2i}\leq (\Delta A)_\psi (\Delta B)_\psi \Rightarrow (\Delta A)_\psi (\Delta B)_\psi \geq \left |\frac{\langle [A,B]\rangle_\psi}{2i} \right |
-\]
-dato che:
+Dove in (a) si è usata la relazione:
 \[
 |x|\leq a \leftrightarrow \begin{cases}
 x \leq a\\
 -x \leq a
-\end{cases}
+\end{cases} \leftrightarrow -a \leq x \leq a
 \]
-
+e in (b) si è moltiplicato e diviso per $i$, lasciando assorbire il segno generato dal valore assoluto.\\
 In particolare, se $A=X$ e $B=P$, $D=\mathcal{S}(\bb{R})$, $\forall \psi \in D$:
 \[
 (\Delta X)_\psi (\Delta P)_\psi \geq \left | 
 \frac{\langle [X,P]\rangle_\psi}{2i}
 \right | = \frac{\hbar}{2}
 \]
-Il principio di indeterminazione di Heisenberg è quindi \textbf{solo} una conseguenza dell'algebra $[X,P]=i\hbar$.\\
+Il principio di indeterminazione di Heisenberg è quindi \textbf{solo} una conseguenza dell'algebra $[X,P]=i\hbar$.
 
-\textbf{Osservazioni}
-\begin{itemize}
-\item Il principio di indeterminazione vale anche per \textbf{stati misti}.\marginpar{Indeterminazione degli stati misti} Se $A$, $B \in \mathcal{B}(\hs)$, ($D=\hs$), definiamo:
+\begin{expl}
+\textbf{Dimostrazione alternativa}\footnote{Sezione 3.4, pag. 108 di \cite{griffiths}}\\
+Consideriamo due operatori $A$ e $B$, e delle funzioni d'onda $\ket{\psi} \in D$, dove $D$ è il \q{dominio comune} di $A$ e $B$ come definito nelle ipotesi del teorema (\ref{thm:uncertainty_principle}).\\
+Partiamo dalla definizione di fluttuazione di $A$, ed espandiamo il valor medio\footnote{Le $\langle \cdots \rangle$ senza il $\psi$ a pedice sono un \textit{braket}, non una media!}:
+\begin{align}\nonumber
+(\Delta A)_\psi^2 &= \langle (A-\avg{A}_\psi)^2 \rangle_\psi = \braket{\psi|(A-\langle A \rangle_\psi)^2\psi}\underset{(a)}{=}\braket{(A-\langle A\rangle_\psi)\psi|(A-\langle A \rangle_\psi)\psi} =\\
+&= \braket{f|f} = \norm{f}^2 \qquad \ket{f}\equiv (A-\langle A\rangle_\psi)\ket{\psi}
+\label{eqn:sigma_A}
+\end{align}
+Dove in (a) si è usata l'autoaggiuntezza di $A$.\\
+Analogamente, per l'osservabile $B$:
 \[
-\langle A\rangle_\rho = \op{Tr} \rho A; \quad (\Delta A)^2_\rho = \op{Tr}(\rho(A-\op{Tr}(\rho A))^2
+(\Delta B)^2_\psi = \braket{g|g} = \norm{g}^2 \qquad \ket{g}\equiv (B-\langle B\rangle_\psi)\ket{\psi}
 \]
-Vale allora il teorema di prima:
+Per il teorema di Cauchy-Schwarz\footnote{Tale teorema esprime il fatto \textit{intuitivo} che la norma di un vettore è sempre maggiore (o al più uguale) alla lunghezza della proiezione di tale vettore su un altro vettore.} si ha che:
+\begin{equation}
+(\Delta A)^2_\psi (\Delta B)^2_\psi = \braket{f|f}\braket{g|g} \geq |\braket{f|g}|^2
+\label{eqn:schwarz1}
+\end{equation}
+Per ogni numero complesso $z$ vale:
+\[
+|z|^2=\op{Re}(z)^2+\op{Im}(z)^2 \geq \op{Im}(z)^2 =\ \left(\frac{1}{2i}(z-z^*)\right)^2
+\]
+Nel caso di $z = \braket{f|g}$, perciò:
+\begin{equation}
+|\braket{f|g}|^2\geq \left(\frac{1}{2i}[\braket{f|g}-\braket{g|f}]\right)^2
+\label{eqn:magg}
+\end{equation}
+(dato che $\braket{f|g}^* =\braket{g|f}$ per come è definita l'applicazione di un bra a un ket).\\
+Sostituendo (\ref{eqn:magg}) in (\ref{eqn:schwarz1}) si giunge a:
+\begin{equation}
+(\Delta A)^2_\psi (\Delta B)^2_\psi \geq \left(\frac{1}{2i}[\braket{f|g}-\braket{g|f}]\right)^2
+\label{eqn:schwarz2}
+\end{equation}
+Basta ora sviluppare i braket. Ricordando le definizioni in (\ref{eqn:schwarz2}) ed espandendo:
+\begin{align*}
+\braket{f|g}&=\braket{(A-\langle A\rangle_\psi)\psi | (B-\langle B \rangle_\psi)\psi} \underset{(a)}{=} \braket{\psi | (A-\langle A \rangle_\psi)(B- \langle B \rangle_\psi)\psi} =\\
+&=\braket{\psi | (AB - A\langle B \rangle_\psi - B\langle A \rangle_\psi + \langle A \rangle_\psi \langle B \rangle_\psi)\psi} =\\
+&= \underbrace{\braket{\psi|AB\psi}}_{\langle AB\rangle_\psi} - \langle B \rangle_\psi \underbrace{\braket{\psi|A\psi}}_{\langle A \rangle_\psi} -\langle A \rangle_\psi \underbrace{\braket{\psi|B\psi}}_{\langle B \rangle_\psi} + \langle A \rangle_\psi \langle B \rangle_\psi =\\
+&= \langle A B\rangle_\psi - \langle A\rangle_\psi \langle B \rangle_\psi
+\end{align*}
+Analogamente si ottiene:
+\[
+\braket{g|f} =\langle B A \rangle_\psi - \langle A \rangle_\psi \langle B \rangle_\psi
+\]
+Da cui:
+\[
+\braket{f|g}-\braket{g|f}=\langle AB\rangle_\psi - \langle BA\rangle_\psi=\langle [A,B]\rangle_\psi
+\]
+E sostituendo in (\ref{eqn:schwarz2}) si ottiene la disuguaglianza desiderata:
+\begin{equation}
+(\Delta A)^2_\psi (\Delta B)^2_\psi \geq \left(\frac{\langle [A,B]\rangle_\psi}{2i} \right)^2
+\label{eqn:uncertainty2}
+\end{equation}
+
+\textbf{Nota}: la $i$ al denominatore non rende il secondo membro negativo (e quindi ovvia la disuguaglianza), in quanto i valor medi di un commutatore di due operatori autoaggiunti sono \textit{puramente immaginari}. Lo si può dimostrare notando che $[A,B]$ è anti-hermitiano, ossia è pari al suo aggiunto \textit{cambiato di segno}\footnote{L'aggiunto di un prodotto di operatori autoaggiunti segue le \textit{regole notazionali} della trasposta del prodotto di matrici}:
+\[
+([A,B])^\dag = (AB-BA)^\dag =(BA-AB)=-[A,B]
+\]
+Ma allora se $\lambda$ è il valor medio di $[A,B]$, e $\lambda^*$ è il coniugato del valor medio di $[A,B]$, ossia il valor medio di $[A,B]^\dag$, si ha che $\lambda^* = -\lambda$, e tale uguaglianza è valida per $\lambda \in \bb{C}$ solamente se $\lambda$ è puramente immaginario.\\
+Perciò la $i$ al denominatore di (\ref{eqn:uncertainty2}) si semplifica con la $i$ che moltiplica il valor medio del commutatore, e dà un risultato reale. Possiamo allora prendere la radice quadrata di ambo i membri\footnote{Facendo tutti i conti, siamo di fronte ad una disequazione del tipo $x^2 \leq a^2$, che ha soluzioni per $x\geq |a|$ se $x\geq 0$, e $x\leq -|a|$ se $x< 0$. Ma ovviamente il prodotto di due incertezze è positivo, e quindi siamo nel primo caso.} e scrivere la relazione finale:
+\[
+(\Delta A)_\psi (\Delta B)_\psi \geq \left|\frac{\langle [A,B]\rangle_\psi}{2i}\right|
+\]
+\end{expl}
+
+\subsection{Osservazioni sul principio di indeterminazione}
+\begin{itemize}
+\item Il principio di indeterminazione vale anche per \textbf{stati misti}.\marginpar{Indeterminazione degli stati misti} Se $A$, $B \in \mathcal{B}(\hs)$ (operatori lineari limitati, e quindi estendibili a $D=\hs$), ricordando la definizione in (\ref{eqn:media_stati_misti}) di valor medio di un operatore in uno stato misto dato dalla matrice densità $\rho$, si ha che:
+\begin{equation}
+\langle A\rangle_\rho = \op{Tr} (\rho A); \quad (\Delta A)^2_\rho = \op{Tr}(\rho A-\op{Tr}(\rho A))^2
+\label{eqn:media_fluttuazione_misti}
+\end{equation}
+Vale ancora il principio di indeterminazione:
 \[
 (\Delta A)_\rho (\Delta B)_\rho \geq \left |
 \frac{\langle [A,B]\rangle_\rho}{2i}
 \right|
 \]
-Infatti:
+Infatti, il passaggio da cui segue il teorema consiste nel notare che il valor medio del prodotto aggiunto-operatore è non negativo, ossia $\langle c^\dag c\rangle \geq 0$. Ma questo è un risultato generale, che vale anche usando la definizione di valor medio data in (\ref{eqn:media_fluttuazione_misti}), infatti:
 \[
 \rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}; \quad \langle c^\dag c\rangle_\psi \geq 0 \Rightarrow \op{Tr}\rho(c^\dag c)=\sum_i p_i\bra{\psi_i}c^\dag c\ket{\psi_i}\geq 0
 \]
-\item Talvolta\marginpar{Importanza delle ipotesi del teorema} il principio di indeterminazione \textbf{sembra violato}, ma ciò è dovuto a \textit{problemi di dominio}, per cui cadono le ipotesi fatte nel teorema.\\
-Per esempio, sia $\hs=L^2[-\frac{1}{2}, \frac{1}{2}], dx)$, $X$ è limitato in $\hs$, e quindi $D(X)=\hs$.\\
-Per $P=-i\hbar\frac{d}{dx}$ con condizioni periodiche per $D(P)$ (in modo che sia autoaggiunto).\\
-Poiché $X$ è limitato, $(\Delta X)_\psi \leq 1$ (non posso avere un'indeterminazione più grande del dominio!), se scegliamo come $\psi$ un autostato $\psi_n$ di $P$, dove $\sigma(P)$ è unicamente discreto, sappiamo che:
+\item Talvolta\marginpar{Importanza delle ipotesi del teorema: un \textbf{controesempio}} il principio di indeterminazione \textbf{sembra violato}, ma ciò è dovuto a \textit{problemi di dominio}, per cui cadono le ipotesi fatte nel teorema. Abbiamo infatti ipotizzato che esista un certo dominio $D$, per cui è possibile applicare $A$ o $B$ alle $\ket{\psi} \in D$ ottenendo risultati che restano in $D$. Se ciò non avviene, la conseguenza del teorema potrebbe non valere.\\
+Per esempio, consideriamo come spazio di Hilbert $\hs=\left(L^2[-\frac{1}{2}, \frac{1}{2}], dx\right)$. In tale $\hs$ si ha che l'operatore \textit{posizione} $X$ è limitato, e quindi $D(X)=\hs$.\\
+Consideriamo poi l'operatore \textit{momento} $P=-i\hbar\frac{d}{dx}$ con condizioni periodiche per $D(P)$ (in modo che sia autoaggiunto).\\
+Poiché $X$ è limitato, $(\Delta X)_\psi \leq 1$ (non posso avere un'indeterminazione più grande del dominio!).\\
+Se scegliamo come $\psi$ un \textbf{autostato} $\psi_n$ di $P$, dove $\sigma(P)$ è unicamente discreto (come visto in sezione \ref{sec:momento_compatto}), sappiamo che (definizione di autostato):
 \[
 (\Delta P)_{\psi_n} = 0
 \]
@@ -93,31 +169,35 @@ Ma allora:
 (\Delta X)_{\psi_n}(\Delta P)_{\psi_n}=0
 \]
 in apparente violazione del principio di indeterminazione.\\
-Tuttavia, notiamo che applicando $X$ a $\psi_n(x)$ non otteniamo un elemento nel dominio di $P$ (e quindi non può stare nell'intersezione tra $D(X)\cap D(P)$ come richiesto dalle ipotesi del teorema). Infatti:
+Tuttavia, notiamo che applicando $X$ a $\psi_n(x)$ non otteniamo un elemento nel dominio di $P$ (e perciò certamente non un elemento nell'intersezione tra $D(X)\cap D(P)$ come richiesto dalle ipotesi del teorema).\\
+Infatti, se risolviamo l'equazione agli autovalori per trovare gli autostati $\psi_n(x)$ di $P$:
 \[
 -i\hbar \frac{d}{dx}\psi_n(x)=\lambda_n \psi_n(x)\Rightarrow \psi_n(x)=\exp\left( -i\frac{\lambda_n}{\hbar}x\right)
 \]
-Imponendo le condizioni di contorno:
+Imponendo le condizioni (periodiche) al contorno:
 \[
 \psi\left(\frac{1}{2}\right)\overset{!}{=}\psi\left(-\frac{1}{2}\right) \Rightarrow \lambda_n = 2\pi n\hbar
 \]
-E sostituendo nella soluzione:
+Perciò gli autostati $\psi_n$ di $P$ sono\footnote{Si noti che, date le condizioni al contorno, è come se stessimo considerando la particella \q{su un anello}. In particolare, queste $\psi_n$ \textit{sono} normalizzabili, al contrario di quanto accade se definiamo $P$ con dominio tutto $\bb{R}$.}:
 \[
 \psi_n(x)=e^{-i2\pi x n}
 \]
-Tuttavia:
+Tuttavia se applichiamo $X$ a una qualsiasi $\psi_n$ otteniamo un risultato che non è nel dominio di $P$:
 \[
-X\psi_n(x)=x\psi_n(x) \notin D(P)
+X\psi_n(x)=x\psi_n(x) = x\,e^{-i2\pi xn} \notin D(P)
 \]
-perché non è periodica.\\
+perché manca la periodicità.\\
 Quindi:
 \[
 \psi_n \notin D=\{\psi\in \hs|\psi, X\psi, P\psi \in D(X)\cap D(P) = D(P)\}
 \]
-
+Non potendo trovare un \q{dominio comune} $D$ per $X$ e $P$ in questo caso, il principio non è applicabile, e infatti la tesi non vale.\\
+Intuitivamente, l'esempio appena portato consiste nell'esaminare una particella che gira su un cerchio, per cui $X$ è più precisamente una coordinata angolare. Si nota allora come sia possibile, in principio, conoscere con precisione arbitraria il momento, senza che l'incertezza sull'angolo possa aumentare a dismisura: sarà al più di $2\pi$.\\
+\textbf{Nota}: tale controesempio non significa che quando le ipotesi non valgono non esista alcun limite inferiore al prodotto delle incertezze di due osservabili: il risultato potrebbe valere lo stesso (ma va dimostrato). Per esempio, nel caso della retta reale, non è possibile trovare controesempi come quello appena visto, anche scegliendo $\psi$ che non sono nel dominio di $PX$ o $XP$, basta solo richiedere che le incertezze $(\Delta X)_\psi$ e $(\Delta P)_\psi$ siano definite
+Per chi fosse interessato, una dimostrazione molto \textit{tecnica} di ciò è data a pag. 246 di \q{\textit{Quantum theory for Mathematicians}}, Hall, B. C. (2013), Springer.\\Del resto le considerazioni sul controesempio sono tratte da \url{https://en.wikipedia.org/wiki/Uncertainty_principle#A_counterexample}.
 \end{itemize}
 
-\subsection{Osservabili compatibili}
+\section{Osservabili compatibili}
 Il principio di indeterminazione implica che in generale non è possibile effettuare misure simultanee arbitrariamente precise se il commutatore $[A,B]\neq 0$, ma suggerisce che se $[A,B]=0$ ciò potrebbe essere possibile. Dimostriamo che, in effetti, \textbf{simultanea misurabilità} e \textbf{commutatività} sono in corrispondenza biunivoca.\\
 Iniziamo col caso di spettro discreto e premettiamo una nozione matematica.\\
 \begin{dfn}
@@ -141,62 +221,116 @@ Si noti che tra spazi di Hilbert in somma diretta non si ha \q{interferenza}, ci
 \end{dfn}
 
 \begin{dfn}
-Due osservabili\marginpar{Osservabili compatibili} \textbf{limitate} a \textbf{spettro discreto} si dicono \textbf{compatibili}\index{Compatibilità} se una misura di prima specie di una osservabile eseguita su un autostato dell'altra la lascia nello stesso autovalore (ma non necessariamente nello stesso autostato), cosicché l'ordine delle misure di $A$ e $B$ è irrilevante, e sia $A$ e $B$ sono simultaneamente misurabili. 
+Due osservabili\marginpar{Osservabili compatibili} \textbf{limitate} a \textbf{spettro discreto} si dicono \textbf{compatibili}\index{Compatibilità} se una misura di prima specie di una osservabile eseguita su un autostato dell'altra la lascia nello stesso autovalore (ossia nello stesso \textit{autospazio}, ma non necessariamente nello stesso \textit{autostato}), cosicché l'ordine delle misure di $A$ e $B$ è irrilevante, e sia $A$ e $B$ sono simultaneamente misurabili con arbitraria precisione. Ciò significa che per entrambi esiste una \textbf{base ortonormale di autovettori comuni}: dato che una misura di prima specie proietta il sistema in un \textit{autostato} dell'osservabile misurata, conoscere contemporaneamente due osservabili significa che, dopo le due misure, il sistema si trova in un autostato di entrambe.  
 \end{dfn}
 
+\begin{expl}
+Per esempio, consideriamo un sistema che inizialmente si trova in uno stato $\ket{\psi}$, e siano $A$ e $B$ due osservabili compatibili: ciò significa che se misuriamo $A$ e otteniamo un valore $a$, poi misuriamo $B$ e otteniamo un $b$, rimisurando $A$ riotterremo $a$, e così via. In questo senso possiamo dire di conoscere le misure di $A$ e $B$ \textit{contemporaneamente}. Esaminiamo, passo per passo, cosa succede dopo ogni misura.\\
+
+Partiamo facendo una misura di $A$ sul sistema, da cui otteniamo un risultato $a \in \sigma(A)$. Ciò vuol dire che la funzione d'onda $\ket{\psi}$ iniziale è \textit{collassata} su una $\ket{\psi_a}$ autostato di $A$.\\
+Misuriamo ora $B$. Abbiamo due casi:
+\begin{itemize}
+\item $\ket{\psi_a}$ è anche un autostato di $B$, per esempio di autovalore $b$. In tal caso la funzione d'onda del sistema resta la stessa (viene \textit{proiettata} su di sé) e otterremo $b$ come risultato della misura. Allora $\ket{\psi_a}$ è un autostato comune a $A$ e $B$, e se ora rimisuriamo $A$ otterremo con certezza di nuovo $a$, come voluto dalla richiesta che $A$ e $B$ siano compatibili.
+\item $\ket{\psi_a}$ non è un autostato di $B$. In tal caso, se il risultato della misura è un certo $b\in \sigma(B)$, la $\ket{\psi_a}$ è collassata in una funzione d'onda differente, che chiamiamo $\ket{\psi_b}$ e che è un autostato di $B$. Se ora rimisuriamo $A$ ci aspettiamo (per ipotesi di compatibilità) di riottenere $a$ con certezza: ciò significa che $\ket{\psi_b}$ deve essere un autostato di $A$. Ma allora $\ket{\psi_b}$ è un autostato comune ad entrambi gli operatori.
+\end{itemize}
+Poiché questo ragionamento vale per ogni possibile $\ket{\psi}$ iniziale, la definizione di compatibilità si traduce, geometricamente, nel richiedere che esista una \textit{base di autostati} comune ad $A$ e $B$, che in particolare possiamo scegliere essere ortonormale. Infatti, le proiezioni descritte sopra funzionano solo se la $\ket{\psi}$ iniziale (generica) è scrivibile come combinazione lineare (eventualmente infinita) di autostati comuni alle due osservabili.
+\end{expl}
+
+Notiamo ora che tale definizione di compatibilità si traduce in una precisa \textbf{proprietà algebrica} degli operatori che descrivono tali osservabili.
+
 \begin{thm}
-Se $A$ e $B$ sono autoaggiunti e limitati e a spettro discreto sono \textbf{compatibili} se e solo se \textbf{commutano}.\ Allora ammettono una \textbf{base ortonormale di autovettori comuni}.
-\end{thm}
-\textbf{Dimostrazione} Compatibilità $\Rightarrow$ commutatività.\\
-Sia $\sigma(A)=\{\lambda_n\}_{n\in N}$, $\sigma(B)=\{\mu_m\}_{m\in M}$. Definiamo lo spazio degli autovettori comuni di $A$ e $B$ di autovalori $\lambda_n, \mu_m$:
+Se $A$ e $B$ sono \textbf{autoaggiunti} e \textbf{limitati} e a\marginpar{Compatibilità $\leftrightarrow$ commutatività (per operatori a.a. limitati a spettro discreto)} \textbf{spettro discreto} sono \textbf{compatibili} (cioè ammettono una base ortonormale di autovettori comuni) se e solo se \textbf{commutano}.\ \end{thm}
+\textbf{Dimostrazione}\\
+Osserviamo che, per ipotesi, $A$ e $B$ sono autoaggiunti e \textbf{limitati} (da cui continui), e quindi possiamo considerare il loro dominio $D(A)=D(B)=\hs$ (basta estendere per continuità $D(A)$ e $D(B)$ densi). In particolare, $A\ket{\psi} \in D(B)$ e $B\ket{\psi} \in D(A)$ per ogni $\ket{\psi}$, e quindi \textit{non si hanno problemi di dominio}.\\
+
+Partiamo dimostrando che \textbf{compatibilità} $\Rightarrow$ \textbf{commutatività}\\
+Siano $\sigma(A)=\{\lambda_n\}_{n\in N}$, $\sigma(B)=\{\mu_m\}_{m\in M}$ gli spettri di $A$ e $B$. Lo spazio degli autovettori comuni di $A$ e $B$ di autovalori $\lambda_n, \mu_m$ è definito da:
 \[
-\hs_{(\lambda_n, \mu_m)}=\{\ket{\phi}\in \hs| A\ket{\phi}=\lambda_n \ket{\phi}, 
+\hs_{(\lambda_n, \mu_m)}=\{\ket{\phi}\in \hs\>|\> A\ket{\phi}=\lambda_n \ket{\phi}, 
 B\ket{\phi}=\mu_m \ket{\phi}
 \}
 \]
-che è ben definito poiché se $\ket{\phi}\in \hs_{\lambda_n}= \{\ket{\psi}\in \hs| A\ket{\psi}=\lambda_n\ket{\psi}\}$ per la compatibilità $B\ket{\phi} \in \hs_{\lambda_n}$ e viceversa.\\
-Se $\hs_{(\lambda_n, \mu_m)}\neq 0$ diremo che $(\lambda_n, \mu_m)$ autovalori comuni di $A$ e $B$ e lo spettro:
+Se $\hs_{(\lambda_n, \mu_m)}\neq 0$ chiameremo i $(\lambda_n, \mu_m)$ \textbf{autovalori comuni} di $A$ e $B$.\\
+
+
+\textbf{Nota}: non è necessario che $A$ e $B$ abbiamo gli stessi autovalori, e nemmeno lo stesso numero\footnote{Parlare di \textit{numero di autovalori} ha senso solo se $\hs$ è finito-dimensionale.} di autovalori! Per esempio $B$ potrebbe avere un autovalore \textit{degenere} $\mu_1$, che ha come autospazio un $\hs_{\mu_1}$ di dimensione pari alla sua degenerazione, mentre lo stesso $\hs_{\mu_1}$ \textit{contiene} autovettori di $A$ con autovalori $\lambda_1, \dots, \lambda_n$ (chiaramente, $n < \op{dim}(\hs_{\mu_1})$).\\
+
+ L'insieme di tutti gli autovalori comuni è dato dallo \textbf{spettro comune}:
 \[
 \sigma(A,B)\equiv \{
 (\lambda_n, \mu_m) \in \sigma(A) \times \sigma(B) \text{ autovalori comuni }
 \} \subseteq \sigma(A)\times \sigma(B)
 \]
-(è solo un sottoinsieme, dato che per una certa scelta di $\lambda_n$ potrebbe essere che non tutti i $\mu_m$\ sono ammessi!)\\
-Essendo $\hs_{(\lambda_n, \mu_m)}$ di Hilbert ammette una base ortonormale:
+\textbf{Nota}: in generale $\sigma(A,B)$ è più piccolo del prodotto cartesiano $\sigma(A)\times \sigma(B)$ dei singoli spettri, poiché può essere che, fissato un $\lambda_n$, non tutti i $\mu_m$ siano ammessi come autovalori.\\
+
+Notiamo che $\hs_{(\lambda_n, \mu_m)}$ è l'intersezione di autospazi di operatori a spettro discreto, che sono \textit{sottospazi} di $\hs$, e quindi a loro volta spazi di Hilbert. Di conseguenza, anche $\hs_{(\lambda_n, \mu_m)}$ è una varietà chiusa di $\hs$, e quindi è di Hilbert. Ammette perciò una \textbf{base ortonormale} di autovettori comuni, di dimensione pari alla degenerazione di $(\lambda_n,\mu_m)$:
 \[
 \{\ket{(\lambda_n, \mu_m), j}, j = 1, \dots, \op{dim}\hs_{(\lambda_n, \mu_m)}\equiv d(\lambda_n, \mu_m)\}
 \]
 (dove $j$ indica la degenerazione dell'autovettore, nel caso alla stessa coppia di autovalori corrispondano più autovettori).\\
-Inoltre, se $(\lambda_n, \mu_m)\neq (\lambda_{n'}, \mu_{m'})$ gli stati in $\hs_{(\lambda_n, \mu_m)}$ sono ortogonali agli stati in $\hs_{(\lambda_{n'}, \mu_{m'})}$ in quanto autostati di autovalori diversi di operatori autoaggiunti a spettro discreto.\\ %Come avevamo già visto, mettere un ref
-Quindi:
+Inoltre, se $(\lambda_n, \mu_m)\neq (\lambda_{n'}, \mu_{m'})$ gli stati in $\hs_{(\lambda_n, \mu_m)}$ sono ortogonali agli stati in $\hs_{(\lambda_{n'}, \mu_{m'})}$ in quanto autostati di autovalori diversi di operatori autoaggiunti a spettro discreto (ciò deriva dal teorema spettrale).\\ %Come avevamo già visto, mettere un ref [TO DO]
+Se $A$ e $B$ sono compatibili i loro autovettori comuni formano una base di $\hs$: per ottenerla basta \textit{unire} tutti gli autospazi comuni:
 \[
 \hs = \bigoplus_{(\lambda_n, \mu_m)\in \sigma(A,B)} \hs_{(\lambda_n, \mu_m)}
 \]
-e $\{\ket{(\lambda_n, \mu_m), j}\}, j=1, \dots, d(\lambda_n, \mu_m), (\lambda_m, \mu_m)\in \sigma(A,B)\}$ è una base ortonormale in $\hs$ di autovettori comuni.\\
-Pertanto posso esprimere ogni vettore di $\hs$ come combinazione lineare di elementi di questa base. $\forall \ket{\psi}\in \hs$ vale:
-(*)\[
+e $\{\ket{(\lambda_n, \mu_m), j}\}, j=1, \dots, d(\lambda_n, \mu_m), (\lambda_m, \mu_m)\in \sigma(A,B)\}$ è la base ortonormale in $\hs$ di autovettori comuni.\\
+Pertanto possiamo esprimere ogni vettore di $\hs$ come combinazione lineare di elementi di questa base. $\forall \ket{\psi}\in \hs$ vale:
+\begin{equation}
 \ket{\psi}=\sum_{\substack{n\in N\\m\in M}} \sum_{j=1}^{d(\lambda_n, \mu_m)}c_{nmj}\ket{(\lambda_n, \mu_m),j}
-\]
-Essendo $\ket{(\lambda_n, \mu_m), j}$ autostati di $A$ e di $B$:
+\label{eqn:combinazione_lineare_comune}
+\end{equation}
+Essendo $\ket{(\lambda_n, \mu_m), j}$ autostati di $A$ e di $B$ (di autovalore $\lambda_n$ per $A$ e $\mu_m$ per $B$), per definizione di autovettore avremo:
+\begin{align*}
+A\ket{(\lambda_n, \mu_m),j} &= \lambda_n \ket{(\lambda_n, \mu_m),j}\\
+B\ket{(\lambda_n, \mu_m),j} &= \mu_m \ket{(\lambda_n,\mu_m),j}
+\end{align*}
+Mettendo tutto insieme:
 \[
 (AB-BA)\ket{(\lambda_n, \mu_m), j} = (A\mu_m -B\lambda_n)\ket{(\lambda_n, \mu_m),j}= (\lambda_n \mu_m - \mu_m \lambda_n)\ket{(\lambda_n, \mu_m),j} =\ 0
 \]
-e per (*) si ha:
+Poiché ogni $\ket{\psi}$ generica si può scrivere come combinazione di tali autostati (\ref{eqn:combinazione_lineare_comune}), allora deve essere:
 \[
 [A,B]\ket{\psi} = 0; \quad \forall \ket{\psi}\in \hs
 \]
 
-Dimostriamo ora il viceversa, ossia che commutatività $\Rightarrow$ compatibilità.\\
-Sia $[A,B]=0$, $\ket{\phi_n}$ autostato di $A$ di autovalore $\lambda_n$, allora:
+\begin{expl}
+Concretizziamo le due \textbf{note} appena viste con un esempio. Siano $A, B \in \bb{R}^{3\times 3}$ (matrici $3\times 3$). Supponiamo che $A$ abbia tre autovalori reali $\lambda_1, \lambda_2, \lambda_3$ con autospazi $E_{\lambda_1}, E_{\lambda_2}, E_{\lambda_3}$, mentre $B$ ha due autovalori reali $\mu_1, \mu_2$ con autospazi $E_{\mu_1}=\op{Span}(E_{\lambda_1},E_{\lambda_2})$ e $E_{\mu_2}=E_{\lambda_3}$, da cui $\sigma(A)=\{\lambda_1,\lambda_2, \lambda_3\}$, $\sigma(B)=\{\mu_1, \mu_2\}$.\\
+$A$ e $B$ sono \textbf{compatibili}: gli autospazi $E_{\lambda_1}, E_{\lambda_2}, E_{\lambda_3}$ sono generati da $3$ autovettori, che costituiscono una base di $\bb{R}^{3\times 3}$, e sono anche autovettori di $B$.\\
+Avremo allora:
+\begin{align*}
+\hs_{(\lambda_1,\mu_1)}&=E_{\lambda_1}\\
+\hs_{(\lambda_2,\mu_1)}&=E_{\lambda_2}\\
+\hs_{(\lambda_3, \mu_2)} &= E_{\lambda_3}\\
+\hs_{(\lambda_1, \mu_2)} =\hs_{(\lambda_2,\mu_2)}=\hs_{(\lambda_3,\mu_1)}=\emptyset \span
+\end{align*}
+Perciò gli autovalori comuni sono:
+\begin{align*}
+\sigma(A,B)&=\{(\lambda_1, \mu_1), (\lambda_2,\mu_1), (\lambda_3,\mu_2)\}\\
+&\subset \{(\lambda_1,\mu_1),(\lambda_2,\mu_1), (\lambda_3,\mu_1), (\lambda_1,\mu_2),(\lambda_2,\mu_2),(\lambda_3,\mu_3) \} = \sigma(A)\times\sigma(B)
+\end{align*}
+E notiamo, come ci si aspetta, che:
+\[
+\bb{R}^{3\times 3} = \bigoplus_{(\lambda_n, \mu_m)\in \sigma(A,B)}\hs_{(\lambda_n, \mu_m)}
+\]
+\end{expl}
+
+
+Dimostriamo ora il viceversa, ossia che \textbf{commutatività} $\Rightarrow$ \textbf{compatibilità}.\\
+Abbiamo allora $[A,B]=0$ per ipotesi. Data una $\ket{\phi_n}$ autostato di $A$ di autovalore $\lambda_n$, allora:
 \[
 AB\ket{\phi_n}\underset{(a)}{=}BA\ket{\phi_n} \underset{(b)}{=} \lambda_n B\ket{\phi_n}
 \]
-In (a) si è usata la commutatività, e in $(b)$ il fatto che sia un autostato di $A$. Otteniamo quindi che $B\ket{\phi_n}$ è autostato di $A$ di autovalore $\lambda_n$.\\
-Poiché $\hs_{\lambda_n}$ è ortogonale a $\hs_{\lambda_n'}$ perché $\lambda_n\neq \lambda_{n'}$ (autospazi di autovalori distinti), si ha che:
+In (a) si è usata la commutatività, e in $(b)$ il fatto che $\ket{\phi_n}$ sia un autostato di $A$. Otteniamo quindi che $B\ket{\phi_n}$ è autostato di $A$ di autovalore $\lambda_n$, cioè che applicare $B$ ad uno autostato di $A$ non cambia l'autovalore $\lambda_n$ a cui è associato, ossia $B$ mappa vettori dell'autospazio $\hs_{\lambda_n}$ in altri vettori di $\hs_{\lambda_n}$.\\
+Ciò suggerisce che vi sia una base comune ad entrambi gli operatori: costruiamola.\\
+Iniziamo notando che, poiché l'autospazio $\hs_{\lambda_n}$ è ortogonale a $\hs_{\lambda_n'}$ perché $\lambda_n\neq \lambda_{n'}$ (autospazi di autovalori distinti), si ha che:
 \[
 \bra{\underbrace{\phi_{n'}}_{\in \hs_{\lambda_{n'}}}}\underbrace{B \ket{\phi_n}}_{\in \hs_{\lambda_n}}=0 \quad \lambda_n \neq \lambda_{n'}
 \]
-Quindi $B$ mappa $\hs_{\lambda_n}$ in se stesso e $\hs=\oplus_{n\in N}\hs_{\lambda_n}$ e $B$ ristretto a $\hs_{\lambda_n}$ (denotato $B\Big|_{\hs_{\lambda_n}}$) è autoaggiunto in $\hs_{\lambda_n}$, cioè $B$ è \q{diagonale a blocchi}:
+Consideriamo ora una base $\ket{\phi_n}$ di autovettori di $A$. Tale base esiste per teorema spettrale, dato che:
+\[
+\hs=\bigoplus_{n\in N} \hs_{\lambda_n}
+\]
+Se ora esaminiamo gli elementi di matrice di $B$ in questa base, otteniamo una \textit{matrice diagonale a blocchi}:
 \[
 B=\begin{pmatrix}
 \boxed{B\Big|_{\hs_{\lambda_1}}} & 0 & 0\\
@@ -204,7 +338,8 @@ B=\begin{pmatrix}
 0 & 0 & \ddots
 \end{pmatrix}
 \]
-Essendo $B\Big|_{\hs_{\lambda_n}}$ autoaggiunto in\ $\hs_{\lambda_n}$ ammette in $\hs_{\lambda_n}$ una base di autovettori, ciascuno corrispondente a una coppia $\lambda_n \in \sigma(A)$, $\mu_m \in \sigma(B)$ che denotiamo $\ket{(\lambda_n, \mu_m), j}$. Essi sono autovettori comuni di $A$ e $B$ e pertanto $A$ e $B$ sono compatibili.
+Se gli autovalori di $B$ non hanno degenerazione, allora la matrice di sopra è esattamente diagonale, e quindi $\ket{\phi_n}$ è una \textit{auto}base comune ad $A$ e $B$, e la dimostrazione è finita. Nel caso generale, tuttavia, i blocchi non sono $1\times 1$, e quindi dobbiamo fare un ulteriore passaggio.\\
+Notiamo che $B\Big|_{\hs_{\lambda_n}}$ è autoaggiunto in\ $\hs_{\lambda_n}$ (lo è in $\hs$, e come appena visto $\hs$ si ottiene unendo $\hs_{\lambda_n}$) e perciò ammette in $\hs_{\lambda_n}$ una base di autovettori, ciascuno corrispondente a una coppia $\lambda_n \in \sigma(A)$, $\mu_m \in \sigma(B)$. Tali autovettori, che denotiamo con $\ket{(\lambda_n, \mu_m), j}$, sono proprio la base di autovettori comuni di $A$ e $B$ che stavamo cercando, e pertanto $A$ e $B$ sono compatibili.
 \begin{flushright}
 $\square$
 \end{flushright}
@@ -220,23 +355,29 @@ In effetti, se $A$ e $B$ sono limitati e a spettro discreto possiamo scrivere le
 P^A(\lambda) &= \sum_{\lambda_n \in \sigma(A)}\sum_{r=1}^{d(\lambda_n)}H(\lambda-\lambda_n)\ket{\lambda_n,r}\bra{\lambda_n, r}\\
 P^B(\mu) &= \sum_{\mu_m \in \sigma(B)}\sum_{s=1}^{d(\mu_m)}H(\mu-\mu_m)\ket{\mu_m, s}\bra{\mu_m, s}
 \end{align*}
-sono le loro famiglie spettrali e quindi 
-\[
-[P^A(\lambda), P^B(\mu)]=0 \Leftrightarrow [\ket{\lambda_n,r}\bra{\lambda_n, r}, \ket{\mu_m, s}\bra{\mu_m, s}] = 0 \quad \forall \lambda_n, \mu_m
-\]
-Ma poiché:
+Se $P^A(\lambda)$ e $P^B(\lambda)$ commutano:
+\begin{equation}
+[P^A(\lambda), P^B(\mu)]=0 \Leftrightarrow [\ket{\lambda_n,r}\bra{\lambda_n, r}, \ket{\mu_m, s}\bra{\mu_m, s}] = 0 \quad \forall \lambda_n, \mu_m 
+\label{eqn:proiettori_commutativi}
+\end{equation}
+Ma allora, scrivendo $A$ e $B$ tramite decomposizione spettrale:
 \begin{align*}
 A &= \sum_{\lambda_n \in \sigma(A)}\lambda_n \sum_{r=1}^{d(\lambda_n)}\ket{\lambda_n,r}\bra{\lambda_n,r}\\
 B &= \sum_{\mu_m \in \sigma(B)} \mu_m \sum_{s=1}^{d(\mu_m)}\ket{\mu_m, s}\bra{\mu_m, s}
 \end{align*}
-e allora $\leftrightarrow [A,B]=0$ e la definizione coincide con la precedente.\\
-Ma per $A$, $B$ autoaggiunti in generale entrano problemi di dominio nella definizione di commutatore e la definizione data (di \q{commutano}) risulta la definizione corretta  perché valga:
- \begin{thm}
- $A$ e $B$ autoaggiunti sono compatibili (proprietà fisica) se e solo se commutano (proprietà algebrica).
- \end{thm}
- (Dimostrazione omessa)\\
- 
- Nella prossima lezione ci concentreremo sull'analizzare le caratteristiche di un insieme massimale su cui sono definite coppie di operatori.
+notiamo che $AB-BA$ non è altro che una combinazione lineare di termini nulli per (\ref{eqn:proiettori_commutativi}), e perciò $AB-BA=[A,B]=0$. Abbiamo allora mostrato che le famiglie spettrali di $A$ e $B$ commutano $\Leftrightarrow$ $[A,B]=0$ (almeno nel caso di $A$ e $B$ limitati a spettro discreto).\\
 
+Il caso generale di $A$ e $B$ autoaggiunti (non necessariamente limitati e con spettro generico) non è altrettanto semplice: nella definizione di commutatore entrano problemi di dominio. Tuttavia, si può dimostrare che il caso particolare che abbiamo esaminato ha validità generale, e vale cioè:
+ \begin{thm}
+ $A$ e $B$ \textbf{autoaggiunti} (con spettro qualsiasi) sono \textbf{compatibili} (proprietà fisica) se e solo se \textbf{commutano} (proprietà algebrica), ossia se commutano le loro \textbf{famiglie spettrali}.
+\label{thm:compatibility}
+ \end{thm}
+ 
+ \textbf{Dimostrazione}: omessa.
+
+\begin{comment}
+ Nella prossima lezione ci concentreremo sull'analizzare le caratteristiche di un insieme massimale su cui sono definite coppie di operatori.
+\end{comment}
 \end{document}
+
 

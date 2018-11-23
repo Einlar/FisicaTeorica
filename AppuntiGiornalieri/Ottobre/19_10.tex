@@ -1,80 +1,7 @@
 \documentclass[../../FisicaTeorica.tex]{subfiles}
-
 %\input{header.tex}
-
 \begin{document}
-\section{L'operatore momento}
-In questa sezione si analizza l'osservabile momento in meccanica quantistica. Tale analisi, oltre ad essere fondamentale in fisica, mostra come il cambiamento del dominio degli operatori in meccanica quantistica possa modificare completamente la fisica del sistema.
-\subsection{Momento in $\bb{R}$}
-Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ \q{a dominio reale}, cioè su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice \q{regolarità}.\\
-In particolar modo, è necessario chiedere che:
-\begin{itemize}
-    \item Esista la derivata $\psi'$ \textit{quasi ovunque}.
-    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e sia \q{integrabile alla Lebesgue su ogni compatto}:
-    \[
-    \int_a^b \psi'(x)dx = \psi(b)-\psi(a) \qquad \forall [a,b] \subset \bb{R}
-    \]
-\end{itemize}
-\textbf{Nota}: È necessario che le condizioni siano così \q{larghe}. Per esempio, potremmo essere tentati di sintetizzarle chiedendo che $\psi \in \mathcal C^1$. Ciò, tuttavia, fa perdere l'autoaggiuntezza dell'operatore, e perciò fa sì che il suo spettro non sia più solamente reale!\\
-Definiamo perciò il dominio di $P$ come:
-\begin{align*}
-D\left(P\right)= \big\{\psi\in L^2\left(\mathbb{R},\ dx\right)\ \ |\ \ 
-&\exists\psi^\prime\ q.o.\, \int_{a}^{b}{\psi^\prime\left(x\right)dx}=\psi\left(b\right)-\psi\left(a\right)\ \forall\left[a,b\right]\subset\mathbb{R},\\
-&\psi^\prime\in L^2(\mathbb{R},\ dx)\ \big\}
-\end{align*}
-\textbf{Nota}: per \textit{definire} un operatore è necessario indicarne in maniera esplicita il dominio. Come vedremo tra poco, infatti, lo \q{stesso operatore} su domini diversi può dar luogo a risultati assurdi, o essere associato a diverse osservabili.\\
 
-Fissate queste condizioni, si ha subito che se $\psi$ , $\psi^\prime\in L^2(R, dx)$ allora $\psi(x)$ si annulla all'infinito:
-\[
-\lim_{x\rightarrow\pm\infty}{\psi\left(x\right)}=0
-\]
-A priori non è nemmeno ovvio che tale limite esista. Potremmo per esempio considerare una funzione che si annulla ovunque, se non in determinati intervalli (di misura non nulla), in cui \q{salta} a un certo valore positivo. Calibrando opportunamente la larghezza dei \q{salti} e distanziandoli tra loro si può far sì che l'integrale di tale $\psi$ converga a un valore finito - e quindi che $\psi \in L^2$. Tuttavia, poiché tali \q{salti} sono sempre presenti, per quanto grande sia $M$, per $x>M$ la funzione assume valori che non si avvicinano a $0$ più del valore del \q{salto}, e perciò il limite a $\infty$ non esiste.\\
-Tuttavia, se $\psi$ e $\psi' \in L^2(\bb{R})$, allora lo sono anche su $\mathbb{R}_+$: $\psi$,$\psi^\prime\in L^2([0, +\infty [, dx)$. Ma allora:
-\[
-\int_0^\infty dx (\psi^*(x)\psi'(x)+{\psi^*}'(x)\psi(x)) = \int_0^\infty dx \frac{d}{dx}(\psi^*(x), \psi(x)) = \norm{\psi(\infty)}^2 - \norm{\psi(0)}^2
-\]
-e tale integrale esiste finito perché abbiamo richiesto sia possibile l'integrazione per parti.\\
-Ma allora esiste $\norm{\psi(\infty)}$, e quindi anche:
-\begin{equation}
-\psi(\infty) = \lim_{x\to\infty} \psi(x) = 0
-\label{eqn:psitozero}
-\end{equation}
-(Se fosse qualsiasi altro valore eccetto $0$ si avrebbe che $\psi \notin L^2$).\\
-
-Verifichiamo allora l'autoaggiuntezza $P = P^\dag$. Essendo $D(P)$ denso in $\hs$ partiamo dall'uguaglianza degli elementi di matrice per definire $P^\dag$ e osservare quali condizioni è necessario imporre per il suo dominio:
-\[
-\left(\phi,P\psi\right)=(P^\dag\phi,\psi); \quad \forall \phi \in D(P^\dag);\> \forall \psi \in D(P)
-\]
-Calcolando il prodotto scalare:
-\[
-\int_{-\infty}^{+\infty}{dx\,\phi^\ast\left(x\right)\left[\hlc{SkyBlue}{-i\hbar\frac{d}{dx}\psi\left(x\right)}\right]\underset{(a)}{=}
-\hlc{Yellow}{-i\hbar\phi^\ast\left(x\right)\psi\left(x\right)\big|_{-\infty}^{+\infty}}+\int{\left[\hlc{SkyBlue}{-i\hbar\frac{d}{dx}\phi\left(x\right)}\right]^\ast\psi\left(x\right)dx}}
-\]
-(dove in (a) si è integrato per parti).\\
-Se il termine evidenziato in giallo si annullasse avremmo dimostrato che l'aggiunto $P^\dag$ ha la stessa forma di $P$, ossia che $P$ è simmetrico (le espressioni corrispondenti a $P$ e $P^\dag$ sono evidenziati in azzurro). Sappiamo che tale termine si annulla poiché, come visto in (\ref{eqn:psitozero}), $\psi(x)$ si annulla all'infinito. Tale conclusione è però valida solamente se l'integrazione per parti effettuata in (a) è sensata, ossia se anche per $\phi$ valgono le richieste che abbiamo fatto per $\psi$ a tal proposito, e cioè che $\phi'$ esista quasi ovunque, $\phi, \phi' \in L^2(\bb{R},dx)$ e $\phi'$ Lebesgue-integrabile su compatti.\\
-Ma allora le condizioni che abbiamo imposto per trovare $D(P)$ sono esattamente le stesse che caratterizzano $D\left(P^\dag\right)$, e quindi:
-\[
-D\left(P\right)=D(P^\dag)
-\]
-
-\subsection{Momento in $\bb{R}_+$}
-Paradossalmente, se cerchiamo di restringere la definizione di $P$ ai soli reali positivi, ossia ponendo $\hs=L^2\left(\mathbb{R}_+,\ dx\right)$, la costruzione di prima non porta ad alcun operatore autoaggiunto. Verifichiamolo.\\
-Sia $P= -i\hbar \frac{d}{dx}$, e fissiamo:
-\[
-D\left(P\right)= \left\{\psi\in L^2\left(\mathbb{R}_+\right)\ |\ \exists\> \psi'
-\text{ q.o. e sia definita l'integrazione per parti}, \psi^\prime\in L^2(\mathbb{R}_+)\right\}
-\]
-Ripetendo gli stessi passaggi di prima, si arriva a dover definire le condizioni per cui il primo termine dell'integrazione per parti (quello evidenziato in giallo nel caso precedente) si annulli:
-\[
-\phi^*(x)\psi(x)\big|_{0}^{+\infty} = \cancel{\phi^*(+\infty)\psi(+\infty)} - \phi^*(0)\psi(0) = 0
-\]
-Il problema è che dalle condizioni che abbiamo imposto finora sappiamo solo che $\psi$ si annulla all'infinito, ma nulla si sa sul suo comportamento in $0$. È quindi necessario imporre un'altra condizione - ma non c'è modo di farlo in maniera \q{simmetrica}. Se infatti risolvessimo ponendo $\psi(0) = 0$ non dovremmo fare la stessa richiesta per la $\phi$ (non sarebbe necessario), e quindi $D(P) \subset D(P^\dag)$. Viceversa, se imponessimo $\phi(0) = 0$ avremmo la situazione opposta, con $D(P) \supset D(P^\dag)$.\\
-Perciò, se richiediamo che il momento $P$ nell'intervallo $\bb{R}_+$ sia simmetrico, allora non può essere autoaggiunto, e quindi \textit{non è un'osservabile}.\\
-Qual è il significato fisico di ciò?\\
-ipotizziamo per assurdo che $P$ su $\bb{R}_+$ sia un'osservabile. Allora avremo degli autovalori, per esempio $p$ autovalore di $P$. Facendo quindi una misura del momento troveremmo allora $p$, e sapremmo per certo che $p>0$.\\
-Con un'analogia semiclassica, \q{fissare un momento} significa considerare un'onda piana\footnote{Pensandola con il principio di indeterminazione: l'onda piana ha estensione infinita - quindi non conosciamo la sua posizione con nessuna precisione - ma ha un \textit{unico} momento $p$}. Tuttavia, un'onda piana \q{confinata} a $\bb{R}_+$ vuol dire che \q{si è riflessa} sul piano per $x=0$, ed è quindi in realtà la sovrapposizione di un'onda incidente e una riflessa - che hanno momenti di segno opposto\footnote{In altre parole, facendo oscillare una fune \q{infinitamente lunga} ma collegata ad un punto fisso - oltre il quale non c'è più nulla, e che corrisponde all'\textit{estremo del dominio}, ossia $x=0$, si crea un'\textit{onda stazionaria}, che classicamente si ottiene come sovrapposizione di due onde con verso opposto di propagazione}. Perciò anche in questo caso non è possibile ottenere una misura univoca del momento - e infatti l'operatore $P$ su $\bb{R}_+$ non corrisponde a osservabili.
-
-%%19-10
 \subsection{Momento in $[0,2\pi]$}
 \lesson{12}{19/10/2018}
 \label{sec:momento_compatto}
@@ -143,7 +70,7 @@ Potremmo, matematicamente, imporre anche solo che $\psi \left(2\pi\right)=e^{i\g
 Se $\gamma =0$ ritroviamo il caso di prima, ma generalmente $\gamma \in [0, 2\pi [$. Qual è allora la condizione da imporre sulle $\phi$?\\
 Imponendo (\ref{eqn:integrazioneperpartizero}) con la nuova condizione sulle $\psi$, otteniamo:
 \[
-0= \phi^\ast\left(2\pi\right)\psi\left(2\pi\right)- \phi^\ast\left(0\right)\psi \left(0\right)=\left(\phi^\ast\left(2\pi\right)e^{i\gamma}-\phi^\ast\left(0\right)\right)\psi\left(0\right)\phi\left(2\pi\right)=e^{i\gamma}\phi \left(0\right)
+0= \phi^\ast\left(2\pi\right)\psi\left(2\pi\right)- \phi^\ast\left(0\right)\psi \left(0\right)=\left(\phi^\ast\left(2\pi\right)e^{i\gamma}-\phi^\ast\left(0\right)\right)\psi\left(0\right)\Rightarrow \phi\left(2\pi\right)=e^{i\gamma}\phi \left(0\right)
 \]
 che è la stessa condizione imposta sulle $\psi$! Abbiamo quindi l'autoaggiuntezza:
 \[
@@ -281,9 +208,10 @@ In effetti, nel caso finito dimensionale di $\mathbb{R}^n$, se si parte da una b
 Dalla definizione segue anche che la traccia è \textbf{lineare}.
 \end{mdframed}
 Sostituendo questo risultato nella formula della media:
-\[
+\begin{equation}
 \langle A \rangle_\Sigma = \sum_{i=1}^n p_i \bra{\phi_i}A\ket{\phi_i} = \sum_{i=1}^n p_i \op{Tr}(\ket{\phi_i}\bra{\phi_i}A) \underset{(a)}{=} \op{Tr}\left( \hlc{Yellow}{\sum_{i=1}^n p_i \ket{\phi_i}\bra{\phi_i}A}\right )
-\]
+\label{eqn:media_stati_misti}
+\end{equation}
 dove in (a) si è usata la linearità della traccia.\\
 Il termine evidenziato è detto \textbf{matrice densità}:\marginpar{Matrice di densità}\index{Matrice densità}
 \[

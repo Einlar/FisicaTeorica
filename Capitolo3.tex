@@ -19,7 +19,7 @@ Esaminiamo dunque le proprietà che vogliamo imporre sull'insieme (lo spazio) de
     Per la prima volta in fisica l'algebra naturale degli stati è in $\bb{C}$ e non in $\bb{R}$.
     \item In realtà\marginpar{Vettori definiti a meno di proporzionalità} abbiamo visto che $\langle \hat{x}\rangle_\psi$ e $\langle \hat{p}\rangle_\psi$ non cambiano se sostituiamo $\psi$ con $\alpha \psi$, con $\alpha \in \bb{C}\setminus \{0\}$. Inoltre nella definizione dei valori medi (o delle probabilità) abbiamo dovuto normalizzare le funzioni dividendo per $\norm{\psi} = (\int |\psi(x)|^2\, dx)^{1/2}$, e quindi necessariamente $0<\norm{\psi}<\infty$, in pratica escludiamo vettori di norma nulla o infinita.\\
     Per queste ragioni è più corretto definire lo spazio vettoriale a cui appartengono le $\psi$ come segue. \vspace{-0.3em}
-    \begin{dfn}[Raggio vettore]
+    \begin{dfn}[Raggio vettore]\index{Raggio vettore}
     Dato $V$ spazio vettoriale normato, \marginpar{Raggio vettore}$\psi \in V$, l'insieme $\{\alpha\,\psi, \alpha \in \bb{C}\setminus \{0\}\}$ o equivalentemente $\{e^{i\alpha}\psi, e^{i\alpha} \in S^1, \norm{\psi} = 1 \}$, è detto \textbf{raggio vettore} di $V$. Quindi ad ogni \textbf{stato puro} corrisponde \textbf{uno e uno solo} raggio vettore\footnote{Questa in realtà non è una semplice sottigliezza matematica. Tale biiezione \q{a meno di un fattore moltiplicativo} è alla base dell'esistenza dei fermioni - e perciò della \q{materia}.}.
     \end{dfn}
     \item Lo spazio vettoriale $V$ dei vettori di stato ha bisogno di un \textbf{prodotto scalare} $\langle \cdot | \cdot \rangle$,\marginpar{Prodotto scalare} che si usa per esempio per calcolare il valor medio della posizione:
@@ -33,7 +33,7 @@ Esaminiamo dunque le proprietà che vogliamo imporre sull'insieme (lo spazio) de
     \]
     per cui per ogni funzione di stato \marginpar{Esistenza della trasformata} $\psi(x)$ deve esistere la sua trasformata di Fourier.
 \end{enumerate}
-Uno spazio su $\mathbb{R}^n$ che ha tutte queste proprietà è $L^2\left(\mathbb{R}^n,d^nx\right)$. Per definire $L^2$ si  considerano le funzioni \q{modulo quadro integrabili} secondo Lebesgue, ovvero funzioni $f$ che soddisfano a:
+Uno spazio su $\mathbb{R}^n$ che ha tutte queste proprietà\index{Spazio $L^2$} è $L^2\left(\mathbb{R}^n,d^nx\right)$. Per definire $L^2$ si  considerano le funzioni \q{modulo quadro integrabili} secondo Lebesgue, ovvero funzioni $f$ che soddisfano a:
 \[
 	\int \left|f\left(x\right)\right|^2d^nx<\infty
 \]
@@ -45,7 +45,7 @@ $L^2$ è dotato del \textbf{prodotto scalare} definito come:
 \[
 	\left\langle f,g\right\rangle=\int d^n x f^*\left(x\right)g\left(x\right) \qquad \forall f,g \in L^2\left(\mathbb{R},d^n x\right)
 \]
-Da qui si nota il perché abbiamo dovuto considerare le classi di equivalenza. Se non lo avessimo fatto $\left\langle f,f\right\rangle=0$ non implicherebbe che $f=0$, poiché anche funzioni quasi ovunque nulle avrebbero la stessa \q{norma} pari a $0$!.
+Da qui si nota il perché abbiamo dovuto considerare le classi di equivalenza. Se non lo avessimo fatto $\left\langle f,f\right\rangle=0$ non implicherebbe che $f=0$, poiché anche funzioni quasi ovunque nulle avrebbero la stessa \q{norma} pari a $0$!
 \begin{dfn}
 Uno spazio vettoriale\marginpar{Spazi pre-Hilbertiani, e di Hilbert} dotato di un \textbf{prodotto scalare} è detto \textbf{pre-Hilbertiano}. Se è anche \textbf{completo} è allora detto di \textbf{Hilbert}.
 \end{dfn}
@@ -63,11 +63,10 @@ In altre parole, per ogni coppia di elementi di $\mathcal{H}_1$, il loro prodott
 \[
 	-\frac{\hbar^2}{2m} \nabla^2 \psi+V\psi=\mathcal{E}\psi
 \]
-Infatti siccome nell'equazione si deriva la $\psi$ due volte, è naturale richiedere che ciò sia possibile, mantenendo lo stesso prodotto scalare di $L^2$. La risposta a questa domanda è il fatto che lo spazio così definito risulta pre-Hilbertiano, ma non di Hilbert, e dunque manca la completezza!\\
-
-Non possiamo far ciò perché solo per gli spazi di Hilbert valgono i due seguenti teoremi.
+Infatti siccome nell'equazione si deriva la $\psi$ due volte, è naturale richiedere che ciò sia possibile, mantenendo lo stesso prodotto scalare di $L^2$. La risposta a questa domanda è il fatto che lo spazio così definito risulta pre-Hilbertiano, ma non di Hilbert, e dunque manca la completezza. Ma tale proprietà è \textit{necessaria} per alcuni importanti teoremi, e quindi non possiamo rinunciarvi.\\
+Per uno spazio di Hilbert (che è quindi uno spazio \textbf{completo}) valgono infatti i due seguenti teoremi:
 \begin{thm}
-Per ogni base ortonormale di $\mathcal{H}$\marginpar{Basi ON in spazio di Hilbert} è possibile scrivere ogni vettore di $\mathcal{H}$ in modo \textbf{univoco} come combinazione lineare (eventualmente infinita) di elementi della base
+Per ogni base ortonormale di $\mathcal{H}$\marginpar{Basi ON in spazio di Hilbert} è possibile scrivere ogni vettore di $\mathcal{H}$ in modo \textbf{univoco} come combinazione lineare (eventualmente infinita) di elementi della base (Teorema di Riesz-Fisher)
 \end{thm}
 Come vedremo  il teorema precedente è cruciale per l'interpretazione statistica della meccanica quantistica.
 \begin{thm}
@@ -110,7 +109,7 @@ L^2\left(\mathbb R,dx\right)\ni\psi \mapsto \left\{a_n=\left(\phi_n,\ \psi\right
 \]
 Lo stesso teorema garantisce inoltre\marginpar{Equivalenza tra rappresentazione in posizione e in momento} l'equivalenza tra lo spazio delle \textbf{funzioni d'onda} $\psi$ $\left(x\right)\in L^2(\bb{R}, dx)$ e delle funzioni d'onda del \textbf{momento} $\tilde{\psi}\left(p\right)\in L^2(\bb{R},dp)$ (sono entrambi spazi della stessa cardinalità, e di conseguenza sono isomorfi), con l'isomorfismo che è definito dalle \textbf{trasformate di Fourier} in $L^2$.\\
 
-Perché tutta l'informazione fisica sullo stato è contenuta sia in $\psi(x)$ che in $\tilde{\psi}(p)$ che in $\left\{a_n\right\}$ evidentemente l'informazione sullo stato non è contenuta in uno spazio di Hilbert \q{concreto} come $L^2(\bb{R},dx)$ o $L^2(\bb{R},dp)$ o $l_2$, ma è contenuto in uno spazio di Hilbert \q{astratto}\footnote{La distinzione tra i due può essere ben compresa facendo riferimento alla nozione di \textit{vettore} in un normale spazio finito-dimensionale, come per esempio $\bb{R}^3$. Potremmo definire un vettore come una \textit{terna di numeri} (coordinate rispetto ad una base), oppure come le classi di equivalenza della relazione di equipollenza, che associa tutte le \q{coppie di punti} del tipo $AB$ che \q{hanno la stessa distanza} e puntano nella stessa direzione (che è quella che va da $A$ a $B$. Chiaramente in questo secondo modo stiamo definendo i vettori \textit{indipendentemente} da una base, come \q{entità matematica astratta} che semplicemente soddisfa determinate proprietà. Nell'introdurre la notazione dei \q{ket} Dirac compie un processo simile per la \MQ.}\marginpar{Spazio di Hilbert \q{astratto}}, cioè \textbf{definito a meno di isomorfismi}, in cui sono definite le rappresentazioni delle osservabili del sistema quantistico (questa era la visione di \textbf{Dirac}).\\
+Perché tutta l'informazione fisica sullo stato è contenuta sia in $\psi(x)$ che in $\tilde{\psi}(p)$ che in $\left\{a_n\right\}$ evidentemente l'informazione sullo stato non è contenuta in uno spazio di Hilbert \q{concreto} come $L^2(\bb{R},dx)$ o $L^2(\bb{R},dp)$ o $l_2$, ma è contenuto in uno spazio di Hilbert \q{astratto}\footnote{La distinzione tra i due può essere ben compresa facendo riferimento alla nozione di \textit{vettore} in un normale spazio finito-dimensionale, come per esempio $\bb{R}^3$. Potremmo definire un vettore come una \textit{terna di numeri} (coordinate rispetto ad una base), oppure come le classi di equivalenza della relazione di equipollenza, che associa tra loro tutte le \q{coppie di punti} di tipo $AB$ (in uno spazio affine) che \q{hanno la stessa distanza} e puntano nella stessa direzione (che è quella che va da $A$ a $B$. Chiaramente in questo secondo modo stiamo definendo i vettori \textit{indipendentemente} da una base, come \q{entità matematica astratta} che semplicemente soddisfa determinate proprietà. Nell'introdurre la notazione dei \q{ket} Dirac compie un processo simile per la \MQ.}\marginpar{Spazio di Hilbert \q{astratto}}, cioè \textbf{definito a meno di isomorfismi}, in cui sono definite le rappresentazioni delle osservabili del sistema quantistico (questa era la visione di \textbf{Dirac}).\\
 In altre parole, un qualsiasi spazio di Hilbert \q{concreto} ha delle informazioni ridondanti, che non ci servono per la rappresentazione fisica. Ma come facciamo a distinguerle?\\
 
 Con una notazione dovuta a Dirac, un \textbf{vettore di stato} dello spazio di Hilbert \q{\textbf{astratto}} è denotato con il simbolo $|\psi\rangle$  e chiamato \q{\textbf{Ket}}\marginpar{Ket}.\\ 
@@ -194,8 +193,8 @@ Per le osservabili dunque richiediamo le seguenti proprietà:
     \]
     dove il passaggio $(a)$ è valido se $A$ è lineare, ovvero se $A(\alpha \psi) = \alpha A\psi$. 
     Pertanto il \textbf{valor medio} dell'\textbf{osservabile} nello \textbf{stato} $\psi$ non cambia se applichiamo $A$ ad una funzione d'onda $\psi$ moltiplicata per un $\alpha \in \bb{C}$, dato che $\alpha\psi$ descrive lo stesso \textbf{stato} di $\psi$, esattamente come vogliamo.
-	\item \textbf{Densità del dominio}: \marginpar{Densità del dominio} se la dimensione di $\hs$ è finita ($\dim{\mathcal{H}<\infty}$) allora il \textbf{dominio} di $A$ è certamente un sottoinsieme di $\hs$, ossia $D\left(A\right)\subset \hs$.
-	Questo fatto non vale nel caso infinito-dimensionale, cioè per $\dim{\mathcal{H}=+\infty}$, poiché non è detto che $D\left(A\right)=\hs$.
+	\item \textbf{Densità del dominio}: \marginpar{Densità del dominio} se la dimensione di $\hs$ è finita ($\dim{\mathcal{H}<\infty}$) allora il \textbf{dominio} di un operatore \textit{lineare} $A$ è certamente $\hs$, ossia $A$ è applicabile senza problemi a tutti i vettori di $\hs$.\\
+	Questo fatto non vale tuttavia nel caso infinito-dimensionale, cioè per $\dim{\mathcal{H}=+\infty}$, come si vede dal seguente esempio:
 	\begin{es} Sia $X$ l'operatore \q{posizione} $X\equiv \hat{x}$, che agisce su $\psi$ come: $X\psi \left(x\right)=x\psi \left(x\right)$.
 	In generale, se $\psi \left(x\right)\in L^2$ non è vero che $D\left(X\right)=L^2(\bb{R}, dx)$.
 	Possiamo infatti trovare una funzione di $L^2$ a cui, applicando l'operatore, si ottiene un qualcosa di non definito. Per esempio consideriamo $\psi \left(x\right)=\frac{1-e^{-x^2}}{x}\in L^2$. Allora per $x\sim 0$, $\psi \left(x\right)\sim x$, e per $x\sim \infty$  $\psi \left(x\right)\sim \frac{1}{x}$, in modo che $\int_\bb{R} dx \frac{1}{x^2}<\infty$.
@@ -208,8 +207,7 @@ Per le osservabili dunque richiediamo le seguenti proprietà:
 	\]
 	Il significato fisico della densità è la possibilità di \q{approssimare qualsiasi $\psi$  bene quanto voglio restando in $D(A)$}.\\
 \end{enumerate}
-
-	Se $D\left(A\right)=\hs$, $A$ si dice \textbf{limitato}, e vale:\marginpar{Operatori lineari limitati}
+Partendo da un operatore $A$ lineare e con dominio $D(A)$ denso in $\hs$ possiamo estenderlo con unicità a un operatore definito su tutto $\hs$ solo se $A$ è \textit{continuo}, cosa che negli spazi di Hilbert è equivalente a essere \textbf{limitato}, ossia a verificare la proprietà\footnote{Pag. 39 di \cite{spazi_hilbert}}:\marginpar{Operatori lineari limitati}
 	\[
 	\norm{A} \equiv \sup_{\psi \in \hs \setminus \{0\}} \frac{\norm{A\psi}}{\norm{\psi}} < \infty
 	\]
@@ -226,7 +224,7 @@ Per le osservabili dunque richiediamo le seguenti proprietà:
 	Consideriamo l'operatore energia: 
 	\[H=\frac{p^2}{2m}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\]
 	e applichiamolo al caso della buca 1-dimensionale infinitamente profonda\footnote{Che può essere immaginata come una \q{scatola} con pareti impenetrabili, dove il potenziale è $+\infty$} tra $0$ e $1$.
-	Allora $D\left(H\right)=\left\{\psi\text{\ regolare,\ e\ poi\ } \psi\left(0\right)=\psi\left(1\right)=0\right\}$.\footnote{L'ipotesi di regolarità è necessaria poiché applicare l'operatore implica dover calcolare una derivata seconda.}
+	Allora $D\left(H\right)=\left\{\psi\text{\ regolare,\ e\ poi\ } \psi\left(0\right)=\psi\left(1\right)=0\right\}$.\footnote{L'ipotesi di regolarità è necessaria poiché applicare l'operatore $H$ significa calcolare una derivata seconda, e perciò le $\psi$ in $D(H)$ devono essere derivabili due volte}
 	Prendiamo una $\psi=1$ in $[0,1]$, che chiaramente non appartiene a $D(H)$. 
 	Allora:
 	$\left(\psi H,\psi\right)=0$ (la derivata seconda di $1$ è nulla).
@@ -234,7 +232,10 @@ Per le osservabili dunque richiediamo le seguenti proprietà:
 	\end{es}
 
 \subsection{Definizione mediante gli elementi di matrice}
-\textbf{Se} $D(A)$ è \textbf{denso} in $\hs$ (cosa che abbiamo assunto per tutti gli osservabili), per determinare $A$ possiamo dare\marginpar{Elementi di matrice di un operatore con dominio denso} gli \q{elementi di matrice di $A$}, ossia $\left\{\left(\phi,\ A\psi\right),\ \psi\in D\left(A\right),\ \phi\in D\text{\ denso\ in\ }\mathcal{H}\right\}$.\\
+\textbf{Se} $D(A)$ è \textbf{denso} in $\hs$ (cosa che abbiamo assunto per tutti gli osservabili), per determinare $A$ possiamo dare\marginpar{Elementi di matrice di un operatore con dominio denso} gli \q{elementi di matrice di $A$}, ossia 
+\[
+\left\{\left(\phi,\ A\psi\right),\ \psi\in D\left(A\right),\ \phi\in D\text{\ denso\ in\ }\mathcal{H}\right\}
+\]
 Mostriamo che tale identificazione è univoca. Siano $A$ e $A'$ due operatori, con lo stesso dominio $D(A) = D(A')$, e stessi elementi di matrice $(\phi, A\psi) = (\phi, A'\psi)$ $\forall \psi \in D(A)$, $\forall \phi \in D$ (con $D$ denso in $\hs$). Vogliamo che da ciò derivi che $A = A'$.\\
 Scrivendo $(\phi, A\psi)-(\phi, A'\psi) = 0$, prendendo la norma e dividendo per $\norm{\phi}$ all'interno di un $\sup$ possiamo costruire l'espressione della norma di un operatore $A-A'$ (come data da Riesz in (\ref{eqn:normafunz}): 
 \[ 0 = \sup_{\phi \in D\setminus \{0\}}\frac{|(\phi, A'\psi)-(\phi, A\psi)|}{\norm{\phi}} = \sup_{\phi\in D\setminus\{0\}} \frac{|(\phi, (A'-A)\psi)|}{\norm{\phi}}
@@ -252,23 +253,23 @@ che per Riesz corrisponde al modulo: %Sistemare [TO DO]
 	\begin{expl}
 	Verifichiamo l'identità di polarizzazione. Per prima cosa svolgiamo la sommatoria, tralasciando il fattore $1/4$ per adesso (lo aggiungeremo di nuovo alla fine):
 	\begin{align*}
-	    (\phi, A\psi) &= (\phi+\psi, A(\phi +\psi))-i(\phi+i\psi, A(\phi+i\psi))\\
-	    &= -(\phi-\psi, A(\phi-\psi)) +i(\phi-i\psi,A(\phi-i\psi))
+	    (\phi, A\psi) &= (\phi+\psi, A(\phi +\psi))-i(\phi+i\psi, A(\phi+i\psi))+\\
+	    & -(\phi-\psi, A(\phi-\psi)) +i(\phi-i\psi,A(\phi-i\psi))
 	\end{align*}
 	Svolgendo tutti i prodotti arriviamo a:
 	\begin{align*}
 	    &= \hlc{Yellow}{(\phi,A\phi)} + (\phi,A\psi) + (\psi,A\phi) + (\psi,A\psi)\\
 	    &- \hlc{SkyBlue}{i(\phi,A\phi)} -i(\phi, iA\psi) -i(i\psi, -iA\phi) -i(i\psi, iA\psi)\\
 	    &- \hlc{Yellow}{(\phi,A\phi)}  -(\phi, -A\psi) -(-\psi, A\phi) -(-\psi, -A\psi)\\
-	    &+ i(\phi, A\phi) + i(\phi, -iA\psi) +i(-i\psi, A\phi) + i(-i\psi, -iA\psi)
+	    &+ \hlc{SkyBlue}{i(\phi, A\phi)} + i(\phi, -iA\psi) +i(-i\psi, A\phi) + i(-i\psi, -iA\psi)
 	\end{align*}
 	dove i termini evidenziati si elidono.\\
 	Osserviamo ora, che per proprietà del prodotto scalare, se $a\in \bb{C}$, $a(A,B) = (A,aB)$, $(aA,B) = (A, a^* B)$ (dove l'asterisco indica il complesso coniugato).\\
 	Così facendo possiamo effettuare alcune semplificazioni. Per esempio
-	\[ i(-i\psi, iA\phi) = i(\psi,iA\phi) = -(\psi,A\phi) \]
+	\[ i(-i\psi, iA\phi) = i(\psi,-A\phi) = -i(\psi,A\phi) \]
 	e analogamente per gli altri termini.\\
 	Giungiamo a:
-	\begin{align*}
+	\begin{align*}%[TO DO] I conti son giusti?
 	    &= (\phi,A\psi)+(\psi, A\phi)+(\psi, A\psi)\\
 	    &+ (\phi, A\psi) -(\psi,A\phi) -i(\psi,A\psi)\\
 	    &+ (\phi, A\psi) +(\psi,A\phi) -(\psi, A\psi)\\
@@ -278,7 +279,7 @@ che per Riesz corrisponde al modulo: %Sistemare [TO DO]
 	\end{expl}
 
 \subsection{Valori medi reali: aggiunto e operatori simmetrici}
-Un'altra proprietà degli operatori\marginpar{Valor medi reali} che rappresentano osservabili viene dalla richiesta che \textbf{i valor medi siano reali}. Matematicamente ciò significa che il complesso del valor medio sia il valor medio stesso\footnote{Essendo il prodotto scalare $(\psi, \phi) = \int \psi^* \phi$, si ha $(\psi, A\psi)^* = \left (\int \psi^* A\psi\right ) = \int \psi (A\psi)^* = (A\psi, \psi)$}:
+Un'altra proprietà degli operatori\marginpar{Valor medi reali} che rappresentano osservabili viene dalla richiesta che \textbf{i valor medi siano reali}. Matematicamente ciò significa che il complesso coniugato del valor medio sia il valor medio stesso\footnote{Essendo il prodotto scalare $(\psi, \phi) = \int \psi^* \phi$, si ha $(\psi, A\psi)^* = \left (\int \psi^* A\psi\right ) = \int \psi (A\psi)^* = (A\psi, \psi)$}:
 	\[
 	\left(\psi,A\psi\right)=\left(\psi,A\psi\right)^*=\left(A\psi,\psi\right)
 	\]
@@ -347,28 +348,36 @@ Perciò $(\psi,A\psi)$ è uguale al suo coniugato, e quindi è reale.
 \subfile{AppuntiGiornalieri/Ottobre/15_10.tex}
 
 \lesson{9}{16/10/2018}
-\subfile{AppuntiGiornalieri/Ottobre/16_10a.tex}
+\subfile{AppuntiGiornalieri/Ottobre/16_10.tex}
 
 \lesson{10}{17/10/2018}
 \subfile{AppuntiGiornalieri/Ottobre/17_10.tex}
 
-%18-19
-\subfile{AppuntiGiornalieri/Ottobre/18_19_10_L5.tex}
+\lesson{11}{18/10/2018}
+\subfile{AppuntiGiornalieri/Ottobre/18_10.tex}
 
-%22
+\lesson{12}{19/10/2018}
+\subfile{AppuntiGiornalieri/Ottobre/19_10.tex}
+
+\lesson{13}{22/10/2018}
 \subfile{AppuntiGiornalieri/Ottobre/22_10.tex}
 
+\lesson{14}{25/10/2018}
 \subfile{AppuntiGiornalieri/Ottobre/25_10.tex}
 
+\lesson{15}{26/10/2018}
 \subfile{AppuntiGiornalieri/Ottobre/26_10.tex}
 
-%5_11
-\subfile{AppuntiGiornalieri/Novembre/5_11.tex}
+\lesson{16}{5/11/2018}
+\subfile{AppuntiGiornalieri/Novembre/05_11.tex}
 
-%7_11
-\subfile{AppuntiGiornalieri/Novembre/7_11.tex}
+\lesson{17}{7/11/2018}
+\subfile{AppuntiGiornalieri/Novembre/07_11.tex}
 
-%8_11
-\subfile{AppuntiGiornalieri/Novembre/8_11.tex}
+\lesson{18}{8/11/2018}
+\subfile{AppuntiGiornalieri/Novembre/08_11.tex}
 
+\lesson{19}{9/11/2018}
+(Questa lezione sarà aggiunta prossimamente)
+%\subfile{AppuntiGiornalieri/Novembre/09_11.tex}
 \end{document}

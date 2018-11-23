@@ -9,6 +9,7 @@ Nel caso più generale, tenendo conto anche della degenerazione degli autovalori
     \psi(t)&=U(t)\psi = e^{-i\frac{t}{\hbar}H}\psi=\int e^{-i\frac{t}{\hbar}\lambda}dP^H(\lambda)\psi \qquad \forall \psi \in \hs\nonumber\\
     \ket{\psi(t)} &= \sum_{\mathcal{E}_n\in \sigma_P(H)} e^{-i\frac{t}{\hbar}\mathcal{E}_n}\sum_{r=1}^{d(\mathcal{E}_n)}\ket{\mathcal{E}_{n},r}\braket{\mathcal{E}_{n},r|\psi}
 +\int_{\sigma_C(H)}d\mathcal{E} e^{-i\frac{\mathcal{E}}{\hbar}t}\sum_{r=1}^{d(\lambda)}\ket{\mathcal{E},r}\braket{\mathcal{E},r|\psi}
+\label{eqn:evoluzione_temporale_totale}
 \end{align}
 Se inoltre $\psi$ appartiene al dominio dell'operatore energia ($\psi \in D(H)$), allora $\psi(t)$ si può ottenere anche risolvendo l'equazione di Schrödinger:
 \[
@@ -85,8 +86,9 @@ Tuttavia, prima o poi sarà necessario fare una misura, e in quel momento il sis
 Facciamo ora qualche esempio per familiarizzare con il formalismo, e discuteremo poi la teoria della misura (cosa succede ad un sistema quantistico a seguito di una misurazione).\\
 
 \subsection{Buca infinitamente profonda in 1D}
+\label{sec:buca_infinita_1D}
 Consideriamo una buca di potenziale infinitamente profonda tra $[-\frac{a}{2},\frac{a}{2}]$, in una dimensione\footnote{Fisicamente tale sistema descrive \q{pareti impenetrabili}, sia classicamente che quantisticamente}.\\
-%Inserire figura della buca [IMMAGINE]
+%Inserire figura della buca [IMMAGINE] %[TO DO]
 L'energia della particella è data da:
 \[
 H=\frac{p^2}{2m}+V(x); \quad V(x)=\begin{cases}

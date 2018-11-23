@@ -1,0 +1,304 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+%\input{header.tex}
+
+\begin{document}
+
+% Questa parte non era formattata. Ho messo la mia parte, ma non ho ovviamente eliminato la tua che si trova in un commento successivo.
+\subsection{Generalizzazione ad uno spazio equipaggiato}
+\lesson{11}{18/10/2018}
+Vediamo più in generale il significato degli autovalori e autovettori generalizzati in uno spazio di Hilbert equipaggiato generico $\Phi_A'$. Se $A$ è un'osservabile, $F_\lambda \in \Phi'_A$ e $\lambda \in \sigma(A)$ l'equazione agli autovalori $A F_\lambda = \lambda F_\lambda$ si deve intendere (in analogia con il caso di $\mS'$):
+\[
+A F_\lambda (\varphi) \equiv F_\lambda (A \varphi) = \lambda F_\lambda(\varphi) \qquad \forall \varphi \in \Phi_A
+\]
+Si noti che $\varphi$ deve appartenere allo spazio con topologia forte $\Phi_A$. Quindi ad esempio nel caso dell'operatore posizione $X$ si ha $\Phi_X = \mathcal S(\mathbb R)$, $\Phi_X' = \mathcal S'(\mathbb R)$ e $F_\lambda = \delta(\lambda - x)$, dunque la scrittura
+\[
+x \delta(\lambda - x) = \lambda \delta(\lambda - x)
+\]
+va in realtà interpretata come
+\[
+\int d x \, x \delta(\lambda - x) \varphi(x) = \int \de x \lambda \delta(\lambda - x) \varphi(x) \qquad \forall \varphi \in \mS(\RR)
+\]
+
+Il teorema seguente è fondamentale per la costruzione del formalismo di Dirac.
+\begin{thm}
+Dato $A$ autoaggiunto esiste sempre almeno uno spazio $\Phi_A$ con topologia forte che soddisfa alle condizioni volute.
+\end{thm}
+Inoltre vale il seguente risultato.
+\begin{thm}
+Data un'osservabile $A$, è possibile prendere $\Phi_A = \mS(\RR^n)$ se $A$ è un polinomio di $\vec x$ e $\vec p$ + $V(\vec x)$, con $V \in {\mathcal C}^\infty(\RR^n)$ e derivate limitate. Più in generale, se $V$ ha discontinuità in un insieme $\mathcal N$ di misura nulla allora si può prendere
+\[
+\Phi_A = \set{\varphi \in \mS(\RR^n) \,\, | \,\, \varphi(x) = 0 \,\, x \in \mathcal N}
+\]
+\end{thm}
+
+
+
+
+Con il formalismo di Dirac si adottano le seguenti notazioni.
+\begin{enumerate}
+\item Si denotano con $\bra\lambda$ gli autofunzionali in $\Phi'_A$, cioè se $\hs$ è lo spazio astratto, allora l'equazione agli autovalori si scrive
+\[
+\bra\lambda \, A = \lambda \bra\lambda \qquad \qquad \lambda \in \sigma(A)
+\]
+In pratica invece che scrivere l'equazione agli autovalori con i ket $\ket\lambda$ la si scrive con i bra $\bra\lambda$.
+\item Si denota con $\ket\varphi$ un ket nello spazio con topologia forte $\Phi_A$ e con
+\[
+\braket{\lambda | \varphi} \equiv F_\lambda (\varphi)
+\]
+con $F_\lambda$ opportunamente normalizzato. In pratica $\braket{\lambda | \varphi} = F_\lambda(\varphi)$ è l'applicazione del funzionale $\bra\lambda \in \Phi_A'$ al ket $\ket\varphi \in \Phi_A$.
+Nel caso in cui $\ket\lambda \in \hs$ e $\lambda \in \sigma_P(A)$ allora $\braket{\lambda|\varphi}$ è semplicemente il prodotto scalare per il quale vale
+\begin{equation}
+\label{eqn:defscprodrigged}
+\braket{\varphi | \lambda} = \braket{\lambda | \varphi}^*
+\end{equation}
+\item Si noti che la scrittura $\braket{\varphi | \lambda}$ in generale non ha nessun significato, poiché non è stato definito un prodotto scalare. Pertanto la si estende mediante la \eqref{eqn:defscprodrigged} come una definizione, anche nel caso in cui $\bra\lambda \in \Phi'_A$ e $\bra\lambda \notin \hs$.
+\item Applicare il tutto alle osservabili come l'operatore posizione. Si estende dunque la notazione $\braket{x | \psi} = \psi(x) \in L^2(\RR, d x)$ per denotare $\ket\psi \in \hs$ in rappresentazione $x$. Si denota quindi con $\bra{\lambda}$ l'autofunzionale in rappresentazione $x$, cioè $F_\lambda(x) \equiv \braket{\lambda | x}$ e nuovamente si definisce 
+\[
+\braket{x | \lambda} \equiv \braket{\lambda | x}^*
+\]
+\end{enumerate}
+
+Una volta impostata questa notazione si dimostra il seguente fatto
+\begin{thm}
+Per ogni operatore $A$ autoaggiunto esistono gli insiemi di autofunzionali rispettivamente per lo spettro discreto e continuo:
+\begin{align}
+& \set{\bra{\lambda_{n},r} \in \hs' \subset \Phi'_A, \lambda_n \in \sigma_p(A), r = 1,\dots,d(\lambda_n)} \notag \\
+& \set{\bra{\lambda,r} \in \Phi'_A, \bra{\lambda,r} \notin \hs, \lambda \in \sigma_c(A), r = 1, \dots, d(\lambda)} \notag
+\end{align}
+tali che per ogni $\ket\psi, \ket\varphi \in \Phi_A$ si ha
+\begin{align}
+& \ket\varphi = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \ket{\lambda_n, r} \braket{\lambda_n, r | \varphi} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} {\ket{\lambda,r} \braket{\lambda,r | \varphi}} \notag \\
+& \braket{\psi | \varphi} = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \braket{\psi | \lambda_n, r} \braket{\lambda_n, r | \varphi} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} \braket{\psi | \lambda,r} \braket{\lambda,r | \varphi} \notag
+\end{align}
+dove per definizione $\braket{\psi | \lambda,r} \equiv \braket{\lambda,r | \psi}^*$.
+\end{thm}
+Si noti che siccome abbiamo imposto che $\Phi_A$ è denso in $\hs$ queste formule per densità si estendono facilmente a ogni $\ket{\psi}, \ket\varphi \in \hs$. Da queste formule è poi possibile calcolare
+\[
+\bra\psi A \ket\varphi = \sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \lambda_n \braket{\psi | \lambda_n, r} \braket{\lambda_n, r | \varphi} + \int_{\sigma_c(A)} \de\lambda \, \lambda \sum_{r = 1}^{d(\lambda)} \braket{\psi | \lambda,r} \braket{\lambda,r | \varphi}
+\]
+e per $\ket\psi = \ket\varphi$ si ottiene il valor medio di $A$ nello stato $\varphi$:
+\[
+\avg{A}_\varphi = \int \lambda \, \de (\varphi, P^A(\lambda) \varphi)
+\]
+e da questa si ottengono le formule per $P^A(\lambda)$ per lo spettro discreto e continuo:
+\begin{align}
+& \de P^A(\lambda) \big|_{\sigma_p(A)} = \sum_{\lambda_n \in \sigma_p(A)} \delta(\lambda - \lambda_n) \sum_{r = 1}^{d(\lambda_n)} \ket{\lambda_n, r} \bra{\lambda_n, r} \de \lambda \notag \\
+& \de P^A(\lambda) \big|_{\sigma_c(A)} = \sum_{r = 1}^{d(\lambda)} \ket{\lambda, r} \bra{\lambda, r} \de\lambda \notag
+\end{align}
+Infine la relazione di completezza per un generico $\Phi'_A$ è perfettamente identica a quella già vista:
+\[
+\sum_{\lambda_n \in \sigma_p(A)} \sum_{r = 1}^{d(\lambda_n)} \ket{\lambda_n, r} \bra{\lambda_n, r} + \int_{\sigma_c(A)} d\lambda \sum_{r = 1}^{d(\lambda)} \ket{\lambda,r} \bra{\lambda,r} = {\mathbb I}_\hs
+\]
+
+\subsection{Vantaggi e svantaggi del formalismo di Dirac}
+\subsubsection{Vantaggi}
+\begin{enumerate}
+\item Estrema semplicità ed eleganza nella notazione;
+\item potenza di calcolo, in particolare la relazione di completezza;
+\item l'equazione agli autovalori funziona in modo naturale anche con lo spettro continuo $\sigma_C(A)$;
+\item fornisce un modo semplice per vedere se $\lambda$ appartiene allo spettro discreto o a quello continuo: $\lambda \in \sigma_p(A)$ se $\ket\psi \in \dom(A)$, mentre $\lambda \notin \sigma_p(A)$ se $\ket\psi \notin \hs$.
+\item La notazione di Dirac non ammette comunque soluzioni che divergono all'infinito, poiché non stanno in $\mathcal{S}^\prime\left(\mathbb{R}\right)$. Per esempio, se consideriamo l'hamiltoniana $H=\frac{p^2}{2m}+V(x)$, con $\Phi_H\subseteq \mathcal S(R)$ e $\Phi_H^\prime\subseteq \mathcal S\left(\mathbb{R}\right)$
+allora non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in $\Phi_H^\prime$. Un'onda piana invece non è in $L^2$, ma in $\mathcal S\left(\mathbb{R}\right)$ sì, e quindi è una soluzione accettata.
+\end{enumerate}
+%Includere l'immagine dove si toglie l'esponenziale
+
+\subsubsection{Svantaggi}
+\begin{enumerate}
+\item Dato $A$ autoaggiunto, in generale $\Phi_A$ non è unico (non c'è un $\Phi_A$ \q{canonico}). La scelta del $\Phi_A$ ha una certa arbitrarietà, e questo può non piacere ad alcuni matematici. I matematici utilizzano spesso le famiglie spettrali perché queste invece sono uniche dato un operatore autoaggiunto $A$;
+
+\item la scrittura $\int d \lambda \ket\lambda\bra\lambda$ è matematicamente imprecisa, e la sua formalizzazione rigorosa richiede una matematica sofisticata (per esempio la nuclearità);
+
+\item è necessario non dimenticare che se $\bra\lambda \notin \hs'$ allora $\bra\lambda$ \emph{non} rappresenta alcuno stato fisico. Questo è analogo al caso di de Broglie, il quale scoprì che un onda con momento ben definito corrisponde ad una particella che si muove ad una velocità superluminale:
+\[
+p = \frac{h}{\lambda} \qquad \nu = \frac{\mathcal E}{h}
+\qquad \quad
+\lambda \nu = \frac{\mathcal E}{p} = \frac{m c^2 \gamma}{m \nu \gamma} = \frac{c^2}{\nu} > c
+\]
+Dunque una soluzione semplice come un'onda piana non appartiene ad $L^2$, pertanto $e^{\frac{i}{\hbar}p_0 x} \notin L^2$. Tuttavia se invece si prende
+\[
+\int f_{p_0}(p) e^{\frac{i}{\hbar} p x} \de p
+\]
+questa può stare in $L^2$ purchè $f_{p_0} \in L^2(\RR, \de p)$. In questo modo la velocità effettiva della particella non è quella di fase ma quella di gruppo:
+\[
+v = \deriv{\mathcal E}{p} = \deriv{\omega}{k}
+\]
+
+\item quando si scrive la completezza, per esempio, per l'operatore posizione $X$, si scrive come
+\[
+\int \de x \ket x \bra x = \mathbb I
+\]
+Intuitivamente si potrebbe pensare a $\bra x$ come ad una \q{base continua} analoga al caso di una base $\set{\lambda_n}$ ortonormale tale per cui
+\[
+\sum_n \ket{\lambda_n} \bra{\lambda_n} = \mathbb I
+\]
+Tuttavia è necessario fare attenzione al fatto che se $\bra x \in \Phi'_X$ e $\bra x \notin \hs$, allora tutti funzionali $\bra x$ non appartengono allo spazio degli stati, e dunque non costituiscono una base di $\hs$! Questo è importante perché ad esempio nel formalismo di Dirac non è violata in ogni caso la separabilità di $\hs$.
+\end{enumerate}
+
+
+
+
+
+%% Questi sono i tuoi appunti:
+\begin{comment}
+Formalismo di Dirac
+Spettro continuo \lambda\in \sigma_C\left(A\right), A\left|\lambda\right\rangle=\lambda\ket{\lambda} equazione agli autovalori \q{generalizzata}.
+In che spazio sta \ket{\lambda}?
+XF_\lambda\left(x\right)=\lambdaF_\lambda\left(x\right)
+F_\lambda\left(x\right)=\delta \left(x-\lambda\right)\in \mathcal{S}^\prime\left(\mathbb{R}\right)
+S\left(\mathbb{R}\right)\subset L^2\left(\mathbb{R}\right)\subset \mathcal{S}^\prime\left(\mathbb{R}\right)
+
+Gerl'fand generalizza a \phi_A\subset H\subset \phi_A^\prime
+Proprietà di \phi_A:
+	1) \phi \left(A\right)\subseteq D\left(A\right)
+	2) {\bar{\phi}}_A=H
+	3) A è continuo in \phi_A nella topologia di \phi_A 
+	4) \phi_A è nucleare
+
+F_\lambda\in \phi_A′
+\lambda\in \sigma \left(A\right)
+
+Equazione agli autovalori: AF_\lambda=\lambdaF_\lambda che si deve intendere (come nel caso di S′)
+AF_\lambda\left(\varphi\right)\equiv F_\lambda\left(A\varphi\right)=\lambdaF_\lambda\left(\varphi\right) \forall \phi \in \phi_A
+ 
+Perciò: X\delta \left(\lambda-x\right)=\lambda\delta \left(\lambda-x\right) si intende come:
+\int dx x \delta \left(\lambda-x\right)\phi \left(x\right)=\int dx \lambda\delta \left(\lambda-x\right)\phi \left(x\right) \forall \phi \in S(R)
+
+Si dimostra che:
+	1) \forall A autoaggiunto \exists  almeno un \phi_A
+	2) Si può prendere \phi_A=S(\mathbb{R}^n) se A= polinomio di \vec{x} o \vec{p} + V(\vec{x})
+	Con V\in C^\infty\left(\mathbb{R}^n\right) con derivate limitate. Se V ha discontinuità in un insieme di misura nulla sulla N, \phi_A=\left\{\varphi\in\mathcal{S}\left(\mathbb{R}^n\right)|\varphi\left(x\right)=0\ \ \ x\in N\right\}
+
+(Con questa lezione vogliamo mostrare che esiste una maniera consistente di trattare il formalismo di Dirac)
+Conveniamo di:
+	1) Denotare con \bra{\lambda} gli autofunzionali in \phi_A^\prime, cioè se H è lo spazio astratto, allora l'equazione agli autovalori si scrive \bra{\lambda}A=\lambda\bra{\lambda}, \lambda\in \sigma \left(A\right)
+	(invece di scriverla in ket, la scriviamo in bra)
+	2) Denotare con |\phi ⟩ un ket in \phi_A e con \left\langle\lambda\middle|\varphi\right\rangle\equiv F_\lambda\left(\varphi\right) (con F_\lambda opportunamente normalizzato), cioè l'applicazione del bra \bra{\lambda} al ket \left|\varphi\right\rangle.
+	Se \left|\lambda\right\rangle\in H (\lambda\in \sigma_P(A)) allora \bra{\lambda}\phi ⟩ è semplicemente il prodotto scalare, per il quale vale la seguente uguaglianza:
+	\left\langle\varphi\middle|\lambda\right\rangle={\left\langle\lambda\middle|\varphi\right\rangle}^\ast (*)
+	3) Estendere (*) come definizione anche se \left\langle\lambda\right|\in \phi_A^\prime, ma \bra{\lambda}\notin H (altrimenti non avrebbe senso, dato che il prodotto scalare è su H, non su \phi_A. Cioè non posso prendere \phi \in \phi_A^\prime come bra)
+	4) Estendere la notazione \left\langle x\middle|\psi\right\rangle=\psi \left(x\right)\in L^2\left(\mathbb{R},\ dx\right) (per denotare \left|\psi\right\rangle\in H in rappresentazione x), denotando con \bra{\lambda}x⟩ l'autofunzionale \bra{\lambda} in rappresentazione x, cioè F_{\lambda\left(x\right)}\equiv \bra{\lambda}x⟩ e nuovamente se 
+	\left\langle x\middle|\lambda\right\rangle\equiv {\left\langle\lambda\middle| x\right\rangle}^\ast
+Allora si dimostra che \forall A autoaggiunto esiste una famiglia \left\{\left\langle\lambda_n,r\right|\in\mathcal{H}^\prime\subset\phi_A^\prime,\ \lambda_n\in\sigma_P\left(A\right),\ r=1,\ \ldots,\ d(\lambda_n)\right\} e \left\{\langle\lambda_n,\ r|\in\phi_A^\prime,\ \left\langle\lambda,\ r\right|\notin\mathcal{H},\ \lambda\in\sigma_C\left(A\right),\ r=1,\ \ldots,\ d\left(\lambda\right)\right\} tali che \forall \left|\varphi\right\rangle\in \phi_A, \left|\psi\right\rangle\in \phi_A
+\left|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,\ r\ket\langle\lambda_n,\ r|\varphi\ket}+\int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{|\lambda,\ r\ket\langle\lambda,\ r|\varphi\ket}}
+(controllare)
+
+\left\langle\psi\middle|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P(A)}\sum_{r=1}^{d(\lambda_n)}{\langle\psi|\lambda_n,\ r\ket\langle\lambda_{n,r}|\varphi\ket}+\int_{\sigma_{C\left(A\right)}}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{\langle\psi|\lambda,\ r\ket\langle\lambda,\ r|\varphi\ket}}
+Con \left\langle\psi\middle|\lambda,r\right\rangle={\left\langle\lambda,r\middle|\psi\right\rangle}^\ast
+Ma siccome \phi_A è denso in H queste formule per densità si estendono a ogni \left|\varphi\right\rangle, \left|\psi\right\rangle\in H
+
+Posso calcolare:
+\left\langle\psi\left|A\right|\varphi\right\rangle=\sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d(\lambda_n)}{\lambda_n\langle\psi|\lambda_{n,r}\ket\langle\lambda_{n,r}|\varphi\ket}+ \int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{\lambda\langle\psi|\lambda,r\ket\langle\lambda,r|\varphi\ket}}
+Per \left|\psi\right\rangle=|\phi ⟩ si ha che:
+
+
+dP^A\left(\lambda\right)|_{\sigma_P\left(A\right)}
+= \sum_{\lambda_n\in\sigma_P\left(A\right)}{\delta\left(\lambda-\lambda_n\right)\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,r\ket\langle\lambda_n,\ r|d\lambda}}
+dP^A\left(\lambda\right)|_{\sigma_C\left(A\right)}=
+= \sum_{r=1}^{d(\lambda_n)}\left|\lambda,r\ \right\rangle\left\langle\lambda,r\right|d\lambda
+
+Formalmente, la completezza di Dirac:
+\mathbb{I}_\mathcal{H}=\sum_{\lambda_n\in\sigma_P(A)}{\sum_{r=1}^{d(\lambda_n)}{|\lambda_n,r\ \ket\langle\lambda_n,\ r|}+\int_{\sigma_C\left(A\right)}{d\lambda\sum_{r=1}^{d\left(\lambda\right)}{|\lambda,r\ket\langle\lambda,r|}}}
+(se applicata ad una qualsiasi formula dà il risultato corretto)
+
+Vantaggi e svantaggi del formalismo di Dirac
+Vantaggi:
+	1) Semplicità ed eleganza, in particolare la completezza è potentissima
+	2) È basato anche per \sigma_C(A) su una equazione agli autovalori (per \lambda\in \sigma_P(A) la soluzione è in D(A), mentre se \lambda\in \sigma_C(A) non è neanche in H!)
+	3) La notazione di Dirac non ammette soluzioni che divergono a infinito (non stanno in \mathcal{S}^\prime\left(\mathbb{R}\right)). Per esempio, H=\frac{p^2}{2m}+V(x), \phi_H\subseteq S(R), \phi_H^\prime\subseteq S\left(\mathbb{R}\right)
+	Non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in \phi_H^\prime (un'onda piana invece non è in L^2, ma in S\left(\mathbb{R}\right) sì, e quindi funziona)
+
+Svantaggi:
+	1) \phi_A non è unico, non è \q{canonico} (mentre una famiglia spettrale è unica). 
+	2) La scrittura \int d\lambda \ket{\lambda}\bra{\lambda} è matematicamente imprecisa e la sua formalizzazione rigorosa richiede una matematica sofisticata (es. \q{nuclearità})
+	3) Se \left\langle\lambda\right|\notin \mathcal{H}^\prime≈H non rappresenta uno stato fisico (es. nel caso di un'onda piana e^{\frac{i}{\hbar}px}\notin L^2. Ma lì p=h/\lambda, e \nu =\frac{E}{h}, \lambda\nu =\frac{E}{p}=\frac{mc^2}{mv\gamma}=\frac{c^2}{v}>c. De Broglie considerò allora un pacchetto d'onde, con \int f_{p_0}\left(p\right)e^{\frac{i}{\hbar}px}dp\in L^2, purché f_{p_0}\in L^2(R, dp), dove f_{p_0} è una funzione \q{piccata} su un punto p_0. Ma allora in questo caso \frac{d\omega}{dk}=\frac{d\mathcal{E}}{dp}=v. Tuttavia, fisicamente si preferisce lavorare con l'onda piana - per semplicità - e nel caso vengano risultati infiniti si considerano le ipotesi di pacchetto d'onda), ma Dirac lo tratta analogamente agli altri stati (nel 99\% di volte produrrà conti giusti, ma ci sono circostanti in cui si giunge ad assurdità)
+	4) Quando scrivete la completezza per X:
+	\int dx \left|x\right\rangle\left\langle x\right|=I
+	Assomiglia ad una \q{versione continua} del caso di una base \left\{|\lambda_n\ket\right\} ON, per cui H sembra non separabile, ma sappiamo che lo è:
+	\sum_{n}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|=\mathbb{I}}
+	
+	Tuttavia tale relazione è comunque giusta (il formalismo di Dirac funziona, ma \q{va interpretato} nei suoi risultati)
+\end{comment}
+
+
+
+
+
+% Nuova sezione sull'operatore momento (dopo il formalismo di Dirac)
+
+\section{L'operatore momento}
+In questa sezione si analizza l'osservabile momento in meccanica quantistica. Tale analisi, oltre ad essere fondamentale in fisica, mostra come il cambiamento del dominio degli operatori in meccanica quantistica possa modificare completamente la fisica del sistema.
+\subsection{Momento in $\bb{R}$}
+Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ \q{a dominio reale}, cioè su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice \q{regolarità}.\\
+In particolar modo, è necessario chiedere che:
+\begin{itemize}
+    \item Esista la derivata $\psi'$ \textit{quasi ovunque}.
+    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e sia \q{integrabile alla Lebesgue su ogni compatto}:
+    \[
+    \int_a^b \psi'(x)dx = \psi(b)-\psi(a) \qquad \forall [a,b] \subset \bb{R}
+    \]
+\end{itemize}
+\textbf{Nota}: È necessario che le condizioni siano così \q{larghe}. Per esempio, potremmo essere tentati di sintetizzarle chiedendo che $\psi \in \mathcal C^1$. Ciò, tuttavia, fa perdere l'autoaggiuntezza dell'operatore, e perciò fa sì che il suo spettro non sia più solamente reale!\\
+Definiamo perciò il dominio di $P$ come:
+\begin{align*}
+D\left(P\right)= \big\{\psi\in L^2\left(\mathbb{R},\ dx\right)\ \ |\ \ 
+&\exists\psi^\prime\ q.o.\, \int_{a}^{b}{\psi^\prime\left(x\right)dx}=\psi\left(b\right)-\psi\left(a\right)\ \forall\left[a,b\right]\subset\mathbb{R},\\
+&\psi^\prime\in L^2(\mathbb{R},\ dx)\ \big\}
+\end{align*}
+\textbf{Nota}: per \textit{definire} un operatore è necessario indicarne in maniera esplicita il dominio. Come vedremo tra poco, infatti, lo \q{stesso operatore} su domini diversi può dar luogo a risultati assurdi, o essere associato a diverse osservabili.\\
+
+Fissate queste condizioni, si ha subito che se $\psi$ , $\psi^\prime\in L^2(R, dx)$ allora $\psi(x)$ si annulla all'infinito:
+\[
+\lim_{x\rightarrow\pm\infty}{\psi\left(x\right)}=0
+\]
+A priori non è nemmeno ovvio che tale limite esista. Potremmo per esempio considerare una funzione che si annulla ovunque, se non in determinati intervalli (di misura non nulla), in cui \q{salta} a un certo valore positivo. Calibrando opportunamente la larghezza dei \q{salti} e distanziandoli tra loro si può far sì che l'integrale di tale $\psi$ converga a un valore finito - e quindi che $\psi \in L^2$. Tuttavia, poiché tali \q{salti} sono sempre presenti, per quanto grande sia $M$, per $x>M$ la funzione assume valori che non si avvicinano a $0$ più del valore del \q{salto}, e perciò il limite a $\infty$ non esiste.\\
+Tuttavia, se $\psi$ e $\psi' \in L^2(\bb{R})$, allora lo sono anche su $\mathbb{R}_+$: $\psi$,$\psi^\prime\in L^2([0, +\infty [, dx)$. Ma allora:
+\[
+\int_0^\infty dx (\psi^*(x)\psi'(x)+{\psi^*}'(x)\psi(x)) = \int_0^\infty dx \frac{d}{dx}(\psi^*(x), \psi(x)) = \norm{\psi(\infty)}^2 - \norm{\psi(0)}^2
+\]
+e tale integrale esiste finito perché abbiamo richiesto sia possibile l'integrazione per parti.\\
+Ma allora esiste $\norm{\psi(\infty)}$, e quindi anche:
+\begin{equation}
+\psi(\infty) = \lim_{x\to\infty} \psi(x) = 0
+\label{eqn:psitozero}
+\end{equation}
+(Se fosse qualsiasi altro valore eccetto $0$ si avrebbe che $\psi \notin L^2$).\\
+
+Verifichiamo allora l'autoaggiuntezza $P = P^\dag$. Essendo $D(P)$ denso in $\hs$ partiamo dall'uguaglianza degli elementi di matrice per definire $P^\dag$ e osservare quali condizioni è necessario imporre per il suo dominio:
+\[
+\left(\phi,P\psi\right)=(P^\dag\phi,\psi); \quad \forall \phi \in D(P^\dag);\> \forall \psi \in D(P)
+\]
+Calcolando il prodotto scalare:
+\[
+\int_{-\infty}^{+\infty}{dx\,\phi^\ast\left(x\right)\left[\hlc{SkyBlue}{-i\hbar\frac{d}{dx}\psi\left(x\right)}\right]\underset{(a)}{=}
+\hlc{Yellow}{-i\hbar\phi^\ast\left(x\right)\psi\left(x\right)\big|_{-\infty}^{+\infty}}+\int{\left[\hlc{SkyBlue}{-i\hbar\frac{d}{dx}\phi\left(x\right)}\right]^\ast\psi\left(x\right)dx}}
+\]
+(dove in (a) si è integrato per parti).\\
+Se il termine evidenziato in giallo si annullasse avremmo dimostrato che l'aggiunto $P^\dag$ ha la stessa forma di $P$, ossia che $P$ è simmetrico (le espressioni corrispondenti a $P$ e $P^\dag$ sono evidenziati in azzurro). Sappiamo che tale termine si annulla poiché, come visto in (\ref{eqn:psitozero}), $\psi(x)$ si annulla all'infinito. Tale conclusione è però valida solamente se l'integrazione per parti effettuata in (a) è sensata, ossia se anche per $\phi$ valgono le richieste che abbiamo fatto per $\psi$ a tal proposito, e cioè che $\phi'$ esista quasi ovunque, $\phi, \phi' \in L^2(\bb{R},dx)$ e $\phi'$ Lebesgue-integrabile su compatti.\\
+Ma allora le condizioni che abbiamo imposto per trovare $D(P)$ sono esattamente le stesse che caratterizzano $D\left(P^\dag\right)$, e quindi:
+\[
+D\left(P\right)=D(P^\dag)
+\]
+
+\subsection{Momento in $\bb{R}_+$}
+Paradossalmente, se cerchiamo di restringere la definizione di $P$ ai soli reali positivi, ossia ponendo $\hs=L^2\left(\mathbb{R}_+,\ dx\right)$, la costruzione di prima non porta ad alcun operatore autoaggiunto. Verifichiamolo.\\
+Sia $P= -i\hbar \frac{d}{dx}$, e fissiamo:
+\[
+D\left(P\right)= \left\{\psi\in L^2\left(\mathbb{R}_+\right)\ |\ \exists\> \psi'
+\text{ q.o. e sia definita l'integrazione per parti}, \psi^\prime\in L^2(\mathbb{R}_+)\right\}
+\]
+Ripetendo gli stessi passaggi di prima, si arriva a dover definire le condizioni per cui il primo termine dell'integrazione per parti (quello evidenziato in giallo nel caso precedente) si annulli:
+\[
+\phi^*(x)\psi(x)\big|_{0}^{+\infty} = \cancel{\phi^*(+\infty)\psi(+\infty)} - \phi^*(0)\psi(0) = 0
+\]
+Il problema è che dalle condizioni che abbiamo imposto finora sappiamo solo che $\psi$ si annulla all'infinito, ma nulla si sa sul suo comportamento in $0$. È quindi necessario imporre un'altra condizione - ma non c'è modo di farlo in maniera \q{simmetrica}. Se infatti risolvessimo ponendo $\psi(0) = 0$ non dovremmo fare la stessa richiesta per la $\phi$ (non sarebbe necessario), e quindi $D(P) \subset D(P^\dag)$. Viceversa, se imponessimo $\phi(0) = 0$ avremmo la situazione opposta, con $D(P) \supset D(P^\dag)$.\\
+Perciò, se richiediamo che il momento $P$ nell'intervallo $\bb{R}_+$ sia simmetrico, allora non può essere autoaggiunto, e quindi \textit{non è un'osservabile}.\\
+Qual è il significato fisico di ciò?\\
+ipotizziamo per assurdo che $P$ su $\bb{R}_+$ sia un'osservabile. Allora avremo degli autovalori, per esempio $p$ autovalore di $P$. Facendo quindi una misura del momento troveremmo allora $p$, e sapremmo per certo che $p>0$.\\
+Con un'analogia semiclassica, \q{fissare un momento} significa considerare un'onda piana\footnote{Pensandola con il principio di indeterminazione: l'onda piana ha estensione infinita - quindi non conosciamo la sua posizione con nessuna precisione - ma ha un \textit{unico} momento $p$}. Tuttavia, un'onda piana \q{confinata} a $\bb{R}_+$ vuol dire che \q{si è riflessa} sul piano per $x=0$, ed è quindi in realtà la sovrapposizione di un'onda incidente e una riflessa - che hanno momenti di segno opposto\footnote{In altre parole, facendo oscillare una fune \q{infinitamente lunga} ma collegata ad un punto fisso - oltre il quale non c'è più nulla, e che corrisponde all'\textit{estremo del dominio}, ossia $x=0$, si crea un'\textit{onda stazionaria}, che classicamente si ottiene come sovrapposizione di due onde con verso opposto di propagazione}. Perciò anche in questo caso non è possibile ottenere una misura univoca del momento - e infatti l'operatore $P$ su $\bb{R}_+$ non corrisponde a osservabili.
+
+
+
+
+
+\end{document}
