@@ -1,0 +1,145 @@
+Riprendiamo il caso dei bosoni, che si enunciava quello più problematico ma più interessante. Siccome $\vect p = \frac{\vect n h}{L}$ si ha
+\[
+Z = \sum_{\set{n_{\vect p}}} \prod_{\vect p} \left(z e^{-\beta \mE_{\vect p}}\right)^{n_{\vect p}} = \prod_{\vect p} \sum_{n_{\vect p}} \sum_{n_{\vect p} = 0} \left(z e^{-\beta \mE_{\vect p}}\right)^{n_{\vect p}}
+\]
+se $z < 1$ qualunque sia la serie geometrica converge. La $Z$ di Bose-Einstein quindi risulta
+\[
+Z^{\text{BE}} = \prod_{\vect p} \frac{1}{1 - z e^{-\frac{\beta \vect p}{2m}}}
+\]
+\[
+\frac{PV}{kT} = \ln Z = - \sum_{\vect p} \ln\left(1 - z e^{-\beta \mE_{\vect p}}\right)
+\]
+\[
+z \pderiv{}{z} \ln Z = \avg{N} = \sum_{\vect p} z e^{-\frac{z e^{-\frac{\beta}{2} \frac{\vect p^2}{m}}}{1 - z e^{\frac{\beta}{2} \frac{\vect p^2}{m}}}}
+\]
+\[
+= \sum_{\vect p} \avg{n_{\vect p}}
+\]
+Uno sviluppo analogo è stato fatto per i fermioni. $z < 1$ però abbiamo anticipato che in certe situazioni limite $z = 1$. Cosa succede in questo caso? Lo stato con $\vect p = 0$ ha $\avg{n_{\vect 0}} = \frac{z}{1 - z} \to \infty$ per $z \to 1$. Si passa dunque da somme ad integrali.
+\[
+\vect p = \frac{\vect n h}{L} \qquad L^3 V
+\]
+(Immagine cubetto)
+\[
+\Delta p_x \Delta p_y \Delta p_z = \frac{h^3}{L^3} (\Delta n_x \Delta n_y \Delta n_z)
+\]
+Quindi sostituisco
+\[
+\sigma_p \quad \longrightarrow \quad \frac{V}{h^3} \int \de^3 p
+\]
+e questo è legittimo se $V$ è sempre più grande. Questo passaggio è un limite termodinamico. Se si passa dunque all'integrale si ha
+\[
+\frac{V}{h^3} \int \de^3 p \frac{z e^{-\frac{\beta \vect p^2}{2 m}}}{1 - z e^{-\frac{\beta \vect p^2}{2m}}}
+\]
+L'integrale a grandi $\vect p$ non ha problemi di convergenza. L'unico modo che ha l'integrale di divergere è sviluppare una singolarità in $\vect p = 0$. Nel caso dei bosoni (non succede per i fermioni) rischio che se $z \to 1$ posso perdere una parte importante. Dunque teniamo isolato fuori dall'integrale il termine (potenzialmente) importante per la somma. Scriviamo l'equazione in modo da isolare il termine a $\vect p = 0$:.
+\[
+\frac{P V}{k T} = - \ln(1 - z) - \frac{V}{h^3} \int \de^3 p \ln(1 - z e^{-\beta \mE_{\vect p}})
+\]
+\[
+\avg{N} = \left(\frac{z}{1 - z}\right) - \frac{V}{h^3} \int \de^3 p \left(\frac{z e^{- \beta \mE_{\vect p}}}{1 - z e^{- \beta e^{-\beta \mE_{\vect p}}}}\right)
+\]
+Se faccio un limite termodinamico del tipo $V \to \infty$ ottengo semplificazioni che permettono di rendere molto più chiari i risultati analitici. L'idea è di porre $V \to \infty$. Si pensi alla seconda equazione, dividendo per $V$
+\[
+\frac{\avg N}{V} = \frac{1}{V} \frac{z}{1 - z} + \frac{1}{\hbar} \int \de^3 p \avg{n_{\vect p}}
+\]
+Ma questa è una densità di particelle, denotata con $1/v$. Siccome so che $V \to \infty$ ma voglio descrivere un gas che ha una certa densità. Fisso $v$ e fisso la temperatura $T$ e voglio trovare nel limite $V \to \infty$ la soluzione dell'equazione in $z$. Nel limite $V \to \infty$ devo trovare quindi $z = z(v,T)$. Se poi lo inserisco nelle formule mi permetterà di derivare la pressione in funzione del volume e della temperatura.
+
+Se tengo conto che
+\[
+- \ln(1 - x) = x + \frac{x^2}{2} + \frac{x^3}{3} + \dots = \sum_{l = 1}^\infty \frac{x^l}{l}
+\]
+è una funzione con cui posso sviluppare
+\[
+\frac{1}{h^3} \int \de^3 p \sum_{l = 1}^\infty \frac{(z e^{-\frac{\beta \vect p^2}{2 m}})^l}{l} = \frac{V}{h^3} \sum_{l = 1}^\infty \frac{z^l}{l} \int e^{-\frac{\beta \vect p^2}{2m} \cdot l} \de^3 p
+\]
+\[
+= + \frac{V}{\Lambda^3} \sum_{l = 1}^\infty \frac{z^l}{l l^{3/2}} = + \frac{V}{\Lambda} \sum_{l = 1}^\infty \frac{z^l}{l^{5/2}} \equiv \frac{V}{\Lambda^3} g_{5/2}(z)
+\]
+Quindi
+\[
+\frac{P V}{k T} = - \ln(1 - z) + \frac{V}{\Lambda^3} g_{5/2}(z)
+\]
+e l'equazione importante risulta
+\[
+\frac{1}{v} = \frac{1}{V} \left(\frac{z}{1 -z}\right) + \frac{1}{\Lambda^3} g_{3/2}(z)
+\]
+\[
+\frac{1}{v} = \frac{1}{\Lambda^3} g_{3/2}(\overline z)
+\]
+Ci sono dei casi in cui $V \to \infty$ e $1 - z \to 0$ hanno un prodotto con un limite finito che è necessario per risolvere l'equazione.
+\[
+g_{3/2}(z) = \sum_{l = 1}^\infty \frac{z^l}{l^{3/2}}
+\]
+Qualitativamente (grafico) la funzione $g_{3/2}(z)$ vale $\zeta(3/2) = 2.612\dots$ in 1, e vi tende con derivata asintotica. Se $\Lambda^3/v < \zeta(3/2)$ Per $V$ grande ma finito la soluzione è $\overline z$. Per $V \to \infty$ la soluzione diventa la soluzione di
+\[
+\frac{\Lambda^3}{v} = g_3(\overline z)
+\]
+e siccome $\overline z < 1$
+Dipende se $\Lambda^3/v < \zeta(3/2)$ oppure $\Lambda^3/v > \zeta(3/2)$. Nel secondo caso $(1 - z) \propto 1/V$ (vedere grafico).
+
+Le singolarità si manifestano solo quando $V \to \infty$, e non con $V$ molto grande.
+\[
+\frac{\Lambda^3}{V} \left(\frac{z}{1 - z}\right) \quad \longrightarrow \quad \frac{\Lambda^3}{v} - g_{3/2}(1)
+\]
+Quindi c'è un contributo alla densità totale che è imputabile esclusivamente allo stato con energia nulla. In questo stato c'è un'occupazione macroscopica. Ma c'è anche negli stati con $\vect p \neq 0$?
+\[
+\vect p_1 = \frac{\vect n_1 h}{L} \qquad \text{dove} \qquad \vect n_1 \equiv (1,0,0)
+\]
+\[
+\mE_1 = \frac{h^2 \, 1}{2 m} \qquad \avg{n_1} \upnote{=}{$z = 1$} \frac{1}{1 - e^{-\beta \mE_1}} 
+\]
+\[
+\frac{\avg{n_1}}{V} = \frac{1}{V} \frac{1}{z^{-1} e^{-\beta \mE_1} - 1} \upnote{<}{$z < 1$} \frac{1}{V} \frac{1}{e^{\beta \mE_1} - 1} 
+\]
+ma $\mE_1 = \frac{h^2}{2 m V^{2/3}}$ pertanto
+\[
+\frac{1}{V} \frac{1}{e^{\beta \mE_1} - 1} \sim \frac{V^{2/3}}{V} \sim \frac{1}{V^{1/3}}
+\]
+\[
+(v,T) \to P
+\]
+\[
+\frac{P}{k T} = - \frac{1}{V} \ln(1 - z) + \frac{1}{\Lambda^3} g_{5/2}(z)
+\]
+Se $z(v,T) < 1$ allora nel limite termodinamico il logaritmo diviso per $V$ va a zero.
+\[
+P = \frac{k T}{\Lambda^3} g_{5/2}(z(v,T)) \qquad \frac{\Lambda}{v} < g_{3/2}(1)
+\]
+invece
+\[
+P = \frac{k T}{\Lambda^3} g_{3/2}(1) \qquad \frac{\Lambda}{v} > g_{3/2}(1)
+\]
+cioè non dipende più da $v$! Per $T$ fissata dunque $T$ è una costante nel diagramma $v,T$ fino a $v_c$. Dopo $v_c$ si instaura un altro regime: la pressione cala, e nel punto di transizione la funzione non è analitica.
+
+
+
+Prendiamo ora il sistema dell'oscillatore armonico.
+\[
+\sum_{i = 1}^N \left(\frac{\vect p_i^2}{2 m} + \frac{\alpha}{2} x_i^2 \right) = H(P,X)
+\]
+Questo sistema può esserci l'estensività voluta? In questo sistema non c'è un volume, la buca è la stessa, dal punto di vista spaziale è sempre quella. Quello che succede in questo sistema si può vedere calcolando
+\[
+Q_N(N,T) = \frac{1}{N!} \frac{1}{\Lambda^N} \left(\frac{2 \pi}{\beta_{\alpha}}\right)^{N/2}
+\]
+e calcolando il logaritmo
+\[
+- \pderiv{}{\beta} \ln Q_N = \avg{H} = 2 N \frac{\beta}{2} = \frac{N}{\beta}
+\]
+L'energia è estensiva, ma se ad esempio si calcola
+\[
+A(N,T) = - k T \ln(Q_N)
+\]
+si può verificare che non è estensiva.
+
+Nota. negli esperimenti la condensazione viene prodotta spingendo le particelle a riempire un piccolo spazio: il sistema è simile all'oscillatore armonico. L'operatore quantistico per queste particelle sarà
+\[
+\sum_{i = 1}^N \left(- \frac{\hbar^2}{2m} \pderiv[2]{}{x_i} + \frac{\alpha}{2} x_i^2\right)
+\]
+Queste particelle fra loro sono non interagenti, quindi hanno in comune questo fatto con i gas ideali. Ma in questo caso ciascuna vede un potenziale armonico. Considerando un oscillatore quantistico si ha
+\[
+\left(- \frac{\hbar^2}{2m} \pderiv[2]{}{x} + \frac{\alpha}{2} x^2 \right) h_k(x) = \mE_k h_k(x)
+\]
+\[
+\mE_k = \hbar \omega \left(\frac{1}{2} + k\right) \qquad k = 0, 1, 2, \dots
+\]
+Se io suppongo che a questi oscillatori sono associate particelle bosoniche o fermioniche, come posso studiare la statistica del sistema?

@@ -1,9 +1,6 @@
 \documentclass[../../FisicaTeorica.tex]{subfiles}
 
 \begin{document}
-
-\lesson{14}{25/10/2018}
-%\section{Evoluzione temporale in\ \MQ}
 Nel caso più generale, tenendo conto anche della degenerazione degli autovalori, la formula (\ref{eqn:evoluzionetemporale_nodeg}) diviene:
 \begin{align}
     \psi(t)&=U(t)\psi = e^{-i\frac{t}{\hbar}H}\psi=\int e^{-i\frac{t}{\hbar}\lambda}dP^H(\lambda)\psi \qquad \forall \psi \in \hs\nonumber\\
@@ -84,7 +81,6 @@ si potrebbe dire (come fece Dirac) che il commutatore $[\cdot,\cdot]/(i\hbar)$ n
 Perciò, per un sistema isolato, l'evoluzione temporale in \MQ procede in un modo molto "classico", e soprattutto è completamente \textbf{deterministica}.\\
 Tuttavia, prima o poi sarà necessario fare una misura, e in quel momento il sistema non potrà più essere considerato isolato, e in particolare esibirà un comportamento quantistico (probabilistico).\\
 Facciamo ora qualche esempio per familiarizzare con il formalismo, e discuteremo poi la teoria della misura (cosa succede ad un sistema quantistico a seguito di una misurazione).\\
-
 \subsection{Buca infinitamente profonda in 1D}
 \label{sec:buca_infinita_1D}
 Consideriamo una buca di potenziale infinitamente profonda tra $[-\frac{a}{2},\frac{a}{2}]$, in una dimensione\footnote{Fisicamente tale sistema descrive \q{pareti impenetrabili}, sia classicamente che quantisticamente}.\\
@@ -147,7 +143,7 @@ w^X_{\rho_\mathcal{E}}(\lambda) &= \frac{d}{d\lambda}\int_{-\frac{a}{2}}^{\frac{
 &=\int_{-\frac{a}{2}}^{\frac{a}{2}} \frac{\delta(\lambda-x)}{a}dx = \frac{1}{a}
 \end{align*}
 come ci si aspetta da una distribuzione uniforme.\\
-Per quanto riguarda i momenti, abbiamo solo due valori possibili (uno positivo e uno negativo). Per esempio, potremmo calcolare la probabilità che, una misura del sistema nello stato  $\rho_{\mathcal{E}}$ trovi esattamente $\sqrt{2m\mathcal{E}}$:
+Per quanto riguarda i momenti, abbiamo solo due valori possibili (uno positivo e uno negativo). Per esempio, potremmo calcolare la probabilità che una misura del sistema nello stato  $\rho_{\mathcal{E}}$ trovi esattamente $\sqrt{2m\mathcal{E}}$:
 \begin{align*}
 \mathcal{P}^p_{\rho_\mathcal{E}}(\{\sqrt{2m\mathcal{E}}\})&=\int_\bb{R} \int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p) \rho_\mathcal{E}(x,p)\,dx\,dp = \\
 & =
@@ -177,7 +173,7 @@ Prendiamo $\psi \in D(H^\dag)$, $\varphi \in D(H)$ e verifichiamo:
 \end{equation}
 Espandendo i prodotti scalari e \q{spostando} la derivata seconda sulla $\psi$ con un'integrazione per parti (in (a) e in (b)):
 \begin{align*}
--\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}} \psi^*(x) \varphi''(x)dx &\underset{(a)}{=} -\frac{\hbar^2}{2m}\psi^*\varphi' \big|_{-\frac{a}{2}}^{\frac{a}{2}} + \frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}(x)\varphi'(x)dx\\
+-\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}} \psi^*(x) \varphi''(x)dx &\underset{(a)}{=} -\frac{\hbar^2}{2m}\psi^*\varphi' \big|_{-\frac{a}{2}}^{\frac{a}{2}} + \frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}'(x)\varphi'(x)dx\\
 &\underset{(b)}{=} \hlc{SkyBlue}{-\frac{\hbar^2}{2m}\psi^*\varphi'\big|_{-\frac{a}{2}}^{\frac{a}{2}}+\frac{\hbar^2}{2m}{\psi^*}'\varphi\big|_{-\frac{a}{2}}^{\frac{a}{2}}} - \underbrace{\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}''(x)\varphi(x)dx}_{=(H^\dag \psi,\varphi)}
 \end{align*}
 Perciò l'uguaglianza (\ref{eqn:autoaggiuntezza_H}) è verificata se i due termini evidenziati si annullano. Vogliamo allora imporre condizioni su $\varphi$\ in modo che si verifichi proprio questo, e che soprattutto da ciò automaticamente segua che le stesse condizioni debbano valere anche su $\psi$:
@@ -193,7 +189,7 @@ Si ottiene da (\ref{eqn:annullamento_autoaggiuntezza}):
 \[
 \psi^*\varphi'\big|_{-\frac{a}{2}}^{\frac{a}{2}} \Rightarrow \psi\left(\frac{a}{2}\right)=0=\psi\left(-\frac{a}{2}\right)
 \]
-essendo $(\varphi'\frac{a}{2}), \varphi'(-\frac{a}{2})$ arbitrarie.\\
+essendo $\varphi'\left(\frac{a}{2}\right), \varphi'\left(-\frac{a}{2}\right)$ arbitrarie.\\
 In questo modo l'operatore $H$ è autoaggiunto. Possiamo allora scrivere il suo dominio:
 \[
 D(H)= \left \{\varphi \in \hs\>|\> \varphi \text{ regolare (vale l'integrazione per parti per $\varphi$ e $\varphi'$) }, \varphi\left(\pm \frac{a}{2}\right) =  0\right \}
@@ -262,7 +258,7 @@ Riscrivendo poi il $\sin$ come:
 E quindi possiamo semplificare l'espressione (\ref{eqn:condizioni_contorno_buca}), da cui ricaviamo:
 \begin{align*}
 c_+ + c_- = 0 &\Rightarrow c_- = -c_+\\
-\varphi_\mathcal{E}^{2n}(x)&=A\sin \left(\frac{2n\pi}{a}\right) x
+\varphi_\mathcal{E}^{2n}(x)&=A\sin \left(\frac{2n\pi}{a}x\right)
 \end{align*}
 Notiamo che $n\neq 0$ (se così non fosse si otterrebbe la soluzione nulla, che non è fisica), e inoltre $n$ e $-n$ corrispondono allo stesso stato:
 \[

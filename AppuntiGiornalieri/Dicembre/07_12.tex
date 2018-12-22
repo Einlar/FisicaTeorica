@@ -1,0 +1,206 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione X:\\ \large{Scattering}}
+\vspace{-1em}
+\begin{center}
+    \small{(7/12/2018)}
+\end{center}
+
+Consideriamo il problema di studiare la forma di un potenziale $V$ ignoto tramite dati sperimentali sulle sezioni d'urto.\\
+
+Nella pratica avremo un fascio di particelle di momento iniziale $\vec{p}_0$ che urtano contro una lamina-bersaglio, su cui si trovano diversi \textit{centri diffusori} che deviano le particelle che passano \textit{molto vicine} ad essi, ossia che la forza che \textit{devia le particelle} abbia un range $a$ molto piccolo.\\
+Facciamo le seguenti ipotesi:
+\begin{enumerate}
+\item Il fenomeno sia descrivibile come un urto elastico (energia si conserva)
+\item La distanza tra i centri diffusori sia molto maggiore del range $a$ dell'interazione.
+\item Il bersaglio è sottile, cosicché ogni particella del fascio incidente interagisce mediamente con un solo centro diffusore.
+\end{enumerate}
+Possiamo perciò concentrarci sull'interazione con un solo centro diffusore.\\
+Posizioniamo a grande distanza $D$ dal bersaglio una serie di rivelatori, posti lungo una semisfera, che conteggiano ciascuno il numero di particelle diffuse dal bersaglio nell'unità di tempo nell'angolo solido $d\Omega(\theta,\varphi)$ nella direzione $\theta,\varphi$, coordinate polari di un sistema di riferimento con origine nel centro diffusore e asse lungo la direzione del fascio incidente.\\
+Sia $\phi_i$ il flusso di particelle incidenti nell'unità di tempo per unità di area. Se denotiamo con $\vec{j}_i$ la corrente corrispondente:
+\begin{align*}
+\phi_i = |\vec{j}_i|
+\end{align*}
+Sia $\phi(\theta,\varphi)$ il flusso di particelle nell'unità di \textit{tempo} e unità di \textit{angolo solido} nella direzione $\theta,\varphi$. Se denotiamo con $\vec{j}_d$ la corrente associata al \textbf{flusso diffuso} (dopo l'attraversamento del bersaglio), avremo:
+\begin{align*}
+\phi(\theta,\varphi) =\ r^2 |\vec{j}_{d} \hat{r}|\quad \hat{r} = \frac{\vec{x}}{|\vec{x}|}
+\end{align*}
+
+Definiamo infine la \textbf{sezione d'urto differenziale} \begin{align*}
+\sigma(\theta,\varphi) \equiv \frac{\phi(\theta,\varphi)}{\phi_i} = \frac{r^2 |\hat{r}(\theta,\varphi)\cdot \vec{j}_d|}{|\vec{j}_i|}
+\end{align*}
+e ha le dimensioni di un'area.\\
+Poiché tale rapporto è indipendente dal numero $N$ di particelle incidenti, si ha che $\sigma(\theta,\varphi)$ è il \textit{rapporto} tra la probabilità di diffusione in $(\theta,\varphi)$ per unità di angolo solido e la probabilità di incidenza per unità di superficie.\\
+
+Supponiamo, come noteremo, che una soluzione dell'equazione di Schr\"odinger stazionaria per momento incidente $\vec{p}$ a grandi distanze dal bersaglio abbia la forma asintotica.
+\begin{align*}
+\psi^{as.}(\vec{x},t) = \exp\left(-i\frac{\mathcal{E}}{\hbar}t \right) \left[ \underbrace{\exp\left(i\frac{\vec{p}\cdot\vec{x}}{\hbar} \right) }_{\psi_{inc.}}+\underbrace{ f_{\vec{p}}(\theta,\varphi)\frac{1}{r}\exp\left(i\frac{pr}{\hbar}\right) }_{\psi_d}\right] 
+\end{align*}
+con $\mathcal{E} = \vec{p}^2/(2m)$ (non consideriamo lo spin).\\
+
+La corrente di probabilità corrispondente a $\psi_i$ (onda incidente) e a $\psi_d$ (onda diffusa):
+\begin{align*}
+\vec{j}_i &= \frac{\hbar}{2mi}(\psi_i^* \vec{\nabla}\psi_i - (\vec{\nabla}\psi_i^* ) \psi_i) =\\
+&= \frac{\hbar}{m} \op{Im}(\psi_i^* \vec{\nabla}\psi_i) = \frac{\hbar}{m} \op{Im}\left(\exp\left(-i\frac{\vec{p}\cdot \vec{x}}{\hbar}\right) \vec{\nabla}\exp\left(i\frac{\vec{p}\cdot \vec{x}}{\hbar} \right)\right) =\\
+&= \frac{\vec{p}}{2m}\\
+\hat{r}\cdot \vec{j}_d &= \frac{\hbar}{m} \op{Im}(\psi_d^* \hat{r} \cdot \vec{\nabla}\psi_d) =\\
+&= \frac{\hbar}{m} \op{Im} \left(\psi^*_d \frac{\partial}{\partial r}\psi_d\right) = \\
+&= \frac{\hbar}{m}\op{Im}\left(i\frac{p}{\hbar}\frac{|f_p(\theta,\psi)|^2}{r^2}-\underbrace{|f_p(\theta,\varphi)|^2 \frac{1}{r^2}}_{\text{reale}}\right) =\\
+&= \frac{\hbar}{m}\frac{p}{\hbar} \frac{|f_P(\theta,\varphi)|^2}{r^2} = \frac{p}{m}\frac{|f_P(\theta,\varphi)|^2}{r^2} 
+\end{align*}
+
+Otteniamo perciò:
+\begin{align*}
+\sigma(\theta,\varphi) = \frac{\displaystyle \frac{p}{m} \frac{|f_P(\theta,\varphi)|^2 r^2}{r^2}}{\displaystyle \left| \frac{\vec{p}}{m}\right|}
+\end{align*}
+Questa trattazione però non riproduce la situazione sperimentale di particelle incidenti, libere per $t\to -\infty$, che incidono sul  bersaglio a $t=0$ e poi libere per $t\to +\infty$ in cui sono a grande distanza dal bersaglio.\\
+\textit{Infatti, il processo di scattering è intrinsecamente dinamico, e non è intuitivo affermare che possa essere descritto da onde stazionarie, come se fosse un processo statico}.\\
+Vediamo nel dettaglio i conti che confermano la possibilità di una trattazione stazionaria, e che portano alla $\psi^{as.}$ assunta nei passaggi precedenti.\\
+Per riprodurre la situazione fisica dinamica (non stazionaria) dobbiamo formare pacchetti d'onda con le caratteristiche richieste, a partire dagli stati stazionari sopra descritti.\\
+Poniamo, per semplicità, $\hbar = 1$, per cui $\vec{p}=\hbar \vec{k}$ diviene $\vec{p}=\vec{k}$.\\
+Troviamo per prima cosa gli stati stazionari (non solo asintoticamente) con la condizione asintotica che a $t\to -\infty$ descrivano la particella incidente libera di momento $\vec{p}$, che denotiamo con $\psi^{in}$.\\
+Tali funzioni d'onda devono essere soluzioni dell'equazione di Schr\"odinger stazionaria:
+\begin{align}
+H\psi^{in} = \left(\underbrace{\frac{\vec{p}^2}{2m} }_{-\Delta/(2m)}+ V(x)\right)\psi^{in} = \frac{\vec{p}^2}{2m}\psi^{in}
+\label{eqn:schrod-asintotica}
+\end{align}
+Dato che l'energia della particella, e quindi l'autovalore $\mathcal{E} = \vec{p}^2/(2m)$, è fissata dalla condizione su $t\to -\infty$.\\
+Riscriviamo la (\ref{eqn:schrod-asintotica}) in rappresentazione $\{\vec{x}\}$:
+\begin{align*}
+\left(\frac{\Delta}{2m} + \frac{\vec{p}}{2m}\right)\psi^{in}(\vec{x}) = V(\vec{x})\psi^{in}(\vec{x})
+\end{align*}
+e otteniamo una soluzione (formale cioé implicita) prendendo la soluzione dell'omogenea:
+\begin{align*}
+\psi^{in}(\vec{x}) &= \exp^{i\vec{p}\cdot \vec{x}}\\
+\left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m}\right) e^{i\vec{p}\cdot \vec{x}} &=0
+\end{align*}
+A cui sommiamo la soluzione particolare:
+\begin{align*}
+\psi^{in}(\vec{x})=\int d^3 y \left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon \right)^{-i} (\vec{x}-\vec{y})V(\vec{y})\psi^{in}(\vec{y})
+\end{align*}
+dove
+\begin{align*}
+\left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m}\right) \left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon
+\right)^{-1} (\vec{x}-\vec{y}) = \delta^{(3)}(\vec{x}-\vec{y})
+\end{align*}
+$+i\epsilon$ è la condizione corretta per l'inversione perché poiché $t\to -\infty$ il termina sia nulla quando costruisco il pacchetto d'onda!
+\\
+
+La soluzione (in forma implicita) è detta \textit{equazione di Lippman -Schwinger}:
+\begin{align*}
+\psi^{in}(\vec{x}) = e^{i\vec{p}\cdot \vec{x}} + \int d^3 y \left( \frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon\right)^{-1} (\vec{x}-\vec{y})V(\vec{y})\psi^{in}(\vec{y})
+\end{align*}
+
+Passiamo in rappresentazione di Fourier:
+\begin{align*}
+\left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon\right)^{-1}(\vec{x}-\vec{y}) =\int d^3 q e^{i\vec{q}\cdot(\vec{x}-\vec{y})} \frac{1}{\displaystyle -\frac{\vec{q}^2}{2m}+\frac{\vec{p}^2}{2m}+i\epsilon}
+\end{align*}
+
+Facendo i passaggi:
+\begin{align*}
+&\bra{\vec{x}}\left(\frac{\Delta}{2m}+\frac{\vec{p}^2}{2m}+i\epsilon\right)^{-1}\ket{\vec{y}} = \left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon \right) (\vec{x},\vec{y}) =\\
+&=\bra{\vec{x}} \left(\frac{\Delta}{2m} + \frac{\vec{p}^2}{2m} + i\epsilon \right)^{-1}\int d^3 q \ket{\vec{q}}\braket{\vec{q}|\vec{y}}=\\
+&=\bra{\vec{x}} \int d^3 q \left(-\frac{\vec{q}^2}{2m}+\frac{\vec{p}^2}{2m}+i\epsilon \right)^{-1}\ket{\vec{q}}\hlc{SkyBlue}{\braket{\vec{q}|\vec{y}}} =\\
+&= \int d^3 q \left(-\frac{\vec{q}^2}{2m}+\frac{\vec{p}^2}{2m}+i\epsilon\right)^{-1} \hlc{SkyBlue}{e^{i\vec{q}\cdot(\vec{x}-\vec{y})}}
+\end{align*}
+nella notazione:
+\begin{align*}
+\vec{P}\ket{q} = \vec{q}\ket{q} \Rightarrow  f(\vec{P})\ket{\vec{q}} ) = f(\vec{q})\ket{\vec{q}}
+\end{align*}
+
+Volendo essere precisi, l'esponenziale va normalizzato con un fattore $(\sqrt{2\pi})^3$ al denominatore. Infatti:
+\begin{align*}
+\underbrace{\braket{x|y}}_{\int dq \braket{x|q}\braket{q|y}} &= \delta(x-y) = \int \frac{1}{2\pi} e^{iq(x-y)}\\
+\braket{x|y} &= \frac{1}{\sqrt{2\pi}} e^{iqx}
+\end{align*}
+
+
+Costruiamo ora il pacchetto d'onde usando una funzione $\tilde{g}_{\vec{p}_0}(\vec{p})$ regolare, piccata attorno a $\vec{p}_0 \parallel \hat{z}$ che soddisfa:
+\begin{enumerate}
+\item La rappresentazione del momento piccola rispetto al modulo del momento:
+\begin{align}
+\frac{\Delta p_i}{|\vec{p}|} \ll 1
+\label{eqn:poca-incertezza}
+\end{align}
+Se denotiamo con $\Delta x_i$, $i=1,2,3$ una stima delle dimensioni spaziali del pacchetto nelle $3$ direzioni, moltiplicando $\forall i$ la (\ref{eqn:poca-incertezza}) per $\Delta x_i$:
+\begin{align*}
+\frac{\lambda}{2\pi} \underset{de Broglie}{=} \frac{\hbar}{p} \underset{Heisen}{\leq} \frac{\Delta x_i \Delta p_i}{|\vec{p}|} \ll \Delta x_i
+\end{align*}
+\item 
+\item Il risultato dell'esperimento non deve dipendere dalla forma del pacchetto, ossia quest'ultimo deve essere sufficientemente esteso da \textit{coprire} tutta l'area di azione della forza. In termini matematici:
+\begin{align*}
+a \leq \Delta x_i
+\end{align*}
+\item Non vogliamo che il fascio trasmesso interferisca con il fascio diffuso. Vogliamo allora che: $D\sin\theta > \Delta x, \Delta y$.\\
+In effetti è questo il motivo per cui nel caso dello scattering per l'esperimento di Rutheford, l'espressione che si ottiene diverga per $\theta \to 0$.
+\end{enumerate}
+
+Con un $\tilde{g}_{\vec{p}_0}(\vec{p}) \in L^2(\bb{R}^3)$ reale e normalizzata:
+\begin{align*}
+\int d^3 p\, |\tilde{g}_{\vec{p}_0}(\vec{p})|^2 = 1
+\end{align*}
+il pacchetto d'onde diviene:
+\begin{align*}
+\psi_g(\vec{x},t) = \int d^3 p\, \tilde{g}_{\vec{p}_0}(\vec{p}) e^{-i\mathcal{E}t} \psi_{\vec{p}}^{in}(\vec{x})
+\end{align*}
+con:
+\begin{align*}
+\psi_{\vec{p}}^{in}(\vec{x})= \hlc{Yellow}{e^{i\vec{p}\cdot \vec{x}}} + \hlc{SkyBlue}{\frac{1}{2m}\int d^3 y (\Delta + \vec{p}^2 + i\epsilon)^{-1} (\vec{x}, \vec{y}) V(\vec{y}) \psi_m (\vec{y})}
+\end{align*}
+Il termine evidenziato in giallo descrive un pacchetto che si muove con velocità di gruppo $p_0/m$ lungo $z$. Infatti, sviluppando $\vec{p}$ attorno a $\vec{p}_0$ è descritto da:
+\begin{align*}
+g_0 \left(\vec{x}-\frac{\vec{p}_0}{m}t\right)
+\end{align*}
+per cui la posizione del \textit{picco} si muove con $\vec{x}(t) = \vec{p}_0*t/m$.\\
+
+Dobbiamo dimostrare che il termine azzurro per $t\to-\infty$ non contribuisca (in modo da avere le condizioni che abbiamo richiesto).\\
+\begin{align*}
+\int d^3 p \frac{\tilde{g}_{\vec{p}_0}(\vec{p})}{\displaystyle
+\frac{\vec{p}^2}{2m} - \frac{\vec{q}^2}{2m} + i\epsilon} e^{i\mathcal{E}t}
+\end{align*}
+Passando in coordinate polari in $\vec{p}$, $(\theta_p, \varphi_p)$ otteniamo:
+\begin{align*}
+= \int d\Omega_p \int_0^\infty dp\, p^2 \frac{\tilde{g}_{\vec{p}_0}(p, \theta_p, \varphi_p)}{\frac{p^2}{2m}-\frac{q^2}{2m}+i\epsilon} e^{-i\mathcal{E}(p) t} \underset{t \ll 0}{\sim}
+\end{align*}
+con il cambio di variabile $p\to E=p^2/(2m)$:
+\begin{align*}
+=\int d\Omega_p \int_{-\infty}^{+\infty} dE H(E) 
+\frac{\tilde{g}_{p_0}(\sqrt{2mE}, \theta_p, \varphi_p}{E-\frac{q^2}{2m}+ i\epsilon} e^{-iEt}
+\end{align*}
+(potrebbe mancare una $\sqrt{E}$)\\
+
+Notiamo ora che:
+\begin{align*}
+\frac{1}{E-\frac{q^2}{2m}+i\epsilon}
+\end{align*}
+è piccato per $E=\frac{q^2}{2m}$.\\
+Possiamo quindi semplificare la forma di sopra approssimandola:
+\begin{align*}
+\approx \int d\Omega_p m q \tilde{g}_{p_0}(q,\theta_p, \varphi_p) \int_{-\infty}^{+\infty} dE\, \frac{1}{E-\frac{q^2}{2m}+i\epsilon} e^{-iEt}
+\end{align*}
+e il secondo integrale è una trasformata di Fourier, che dà $H(q^2/(2m))$.\\
+L'approssimazione allora svanisce per $t<0$. Ciò vale anche \q{in maniera smussata} anche per la funzione originale, e perciò per $t\to-\infty$ di sicuro non contribuisce, come desiderato.\\
+
+Mostriamo che per $t\to +\infty$ con le condizioni per $g$ date da $D\sin\theta > \Delta x, \Delta y$, la componente di $\psi_y(\vec{x},t)$ che deriva dall'integrale azzurro, ha la forma di un pacchetto diffuso.
+\begin{align*}
+2m\int \frac{d^3 q}{(2\pi)^3} \frac{e^{i\vec{q}\cdot (\vec{x}-\vec{y})}}{p^2 - q^2 + i\epsilon} &= 2m \int_0^{2\pi} d\varphi_q \int_-1^1 d\cos\theta_q \int_0^{\infty} dq\,\frac{q^2 e^{iq|\vec{x}-\vec{y}|\cos\theta_q}}{p^2-q^2 + i\epsilon} =\\
+&= \frac{2m}{(2\pi)^2} \int_0^{\infty} dq\,q^2 \frac{1}{p^2-q^2 + i\epsilon} \frac{e^{iq|\vec{x}-\vec{y}|}-e^{-iq|\vec{x}-\vec{y}|}}{iq|\vec{x}-\vec{y}|}
+\end{align*}
+(dove siamo passati in variabili polari per $q$, $(\theta_q, \varphi_q$).\\
+Cambiando variabile $q\to -q$ giungiamo a:
+\begin{align*}
+&= \frac{2im}{(2\pi)^2} \frac{1}{|\vec{x}-\vec{y}|} \int_0^{+\infty} dq\, q \frac{e^{iq|\vec{x}-\vec{y}|}}{q^2 - p^2 -i\epsilon } =
+\end{align*}
+che si tratta di un'integrazione complessa. I poli sono $q=p + i\epsilon$ e $q=-(p+i\epsilon)$. Chiudendo la \textit{path} di integrazione sul semipiano $\op{Im}(q)>0$ e applicando il teorema dei residui (per il solo residuo $+i\epsilon$ è dato da:
+\begin{align*}
+\int_{-\infty}^{+\infty} dq\, q \frac{e^{iq|\vec{x}-\vec{y}|}}{q^2-p^2+i\epsilon} = 2\pi i \frac{(p+i\epsilon)}{2(p+i\epsilon)} e^{i(p+i\epsilon)|x-y|} = i\pi e^{ip|\vec{x}-\vec{y}|}
+\end{align*}
+dove abbiamo usato:
+\begin{align*}
+\frac{1}{q^2 - p^2 + i\epsilon} = \frac{1}{2}\frac{?}{?}
+\end{align*}
+(continua lunedì)
+\end{document}
+

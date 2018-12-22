@@ -1,0 +1,537 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+%Spin continua
+Notiamo che poiché $\vec{S}$ agisce su uno spazio $\hs_s$ che è \textit{distinto} da $L^2$, commuta automaticamente con qualsiasi operatore $\vec{A}$ che agisce \textit{solo} su $L^2$, dato che:
+\begin{align*}
+[\vec{A} \otimes \bb{I}, \bb{I}\otimes \vec{S}]=0
+\end{align*}
+In particolare, $\vec{S}$ commuta con $\vec{X}$, $\vec{P}$ e $\vec{L}$.\\
+Inoltre $\{\vec{X}, \vec{P}, \vec{S}\}$ formano un \textit{insieme irriducibile}, stavolta per tutte le particelle elementari quantistiche (mentre $\{\vec{X},\vec{P}\}$ sono un sistema irriducibile solo per le particelle quantistiche \q{con analogo classico}, ossia senza spin).\\
+Notiamo ora che $\vec{S}^2$ commuta con $\vec{X}$, $\vec{P}$, $\vec{S}$, ossia con tutti gli elementi del sistema irriducibile. Perciò deve essere un multiplo dell'identità, e in particolare deve assumere un valore specifico, indipendente dallo stato.\\
+Ogni particella, perciò, è caratterizzata da un \textit{autovalore fissato} di $\vec{S}^2$, della forma $\hbar^2 s(s+1)$, con $s\in \bb{N}/2$.\\
+Notiamo ora che $\hs_s$ è generato dagli autoket dello spin, e dato che le singole componenti di $\vec{S}$ non commutano tra di loro, possiamo prendere una di esse, come $S_3$, come ICOC in $\hs_s$.\\
+Per quanto ricavato discutendo il momento angolare, lo spettro di $S_3$ è discreto, con $2s +1$ possibili autovalori (che vanno a incrementi di $\hbar$ da $-\hbar s$ a $+\hbar s$). Per ciascuno di essi avremo un autoket $\ket{s_z}$, e tali autoket costituiscono una base di $\hs_s$. Si ha perciò che $\op{dim}\hs_s = 2s+1$ e quindi $\hs_s \cong \bb{C}^{2s+1}$.\\
+
+Perciò, lo spazio \q{totale} per gli stati di una singola particella \textit{dotata di spin} è dato dal prodotto tensore tra lo spazio \q{fisico reale} $L^2$ e lo \q{spazio di spin} $\hs_s$. Usando l'isomorfismo introdotto in (\ref{eqn:isomorfismo-prodotto-tensore}) possiamo allora scrivere:
+\[
+\hs = L^2(\bb{R}^3, d^3x) \otimes \hs_s \cong L^2(\bb{R}^3, d^3 x)\otimes \bb{C}^{2s+1} \cong \underbrace{L^2(\bb{R}^3, d^3x) \oplus \dots \oplus L^2(\bb{R}^3, d^3x)}_{2s+1 \text{ volte}}
+\]
+In altre parole, un vettore di $\hs$ in rappresentazione $\{\vec{X}, S_3\}$ si può vedere come un vettore colonna a $2s+1$ componenti:
+\[
+\begin{pmatrix}
+\psi_1(\vec{x})\\
+\psi_2(\vec{x})\\
+\vdots\\
+\psi_{2s+1}(\vec{x})
+\end{pmatrix} \in L^2(\bb{R}^3) \oplus \dots \oplus L^2(\bb{R}^3)
+\]
+
+In natura, gran parte delle particelle hanno spin non nullo, e non sono quindi descrivibili in uno spazio \textit{puramente} \q{classico}. In effetti, notiamo che tutte le particelle \q{di materia} - come elettroni, protoni e neutroni - hanno spin $s=\frac{1}{2}$.\\
+
+\textbf{Riepilogando}, i gradi di libertà aggiuntivi dati dallo spin derivano dal fatto che le \textit{simmetrie} offerte dall'isotropia dello spazio agiscono su raggi vettori in $\mathcal{PH}$, e non direttamente sui vettori di $\hs$, dato che non possono \q{percepire} la \q{fase assoluta} di uno stato, ma solo una differenza tra fasi: questo è un fatto verificato sperimentalmente.\\
+Per teorema di Bargmann possiamo realizzare tali simmetrie come rappresentazioni unitarie che agiscono su $\hs$, al costo di passare \textit{sul gruppo di ricoprimento} delle rotazioni, che non è $SO(3)$ stesso, ma $SU(2)$. Localmente, i due sono indistinguibili (e in effetti generano la stessa algebra di Lie), ma globalmente no, per cui ad esempio rotazioni equivalenti in $SO(3)$ che differiscono di $2\pi$ \q{sono proiettate} in punti (ossia rotazioni) distinti in $SU(2)$, dove è necessaria un'ulteriore differenza di $2\pi$ (per un totale di $4\pi$) per ritornare effettivamente al punto di partenza. Ciò offre agli stati di $\hs$, per cui usiamo quest'ultima rappresentazione, una maggiore \q{libertà}, che si traduce proprio nell'esistenza dello spin - da cui, come vedremo, derivano le proprietà di tutta la \textit{materia} come la conosciamo!\\
+
+Concentriamoci ora sul caso $s=\frac{1}{2}$. Sappiamo che:
+\begin{align*}
+\hs_{s=\frac{1}{2}}\cong \bb{C}^2 && \sigma(S_3) = \left\{-\frac{\hbar}{2}, +\frac{\hbar}{2} \right\}
+\end{align*}
+
+Perciò le singole componenti $S_i$ di $\vec{S}$ sono matrici hermitiane $2\times 2$. Potremmo allora pensare a $\vec{S}$ come ad un \q{vettore di matrici} (o meglio, un tensore).\\
+
+Cerchiamo ora una base di $\hs_{s=\frac{1}{2}}$, che ci aspettiamo essere formata da tre componenti, dato che una matrice $2\times 2$ hermitiana ha $3$ \q{gradi di libertà}: $2$ sulla diagonale e un altro qualsiasi (di cui il quarto elemento sarà il complesso coniugato).\\
+Sia $\vec{\sigma}=(\sigma_x, \sigma_y, \sigma_z)=(\sigma_1, \sigma_2, \sigma_3)$ definito da:
+\begin{align*}
+\vec{S}=\frac{\hbar}{2}\vec{\sigma}
+\end{align*}
+In tal modo le matrici (hermitiane) $\sigma_i$ sono $2\times 2$ con entrate adimensionali e, come vedremo, di modulo $1$. Dalle relazioni di commutazione delle componenti di $\vec{S}$ si ricavano relazioni per le $\sigma_i$:
+\begin{align}\nonumber
+[S_i, S_j] = i\hbar \epsilon_{ijk}S_k &\Rightarrow  \left[\frac{\hbar}{2}\sigma_i, \frac{\hbar}{2}\sigma_j \right] = i\frac{\hbar^2}{2}\epsilon_{ijk}\sigma_k\\
+&\Rightarrow [\sigma_i, \sigma_j]=2i\epsilon_{ijk}\sigma_k \label{eqn:commutazione-sigma}
+\end{align}
+Per semplicità e convenzione, scegliamo $S_3$ come diagonale. Dato che gli autovalori di $S_3$ sono $\pm \hbar/2$, e abbiamo estratto $\hbar/2$ dalla definizione delle $\sigma_i$, si ha che $\sigma_3$ avrà $\pm 1$ sulla diagonale:
+\[
+\sigma_3 = \begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}
+\]
+Notiamo che $\sigma_3^2 = \bb{I}$. Dato che la scelta di partire proprio da $\sigma_3$ (associata a $\hat{z}$) è puramente convenzionale, dato che per l'isotropia dello spazio non esiste una direzione preferenziale, si ha che anche $\sigma_1^2 = \sigma_2^2 = \bb{I}$. Matematicamente, se $P$ è la rotazione degli assi che scambia $\hat{z}$ con $\hat{x}$ (o, equivalentemente, con $\hat{y}$), per isotropia abbiamo che:
+\begin{align*}
+(\sigma')^2 =(P^\dag \sigma_z P)^2 &= P^{-1}\sigma_z \bcancel{PP^{-1}}\sigma_z P = P^\dag \sigma_z^2 P = P^\dag \bb{I}P=\bb{I}
+\end{align*}
+
+Poiché $\vec{S}^2$ commuta con ogni $S_i$, vale:
+\begin{align*}
+0 &= [\sigma_y^2, \sigma_z]=\sigma_y^2 \sigma_z - \sigma_z \sigma_y^2 = \sigma_y(\sigma_y\sigma_z \textcolor{Blue}{- \sigma_z \sigma_y)} + (\textcolor{Blue}{\sigma_y \sigma_z} -\sigma_z \sigma_y) \sigma_y =\\
+&\underset{(\ref{eqn:commutazione-sigma})}{=}\sigma_y 2i \sigma_x + 2i \sigma_x \sigma_y = 2i(\sigma_y \sigma_x + \sigma_x \sigma_y) 
+\end{align*}
+Relazioni\marginpar{Relazioni di anticommutazione} analoghe valgono anche per le altre coppie di $\sigma_i, \sigma_j$. Possiamo riscriverle in forma compatta tramite la nozione di \textbf{anticommutatore}:
+\begin{align}
+\{\sigma_i, \sigma_j\} \equiv \sigma_i \sigma_j + \sigma_j \sigma_i = 2\delta_{ij}
+\label{eqn:relazioni-anticommutazione}
+\end{align}
+In altre parole, $\sigma_i$ con diversi indici \textit{anticommutano} tra loro, cioè:
+\begin{align*}
+\{\sigma_i, \sigma_j\} = 0 \Rightarrow \sigma_i \sigma_j = -\sigma_j\sigma_i \quad \forall i\neq j
+\end{align*}
+Le $\sigma_i$ sono matrici hermitiane (dato che $\vec{S}$ è un'osservabile), ossia $\sigma_i = \sigma_i^\dag$. Hanno quindi la forma:
+\[
+\begin{pmatrix}
+a & b\\
+b^* & c
+\end{pmatrix}\quad a,c\in \bb{R},\> b\in \bb{C}
+\]
+Imponiamo la condizione di anticommutazione con $\sigma_3 = \sigma_z$ che abbiamo già fissato:
+\begin{align*}
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix} \begin{pmatrix}
+a & b\\
+b^* & c
+\end{pmatrix} =
+\begin{pmatrix}
+a & b\\
+-b^* & -c
+\end{pmatrix} =-
+\begin{pmatrix}
+a & b\\
+b^* & c
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+0& -1
+\end{pmatrix} =
+\begin{pmatrix}
+-a & b\\
+-b^* & c
+\end{pmatrix} \Rightarrow c=0=a
+\end{align*}
+Perciò $\sigma_x$ e $\sigma_y$ hanno la forma:
+\[
+\sigma_x, \sigma_y =
+\begin{pmatrix}
+0 & b\\
+b^* & 0
+\end{pmatrix}
+\]
+Per $\sigma_x$ consideriamo la scelta più semplice, che sia compatibile con $\sigma_x^2 = \bb{I}$:
+\begin{align*}
+\sigma_x = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+\end{align*}
+Dalla relazione di anticommutazione $\sigma_x\sigma_y = -\sigma_y\sigma_x$, otteniamo che per $\sigma_y$ deve essere $b=-b^*$, ossia $b$ deve essere puramente immaginario. Da $\sigma_y^2 = \bb{I}$ avremo poi che $b=i$.\\
+Riepilogando, otteniamo la seguente scelta per le matrici $\sigma_x, \sigma_y, \sigma_z$:
+\[
+\sigma_x = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+\quad
+\sigma_y = \begin{pmatrix}
+0 & -i\\
+i & 0
+\end{pmatrix} \quad
+\sigma_z = \begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}
+\]
+Tali matrici sono dette \textbf{matrici di Pauli}\footnote{Si può anche dimostrare che $i\sigma_x, i\sigma_y, i\sigma_z$ formano una base per l'algebra di Lie $\mathfrak{su}(2)$, il che ha intuitivamente senso, dato che lo spin nasce proprio dalla discussione dei generatori delle rotazioni in $\bb{R}^3$.}, e costituiscono la versione \q{adimensionalizzata} delle osservabili associate alle componenti cartesiane dello spin $\vec{S}$, dato che siamo partiti da $\vec{S}=\frac{\hbar}{2}\vec{\sigma}$.\\
+Per trovare invece la componente di $\vec{S}$ lungo un versore generico $\hat{n}$ di $\bb{R}^3$, data da $\vec{S}\cdot \hat{n}$, passiamo in coordinate sferiche, indicando $\hat{n} = (\sin\theta\cos\varphi, \sin\theta\sin\varphi,\cos\theta)$.
+\begin{align*}
+\vec{S}\cdot \vec{n} &= \frac{\hbar}{2}\vec{\sigma}\cdot\hat{n} =\frac{\hbar}{2}\left[\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}\sin\theta\cos\varphi + 
+\begin{pmatrix}
+0 & -i\\
+i & 0
+\end{pmatrix}\sin\theta\sin\varphi + \begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}\cos\theta
+\right] =\\
+&= \frac{\hbar}{2}\begin{pmatrix}
+\cos\theta & \sin\theta (\cos\varphi-i\sin\varphi)\\
+\sin\theta(\cos\varphi + i\sin\varphi) & -\cos\theta
+\end{pmatrix}
+= \frac{\hbar}{2}\begin{pmatrix}
+\cos\theta & \sin\theta e^{-i\varphi}\\
+\sin\theta e^{i\varphi} & -\cos\theta
+\end{pmatrix}
+\end{align*}
+Sappiamo già che gli autovalori di tale matrice saranno $\pm \hbar/2$. Cerchiamone i relativi autovettori:
+\begin{align*}
+\left[\vec{S}\cdot \hat{n} -\left(\pm\frac{\hbar}{2}\right)\right]\begin{pmatrix}
+a\\b \end{pmatrix}\overset{!}{=}0\Rightarrow 
+\begin{pmatrix}
+\cos\theta \mp 1 & \sin\theta e^{i\varphi}\\
+\sin\theta e^{i\varphi} & -\cos\theta \mp 1
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix} = 0
+\end{align*}
+Da cui si ottengono due equazioni linearmente dipendenti, per cui basta scrivere la prima:
+\[
+a(\cos\theta \mp 1) + b\sin\theta e^{-i\varphi}=0
+\]
+Riscrivendo ogni termine, tramite identità goniometriche, in funzione di $\theta/2$:
+\[
+a\left(\cos^2\frac{\theta}{2}-\sin^2 \frac{\theta}{2} \mp\left(\cos^2 \frac{\theta}{2}+\sin^2\frac{\theta}{2}\right)\right) +b\,2\sin\frac{\theta}{2}\cos\frac{\theta}{2} e^{-i\varphi} = 0
+\]
+\begin{align*}
++\frac{\hbar}{2}:\quad \frac{b}{a}=\frac{\sin\theta/2}{\cos\theta/2}e^{i\varphi}\qquad
+-\frac{\hbar}{2}:\quad \frac{b}{a}=-\frac{\cos\theta/2}{\sin\theta/2} e^{i\varphi}
+\end{align*}
+Per \q{simmetria}, scegliamo $a = \cos\frac{\theta}{2}e^{-i\varphi/2}$ per il primo caso, e $a=\sin\frac{\theta}{2}e^{-i\varphi/2}$ per il secondo. Giungiamo allora a:
+\begin{align}
+\label{eqn:spin-eigenstates}
+\ket{s_3 = \frac{\hbar}{2}} &\equiv \ket{+\frac{1}{2}} = \begin{pmatrix}
+\cos\frac{\theta}{2}e^{-i\varphi/2}\\
+\sin\frac{\theta}{2} e^{i\varphi/2}
+\end{pmatrix}\\ \nonumber
+\ket{s_3 = -\frac{\hbar}{2}} &\equiv \ket{-\frac{1}{2}} = \begin{pmatrix}
+\sin\frac{\theta}{2} e^{-i\varphi/2}\\
+\cos\frac{\theta}{2} e^{i\varphi/2}
+\end{pmatrix}
+\end{align}
+
+\subsection{Composizione dei momenti angolari}
+Ci poniamo ora il problema di \textit{comporre} più momenti angolari, al fine di calcolare il \textit{momento angolare totale} di un sistema.\\
+Conti del genere compaiono, per esempio, quando si considerano sia il momento angolare orbitale $\vec{L}$ di un elettrone, che quello \textit{intrinseco} di spin $\vec{S}$, e si cerca di determinare le loro relazioni con $\vec{J}=\vec{L}+\vec{S}$.\\
+
+Occupiamoci fin da subito del caso più generale. Consideriamo due operatori di momento angolare $\vec{J}^{(1)}$ e $\vec{J}^{(2)}$ che agiscono rispettivamente su spazi \textit{distinti} $H_{j_1}$ e $H_{j_2}$ di un sistema composto dato da $\hs=\hs_{j_1} \otimes \hs_{j_2}$, ossia corrispondono a \q{gradi di libertà distinti}:
+\begin{align*}
+\vec{J}^{(1)}=\vec{J}^{(1)}\otimes \bb{I}^{(2)}\qquad \vec{J}^{(2)}=\bb{I}^{(1)}\otimes \vec{J}^{(2)}
+\end{align*}
+Poiché $\vec{J}^{(1)}$ e $\vec{J}^{(2)}$ commutano (dato che agiscono su \textit{spazi distinti}), possiamo realizzare un ICOC per il sistema unendo i due ICOC dei sistemi separati, ossia considerando $\{(\vec{J}^{(1)})^2, \vec{J}_3^{(1)}; (\vec{J}^{(2)})^2, \vec{J}_3^{(2)} \}$. Indichiamo un autoket di questo ICOC con $\ket{j_1, j_2; m_1, m_2}$, e tale autoket verifica le seguenti equazioni agli autovalori:
+\begin{align*}
+(\vec{J}^{(1)})^2 \ket{j_1, j_2; m_1, m_2} &= j_1(j_1 +1)\hbar^2 \ket{j_1, j_2; m_1, m_2}\\
+(\vec{J}^{(2)})^2 \ket{j_1, j_2; m_1, m_2} &= j_2(j_2+1)\hbar^2 \ket{j_1, j_2; m_1, m_2}\\
+{J}^{(1)}_3 \ket{j_1, j_2;m_1, m_2} &= m_1\hbar \ket{j_1, j_2; m_1, m_2}\\
+{J}^{(2)}_3 \ket{j_1, j_2; m_1, m_2} &= m_2\hbar \ket{j_1, j_2;m_1, m_2}
+\end{align*}
+dove $m_1, m_2 \in \bb{Z}$ con $|m_1| \leq j_1$ e $|m_2| \leq j_2$.\\
+
+Consideriamo ora il momento angolare totale $\vec{J}$ in $\hs$. Si ha:
+\begin{align*}
+\vec{J} = \vec{J}^{(1)}\otimes \bb{I}^{(2)} + \bb{I}^{(1)} \otimes \vec{J}^{(2)} \equiv \vec{J}^{(1)}+\vec{J}^{(2)}
+\end{align*}
+Notiamo che:
+\begin{align*}
+\vec{J}^{\,2} = (\vec{J}^{(1)})^2 + (\vec{J}^{(2)})^2 + 2\vec{J}^{(1)}\cdot \vec{J}^{(2)}
+\end{align*}
+Poiché $(\vec{J}^{(1)})^2$ commuta con tutti i termini che compaiono in $\vec{J}^2$, e la stessa cosa succede per $(\vec{J}^{(2)})^2$, si ha che:
+\begin{align*}
+[(\vec{J}^{(1)})^2, \vec{J}^{\,2}]=0 \qquad [(\vec{J}^{(2)})^2, \vec{J}^{\,2}]=0
+\end{align*}
+ossia possiamo misurare contemporaneamente il modulo del momento di ciascun sottosistema e del sistema totale - che è individuato dai numeri $j_1$, $j_2$ e $j$. Tuttavia $J_3^{(1)}$ \textit{non} commuta con le altre $J_i^{(1)}$, e quindi nemmeno con $\vec{J}^{\,2}$, dato che quest'ultimo contiene un prodotto scalare che coinvolge tutte le $J^{(1)}_i$. Stessa cosa succede, simmetricamente, per $J_3^{(2)}$. Perciò ci aspettiamo di \textit{non} poter misurare contemporaneamente $m_1$, $m_2$ e $j$.\\
+Da queste considerazioni, possiamo formare un altro ICOC, dato da $\{(\vec{J}^{(1)})^2, (\vec{J}^{(2)})^2, \vec{J}^{\,2}, \vec{J}_3\}$, i cui autoket sono denotati con $\ket{j_1, j_2; j, m}$, oppure, quando è chiaro quali siano $j_1$ e $j_2$, semplicemente con $\ket{j,m}$.\\
+Tali autoket verificano le seguenti equazioni agli autovalori:
+\begin{align*}
+(\vec{J}^{(1)})^2 \ket{j_1, j_2; j,m} &= j_1(j_1+1)\hbar^2 \ket{j_1, j_2; j,m}\\
+(\vec{J}^{(2)})^2 \ket{j_1, j_2; j,m} &= j_2(j_2 + 1) \hbar^2 \ket{j_1, j_2; j,m}\\
+\vec{J}^{\,2} \ket{j_1, j_2; j,m} &= j(j+1)\hbar^2 \ket{j_1, j_2; j,m}\\
+{J}_3 \ket{j_1, j_2; j, m} &= m\hbar \ket{j_1, j_2; j, m}
+\end{align*}
+
+Le due collezioni di osservabili sono \textit{incompatibili} tra loro, ossia un autoket per una non corrisponde a un unico autoket dell'altra, ma a una certa combinazione lineare. Fisicamente, ciò significa che partendo da stati con $j_1, j_2, j, m$ fissati, misure ripetute produrranno valori di $m_1$ e $m_2$ non unici, ma all'interno di un \textit{range}. Vogliamo ora determinare quali siano questi \textit{range}, e cioè trovare un modo per passare da una base all'altra.\\
+
+Partiamo notando che $\vec{J}_3$ commuta con $\vec{J}^{(1)}_3$ e $\vec{J}^{(2)}_3$, e perciò se questi ultimi due hanno autovalori $\hbar m_1$ e $\hbar m_2$, $J_3 = J_3^{(1)} + J_3^{(2)}$ avrà autovalore $\hbar m = \hbar(m_1+m_2)$. Poiché $m_1$ ed $m_2$ variano all'interno di range determinati da $j_1$ e $j_2$, ci chiediamo quale sia il range di $m$ a partire da $j_1$ e $j_2$. Da questo, ricordando che $m$ varia a sua volta tra $j$ e $-j$, vogliamo trovare anche il range possibile di valori di $j$, ossia degli autovalori di $\vec{J}^{\,2}$.\\
+
+Raccogliamo in tabella tutti i possibili valori di $m_1$ e $m_2$, con i rispettivi valori assunti da $m$, ordinandoli per $m$ decrescenti:
+\begin{align*}
+\bm{m} && \bm{m_1} && \bm{m_2}\\
+j_1 + j_2 && \hlc{Yellow}{j_1} && \hlc{Yellow}{j_2}\\
+j_1 + j_2-1 && \hlc{Yellow}{j_1-1} && \hlc{Yellow}{j_2}\\
+ && \hlc{SkyBlue}{j_1} && \hlc{SkyBlue}{j_2-1}\\
+ j_1+j_2-2 && \hlc{Yellow}{j_1 -2} && \hlc{Yellow}{j_2} \\
+  && \hlc{SkyBlue}{j_1-1} && \hlc{SkyBlue}{j_2 -1}\\
+  && j_1 && j_2 -2
+\end{align*}
+Innanzitutto, il numero di possibilità per $m_1$ ed $m_2$ (ossia di righe nella tabella) è dato dal numero di autostati comuni di $J_3^{(1)}$ e $J_3^{(2)}$, che ammonta a \hbox{$(2j_1 +1)(2j_2 +2)$}. Il range di $m$ si trova subito esaminando i casi limite: \hbox{$m_{\max}=j_1+j_2$} ed \hbox{$m_{\min}=-(j_1+j_2)$}.\\
+Determinare i valori possibili di $j$, invece, richiede qualche passaggio in più. Partiamo notando che, poiché $j$ è definito come $m_{\max}$, il valore massimo $j_{max}$ è proprio $j_1+j_2$. Per le regole del momento angolare, possiamo pensare che tale $j_{\max}$ \q{generi} i $2j_{\max}+1$ valori di $m$ ad esso associati, che denominiamo \q{multipletto discendente}, e sono dati da:
+\begin{align*}
+m_{j_{\max}}= j_{\max}, j_{\max}-1, j_{\max} -2, \dots, -j_{\max}
+\end{align*}
+Ciascuno di questi $m$ sarà a sua volta \q{generato} da opportuni $m_1$ ed $m_2$ tali che $m=m_1+m_2$. Perciò, nella tabella di sopra, evidenziamo in giallo le righe che sono \q{generate} da $j_{\max}$.\\
+Notiamo, come ci si aspetta, che così facendo non abbiamo evidenziato tutte le righe: in altre parole, non basta un unico $j$ totale per \q{generare} tutti i possibili valori di $m_1$ e $m_2$.\\
+Notiamo che il valore massimo di $m$ rimasto \q{scoperto}, ossia con una riga non evidenziata, è $j_1+j_2-1$. Tale $m$ \textit{massimo} corrisponderà perciò ad un secondo valore per $j$, da cui costruiamo, allo stesso modo di prima, un secondo multipletto, stavolta evidenziato in azzurro. Di nuovo, notiamo che $j_1 + j_2 -2$ ha ancora una riga non evidenziata - e quindi anch'esso corrisponderà ad un (terzo) valore di $j$, e ad un altro multipletto.\\
+
+Con questo ragionamento abbiamo associato ogni valore possibile di $j$ a un \textit{multipletto discendente} di valori di $m$, che conterrà $2j+1$ possibilità. Se troviamo il numero $N$ di multipletti sapremo immediatamente il range di $j$: sarà proprio 
+\begin{align*}
+j_{\min} = j_{\max} - N + 1= j_1 + j_2 -N +1
+\end{align*}
+ dove il $+1$ è necessario perché dobbiamo contare anche il $j_{\max}$ di partenza nel totale dei multipletti.\\
+
+Come possiamo determinare $N$? Sappiamo che $\ket{j_1, j_2; j, m}$ e $\ket{j_1, j_2; m_1, m_2}$ sono basi (diverse) dello stesso spazio di Hilbert, e perciò devono avere lo stesso numero di elementi, che è dato da $(2j_1 + 1)(2j_2 +1)$ come visto precedentemente. Dato che ad ogni $j$ sono associate $2j+1$ possibilità, e $j$ varia tra $j_{\max}$ (che conosciamo) a $j_{\min}$ (che dipende da $N$), possiamo costruire la seguente equazione:
+\begin{align*}
+(2j_1+1)(2j_2+1)&= [2j_{\max}+1] + [2(j_{\max}-1)+1] + \dots +[2j_{\min}+1]=\\
+&=[\hlc{Yellow}{2(j_1+j_2)+1}]+[\hlc{Yellow}{2(j_1+j}_2\hlc{SkyBlue}{-1})\hlc{Yellow}{+1}]+ \dots + [\hlc{Yellow}{2(j_1+j_2}\hlc{SkyBlue}{-(N-1)})\hlc{Yellow}{+1}] =\\
+&=\hlc{Yellow}{N(2(j_1+j_2)+1)}-\hlc{SkyBlue}{2 \sum_{n=0}^{N-1} n} = N(2(j_1 + j_2)+1) -\frac{\bcancel{2} N(N-1)}{\bcancel{2}} =\\
+&=N(2(j_1+j_2)+ 1 - (N-1))=N(2j_1 + 1 + 2j_2 + 1 -N)
+\end{align*}
+L'unica soluzione si ha allora per $N=2j_2 +1$.\\
+Perciò, i possibili valori di $j$ (da cui ricaviamo gli autovalori $\hbar^2 j(j+1)$ di $\vec{J}^{\,2}$), con $j_1 > j_2$, variano tra $j_{\max} = j_1 + j_2$ e $j_{\min} = j_1 + j_2 - N+1 = j_1-j_2$:
+\begin{align*}
+j =
+j_1 + j_2, j_1 + j_2 -1, \dots j_1 - j_2
+\end{align*}
+Per ottenere il caso generale, per $j_1 < j_2$ o $j_1 > j_2$ basta inserire un valore assoluto:
+\[
+j = j_1 + j_2, \dots, |j_1-j_2|
+\]
+Possiamo allora scomporre lo spazio $\hs$ come somma diretta degli autospazi degli autovalori di $\vec{J}^{\,2}$, individuati da $j$:
+\[
+\hs_{j_1}\otimes \hs_{j_2} = \bigoplus_{j=|j_1-j_2|}^{j_1+j_2} \hs_j
+\]
+Per esempio, nel caso di due particelle con spin $\frac{1}{2}$ (es. 2 elettroni):
+\[
+\underbrace{\hs_{\frac{1}{2}}}_{\op{dim} 2}\otimes \underbrace{\hs_{\frac{1}{2}}}_{\op{dim}2} = \underbrace{\hs_0}_{\op{dim} 1} \oplus \underbrace{\hs_1}_{\op{dim}3}
+\]
+
+Occupiamoci ora di determinare come le basi canoniche $\ket{j_1, m_1} \otimes \ket{j_2 m_2} \equiv \ket{j_1, j_2, m_1, m_2}$ di $\hs_{j_1} \otimes \hs_{j_2}$ e quella del \q{momento totale} $\ket{j_1, j_2;j,m}\equiv \ket{j,m}$ di $\hs_{j}$ si rappresentino una in termini dell'altra.\\
+Partiamo usando la completezza di Dirac:
+\begin{align*}
+\bb{I}_{\hs_{j_1}\otimes \hs_{j_2}} = \sum_{m_1 = -j_1}^{j_1} \sum_{m_2 = -j_2}^{j_2} \ket{j_1, j_2, m_1, m_2}\bra{j_1, j_2, m_1, m_2}
+\end{align*}
+Da cui deriva:
+\begin{align}
+\ket{j,m}= \sum_{m_1 = -j_1}^{j_1} \sum_{m_2 = -j_2}^{j_2} \braket{j_1, j_2; m_1, m_2| j, m} \ket{j_1, j_2; m_1, m_2}
+\label{eqn:completezza-momento-composto}
+\end{align}
+I termini $\ket{j_1, j_2, m_1, m_2 | j, m}$, con la convenzione $\ket{j_1, j_2, j_1, j - j_1 | j, j} \geq 0$, sono detti coefficienti di \textbf{Clebsch-Gordan} e denotati:
+\begin{align*}
+\ket{j_1, j_2, m_1 m_2 | j, m}  \equiv C^{j_1, j_2, j}_{m_1, m_2, m}
+\end{align*}
+
+Nella discussione precedente abbiamo notato che vale sempre $m=m_1+m_2$, e perciò:
+\begin{align*}
+C^{j_1, j_2, j}_{m_1,m_2, m} =0 \text{ se } m\neq m_1 + m_2
+\end{align*}
+Inoltre $j$ può assumere valori solo in $\{|j_1-j_2|, \dots, j_1+k_2\}$, e perciò:
+\begin{align*}
+C^{j_1, j_2, j}_{m_1, m_2, m} =0 \text{ se } j \notin \{|j_1-j_2|, \dots, j_1+k_2\}
+\end{align*}
+Notiamo poi che, poiché gli autoket delle due basi sono normalizzati, la somma delle \textit{proiezioni} di un certo $\ket{j_1, j_2; j, m}$ su tutti i $\ket{j_1, j_2; m_1, m_2}$ (con $|m_1| \leq j_1$ e $|m_2|\leq j_2$) deve fare $1$:
+\begin{align*}
+\sum_{m_1=-j_1}^{+j_1} \sum_{m_2 = -j_2}^{+j_2} |\braket{j_1, j_2; m_1, m_2| j_1, j_2; j, m}|^2 = 1
+\end{align*}
+Ciò deriva direttamente dalla completezza:
+\begin{align}\nonumber
+1=\braket{j_1, j_2; j,m|j_1, j_2; j, m} &= \sum_{m_1=-j_1}^{+j_1} \sum_{m_2 = -j_2}^{+j_2} \braket{j_1, j_2; j, m| j_1, j_2; m_1, m_2}\braket{j_1, j_2; m_1, m_2|j_1, j_2;j,m} =\\
+&=\sum_{m_1}\sum_{m_2} |\braket{j_1, j_2; m_1, m_2|j_1, j_2;j,m}|^2
+\label{eqn:normalizzazione-momento-composto}
+\end{align}
+Vale una cosa analoga se partiamo da $m_1$ e $m_2$ fissati e sommiamo su $j$ e $m$.\\
+
+Ci serve ora un metodo generale per ricavare tutti i coefficienti non nulli. Un'idea è partire dal fatto che $\ket{j_{\max}, m_{\max}}=\ket{j_1 + j_2, j_1+j_2}$ corrisponde, a meno di un fattore, solamente a $\ket{j_1, j_2; j_1, j_2}$, dato che è l'unico autoket che verifica $m = m_1 + m_2$. Fissiamo tale fattore a $1$, seguendo la \textit{convenzione di Condon-Shortley}, e scriviamo:
+\begin{align*}
+\ket{j_1 + j_2, j_1 + j_2} = \ket{j_1, j_2; j_1, j_2}
+\end{align*}
+Possiamo ora \textit{abbassare} entrambi i membri applicando l'operatore $J_{-} = J_{-}^{(1)} + J_{-}^{(2)}$:
+\begin{align}\nonumber
+\hlc{Yellow}{J_- \ket{j_1 + j_2 , j_1 + j_2}} &= \sqrt{(j_1 + j_2)(j_1 + j_2 +1)- (j_1 + j_2)(j_1 + j_2 -1)}\ket{j_1+j_2, j_1+j_2-1}\\\nonumber
+\hlc{Yellow}{(J_-^{(1)}+J_2^{(2)})\ket{j_1, j_2;j_1, j_2}} &= \sqrt{j_1(j_1+1)-j_1(j_1-1)}\ket{j_1 j_2; j_1-1, j_2}+\\
+&+\sqrt{j_2(j_2+1)-j_2(j_2-1)}\ket{j_1, j_2;j_1, j_2-1}
+\label{eqn:recursione-momenti-composti}
+\end{align}
+Uguagliando i termini evidenziati, abbiamo trovato un'espressione che relazione $\ket{j_1+j_2, j_1+j_2-1}$ a $\ket{j_1, j_2; j_1-1, j_2}$ e $\ket{j_1, j_2; j_1, j_2-1}$:
+\begin{align}
+\sqrt{2(j_1+j_2)} \ket{j_1+j_2, j_1+j_2-1} = \sqrt{2j_1} \ket{j_1, j_2; j_1-1,j_2}+\sqrt{2j_2}\ket{j_1, j_2; j_1, j_2-1}
+\label{eqn:abbasso-alto}
+\end{align}
+
+Possiamo reiterare la procedura per abbassare ulteriormente l'autovalore $m$, ottenendo $\ket{j_1+j_2, j_1+j_2-2}$, $\ket{j_1+j_2, j_1+j_2-3}$ e così via: in generale potremo trovare $\ket{j_1+j_2, m}$ per ogni valore di $|m|\leq j_1+j_2$.\\
+
+Per abbassare $j$, invece, sfruttiamo l'ortonormalità dei $\ket{j,m}$, imponendo:
+\begin{align*}
+\braket{j_1+j_2, j_1+j_2-1|j_1+j_2-1, j_1+j_2-1}=0
+\end{align*}
+Il termine a sinistra è conosciuto (è combinazione di $\ket{j_1, j_2; j_1-1, j_2}$ e $\ket{j_1, j_2; j_1, j_2-1}$ come visto in (\ref{eqn:recursione-momenti-composti})), e perciò possiamo risolvere per il termine a destra. Una volta ottenuto, possiamo poi reiterare questi due passaggi per ottenere tutti gli altri autoket.\\
+
+In particolare, se vogliamo trovare delle relazioni esplicite per ricavare i coefficienti di Clebsch-Gordon, abbassiamo/alziamo $\ket{j,m}$ dato da (\ref{eqn:completezza-momento-composto}):
+\begin{align*}
+J_{\pm}\ket{j,m}&=\sqrt{j(j+1)-m(m\pm1)}\ket{j_1, j_2; j, m\pm 1} =\\
+&=\sum_{m_1'}\sum_{m_2'} \braket{j_1, j_2;m_1',m_2'|j_1, j_2; j,m}\cdot\\
+&\cdot \Big ( \sqrt{j_1(j_1+1)-m_1'(m_1'\pm1)}\ket{j_1, j_2; m_1' \pm1, m_2'} +\\
+&\quad +\sqrt{j_2(j_2+1)-m_2'(m_2'\pm1)}\ket{j_1, j_2; m_1', m_2' \pm1}\Big)
+\end{align*}
+
+E prendendo il prodotto scalare con $\bra{j_1, j_2; m_1, m_2}$ si \textit{sopprimono} (per l'ortonormalità) tutti i termini per cui $m_1'-1 \neq m_1$ e $m_2'-1\neq m_2$ e perciò si giunge alla relazione:
+\begin{align}\nonumber
+&\sqrt{j(j+1)-m(m\pm1)}\braket{j_1, j_2; m_1, m_2|j_1, j_2; j, m \pm1} =\\ \nonumber
+&= \sqrt{j_1(j_1+1)-m_1(m_1\mp1)}\braket{j_1, j_2; m_1 \mp 1, m_2|j_1, j_2; j, m} +\\
+&\quad+\sqrt{j_2(j_2+1)-m_2(m_2\mp1)}\braket{j_1, j_2; m_1, m_2\mp1|j_1, j_2; j,m}
+\label{eqn:recursione-coefficienti}
+\end{align}
+
+Dato che nelle precedenti relazioni che \textit{collegano} i coefficienti di Clebsh-Gordon \textit{non} compaiono termini complessi, si ha che tali coefficienti sono puramente reali. Perciò si può passare da una base all'altra \textit{e viceversa} con gli stessi coefficienti:
+\begin{align*}
+\braket{j_1, j_2; j,m | j_1, j_2; m_1, m_2} = \braket{j_1, j_2; m_1, m_2| j_1, j_2; j, m}
+\end{align*}
+
+Quanto visto basta per determinare tutti i coefficienti, \textit{a meno di una fase}, che viene fissata dalla convenzione:
+\[
+\braket{j_1, j_2, j_1, j-j_1 | j ,j} \geq 0
+\]
+
+\subsection{Esempio di calcolo dei coefficienti di Clebsh-Gordon}
+Applichiamo quanto appena visto al caso, semplice ma interessante, di due particelle (es. elettroni) con spin pari a $\frac{1}{2}$. Avremo allora $j_1 = j_2 = \frac{1}{2}$, e $|m_1|\leq \frac{1}{2}$, $|m_2|\leq \frac{1}{2}$.\\
+Il momento totale $j$ varia tra $|j_1-j_2|$ e $j_1+j_2$, e quindi si ha $0\leq j \leq 1$. In altre parole, il sistema dei due elettroni avrà o spin pari a $1$, o spin nullo.\\
+
+Determiniamo tutti i coefficienti di Clebsh-Gordon per questo sistema. Per farlo, aiutiamoci con una tabella:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} &  &  &  &  &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} &  & x &  &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} &  &  &  &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} &  &  &  &  &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\caption{Tabella dei coefficienti di Clebsh-Gordon per due elettroni: struttura}
+\label{tab:clebsh-gordon-1}
+\end{table}
+La $x$ nella tabella, per esempio, rappresenta:
+\begin{align*}
+\braket{j_1, j_2; m_1, m_2|j,m}=
+C^{j_1, j_2, j}_{m_1, m_2, m} = C^{\frac{1}{2},\frac{1}{2},1}_{\frac{1}{2}, -\frac{1}{2},0} = \braket{\frac{1}{2}, \frac{1}{2}; \frac{1}{2},-\frac{1}{2}|1,0}
+\end{align*}
+Partiamo subito ponendo a $0$ tutti i coefficienti per cui $m\neq m_1+m_2$:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} &  & 0 & 0 & 0 &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0  &  & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} & 0 &  & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0 & 0 &  & 0 &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\label{tab:clebsh-gordon-2}
+\end{table}
+La condizione di normalizzazione (\ref{eqn:normalizzazione-momento-composto}), tradotta nella rappresentazione tabulare che stiamo considerando, ci dice che la somma dei quadrati degli elementi di una riga (o di una colonna) \textit{deve} fare $1$. Ciò significa che possiamo inserire un $\pm 1$ nelle righe o colonne che hanno un solo elemento non nullo:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} & $\pm 1$ & 0 & 0 & 0 &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0  &  & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} & 0 &  & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0 & 0 & $\pm1$ & 0 &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\label{tab:clebsh-gordon-22}
+\end{table}
+Usiamo quindi la relazione di recursione (\ref{eqn:recursione-coefficienti}) per \textit{abbassare} $\ket{1,1}$, con $j_1=j_2=\frac{1}{2}$,$j=1$, $m=0$, $m_1=\pm \frac{1}{2}$, $m_2=\mp\frac{1}{2}$, o, in maniera equivalente, la (\ref{eqn:abbasso-alto}), dato che stiamo abbassando l'autoket \q{più alto}. In ogni caso, si giunge a:
+\begin{align*}
+\sqrt{2}\ket{1,0} =\ket{\frac{1}{2},\frac{1}{2};-\frac{1}{2},\frac{1}{2}} + \ket{\frac{1}{2},\frac{1}{2};\frac{1}{2},-\frac{1}{2}}
+\end{align*}
+E prendendo il prodotto scalare con $\bra{1/2, 1/2; -1/2, 1/2}$ e poi con $\bra{1/2, 1/2; -1/2, 1/2}$, otteniamo che:
+\begin{align*}
+\braket{\frac{1}{2},\frac{1}{2};\pm \frac{1}{2}, \mp\frac{1}{2}|1,0} = \frac{1}{\sqrt{2}}
+\end{align*}
+Giungiamo quindi a:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} & $\pm 1$ & 0 & 0 & 0 &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0  & $\pm\frac{1}{\sqrt{2}}$ & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} & 0 & $\pm\frac{1}{\sqrt{2}}$ & 0 &  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0 & 0 & $\pm1$ & 0 &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\label{tab:clebsh-gordon-3}
+\end{table}
+Per trovare i coefficienti della quarta colonna, potremmo utilizzare ancora la relazione di ricursione, oppure notare che, poiché le entrate di ogni riga/colonna rappresentano le espansioni di basi ortonormali, ogni riga/colonna deve essere \textit{ortogonale} alle altre. Scegliamo allora le entrate della quarta colonna in modo che il prodotto scalare con la seconda dia $0$, e che la somma dei loro quadrati dia $1$. Vi è un'unica possibilità:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} & $\pm 1$ & 0 & 0 & 0 &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0  & $\pm\frac{1}{\sqrt{2}}$ & 0 & $\pm\frac{1}{\sqrt{2}}$  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} & 0 & $\pm\frac{1}{\sqrt{2}}$ & 0 & $\mp\frac{1}{\sqrt{2}}$  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0 & 0 & $\pm1$ & 0 &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\label{tab:clebsh-gordon-4}
+\end{table}
+La scelta dei segni è arbitraria, basta che siano mantenute le \textit{relazioni} tra un termine e l'altro. Per convenzione si prende:
+\begin{align*}
+\braket{j_1, j_2; j_1, j-j_1|j,j} \geq 0 \Rightarrow \braket{\frac{1}{2},\frac{1}{2};\frac{1}{2},\frac{1}{2}|1,1} \geq 0
+\end{align*} 
+e tutti gli altri segni di conseguenza. Perciò:
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc|l@{}}
+\toprule
+$\bm{m_1}$ & \multicolumn{1}{c|}{$\bm{m_2}$} &  &  &  &  &  \\ \midrule
+$1/2$ & \multicolumn{1}{c|}{$1/2$} & $ 1$ & 0 & 0 & 0 &  \\
+$1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0  & $\frac{1}{\sqrt{2}}$ & 0 & $\frac{1}{\sqrt{2}}$  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$1/2$} & 0 & $\frac{1}{\sqrt{2}}$ & 0 & $-\frac{1}{\sqrt{2}}$  &  \\
+$-1/2$ & \multicolumn{1}{c|}{$-1/2$} & 0 & 0 & $1$ & 0 &  \\ \midrule
+ &  & 1 & 0 & -1 & 0 & $\bm{m}$ \\
+ &  & \multicolumn{3}{c}{1} & 0 & $\bm{j}$ \\ \bottomrule
+\end{tabular}
+\caption{Coefficienti di Clebsh-Gordon per un sistema di due particelle a spin $\frac{1}{2}$}
+\label{tab:clebsh-gordon-5}
+\end{table}
+
+Grazie ai coefficienti appena calcolati possiamo finalmente esprimere una base in termine dell'altra.\\
+Poniamo, per semplicità di notazione, gli autostati dello spin (calcolati in (\ref{eqn:spin-eigenstates})) con:
+\begin{align*}
+\ket{+\frac{1}{2}} = \ket{+} \quad \ket{-\frac{1}{2}} =\ket{-}
+\end{align*}
+
+Allora, una base di $\hs_{j_1}\otimes \hs_{j_2}$ è data dal prodotto tensore delle basi di ciascuno:
+\begin{align*}
+\{\ket{+},\ket{-}\}\otimes \{\ket{+},\ket{-}\} = \{\ket{+}\ket{+},\ket{-}\ket{-}, \ket{+}\ket{-}, \ket{-}\ket{+}\}
+\end{align*}
+Dove si usa la notazione di Dirac che \textit{omette} il prodotto tra i ket: $\ket{+}\ket{+} \equiv \ket{+}\otimes \ket{+}$.\\
+
+Sappiamo che:
+\begin{align*}
+\hs_{s=\frac{1}{2}}\otimes \hs_{s=\frac{1}{2}} = \hs_{j=0} \oplus \hs_{j=1}
+\end{align*}
+E nello spazio \q{di destra}, la base canonica è:
+\begin{align*}
+\hs_0 \to \{\ket{0,0}\} \qquad \hs_1 \to \{\ket{1,-1},\ket{1,0},\ket{1,1}\}
+\end{align*}
+Osservando la tabella \ref{tab:clebsh-gordon-5} possiamo scrivere questi ultimi autoket in termini dei primi.\\
+Per $\hs_0$:
+\begin{align*}
+\ket{0,0}=
+\frac{\ket{+}\ket{-}-\ket{-}\ket{+}}{\sqrt{2}}
+\end{align*}
+Mentre per $\hs_1$:
+\begin{align*}
+\ket{1,1} = \ket{+}\ket{+} \qquad \ket{1,0} = \frac{\ket{+}\ket{-}+\ket{-}\ket{+}}{\sqrt{2}} \qquad \ket{1,-1} = \ket{-}\ket{-}
+\end{align*}
+
+\textbf{Nota}: In questo caso si procede velocemente anche procedendo per \q{abbassamento diretto} tramite $S_- = S^{(1)}_- + S^{(2)}_-$, e notando che:
+\begin{align*}
+S_- \ket{+}\ket{+} &= S^{(1)}_{-}\ket{+}\ket{+} + S^{(2)}_{-}\ket{+}\ket{+} = \ket{-}\ket{+}+\ket{+}\ket{-}\\
+S_- (\ket{+}\ket{-}-\ket{-}\ket{+})&=(S^{(1)}_- + S^{(2)}_-)(\ket{+}\ket{-}-\ket{-}\ket{+})=\ket{-}\ket{-}-\ket{-}\ket{-}=0
+\end{align*}
+\end{document}
+

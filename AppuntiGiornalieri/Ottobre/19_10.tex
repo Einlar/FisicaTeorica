@@ -6,7 +6,7 @@
 \lesson{12}{19/10/2018}
 \label{sec:momento_compatto}
 È invece possibile definire l'operatore momento su $[0,2\pi]$, cioè ponendo $\hs = L^2([0,2\pi],dx)$.\\
-Nella costruzione del suo dominio inizialmente consideriamo un operatore \q{test} $\tilde{P}$, che poi raffiniremo al $P$ vero e proprio. Poniamo quindi:
+Nella costruzione del suo dominio inizialmente consideriamo un operatore \q{test} $\tilde{P}$, che poi raffineremo al $P$ vero e proprio. Poniamo quindi:
 \[
 D\left(\widetilde{P}\right)= \left\{\psi\in L^2\left(\left[0,2\pi\right],dx\right)\ \ |\ \ \psi\text{ regolari},\psi\left(0\right)=\psi\left(2\pi\right)=0\right\}
 \]
@@ -78,7 +78,7 @@ D\left(P_\gamma\right)=D\left(P_\gamma^\dag\right)
 \]
 Ma che osservabile corrisponde a questo operatore? Partiamo dalla solita soluzione $A\exp\left(\frac{i\lambda}{\hbar}x\right)$ dell'equazione agli autovalori e imponiamo la condizione fatta nel dominio:
 \[
-e^{i\gamma}\psi_\lambda\left(0\right)=e^{i\gamma}A e^{i\frac{\lambda}{\hbar}\cdot 0}=e^{i\gamma}\overset{!}{=}\psi_\lambda\left(2\pi\right)=A e^{i\frac{\lambda}{\hbar}2\pi}
+e^{i\gamma}\psi_\lambda\left(0\right)=e^{i\gamma}A e^{i\frac{\lambda}{\hbar}\cdot 0}=e^{i\gamma}A\overset{!}{=}\psi_\lambda\left(2\pi\right)=A e^{i\frac{\lambda}{\hbar}2\pi}
 \]
 Da cui: 
 \[
@@ -92,7 +92,7 @@ Sostituendo l'espressione per $\lambda$ nella soluzione:
 \[
 \psi_\lambda(x) = A \exp\left(i\frac{\lambda}{\hbar}x\right) = A \exp\left [ix\left(\frac{\gamma}{2\pi}+n\right)\right ]; \> n\in\bb{Z}
 \]
-Se condensiamo la parte che dipenda da $n$ in un'opportuna funzione $\tilde{\psi}_n(x)$ possiamo riscrivere:
+Se condensiamo la parte che dipende da $n$ in un'opportuna funzione $\tilde{\psi}_n(x)$ possiamo riscrivere:
 \[
 \psi_\lambda(x) \rightarrow \psi_n(x) = \tilde{\psi}_n(x) \exp\left(i\frac{\gamma}{2\pi}x\right); \quad \tilde{\psi}_n = \tilde{\psi}_n(2\pi); \quad \lambda = \hbar \left(\frac{\gamma}{2\pi} + n\right); \> n\in \bb{Z}
 \]
@@ -144,7 +144,50 @@ Pertanto $P_\gamma$ descrive il momento di una particella quantistica in $S^1$ i
 Tale fenomeno prende il nome di effetto Aharonov-Bohm.\\ Come si intuisce dalla trattazione matematica, si dimostra sperimentalmente che si tratta di un fenomeno puramente topologico: non conta la distanza tra circonferenza e solenoide, ma basta che la circonferenza \textit{sia attorno} alla regione in cui è presente $\vec{B}$, ossia che ogni superficie delimitata dal circuito su cui si trova la particella intersechi una regione di campo magnetico non nullo.
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{Immagini/aharonov_bohm.png}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,382); %set diagram left start at 0, and has height of 382
+
+%Curve Lines [id:da06252221529473578] 
+\draw    (211.5,192.43) .. controls (269.03,116.83) and (377.43,179.09) .. (406.5,165.75) ;
+
+
+%Flowchart: Connector [id:dp16751961373652424] 
+\draw  [fill={rgb, 255:red, 101; green, 201; blue, 250 }  ,fill opacity=0.85 ] (285,125.99) .. controls (285,116.05) and (297.2,108) .. (312.25,108) .. controls (327.3,108) and (339.5,116.05) .. (339.5,125.99) .. controls (339.5,135.92) and (327.3,143.98) .. (312.25,143.98) .. controls (297.2,143.98) and (285,135.92) .. (285,125.99) -- cycle ;
+%Up Arrow [id:dp44255685000248257] 
+\draw  [fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (317,96.45) -- (320.75,80) -- (324.5,96.45) -- (322.63,96.45) -- (322.63,239) -- (318.88,239) -- (318.88,96.45) -- cycle ;
+%Up Arrow [id:dp7559599283789631] 
+\draw  [fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (300,96.45) -- (303.75,80) -- (307.5,96.45) -- (305.63,96.45) -- (305.63,239) -- (301.88,239) -- (301.88,96.45) -- cycle ;
+%Flowchart: Stored Data [id:dp42653079241484404] 
+\draw  [fill={rgb, 255:red, 99; green, 213; blue, 255 }  ,fill opacity=0.89 ] (285.25,211.36) -- (285.25,128.12) .. controls (285.25,136.88) and (297.39,143.98) .. (312.38,143.98) .. controls (327.36,143.98) and (339.5,136.88) .. (339.5,128.12) -- (339.5,211.36) .. controls (339.5,220.11) and (327.36,227.21) .. (312.38,227.21) .. controls (297.39,227.21) and (285.25,220.11) .. (285.25,211.36) -- cycle ;
+%Curve Lines [id:da3217990963184927] 
+\draw    (211.5,192.43) .. controls (259.95,147.96) and (385.3,265.07) .. (406.5,165.75) ;
+
+
+%Shape: Circle [id:dp7197199448410636] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (208.25,192.43) .. controls (208.25,190.64) and (209.71,189.18) .. (211.5,189.18) .. controls (213.29,189.18) and (214.75,190.64) .. (214.75,192.43) .. controls (214.75,194.23) and (213.29,195.68) .. (211.5,195.68) .. controls (209.71,195.68) and (208.25,194.23) .. (208.25,192.43) -- cycle ;
+%Shape: Circle [id:dp5458525900494611] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (403.25,165.75) .. controls (403.25,163.96) and (404.71,162.5) .. (406.5,162.5) .. controls (408.29,162.5) and (409.75,163.96) .. (409.75,165.75) .. controls (409.75,167.55) and (408.29,169) .. (406.5,169) .. controls (404.71,169) and (403.25,167.55) .. (403.25,165.75) -- cycle ;
+%Straight Lines [id:da6780399459028195] 
+\draw    (266.5,157) -- (273.51,156.22) ;
+\draw [shift={(275.5,156)}, rotate = 533.6600000000001] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Straight Lines [id:da5138003657628585] 
+\draw    (366.5,206) -- (358.49,206.8) ;
+\draw [shift={(356.5,207)}, rotate = 354.28999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (347,82) node   {$\vec{B}$};
+% Text Node
+\draw (199,197) node   {$a$};
+% Text Node
+\draw (419,153) node   {$b$};
+
+
+\end{tikzpicture}
+
     \caption{Illustrazione del setup dell'effetto Aharonov-Bohm}
     \label{fig:aharonov_bohm}
 \end{figure}%Ricontrollare [TO DO]
@@ -163,7 +206,7 @@ Partiamo considerando:
 \]
 Le $\psi_n$ sono definite a meno di una fase \q{attorno al cerchio}, ossia a meno di una $\psi_\alpha(x)$:
 \[
-\{\psi_\alpha(x)\>|\>\psi_{2\pi}(x) = e^{i\gamma} \psi_0(x)\}; \quad \alpha \in [0,2\pi[
+\{\psi_\alpha(x)\>|\>\psi_{2\pi}(x) = e^{i\alpha} \psi_0(x)\}; \quad \alpha \in [0,2\pi[
 \]
 Giungiamo quindi alla famiglia:
 \[
@@ -326,5 +369,5 @@ Abbiamo allora ottenuto una descrizione completamente equivalente a quella che a
 \]
 in cui, tra l'altro, le $\ket{\phi_i}$ non devono neppure essere ON.\\
 Perciò si hanno famiglie \textit{diverse} di stati puri che danno la stessa informazione dello stato misto!\\
-In \MC posso comunque sapere gli stati puri da cui parto - non so la loro combinazione esatta), ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
+In \MC posso comunque sapere gli stati puri da cui parto -- non so la loro combinazione esatta --, ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
 \end{document}

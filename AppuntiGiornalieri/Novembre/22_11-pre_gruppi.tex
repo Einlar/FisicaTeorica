@@ -1,0 +1,192 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+\section{Simmetrie e Algebre di Lie}
+Nella sezione \ref{sec:time-evolution} abbiamo esaminato il caso della simmetria per traslazioni temporali.
+Cosa succede, invece, per le \textbf{traslazioni spaziali} o le \textbf{rotazioni}?
+
+\subsection{Teoria dei gruppi e delle algebre di Lie}
+Introduciamo qualche altro utile concetto matematico.
+Partiamo esaminando un particolar caso di \textit{simmetria fisica} nella seguente definizione:
+
+\begin{dfn}
+Se una \textbf{simmetria fisica}\index{Simmetria!dinamica} lascia \textbf{invariata}\marginpar{Simmetria dinamica} \textbf{l'Hamiltoniana}, allora è detta \textbf{simmetria dinamica}\index{Simmetria dinamica}. Matematicamente, se $U$ è la rappresentazione del gruppo che descrive tale simmetria, che \textit{agisce} su un ket come $\ket{\psi'} = U\ket{\psi}$, l'Hamiltoniana rimane invariata se rimangono invariati i suoi elementi di matrice:
+\begin{align*}
+\bra{x'}H\ket{x'} \overset{!}{=} \bra{x}H\ket{x}\Rightarrow \bra{Ux} H \ket{Ux}=\bra{x}U^\dag H U \ket{x} \overset{!}{=} \bra{x}H\ket{x}
+\end{align*}
+ovvero se:
+\[ %il ^\dag non dovrebbe essere "dall'altro lato"? Fonte: https://en.wikipedia.org/wiki/Translation_operator_(quantum_mechanics)#Translational_invariance
+H' \equiv UHU^\dag \textcolor{Red}{=} H
+\]
+\textit{Intuitivamente}, se $U$ è una traslazione, per trasformare $H\to H'$, con $H$ operatore che prende vettori in $\hs$ e li trasforma in $\hs$ bisogna \q{trasformare} \textit{input} e \textit{output} (esattamente come nella formula del cambio di base vista in algebra lineare). Perciò $H'$ si ottiene applicando $H$ al vettore \q{trasformato all'indietro} da $U^\dag$ (nell'esempio, traslato di $-t$), e poi traslando in avanti con $U$ il risultato del conto.\\
+
+L'\textbf{analogo classico} delle \textit{simmetrie dinamiche} è dato dalle \textit{trasformazioni} che mantengono invariate le \textit{parentesi di Poisson}.
+\end{dfn}
+\textbf{Nota}: una generica simmetria \textit{fisica} in \MQ ha, come unica richiesta, la preservazione delle probabilità di transizione (non c'è alcun cenno sull'Hamiltoniana, che potrebbe anche non esistere). Per una simmetria dinamica la richiesta è nettamente più forte, ossia che l'Hamiltoniana proprio non cambi, e che quindi \textit{le soluzioni del moto} restino esattamente le stesse.\\
+
+Se le simmetrie fisiche sono descritte da un gruppo continuo $G$ allora $U$ è necessariamente unitario ($\bar{U}$ è escluso, come dimostrato nell'equazione (\ref{eqn:antiunitari_gruppo})). In particolare, se $g\in G$, gli $U(g)$ formano un \textit{gruppo a un parametro di operatori unitari}. Ciò significa che, prendendo per esempio $G=(\bb{R},+)$, per cui allora un elemento del gruppo è un $\lambda \in \bb{R}$, le $U(\lambda)$ soddisfano le seguenti relazioni:
+\[
+U(0)=\bb{I}; \quad U(\lambda_1)U(\lambda_2)=U(\lambda_1+\lambda_2)
+\]
+E il \textit{teorema di Stone} ci assicura che $\exists$ un operatore autoaggiunto definito da:
+\begin{equation}
+A\equiv \frac{1}{i}\frac{dU(\lambda)}{d\lambda}\Big|_{\lambda=0}
+\label{eqn:teorema_stone_enunciato}
+\end{equation}
+con dominio $D(A)$ denso in $\hs$. $A$ è detto il \textbf{generatore (infinitesimo)} di $U(\lambda)$.\\
+
+Se $U(\lambda)$ è una \textit{simmetria dinamica} sappiamo anche che deve valere:
+\begin{align}
+U(\lambda)H U(\lambda)^\dag = H
+\label{eqn:simm-dinamica-U}
+\end{align}
+Da ciò segue che $H$ \textit{non dipende da $\lambda$}, e perciò la sua derivata rispetto a $\lambda$ deve essere nulla.\\ Ma allora, derivando ambo i membri di (\ref{eqn:simm-dinamica-U}) rispetto a $\lambda$ otteniamo:
+\begin{align}\nonumber
+0 &= \frac{d}{d\lambda} U(\lambda) HU(\lambda)^\dag \Big|_{\lambda=0} = \frac{dU}{d\lambda}H U(\lambda)^\dag + U(\lambda)H\frac{dU(\lambda)^\dag}{d\lambda} \Big|_{\lambda=0} =\\
+&\underset{(a)}{=} 
+\frac{[H,A]}{i}
+\label{eqn:commutazione_evoluzione}
+\end{align}
+dove in (a) si è usato il teorema di Stone, per cui:
+\[
+A = \frac{1}{i}\frac{dU(\lambda)}{d\lambda}\Big|_{\lambda=0}\Rightarrow
+\frac{dU(\lambda)}{d\lambda}\Big|_{\lambda=0}=iA; \quad \frac{dU(\lambda)^\dag}{d\lambda}\Big|_{\lambda=0} = -iA
+\]
+e ricordando che $U(\lambda)$ e $U(\lambda)^\dag$ calcolati per $\lambda=0$ coincidono con l'identità $\bb{I}$.\\
+
+Da (\ref{eqn:commutazione_evoluzione}) abbiamo allora ottenuto che il \textbf{generatore} di un gruppo a\marginpar{Generatore di una simmetria dinamica commuta con $H$} un parametro  derivato da una simmetria dinamica \textbf{commuta} con l'Hamiltoniana.\\
+Ma allora, in visuale di Heisenberg:
+\begin{equation}
+\frac{dA^H(t)}{dt}=\frac{[A^H(t),H]}{i\hbar}\underset{(a)}{=}\frac{U(t)[A,H]U(t)^\dag}{i\hbar} \underset{(\ref{eqn:commutazione_evoluzione})}{=} 0
+\label{eqn:conservazione}
+\end{equation}
+dove in $(a)$ si è usato $A^H(t)=U(t)AU(t)^\dag$, e si sono \q{portati fuori} gli $U$ grazie al fatto che $H$ è invariante rispetto alla loro azione.\\
+Abbiamo allora trovato che $A^H(t) \equiv A$, ovvero il generatore\marginpar{Il generatore di una simmetria dinamica è \textit{costante}} \textbf{non evolve} nel tempo. Questa è la versione quantistica delle \q{\textbf{costanti del moto}},\index{Simmetrie!costanti del moto} e la relazione (\ref{eqn:conservazione}) associa a simmetrie continue leggi di conservazione\footnote{Questo è anche il collegamento con l'analogo classico visto a Fisica Matematica con il \textit{teorema di Noether}}.\\
+
+Finora ci siamo concentrati sulle proprietà \q{di gruppo}: abbiamo definito una simmetria, e fatto uso di risultati di \textit{teoria delle rappresentazioni} per concretizzare l'\textit{azione} di un gruppo sui sistemi che ci interessano.\\
+Sappiamo però fin dall'inizio che i gruppi \q{continui} con cui abbiamo a che fare hanno una struttura molto più grande: sono \textbf{gruppi di Lie}, ossia sono anche \textit{varietà differenziabili}. Esaminiamo qualche dettaglio in più di questo aspetto.\\
+
+In breve, una varietà differenziale $M$ è un insieme (di punti) che \textit{localmente} \q{assomiglia} ad un aperto di $\bb{R}^n$. Matematicamente ciò significa che, preso un intorno $U$ (sufficientemente piccolo) di un generico punto di $M$, è possibile \q{rappresentarlo} in $\bb{R}^n$ tramite una funzione $\varphi: U\cap M \to V \subset \bb{R}^n$, detta \textit{carta locale}, che ha la proprietà di essere un \textbf{omeomorfismo} (ossia è continua e invertibile con inversa continua)\footnote{Generalmente saranno necessarie più $\varphi_i$, ciascuna associata a un $U_i$, con l'insieme degli $U_i$ che \q{ricopre} la varietà $M$. Può allora succedere che, per certi punti di $M$, siano definite \textit{più di una carta locale}: vogliamo che tali funzioni siano \q{compatibili}, ossia che si possa passare da una all'altra componendo con una \textit{funzione di transizione} $\eta_{ij}$, che deve essere $\mathcal{C}^\infty$}.\\
+Nella pratica useremo sempre l'inversa $\varphi^{-1}:\bb{R}^n \supset V \to U \subset M$, detta \textit{parametrizzazione} (locale), che associa punti di $\bb{R}^n$ a elementi della varietà. Dato che $G=M$ è un gruppo (di Lie), un suo generico elemento $g\in G$ sarà parametrizzato da $n$ parametri come $g(x_1, \dots, x_n)$.\\
+Consideriamo tale funzione \textbf{analitica}, ossia di classe $\mathcal{C}^\infty$ e tale che il suo sviluppo in serie di Taylor converga ad essa per qualsiasi punto.\\
+$G$ con la parametrizzazione adottata è detto \textbf{gruppo di Lie} a $n$ parametri reali (o, eventualmente, complessi).\\
+Ad esempio, le \textit{traslazioni} in $\bb{R}^3$ sono un gruppo di Lie a $3$ parametri, così come le \textit{rotazioni}. Il \textit{gruppo di Lorentz} è a $6$ parametri (3 rotazioni + 3 boost), e quello di \textit{Poincaré} è a $10$ parametri (6 di Lorentz + 3 traslazioni spaziali + 1 traslazione temporale).\\
+
+Scegliamo la parametrizzazione in modo che $g(0,\dots,0)=e$, dove $e$ è l'elemento neutro del gruppo $G$.\\
+
+%22-11
+\marginpar{22/11/2018} %[TO DO]convertire in \lesson
+
+Se ora calcoliamo le derivate in $e$ lungo le direzioni date dalla base canonica, troviamo i vettori $e_\alpha$ che fungono da base dello \textit{spazio tangente} $T_e G$ al gruppo presso il suo elemento neutro:
+\begin{equation}
+\frac{d}{dx_\alpha} g(0,0,\dots, x_\alpha, 0, \dots, 0)\Big|_{x_\alpha=0} \equiv e_\alpha\quad \alpha=1,\dots, n
+\label{eqn:spazio-tangente-gruppo}
+\end{equation}
+$T_e G$ ha di per sé la struttura di uno spazio vettoriale: possiamo cioè sommare vettori tangenti o moltiplicarli per uno scalare. In realtà, grazie alla struttura di gruppo, possiamo trovare anche una \textit{terza operazione} che associa due vettori in $T_e G$ e ne produce un terzo. Tale operazione (bilineare) è detta \textit{parentesi di Lie}, e si indica con $[\cdot, \cdot]$. Con questa operazione, l'insieme degli $\{e_\alpha\}_{\alpha=1,\dots,n}$ costituisce la base di un'\textbf{algebra}\footnote{In inglese il termine tecnico è \textit{algebra over a field}: \url{https://en.wikipedia.org/wiki/Algebra_over_a_field}}, detta di Lie, denotata con Lie $G$ o $\mathfrak{g}$ in cui la moltiplicazione si denota con il simbolo $[\cdots, \cdots]$ (come il commutatore).\\
+In effetti, se $G$ è un gruppo moltiplicativo di matrici, ossia se i suoi elementi $g(\vec{x}) \in \mathcal{M}_{ n\times n}$ sono matrici, l'esistenza di $e_\alpha$ è garantita dall'analiticità della parametrizzazione (per cui le derivate soprastanti esistono), e dal fatto che le matrici formano un'algebra, e perciò possiamo sommarle e moltiplicarle tra loro. In particolare, anche gli elementi dello spazio tangente saranno \textit{matrici} (le cui componenti sono le derivate, lungo le direzioni della base canonica, delle componenti delle matrici $g(\vec{x})$ di partenza). In tal caso la parentesi di Lie è proprio il commutatore:
+\[
+[e_\alpha, e_\beta] \equiv e_\alpha e_\beta - e_\beta e_\alpha
+\]
+e da qui si comprende il perché di identificare le due notazioni.\\
+$\forall a,b,c \in \mathfrak{g}$ la parentesi di Lie soddisfa le seguenti proprietà:
+\begin{itemize}
+\item $[a,b]=-[b,a]$
+\item $[[a,b],c]+[[b,c],a]+[[c,a],b]=0$ (identità di \textbf{Jacobi})
+\item $\forall \alpha,\beta \in \bb{R}$ (o a $\bb{C}$ se $G$ è complesso) vale la \textbf{linearità}:
+\[
+[a, \alpha b + \beta c] = \alpha[a,b] + \beta[a,c]
+\]
+\end{itemize}
+(che sono proprio le stesse proprietà del commutatore).\\
+
+\begin{expl}
+Se invece consideriamo $G$ come gruppo di Lie \q{generico} (ossia non necessariamente di matrici), la cosa si fa più complicata, dato che non possiamo, in linea di principio, \q{moltiplicare tra loro} elementi di $T_e G$, e quindi non si può usare immediatamente la definizione del \textit{braket di Lie} come commutatore.\\
+Dato che tal caso non è di nostro interesse in fisica, diamo qui solo qualche cenno e fonte per i più curiosi.\\
+Per prima cosa, è possibile identificare ogni \textit{vettore tangente} in $T_g G$ con un operatore che, se applicato ad una funzione differenziabile, ne calcola la \textit{derivata direzionale} nella medesima direzione, e valuta tale derivata nel punto $g$ di tangenza.\\
+Un campo vettoriale definito su $M$ è allora \textit{una sezione del fibrato tangente}, ossia una funzione che associa punti di $M$ a \textit{vettori tangenti}, ossia \textit{operatori di derivata direzionale} calcolata in quei punti. Un campo $X$ è perciò, in generale, una funzione che prende in input una $f$ differenziabile e determina una $X(f)$ che è ancora una funzione differenziabile, ed è pari alla derivata della $f$ lungo le direzioni dei vettori tangenti che formano il campo $X$ stesso. Cioè, valutare $X(f)_g$ in un punto $g$, è come prendere il vettore tangente $x_g \in T_g G$ appartenente al campo e applicarlo a $f$.\\
+In questo modo, dati due campi vettoriali definiti sulla varietà $X, Y \in \mathcal{T}(G)$, potremmo pensare di comporli - visto che sono derivazioni, e quindi funzioni. Tuttavia $X\circ Y$ \textit{non} è una derivazione (per esempio non rispetta la regola di Leibniz), mentre lo è $X\circ Y - Y \circ X \equiv [X,Y]$ (essenzialmente: svolgendo i conti con carte locali si nota che i termini che prima impedivano Leibniz ora si cancellano nella differenza). Ecco perciò la definizione della \textit{parentesi di Lie}.\\
+
+Nel paragrafo di sopra, tuttavia, abbiamo parlato di parentesi di Lie di elementi dello spazio tangente $T_e G$, e non di campi vettoriali! In realtà le due cose sono le stesse - si può infatti dimostrare che un vettore in $T_eG$ (o, equivalentemente, in un qualsiasi $T_g G$ con $g\in G$ generico, si sceglie l'elemento neutro solo per comodità e convenzione) \textit{determina univocamente} un campo vettoriale sull'intero $G$, che è detto \textit{left invariant vector field}. Intuitivamente, stiamo usando la struttura di gruppo per \textit{traslare} il vettore inizialmente scelto in $T_eG$ e trovarne i corrispettivi tangenti ad ogni punto di $G$ (graficamente, sfruttiamo la \textit{simmetria} data dal gruppo per costruire tutti gli altri vettori del campo).\\
+Tramite queste costruzioni otteniamo campi vettoriali $X$ e $Y$ associati univocamente a vettori $x,y \in T_eG$. Per $X$ e $Y$ sappiamo calcolare il braket di Lie, e perciò definiamo $[x,y] \equiv [X,Y]$. Si può dimostrare, con tanti e lunghi calcoli, che tale costruzione è coerente, ossia è compatibile con le operazioni definite su $T_eG$.\\
+
+A cosa serve tutto ciò? Lavorare su $T_e G$, che è un \textit{normale} spazio vettoriale, è molto \textit{più comodo} che lavorare con gli elementi di una varietà $G$. Inoltre si dimostra che è possibile ricavare gli elementi di $G$ (se si trovano entro un intorno \textit{connesso} di $e$) a partire da quelli di $\mathfrak{g}$, ossia dai vettori di $T_eG$.\\
+L'idea è la seguente. Abbiamo visto che un vettore su $T_eG$ può essere esteso, mediante la struttura di gruppo, a un campo di vettori su tutta $G$, che indichiamo con $K$. Tale $K$ non è altro che una \textit{sezione del fibrato tangente}, ossia una funzione che associa un punto di $g$ a un vettore tangente in quel punto, ossia contenuto in $T_eG$. $K$ definisce delle \textit{curve integrali}: sono le curve $\gamma:\bb{R}\supset [a,b] \to G, t\mapsto \gamma(t)$ tali che se $\gamma(t)=g \in G$, $\gamma'(t)$ è proprio il vettore $K(g)$ \q{indicato} dal campo in quel punto. Queste curve integrali si trovano, in pratica, risolvendo un sistema di equazioni differenziali. Se partiamo da $K(e) \in \mathfrak{g} = T_eG$, avremo un problema di Cauchy del tipo:
+\begin{align*}
+\begin{cases}
+\gamma'(t) = K(\gamma(t))\\
+\gamma(0) = e
+\end{cases}
+\end{align*}
+Se cambiamo l'elemento di $\mathfrak{g}$ di partenza, avremo un altro campo vettoriale $K$, e di conseguenza altre curve integrali. In che modo? Proviamo ad esplorarlo definendo la seguente mappa:
+\begin{align*}
+\exp: \mathfrak{g}&\to G\\
+\mathfrak{g} \ni v &\mapsto \gamma(1) \in G
+\end{align*}
+Pittorescamente, l'idea è questa: fissare un elemento di $\mathfrak{g}$ consiste nel fissare una \q{direzione} verso cui spostarsi su $G$, partendo dal punto $e$, e la mappa $\exp$ dà proprio il punto di $G$ raggiunto \textit{dopo una sola \q{unità di tempo}}.\\
+Tale mappa è detta \textit{mappa esponenziale} non a caso: se $G$ è un gruppo di matrici, il sistema di equazioni differenziali sarà lineare, e risolubile con le tecniche viste in Analisi 3 tramite l'\textit{esponenziale di matrice}. Dato un $G$ generico l'immagine si complica - e in genere conviene lavorare in una rappresentazione lineare di tale $G$, in cui i suoi elementi sono identificati da matrici.\\
+Si può dimostrare che questa mappa è \q{bella}, nel senso che preserva relazioni di commutazione, è compatibile con le rappresentazioni, etc.\\
+Perciò, in conclusione, ricavata una base di $\mathfrak{g}$, data dai \textit{generatori} della simmetria, e studiati i loro commutatori, possiamo ricavare il comportamento di tutti\footnote{Queste frasi vanno intese con 5-6 asterischi: ci sono tantissimi dettagli matematici su cui stiamo glossando per semplicità.} gli altri punti del gruppo! Questa è \textit{un'intuizione} dell'importanza delle algebre di Lie.\\
+
+Tale introduzione \textit{discorsiva} è lungi dall'essere formale ed esaustiva (cosa che richiederebbe ben più pagine). Lasciamo perciò alcune \textbf{fonti} per chi volesse approfondire:
+\begin{itemize}
+\item L'associazione tra vettori tangenti e derivate direzionali valutate nel punto è ben spiegata nella Lezione4\_2 delle dispense del prof. Francesco Bottacin (\url{https://www.math.unipd.it/~bottacin/geomdiff.htm}) per il corso di \textit{Geometria Differenziale}.\\
+Sempre nelle stesse dispense, l'associazione tra campi vettoriali e derivazioni è esplicitata nella Lezione11, e la definizione di parentesi di Lie si trova alla Lezione12. \item Per l'identificazione tra campi e vettori tangenti all'elemento neutro, lasciamo un'\textit{intuizione grafica} presso \url{bit.ly/2C66xDy} (risposte di \textit{ACuriousMind} e \textit{Vectornaut}, danno anche un'intuizione sui risultati del prossimo paragrafo), e un punto di partenza per ulteriori approfondimenti è \url{https://en.wikipedia.org/wiki/Lie_group#The_Lie_algebra_associated_with_a_Lie_group}.  
+\end{itemize}
+\end{expl}
+
+Se $G$ è un gruppo moltiplicativo di matrici, allora si dimostra che ogni elemento di $G$ in un intorno dell'identità $\bb{I}$ può essere scritto come:
+\begin{equation}
+g(x_1,\dots,x_n)=
+\exp\left({\sum_{\alpha=1}^n}x_\alpha e_\alpha\right)
+\label{eqn:mappa-esponenziale-multivariata}
+\end{equation}
+e $e_\alpha$ è detto \textit{generatore} del gruppo a un parametro $e^{x_\alpha e_\alpha}$, $x_\alpha \in \bb{R}$, e avremo $n$ gruppi del genere.\\
+Poiché $\{e_\alpha\}_{\alpha=1,\dots,n}$ è una base di $\mathfrak{g}$, che è uno spazio vettoriale, devono esistere delle costanti $f_{\alpha \beta \gamma}$ che consentano di rappresentare il commutatore $[e_\alpha, e_\beta]$ (che è ancora un elemento di $\mathfrak{g}$ per come è definito il \textit{braket di Lie}) come combinazione lineare degli elementi della base. Cioè, esplicitamente:
+\[
+[e_\alpha, e_\beta] = \sum_{\gamma=1}^n f_{\alpha \beta \gamma} e_\gamma
+\]
+Tali costanti $f_{\alpha \beta \gamma}$ sono dette \textbf{costanti di struttura} di $\mathfrak{g}$.\\
+
+Si dimostra che l'algebra di Lie di $G$ e del suo gruppo di ricoprimento universale $\tilde{G}$ sono isomorfe, come suggerito dal fatto che l'algebra coinvolge il gruppo solo in un intorno dell'identità $e$ (dato che la base che la genera è fatta di \textit{derivate} calcolate nell'identità), e localmente $G$ e $\tilde{G}$ sono omeomorfi.\\
+
+Come per i gruppi, anche per le algebre di Lie si possono definire le rappresentazioni.\\
+Una rappresentazione $\mathcal{D}$ di un'algebra di Lie $\mathfrak{g}$ in uno spazio vettoriale $V$ è una mappa da $\mathfrak{g}$ nello spazio degli operatori lineari su $V$, $\mathcal{L}(V)$, che preserva la struttura di algebra, ossia è \textit{compatibile} con il \textit{braket di Lie}:
+\begin{align*}
+\mathcal{D}: a \in \mathfrak{g} &\mapsto \mathcal{D}(\alpha) \in \mathcal{L}(V)\\
+\mathcal{D}([a,b])&=[\mathcal{D}(a),\mathcal{D}(b)] \equiv \mathcal{D}(a)\mathcal{D}(b)-\mathcal{D}(b)\mathcal{D}(a) \quad \forall a,b\in \mathfrak{g}
+\end{align*}
+
+\textbf{Nota}: Se $G$ non è un gruppo di matrici, il commutatore $[a,b]$ non ha senso immediato (cosa vuol dire applicare un vettore tangente ad un altro?), ma va definito nel modo specificato nel precedente box di approfondimento. Tuttavia, anche in tal caso, il membro a destra resta ben definito, dato che $\mathcal{D}(a)$, $\mathcal{D}(b)$ sono operatori lineari (matrici) e quindi è definito il loro commutatore nel senso usuale (poiché per le matrici è definita un'algebra, ossia si possono sommare/moltiplicare tra loro).\\
+
+La rappresentazione preserva anche la struttura vettoriale di $\mathfrak{g}$, per cui la rappresentazione di una combinazione lineare è la combinazione lineare delle rappresentazioni:
+\[
+\mathcal{D}(\alpha a + \beta b) = \alpha \mathcal{D}(a) + \beta \mathcal{D}(b)
+\]
+In particolare:
+\[
+[\mathcal{D}(e_\alpha), \mathcal{D}(e_\beta)]=\mathcal{D}([e_\alpha, e_\beta])=\mathcal{D}(\sum_\gamma f_{\alpha \beta \gamma} e_\gamma)=\sum_\gamma f_{\alpha \beta \gamma} \mathcal{D}(e_\gamma)
+\]
+Per cui basta sapere la rappresentazione degli elementi di base, e le \textit{costanti di struttura}, ed è possibile calcolare qualsiasi commutatore nella rappresentazione $\mathcal{D}$.\\
+
+Una rappresentazione $\mathcal{D}$ dell'\textbf{algebra} di Lie $\mathfrak{g}$ è \textit{indotta} da una rappresentazione $D$ stavolta del \textbf{gruppo} di Lie $G$ su $V$. Ricordando che $D(g) \in \mathcal{L}(V)$ si ha:
+\begin{equation}
+\hlc{Yellow}{\frac{d}{dx_\alpha}D(g(0,\dots,0,x_\alpha,0,\dots, 0)\Big|_{x_\alpha=0}}= \hlc{SkyBlue}{\mathcal{D}(e_\alpha)} \quad \alpha = 1,\dots, n
+\label{eqn:rappresentazioni-gruppo-algebra}
+\end{equation}
+E tali $\mathcal{D}(e_\alpha)$ formano una \textit{rappresentazione} di $\mathfrak{g}$ in $V$ (o in un dominio $\subseteq V$ in cui è ben definita, per evitare i problemi di dominio che potrebbero sorgere in spazi $\infty$-dimensionali).\\
+%Non serve sapere anche le costanti di struttura?
+
+Concretizziamo tutto ciò nel caso delle \textbf{traslazioni temporali}, dove $G=(\bb{R},+)$, e $U(t)$ operatore unitario è una \textit{rappresentazione unitaria} in $\hs$ di $G$, ossia, utilizzando la notazione appena vista, $U(t) = D(g(t))$.\\
+Allora utilizzando (\ref{eqn:rappresentazioni-gruppo-algebra}) possiamo ricavare una rappresentazione della relativa algebra di Lie. Notiamo però che l'unica derivata, rispetto a $t$, possiamo trovarla immediatamente applicando il teorema di Stone:
+\[
+\underbrace{A}_{-\frac{H}{\hbar}}=\frac{1}{i}\frac{dU(t)}{dt}\Big|_{t=0}\Rightarrow \frac{d}{dt} D(g(x_1))\Big|_{x_1=0}=
+\hlc{Yellow}{\frac{d}{dt}U(t)\Big|_{t=0}}=\hlc{SkyBlue}{\frac{H}{i\hbar}} = \mathcal{D}(e_1)
+\]
+Dato che $G$ è isomorfo a $\bb{R}$, possiamo parametrizzarlo \textit{canonicamente} con se stesso, ossia tramite la parametrizzazione $g(t)=t$. Possiamo allroa calcolare esplicitamente il generatore del gruppo, secondo l'espressione in (\ref{eqn:spazio-tangente-gruppo}):
+\[
+\frac{dg(t)}{dt}\Big|_{t=0}\Rightarrow 
+\frac{dt}{dt} \Big|_{t=0} = \hlc{ForestGreen}{1} = e_1
+\]
+E perciò $\hlc{SkyBlue}{H/(i\hbar)}$ è una rappresentazione $\mathcal{D}(1)$ del generatore $\hlc{ForestGreen}{1}$ dell'algebra di Lie delle traslazioni in $D(H) \subseteq \hs$ (non è in generale tutto $\hs$, dato che non è detto che l'Hamiltoniana sia \textit{ovunque ben definita}).\\
+
+\end{document}

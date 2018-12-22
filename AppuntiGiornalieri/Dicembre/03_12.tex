@@ -1,0 +1,285 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{Moto in campo a simmetria centrale 3D}}
+\vspace{-1em}
+\begin{center}
+    \small{(3/12/2018)}
+\end{center}
+
+Consideriamo un sistema di due particelle distinguibili (ad es. protone ed elettrone nel caso dell'atomo di idrogeno) di massa rispettivamente $m_1$ e $m_2$, soggette ad un potenziale centrale $U(r)$, dove $r=|\vec{x}_1 - \vec{x}_2|$ in $\bb{R}^3$.\\
+L'Hamiltoniana classica è data da:
+\[
+H=\frac{\vec{p}_1^2}{2m_1}+\frac{\vec{p}_2^2}{2m_2}+U(r)
+\]
+Quantisticamente, il sistema composto ha stati nel prodotto tensore degli spazi di Hilbert dei costituenti, ossia $\hs=L^2(\bb{R}^3, d^3x_1)\otimes L^2(\bb{R}^3, d^3x_2)$, e l'Hamiltoniana diviene:
+\[
+H_{12} = -\frac{\hbar^2}{2m_1} \Delta_1 - \frac{\hbar^2}{2m_2} \Delta_2 + U(r)
+\]
+Anche classiucamente conviene introdurre le variabili del Centro di Massa CM e la distanza relativa:
+\[
+\vec{R}=\frac{m_1 \vec{x}_1 + m_2 \vec{x}_2}{m_1+m_2}; \quad \vec{x}=\vec{x}_1 -\vec{x}_2; \quad \hs \cong L^2(\bb{R}^3, d^3R) \otimes L^2(\bb{R}^3, d^3x)
+\]
+Da cui otteniamo:
+\[
+H_{12}=-\frac{\hbar^2}{2M}\Delta_R - \frac{\hbar^2}{2m}\Delta_x + U(r)
+\]
+con $M=m_1+m_2$ e $m=\frac{m_1 m_2}{m_1+m_2}$ la massa ridotta.\\
+Esaminiamo i domini di autoaggiuntezza:
+\[
+D(H_R)=\{\psi\in L^2(\bb{R}^3, d^3R) \>|\> \vec{p}_R^{\,2} \tilde{\psi}(\vec{p}_R) \in L^2(\bb{R}^3, d^3 p_R)\}
+\]
+Se (\textit{teorema di Kato-Rellich}) $U(r) \underset{r\to 0}{\sim} 1/r^\alpha$ e $\underset{r\to\infty}{\sim}0$, per $\alpha < 3/2$, $U(r) \in L^2([0,1], r^2 dr)$ allora si dimostra che il dominio di $H$ è lo stesso del caso della particella libera, ossia:
+\[
+D(H) = \{\psi \in L^2(\bb{R}^3, d^3 x)\>|\> \vec{p}^{\,^2} \tilde{\psi}(\vec{p}) \in L^2(\bb{R}^3, d^3 p)\}
+\]
+
+Possiamo allora ricavare l'equazione d'onda $\Psi(\vec{R},\vec{x})$ fattorizzandola:
+\[
+\Psi(\vec{R},\vec{x})=\varphi(\vec{R})\psi(\vec{x})
+\]
+L'equazione di Schr\"odinger stazionaria:
+\[
+-\frac{\hbar^2}{2M}(\Delta_R \varphi)\psi +\varphi[ -\frac{\hbar^2}{2m}\Delta_x \psi + U(r)\psi] = \mathcal{E}\varphi\psi
+\]
+Dividendo per $\varphi\psi$:
+\[
+\underbrace{-\frac{\hbar^2}{2M}\frac{\Delta_R \varphi}{\varphi}}_{\mathcal{E}_{CM}}+\underbrace{\left[
+-\frac{\hbar^2}{2m} \frac{\Delta\psi}{\psi} + U
+\right]}_{\mathcal{E}} = \mathcal{E}_{tot}
+\]
+$H_R$ è l'hamiltoniana di una particella libera, e possiamo trattarla allo stesso modo.\\
+
+Notiamo che $H$ è invariante per rotazioni:
+\[
+\exp\left(-i\frac{\varphi}{\hbar}\vec{L}\cdot\vec{n}\right) H \exp\left(i\frac{\varphi}{\hbar}\vec{L}\cdot \vec{n}\right) = H \Rightarrow [H, \vec{L}]=0
+\]
+Pertanto $H$, $\vec{L}^2$, $L_3$ sono compatibili.\\
+Poiché $L^2(\bb{R}^3,d^3x) \cong L^2(\bb{R}_+, r^2 dr) \otimes L^2(S^2, d\Omega)$, e in $L^2(S^2, d\Omega)$, $\{\vec{L}^2, L_z\}$ è un ICOC, si ha allora che \textbf{se} fissati i valori di $\vec{L}^2(l)$ e $L_z(m)$, l'hamiltoniana $H(l,m)$ in $L^2(\bb{R}_+, r^2 dr)$ ha \textbf{spettro non degenere} allora potremo concludere che $H,\vec{L},L_3$ sono un ICOC per il sistema ridotto con hamiltoniana $H$.\\
+Dimostriamolo. Partiamo esaminando la relazione tra $H$ e $\vec{L}^{\,2}$ ($L_3$ non può comparire, dato che stiamo esaminando un potenziale centrale, senza \textit{assi} definiti).\\
+Con la convenzione di Einstein, sfruttiamo l'identità:
+\[
+\epsilon_{ijk}\epsilon_{ilm}=\delta_{jl}\delta_{km}-\delta_{jm}\delta_{kl}
+\]
+Per cui:
+\begin{align*}
+\vec{L}^{\,2} &= \epsilon_{ijk}X_j P_k \epsilon_{ilm} X_l P_m = (\delta_{jl}\delta_{km}-\delta_{jm}\delta_{kl})X_j P_k X_l P_m =\\
+&= \hlc{Yellow}{\delta_{jl}}\hlc{SkyBlue}{\delta_{km}}\hlc{Yellow}{X_j}(\hlc{Yellow}{X_l }\hlc{SkyBlue}{P_k} + \underbrace{[P_k, X_l]}_{-i\hbar\delta_{kl}})\hlc{SkyBlue}{P_m} - \delta_{jm}\delta_{kl} X_j P_k (P_m X_l + \underbrace{[X_l, P_k]}_{i\hbar \delta_{lm}}) =\\
+&= \hlc{Yellow}{\vec{X}^{\,2}}\hlc{SkyBlue}{\vec{P}^{\,2}} - i\hbar \vec{X}\cdot \vec{P} - \vec{X}\cdot\vec{P}\> \underbrace{\vec{P}\cdot \vec{X}}_{\vec{X}\cdot \vec{P}-3i\hbar} -i\hbar \vec{X}\cdot\vec{P}=\\
+&=\vec{X}^{\,2}\vec{P}^{\,2} - i\hbar \vec{X}\cdot\vec{P} - (\vec{X}\cdot \vec{P})^2+3i\hbar \vec{X}\cdot\vec{P}-i\hbar \vec{X}\cdot\vec{P}=\\
+&=\vec{X}^{\,2}\vec{P}^{\,2}-(\vec{X}\cdot\vec{P})^2 + i\hbar \vec{X}\cdot\vec{P}
+\end{align*}
+Dato che:
+\begin{align*}
+\delta_{jl}\delta_{km}\delta_{kl}&=\delta_{jl}\delta_{lm}=\delta_{jm}\\
+\delta_{jm}\delta_{kl}\delta_{lm}&=\delta_{jm}\delta_{km} = \delta_{jk}
+\end{align*}
+
+Riarrangiando i termini dell'uguaglianza ricavata, otteniamo $\vec{P}^{\,2}$:
+\begin{align*}
+\vec{P}^{\,2} =\vec{X}^{\,2} [(\vec{X}\cdot \vec{P})^2+\vec{L}^{\,2}-i\hbar \vec{X}\cdot\vec{P}]
+\end{align*}
+che in coordinate polari diviene:
+\begin{align*}
+\vec{X}\cdot \vec{P} &= -i\hbar \vec{x}\cdot \vec{\nabla} = -i\hbar r \frac{\partial}{\partial r}\\
+\vec{P}^{\,2} &= \frac{1}{r^2} \left[ -\hbar^2 r \frac{\partial}{\partial r} \underbrace{r \frac{\partial }{\partial r}}_{\frac{\partial}{\partial r} r -1} + \vec{L}^{\,2} - \hbar r \frac{\partial}{\partial r}\right]=\frac{1}{r^2}\left[-\hbar^2 r \frac{\partial^2}{\partial r^2}r + \vec{L}^2 \right]
+\end{align*}
+
+\textbf{Nota}: questi conti sono esattamente l'analogo quantistico del caso classico di un sistema kepleriano in formalismo hamiltoniano, dove
+\[
+H_{cl} = \frac{\vec{p}^{\,2}_r}{2m} + \frac{\vec{l}^{\,2}}{r^2}
+\]
+
+Definendo infatti $P_r = -i\hbar \frac{1}{r}\frac{\partial}{\partial r} r$ in $L^2(\bb{R}_+, r^2 dr)$, e mostriamo che $P_r^2 = -\hbar^2 \frac{1}{r^2} \frac{\partial^2}{\partial r^2} r$ è autoaggiunto nel dominio:
+\[
+D(P_r^2) = \{
+\psi \in L^2(\bb{R}_+, r^2 dr) \text{ nel dominio naturale (regolarità) con $\lim_{r\to 0} r\psi(r)=0$}
+\}
+\]
+Infatti, prendendo:
+\[
+\varphi \in D((P^2_r)^\dag), \> \psi \in D(P_r^2)
+\]
+si ha che:
+\begin{align*}
+(\varphi, \frac{P_r^2 \psi}{\hbar^2}) &=\int_0^\infty \varphi*(r) \frac{1}{r}\frac{\partial^2}{\partial r^2}(r\psi(r)) r^2\,dr \underset{\text{int parti}}{=}
+(r\varphi^*)\frac{\partial}{\partial r}(r\psi)\Big|_{0}^{+\infty} - \int_0^{\infty}\frac{\partial}{\partial r}(r\varphi^*)\frac{\partial}{\partial r}(r\psi) dr =\\
+&\underset{\text{parti}}{=}-r\varphi^* \frac{\partial}{\partial r}(r\psi)(0) - \bcancel{\frac{\partial}{\partial r}(r \varphi^*) (r\psi)\Big|_0}^{\infty} + \int_0^\infty \frac{\partial^2}{\partial r^2} (r\varphi^*) (r\psi) dr=\\
+&=\hlc{ForestGreen}{-r\varphi^* \frac{\partial}{\partial r}(r\psi)(0)} + \frac{\partial}{\partial r}(r\varphi^*)r\underbrace{\psi(0)}_{\substack{=0\\\psi \in D(P_r^2)}} + \left(\frac{P^2_r}{-\hbar^2}\varphi, \psi\right)
+\end{align*}
+Se vogliamo che $P_r^2$ coincida con il suo aggiunto, dobbiamo imporre che il termine evidenziato si annulli. Ma la derivata è generica, e quindi dobbiamo imporre per forza:
+\[
+r\varphi(0) = 0
+\]
+(più precisamente $\lim_{r\to 0} r\varphi(r) = 0$), ossia si impone la stessa condizione su operatore e aggiunto, da cui:
+\[
+D(P_r^2) = D((P_r^2)^\dag)
+\]
+e quindi l'autoaggiuntezza desiderata.\\
+
+Giungiamo allora a:
+\[
+H = \frac{P_r^2}{2m} + \frac{\vec{L}}{r^2} (\theta,\varphi)\quad \lim_{r\to 0} r\psi(r) = 0
+\]
+Separiamo le variabili:
+\[
+\psi(r,\theta,\varphi) = h_{\epsilon l}(r) Y^m_l(\theta,\varphi)
+\]
+con:
+\begin{align}
+\left[ - \frac{\hbar^2}{r}\frac{d^2}{dr^2} r + \frac{\hbar^2 l (l+1)}{r^2}-2m(\mathcal{E}-U(r)\right] h_{\mathcal{E}l}(r) = 0
+\label{eqn:autoval_psi}
+\end{align}
+Riscriviamo:
+\[
+\chi_{\mathcal{E}l}(r) = rh_{\mathcal{E}l}(r)
+\]
+e dalla condizione $\lim_{r\to 0}r \psi(r) = 0$ abbiamo:
+\[
+\chi_{\mathcal{E} l } = 0
+\]
+Perciò la (\ref{eqn:autoval_psi}) diviene:
+\begin{align}
+\frac{d^2 \chi_{\mathcal{E}l}(r)}{dr^2} + \left[
+\frac{2m}{\hbar^2}(\mathcal{E}-U(r)) - \frac{l(l+1)}{r^2}\right] \chi_{\mathcal{E}l}(r) =\ 0
+\label{eqn:equazione_radiale}
+\end{align}
+con la condizione:
+\[
+\infty > \int_0^\infty |h_{\mathcal{E}l}(r)|^2 r^2 dr =\int_0^\infty |\chi_{\mathcal{E}l}|^2\,dr
+\]
+cioè il problema radiale si riduce a un problema in $L^2(\bb{R}_+, \bm{dr})$ con potenziale effettivo a $l$ fissato:
+\begin{align*}
+U_l(r) \equiv U(lr) + \frac{\hbar^2}{2m}\frac{l(l+1)}{r^2}
+\end{align*}
+analogo al caso classico (barriera centripeta se $l\neq 0$).\\
+Di tale sistema, almeno qualitativamente, sappiamo già dire tutto.\\
+Il moto in $r$ è dunque in una regione unidimensionale semilimitata, quindi $\sigma(H)$ è non degenere\footnote{Lo avevamo visto nello studio qualitativo dei potenziali generici} (a $r=0$, $\chi(0)=0$ come se $U(0)=+\infty$).\\
+Quindi $\{H, \vec{L}^{\,2},L_3\}$ è un ICOC.\\
+
+Per le soluzioni di (\ref{eqn:equazione_radiale}) in spettro discreto occorre $\chi(0)=0$, per spettro continuo $\psi = h Y \in \mathcal{S}'(\bb{R}^3)$.\\
+Il caso $U(r)=0$ è quello delle onde sferiche della particella libera. Infatti (\ref{eqn:autoval_psi}) diviene:
+\begin{align*}
+\left[\frac{d^2}{dr^2}-\frac{l(l+1)}{r^2} + \frac{2m}{\hbar^2}\mathcal{E}\right] \chi_{\mathcal{E}l}(r) = 0
+\end{align*}
+e 
+\begin{equation}
+\chi_{\mathcal{E}l}(r) \xrightarrow[r \to 0]{} r^\alpha \qquad \alpha > 0
+\label{eqn:punto_zero}
+\end{equation}
+Esaminiamola nei punti singolari. Per $r \to 0$:
+\begin{align}
+\left[\frac{d^2}{dr^2}-\frac{l(l+1)}{r^2}\right] \chi_{\mathcal{E}l}(r)=0
+\end{align}
+Inserendo (\ref{eqn:punto_zero}):
+\[
+\alpha(\alpha -1 )r^{\alpha-2)} - l(l+1)r^{\alpha-2}=0 \Rightarrow  \alpha = l+1, -l
+\]
+Per lo spettro discreto da $\chi_{\mathcal{E}l}(0)=0$ si ha $r^{l+1}$, e quindi $h \sim r^l$.\\
+Per quello continuo, sembra che anche $\chi_{\mathcal{E}l} \sim r^{-l}$ sia ammesso, ma per $l=0$, $\chi_{\mathcal{E}l} \sim 1 \Rightarrow h \sim r^{-1}$ e $Y_0 \sim 1$, ma:
+\[
+\Delta(hY)\sim \Delta \frac{1}{r} = \delta^{(3)}(\vec{x})
+\]
+
+Quindi $\chi_{\mathcal{E}l} \sim r^{-l}$ non risolve in $\mathcal{S}'$ l'equazione radiale.\\
+$\chi_{\mathcal{E}l} (r) \underset{r \to 0}{\sim} r^{l+1}$.\\
+Questo risultato siestende anche agli $U(r)$ per cui $r^2 U(r) \underset{r\to 0}{\sim} 0$, cosicché $U(r)$ è trascurabile rispetto a $d^2/dr^2$ e $l(l+1)/r^2$ per $r\to 0$.\\
+
+Ritorniamo a $U(r)=0$ e definiamo:
+\[
+k = \sqrt{\frac{2m\mathcal{E}}{\hbar^2}}
+\]
+Allora per $l=0$:
+\[
+\left[\frac{d^2}{dr^2} + k^2 \right] \chi_{\mathcal{E}0} (r) = 0 
+\]
+Da cui:
+\begin{align*}
+\chi_{\mathcal{E}0}(r)=
+\begin{cases}
+\sin(k r) \> \chi_0(0) = 0 \> h_{\mathcal{E}0}=\frac{\sin(kr)}{r}\\
+\cos(kr) \> \chi_0(0) \neq 0 \> h_{\mathcal{E}0} = \frac{\cos(kr)}{2}
+\end{cases}
+\end{align*}
+Per cui la condizione in $r=0$ è soddisfatta solo dalla prima soluzione (e sapevamo già che doveva essercene solo una, data la nondegenerazione).\\
+
+Per $l>0$ poniamo:
+\begin{equation}
+h_{\mathcal{E}l}(r) = r^l h_{kl}(r)
+\label{eqn:h_lgrandi}
+\end{equation}
+Siccome per $r\to 0$ $h\sim r^l$, sappiamo che $h_{kl}(r) \xrightarrow[r \to 0]{} \text{cost}$.\\
+
+\begin{align*}
+0 &= (rh_{\mathcal{E}l})''+k^2(r h_{\mathcal{E}l})-\frac{l(l+1)}{r^2}(rh_{\mathcal{E}h})\\ &\underset{(\ref{eqn:h_lgrandi})}{=} \cancel{l(l+1)r^{l-1} h_{kl} }+ 2(l+1) r^l h_{kl}' + r^{l+1}h_{kl}'' + k^2 r^{l+1}h_{kl} -\cancel{ l(l+1)r^{l-1}h_{kl}}
+\end{align*}
+Dividendo per $r^{l+1}$ otteniamo:
+\begin{align}
+h_{kl}'' + \frac{2(l+1) h_{kl}'}{r} + k^2 h_{kl} = 0
+\label{eqn:hkl1}
+\end{align}
+
+Prendendo la (\ref{eqn:hkl1}) e derivando rispetto a $r$:
+\begin{align*}
+(h'_{kl})'' + \frac{2(l+1)}{r}(h'_{kl})' + \left[
+-\frac{2(l+1)}{r^2}+k^2
+\right] h_{kl}' = 0
+\end{align*}
+Per \textbf{esercizio}: dimostra che $rh_{k(l+1)}$ soddisfa la stessa equazione di $h'_{kl}$, ma allora per l'unicità della soluzione (dovuta alla nondegenerazione), deve essere:
+\[
+h'_{kl} \sim r h_{k(l+1)}
+\]
+Ma allora:
+\[
+\frac{1}{r} \frac{d}{dr} h_{kl} =h_{k(l+1)}
+\]
+Poiché $h_{\mathcal{E}0} = h_{k0}$ ricaviamo che:
+\begin{align*}
+h_{\mathcal{E}l}(r) &= r^l h_{kl}(r) = r^l \left( 
+\frac{1}{r} \frac{d}{dr}
+\right)^l h_{k0}(r) =\\
+&= r^l \left( \frac{1}{r} \frac{d}{dr}\right)^l h_{\mathcal{E}0} = r^l \left(\frac{1}{r}\frac{d}{dr}\right)^l \frac{\sin(kr)}{r}
+\end{align*}
+
+La costante di normalizzazione è fissata dalla condizione:
+\begin{align*}
+\int_0^\infty dr\, r^2 h_{\mathcal{E}l}(r) h_{\mathcal{E}'l}(r) = \delta(\mathcal{E}-\mathcal{E}')
+\end{align*}
+e risulta:
+\begin{align*}
+\frac{(-1)^l}{k^l}\sqrt{\frac{2m}{k\pi}}
+\end{align*}
+Perciò la soluzione radiale per la particella libera è data infine da:
+\begin{align*}
+h_{\mathcal{E}l}(r) = \sqrt{\frac{2m}{k\pi}} k (kr)^l (-1)^k \left(\frac{1}{kr}\frac{d}{dkr}\right)^l \frac{\sin kr}{kr} \equiv \sqrt{\frac{2mk}{\pi}} j_l(kr)
+\end{align*}
+ove:
+\[
+j_l(x) \equiv (-1)^l x^l \left(\frac{1}{x} \frac{d}{dx}\right)^l \frac{\sin(x)}{x}
+\]
+sono le \textbf{funzioni di Bessel} sferiche di ordine $l$.\\
+
+Per $r\to \infty$ possiamo ottenere l'andamento dominante osservando che il termine che decresce meno rapidamente in $\left(-\frac{1}{r}\frac{d}{dr}\right)^l \frac{\sin(kr)}{r}$ è quello in cui tutte le derivate agiscono sul seno.\\
+Infatti:
+\begin{align*}
+-\frac{d}{dr} \frac{\sin(kr)}{r} \sim \overbrace{-k\frac{\cos(kr)}{2}}^{-k\sin(kr-\pi/2)/2} + \cancel{\frac{\sin(kr)}{r^2}}
+\end{align*} 
+e tale ragionamento può essere esteso ad ogni derivata.\\
+Perciò:
+\begin{align*}
+h_{\mathcal{E}l}(r) \xrightarrow[\sim]{r\to \infty} \frac{\sin(kr - l\frac{\pi}{2})}{r}
+\end{align*}
+Tale funzione non è in $L^2(\bb{R}_+, r^2 dr)$, ma è ancora una distribuzione.\\
+Concludiamo perciò che per $U(r)=0$, $\sigma(H)= \sigma_C(H) =\bb{R}_+$.\\
+\textbf{Oss}: Notiamo che la scvelta di $\sin(kr)/2$ rispetto a $\cos(kr)/2$ per $h_{\mathcal{E}0}$ era dettata dal comportamento in $r=0$. Per l'andamento asintotico tale vincolo viene meno.\\
+Quindi per un potenziale $U(r)$ che non pone vincoli a $r=0$ entrambe le soluzioni $\sin(kr)/r$ e $\cos(kr)/r$ per $h_{\mathcal{E}0}$ possono contribuire.\\
+
+In sintesi, è importante ricordare:
+\begin{itemize}
+\item Come ridurre un problema 3D in uno 1D tramite potenziale effettivo
+\item Andamento a grandi distanze e piccole distanze
+\end{itemize}
+
+\end{document}
+

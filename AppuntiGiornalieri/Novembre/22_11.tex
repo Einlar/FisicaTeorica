@@ -1,0 +1,216 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Le traslazioni spaziali}
+Possiamo ora facilmente discutere la rappresentazione delle \textit{traslazioni spaziali} seguendo lo stesso schema delle traslazioni temporali.\\
+Partiamo considerando dall'\textbf{omogeneità dello spazio}, per cui i risultati di un esperimento non dipendono dal luogo in cui viene svolto. In \MQ ciò significa che, ogni traslazione delle coordinate $\vec{x} \to \vec{x}+\vec{a}$, con $\vec{a}\in \bb{R}^3$ non modifica le probabilità di transizione $|\braket{\phi|\psi}|^2$.\\
+Consideriamo quindi il gruppo \textit{additivo} $G=(\bb{R}^3, +)$ delle \textit{traslazioni spaziali}. 
+Per teorema di Wigner esiste allora una rappresentazione proiettiva $G\ni \vec{a} \mapsto \hat{U}(\vec{a}\,)$, che agisce su \textit{raggi vettori} ($\hat{U}:\mathcal{PH}\to\mathcal{PH}$) ed è compatibile con l'operazione di gruppo (addizione):
+\begin{equation}
+\hat{U}(\vec{a}\,)\hat{U}(\vec{b}\,)=\hat{U}(\vec{a}+\vec{b})
+\label{eqn:translation-group-property}
+\end{equation}
+Per il teorema di Bargmann, dato che il gruppo di ricoprimento universale di $(\bb{R}^3,+)$ è se stesso (dato che è semplicemente connesso), possiamo passare da una rappresentazione proiettiva a una unitaria $\vec{a} \mapsto U(\vec{a}\,)$ sul ricoprimento.\\
+Dato che gli $U(\vec{a})$ formano un gruppo di matrici, per quanto visto in (\ref{eqn:mappa-esponenziale-multivariata}), possiamo scrivere ognuno di essi come esponenziale dei generatori del gruppo, che indichiamo con $e_1, e_2, e_3$. Si ha quindi:
+\begin{align}
+U(\vec{a}) = U(a_1, a_2, a_3) = \exp(a_1 e_1 + a_2 e_2 + a_3e_3)
+\label{eqn:traslazione-spaziale}
+\end{align}
+Procediamo calcolando i generatori. Spostiamoci in rappresentazione in $\{\vec{x}\}$. Detti $\ket{\vec{x}}$ gli autovettori di autovalore $x$ dell'operatore posizione $\vec{X}$. $U(\vec{a})$ \textit{agisce} su di essi per traslazione:
+\begin{align*}
+U(\vec{a}) \ket{\vec{x}} = \ket{\vec{x}+\vec{a}}
+\end{align*}
+Prendendo il coniugato di entrambi i membri si giunge a:
+\begin{align}
+\bra{\vec{x}} U(\vec{a})^\dag =\bra{\vec{x}+\vec{a}}
+\label{eqn:bra-applicated}
+\end{align}
+Si ha che $U(\vec{a})^\dag$ corrisponde alla \textit{traslazione inversa} $U(\vec{a})^{-1} = U(-\vec{a})$: lo si vede della proprietà (\ref{eqn:translation-group-property}) scrivendo $\bb{I} = U(\vec{0})= U(\vec{a}-\vec{a})=U(\vec{a})U(-\vec{a})$. Ma allora sostituendo nell'equazione (\ref{eqn:bra-applicated}) e poi rinominando $-\vec{a}\to \vec{a}$:
+\begin{align}
+\bra{\vec{x}}U(-\vec{a})=\bra{\vec{x}+\vec{a}} \Rightarrow  \bra{\vec{x}}U(\vec{a})=\bra{\vec{x}-\vec{a}}
+ \label{eqn:bra-translated}
+\end{align}
+Possiamo ora usare questo risultato per calcolare l'azione di $U(\vec{a})$ su $\ket{\psi}$ in rappresentazione $\{\vec{x}\}$:
+\begin{align*}
+(U(\vec{a}) \psi)(\vec{x}\,) \equiv \bra{\vec{x}}U(\vec{a}\,)\ket{\psi} \underset{(\ref{eqn:bra-translated})}{=} \braket{\vec{x}-\vec{a}|\psi} = \psi(\vec{x}-\vec{a})
+\end{align*}
+In questo modo abbiamo scritto gli stati come \textit{funzioni} (o \textit{vettori} di $L^2(\bb{R}^3,d^3x)$) che possiamo derivare facilmente. Calcoliamo perciò i generatori dall'espressione (\ref{eqn:spazio-tangente-gruppo}):
+\begin{align*}
+e_j \equiv \frac{\partial}{\partial a_j} (U(\vec{a}\,)\psi)(\vec{x}\,)\Big|_{\vec{a}=0} = \frac{\partial}{\partial a_j} \psi(\vec{x}-\vec{a})\Big|_{\vec{a}=0} = -\frac{\partial}{\partial x_j}\psi(\vec{x}\,)=\left(\frac{P_j}{i\hbar}\psi\right)(\vec{x}\,)_j
+\end{align*}
+dove $P_j = -i\hbar \partial_{x_j}$ è la $j$-esima componente del momento in rappresentazione $\{\vec{x}\}$.\\
+Sostituendo allora quanto trovato in (\ref{eqn:traslazione-spaziale}), e sintetizzando la somma con un prodotto scalare, giungiamo a:
+\[
+U(\vec{a}\,)=\exp\left({-\frac{i}{\hbar}\vec{a}\cdot \vec{P}\,}\right)
+\]
+
+\section{Momento angolare e rotazioni}
+Una osservabile che in \MQ si discosta fortemente dal comportamento classico è il \textbf{momento angolare}.\\
+
+In \MC, utilizzando le coordinate cartesiane in $\bb{R}^3$, le componenti del momento angolare sono (in convenzione di Einstein, con gli indici in lettere latine che vanno intesi da $1$ a $3$):
+\[
+l_i = (\vec{x}\times \vec{p}\,)_i= \epsilon_{ijk} x_j p_k \quad \vec{l}=\{l_1, l_2, l_3\}
+\]
+dove $\epsilon_{ijk}$ è il tensore di Levi-Civita così definito:
+\[
+\epsilon_{ijk}=\begin{cases}
+1 & \text{ se } i,j,k = 1,2,3 \text{ o permutazioni pari}\\
+-1 & \text{ se } i,j,k \text{ si ottiene da } 1,2,3 \text{ per permutazioni dispari}\\
+0 & \text{altrimenti}
+\end{cases}
+\]
+Il momento angolare ha spettro continuo in \MC.\\
+
+In \MQ, nonostante $\vec{X}$ e $\vec{P}$ abbiano spettro continuo in $\bb{R}^3$, $\vec{L}$ risulterà avere spettro discreto!\\
+Per semplicità non discuteremo eventuali problemi di dominio: basti sapere che tutte le operazioni che faremo sono lecite in:
+\[
+D=\mathcal{S}(\bb{R}^3)
+\]
+Volendo si potrebbe definire un dominio più ampio, ma farlo risulta complicato e oltre gli obiettivi di questo corso.\\
+
+Calcoliamo l'\textit{algebra} di $\vec{L}$, ossia tutti i possibili commutatori tra $L_1$, $L_2$ e $L_3$. Risulta:
+\[
+[L_i, L_j] = i\hbar \epsilon_{ijk} L_k \quad L_i = \epsilon_{ijk}X_j P_k
+\]
+Tale risultato si potrebbe derivare applicando la \textit{quantizzazione canonica} di Dirac delle parentesi di Poisson $[\cdot,\cdot]=i\hbar \{\cdot,\cdot\}$, e utilizzando il risultato in \MC:
+\[
+\{l_i, l_j\} = \epsilon_{ijk} l_k
+\] %Inserire ref a quando usato la quantizzazione delle parentesi di Poisson per la prima volta (nelle prime lezioni)
+
+Alternativamente, si può procedere per calcolo diretto. Per esempio, calcoliamo $[L_1, L_2]$. Risulta comodo sfruttare le seguenti due proprietà del commutatore:
+\begin{align*}
+[A,BC]&=[A,B]C + B[A,C]\\
+[AB,C] &= [A,C]B + A[B,C]
+\end{align*}
+che si verificano immediatamente espandendo i commutatori da definizione.\\
+
+Allora: %[TO DO] Fare i conti
+\begin{align*}
+[L_1, L_2]&=[X_2 P_3 - X_3 P_2, X_3 P_1 - X_1 P_3]=\\
+&=X_2[P_3, X_3] P_1 + X_1[X_3, P_3]P_2=\\
+&=-i\hbar X_2 P_1 + i\hbar X_1 P_2 = i\hbar L_3
+\end{align*}
+(al primo conto, prova a calcolare \textit{tutti} i commutatori)\\
+
+Definiamo ora $\vec{L}^2 = L_1^2 + L_2^2 + L_3^2$. Notiamo che $\vec{L}^2$ commuta con ogni $L_j$:
+\begin{align*}
+[\vec{L}^2, L_j] &= [L_i L_i, L_j]=L_i[L_i, L_j] + [L_i,L_j]L_i =\\
+&=i\hbar\underbrace{ \epsilon_{ijk} }_{ik \text{ antisimmetrici}}\underbrace{(L_i L_k + L_k L_i)}_{ik \text{ simmetrici}} = 0
+\end{align*}
+dato che si tratta della \textit{contrazione} di un tensore $A_{ik}$ antisimmetrico con uno $S_{ik}$ simmetrico, che è nulla. Infatti, scambiando l'ordine degli indici, il tensore simmetrico non cambia, mentre quello antisimmetrico cambia di segno:
+\begin{align*}
+A_{ik}S_{ik} =-A_{ki}S_{ki} \Rightarrow A_{ik}S_{ik} + A_{ki}S_{ki} = 0
+\end{align*}
+Ora basta rinominare gli indici nel secondo termine (possiamo farlo dato che gli indici su cui si somma sono \textit{muti}), e raccogliere. Si ottiene perciò $2A_{ik} S_{ik}=0$, da cui segue il risultato utilizzato.\\
+
+Perciò, riepilogando, mentre $L_i$ e $L_j$, per $i\neq j$ \textbf{non} sono compatibili, $\vec{L}^2$ e $L_j$ sono compatibili $\forall j$.\\
+
+Vediamo la relazione di $\vec{L}$ con le rotazioni. Calcoliamo prima:
+\begin{align*}
+[L_i, X_l]&=[\epsilon_{ijk} X_j P_k, X_l] = \epsilon_{ijk} X_j[P_k, X_l] =\\
+&= \epsilon_{ijk} X_j (-i\hbar \delta_{kl}) = - i\hbar \epsilon_{ijk}X_j = i\hbar \epsilon_{ilj}X_j\\
+[L_i, P_l] &= i\hbar \epsilon_{ijk} P_j
+\end{align*}
+
+Analogamente a quanto trovato per le traslazioni spaziali, i cui generatori erano dati dal momento (lineare), ci aspettiamo che il momento angolare funga da generatore delle rotazioni. Procediamo, allora, \textit{a ritroso}, partendo da $e_3 = L_3/\hbar$ come generatore di un gruppo di matrici, e verifichiamo che da esso si ottengano effettivamente le rotazioni attorno all'asse $\hat{z}$.\\
+Come già visto, $e_3$ è un elemento dell'algebra di Lie $\mathfrak{g}$ del gruppo di operatori unitari $U(\varphi)$ che, come vogliamo verificare, rappresenta su $\hs$ le rotazioni. Il passaggio da $e_3$ a $U$ è dato, come già visto, dalla mappa esponenziale:
+\begin{align*}
+U(\varphi) = \exp\left(-i\varphi\frac{L_3}{\hbar}\right)
+\end{align*}
+
+Come agisce $U(\varphi)$ su un'osservabile, per esempio sulla posizione $\vec{X}$? Come già visto nel caso di $H$, la formula è analoga a quella del \textit{cambio di base} vista in algebra lineare:
+\begin{align*}
+X_i(\varphi) =U(\varphi) X_i U(\varphi)^\dag = \exp \left( -i\varphi\frac{L_3}{\hbar}\right) X_i \exp\left(i\varphi\frac{L_3}{\hbar}\right)
+\end{align*}
+Procediamo per gradi, partendo dal calcolo dell'esponenziale. In generale, l'esponenziale di una matrice $A$ è:
+\begin{align*}
+e^A = \sum_{n=0}^{\infty}\frac{1}{n!}A^n
+\end{align*}
+Detta $B$ un'altra matrice, con cui $A$ potrebbe o meno commutare, proviamo ad espandere l'espressione $e^{-A}B e^A$ nella speranza di trovare un qualche \textit{schema} che velocizzi il conto:
+\begin{align*}
+e^A &= \bb{I} + A + \frac{1}{2!} A^2 + \dots\\
+e^{-A} &= \bb{I} - A + \frac{1}{2!}A^2 + \dots\\
+e^{-A}B e^A &= \left(
+\bb{I} - A + \frac{1}{2!}A^2 + \dots
+\right)\left(B + BA + \frac{1}{2!}BA^2 + \dots \right) =\\
+&=B+BA + \frac{1}{2!}BA^2 + \dots - AB -ABA -\frac{1}{2}ABA^2 + \dots \\
+&+ \frac{1}{2} A^2 B + \frac{1}{2}A^2BA + \frac{1}{4}A^2BA^2 + \dots =\\
+&=B + \left(BA-AB\right) +\frac{1}{2!}\left(BA^2 - 2ABA +A^2B\right) +\dots =\\
+&=B + [B,A] +\frac{1}{2!} [[B,A],A] + \dots
+\end{align*}
+Con un po' di formalismo in più si giunge allora alla \textit{formula di Hadamard}:
+\[
+e^{-A} B e^A = \sum_{n=0}^\infty \frac{1}{n!} \underbrace{[[[\dots [}_{n \text{ volte}}B,\underbrace{A],A],A],\dots,A]}_{n \text{ volte}}
+\]
+In questi conti stiamo ignorando ogni problema di dominio: per esempio non è detto a priori che le potenze $n$-esime di $A$ siano definite. Il tutto, in ogni caso, funziona all'interno del formalismo (ben più avanzato) degli spazi di Hilbert equipaggiati, che però non esploriamo.\\
+
+Svolgiamo lo stesso conto per gli operatori che ci interessano, ossia poniamo nella formula di Hadamard:
+\begin{align*}
+A = -i\frac{\varphi}{n}L_3\qquad B = X_1
+\end{align*}
+Calcolando i vari termini, ci accorgiamo della comparsa delle espansioni di $\sin$ e $\cos$:
+\begin{align*}
+\exp\left( -i\frac{\varphi}{\hbar}L_3 \right) X_1 \exp\left(i\frac{\varphi}{\hbar}L_3 \right) &= X_1 + \frac{i\varphi}{\hbar}[X_1, L_3]+ \frac{1}{2}\left(\frac{i\varphi}{\hbar}\right)^2 [[X_1, L_3], L_3] + \dots =\\
+&= X_1 + i\frac{\varphi}{\hbar}(-i\hbar X_2)+\frac{1}{2}\left(\frac{i\varphi}{\hbar}\right)^2 -i\hbar \underbrace{[X_2,L_3]}_{i\hbar X_1}+\dots=\\
+&=X_1 + \varphi X_2 - \frac{1}{2}\varphi^2 X_1 + \dots \\
+&= X_1\hlc{Yellow}{\left(1-\frac{1}{2}\varphi^2 \dots\right)} + X_2\hlc{SkyBlue}{(\varphi + \dots)} =\\
+&= X_1 \cos\varphi + X_2 \sin\varphi
+\end{align*} %[TO DO] Controllare i conti, e magari mettere qualche termine in più. Controllare bene i segni!
+
+Conti analoghi portano alle \textit{trasformazioni} delle altre componenti dell'operatore posizione $\vec{X}$:
+\begin{align*}
+\exp\left(-i\frac{\varphi}{\hbar}L_3\right) X_2 \exp\left(i\frac{\varphi}{\hbar} L_3 \right)&=X_2 \cos\varphi-X_1\sin\varphi\\
+\exp\left(-i\frac{\varphi}{\hbar}L_3\right) X_3 \exp\left(i\frac{\varphi}{\hbar}L_3\right)&= X_3
+\end{align*}
+
+Mettendo tutto insieme otteniamo perciò:
+\[
+\exp\left(-i\frac{\varphi}{\hbar}L_3\right) \vec{X} \exp\left(i\frac{\varphi}{\hbar}L_3 \right) = R(\varphi, \hat{z}) \vec{X}
+\]
+con:
+\[
+R(\varphi, \hat{z}) = \begin{pmatrix}
+\cos\varphi & \sin\varphi & 0\\
+-\sin\varphi & \cos\varphi & 0\\
+0 & 0 & 1
+\end{pmatrix}\quad
+\vec{X}=\begin{pmatrix} X_1 \\ X_2 \\ X_3 \end{pmatrix}
+\]
+%Qui vanno cambiati i segni, e va cambiato il segno nella U e anche in tutti i passaggi dopo!
+
+Dove $\hat{z}$ è il versore lungo $z$, e $R(\varphi, \hat{z})$ è la matrice di rotazione di un angolo $\varphi$ intorno all'asse $z$.\\
+Più in generale, se $\vec{n}$ è un versore di $\bb{R}^3$:
+\[
+U(\varphi, \vec{n})\equiv \exp\left({-i\frac{\varphi}{\hbar} \vec{L}\cdot \vec{n}}\right)
+\]
+è l'operatore (unitario) che descrive le rotazioni di un angolo $\varphi$ attorno al versore $\vec{n}$.\\
+
+Ripetendo gli stessi conti per l'operatore momento $\vec{P}$ si ottiene la stessa cosa:
+\[
+\exp\left(-i\frac{\varphi}{\hbar}L_3\right)\vec{P}\exp\left(i\frac{\varphi}{\hbar}L_3\right)=R(\varphi, \hat{x})\vec{P}
+\]
+
+Deriviamo allora la trasformazione di una generica funzione d'onda $\psi(\vec{x})$ in rappresentazione $\{\vec{x}\}$. Procediamo alla stessa maniera utilizzata per le traslazioni spaziali, notando che $U(\varphi,\vec{n})$ \textit{agisce} \q{da destra} su un bra come una \textit{rotazione inversa}:
+\[
+\bra{\vec{x}} U(\varphi, \vec{n}) = \bra{R^{-1}(\varphi, \vec{n}) \vec{x}}
+\]
+E applicando ciò ad una $\ket{\psi}$ generica otteniamo:
+\[
+\bra{\vec{x}}U(\varphi, \vec{n})\ket{\psi}=\braket{R^{-1}(\varphi, \vec{n})\vec{x}|\psi}=\psi(R^{-1}(\varphi, \vec{n}) \vec{x})
+\]
+Confrontando con le rappresentazioni delle algebre di Lie dei gruppi riconosciamo che:
+\[
+\frac{L_j}{i\hbar} = \frac{\partial(U(\varphi, \vec{n})\psi)}{\partial(\varphi \,n_j)}(\vec{x})\Big|_{\varphi=0}
+\] %Qui dovrebbe mancare un -i davanti?
+è la rappresentazione in $\hs$ (o meglio in un dominio denso) dei generatori dell'algebra di Lie delle rotazioni. %Chiarire
+\\Perché una rotazione di $2\pi$ lascia $\vec{x}$ invariante:
+\[
+U(2\pi, \vec{n})\psi(\vec{x})=\psi(\vec{x})
+\]
+ossia $U(2\pi, \vec{n})=\bb{I} = \exp\left(i\frac{2\pi}{\hbar}\vec{L}\cdot \vec{n}\right)$.
+\[
+1=\sigma(\bb{I}) = \sigma\left(\exp\left(i\frac{2\pi}{\hbar}\vec{L}\cdot \vec{n}\right)\right) =\ \exp\left(i\frac{2\pi}{\hbar}\sigma(\vec{L}\cdot \vec{n})\right)\Rightarrow \sigma(\vec{L}\cdot \vec{n}) \subseteq \hbar \bb{Z}
+\]
+\end{document}
+

@@ -1,0 +1,154 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione X:\\ \large{Particelle indistinbuibili - parte 2}}
+\vspace{-1em}
+\begin{center}
+    \small{(12/12/2018)}
+\end{center}
+
+Come visto nella precedente lezione, in \MQ particelle identiche sono per forza \textit{indistinguibili}. Non potendo determinare l'identità di ogni particella, non ha senso che le previsioni teoriche dipendano da essa, e perciò i valor medi non possono differire per scambi di particelle identiche.\\
+Consideriamo i gruppi $S_N$ delle permutazioni di $N$ oggetti. Gli elementi $\sigma \in S_N$ sono \textit{generiche permutazioni}, che possono essere scritte come prodotto di scambi $\sigma_i$, con $i=1, \dots, N-1$, che rappresentano gli scambi di $i$-esimo e $i+1$-esimo componente.\\
+Tali $\sigma_i$ soddisfano le seguenti proprietà:
+\begin{itemize}
+\item $\sigma_i^2 = 1$
+\item $\sigma_i \sigma_j = \sigma_j \sigma_i$ $|i-j| \geq 2$
+\item $\sigma_i \sigma_{i+1} \sigma_i = \sigma_{i+1}\sigma_i \sigma_{i+1}$
+\end{itemize}
+Dato un $\sigma \in \hs$, con $\{e_j\}_{j\in J}$ base per $\hs$, esso agisce \textit{permutando}:
+\begin{align*}
+U(\sigma): e_{j_1} \otimes \dots \otimes e_{j_N} \to e_{\sigma(j_1)} \otimes \dots \otimes e_{\sigma(j_N)}
+\end{align*}
+
+Matematicamente, $\forall \ket{\psi}\in \hs^{\otimes \bb{N}}$ e $\forall$ osservabile $A$ in $\hs^{\otimes \bb{N}}$, si ha:
+\begin{align}
+\bra{\psi} U^\dag(\sigma)AU(\sigma)\ket{\psi} =\ \bra{\psi}A\ket{\psi}\quad \forall \sigma \in S_N \Rightarrow U^\dag(\sigma)AU(\sigma)=A
+\label{eqn:condizione-simmetria-scambi}
+\end{align}
+Perciò non tutti gli operatori autoaggiunti in\ $\hs^{\otimes \bb{N}}$ sono osservabili, ma solo quelli per cui vale (\ref{eqn:condizione-simmetria-scambi}). Poiché ogni operatore in $\hs^{\otimes \bb{N}}$ può scriversi come combinazione lineare (eventualmente infinita) di operatori $A_1 \otimes A_2 \otimes \dots \otimes A_N$, ove gli $A_i$, detti operatori di particella singola, agiscono sulla $i$-esima coppia di $\hs$ in $\hs^{\otimes \bb{N}}$, La (\ref{eqn:condizione-simmetria-scambi}) ci dice che \textbf{sono osservabili solo operatori autoaggiunti} in $\hs^{\otimes \bb{N}}$ \textbf{simmetrici} per \textit{ogni} scambio degli operatori di particella singola.\\
+
+Inoltre $U(\sigma)\ket{\psi}$, $\forall \sigma \in S_N$, $\ket{\psi} \in \hs^{\otimes \bb{N}}$ deve descrivere lo stesso stato di $\ket{\psi}$, ma poiché\ per ogni scambio $\sigma_i$, $\sigma_i^2 = 1$, deve essere:
+\begin{align}
+U(\sigma_i)^2 = U(\bb{I}) = \bb{I}
+\label{eqn:condizione-quadrato}
+\end{align}
+perché avvenga:
+\begin{align*}
+U(\sigma_i) \ket{\psi} = c(\sigma_i)^2 \ket{\psi}
+\end{align*}
+E (\ref{eqn:condizione-quadrato}) impone che $c(\sigma_i)^2=1$.\\
+
+Quindi abbiamo due possibilità. $\forall \sigma_i$ deve succedere:
+\begin{itemize}
+\item $c(\sigma_i) = 1$, ossia la funzione d'onda o il vettore di stato è \textit{simmetrica per scambi}. Le particelle che soddisfano questa condizone sono detti \textbf{bosoni}.
+\item $c(\sigma_i)=-1$, dove invece funzione d'onda/vettore di stato sono \textit{antisimmetrici per scambi}. Le particelle che soddisfano quiesta proprietà sono i \textbf{fermioni}.
+\end{itemize}
+
+Tutto ciò porta a un fenomeno nuovo: i \textbf{settori di superselezione}\marginpar{Settori di superselezione}\index{Settori di superselezione}.\\
+Poiché le osservabili sono \textit{simmetriche per scambi}, i sottospazi di $\hs^{\otimes \bb{N}}$ sede delle rappresentazioni simmetriche (bosoni) o antisimmetriche (fermioni) sono lasciati invariati sia dall'evoluzione temporale che è l'esponenziale di un'osservabile, $H$, che è simmetrica, sia dalle misure di qualsiasi osservabile, che sono descritte da proiettori, che essendo osservabili sono simmetrici.\\
+\textit{Tali sottospazi sono \q{mondi separati}, ossia un vettore - uno stato - che sta in uno di essi, per esempio lo spazio simmetrico, è destinato a rimanervi per sempre - non c'è modo di passare da uno all'altro. Questo è il concetto di superselezione}
+
+Quindi gli stati simmetrici e antisimmetrici non si mescolano mai qualsiasi operazione si faccia. Descrivono qindi \q{mondi distinti} che tecnicamente si chiamano \textbf{settori di superselezione}.
+
+\textit{Un altro esempio, meno ovvio, di settore di superselezione è dato dalla carica elettrica. Non è possibile sovrapporre due stati di carica diversa - e qualsiasi operazione si faccia non è possibile cambiarla. Operatori che non rispettano tali condizioni non costituiscono osservabili.}
+
+Se $\ket{\psi_i}$, $i=1, \dots, N$ sono ket di particella singola, ad esempio:
+\begin{align*}
+&\frac{1}{\sqrt{N!}}\sum_{\sigma \in S_N} \prod_i \ket{\psi_{\sigma(i)}} && \text{ket per $N$ bosoni}\\
+&\frac{1}{\sqrt{N!}}\sum_{\sigma \in S_N} (-1)^{|\sigma|}\prod_i \ket{\psi_{\sigma(i)}} && \text{ket per $N$-fermioni}
+\end{align*}
+Dove con $|\sigma|$ indichiamo il numero di scambi effettuati per formare la permutazione $\sigma$ (che a priori non è ben definito, ma è ben definita la sua \textit{parità}, che è l'unica cosa che ci interessa nella formula di sopra).\\
+Notiamo che tali stati per il sistema composto \textbf{non} sono il semplice prodotto di ket di particelle singole $\ket{\psi_i}$, ma combinazioni lineari di tali prodotti, cioè sono \q{entangled}. Questa è la conseguenza \textit{fisica} della \textit{perdita dell'individualità}: il fatto che non si possa discutere di particelle singole (poiché non è possibile identificarle), fa sì che l'unico modo di descrivere il sistema sia in una \q{visione globale} che non può essere spezzata nelle singole parti.\\
+
+Una conseguenza immediata dell'antisimmetria per i fermioni è il seguente principio:
+\begin{thm}
+\marginpar{Principio di esclusione di Pauli}\index{Principio di esclusione di Pauli}
+Non è possibile per un sistema di $N$ fermioni identici avere due particelle con lo stesso insieme di autovalori di un ICOC.
+\end{thm}
+Ad esempio, consideriamo come lo spazio di Hilbert $\hs$ di particella singola per un atomo di idrogeno. Un ICOC è $\{H, \vec{L^2}, L_z, S_z\}$. Indichiamo i rispettivi autovalori di tali osservabili con $\{n, l, m, s_z\}$.\\
+Per il principio di esclusione, è impossibile mettere due elettroni con gli stessi $n, l, m, s_z$ nell'atomo di idrogeno - cioè al massimo vi sono due elettroni per \textit{orbitale} (dove un orbitale è definito da i numeri quantici $n,l,m$).\\
+Lo stesso ICOC vale anche per un qualsiasi sistema coulombiano - e in particolare per atomi più complessi.\\
+In un atomo con molti elettroni siamo costretti a mettere elettroni in orbitali a energia crescente per rispettare il principio di Pauli, e da ciò deriva tutta la \textit{chimica}.\\
+In modo analogo sappiamo di un ICOC $\{\vec{X}, S_z\}$, e quindi Pauli ci dice in modo immaginifico che due elettroni non possono avere neppure \q{potenzialmente} stessa posizione e spin. Infatti, se ipotizziamo che $\vec{x}_i, s_{z_i} = \vec{x_j}, s_{z_j}$ (gli elettroni $i$-esimo e $j$-esimo hanno la stessa posizione e spin). Se partiamo da una funzione d'onda:
+$\psi(\vec{x}_1, s_{z_1}, \dots, \vec{x}_N, s_{z_N}$
+e scambiamo i due elettroni $i$ e $j$, sappiamo che il segno deve cambiare per l'antisimmetria (essendo gli elettroni fermioni):
+\begin{align*}
+\psi(\vec{x}_1, s_{z_1}, \dots, \hlc{Yellow}{\vec{x}_i, s_{z_i}}, \dots \hlc{SkyBlue}{\vec{x}_j, s_{z_j}}, \dots, \vec{x}_N, s_{z_N})=-
+\psi(\vec{x}_1, s_{z_1}, \dots, \hlc{SkyBlue}{\vec{x}_j, s_{z_j}}, \dots \hlc{Yellow}{\vec{x}_i, s_{z_i}}, \dots, \vec{x}_N, s_{z_N})
+\end{align*}
+Ma se i due termini scambiati sono uguali (per ipotesi), allora le due $\psi$ devono essere uguali (scambiare gli stessi termini \textit{non} modifica la $\psi$). Ma allora l'unica possibilità è che tale $\psi=0$.\\
+
+
+Poiché la funzione d'onda descrive le probabilità di misura, anche prima che essa venga effettuata, si ha che \textit{anche prima di una misura} gli elettroni non possono ocupare gli stessi stati di posizione-spin.\\
+
+Qualitativamente questa è l'\textit{origine dell'incompenetrabilità} della materia.\\
+Perché nonostante l'atomo sia quasi interamente vuoto, e la probabilità di interazione tra gli elettroni sia bassa, la sola \textit{potenzialità} di occupazione degli stessi stati è impedita dal principio di esclusione.\\
+
+Il principio di esclusione è utile per comprendere anche la struttura delle \textbf{stelle di neutroni}. Se la forza di gravitazionale è sufficientemente intensa, gli orbitali sono \q{schiacciati} uno contro l'altro, ma non possono compenentrarsi per principio di esclusione. Avviene così un altro processo: un protone e un elettrone si \textit{fondono} a formare un neutrone.
+\begin{align*}
+p^+ + e^- \to n + \nu_e
+\end{align*}
+E i neutroni possono \q{compattarsi} molto di più, dato che la distanza tra ciascuno di essi è dell'ordine di $10^{-15}m$. Ciò permetterebbe all'intera massa del Sole, che normalmente ha un raggio $\sim 700\cdot 10^3$km, di essere concentrata in un raggio di $10$km.\\
+Un $cm^3$ di \q{neutronio} ha una massa dell'ordine $\sim 2\cdot 10^6$kg.\\
+
+C'è un modo lievemente diverso di vedere la statistica (comportamento per scambi) che è rilevante in $d<3$ (trascuriamo, per ora, lo spin).\\
+Possiamo realizzare concretamente uno scambio di posizioni $x_i$, $x_j$ di particelle identiche con un cammino continuo che porti $x_i$, $x_j$ in $x_j$, $x_i$.\\
+%Inserire disegnetto
+
+Se introduciamo un parametro $t$ per descrivere il cammino:
+
+Se $d=3$, possiamo far passare una particella \q{sotto} all'altra, e i seguenti scambi sono completamente equivalenti:
+%Disegnetto
+
+dato che possiamo passare da uno all'altro \textit{ruotando} di $\pi$ \textit{nella terza dimensione}.\\
+
+Se però $d=2$, se le particelle non possono occupare la stessa posizione, come nel caso dei fermioni, non c'è modo di mappare con continuità uno scambio \textit{orario} in uno \textit{antiorario}, senza intersecare i cammini. Perciò le due possibilità non sono più equivalenti:
+%Disegnetto
+
+Gli scambi $\sigma_i$ in 2D sono perciò \textit{orientati}, $\sigma_i^2 \neq 1$.
+%Disegnetto
+(Volendo si potrebbe continuare ad intrecciare)\\
+
+Il gruppo generato da prodotti di scambi \textit{con orientazione} è detto \textbf{gruppo delle trecce} $B_N$ per $N$ oggetti\footnote{La $B$ sta per \textit{braid}}, e per i suoi elementi valgono le seguenti proprietà:
+\begin{itemize}
+\item $\sigma_i \sigma_j = \sigma_j \sigma_i$, $|i-j|>2$
+\item $\sigma_i \sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$
+\item Con $\sigma_i$ indichiamo gli scambi orari, e $\sigma_i^{-1}\neq \sigma_i$ indica uno scambio antiorario
+\item $U(\sigma_i)^2 \neq 1$, e valgono:
+\begin{align*}
+U(\sigma_i) \ket{\psi} &= e^{i\theta} \ket{\psi}\\
+U(\sigma_i^{-1}) \ket{\psi} &= e^{-i\theta}\ket{\psi}
+\end{align*}
+\end{itemize}
+Tale idea, concepita dal punto di vista completamente teorico negli anni '70 da Leinaas-Myrheim.\\
+Nel 1986, invece, fu osservata una conseguenza di ciò nell'effetto Hall quantistico frazionario. Per certe particelle, il $\theta$ di sopra non è né $0$ (come per i bosoni) né $\pi$ (come per i fermioni), ma assume un valore \textit{generico}. Tali particelle sono perciò indicate come \textit{anyoni}.\\
+
+Sperimentalmente, consideriamo un interfaccia tra semiconduttori (che costituisce un sistema bidimensionale), su cui mettiamo un campo magnetico $\vec{B}$ perpendicolare ad essa. Le particelle seguono le orbite di ciclotrone, per cui abbiamo i livelli di Landau per le energie, dati da $\hbar \omega \left(n+\frac{1}{2}\right)$, dove $\omega$ è la pulsazione di ciclotrone. Gli elettroni si dispongono inizialmente nel livello energetico inferiore, e man mano riempiono quelli più alti.\\
+In realtà, però, i livelli di Landau non sono ben definiti a causa delle \textit{impurezze} dell'interfaccia. Tali impurezze causano delle \q{buche di potenziale localizzate}, e può capitare che degli elettroni rimangano intrappolati in esse \textit{tra due livelli di Landau}.\\
+Tale fenomeno costituisce l'effetto Hall intero (si verifica per $T\sim 10K$), e fu scoperto nel 1983.\\
+Nel 1986, si provò a ripetere l'esperimento abbassando ulteriormente la temperatura, a $T \sim 1K$ e si scoprì un fenomeno leggermente diverso.\\
+Detta $n$ la densità di elettroni, per l'effetto Hall intero si trovava:
+\begin{align*}
+\frac{nhc}{eB} = \frac{1}{3}
+\end{align*}
+In questo nuovo sistema si trovò che gli elettroni avevano uno stato di energia minimo uniforme, e i livelli eccitati erano costituiti da eccitazioni che obbedivano alla statistica di trecce, con $\theta=2\pi/3$.\\
+Se $x,y$ sono le coordinate del piano, definiamo $z=x+iy$. Allora le funzioni d'onda di $N$ di queste eccitazioni sono della forma:
+\begin{align*}
+\psi(z_1, \dots, z_N) = \prod_{i<j} (z_i - z_j)^{\frac{1}{3}}\prod_{i=1}^N e^{-c|z_i|^2}
+\end{align*}
+Scambiando in sensio antiorario due particelle, normalmente avremmo $(z_i - z_j) \to e^{i\pi} (z_i -z_j)$, ma ora abbiamo:
+\begin{align*}
+(z_i-z_j)^{\frac{1}{3}} \to (e^{i\pi}(z_i-z_j))^{\frac{1}{3}} = e^{i\frac{\pi}{3}}(z_i - z_j)^{\frac{1}{3}}
+\end{align*}
+Analogamente, uno scambio orario sarebbe $(z_i-z_j) \to e^{-i\pi (z_i-z_j)}$, ma qui diviene:
+\begin{align*}
+(z_i-z_j)^{\frac{1}{3}} \to (e^{-i\pi (z_i - z_j)})^{\frac{1}{3}}= e^{-i\frac{\pi}{3}}(z_i- z_j)^{\frac{1}{3}}
+\end{align*}
+(forse non ci va l'esponente nella prima parentesi).\\
+
+Tali fenomeni possono essere sfruttati per la costruzione di comouter quantistici, dato che si preannunciano particolarmente stabili per la costruzione di porte logiche.
+
+
+\end{document}
+

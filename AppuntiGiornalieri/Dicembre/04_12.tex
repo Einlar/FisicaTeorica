@@ -1,0 +1,191 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{}}
+\vspace{-1em}
+\begin{center}
+    \small{(4/12/2018)}
+\end{center}
+
+\subsection{Stati legati per l'atomo di idrogeno}
+\textit{(Seguiremo più da vicino la trattazione data da Dirac)}
+
+Il potenziale dell'atomo di idrogeno è dato da:
+\begin{align*}
+U(r) = -\frac{e^2}{r}
+\end{align*}
+Possiamo perciò subito scrivere l'equazione radiale:
+\begin{align}
+\frac{d^2\chi_{\mathcal{E}l}(r)}{dr^2}(r) +\left[\frac{2m}{\hbar^2}\left(\mathcal{E}+\frac{e^2}{r}\right)-\frac{l(l+1)}{r^2}\right]\chi_{\mathcal{E}l}(r) = 0
+\label{eqn:autovalori_idrogeno_rad}
+\end{align}
+%Inserire plot di U(r)
+
+Siamo interessati agli \textbf{stati legati}, ossia a quelli per cui $\mathcal{E}<0$. Sappiamo che:
+\begin{align*}
+rh_{\mathcal{E}l} = \chi_{\mathcal{E}l}
+\end{align*}
+e $h_{\mathcal{E}l} \in L^2(\bb{R}_+, r^2 dr)$ oppure $\chi_{\mathcal{E}l} \in L^2(\bb{R}_+, dr)$.\\
+Con le condizioni al contorno $\chi_{\mathcal{E}l} = 0$ si ha che $\chi_{\mathcal{E}l} (r) \underset{r \to 0}{\sim} r^{l+1}$.\\
+Definiamo per semplicità:
+\begin{align*}
+k \equiv \sqrt{-\frac{2m}{\hbar^2}\mathcal{E}}; \quad a \equiv \frac{\hbar^2}{mc^2}; \quad \nu \equiv \frac{i}{ka}; \quad x \equiv 2kr
+\end{align*}
+dove $a \approx 0.52 \AA$ è detto \textit{raggio di Bohr}.\\
+
+Con queste variabili l'equazione radiale diventa:
+\begin{align*}
+\frac{d^2 \chi_{\mathcal{E}l}}{dx^2}(x) + \left[
+-\frac{1}{4} + \frac{\nu}{x}-\frac{l(l+1)}{x^2} 
+\right] \chi_{\mathcal{E}l}(x) = 0
+\end{align*}
+(dove il cambio di variabili $r \to x$ fa sì che si divida per $(2k)^2$).\\
+Partiamo analizzando i punti di possibile singolarità dell'equazione differenziale. Una possibilità è per $x\to \infty$, oppure (data la presenza di denominatori) per $x\to 0$. L'idea è di risolvere l'equazione in questi limiti tenendo i termini dominanti, e poi \q{cercare di raccordare} il tutto per ottenere una soluzione generale\footnote{Il termine tecnico è \textbf{ansatz}, ossia un \textit{educated guess} sulla soluzione di un'equazione differenziale diccifile.}.\\
+Per $x\to \infty$ l'unico termine dominante è $-1/4$:
+\begin{align*}
+\frac{d^2}{dx^2}\chi_{\mathcal{E}l}(x) - \frac{1}{4}\chi_{\mathcal{E}l} = 0 \Rightarrow  \chi_{\mathcal{E}l}(x) \underset{x \to \infty}{\sim} e^{\pm\frac{x}{2}} = e^{\pm kr}
+\end{align*}
+Di queste due, $e^{+kr}$ di sicuro non sta in $L^2$ (diverge), e perciò prendiamo solo $e^{-kr}$.\\
+
+Per $x\to 0$ il problema si riconduce a quello già visto nella lezione precedente. Tenendo solo i termini dominanti, infatti:
+\begin{align*}
+\frac{d^2 \chi_{\mathcal{E}l}}{dx^2} - \frac{l(l+1)}{x^2}\chi_{\mathcal{E}l} (x) = 0 \Rightarrow  \chi_{\mathcal{E}l}(x) \underset{x\to 0}{\sim} x^{l+1}
+\end{align*}
+
+Proviamo ora a risolvere l'equazione completa date le informazioni appena ricavate, ossia:
+\begin{align*}
+\chi_{\mathcal{E}l}(x) = x^{l+1} e^{-\frac{x}{2}} v_l(x)
+\end{align*}
+con una certa funzione $v_l(x)$ che non alteri il comportamento di $\chi_{\mathcal{E}l}(x)$ ai limiti $x\to 0$ e $x\to \infty$.\\
+Inserendo nell'equazione (\ref{eqn:autovalori_idrogeno_rad}), e calcolando le varie combinazioni per la derivata seconda iterando Leibniz:
+\begin{align*}
+&\left[\cancel{l(l+1)x^{l-1} }+ \bcancel{\frac{1}{4}x^{l+1}} + 2(l+1)\left(-\frac{1}{2}\right) x^l +
+\right] e^{-\frac{x}{2}}v_l(x) +\\
+&+ x^{l+1} e^{-\frac{x}{2}} v_l''(x) + 2\left((l+1)x^l + \left(-\frac{1}{2}\right)x^{l+1} \right ) e^{-\frac{x}{2}} v_l'(x) +\\
+&+ \left[-\bcancel{\frac{1}{4}} + \frac{\nu}{x} -\cancel{\frac{l(l+1)}{x^2}} \right] e^{-\frac{x}{2}} x^{l+1}v_l(x) = 0 
+\end{align*}
+Dividendo per $x^l$ e $e^{-x/2}$:
+\begin{align}
+xv_l'' + (2l+2-x)v_l' - \left((l+1)-\nu\right)v_l = 0
+\label{eqn:diff_vl}
+\end{align}
+che dobbiamo risolvere per $v_l$. Possiamo farlo sviluppando $v_l(x)$ in serie:
+\begin{align}
+v_l(x) = \sum_{p=0}^{\infty} a_p x^p
+\label{eqn:vl_series}
+\end{align}
+con $a_0 = 1$, dato che non vogliamo turbare l'andamento a $x\to 0$, e perciò deve essere $v_l(0) \neq 0$. Altrimenti non avremmo $\chi_{\mathcal{E}l}(x) \underset{x\to 0}{\sim}x^{l+1}$.\\
+Inserendo (\ref{eqn:vl_series}) in (\ref{eqn:diff_vl}) otteniamo:
+\begin{align*}
+\sum_{p=2}^\infty p(p-1) a_p x^{p-1} + \sum_{p=1}^\infty p(2(l+1)x^{p-1}-x^p)a_p -\sum_{p=0}^\infty ((l+1)-\nu) a_p x^p = 0
+\end{align*}
+Conviene riportare tutto sotto la stessa sommatoria, sostituendo $p-1 \equiv p'\Rightarrow p=p'+1$:
+\begin{align*}
+\sum_{p'=\hlc{Yellow}{0}}^\infty (p'+1)è' a_{p'+1} x^{p'} + \sum_{p'=0}^\infty a_{p'+1} (p'+1) (2(l+1))x^{p'} - \sum_{p=0}^\infty a_p p x^p - \sum_{p=0}^\infty a_p(l+1-v)x^p=0
+\end{align*}
+dove nella prima sommatoria partiamo da $0$, notando che essa conteneva già un termine $p'$, e quindi partire da $p'=0$ non fa altro che aggiungere in testa alla successione un termine nullo, che non modifica la serie (e stesso discorso nell'ultimo termine, stavolta per $p$).\\
+Dato che $p'$ e $p$ sono indici muti, possiamo anche usare lo stesso indice per tutti e due. Compariranno ora termini $a_{p+1}$, oltre a quelli $a_p$. Potremo allora trovare una \textit{relazione di ricorrenza} scvrivendo $a_{p+1}$ in funzione del termine precedente $a_p$, e tale relazione \textit{definisce} la serie.
+\begin{align*}
+\Rightarrow  \sum_{p=0}^\infty  (p+1)(p + 2(l+1)) a_{p+1}   x^p = \sum_{p=0}^\infty [p+ l+1-\nu]a_p x^p
+\end{align*}
+Poiché tale uguaglianza deve essere vera $\forall x$, allora deve valere \textit{potenza per potenza} (ossia togliendo le sommatorie):
+\begin{align}
+(p+1)(p+2l+2)a_{p+1} = (p+l+1-\nu)a_p
+\label{eqn:relazione_ricorrenza}
+\end{align}
+Verifichiamone la convergenza:
+\begin{align*}
+\frac{a_p}{a_{p-1}} = \frac{p+l-\nu}{p(p+2l+1)} \underset{p\to \infty}{\sim} \frac{1}{p} \Rightarrow a_p \underset{p \to \infty}{\sim}\frac{1}{p!}
+\end{align*}
+Ma allora:
+\begin{align*}
+v_l(x) = \sum_{p=0}^\infty a_p x^p \underset{x\to\infty}{\sim} \sum_{p=0}^\infty \frac{x^p}{p!} = e^x
+\end{align*}
+E sostituendo nell'espressione per la $\chi_{\mathcal{E}l}(x)$:
+\begin{align*}
+\chi_{\mathcal{E}l}(x) \sim x^{l+1} e^{-\frac{x}{2}} e^x \notin L^2
+\end{align*}
+e questo è un gran problema! (sarebbe come dire che gli autostati legati all'atomo di idrogeno \q{non siano fisici})\\
+
+Ma ciò non succede se la serie di $v_l(x)$ si tronca, ossia se per un certo $p = n' \in \bb{N}$ opportuno si ha $a_{n'}\neq 0$, ma $a_{n' +1}=0$, da cui, per ricorrenza, tutti i termini successivi sono nulli. Cerchiamo questo $n'$. Imponendo l'annullamento in (\ref{eqn:relazione_ricorrenza}):
+\begin{align*}
+n' + l +1 -\nu=0 \Rightarrow \nu = \{n' + l +1, n' \in \bb{N}\} = \{n\in \bb{N}, n\leq l+1\}
+\end{align*}
+Ricordando l'espressione per $\nu$:
+\begin{align*}
+\nu = \frac{1}{ka}=\frac{me^2}{\hbar^2} \sqrt{\frac{\hbar^2}{-2m\mathcal{E}}}
+\end{align*}
+si ha che la condizione su $nu$ si traduce in una condizione sull'energia:
+\begin{align*}
+\mathcal{E}_n = -\frac{\hbar^2}{2m}\frac{1}{(va)^2} = -\frac{\hbar^2}{2m}\left(\frac{me^2}{\hbar^2}\right)^2 \frac{1}{n^2} = -\frac{me^4}{2\hbar^2}\frac{1}{n^2}
+\end{align*}
+Ritroviamo allora le \textbf{energie di Bohr} (che erano state ricavate inizialmente imponendo che il momento angolare fosse multiplo intero di una certa costante). Le $\mathcal{E}_n$ spiegano anche le frequenze di Rydberg per l'atomo di idrogeno.\\
+
+Come sono fatte le autofunzioni associate alle $\mathcal{E}_n$?
+\begin{align*}
+\chi_{nl} =\ x^{l+1} e^{-x/2} \left[
+\sum_{p=0}^{n' = n - l -1} \frac{\hlc{Yellow}{p+l-n}}{\hlc{SkyBlue}{p}\hlc{ForestGreen}{(p+2l+1)}}
+\frac{\hlc{Yellow}{(p+l-n-1)}}{\hlc{SkyBlue}{(p-1)}\hlc{ForestGreen}{(p-1+2l+1)}}\dots\frac{\hlc{Yellow}{(1+l-n)}}{\hlc{SkyBlue}{1}\hlc{ForestGreen}{(1+2l+1)}} x^p
+\right]
+\end{align*}
+Possiamo ricondurci ad una forma più familiare scrivendo:
+\begin{align*}
+\hlc{Yellow}{(-1)^p \frac{(n-l-1)!}{(n-l-1-p)!}} &=
+(p+l-n)(p+l-n-1)\dots(1+l-n)\\
+\hlc{SkyBlue}{\frac{1}{p!}} &= \frac{1}{p}\frac{1}{p-1}\dots \frac{1}{1}\\
+\hlc{ForestGreen}{\frac{(2l+1)!}{(p+2l+1)!}} &=\frac{1}{(p+2l+1)}\frac{1}{(p-1+2l+1)}\dots\frac{1}{(1+2l+1)}
+\end{align*}
+Perciò la $\chi_{nl}$ diviene:
+\begin{align*}
+\chi_{nl} = \sum_{p=0}^{n-l-1} (-1)^p \frac{(n-l-1)!}{(n-l-1-p)!}\frac{(2l+1)!}{(p+2l+1)!}\frac{1}{p!} x^p
+\end{align*}
+Delle funzioni \textit{simili} sono date dai cosiddetti \textbf{polinomi di Laguerre generalizzati}, che hanno la forma:
+\begin{align*}
+L_j^k (x) =\ \sum_{p=0}^j (-1)^p \frac{(j+k)!}{(j-p)!(k+p)!p!}x^p
+\end{align*}
+E quindi:
+\begin{align*}
+\chi_{nl}(x) = x^{l+1}e^{-\frac{x}{2}}L^{2l+1}_{n-l-1}\left(\frac{(2l+1)!}{(n+l)!}(n-l-1)!\right)
+\end{align*}
+
+Sappiamo che $H, \vec{L}, L_3$ formano un ICOC. Le autofunzioni comuni sono date da:
+\begin{align*}
+\psi_{nlm} (r,\theta,\varphi) = a^{-\frac{3}{2}} \frac{2}{n!} \sqrt{\frac{(n-l-1)!}{(n+l)!}}\left(\frac{2r}{na}\right)^l e^{-\frac{r}{na}} L^{2l+1}_{n-l-1}\left(\frac{2r}{na}\right)Y^m_l(\theta,\varphi)
+\end{align*}
+
+In particolare per $n=l+1$ (il massimo momento angolare per $n$ fissato), poiché $L_0^{2l+1}(x)=q$ si ha che la componente radiale di $\psi_{nlm}$ è proporzionale a:
+\begin{align*}
+\left(\frac{2r}{na}\right)^l \exp\left({-\frac{r}{na}}\right) = \left(\frac{2r}{na}\right)^{n-1} \exp\left(-\frac{r}{na}\right)
+\end{align*}
+
+Quindi la probabilità di trovare la particella tra $r$ e $r+dr$ è proporzionale a:
+\begin{align*}
+r^2 \left(\frac{2r}{na}\right)^{2(n-1)}\exp\left(-\frac{2r}{na}\right) =\left(\frac{na}{2}\right)^2 \left(\frac{2r}{na}\right)^{2n} \exp\left(-\frac{2r}{na}\right)
+\end{align*}
+Cerchiamone il massimo. Per comodità, sostituiamo $y=2r/(na)$ e imponiamo la derivata prima nulla:
+\begin{align*}
+\frac{d}{dy}\left( y^{2n} e^{-y} \right) = \left(
+2n y^{2n-1} - y^{2n}
+\right) e^{-y} \overset{!}{=} 0 \Rightarrow  y=2n \Rightarrow r_n = \frac{na}{2}y = n^2 a
+\end{align*}
+Abbiamo allora ritrovato in $r_n$ il \textbf{raggio di Bohr} dell'orbita $n$-esima.\\
+
+Riepilogando: ritroviamo quindi risolvendo l'equazione di Schr\"odinger stazionaria per gli stati legati dell'atomo di idrogeno le energie di Bohr e per i momenti angolari massimi anche che la probabilità della posizione dell'elettrone si addensa attorno ai corrispondenti raggi di Bohr.\\
+
+L'effetto delle $Y$ porta ad ottenere i \q{disegnini stravaganti} dei vari orbitali.
+
+\subsection{Esercizio}
+Si consideri una particella quantistica priva di spin di massa $m$ e carica $e$ in un piano in presenza di un campo magneitco uniforme e costante $\vec{B}$ perpendicolare al piano. Si denoti con $\vec{A}$ il potenziale vettore osservato a $\vec{B}$ e si ponga $c=1$.
+\begin{enumerate}
+\item Si scriva l'Hamiltoniana quantistica del sistema
+\item Si determini in funzione di $\vec{X}=\{X,Y\}$ e $\vec{P}= \{P_x, P_y\}$ la velocità $\vec{V}=\{V_x, V_y\}$ e si calcoli il commutatore di $V_x$ con $V_y$ in rappresentazione $\{\vec{x}\}$.
+\item Si determini lo spettro $\sigma(H)$ di $H$.
+\item Definite le coordinate $X_0=\frac{m}{eB}V_y + X$ e $Y_0 = -\frac{m}{eB}V_x + Y$ (analogo quantistico del centro dell'orbita di ciclotrone classica), si determini l'algebra dei commutatori di $\vec{X}_0$ e $\vec{V}$
+\item Si determini un ICOC per il sistema e, utilizzando le $\vec{X}_0$, la degenerazione di $\sigma(H)$.
+\item Supponendo ora che la particella sia confinata (pareti impenetrabili) in un quadrato di lato $L$ e scegliendo
+$A_x = -B_y$ e $A_y=0$ per il potenziale vettore, si stimi la degenerazione di $\sigma(H)$ in questo caso.
+\end{enumerate}
+
+\end{document}
+

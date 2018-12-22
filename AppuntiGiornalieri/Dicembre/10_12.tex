@@ -1,0 +1,183 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione X:\\ \large{Scattering - parte 2}}
+\vspace{-1em}
+\begin{center}
+    \small{(10/12/2018)}
+\end{center}
+Abbiamo visto che possiamo definire $\sigma$ come:
+\begin{align*}
+\sigma(\theta,\varphi) = \frac{\text{\#numero di particelle diffuse per unità di tempo e d'angolo solito attorno a $(\theta,\varphi)$}}{\text{\#particelle incidenti per unità di tempo e di superficie}}
+\end{align*}
+o, equivalentemente, (data l'indipendenza dal numero di particelle lanciate):
+\begin{align*}
+\sigma(\theta,\varphi) = \frac{\text{probabilità di diffusione per unità d'angolo solido in $\theta,\varphi$}}{\text{probabilità di incidenza per unità di superficie}}
+\end{align*}
+Consideriamo un pacchetto che per $t\to -\infty$ è \textit{libero}, incide a $t=0$ sul bersaglio producendo un \textit{pacchetto diffuso}, che però a $t\to +\infty$ è ancora libero.\\
+Siamo partiti dalle soluzioni dell'equazione di Schr\"odinger stazionaria, richiedendo che siano piccate intorno a $\vec{p}_0\parallel \hat{z}$ per $t\to -\infty$. Abbiamo allora ricavato la seguente equazione per il pacchetto incidente (da qui in poi poniamo $\hbar=1$):
+\begin{align*}
+\psi^{in}(\vec{x}) = e^{i\vec{p}\cdot \vec{x}} + \int d^3 y \int \frac{d^3q}{(2\pi)^3} \frac{e^{i\vec{q}(\vec{x}-\vec{y})}}{\displaystyle \frac{\vec{p}^2}{2m}-\frac{\vec{q}^2}{2m}+i\epsilon} V(\vec{y}) \psi^{in}(\vec{y})
+\end{align*}
+Detta $g\in L^2(\bb{R}^3)$ con la condizione di normalizzazione $\norm{g}=1$ e quella di essere piccata intorno a $\vec{p}_0$, la forma del pacchetto è allora:
+\begin{align*}
+\psi_g(\vec{x},t) = \int d^3p \tilde{g}_{\vec{p}_0}(\vec{p}) \exp\left(-\frac{i\vec{p}^2}{2m}t\right) \psi_{\vec{p}}^{in}(\vec{x})
+\end{align*}
+
+Abbiamo allora notato che il termine $e^{i\vec{p}\cdot \vec{x}}$ in $\psi^{in}$ corrisponde al pacchetto:
+\begin{align*}
+g_0\left(\vec{x}-\frac{\vec{p}_0}{2m}t\right) e^{i\vec{p}_0\cdot \vec{x}} \exp \left(-i\frac{\vec{p}_0^2}{2m}t \right)
+\end{align*}
+>Mentre il termine integrale, una volta svolto dà:
+\begin{align*}
+\int \frac{d^3q}{(2\pi)^3} \frac{e^{i\vec{q}(\vec{x}-\vec{y})}}{\displaystyle \frac{p^2}{2m}-\frac{q^2}{2m}+i\epsilon} = i\frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{1}{|\vec{x}-\vec{y}|} \int_{-\infty}^{+\infty} dq\, q \frac{e^{iq|\vec{x}-\vec{y}|}}{q^2-p^2-i\epsilon}
+\end{align*}
+L'integrazione si esegue con metodo dei residui, descrivendo una semicirconferenza sul sempiano $\op{Im}(z)>0$, dato che su di esso $e^{iq|\vec{x}-\vec{y}|}\to 0$ per $q\to\infty$. I poli sono infatti $q=\pm \sqrt{p^2 + i\epsilon} \approx \pm p(1+i\epsilon/(2p^2) \approx \pm (p+i\epsilon)$. Otteniamo allora:
+\begin{align*}
+&= i\frac{2m}{\hbar^2}\frac{1}{(2\pi)^2}\frac{1}{|\vec{x}-\vec{y}|}2\pi i \frac{(p+i\epsilon)}{2(p+i\epsilon)} e^{i(p+i\epsilon)|\vec{x}-\vec{y}|}=\\
+&= -\frac{2m}{\hbar^2}\frac{1}{|\vec{x}-\vec{y}|} \frac{1}{4\pi} \exp\left(i\frac{p}{\hbar}|\vec{x}-\vec{y}|\right)
+\end{align*}
+
+$\vec{y}$ è integrata sul supporto di $V(\vec{y})$, che ha range $a \ll D$. Possiamo quindi approssimare $|\vec{x}|\sim D$, $|\vec{y}| < a$:
+\begin{align*}
+|\vec{x}-\vec{y}|&=\sqrt{\vec{x}^2 + \vec{y}^2 -2\vec{x}\cdot \vec{y}} =|\vec{x}| \sqrt{1+ \frac{\vec{y}^2}{\vec{x}^2} -2\frac{\vec{x}\cdot \vec{y}}{|\vec{x}|^2}} \approx\\
+&\approx |\vec{x}| \left(1-\frac{\vec{x}\cdot \vec{y}}{|\vec{x}|^2}\right) \approx |\vec{x}| - \hat{r}\cdot \vec{y}
+\end{align*}
+Se sostituiamo nei conti precedenti, troviamo che il secondo termine nel pacchetto $\psi_g$ ha la forma:
+\begin{align*}
+&=\int d^3 p \tilde{g}_{\vec{p}_0}(\vec{p}) \exp\left(-i\frac{\vec{p}^2}{2m\hbar}t\right) \int d^3 y V(\vec{y}) \psi^{in}(\vec{y}) \left(-\frac{2m}{\hbar^2} \frac{1}{|\vec{x}-\vec{y}|} \frac{1}{4\pi} \exp\left(i\frac{p|\vec{x}-\vec{y}|}{\hbar}\right)\right)\\
+&\underset{(a)}{\approx} \int d^3 p \tilde{g}_{\vec{p}_0}(\vec{p}) \exp\left(-i\frac{\vec{p}^2}{2m\hbar}t\right) \frac{1}{r} \exp\left(i\frac{pr}{\hbar}\right)\underbrace{ \left[-\frac{2m}{\hbar^2}\int \frac{d^3 y}{4\pi}V(\vec{y})\psi_{\vec{p}}^{in}(\vec{y}) e^{-ip \hat{r}\cdot \vec{y}} \right]}_{f_{\vec{p}}(\theta,\varphi)}
+\end{align*}
+dove in (a) abbiamo inserito l'approssimazione prima calcolata.\\
+Notiamo che, nuovamente, abbiamo ottenuto una \textit{soluzione implicita}, dato che dipende dalla $\psi^{in}$ che non abbiamo calcolato, e che effettivamente non possiamo calcolare (senza ulteriori approssimazioni). L'idea è che non serva per ricavare le quantità che ci interessano, e che sia invece determinata dalle misure sperimentali.\\
+
+Espanendo ora intorno a $\vec{p}_0$ e rinominando $\vec{p}-\vec{p}_0 \to \vec{p}$:
+\begin{align*}
+&\approx \int d^3 p \tilde{g}_0(\vec{p}) \exp\left(-i\frac{\vec{p}_0\cdot \vec{p}}{m\hbar}t\right) \exp\left(i{p}_0 \hat{r} \cdot \frac{\vec{p}}{\hbar}\right) \exp \left(-i\frac{p_0^2 t}{2m\hbar}\right) \exp\left(\frac{ip_0 r}{\hbar}\right)
+\end{align*}
+Possiamo riscrivere come una trasformata:
+\begin{align*}
+\frac{f_{\vec{p}_0}(\theta,\varphi)}{r} = g_{\vec{0}}\left(\left(r-\frac{p_0}{m}t\right)\hat{r}\right) \exp\left(-i\frac{p_0^2}{2m\hbar}t\right) \exp\left(i\frac{p_0 r}{\hbar}\right) \frac{f_{\vec{p}_0}(\theta,\varphi)}{r}
+\end{align*}
+Sappiamo che per $t\to -\infty$ va a $0$, mentre per $t\to +\infty$ descrive un \textit{pacchetto diffuso} lungo $\hat{r}$ con la velocità di gruppo $p_0/m$.\\
+(In realtà stiamo trascurando la dispersione che subisce un pacchetto d'onda nella sua propagazione... che però non ci interessa ai nostri scopi).\\
+
+Calcoliamo quindi:
+\begin{align*}
+\sigma(\theta,\varphi) = \frac{\text{probabilità che la particella sia diffusa in $\theta,\varphi$ per unità di angolo solido}}{\text{probabilità di incidenza per unità di superficie}}
+\end{align*}
+Per il numeratore dovremo \textit{integrare su $r$}, dato che stiamo considerando solo la probabilità relativa ad un angolo. Avremo quindi che esso è uguale a:
+\begin{align*}
+\int_0^{+\infty} dr\, r^2 |\psi_g^d(r,\theta,\varphi)|^2
+\end{align*}
+(dove la $\psi_g^d$ indica il pacchetto d'onda \textit{diffuso}).\\
+Per quanto riguarda il denominatore, ci interessa considerare ogni traiettoria diretta contro il bersaglio, e quindi integreremo in $z$:
+\begin{align*}
+\int dz |\psi_g^i(0,0,z)|^2
+\end{align*}
+Svolgendo i conti:
+\begin{align*}
+\frac{\displaystyle \int_0^{+\infty} dr\, r^2 |\psi_g^d(r,\theta,\varphi)|^2}{\displaystyle \int dz |\psi_g^i(0,0,z)|^2} =
+\frac{\displaystyle \int_0^{+\infty} dr\,\bcancel{r^2 }|g_0((r-\frac{p_0}{m})\hat{r})|^2 |f_{\vec{p}_0}(\theta,\varphi)|^2 /\bcancel{r^2}}{\int dz |g_0(z-\frac{p_0}{m}t)|^2}
+\end{align*}
+Nel numeratore eseguiamo il cambio di variabile $r-\frac{p_0}{m}t \to s \in ]-\infty,+\infty[$, e stessa cosa facciamo al denominatore. Ma allora i due integrali sono gli stessi, e possiamo semplificarli, ottenendo semplicemente:
+\begin{align*}
+\sigma(\theta,\varphi)=|f_{\vec{p}_0}(\theta,\varphi)|^2
+\end{align*}
+Abbiamo quindi mostrato che, nelle approssimazioni fatte, lo \textit{scattering} (e in particolare la sezione d'urto) non dipende dalla forma specifica del pacchetto. Inoltre, trattare dinamicamente il problema come abbiamo appena fatto, oppure direttamente ricavarsi le soluzioni stazionarie, è del tutto equivalente.\\
+
+
+Nel \textbf{caso generale} la $f(\theta,\varphi)$ si cerca di ricavarla dagli sfasamenti della funzione d'onda diffusa (\textit{phase-shift}) - che però ora non discutiamo.\\
+Ci occuperemo, invece, del caso più semplice che fu suggerito da Born, in cui il potenziale $V$ viene considerato \textbf{debole}, ossia $V$ è trattato come una \textit{piccola perturbazione} di $H_0$.\\
+Osserviamo allora che:
+\begin{align*}
+\psi^{in} = \exp\left(i\frac{\vec{p}\cdot \vec{x}}{\hbar}\right) + (f_p \sim V)
+\end{align*}
+Perciò, quando consideriamo:
+\begin{align*}
+(H_0 + V)\psi^{in} = \mathcal{E}\psi^{in}
+\end{align*}
+ed epsandendo il primo termine:
+\begin{align*}
+H_0 \psi^{in} + \underbrace{V\left( \exp\left(i\frac{\vec{p}\cdot \vec{x}}{\hbar}\right ) \right)}_{O(V)}
+\end{align*}
+Ma $V f_P$ è di ordine $V^2$, e nell'approssimazione di Born lo trascuriamo. Otterremo, in particolare, una soluzione \textit{esplicita}.\\
+
+Infatti, in approssimazione di Born:
+\begin{align*}
+f_p(\theta,\varphi) &= -\frac{2m}{\hbar^2}\int \frac{d^3 y}{4\pi}V(\vec{y}) \exp\left(i\frac{\vec{p}_0 \cdot \vec{y}}{\hbar} \right) \exp\left(-i\frac{p_0 \hat{r}\cdot \vec{y}}{\hbar} \right) =\\
+&=-\frac{2m}{\hbar^2} \frac{1}{4\pi} \tilde{V}\left(\frac{p_0 \hat{z} - p_0 \hat{r}}{\hbar}\right)
+\end{align*}
+dove abbiamo riconosciuto la forma della trasformata di Fourier $\tilde{V}$ di $V$.\\
+Scrivendo:
+\begin{align*}
+(\hat{z}-\hat{r})^2 = 2- 2\cos\theta = \left( 2\sin\frac{\theta}{2}\right)^2
+\end{align*}
+
+\subsubsection{Esempio: il potenziale di Yukawa}
+Ci domandiamo: se il nucleo di un atomo è fatto di particelle positive o al più neutre, come fa a stare insieme?\\
+Nella teoria di campo quantistica, due particelle cariche (es. elettroni) si respingono in quanto si \textit{scambiano} tra di loro dei fotoni $\gamma$. L'effetto di repulsione è in particolar dato dall'\textit{elicità} del $\gamma$, $s=1$.\\
+Se invece dei protoni si scambiassero dei pioni $\pi$ di spin $s=0$, l'effetto sarebbe attrattivo. Tuttavia, in questo caso vi sarebbe un'importante differenza.\\
+Infatti, lo scambio dei $\gamma$ produce il potenziale di Coulomb $\sim e^2/|\vec{x}|$, e non si hanno problemi di propagazione, dato che i fotoni hanno massa nulla e viaggiano a $c$.\\
+I pioni, invece, hanno massa non nulla, e quindi possiamo pensare che \q{faccia fatica} a comunicare \textit{la forza} su distanze più lunghe. L'idea di Yukawa è quella di inserire un termine di accoppiamento nello scrivere il potenziale (di Yukawa) generato dallo scambio dei pioni:
+\begin{align*}
+V_Y(\vec{x})=
+\frac{g^2 e^{-B|\vec{x}|}}{|\vec{x}|}
+\end{align*}
+dove $B \approx m_\pi c/\hbar$. Si definisce quindi il range della forza data dallo scambio di pioni (interazione nucleare forte) pari ad $a=B^{-1}$. Per fortuna, $B \sim 100$ volte più grande di quella nel caso elettromagnetico, e di conseguenza i nucleoni sono tenuti assieme nel nucleo.\\
+
+In approssimazione di Born, calcolando la trasformata:
+\begin{align*}
+\tilde{V}(\vec{k}) = \frac{g^2 4\pi}{\vec{k}^2+B^2}
+\end{align*}
+da cui otteniamo immediatamente:
+\begin{align*}
+\sigma_Y(\theta,\varphi) \sim \frac{g^4}{\displaystyle
+\left[\frac{p_0^2}{2m}\left( 2 \sin^2\frac{\theta}{2}\right) + \frac{\hbar^2}{2m} B^2 \right]
+}
+\end{align*}
+(controllare l'esponente di $p_0$)\\
+
+Se (illecito per quanto detto) poniamo $B=0$ per ottenere il potenziale di Coulomb, $\sigma_C(\theta,\varphi) \sim \sigma_{\text{Rutheford}}$ (cosa che si verifica per un caso fortuito, a seguito di cancellazioni dovute dal fatto che il potenziale di Coulomb ha proprietà \textit{\textbf{magiche}}. Di norma, matematicamente, tale manipolazione non è permessa).
+
+\section{Particelle identiche}
+In \MC possiamo sempre distinguere due particelle identiche, dove per \textit{particelle identiche} intendiamo che hanno le \textit{stesse proprietà indipendenti dallo stato}.\\
+Infatti, se a un istante di tempo il punto nello spazio delle fasi che ne descrive lo stato puro ha $(q_0^{(1)}, p_0^{(2)}) \neq (q_0^{(2)},p_0^{(2)})$, per l'unicità della soluzione delle equazioni del moto con condizioni iniziali date, le loro traiettorie nello spazio delle fasi non si intersecheranno mai nella loro evoluzione temporale.\\
+\textit{In pratica, due particelle che sono identiche, es. due elettroni, sono distinguibili dalla loro \q{storia}, ossia dal percorso che hanno compiuto nello spazio delle fasi. Sono perciò \textbf{distinguibili}, cioè in principio è possibile riferirsi nello specifico ad una di esse, individuandola senza ambiguità. Notiamo però che qui stiamo usando un'ipotesi forte: che la \q{storia} di ogni particella sia univocamente determinata}.\\
+Ma in \MQ anche supposto che all'istante iniziale le due particelle identiche abbiano due funzioni d'onda $\psi^{(1)}$, $\psi^{(2)}$ con supporti spaziali disgiunti, che descrivono gli stati delle particelle $(1)$ e $(2)$, la loro evoluzione tramite Schr\"odinger in generale porta ad una \textit{sovrapposizione} dei loro supporti, e allora poi non c'è modo di sapere, anche ammesso che i supporti ritornino disgiunti, a quale dei due supporti si riferiscono le particelle $(1)$ o $(2)$.\\
+
+%Inserire disegni
+Graficamente, prendiamo due funzioni d'onda con supporto separato, che visualizziamo come due gaussiane che \textit{non si sovrappongono}. Vogliamo, ad ogni istante, dare un \textit{nome} alle due funzioni. Ma se nella loro evoluzione le due funzioni si \textit{sovrappongono} e si separano di nuovo, non possiamo essere sicuri che la prima funzione abbia \q{rimbalzato} sulla seconda, oppure \q{le sia passata attraverso}. Abbiamo quindi una ambiguità sulla \textit{label} da assegnare alle funzioni d'onda.\\
+
+Sperimentalmente, in un camera a nebbia, date le \q{traiettorie} di due particelle identiche che si intersecano (che sono in realtà costituite da un insieme finito di goccioline), non possiamo individuare \textit{quale \q{traiettoria} vada seguita}.\\
+
+Perciò, non esiste in linea di principio la possibilità di determinare una distinzione tra particelle identiche a tutti gli istanti, ovvero non è possibile ancorare la loro indiivdualità a caratteristiche estrinseche, dipendenti dallo stato e individualità $\Rightarrow$ indistinguibilità.\\
+
+Ha senso porsi \textbf{solo} domande che non dipendono dall'individualità delle particelle identiche, ad esempio la probabilità di trovare \textbf{un} elettrone in un fissato volume, ma non \textbf{un fissato} elettrone in quel volume.\\
+
+Formalmente ne segue che i valori medi di osservabili (sperimentalmente misurabili) in stati che differiscono per scambio di particelle identiche devono avere lo stesso valore.\\
+Sappiamo che in \MQ lo spazio di Hilbert di $n$ particelle \textit{distinte} è il prodotto tensore degli spazi di ogni particella $\hs$. Quindi, se le $n$ particelle sono identiche, gli stati dovranno trovarsi tra i raggi vettori di $\hs^{\otimes \bb{N}} \equiv \hs \otimes \hs \otimes \dots \otimes \hs$.\\
+Scelta una base $\{e_j\}_{j\in J} \in \hs$, sappiamo che $\{e_{j1}\otimes e_{j_2} \otimes \dots \otimes e_{jN}, j_i \in J\}$ è una base in $\hs^{\otimes \bb{N}}$.\\
+Consideriamo la permutazioni di $N$ particelle identiche. Queste permutazioni costituiscono un gruppo, denotato con $S_N$, i cui elementi si possono ottenere per prodotto di scambi.\\
+Se denotiamo con $1,2,\dots,N$ gli elementi scambiati e con $\sigma_i$ (non è Pauli) lo scambio dell'elemento $i$-esimo con l'elemento $(i+1)$-esimo, allora una generica permutazione (elemento del gruppo $S_N$) si ottiene \textit{moltiplicando} delle $\sigma_i$, con i seguenti vincoli:
+\begin{enumerate}
+\item $\sigma_i^2 = 1$. In altre parole, scambiare due volte di fila le stesse particelle ($i$ e $(i+1)$-esima) non cambia nulla. %Inserire disegnetto, ref a libro "Quantum Picturing"
+\item $\sigma_i \sigma_j = \sigma_j \sigma_i$ se $|i-j|\geq 2$: due permutazioni di particelle \q{non contigue} sono indipendenti l'una dall'altra.
+\item $\sigma_i \sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$ %fare grafichetto [IMMAGINE]
+In quanto, detto $A$ l'elemento di posto $i$-esimo, e $B$ e $C$ quelli di posti rispettivamente $i+1$ e $i+2$:
+\begin{align*}
+\sigma_i \sigma_{i+1}\sigma_i&:A\,B\,C\to B\,A\,C \to B\,C\,A \to C\,B\,A\\
+\sigma_{i+1}\sigma_i \sigma_{i+1}&:
+A\,B\,C \to A\,C\,B\to C\,A\,B \to C\,B\,A 
+\end{align*}
+Cioè scambiare prime due, poi seconde due e poi di nuovo prime due, oppure scambiare seconde due, poi prime due e poi di nuovo seconde due, produce la stessa cosa (ossia scambiare la prima con la terza).
+\end{enumerate}
+Per ogni $\sigma\in S_N$ possiamo definire l'operatore unitario:
+\begin{align*}
+U(\sigma): e_{j_1}\otimes e_{j_2}\otimes \dots \otimes e_{j_N} \to e_{\sigma(j_1)} \otimes e_{\sigma(j_2)} \otimes \dots \otimes e_{\sigma(j_N)}
+\end{align*}
+esteso per linearità e continuità a $\hs^{\otimes \bb{N}}$ \\
+$U$ è una rappresentazione unitaria di $S_N$ in $\hs^{\otimes \bb{N}}$.
+\end{document}
+

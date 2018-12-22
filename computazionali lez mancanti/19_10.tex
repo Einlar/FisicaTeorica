@@ -1,0 +1,170 @@
+\begin{table}
+\begin{adjustbox}{center}
+\begin{tabular}{llllr}
+\toprule
+Nome & Ordine locale & Ordine globale & Simpletticità & Self-starting \\
+\midrule
+Eulero & 2 & 1 & No & Sì \\
+Eulero-Cromer & 2 & 1 & Sì & Sì \\
+Störmer-Verlet & 4 & 2 & Sì & No \\
+Verlet-velocità & 3 & 2 & Sì & Sì \\
+Leap-frog & 3 & 2 & Sì & No \\
+Eulero-Richardson & 3 & 2 & No & Sì \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Tabella riassuntiva degli algoritmi per ODE.}
+\end{table}
+
+\subsection{Mid-point implicito}
+% Lezione 5
+\lesson{5}{19/10/2018}
+Dalla derivata centrata:
+\[
+\deriv{x}{t} \bigg|_{t_n + \frac{1}{2}} = \frac{x_{n+1} - x_n}{\Delta t} + \mathcal O(\Delta t^2)
+\]
+\[
+x_{n+1} = x_n + \Delta t \, f(x_{n + \frac{1}{2}}, t_{n + \frac{1}{2}}) + \mathcal O(\Delta t^3)
+\]
+da
+\[
+x_{n + \frac{1}{2}} \simeq \frac{x_n + x_{n+1}}{2}
+\]
+si ottiene il metodo di mid-point implicito.
+\[
+x_{n+1 = x_n + \Delta t f\left(\frac{x_n + x_{n+1}}{2}, \, t_{n + \frac{1}{2}}\right)}
+\]
+\[
+y_1 = \frac{x_{n+1} + x_n}{2} \quad , \quad x_{n+1} = 2 y_1 - x_n
+\]
+\[
+y_1 = x_n + \frac{\Delta t}{2} f(y_1, \tau_1) \qquad \tau_1 = t_{n + \frac{1}{2}} = t_n + \frac{\Delta t}{2}
+\]
+Equazione implicita per $y_1$
+\[
+x_{n+1} = x_n + \Delta t \, f(y_1, \tau_1)
+\]
+Quindi:
+\[
+\begin{cases}
+y_1 = x_n + \frac{\Delta t}{2} \, f(y_1, \tau_1) \\
+x_{n+1} = x_n + \Delta t \, f(y_1, \tau_1)
+\end{cases}
+\]
+Dunque $y_1$ è un passaggio intermedio. Si ottiene l'algoritmo di Eulero-Richardson:
+\[
+\begin{cases}
+y_1 = x_n \\
+\tau_1 = t_n \\
+y_2 = x_n + \frac{\Delta t}{2} \, f(y_1, \tau_1) \\
+\tau_2 = t_n + \frac{\Delta t}{2} \\
+x_{n+1} = x_n + \frac{\Delta t}{2} \, f(y_2, \tau_2) \\
+\end{cases}
+\]
+
+
+
+\section{Metodi di Runge-Kutta}
+Gli algoritmi (o metodi) di Runge-Kutta (RK) è una classe di algoritmi il cui ordine può essere scelto in base al numero di passi intermedi. Tale classe generalizza molti algoritmi, tra cui alcuni di quelli già visti: rientrano negli algoritmi RK l'algoritmo di Eulero e quello di Eulero-Richiardson impliciti ed espliciti. Esistono anche algoritmi RK simplettici.
+
+\begin{definition}
+Il \emph{metodo di Runge-Kutta a $s$ passi} si compone di $s$ passi intermedi per posizioni intermedie $y_i$, e $s$ passi intermedi per tempi intermedi $\tau_i$, dove $i = 1,\dots,s$. Data una matrice $s \times s$ di parametri $a_{ij}$, un vettore di $s$ parametri $b_i$, e un vettore di $s$ parametri $c_i$, il metodo consiste in tre tappe:
+\begin{enumerate}
+\item si calcolano $\tau_i$ mediante l'equazione esplicita
+\[
+\tau_i = t_n + c_i \Delta t
+\]
+\item si determinano $y_i$ mediante l'equazione implicita
+\[
+y_i = x_n + \Delta t \sum_{j = 1}^s a_{ij} f(y_i, \tau_i)
+\]
+\item si calcola $x_{n+1}$ mediante l'equazione esplicita
+\[
+x_{n+1} = x_n + \Delta t \sum_{i = 1}^s b_i f(y_i, \tau_i)
+\]
+\end{enumerate}
+\end{definition}
+
+Una terna di elementi ($a_{ij}, b_i, c_i$) definisce un metodo di Runge-Kutta. Ogni terna di questo tipo, dunque ogni metodo di Runge-Kutta può essere visualizzato più facilmente mediante un \emph{Tableau di Butcher}:
+
+\begin{center}
+\begin{tabular}{c|cccc}
+$c_1$ & $a_{11}$ & $a_{12}$ & $\dots$ & $a_{1s}$ \\
+$c_2$ & $a_{21}$ & $a_{22}$ & $\dots$ & $a_{2s}$ \\
+$\vdots$ & $\vdots$  & $\vdots$ & $\ddots$ & $\vdots$ \\
+$c_s$ & $a_{s1}$ & $a_{s2}$ & $\dots$ & $a_{ss}$ \\
+\midrule
+      & $b_1$ & $b_2$ & $\dots$ & $b_s$ \\
+\end{tabular}
+\end{center}
+
+\begin{remark}
+Si noti che un metodo di Runge-Kutta è esplicito se e sole se $a_{ij} = 0$ per $i \le j$, ovvero se il rispettivo tableau è della forma
+\begin{center}
+\begin{tabular}{c|cccc}
+$c_1$ & $0$ & $0$ & $\dots$ & $0$ \\
+$c_2$ & $a_{21}$ & $0$ & $\dots$ & $0$ \\
+$\vdots$ & $\vdots$  & $\vdots$ & $\ddots$ & $\vdots$ \\
+$c_s$ & $a_{s1}$ & $a_{s2}$ & $\dots$ & $0$ \\
+\midrule
+      & $b_1$ & $b_2$ & $\dots$ & $b_s$ \\
+\end{tabular}
+\end{center}
+In quel caso infatti $y_1 = x_n$ per $i = 1$ mentre per i passi successivi
+\[
+y_i = x_n + \Delta t \sum_{j = 1}^{i-1} a_{ij} f(y_j, \tau_j)
+\]
+dunque ogni $y_i$ si ottiene da quella precedente.
+\end{remark}
+
+
+Vogliamo ora trovare la condizione per la quale un metodo RK abbia ordine $m$ voluto.
+
+Si riproduce lo sviluppo di Taylor di $x_{n+1} = x(t_n + \Delta t)$ fino all'ordine $m$.
+\[
+x_{n+1} = x_n + \Delta t \, f_n + \frac{(\Delta t)^2}{2} \deriv{f}{t} \bigg|_{t_n} + \dots
+\]
+\[
+\deriv{f}{t} \bigg|_{t_n} = \pderiv{f}{x} \bigg|_{t_n} \, f_n + \pderiv{f}{t} \bigg|_{t_n}
+\]
+A questo punto
+\[
+f(y_i, \tau_i) = f\left(x_n + \sum{j = 1}^s a_{ij} f(y_i, \tau_j) \Delta t , \ t_n + c_i \Delta t \right)
+\]
+\[
+\simeq f\left(x_n + \sum_{i = 1}^s a_{ij} f_n \Delta t , \ t_n + c_i \Delta t \right)
+\]
+\[
+\simeq f_n + \pderiv{f}{x} \bigg|_{t_n} \sum_{j = 1}^s a_{ij} f_n \, \Delta t + \pderiv{f}{t} \bigg|_{t_n} \, \Delta t
+\]
+\[
+x_{n+1} = x_n + \sum_{i = 1}^n b_i f_n \Delta t + (\Delta t)^2 \sum_i b_i \set{\pderiv{f}{x} \sum_{j = 1}^s a_{ij} + \pderiv{f}{t} c_i}
+\]
+Sviluppo in serie per la regola di Runge-Kutta
+
+La condizione per avere un metodo di ordine 1  è
+\[
+\sum_{i = 1}^s b_i = 1
+\]
+Le condizioni per avere un metodo di ordine 2 sono
+\[
+b_i c_i = \frac{1}{2} \qquad c_i = \sum_{j = 1}^s a_{ij}
+\]
+Per l'ordine 3 si ha
+\[
+\sum_{i = 1}^s b_i c_i^2 = \frac{1}{3} \qquad \sum_{i,j} b_i a_{ij} c_j = \frac{1}{6}
+\]
+In generale per ottenere un'algoritmo di ordine $m$ il numero di condizioni aumenta molto velocemente all'aumentare di $m$. Fortunatamente alcune regole sono simli a tutto gli ordini successivi, ad esempio una regola è sempre
+\[
+\sum_{i = 1} b_i c^{m-1}_i = \frac{1}{m}
+\]
+
+\begin{proposition}
+Un metodo $\mathrm{RK}$ implicito è simplettico se per ogni $i,j$ vale
+\[
+a_i a_{ij} + b_j a_{ij} = b_i b_j
+\]
+\end{proposition}
+\begin{proof}
+Omessa
+\end{proof}

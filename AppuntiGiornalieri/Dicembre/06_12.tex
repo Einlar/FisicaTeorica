@@ -1,0 +1,166 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{}}
+\vspace{-1em}
+\begin{center}
+    \small{(6/12/2018)}
+\end{center}
+
+Alcuni esercizi di esami scorsi sono disponibili a \url{https://www2.pd.infn.it/~march/} nella cartella \textit{Meccanica Quantistica}.
+
+\subsection{Esercizio}
+Si consideri una particella quantistica priva di spin di massa $m$ e carica $e$ in un piano in presenza di un campo magneitco uniforme e costante $\vec{B}$ perpendicolare al piano. Si denoti con $\vec{A}$ il potenziale vettore osservato a $\vec{B}$ e si ponga $c=1$.
+\begin{enumerate}
+\item Si scriva l'Hamiltoniana quantistica del sistema
+\item Si determini in funzione di $\vec{X}=\{X,Y\}$ e $\vec{P}= \{P_x, P_y\}$ la velocità $\vec{V}=\{V_x, V_y\}$ e si calcoli il commutatore di $V_x$ con $V_y$ in rappresentazione $\{\vec{x}\}$.
+\item Si determini lo spettro $\sigma(H)$ di $H$.
+\item Definite le coordinate $X_0=\frac{m}{eB}V_y + X$ e $Y_0 = -\frac{m}{eB}V_x + Y$ (analogo quantistico del centro dell'orbita di ciclotrone classica), si determini l'algebra dei commutatori di $\vec{X}_0$ e $\vec{V}$
+\item Si determini un ICOC per il sistema e, utilizzando le $\vec{X}_0$, la degenerazione di $\sigma(H)$.
+\item Supponendo ora che la particella sia confinata (pareti impenetrabili) in un quadrato di lato $L$ e scegliendo
+$A_x = -B_y$ e $A_y=0$ per il potenziale vettore, si stimi la degenerazione di $\sigma(H)$ in questo caso.
+\end{enumerate}
+
+\subsection{Soluzione}
+\begin{enumerate}
+\item Consideriamo la posizione della particella sul piano 2D come $\vec{X}={X,Y}$. L'Hamiltoniana $H$ in rappresentazione $\{\vec{x}\}$ è data da:
+\begin{align*}
+H=\frac{(-i\hbar \vec{\nabla} - e\vec{A}(x))^2}{2m}=\frac{(\vec{P}-e\vec{A})^2}{2m}
+\end{align*}
+con $\vec{A}$ potenziale vettore, e si è posto $c=1$.
+\item La velocità $\vec{V}$ è definita da:
+\begin{align*}
+\vec{V} = \frac{d\vec{X}}{dt} = \frac{[\vec{X},H]}{i\hbar}
+\end{align*}
+(dove si è usata la relazione della visuale di Heisenberg).\\
+Calcoliamo:
+\begin{align*}
+\frac{dX_i}{dt} = \frac{[X_i, H]}{i\hbar}&=[X_i, \frac{\vec{P}^2}{2m} - \frac{e(\vec{A}\cdot \vec{P}+\vec{P}\cdot \vec{A})}{2m} ]\\
+&=\frac{P_i}{m} - \frac{e}{2m}\left(
+A_i\frac{[X_i, P_i]}{i\hbar} + \frac{[X_i, P_i]A_i}{i\hbar}
+ \right) =\\
+ &=\frac{P_i - eA_i}{m}
+\end{align*}
+Determiniamo ora il commutatore delle velocità:
+\begin{align*}
+[V_x, V_y] &\underset{}{=} \frac{1}{m^2} [P_x - eA_x, P_y - eA_y]= \\
+&=-\frac{e}{m^2}([A_x, P_y] + [P_x,A_y])
+\end{align*}
+(dato che componenti lungo gli stessi assi commutano). Continuando i conti in rappresentazione $\{\vec{x}\}$:
+\begin{align*}
+&= [A_x, P_y]\psi(\vec{x}) =A_x(\vec{x})\left( -i\hbar \frac{\partial}{\partial y}\psi(\vec{x})\right) - \left(-i\hbar \frac{\partial}{\partial x}(A(\vec{x})\psi(\vec{x}))\right)=\\
+&=i\hbar \frac{\partial}{\partial y}A_x(\vec{x})
+\end{align*}
+e sostituendo di sopra si giunge a:
+\begin{align*}
+[V_x, V_y] = -\frac{e}{m^2} \left(i\hbar \frac{\partial}{\partial y}A_x - i\hbar \frac{\partial}{\partial x}A_y \right)
+\end{align*}
+\item Cerchiamo $\sigma(H)$. Ricordando che $\vec{B}$ è uniforme e costante, osserviamo che ridefinendo:
+\begin{align*}
+\tilde{V}_x \equiv \frac{m}{\sqrt{eB}}V_x \qquad \tilde{V}_y \equiv \frac{m}{\sqrt{eB}}V_y
+\end{align*}
+in modo che:
+\begin{align*}
+[\tilde{V}_x, \tilde{V}_y] = i\hbar
+\end{align*}
+L'Hamiltoniana diviene perciò:
+\begin{align*}
+H=\frac{m}{2}(V_x^2 + V_y^2) = \frac{eB}{2m}(\tilde{V}_x^2 + \tilde{V}_y^2)
+\end{align*}
+Dato che il commutatore $[\tilde{V}_x, \tilde{V}_y]$ è analogo a quello $[X,P_x] = i\hbar$, e perciò l'algebra generata dalle due coppie di grandezze è la stessa. In altre parole, se sostituiamo a $\tilde{V}_x \to X$ e $\tilde{V}_y \to Y$, otteniamo una nuova hamiltoniana che corrisponde ad un \textit{sistema diverso}, ma ha lo stesso spettro della precedente\footnote{Dato che lo spettro dipende, in tali casi, unicamente dall'algebra dei commutatori, come ricavato per l'oscillatore armonico tramite l'uso degli operatori di creazione/distruzione}:
+\begin{align*}
+H'=\frac{eB}{2m}(X^2+P_x^2)
+\end{align*} 
+Il vantaggio di questa $H'$ è che è l'hamiltoniana di un oscillatore armonico, di cui sappiamo lo spettro. Mettiamola nella forma per confrontarla con l'oscillatore:
+\begin{align*}
+H'=\frac{P^2}{2M} + \frac{M\omega^2}{2}X^2
+\end{align*}
+con le sostituzioni:
+\begin{align*}
+\frac{eB}{m} = \frac{1}{M}\quad M\omega^2 = \frac{eB}{m}\quad \omega = \frac{eB}{m}
+\end{align*}
+Poiché sappiamo lo spettro dell'hamiltoniana nel caso dell'oscillatore armonico, e quindi di $H'$, sappiamo automaticamente anche lo spettro di $H$, dato che è lo stesso perché l'algebra dei commutatori è la medesima. Otteniamo quindi:
+\begin{align*}
+\sigma(H) = \hbar \omega\left(\bb{N}+\frac{1}{2}\right) + \frac{\hbar eB}{m}\left(\bb{N}+\frac{1}{2}\right)
+\end{align*}
+unicamente discreto. Gli elementi di questo spettro sono detti, nello specifico, \textbf{livelli di Landau}.\\
+
+Il collegamento tra particella in $\vec{B}$ uniforme, e l'oscillatore armonico non è troppo strano: del resto sappiamo (classicamente) che l'effetto di $\vec{B}$\ è quello di far girare la particella nell'orbita (circolare) di ciclotrone, che vista proiettata sui due assi cartesiani corrisponde a due moti armonici. Quello che può risultare strano è che qui abbiamo \textit{un solo moto} di oscillatore, e in un certo senso il comportamento di un sistema 2D è \q{codificato} in quello di un sistema 1D. I punti successivi gettano luce su questo aspetto, in quanto vedremo che, nel caso quantistico, $X_0$ e $Y_0$ \textbf{non} sono simultaneamente conoscibili (al contrario del caso classico).
+\item Definite le coordinate di centro dell'orbita:
+\begin{align*}
+X_0 \equiv \frac{m}{eB}V_y + X\qquad Y_0 \equiv -\frac{m}{eB}V_x + Y
+\end{align*}
+vogliamo trovare l'algebra dei commutatori di $\vec{X}_0$ e $\vec{V}$ (ossia i commutatori di tutte le coppie possibili delle osservabili). Procediamo con i conti:
+\begin{align*}
+[X_0, Y_0] &= \left[\frac{m}{eB}V_y + X, -\frac{m}{eB}V_x + Y\right] = -\left(\frac{m}{eB}\right)^2 [V_y, V_x] + \frac{m}{eB}[V_y, Y] -\frac{m}{eB}[X,V_x]=\\
+&=-\left(\frac{m}{eB}\right)^2 \left(-i\hbar \frac{eB}{m^2}\right) + \frac{m}{eB}\left[\frac{P_y}{m},Y\right]-\frac{m}{eB}\left[X, \frac{P_x}{m}\right]=\\
+&= i\hbar \frac{1}{eB} - \frac{i\hbar}{m}\frac{m}{eB} - \frac{i\hbar}{m}\frac{m}{eB} = -\frac{i\hbar}{eB} \\
+[X_0, V_x] &= \left[\frac{m}{eB}V_y + X, V_x \right] = \frac{m}{eB}\left(-i\hbar \frac{eB}{m^2}\right) + \frac{i\hbar}{m} = 0\\
+[Y_0, V_y] &= \left[-\frac{m}{eB}V_x +Y, V_y\right] = -\frac{m}{eB}\left(i\hbar \frac{eB}{m^2} \right) + \frac{i\hbar}{m} = 0\\
+[X_0, V_y] &= \left[\frac{m}{eB}V_y + X, V_y \right] = 0\\
+[Y_0, V_x] &= 0 
+\end{align*}
+\item Si determini un ICOC utilizzando $\vec{X}_0$ e si determini la degenerazione di $\sigma(H)$.\\
+Sappiamo che in un sistema 2D, sia $\{X, Y\}$ che $\{P_x, P_y\}$ sono ICOC, ma nessuno dei due contiene le variabili che vorremmo. Notiamo che $P_x$ è il momento coniugato di $X$, e infatti $[X,P_x]=i\hbar$, e $P_y$ è coniugato a $Y$, infatti $[Y,P_y] = i\hbar$.\\
+Dai conti precedenti sappiamo che $X_0$ commuta con $V_x$. Scegliamo quindi $\{X_0, V_x\}$. Il momento coniugato di $X_0$ è $\propto Y_0$, e quello coniugato a $V_x$ è $\propto V_y$. Analogamente, perciò, potremmo prendere $\{Y_0, V_y\}$ come ICOC.\\
+Come vediamo che sono effettivamente ICOC? Dalla definizione si può dimostrare che gli autovettori della base comune sono nondegeneri.\\
+
+Osserviamo ora che:
+\begin{align*}
+[H, X_0] = 0
+\end{align*}
+dato che:
+\begin{align*}
+[X_0, V_x]=0\qquad [X_0, V_y]=0
+\end{align*} 
+perciò $H$ è compatibile con $X_0$, e $H$ \textit{non dipende} da $X_0$. Quindi $H$ e $X_0$ hanno autovettori comuni (per la compatibilità), ma fissato l'autovalore di $H$, come $\mathcal{E}_n = \frac{\hbar eB}{m}\left(n+\frac{1}{2}\right)$, $X_0$ può assumere un qualsiasi autovalore. Perciò la degenerazione di $\sigma(H)$ è infinita.\\
+Ciò è sensato? In termini classici, le particelle compiono l'orbita di ciclotrone a causa del campo magnetico. Ragionevolmente, il campo magnetico fissa il raggio dell'orbita, ma il centro si può scegliere \textit{qualunque}, basta traslare il sistema. Da qui la degenerazione infinita (se possiamo sempre traslare il sistema, ossia se il piano su cui si trova è infinito).
+
+\item Supponiamo invece che la particella sia vincolata ad appartenere a un quadrato di lato $L$. Scegliamo per il potenziale vettore:
+\begin{align*}
+A_x = -By\quad A_y = 0
+\end{align*}
+Vogliamo stimare la degenerazione di $\sigma(H)$.
+\begin{align*}
+H=\frac{P_x^2}{2m} + \frac{(P_y + eB Y)^2}{2m}
+\end{align*}
+e si ha che:
+\begin{align*}
+\left[\frac{P_x^2}{2m}, \frac{(P_y + eBY)^2}{2m}\right] =0
+\end{align*}
+$P_x$ è il momento in $[0, L]$. Perché sia autoaggiunto vale ancora la condizione di periodicità, e abbiamo già ricavato in questo caso i suoi autovalori:
+\begin{align*}
+\exp \left(i\frac{p}{\hbar}L\right)=1\Rightarrow \sigma(P_x)=\frac{2\pi\hbar}{L}n; \quad n \in \bb{N}
+\end{align*}
+Perciò vale:
+\begin{align*}
+Y_0 = -\frac{m}{eB} V_x + Y = -\frac{m}{eB}\left(\frac{P_x-eBY}{m}\right) + Y = -\frac{P_x}{eB} -Y + Y = -\frac{P_x}{eB}
+\end{align*}
+Pertanto lo spettro di $Y_0$ è pari a:
+\begin{align*}
+\sigma(Y_0) = -\frac{\sigma(P_x)}{eB}
+\end{align*}
+Sappiamo che $[H, Y_0]=0$. Scelto un autovalore $\mathcal{E}_n = \frac{\hbar e B}{m}\left(n+\frac{1}{2}\right)$ possiamo scegliere come vogliamo $Y_0$. Perciò:
+\begin{align*}
+\sigma(Y_0) = -\frac{2\pi \hbar}{L}\bb{Z}= -\frac{2\pi\hbar}{L}k; \quad k\in \bb{Z}
+\end{align*}
+Ma sappiamo che $Y_0$ rappresenta un centro di un'orbita, e dal vincolo sul piano si deve avere:
+\begin{align*}
+0 \leq \sigma(Y_0) \leq L \Rightarrow  0\leq \frac{2\pi\hbar k}{eBL}\leq L \Rightarrow 0 \leq k \leq \frac{eBL^2}{2\pi \hbar}
+\end{align*}
+e perciò la degenerazione di un $\mathcal{E}_n$ è $\approx \frac{eBL^2}{2\pi\hbar}$.
+\end{enumerate}
+
+\subsection{Complemento: le funzioni di Hermite}
+I polinomi di Hermite sono definiti come:
+\begin{align*}
+H_n(x) =\ e^{\frac{x^2}{2}}\left(x-\frac{d}{dx}\right)^n e^{-\frac{x^2}{2}}
+\end{align*}
+Da cui si definiscono le \textbf{funzioni di Hermite} (normalizzate):
+\begin{align*}
+h_n(x) &= \left( 2^n n! \sqrt{\pi}\right)^{-\frac{1}{2}} H_n(x) e^{-\frac{x}{2}} =\\
+&= (2^n n! \sqrt{\pi})^{-\frac{1}{2}} \left(x-\frac{d}{dx}\right)^n e^{-\frac{x^2}{2}}
+\end{align*}
+\end{document}
+

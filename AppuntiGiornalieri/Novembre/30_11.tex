@@ -1,0 +1,314 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+
+\section{Lezione ?:\\ \large{Oscillatore armonico}}
+\vspace{-1em}
+\begin{center}
+    \small{(30/11/2018)}
+\end{center}
+Occupiamoci ora di studiare il comportamento di un \textbf{oscillatore armonico}, che ha applicazioni per lo studio di svariati fenomeni, come le vibrazioni di cristalli, o per l'espansione dei campi in modi normali.\\
+In \MC l'Hamiltoniana è data da:
+
+$\sigma(H)$ è continuo.\\
+
+In \MQ troviamo che $\sigma(H)$ è discreto, e un ICOC è dato dal solo $H$.\\
+Partiamo in rappresentazioen $\{x\}$, su $\hs=L^2(\bb{R},dx)$.\\
+Definiamo:
+\[
+H_0 = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+m\frac{\omega^2}{2}x^2; \quad D(H_0)=\mathcal{S}(\bb{R})
+\]
+Si dimostra che $H_0^\dag = H$ è autoaggiunto, ed è l'hamiltoniana quantistica (motle operazioni però le definiamo in $D(H_0)$.
+Introduciamo:
+\[
+a=\frac{X'+iP'}{\sqrt{2}}; \quad \begin{cases}
+X' \equiv \left ( \frac{m\omega}{\hbar}\right)^{\frac{1}{2}} x\\
+P' \equiv \frac{1}{(m\hbar \omega)^{\frac{1}{2}}} P
+\end{cases}
+\]
+L'aggiunto $a^\dag$ è quindi:
+\[
+a^\dag = \frac{X' - iP'}{\sqrt{2}}
+\]
+Dalle relazioni di commutazione:
+\[
+[X,P]=i\hbar \Rightarrow  [X',P']=i
+\]
+Poniamo $H=\hbar \omega  H'$.\\
+Notiamo allora che $H' = a^\dag a +\frac{1}{2}$. Infatti:
+\begin{align*}
+\left(\frac{X'-iP'}{\sqrt{2}}\right)\left(\frac{X'+iP'}{\sqrt{2}}\right) &= \frac{X'^2}{2}+\frac{P'^2}{2}+\frac{i[X',P']}{2}=\\
+&=\frac{m\omega}{2\hbar} + \frac{p^2}{2m\omega\hbar}-\frac{1}{2}
+\end{align*}
+
+Esaminiamo a che algebra obbediscono $a$ e $a^\dag$. Partiamo calcolando il loro commutatore:
+\begin{align*}
+[a,a^\dag]=\frac{1}{2}[X'+iP', X'-iP'] = \frac{i}{2}[P',X']-\frac{i}{2}[X',P']=1
+\end{align*}
+Definiamo l'operatore $N = a^\dag a$. Poiché $H$ è autoaggiunto in $D(H)$, anche $N$ lo è, e:
+\[
+H=\hbar \omega \left(N+\frac{1}{2}\right) \quad \sigma(H) = \hbar \omega\left(\sigma(N)+\frac{1}{2}\right)
+\]
+
+Esaminiamo allora l'algebra di $N$, $a$ e $a^\dag$, studiandone i commutatori:
+\begin{align*}
+[N,a] &= [a^\dag a, a] = [a^\dag, a]a = -a\\
+[N,a^\dag] &= [a^\dag a, a^\dag] = a^\dag[a, a^\dag] = a^\dag
+\end{align*}
+In un certo senso, comparando i commutatori con quelli ottenuti studiando il momento angolare, avremmo $a\sim J_-$, $a^\dag \sim J_+$, $N\sim J_3$.\\
+Ciò ci suggerisce come continuare. Supponiamo infatti che esista un certo $\psi_\lambda$ autovettore di $N$ di autovalroe $\lambda$, per cui $N\psi_\lambda =\ \lambda \psi_\lambda$.\\
+Tale autovalore deve essere positivo, ossia $\lambda \geq 0$, dato che:
+\[
+(\psi_\lambda, N\psi_\lambda) = \lambda \norm{\psi_\lambda}^2
+\]
+Ma vale anche:
+\[
+(\psi_\lambda, N\psi_\lambda) = (\psi_\lambda, a^\dag a\psi_\lambda) = \norm{a\psi_\lambda}^2 \geq 0
+\]
+Da cui $\lambda \geq 0$. Di più, $\lambda = 0 \Leftrightarrow a\psi_\lambda = 0$.\\
+
+Se $\psi_\lambda$ è autovettore di $N$, dimostriamo che se non è nullo $a\psi_\lambda$ è autovettore di autovalore $\lambda-1$ e $a^\dag\psi_\lambda$ di autovalore $\lambda+1$.\\
+Dimostriamolo:
+\begin{align*}
+N a\psi_\lambda&= ([N,a]+aN)\psi_\lambda = (-a +a\lambda) \psi_\lambda = (\lambda-1)a \psi_\lambda\\
+N a^\dag \psi_\lambda &= ([N, a^\dag]+a^\dag N) \psi_\lambda = (a^\dag + a^\dag \lambda) \psi_\lambda = (\lambda+1) a^\dag
+\end{align*} 
+Per questa ragione, $a$ è chiamato \textbf{operatore di distruzione} (o annichilazione), dato che \textit{abbassa} un autovalore, e $a^\dag$ \textbf{operatore di creazione}\footnote{Una motivazione migliore di tali nomi deriva dal fatto che i campi sono sviluppati come modi normali di oscillatori armonici, e in teoria dei campi le particelle sono \textit{eccitazioni} di questi campi, si ha che tali operatori effettivamente \textit{creano} e \textit{distruggono} particelle.}.
+Ma allora iterando $n$-volte l'applicazione di $a$ si ha che anche $\lambda-n$ è un autovalore corrispondente all'autovettore $a^n\psi_\lambda$ (se è diverso da $0$).\\
+Tuttavia, abbiamo dimostrato che $\lambda \geq 0$, ossia che tutti gli autovalori di $N$ sono positivi. Ma scegliendo un $n$ sufficientemente grande, si ha che $\lambda-n < 0$ - e ciò non può essere. L'unico modo è allora che $\lambda$ sia un intero positivo, che chiamiamo $m$, cosicché $a^m\psi_\lambda = (\lambda-m)\psi_\lambda = 0$ e la catena si interrompe. Avremo quindi una successione $m$, $m-1, \dots, 0$.\\
+Ma allora applicando a $\psi_0$ (che esiste se esiste $\psi_\lambda$) potenze di $a^\dag$, otteniamo che tutti i naturali devono essere autovalori.\\
+\textit{Cioè, partendo da $0$ possiamo salire a passi interi finché vogliamo}.\\
+
+Ci serve allora dimostrare che $\psi_\lambda$ esista. Tuttavia è più semplice dimostrare l'esistenza di $\psi_0$, e usare il fatto che $\psi_\lambda$ esiste sse esiste $\psi_0$.\\
+Cerchiamo allora $\lambda=0$ autovalore tale che $a \psi_0 = 0$.\\
+Partendo da (in rappresentazione $\{x\}$):
+\begin{align*}
+(X'+iP')\psi_0(x) = 0 \underbrace{\Rightarrow}_{\text{rappr. $x$}} \left(x'+\frac{d}{dx'}\right)\psi_0 (x') = 0
+\end{align*}
+con:
+\[
+x'=\left( \frac{m\omega}{\hbar}\right)^{\frac{1}{2}}
+\]
+
+\[
+d\psi_0(x') = -x'dx'
+\]
+Risolvendo:
+\[
+\psi_0(x') = Ae^{-\frac{x^2}{2}} =\ A \exp\left(-\frac{m\omega}{2\hbar}x^2\right) \in L^2
+\]
+E normalizzando si ottiene:
+\[
+A = \left(\frac{m\omega}{\pi \hbar}\right)^{1/4}
+\]
+Riconosciamo in $\psi_0(x')$ la funzione di Hermite $H_0(x')$ e da:
+\[
+(a^\dag)^n \psi_0(x) = \left(x'-\frac{d}{dx'}\right)^n H_0(x') \sim H_n(x') \text{ la funzione di Hermite di ordine $n$}
+\]
+Poiché $\{H_n(x)\}_{n\in \bb{N}}$ è una base ON in $L^2(\bb{R},dx)$ (come visto a Metodi), ne segue che gli autovalori $n\in \bb{N}$ esauriscono $\sigma(N)$, quindi scrivendo $H_n(x)=\braket{x|n}$ abbiamo la completezza $\sum_{n\in \bb{N}}\ket{n}\bra{n}=\bb{I}$.\\
+Allora non c'è $\sigma_C(N)$ e lo spettro è non degenere. Elenchiamone le conseguenze.
+\begin{enumerate}
+\item $\displaystyle
+\sigma(H)=\sigma_P(H)=\hbar \omega\left(\bb{N}+\frac{1}{2}\right)
+$\\
+Quindi come conseguenza diretta dell'algebra di $X$ e $P$ ($\Leftrightarrow a, a^\dag$), lo spettro dell'energia dell'oscillatore armonico è quantizzato\footnote{In realtà abbiamo utilizzato anche l'esistenza della soluzione di un'equazione differenziale agli autovalori. In realtà si può dimostrare - in maniera più lunga e \textit{diccifile} senza questa ipotesi}.
+\item Perché lo spettro è puramente discreto e \textbf{non degenere} dal teorema sulle osservabili compatibili segue che $H$ è un ICOC.\\
+\textbf{Oss}: $\sigma(X^2+ P^2) \neq \sigma(X^2) + \sigma(P^2)$\\
+\textbf{Oss 2}: Possiamo già ricavare la famiglia spettrale di $H$:
+\[
+P^H(\lambda) = \sum_{n\in \bb{N}}H\left(\lambda-\hbar\omega\left(n+\frac{1}{2}\right) \right)\ket{n}\bra{n}
+\] 
+e dalla teoria generale possiamo dare esplicitamente il dominio di autoaggiuntezza di $H$ come:
+\begin{align*}
+D(H) &= \{\psi \in \hs \>|\> \int \lambda^2 d(\psi, P^H(\lambda)\psi) < \infty\} \\
+&=\{\psi \in \hs \>|\> \ket{\psi}=\sum_{n\in \bb{N}}c_n\ket{n}, \quad \sum_{n\in \bb{N}} (\hbar \omega)^2 \left(n+\frac{1}{2}\right)^2 |c_n|^2 < \infty\}
+\end{align*}
+
+\textbf{Oss 3}: Da $a^\dag \ket{n} = c_+(n) \ket{n+1}$ e $a \ket{n} = c_-(n) \ket{n-1}$, normalizzando:
+\[
+\braket{n|aa^\dag n} = (n+1) \braket{n|n}
+\]
+\begin{align*}
+a a^\dag = [a,a^\dag] + a^\dag a = 1+ a^\dag a = 1+ N
+\end{align*}
+\begin{align*}
+|c_+(n)|^2 \underbrace{\braket{n+1|n+1}}_{=1} \Rightarrow  c_+(n) =\sqrt{n+1}
+\end{align*}
+E analogamente:
+\begin{align*}
+\bra{n}a^\dag a \ket{n} = n\braket{n|n} = |c_-(n)|^2 \braket{n-1|n-1}
+\end{align*}
+Da cui $c_-(n) = \sqrt{n}$. E una volta ottenuta una normalizzazione le abbiamo tutte:
+\[
+a^\dag \ket{n} = \sqrt{n+1}\ket{n+1}\qquad a\ket{n}=\sqrt{n}\ket{n-1}
+\]
+
+\textbf{Oss 4}: Per Planck avevamo $\mathcal{E}_n \cong \hbar \omega n$, da cui manca un termine $\hbar \omega/2$, che dà l'\textit{energia di punto zero} $\hbar \omega (n+1/2)$, necessaria per il principio di indeterminazione.\\
+Infatti $\forall \psi \in D(H)$:
+\begin{align*}
+(\psi, H\psi)&=\left(\psi, \frac{p^2}{2m}\psi\right) + m\frac{\omega^2}{2}(\psi, x^2\psi) = \frac{(\Delta P)^2_\psi}{2m}+ \frac{1}{2m}\avg{P}^2_\psi + \frac{m\omega^2}{2}(\Delta X^2_\psi + \frac{m\omega^2}{2}\avg{X}^2_\psi\\
+&\geq \frac{(\Delta P)^2_\psi}{2m} + m\frac{\omega^2}{2}(\Delta X)^2_\psi \underset{\text{indet.}}{\geq} \frac{(\Delta P)^2_\psi}{2m} + \frac{m\omega^2}{2}\frac{\hbar^2}{4(\Delta P)^2_\psi} \\
+&\geq \frac{m\omega \hbar }{2 \cdot 2m} + \frac{m\omega^2}{2} \frac{\hbar^2 2}{4m\omega \hbar} = \frac{\hbar\omega}{2}
+\end{align*}
+Notiamo che lo stato fondamentale dell'oscillatore armonico soddisfa il principio di indeterminazione con \textit{l'uguaglianza}.
+\[
+(\Delta P)^2_\psi \equiv y \Rightarrow \frac{d}{dy}\left[
+\frac{y}{2m}+\frac{m\omega^2}{2}\frac{\hbar^2}{4y}
+\right] \overset{!}{=} 0 \Rightarrow y =\frac{m\omega \hbar}{2}
+\]
+\end{enumerate}
+
+
+\subsection{Esercizio sull'oscillatore armonico}
+L'Hamiltoniana di una particella di massa $m$ in 1D è data da:
+\[
+H=\frac{P^2}{2m} + AX^2 + BX + C; \quad A,B,C \in \bb{R}, \> A > 0
+\]
+Fisicamente ciò corrisponde ad un oscillatore armonico in un campo elettrico costante o in presenza di forza gravitazionale.
+\begin{enumerate}
+\item Mostrare che il sistema con una opportuna traslazione di parametro $\alpha$ diventa equivalente a un oscillatore armonico, con hamiltoniana $H'$, determinando $\alpha$.
+\item Si calcolino spettro e autofunzioni di $H$, denotando con $\psi_n(x)$ gli autostati dell'Hamiltoniana dell'oscillatore armonico $H'$ ottenuta in $1$, in rappresentazione $\{x\}$.
+\item All'istante $t=0$ lo stato della particella sia descritto da:
+\[
+\ket{\psi}=\frac{1}{\sqrt{2}}(\ket{\phi_0}+\ket{\phi_1})
+\]
+ove le $\ket{\phi_n}$ sono i ket corrispondenti al livello energetico $n$-esimo (ordinati in modo crescente) di $H$.\\
+Si determini il valor medio di $X$ per $t>0$.
+\item Si dimostri che l'operatore $\mathcal{P}_1$ così definito:
+\[
+\mathcal{P}_1 \equiv \exp\left(i\frac{B}{2A\hbar}P\right) \mathcal{P} \exp\left(-i\frac{B}{2A\hbar}P\right)
+\]
+con $\mathcal{P}$ parità e $P$ momento, commuta con $H$.
+\item Si esprima $\mathcal{P}_1$ in funzione di $H$ (dato che $H$ costituisce un ICOC, e i due operatori sono compatibili per il punto precedente, i due devono essere funzionalmente dipendenti).
+\end{enumerate}
+
+\subsubsection{Soluzione}
+\begin{enumerate}
+\item Sappiamo che c'è una traslazione $U(\alpha)$ di forma:
+\[
+U(\alpha) =\exp\left(-i\frac{\alpha}{\hbar}P\right)\Rightarrow U^\dag (\alpha)XU(\alpha) = X+\alpha; \> U^\dag (\alpha)PU(\alpha) = P
+\]
+(traslazione puramente spaziale).\\
+Scriviamo la relativa trasformazione dell'Hamiltoniana:
+\[
+H' = U^\dag(\alpha)HU(\alpha) = \frac{P^2}{2m}+ A(X+\alpha)^2 + B(x+\alpha) + C
+\]
+che possiamo riscrivere come:
+\[
+=\frac{P^2}{2m} + AX^2 + (B+2\alpha A)X + \alpha^2 A + B\alpha +C
+\]
+Se vogliamo che $H'$ sia quella di un oscillatore armonico, dobbiamo imporre che il termine lineare in $X$ scompaia, ossia $B+2\alpha A = 0$. Ciò significa che abbiamo fissato $\alpha$:
+\[
+\alpha = -\frac{B}{2A}
+\]
+E allora $H'$ è data da:
+\[
+H' = \frac{P^2}{2m} + AX^2 + \underbrace{\left(C-\frac{B^2}{4A}\right)}_{\equiv V_0}
+\]
+\item Cerchiamo ora spettro e autofunzioni di $H$. Siccome $U(\alpha)$ è una trasformazione unitaria, non intacca gli spettri, e quindi $\sigma(H)=\sigma(H')$. Ma $\sigma(H')$ è lo spettro di un oscilltore armonico, che è unicamente determinato una volta che sappiamo la sua $\omega$. Basta allora invertire:
+\[
+A=\frac{m\omega^2}{2}\Rightarrow \omega = \sqrt{\frac{2A}{m}}
+\]
+E quindi:
+\[
+\sigma(H) = \sigma(H') = \hbar \omega\left(\bb{N}+\frac{1}{2}\right) + V_0
+\]
+
+Occupiamoci ora delle autofunzioni. Siano $\ket{\psi_n}$ gli autostati di $H'$:
+\[
+H'\ket{\psi_n} = \left[\hbar \omega \left(n+\frac{1}{2}\right) + V_0\right] \ket{\psi_n}
+\]
+Ma $H'=U^\dag(\alpha) H U(\alpha)$. Moltiplicando a sinistra per $U(\alpha)$ a sinistra, si ha:
+\[
+\overbrace{U(\alpha)U^\dag(\alpha)}^{\bb{I}} H U(\alpha)
+\]
+Facendolo per entrambi i membri dell'uguaglianza sopra si ottiene:
+\[
+HU(\alpha) = \left[\hbar \omega\left(n+\frac{1}{2}\right) + V_0 \right] U(\alpha) \ket{\psi_n}
+\]
+e ricordiamo $\alpha = -B/(2A)$.\\
+Ma allora dato che:
+\[
+\psi_n(x) = \braket{x|\psi_n}
+\]
+Si ha:
+\[\phi_n(x) = \bra{x}U(\alpha)\ket{\psi_n} = \psi_n(x-\alpha)
+\]
+ossia gli autostati sono le funzioni di Hermite traslate di $\alpha$.
+\item Vogliamo calcolare l'evoluto temporale del valor medio di $X$, ossia:
+\begin{align*}
+\bra{\psi} \exp\left(\frac{itH}{\hbar}\right) X \exp\left(-\frac{itH}{\hbar}\right)\ket{\psi}
+\end{align*}
+$H$ è complessa, cerchiamo di passare a $H'$. Notiamo che:
+\[
+\exp\left(\pm \frac{itH}{\hbar}\right) = U(\alpha) \exp\left(\pm \frac{itH'}{\hbar}\right) U(\alpha)^\dag
+\]
+Ma allora possiamo riscrivere l'espressione del valor medio come:
+\begin{align*}
+&= \bra{\psi}U(\alpha) \exp\left(\frac{itH'}{\hbar}\right) X \exp\left(-\frac{itH'}{\hbar}\right) U^\dag(\alpha)\ket{\psi} =\\
+&= \alpha + \bra{\psi}U(\alpha) \exp\left(\frac{itH'}{\hbar}\right) X \exp\left(-\frac{itH'}{\hbar}\right) U^\dag(\alpha)\ket{\psi} = (*)
+\end{align*}
+Sappiamo che:
+\[
+\ket{\phi_n} = U(\alpha)\ket{\psi_n}\qquad U(\alpha)^\dag \ket{\phi_n} =\ket{\phi_n}
+\]
+E allora:
+\begin{align*}
+U(\alpha)^\dag \ket{\psi} = U(\alpha)^\dag \left(\frac{\ket{\phi_0}+\ket{\phi_1}}{2}\right) = \frac{\ket{\psi_0}+\ket{\psi_1}}{2}
+\end{align*}
+e quindi possiamo continuare il conto in (*):
+\begin{align*}
+(*) = \alpha + \left(\frac{\bra{\psi_0}+ \bra{\psi_1}}{\sqrt{2}}\right) \exp\left(\frac{itH'}{\hbar}\right) X \exp\left(- \frac{itH'}{\hbar}\right)
+\left( \frac{\ket{\psi_0}+\ket{\psi_1}}{\sqrt{2}}\right) = (\square)
+\end{align*}
+Calcolando:
+\begin{align*}
+\exp\left(-\frac{itH'}{\hbar}\right) \left(
+\frac{\ket{\psi_0}+\ket{\psi_1}}{\sqrt{2}}\right) = \frac{1}{\sqrt{2}} \left[
+e^{-\frac{i}{\hbar}(\hbar\frac{\omega}{2} + V_0)t}\ket{\psi_0} +
+e^{-\frac{i}{\hbar}(\frac{3}{2}\hbar \omega + V_0)t}\ket{\psi_1}
+\right]
+\end{align*}
+Discutiamo le normalizzazioni:
+\begin{align*}
+X=\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} (a+a^\dag)
+\end{align*}
+\begin{align*}
+\bra{\psi_0}a\ket{\psi_1} &= 1 && \bra{\psi_0} a^\dag \ket{\psi_1} =0\\
+\bra{\psi_1}a\ket{\psi_0} &= 0 && \bra{\psi_1}a^\dag \ket{\psi_0} =1
+\end{align*}
+\end{enumerate}
+
+Allora:
+\begin{align*}
+(\square) &= \alpha + \frac{1}{2}\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} \Big[ e^{\left[\frac{i}{\hbar} (\hbar \frac{\omega}{2} + V_0) -\bra{\psi_0} a  \ket{\psi_1}\frac{i}{\hbar}\left(\frac{3}{2}\hbar \omega + V_0 \right) \right]t} +\\
+&+ e^{\frac{i}{\hbar}\left(\frac{3}{2}\hbar \omega + V_0 - \frac{\hbar\omega}{2} - V_0 \right) t} \Big] =\\
+&= \alpha + \left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} \cos(\omega t)
+\end{align*}
+
+\item $\mathcal{P}_1 = U(\alpha)\mathcal{P}U(\alpha)^\dag$. Calcolando il commutatore:
+\begin{align*}
+[\mathcal{P}_1,H] &= [U(\alpha)\mathcal{P}U(\alpha)^\dag, H] =\\
+&=U(\alpha) \mathcal{P}U(\alpha)^\dag H U(\alpha)U^\dag(\alpha) - U(\alpha)U^\dag(\alpha) HU(\alpha)\mathcal{P}U(\alpha)^\dag =\\
+&=U(\alpha) \mathcal{P} H' U(\alpha)^\dag - U(\alpha)H' \mathcal{P}U(\alpha)^\dag = U(\alpha)[\mathcal{P},H]U(\alpha)^\dag = 0
+\end{align*}
+c.v.d.
+
+\item Da $\mathcal{P}\ket{\psi_n} = (-1)^n \ket{\psi_n} = (-1)^N \ket{\psi_n}$, e:
+\[
+\psi_n(x) = \left( x- \frac{d}{dx}\right)^{n} e^{-\alpha x^2}
+\]
+Per $n$ pari le $\psi_n(x)$ sono pari, e per $n$ dispari sono dispari. Allora da:
+\[
+H' = \hbar \omega\left(N+\frac{1}{2}\right) + V_0
+\]
+\begin{align*}
+N = \frac{H'-V_0}{\hbar \omega}-\frac{1}{2}; \quad \mathcal{P} = (-1)^{\left[ \frac{H'-V_0}{\hbar \omega}-\frac{1}{2}\right]}
+\end{align*}
+
+\begin{align*}
+\mathcal{P}_1 &= U(\alpha)\mathcal{P}U(\alpha)^\dag = (-1)^{\left[\frac{U(\alpha)H' U^\dag(\alpha) - V_0}{\hbar \omega}-\frac{1}{2} \right]} = \\
+&=(-1)^{\left[\frac{H-V_0}{\hbar \omega}-\frac{1}{2} \right ]}
+\end{align*}
+\end{document}
+

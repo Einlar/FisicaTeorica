@@ -147,7 +147,52 @@ e le rispettive autofunzioni sono:
 \]
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{Immagini/15_11/img2.jpeg}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,272); %set diagram left start at 0, and has height of 272
+
+%Straight Lines [id:da5739502592051156] 
+\draw    (211.5,160.63) -- (211.5,70) ;
+
+
+%Straight Lines [id:da48987954712778703] 
+\draw    (383.79,160.63) -- (383.79,70) ;
+
+
+%Straight Lines [id:da8754578847390893] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.36 ]   (297.65,160.63) -- (297.65,70) ;
+
+
+%Curve Lines [id:da2525045134449224] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (297.65,160.63) .. controls (321.34,115.32) and (361.18,115.32) .. (383.79,160.63) ;
+
+
+%Straight Lines [id:da11742894752562183] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (297.65,160.63) -- (383.79,160.63) ;
+
+
+%Straight Lines [id:da8004974503792495] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (211.5,160.63) -- (297.65,160.63) ;
+
+
+%Curve Lines [id:da028383374582391374] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (211.5,160.63) .. controls (236,201.63) and (274.5,199) .. (297.65,160.63) ;
+
+
+
+% Text Node
+\draw (200,190) node   {$-\frac{a}{2}$};
+% Text Node
+\draw (390,190) node   {$\frac{a}{2}$};
+% Text Node
+\draw (297.65,183.29) node   {$0$};
+
+
+\end{tikzpicture}
+
 \caption{$\psi$ iniziale}
 \end{figure}
 Ricordiamo che gli autovalori $\mathcal{E}_n$ \textbf{non hanno degenerazione}: ogni $\mathcal{E}_n$ si ottiene per due valori, $n$ e $-n$, che però definiscono \textit{lo stesso stato}. Basta infatti sostituirli nelle $\varphi_n$: nel caso dispari non cambia nulla, e in quello pari si ottiene un cambio di segno, ossia uno sfasamento che non modifica l'autostato.\\ 
@@ -163,15 +208,104 @@ Il conto appena fatto mostra come l'evoluzione temporale della $\ket{\psi_0}$ si
 \\
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{Immagini/15_11/img1.jpeg}
-\caption{Effetto della misura}
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_fm3d0zbcm}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_fm3d0zbcm}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,272); %set diagram left start at 0, and has height of 272
+
+%Straight Lines [id:da849520326213183] 
+\draw    (110.88,160.63) -- (283.18,160.63) ;
+
+
+%Straight Lines [id:da4985094950820119] 
+\draw    (110.88,160.63) -- (110.88,70) ;
+
+
+%Straight Lines [id:da9622816174014408] 
+\draw    (283.18,160.63) -- (283.18,70) ;
+
+
+%Straight Lines [id:da029984456300390816] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.36 ]   (197.03,160.63) -- (197.03,70) ;
+
+
+%Shape: Free Drawing [id:dp7917592378017027] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (112.26,110.78) .. controls (116.69,110.78) and (121.79,110.65) .. (124.62,115.32) .. controls (125.01,115.96) and (129.78,131.16) .. (131.83,128.91) .. controls (133.66,126.9) and (135.52,116.66) .. (138,116.45) .. controls (142.45,116.07) and (146.94,116.83) .. (151.39,116.45) .. controls (151.73,116.42) and (151.23,115.65) .. (151.39,115.32) .. controls (152.76,112.3) and (157.26,97.56) .. (160.65,97.19) .. controls (169.36,96.23) and (169.36,97.74) .. (174.04,99.46) .. controls (177.27,100.64) and (177.06,106.24) .. (181.25,107.39) .. controls (184.45,108.27) and (192.89,102.82) .. (199.78,103.99) .. controls (202.99,104.53) and (203.82,113.87) .. (206.99,114.18) .. controls (219.37,115.42) and (219.45,111.8) .. (224.49,106.25) .. controls (228.87,101.43) and (237.83,102.38) .. (243.02,102.85) .. controls (249.53,103.45) and (249.33,117.05) .. (255.38,118.71) .. controls (259.28,119.79) and (261.06,120.62) .. (266.7,119.85) .. controls (270.7,119.3) and (272.49,113.05) .. (278.03,113.05) ;
+%Shape: Rectangle [id:dp7405218612443742] 
+\draw  [color={rgb, 255:red, 146; green, 146; blue, 146 }  ,draw opacity=0 ][pattern=_fm3d0zbcm,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 187; green, 187; blue, 187}] (110.88,71.13) -- (197.03,71.13) -- (197.03,160.63) -- (110.88,160.63) -- cycle ;
+%Straight Lines [id:da5748278334453429] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (360.17,160.63) -- (446.32,160.63) ;
+
+
+%Straight Lines [id:da5739502592051156] 
+\draw    (360.17,160.63) -- (360.17,70) ;
+
+
+%Straight Lines [id:da48987954712778703] 
+\draw    (532.46,160.63) -- (532.46,70) ;
+
+
+%Straight Lines [id:da8754578847390893] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.36 ]   (446.32,160.63) -- (446.32,70) ;
+
+
+%Curve Lines [id:da2525045134449224] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (446.32,160.63) .. controls (470.01,115.32) and (509.85,115.32) .. (532.46,160.63) ;
+
+
+%Straight Lines [id:da11742894752562183] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (446.32,160.63) -- (532.46,160.63) ;
+
+
+
+% Text Node
+\draw (190,230) node  [align=left] {(a) Effetto della misura};
+% Text Node
+\draw (110.88,183.29) node   {$-\frac{a}{2}$};
+% Text Node
+\draw (283.18,183.29) node   {$\frac{a}{2}$};
+% Text Node
+\draw (197.03,183.29) node   {$0$};
+% Text Node
+\draw (450,230) node  [align=left] {(b) $\displaystyle \psi $ dopo la misura};
+% Text Node
+\draw (360.17,183.29) node   {$-\frac{a}{2}$};
+% Text Node
+\draw (532.46,183.29) node   {$\frac{a}{2}$};
+% Text Node
+\draw (446.32,183.29) node   {$0$};
+
+\end{tikzpicture}
+\caption{Misura della posizione nella buca di potenziale}
+
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{Immagini/15_11/img3.jpeg}
-\caption{$\psi$ dopo la misura}
-\end{figure}
 Calcolando per $t=0$ giungiamo allora a:
 \[
 \psi(x,t=0)=e^{-\frac{i}{\hbar}t_0\mathcal{E}_2} \psi(x,-t_0)

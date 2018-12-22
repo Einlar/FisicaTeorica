@@ -3,8 +3,8 @@
 \begin{document}
 %\section{?}
 \subsection{Calcolo di probabilità}
-\lesson{15}{26/10/2018}
-Dato un'osservabile $A$ e uno stato $\psi$, sia $P^A_\psi(A)$ la famiglia spettrale di $A$, allora la probabilità di ottenere un risultato in un insieme $\Delta\subseteq \bb{R}$ misurando $A$ nello stato $\psi$ è data dalla formula generale:
+%\lesson{15}{26/10/2018}
+Dato un'osservabile $A$ e uno stato $\psi$, sia $P^A_\psi(\lambda)$ la famiglia spettrale di $A$, allora la probabilità di ottenere un risultato in un insieme $\Delta\subseteq \bb{R}$ misurando $A$ nello stato $\psi$ è data dalla formula generale:
 \begin{equation}
 P^A_\psi(\Delta) = \int_\bb{R} \chi_\Delta(\lambda)\,dP^A(\lambda)
 \label{eqn:prob_generale}
@@ -67,7 +67,7 @@ Applicando allora la formula (\ref{eqn:probability_discreta}) otteniamo:
 W_{\psi(t)}^H(\mathcal{E}_1) = |\braket{\psi(t)|\varphi_1}|^2
 \label{eqn:calcolo_prob}
 \end{equation}
-dove $\ket{\phi_1}$ è l'autofunzione di $H$ di autovalore $\mathcal{E}_1$, ossia verifica, in notazione di Dirac:
+dove $\ket{\varphi_1}$ è l'autofunzione di $H$ di autovalore $\mathcal{E}_1$, ossia verifica, in notazione di Dirac:
 \[
 H\ket{\varphi_1}=\mathcal{E}_1 \ket{\varphi_1}\Rightarrow \quad \ket{\varphi_1} = \ket{\mathcal{E}_1}
 \]
@@ -227,7 +227,7 @@ P^A(\Delta)\ket{\psi} \equiv \int \chi_\Delta(\lambda)\,dP^A(\lambda)\ket{\psi}&
 \end{align*}
 In particolare lo stato finale normalizzato è:
 \[
-\frac{P^A(\Delta)\ket{\psi}}{\sqrt{\braket{\psi|P^A(\Delta)\psi}}}
+\frac{P^A(\Delta)\ket{\psi}}{\sqrt{\bra{\psi|P^A(\Delta)}\ket{\psi}}}
 \]
 Poiché $P^A(\Delta)$ è un proiettore, e quindi possiamo scriverne la norma al quadrato come:
 \[
@@ -236,34 +236,173 @@ P^A(\Delta)^\dag P^A(\Delta)=P^A(\Delta)^2=P^A(\Delta))
 \end{axi}
 
 Vediamo ora, graficamente, la differenza tra una misura ideale e una non ideale.\\
-Supponiamo che, prima della misura, lo stato del sistema sia descritto da una funzione $\braket{x|\psi_i} = \psi(x,0^-)$, rappresentata in figura \ref{fig:statoiniziale}.
-\begin{figure}[H]
-    \centering
-    \input{Immagini/Grafico1.tex}
-    \vspace{-2em}
-    \caption{Stato iniziale $\ket{\psi_i}$}
-    \label{fig:statoiniziale}
+Supponiamo che, prima della misura, lo stato del sistema sia descritto da una funzione $\braket{x|\psi_i} = \psi(x,0^-)$, rappresentata in figura \ref{fig:mqmeasures}a.
+
+\begin{figure}[t]
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,528); %set diagram left start at 0, and has height of 528
+
+%Shape: Axis 2D [id:dp8292800199787969] 
+\draw  (350,184.4) -- (550,184.4)(364.71,70) -- (364.71,200) (543,179.4) -- (550,184.4) -- (543,189.4) (359.71,77) -- (364.71,70) -- (369.71,77)  ;
+%Curve Lines [id:da21961617274147582] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (364.71,184.4) .. controls (384.5,184) and (404.5,165) .. (420,130) ;
+
+
+%Curve Lines [id:da6544732750416009] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (420,130) .. controls (434.5,95) and (459.5,93) .. (480,120) ;
+
+
+%Curve Lines [id:da25131822572947504] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (480,120) .. controls (499.5,144) and (510,180) .. (550,150) ;
+
+
+%Straight Lines [id:da5555264546254466] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (420,70) -- (420,184) ;
+
+
+%Straight Lines [id:da35060730211001423] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 54; green, 235; blue, 33 }  ,fill opacity=1 ][line width=1.5]    (364.71,184.4) -- (420,184) ;
+
+
+%Straight Lines [id:da6883405875773769] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 54; green, 235; blue, 33 }  ,fill opacity=1 ][line width=1.5]    (480,184) -- (535.29,183.6) ;
+
+
+%Shape: Brace [id:dp0596408730965543] 
+\draw   (420.5,195) .. controls (420.58,199.67) and (422.95,201.96) .. (427.62,201.88) -- (440.49,201.67) .. controls (447.16,201.56) and (450.53,203.83) .. (450.61,208.5) .. controls (450.53,203.83) and (453.82,201.44) .. (460.49,201.33)(457.49,201.38) -- (473.37,201.12) .. controls (478.04,201.04) and (480.33,198.67) .. (480.25,194) ;
+%Straight Lines [id:da6648444148915165] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (480,70) -- (480,184) ;
+
+
+%Shape: Axis 2D [id:dp4326237444016172] 
+\draw  (90,184.4) -- (290,184.4)(104.71,70) -- (104.71,200) (283,179.4) -- (290,184.4) -- (283,189.4) (99.71,77) -- (104.71,70) -- (109.71,77)  ;
+%Curve Lines [id:da0018502569924550016] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (104.71,184.4) .. controls (124.5,184) and (144.5,165) .. (160,130) ;
+
+
+%Curve Lines [id:da9006344879421362] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (160,130) .. controls (174.5,95) and (199.5,93) .. (220,120) ;
+
+
+%Curve Lines [id:da6523707803574752] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (220,120) .. controls (239.5,144) and (250,180) .. (290,150) ;
+
+
+%Straight Lines [id:da513106852520784] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (160,70) -- (160,184) ;
+
+
+%Shape: Brace [id:dp5621992263610398] 
+\draw   (160.5,195) .. controls (160.58,199.67) and (162.95,201.96) .. (167.62,201.88) -- (180.49,201.67) .. controls (187.16,201.56) and (190.53,203.83) .. (190.61,208.5) .. controls (190.53,203.83) and (193.82,201.44) .. (200.49,201.33)(197.49,201.38) -- (213.37,201.12) .. controls (218.04,201.04) and (220.33,198.67) .. (220.25,194) ;
+%Straight Lines [id:da38638140982840774] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (220,70) -- (220,184) ;
+
+
+%Shape: Axis 2D [id:dp49952262944411907] 
+\draw  (350,392.4) -- (550,392.4)(364.71,278) -- (364.71,408) (543,387.4) -- (550,392.4) -- (543,397.4) (359.71,285) -- (364.71,278) -- (369.71,285)  ;
+%Curve Lines [id:da9955621212244545] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (364.71,392.4) .. controls (384.5,392) and (404.5,373) .. (420,338) ;
+
+
+%Curve Lines [id:da597211341967508] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (480,328) .. controls (499.5,352) and (510,388) .. (550,358) ;
+
+
+%Straight Lines [id:da7612949723055946] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (420,278) -- (420,392) ;
+
+
+%Straight Lines [id:da8958203480784113] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 54; green, 235; blue, 33 }  ,fill opacity=1 ][line width=1.5]    (364.71,392.4) -- (420,392) ;
+
+
+%Straight Lines [id:da17219676480712076] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 54; green, 235; blue, 33 }  ,fill opacity=1 ][line width=1.5]    (480,392) -- (535.29,391.6) ;
+
+
+%Shape: Brace [id:dp006778926571109789] 
+\draw   (420.5,403) .. controls (420.58,407.67) and (422.95,409.96) .. (427.62,409.88) -- (440.49,409.67) .. controls (447.16,409.56) and (450.53,411.83) .. (450.61,416.5) .. controls (450.53,411.83) and (453.82,409.44) .. (460.49,409.33)(457.49,409.38) -- (473.37,409.12) .. controls (478.04,409.04) and (480.33,406.67) .. (480.25,402) ;
+%Straight Lines [id:da8894990152362152] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (480,278) -- (480,392) ;
+
+
+%Shape: Free Drawing [id:dp45303562420740495] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (421.5,309) .. controls (426.5,309) and (431.54,308.34) .. (436.5,309) .. controls (436.92,309.06) and (439.02,315.52) .. (439.5,316) .. controls (444.22,320.72) and (452.89,317.94) .. (459.5,317) .. controls (463.2,316.47) and (472.79,304) .. (479.5,304) ;
+%Shape: Free Drawing [id:dp11301025054340808] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (421.5,330) .. controls (430.7,330) and (441.03,324.95) .. (444.5,318) .. controls (445.46,316.09) and (447.38,309.35) .. (449.5,309) .. controls (453.64,308.31) and (459.53,306.21) .. (463.5,307) .. controls (466.58,307.62) and (470.73,316) .. (479.5,316) ;
+%Shape: Free Drawing [id:dp1219300915173025] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (420.5,340) .. controls (426.18,340) and (433.49,336.99) .. (437.5,341) .. controls (441.64,345.14) and (440.82,346.46) .. (448.5,348) .. controls (449.42,348.18) and (449.56,349.91) .. (450.5,350) .. controls (464.41,351.26) and (467.83,341) .. (480.5,341) ;
+%Shape: Free Drawing [id:dp6499401343401028] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (419.5,319) .. controls (424.83,319) and (430.18,318.67) .. (435.5,319) .. controls (437.63,319.13) and (442.56,324.35) .. (444.5,325) .. controls (455.45,328.65) and (467.38,331) .. (479.5,331) ;
+%Shape: Axis 2D [id:dp23546476358509705] 
+\draw  (90,394.4) -- (290,394.4)(104.71,280) -- (104.71,410) (283,389.4) -- (290,394.4) -- (283,399.4) (99.71,287) -- (104.71,280) -- (109.71,287)  ;
+%Curve Lines [id:da6199691430940644] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (104.71,394.4) .. controls (124.5,394) and (144.5,375) .. (160,340) ;
+
+
+%Curve Lines [id:da1207198200128774] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 0.84pt off 2.51pt}]  (160,340) .. controls (174.5,305) and (199.5,303) .. (220,330) ;
+
+
+%Curve Lines [id:da3558938944118475] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (220,330) .. controls (239.5,354) and (250,390) .. (290,360) ;
+
+
+%Straight Lines [id:da3017560485704682] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (160,280) -- (160,394) ;
+
+
+%Straight Lines [id:da11067727122637927] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 54; green, 235; blue, 33 }  ,fill opacity=1 ][line width=1.5]    (160,394) -- (220,394) ;
+
+
+%Shape: Brace [id:dp4532126138378527] 
+\draw   (160.5,405) .. controls (160.58,409.67) and (162.95,411.96) .. (167.62,411.88) -- (180.49,411.67) .. controls (187.16,411.56) and (190.53,413.83) .. (190.61,418.5) .. controls (190.53,413.83) and (193.82,411.44) .. (200.49,411.33)(197.49,411.38) -- (213.37,411.12) .. controls (218.04,411.04) and (220.33,408.67) .. (220.25,404) ;
+%Straight Lines [id:da5980711218008583] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.16 ]   (220,280) -- (220,394) ;
+
+
+
+% Text Node
+\draw (450,220) node [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\Delta $};
+% Text Node
+\draw (520,100) node   {$\textcolor[rgb]{1,0,0}{\psi \left( x,0^{+}\right)}$};
+% Text Node
+\draw (190,220) node [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\Delta $};
+% Text Node
+\draw (260,100) node   {$\textcolor[rgb]{1,0,0}{\psi(x,0^{-})}$};
+% Text Node
+\draw (190,250) node  [align=left] {(a) Stato iniziale $\displaystyle |\psi _{i} \rangle $};
+% Text Node
+\draw (450,250) node  [align=left] {(b) Misura ideale};
+% Text Node
+\draw (450,428) node [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\Delta $};
+% Text Node
+\draw (520,308) node   {$\textcolor[rgb]{1,0,0}{\psi(x,0^{+})}$};
+% Text Node
+\draw (190,470) node  [align=left] {(c) Misura ideale di non\\ritrovamento in $\displaystyle \Delta $};
+% Text Node
+\draw (450,458) node  [align=left] {(d) Misura non ideale};
+% Text Node
+\draw (190,430) node [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\Delta $};
+% Text Node
+\draw (260,310) node   {$\textcolor[rgb]{1,0,0}{\psi(x,0^{+})}$};
+
+
+\end{tikzpicture}
+\caption{Differenti risultati di una misura.}
+\label{fig:mqmeasures}
+\end{center}
 \end{figure}
+
 A $t=0$ viene eseguita una misura (di prima specie) di posizione, e la particella viene trovata nell'intervallo $\Delta \subset \bb{R}$.\\
 Poiché tutte le misure di posizione seguenti dovranno dare lo stesso risultato, $\braket{x|\psi_i(0^+)}$ è nulla su tutto $\bb{R}$, tranne che in $\Delta$: sappiamo con certezza che la particella deve trovarsi in $\Delta$.\\
-Se la misura non è stata ideale non sappiamo nient'altro: i valori assunti in $\Delta$ potrebbero essere \textit{qualsiasi}. Se invece la misura è stata ideale sappiamo di non aver \q{deturpato eccessivamente} la situazione originaria, e perciò la nuova funzione d'onda in $\Delta$ ha lo stesso andamento che aveva prima della misura, come rappresentato in figura \ref{fig:foundparticle}.
-\begin{figure}[H]
-    \centering
-    \input{Immagini/Grafico2.tex}
-    \input{Immagini/Grafico4.tex}
-    \vspace{-3em}
-    \caption{Effetto di una misura ideale (sinistra) e una non ideale (destra)}
-    \label{fig:foundparticle}
-\end{figure}
+Se la misura non è stata ideale non sappiamo nient'altro: i valori assunti in $\Delta$ potrebbero essere \textit{qualsiasi}. Se invece la misura è stata ideale sappiamo di non aver \q{deturpato eccessivamente} la situazione originaria, e perciò la nuova funzione d'onda in $\Delta$ ha lo stesso andamento che aveva prima della misura, come rappresentato in figura \ref{fig:mqmeasures}b e \ref{fig:mqmeasures}d.\\
 Cosa sarebbe successo se invece la misura \textbf{non} avesse trovato la particella in $\Delta$?\\
-Anche in questo caso, lo stato del sistema sarebbe cambiato drasticamente. Anche facendo una misura ideale, infatti, la nuova situazione è quella illustrata in figura \ref{fig:notfoundparticle}.
-\begin{figure}[H]
-    \centering
-    \input{Immagini/Grafico3.tex}
-    \vspace{-2em}
-    \caption{Misura ideale a seguito del \textbf{non} ritrovamento di una particella in $\Delta$.}
-    \label{fig:notfoundparticle}
-\end{figure}
+Anche in questo caso, lo stato del sistema sarebbe cambiato drasticamente. Anche facendo una misura ideale, infatti, la nuova situazione è quella illustrata in figura \ref{fig:mqmeasures}c.\\
 Classicamente ciò è assurdo: non avendo trovato la particella, effettivamente non vi è stata alcuna \textit{interazione} tra rivelatore e particella, e quindi ci aspettiamo di non aver modificato nulla.\\
 In \MQ, invece, basta semplicemente \textit{avere un'informazione in più} - che ci sia o non ci sia una particella in un certo range - per modificare l'intera funzione d'onda.\\
 Questa è parte della caratteristica non località della \MQ: a distanze arbitrariamente grandi la funzione d'onda risente di una misura fatta in un dato range!

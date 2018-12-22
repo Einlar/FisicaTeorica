@@ -1,0 +1,189 @@
+\section{Esempi particolari di metodi RK}
+
+\subsection{Metodi di Eulero}
+% Lezione 6
+\lesson{6}{23/10/2018}
+I metodi di Eulero sono un esempio di algoritmi RK ad un solo passo intermedio. Sono metodi di ordine 1 non simplettici. Il tableau della versione implicita è
+\begin{center}
+\begin{tabular}{c|c}
+0 & 0 \\
+\midrule
+ & 1 \\
+\end{tabular}
+\end{center}
+mentre quella implicita è
+\begin{center}
+\begin{tabular}{c|c}
+0 & 1 \\
+\midrule
+ & 1 \\
+\end{tabular}
+\end{center}
+
+\subsection{Metodo di mid-point implicito}
+È un metodo di ordine 2, simplettico, ad un solo passo intermedio. In questo caso $2ab = b^2$, da cui $a = b/2$, pertanto il tableau corrispondente è
+\begin{center}
+\begin{tabular}{c|c}
+$\frac{1}{2}$ & $\frac{1}{2}$ \\
+\midrule
+ & 1 \\
+\end{tabular}
+\end{center}
+
+\subsection{Metodo di Eulero-Richardson}
+È un metodo di ordine 2 con due passaggi intermedi. Il corrispondente tableau è
+\begin{center}
+\begin{tabular}{c|cc}
+0 & 0 & 0 \\
+$\frac{1}{2}$ & $\frac{1}{2}$ & 0 \\
+\midrule
+ & 0 & 1 \\
+\end{tabular}
+\end{center}
+
+\subsection{Metodo di Heun (o di End-point)}
+È un metodo di ordine 2 esplicito a due passi intermedi, a cui corrisponde il tableau
+\begin{center}
+\begin{tabular}{c|cc}
+0 & 0 & 0 \\
+1 & 1 & 0 \\
+\midrule
+ & $\frac{1}{2}$ & $\frac{1}{2}$ \\
+\end{tabular}
+\end{center}
+È possibile generalizzare questo metodo ad una \emph{famiglia di metodi RK espliciti di ordine 2}:
+\begin{center}
+\begin{tabular}{c|cc}
+0 & 0 & 0 \\
+$a$ & $a$ & 0 \\
+\midrule
+ & $1 - \frac{1}{2a}$ & $\frac{1}{2a}$ \\
+\end{tabular}
+\end{center}
+Per $a = 1$ si ottiene il metodo di Heun.
+
+\subsection{Metodo RK esplicito di ordine 4}
+Il metodo di Runge-Kutta di ordine 4 (o metodo RK classico) è un metodo RK a quattro passi, esplicito e non simplettico, a cui corrisponde il tableau
+\begin{center}
+\begin{tabular}{c|cccc}
+0 & 0 & 0 & 0 & 0 \\[0.3em]
+$\frac{1}{2}$ & $\frac{1}{2}$ & 0 & 0 & 0 \\[0.3em]
+$\frac{1}{2}$ & 0 & $\frac{1}{2}$ & 0 & 0 \\[0.3em]
+1 & 0 & 0 & 1 & 0 \\[0.3em]
+\midrule
+& $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{6}$ \\
+\end{tabular}
+\end{center}
+Esplicitamente il metodo si scrive come
+\[
+\begin{cases}
+y_1 = x_n \\[0.6em]
+\tau_1 = t_n \\[0.6em]
+y_2 = x_n + \dfrac{\Delta t}{2} \ f(y_1,\tau_1) \\[0.6em]
+\tau_2 = t_n + \dfrac{\Delta t}{2} \\[0.6em]
+y_3 = x_n + \dfrac{\Delta t}{2} \ f(y_2, \tau_2) \\[0.6em]
+\tau_3 = t_n + \dfrac{\Delta t}{2} \\[0.6em]
+y_4 = x_n + \Delta t \ f(y_3, \tau_3) \\[0.6em]
+\tau_4 = t_n + \Delta t \\[0.6em]
+x_{n+1} = x_n + \dfrac{\Delta t}{6} [f(y_1,\tau_1) + 2 f(y_2,\tau_2) + 2 f(y_3,\tau_3) + f(y_4,\tau_4)] \\
+\end{cases}
+\]
+
+
+
+
+
+
+\section{Transizione a regimi di caos deterministico}
+
+In questa sezione si farà un esempio di sistema caotico deterministico: un sistema instabile caratterizzato da un moto deterministico non periodico non risolvibile analiticamente, tale per cui piccole variazioni delle condizioni iniziali determinano grandi variazioni nelle soluzioni dell'equazioni del moto. Vediamo dunque un esempio di questo tipo di sistemi, analizzando inizialmente la rispettiva versione non caotica.
+
+\subsection{Pendolo lineare}
+
+\subsubsection{Pendolo lineare armonico}
+Utilizzando la coordinata curvilinea $s = l \theta$ si ha l'equazione di Newton
+\[
+F_{\theta} = m \deriv[2]{s}{t} \qquad F_\theta = - m g \sin\theta \simeq - m g \theta \qquad \theta \ll 1
+\]
+Utilizzando $\theta$ come coordinata si ha
+\[
+\deriv{\theta}{t} = - g \frac{g}{l} \theta = -\Omega^2 \theta \qquad \Omega^2 = \frac{g}{l} \qquad \Omega = \sqrt{g}{l}
+\]
+La frequenza del pendolo in questo caso non dipende dalle ampiezze, e l'equazione del moto è un'ODE lineare del second'ordine per $\theta(t)$. Le soluzioni generali sono date da
+\[
+\theta(t) = \theta_0 \, \sin(\Omega t + \varphi)
+\]
+dove $\theta_0$ e $\varphi$ dipendono dalle condizioni iniziali.
+
+\subsubsection{Pendolo lineare smorzato}
+In questo caso si verifica una disspiazione (\emph{demping}) a causa dell'attrito. La forza di attrito è calcolata come
+\[
+F_\text{demp.} = - \gamma v 
+\]
+dove $\gamma$ è il coefficiente di dissipazione. In questo caso
+\[
+v = l \deriv{\theta}{t} \qquad \deriv[2]{\theta}{t} = -\frac{g}{l} \theta - q \deriv{\theta}{t}
+\]
+dove $q = \gamma/m$ e si misura in radianti al secondo. In questo caso l'equazione del moto è un ODE del second'ordine lineare. Ci sono tre casi in base al valore di $q$ e $\Omega$:
+\begin{enumerate}
+\item Se $q < 2 \Omega$ il regime si dice \emph{debolmente dissipativo} (\qm{\emph{underdumped}}) e la soluzione dell'equazione del moto risulta
+\[
+\theta(t) = \theta_0 e^{-\frac{qt}{2}} \sin\left(\sqrt{\Omega^2 - \frac{q^2}{4}} t + \varphi\right)
+\]
+\item Se $q > 2 \Omega$ il regime si dice \emph{fortemente dissipativo} (\qm{\emph{overdumped}}) e la soluzione dell'equazione del moto risulta
+\[
+\theta(t) = \theta_0 e^{-\left(\frac{q}{2} \pm \sqrt{\frac{q^2}{4} - \Omega^2}\right) t}
+\]
+\item Se $q = 2 \Omega$ il regime si dice \emph{in dissipazione critica} (\qm{\emph{critical dumped}}) e la soluzione dell'equazione del moto è in funzione di parametri $c$ e $\theta_0$ dipendenti dalle condizioni iniziali
+\[
+\theta(t) = (\theta_0 + c t) e^{-\frac{qt}{2}}
+\]
+\end{enumerate}
+
+
+\subsubsection{Pendolo lineare smorzato forzato}
+Se al sistema si aggiunge una forzante l'equazione del moto diventa
+\[
+\deriv[2]{\theta}{t} = - \frac{g}{l} \theta - q \deriv{\theta}{t} + F_0 \sin(\Omega_0 t)
+\]
+dove $F_0$ è l'intensità della forzante, misurata in rad/$\mathrm{s}^2$, mentre $\Omega_0$ è la frequenza della forzante. L'equazione in questo caso è un'ODE sempre lineare in $\theta$, ma con un termine non omogeneo. Le soluzioni sono armoniche nel limite $t \to \infty$ e in questo caso risultano
+\[
+\theta(t) = \theta_0 \sin(\Omega_0 t + \varphi)
+\]
+e sono le cosiddette \emph{oscillazioni forzate}. Per $\Omega = \Omega_0$ il sistema è risonante, ovvero massimizza l'ampiezza delle oscillazioni forzate:
+\[
+\omega_0 = \frac{F_0}{\sqrt{(\Omega^2_0 - \Omega^2)^2 + (q \Omega_0)^2}}
+\]
+(IMMAGINE transiente iniziale e oscillazioni forzate).
+
+\subsection{Pendolo non lineare (o anarmonico)}
+Nel caso in cui il pendolo non compia piccole oscillazioni, l'equazione del moto è una ODE non lineare, e dunque la frequenza dipende dall'ampiezza dell'oscillazione:
+\[
+\deriv[2]{g}{l} \sin\theta
+\]
+
+\subsubsection{Pendolo non lineare smorzato forzato}
+Il caso più reale e più generale di tutti è il pendolo non lineare (dunque non approssimato a piccole oscillazione) e sia smorzato che forzato. In questo caso l'equazione del moto risulta
+\[
+\deriv[2]{\theta}{t} = - \frac{g}{l} \sin\theta - q \deriv{\theta}{t} + F_0 \sin(\Omega_0 t)
+\]
+L'equazione è un'ODE del second'ordine per $\theta(t)$, e non è lineare. Possiamo ridurre l'equazione ad un'ODE del prim'ordine per $\theta(t)$ definendo $\omega(t) = \deriv{\theta}{t}$, in questo caso andrà risolto il sistema
+\[
+\begin{cases}
+\deriv{\theta}{t} = \omega \\
+\deriv{\omega}{t} = - \frac{g}{l} \sin\theta - q \omega + F_0 \sin(\Omega_0 t)
+\end{cases}
+\]
+
+\subsection[Transizione al caos nel caso del pendolo]{Transizione al caos per il pendolo non lineare smorzato forzato}
+Consideriamo le iniziali $\theta(t = 0) = \theta_0$ e $\omega(t = 0) = 0$. Consideriamo inoltre $\theta$ come una variabile periodica, ovvero $-\pi < \theta < \pi$. Per rendere computabile questo fatto è necessario che se $\theta_n > \pi$ allora $\theta_n \to \theta_n - 2 \pi$, mentre se $\theta_n < - \pi$ allora $\theta_n \to \theta_n + 2 \pi$.
+
+Si consideri a questo punto il sistema con $g = 9.8 \, \mathrm{m/s^2}$, $l = 9.8 \, \mathrm{m}$ e dunque con $g/l = 1 \, \mathrm{rad/s^2}$. Si ponga poi $\Omega_0 = 2/3 \, \mathrm{rad/s}$ e $q = 0.5 \, \mathrm{rad/s}$.
+
+Quello che si osserva è che aumentando $F_0$ si passa da un sistema periodico di oscillazioni forzate ad un sistema caotico. Tale fenomeno è detto \emph{di transizione a regime caotico}. Il caos deterministico è una dipendenza critica dalle condizioni iniziali, associata ad un'instabilità esponenziale del sistema. (3 IMMMAGINI con $F_0 = 0$, 0.5 e 1.2).
+
+Consideriamo ad esempio due sistemi con condizioni iniziali molto simili, ad esempio $\theta_{0,1} = 0.2 \, \mathrm{rad}$ e $\theta_{0,2} = 0.201 \, \mathrm{rad}$. Si ha $\Delta \theta = \theta_{0,2} - \theta_{0,1} = 10^{-3} \, \mathrm{rad}$. Vogliamo determinare la differenza $\Delta \theta$ dei due angoli in funzione del tempo, ovvero come si discostano i due sistemi nel tempo. Si nota che questa domanda ha risposta completamente differente per sistemi non caotici e caotici. In particolare si ha che
+\[
+\Delta \theta (t) \simeq e^{\lambda \Delta t}
+\]
+dove $\lambda$ è detto \emph{esponente di Lyapunov}, ed è negativo per sistemi non caotici, positivo per sistemi caotici e nullo per sistemi che stanno esattamente nel punto di \emph{transizione al caos}. (2 IMMAGINI con $F_0 = 0.5$ e $F_0 = 1.2$). Dunque nei sistemi non caotici i sistemi con condizioni iniziali simili si vanno a stabilizzare in una soluzione uguale, mentre quelli caotici divergono esponenzialmente in soluzioni totalmente differenti tra loro.

@@ -1,204 +1,210 @@
 \documentclass[../../FisicaTeorica.tex]{subfiles}
-
 \begin{document}
 
-\section{Lezione ?:\\ \large{Titolo}}
-\vspace{-1em}
-\begin{center}
-    \small{(19/11/2018)}
-\end{center}
-
-Consideriamo un sistema formato da due particelle indistinguibili. Allora uno stato del sistema è $\psi(\vect x^{(1)}, \vect x^{(2)})$ e lo spazio degli stati è $L^2(\mathbb R^6, d^3 x^{(1)}, d^3 x^{(2)})$. Quello che ci chiediamo è: qual è la relazione tra questo spazio e gli spazi $L^2(\mathbb R^3, d^3 x^{(1)})$ e $L^2(\mathbb R^3, d^3 x^{(2)})$? Per rispondere a questa domanda è necessaria una digressione sui prodotti tensori.
-
-\subsection{Il prodotto tensore di spazi}
-
-\begin{dfn}[Spazio prodotto tensore]
-Dati due spazi di Hilbert $\hs_1$ e $\hs_2$ siano $\varphi_1 \in \hs_1$ e $\varphi_2 \in \hs_2$. Si denota con $\varphi_1 \otimes \varphi_2$ la forma bilineare su $\hs_1 \times \hs_2$ definita da
-\[
-(\varphi_1 \otimes \varphi_2) (\underbrace{\{ \psi_1 , \psi_2 \}}_{\in \hs_1 \times \hs_2}) = (\varphi_1, \psi_1)_{\hs_1} (\varphi_2, \psi_2)_{\hs_2} 
-\]
-Sia $\mathcal E$ l’insieme delle combinazioni lineari finite di questa forma bilineare. Possiamo considerare $\mathcal E$ uno spazio pre-Hilbertiano se definiamo il prodotto scalare di $\mathcal E$ nel modo seguente:
+\begin{comment}
+Partendo da due particelle con funzioni d'onda $\psi_1(\vec{x}^{(1)}) \in L^2(\bb{R}^3,d^3x)$  e $\psi(\vec{x}^{(2)})\in L^2(\bb{R}^3, d^3x)$, il sistema composto da entrambe avrà una funzione d'onda $\psi(\vec{x}^{(1)}, \vec{x}^{(2)}) \in L^2(\bb{R}^6, d^3x^{(1)},d^3x^{(2)})$. Qual è la relazione tra quest'ultima $\psi$ \q{composta} e le due \q{singole}?\\
+\end{comment}
+Prima di farlo, è necessario sviluppare una nozione di algebra lineare.\\
+\begin{dfn}
+Dati \marginpar{Prodotto tensore}\index{Prodotto tensore}due spazi di Hilbert $\hs_1$, $\hs_2$, siano $\varphi_1 \in \hs_1$, $\varphi_2\in \hs_2'$ funzionali lineari\footnote{Dato che sussiste un isomorfismo tra $\hs$ e il suo duale $\hs'$, si ha che agli effetti $\hs=\hs'$, e quindi non è indispensabile indicare l'apice.}, e si denoti con $\varphi_1 \otimes \varphi_2$ la forma bilineare sul prodotto cartesiano $\hs_1 \times \hs_2$ definita da:
 \begin{equation}
-\label{eqn:scalareformebilineari}
-(\varphi_1 \otimes \varphi_2, \chi_1 \otimes \chi_2) = (\varphi_1, \chi_1)_{\hs_1} (\varphi_2, \chi_2)_{\hs_2}
+\varphi_1 \otimes \varphi_2 (\underbrace{\{\psi_1, \psi_2\}}_{\hs_1 \times \hs_2})=(\varphi_1, \psi_1)_{\hs_1} (\varphi_2, \psi_2)_{\hs_2}
+\label{eqn:forma-bilineare}
 \end{equation}
-ed esteso per linearità. Denotiamo con $\hs_1 \otimes \hs_2$ il prodotto tensore tra gli spazi $\hs_1$ e $\hs_2$ come lo spazio di Hilbert ottenuto per completamento nella norma indotta dal prodotto scalare \eqref{scalareformebilineari}.
-\end{dfn}
+In altre parole, \textit{combiniamo} due funzionali lineari definiti su due spazi diversi $\hs_1$ e $\hs_2$ per definire un nuovo funzionale, che stavolta agisce su \textit{coppie} di vettori del tipo $\{\psi_1 \in \hs_1, \psi_2 \in \hs_2\}$, applicando su ciascun membro il \textit{rispettivo funzionale} (ossia $\varphi_1$ su $\psi_1$, e $\varphi_2$ su $\psi_2$) per poi fare il prodotto dei risultati. Dato che l'azione su entrambi gli elementi della coppia è lineare, tale nuovo funzionale - che chiamiamo $\varphi_1 \otimes \varphi_2$, si dice \textbf{bilineare}\footnote{Più precisamente è \textit{sesquilineare}, perché i coefficienti \q{al primo termine} \textit{escono} come coniugati. Se si usano coefficienti reali si ha la normale bilinearità.}. Valgono cioè:
+\begin{align*}
+\varphi_1 \otimes \varphi_2(\{a\psi_a + b\psi_b,\psi_2\})&=a^*\varphi_1\otimes\varphi_2(\{\psi_a,\psi_2\}) + b^* \varphi_1 \otimes \varphi_2(\{\psi_b,\psi_2\})\\
+\varphi_1\otimes \varphi_2(\{\psi_1, a\psi_a+b\psi_b\})&=a\,\varphi_1\otimes\varphi_2(\{\psi_1,\psi_a\})+b\,\varphi_1\otimes\varphi_2(\{\psi_1,\psi_b\})
+\end{align*}
+e la relazione analoga in cui si scambiano i due termini della coppia.\\
 
-In pratica un generico $\psi \in \hs_1 \otimes \hs_2$ è della forma
+Vorremmo ora che lo spazio di questi nuovi funzionali sia di Hilbert. Costruiamolo per passi.\\
+Denotiamo con $\mathcal{E}$ l'insieme delle combinazioni lineari \textit{finite} di forme bilineari definite come sopra. In tal modo su $\mathcal{E}$ è sempre definita la somma di funzionali e il loro prodotto per uno scalare, e quindi $\mathcal{E}$ è (ovviamente) uno spazio vettoriale, la cui base sarà data dai funzionali ottenuti \textit{moltiplicando tensorialmente} i funzionali delle basi di $\hs_1$ e $\hs_2$. Esplicitamente, se $\{e_i\}$ è una base di $\hs_1'$ e $\{v_j\}$ di $\hs_2'$, una base di $\mathcal{E}$ è data da $\{e_i \otimes v_j\} \> \forall i,j$.\\
+Rendiamo ora $\mathcal{E}$ pre-hilbertiano definendo su di esso un \textit{prodotto scalare} come:
+\begin{equation}
+(\varphi_1 \otimes \varphi_2, \chi_1 \otimes \chi_2)\equiv (\varphi_1, \chi_1)_{\hs_1}(\varphi_2,\chi_2)_{\hs_2}
+\label{eqn:prod_scalare}
+\end{equation}
+In effetti basta definirlo sulla base di $\mathcal{E}$ e poi estenderlo \textit{per linearità}: precisamente, dato che ogni \textit{vettore} di $\mathcal{E}$ è combinazione lineare di elementi della base, il prodotto scalare tra due generici vettori può essere definito, grazie alla sua linearità, come combinazione dei prodotti scalari degli elementi di base.\\
+\textbf{Nota}: qui stiamo definendo un prodotto scalare \textit{tra forme bilineari} (che sono i \q{vettori} di $\mathcal{E}$), e quindi tale formula non va confusa con la definizione data in (\ref{eqn:forma-bilineare}).\\
+
+Il prodotto scalare che abbiamo introdotto definisce una \textit{norma}, e quindi una nozione di \textit{convergenza}. Possiamo allora \textit{completare\footnote{Possiamo farlo per il \textit{teorema del completamento}, dato che $\mathcal{E}$ è unitario. CFR pag. 10 di \cite{spazi_hilbert}}} $\mathcal{E}$ aggiungendo ad esso anche i vettori $\psi$ che si ottengono come combinazioni lineari \textit{infinite}:
 \[
-\psi = \sum_{n,m} c_{nm} \psi_n^{(1)} \otimes \psi_m^{(2)}
+\psi=\sum_{nm} c_{nm} \psi_n^{(1)}\otimes\psi_m^{(2)}
 \]
-dove $\psi_n^{(1)} \in \hs_1$ e $\psi_m^{(2)} \in \hs_2$, è infinita e intesa convergente nella norma definita mediante il prodotto scalare \eqref{scalareformebilineari}.
+se, ovviamente, tali somme hanno senso, ossia se \textit{convergono} secondo la norma indotta dal prodotto scalare in (\ref{eqn:prod_scalare}).\\
 
-Il seguente teorema permette di trovare una base di uno spazio prodotto a partire da quella degli spazi di partenza.
+Una volta fatto questo, lo spazio $\mathcal{E}$ è \textbf{completo}, e quindi di Hilbert, e lo denotiamo con $\hs_1 \otimes \hs_2$. Tale spazio si dice \textbf{prodotto tensore} di $\hs_1$ e $\hs_2$.
+\end{dfn}
+Possiamo rendere questa definizione \q{più semplice} concretizzandola utilizzando le basi degli spazi di Hilbert.
 \begin{thm}
-Se $\{e_n^{(1)}\}_{n \in \mathbb N}$ è una base per $\hs_1$ e $\{e_n^{(2)}\}_{m \in \mathbb N}$ è una base per $\hs_2$ allora $\{e_n^{(1)} \otimes e_m^{(2)}\}_{n \in \mathbb N, m \in \mathbb N}$ è una base per $\hs_1 \otimes \hs_2$.
-\end{thm}
-\begin{proof}
-Omessa.
-\end{proof}
-
-È possibile osservare che valgono i seguenti is
+Se $\{e_n^{(1)}\}_{n\in N}$ è\marginpar{Base dello spazio prodotto} una base per $\hs_1$, e $\{e_m^{(2)}\}_{m\in M}$ per $\hs_2$, allora $\{e_n^{(1)}\otimes e_m^{(2)}\}_{n\in N, m\in M}$ è una base per $\hs_1 \otimes \hs_2$.\\
+Valgono allora i seguenti \textbf{isomorfismi} (che esaminiamo senza dimostrare):
 \begin{itemize}
-\item $L^2(\mathbb R^n, d^n x) \otimes L^2(\mathbb R^m, d^m y) \simeq L^2(\mathbb R^{n+m}, d^n x d^m y)$, dove l’isomorfismo $U: \phi_n(x) \otimes \psi_m(y) \to \phi_n(x) \psi_m(y)$ è esteso per linearità e continuità.
-\item $L^2(\mathbb R^n, d^n x) \otimes \mathbb C^\ell \simeq L^2(\mathbb R^n, d^n x) \oplus L^2(\mathbb R^n, d^n x) \oplus \dots \oplus L^2(\mathbb R^n, d^n x)$, $\ell$ volte. Dunque un generico elemento di questo spazio è il vettore 
+\item 
+$\displaystyle
+L^2(\bb{R}^n, d^nx) \otimes L^2(\bb{R}^m,d^my) \cong L^2(\bb{R}^{n+m}, d^n x\,d^m y)
+$\\
+Cioè, prendendo un $\phi_n(x)\in L^2(\bb{R}^n,d^n x)$ e un $\psi_m(y) \in L^2(\bb{R}^n, d^n x)$, costruiamo un $U(x,y) \in L^2(\bb{R}^{n+m}, d^nx\, d^my)$ in questo modo:
 \[
-\begin{pmatrix} \psi_1(x) \\ \psi_2(x) \\ \vdots \\ \psi_\ell(x) \end{pmatrix} \qquad \text{con} \quad  \psi_i(x) \in L^2(\mathbb R^n, d^n x) \quad i = 1, \dots, \ell
+U: \phi_n(x) \otimes \psi_m(y) \mapsto \phi_n(x)\psi_m(y)
 \]
-\item Ricordando che
+dove $x$ è un vettore $n$-dimensionale e $y$ un vettore $m$-dimensionale, e $\phi_n$, $\psi_m$ sono funzioni (modulo quadro integrabili) di questi vettori.\\
+Per definire $U$ basta specificare cosa fa se applicata ai vettori $\{v_i\}$ e $\{w_i\}$ delle basi di $L^2(\bb{R}^n)$ e $L^2(\bb{R}^m)$, e poi \textbf{estendere per linearità}.\\
+Nello specifico, fissati i valori di $U(v_i \otimes w_j)$, $U$ è una funzione di vettori $a \in \bb{R}^{n+m}$. Spezzando $a = (a', a'')$ (prime $n$ componenti e restanti $m$), dato che $a'$ e $a''$ sono combinazioni lineari delle basi:
 \[
-\mathbb R^3 \simeq \mathbb R_+ \times \mathbb S^2  \qquad \text{e} \qquad \underbrace{d^3 x}_{\in \mathbb R^3} = \underbrace{r^2 \de r}_{\in \mathbb R_+} \cdot \underbrace{\de \Omega}_{\in \mathbb S^2}
+a' = \sum_i c_i v_i; \quad a'' = \sum_j d_j w_j
 \]
-dove $d \Omega = d \theta \sin\theta \de\varphi$, si ottiene l’isomorfismo $L^2(\mathbb R^3, d^3 x) \simeq L^2(\mathbb R_+, r^2 \de r) \otimes L^2(S^2, d \Omega)$.
-\end{itemize}
-
-\begin{dfn}[Operatori sullo spazio prodotto]
-È possibile definire operatori sullo spazio $\hs_1 \otimes \hs_2$ della forma $A^{(1)} \otimes A^{(2)}$ con l’operatore $A^{(1)}$ che agisce su $\hs_1$ mentre l’operatore $A^{(2)}$ agisce su $\hs_2$.  L’operatore sullo spazio prodotto è definito per estensione
+Possiamo scrivere:
 \[
-(A^{(1)} \otimes A^{(2)})(\varphi^{(1)} \otimes \varphi^{(2)}) = A^{(1)} \varphi^{(1)} \otimes A^{(2)} \varphi^{(2)}
+U(a)=U((a',a''))= U\left(\sum_{i} c_i v_i, \sum_j d_j w_j\right)= \sum_{ij} c_i d_j U(v_i \otimes w_j)
 \]
-\end{dfn}
-
-\begin{remark}
-Attenzione: anche se la definizione è quella precedente, gli operatori in $\hs_1 \otimes \hs_2$ sono in generale della forma
-\[
-\sum_{m,n} c_{mn}  A_m^{(1)} \otimes A_n^{(2)}
-\]
-In particolare $A^{(1)} \otimes \mathbb{I}^{(2)}$ e $\mathbb{I}^{(1)} \otimes A^{(2)}$ commutano tra di loro. Infatti
+che ha un valore definito dato che abbiamo fissato gli $U(v_i \otimes w_j)$.
+\item Un altro isomorfismo interessante è:
 \begin{align}
-(A^{(1)} \otimes \mathbb{I}^{(2)}) (\mathbb{I}^{(1)} \otimes A^{(2)}) (\varphi^{(1)} \otimes \varphi^{(2)}) & = (A^{(1)} \otimes \mathbb{I}^{(2)}) (\varphi^{(1)} \otimes  A^{(2)} \varphi^{(2)}) \notag \\
-& = (A^{(1)} \varphi^{(1)} \otimes A^{(2)} \varphi^{(2)}) = (\mathbb{I}^{(1)} \otimes A^{(2)}) (A^{(1)} \varphi^{(1)} \otimes \varphi^{(2)}) \notag \\
-& = (\mathbb{I}^{(1)} \otimes A^{(2)}) (A^{(1)} \otimes \mathbb{I}^{(2)}) (\varphi^{(1)} \otimes \varphi^{(2)}) \notag
+L^2(\bb{R}^n, d^nx) \otimes \bb{C}^l \cong \underbrace{L^2(\bb{R}^n, d^n x) \oplus \dots \oplus L^2(\bb{R}^n, d^nx)}_{l-volte}
+\label{eqn:isomorfismo-prodotto-tensore}
 \end{align}
-\end{remark}
+\begin{expl}
+In generale, se $V$ e $W$ sono spazi vettoriali, $V^* \otimes W$ contiene le funzioni lineari che vanno da $V\to W$. Più precisamente esiste un isomorfismo\footnote{Una dimostrazione di ciò è data a pag. 5 della Lezione 9 disponibile sul Moodle del corso di Geometria Differenziale tenuto dal prof. Bottacin.} $F$:
+\begin{align*}
+F: V^* \otimes W & \to \op{Hom}(V,W)\\
+F(\underbrace{\varphi \otimes w}_{\in V^* \otimes\ W})(v) &= \underbrace{\varphi(v)w}_{\in\ W}
+\end{align*}
+dove $\varphi \in V^*$ è un funzionale, e $w\in W$ è un vettore.\\
+Finora abbiamo parlato però di prodotto tensore tra funzionali, mentre nell'espressione soprastante $w$ è chiaramente un vettore. Cosa significa, perciò, $\varphi\otimes w$?
 
-\subsection{Assioma dei sistemi composti}
+L'idea sta nel notare che se lo spazio duale $W^*$ è quello delle funzioni lineari $W\to \bb{R}$ (indicato come $\op{Hom}(W,\bb{R})$), il duale del duale $W^{**}$ contiene le funzioni $W^* \to \bb{R}$, e per uno spazio finito-dimensionale coincide (cioè, è canonicamente isomorfo) con $W$ stesso. Possiamo cioè vedere i vettori di $W$ come \q{funzioni di funzionali}, ossia un \textit{vettore} di $W$ applicato ad un funzionale di $W^*$ produce un numero.\\
+Preso allora $\varphi \in V^*$, e $w \in W$, il loro prodotto tensore sarà una funzione bilineare che si applica contemporaneamente agli elementi a cui si applicherebbero singolaremente $\varphi$ e $w$, ossia, rispettivamente, vettori $v \in V$ e funzionali $\phi \in W^*$: $(\varphi \otimes w):V\times W^* \to\bb{R}$. Esplicitamente sarà proprio il prodotto delle singole \q{applicazioni}:
+\[
+(\varphi \otimes w)(v,\phi) =\varphi(v) \phi(w)
+\]
+\end{expl}
+Si ha quindi che $L^2(\bb{R}^n) \otimes \bb{C}^l$ contiene le funzioni (modulo quadro integrabili) da $\bb{R}^n \to \bb{C}^l$. Ma tali funzioni non sono altro che un \textit{vettore} di \q{normali} funzioni $L^2(\bb{R}^n)$, che possiamo scrivere come:
+\[
+\begin{pmatrix}
+\psi_1(x)\\
+\psi_2(x)\\
+\vdots\\
+\psi_l(x)
+\end{pmatrix} \quad \psi_i(x) \in L^2(\bb{R}^n, d^n x)\quad i=1,\dots,l
+\]
+\item Ricordando che $\bb{R}^3 \cong \bb{R}_+ \times S^2$ (cioè possiamo rappresentare un punto dello spazio in coordinate sferiche, scrivendo $d^3 x = r^2\,dr \cdot d\Omega$, con $d\Omega = \sin\theta\,d\theta\,d\varphi$), nella notazione dei prodotti tensori avremo che:
+\[
+L^2(\bb{R}^3, d^3x)\cong L^2(\bb{R}_+, r^2\,dr)\otimes L^2(S^2, d\Omega)
+\]
+\end{itemize}
+\end{thm}
 
-Il fatto che vi sia l’isomorfismo
+
+
+Operatori\marginpar{Prodotto tensore di operatori} in $\hs_1 \otimes \hs_2$ della forma $A^{(1)}\otimes A^{(2)}$ con $A^{(1)}$ che agisce su $\hs_1$ e $A^{(2)}$ su $\hs_2$ sono definiti per estensione (lineare e continua) da:
+\begin{equation}
+(A^{(1)}\otimes A^{(2)})(\varphi^{(1)}\otimes \varphi^{(2)}
+)=A^{(1)}\varphi^{(1)} \otimes A^{(2)}\varphi^{(2)}
+\label{eqn:prod_tensore_operatori}
+\end{equation}
+\textbf{Attenzione}: tuttavia gli operatori in $\hs_1 \otimes \hs_2$ sono in generale della forma di combinazioni lineari:
 \[
-\unserbrace{L^2(\mathbb R^3, d^3 x)}_{\psi(\vect x) \in} \otimes \unserbrace{L^2(\mathbb R^3, d^3 x)}_{\psi(\vect y) \in} \simeq \underbrace{L^2(\mathbb R^6, d^3 x \, d^3 y)}_{\psi(\vect x, \vect y) \in}
+\sum_{m,n} c_{mn} A_m^{(1)}\otimes A^{(2)}_n
 \]
-suggerisce il seguente
-\begin{axi}[Sui sistemi composti]
-Quando un sistema quantistico consiste in $N$ sistemi distinguibili a cui sono associati gli spazi di Hilbert $\hs_i$ ($i = 1, \dots, N$) allora sistema complessivo si associa lo spazio di Hilbert
+(dove la somma è potenzialmente infinita). Perciò non tutti gli operatori sullo \q{spazio grande} sono ottenibili come prodotti tensori degli operatori sugli \q{spazi piccoli} che lo compongono.
+\begin{expl}
+Ragionando in dimensione finita, un esempio \textit{banale} di ciò è dato qui di seguito.\\
+Siano $\vec{v},\vec{w}\in \bb{R}^2$, e $A$ una forma bilineare, definita come:
 \[
-\bigotimes_{i = 1}^N \hs_i = \hs_1 \otimes \hs_2 \otimes \dots \otimes \hs_N
+\vec{v}=\begin{pmatrix}x_1\\ x_2\end{pmatrix} \quad \vec{w}=\begin{pmatrix} y_1 \\ y_2 \end{pmatrix}\quad A(\vec{v},\vec{w})=3x_1\,y_1
 \]
-e le osservabili $A^{(i)}$ del sistema $i$-esimo nel sistema complessivo sono date da
+In questo caso è facile scomporre $A$ nel prodotto di due funzioni che agiscono rispettivamente su $\vec{v}$ e su $\vec{w}$:
 \[
-\mathbb{I}^{(1)} \otimes \dots \otimes \mathbb{I}^{(i-1)} \otimes A^{(i)} \otimes \mathbb{I}^{(i+1)} \otimes \dots \otimes \mathbb{I}^{(N)}
+A(\vec{v},\vec{w})=f(\vec{v}) g(\vec{w}) \quad f(\vec{v}) =3x_1 \quad g(\vec{w})=y_1
+\]
+E in questo senso si potrebbe scrivere:
+\[
+f,g:\bb{R}^2\to\bb{R},\quad 
+A = f \otimes g: \bb{R}^2\times\bb{R}^2\to\bb{R},\quad A\in \bb{R}'^2 \otimes \bb{R}'^{2}
+\]
+Ma una \textit{scomposizione} analoga non si può più fare per la forma bilineare $B$:
+\[
+B(\vec{v},\vec{w})=3x_1 y_1 +x_2 y_2
+\]
+Notiamo però che i singoli addendi nella definizione di $B$ sono scomponibili come prodotti tensori di opportune funzioni. In questo senso $B$ è una \textit{combinazione lineare} di prodotti tensori.\\
+Se matematicamente ciò è ovvio, vedremo che le conseguenze fisiche sono radicali. Uno stato nello spazio \textit{prodotto-tensore} $\hs_1\otimes \hs_2$ non è detto che sia il prodotto tensore di uno stato in $\hs_1$ e uno stato in $\hs_2$: potrebbe benissimo essere una combinazione lineare di prodotti del genere. %[TO DO] Completare con il perché è così sconvolgente 
+\end{expl}
+
+Un caso particolare di operatori definiti sullo spazio prodotto tensore è dato da $\underbrace{A^{(1)}\otimes \bb{I}^{(2)}}_{a}$ e $\underbrace{\bb{I}^{(1)}\otimes A^{(2)}}_{b}$ (per cui ciascuno dei due \q{agisce} solo sulla rispettiva parte dello spazio, e agisce come identità su tutto il resto).\\
+Essi commutano tra loro, infatti:
+\begin{align*}
+&\overbrace{(A^{(1)}\otimes \bb{I}^{(2)})}^{a}\overbrace{(\hlc{Yellow}{\bb{I}^{(1)}}\otimes \hlc{SkyBlue}{A^{(2)}})}^{b}(\hlc{Yellow}{\varphi_1^{(1)}}\otimes \hlc{SkyBlue}{\varphi^{(2)}})=(A^{(1)}\otimes \bb{I}^{(2)})(\hlc{Yellow}{\varphi^{(1)}}\otimes \hlc{SkyBlue}{A^{(2)}\varphi^{(2)}})=\\
+&=(A^{(1)}\varphi^{(1)}\otimes A^{(2)}\varphi^{(2)})=(\bb{I}^{(1)}\otimes A^{(2)})(A^{(1)}\varphi^{(1)}\otimes \varphi^{(2)})=\\
+&=\underbrace{(\bb{I}^{(1)}\otimes A^{(2)})}_{b}\underbrace{(A^{(1)}\otimes \bb{I}^{(2)})}_{a}(\varphi^{(1)}\otimes \varphi^{(2)})
+\end{align*}
+
+Partendo allora da:
+\[
+\underbrace{L^2(\bb{R}^3, d^3x)}_{\ni \psi(\vec{x})} \otimes\underbrace{ L^2(\bb{R}^3, d^3 y) }_{\ni\psi(\vec{y})}\cong \underbrace{L^2(\bb{R}^6, d^3x\,d^3y)}_{\ni \psi(\vec{x},\vec{y})}
+\]
+Abbiamo un'idea per estendere l'equazione di Schr\"odinger al caso dei sistemi composti. Enunciamo quindi l'assioma:
+\begin{axi}
+Quando un\marginpar{Assioma dei sistemi composti}\index{Assioma!dei sistemi composti} sistema quantistico consiste in $N$ sistemi \textbf{distinguibili} con spazi di Hilbert $\hs_i$, $i=1,\dots, N$, il sistema totale ha come spazio di Hilbert il prodotto tensore degli spazi di Hilbert dei costituenti, cioè:
+\[
+\hs_1 \otimes \hs_2 \otimes \cdots \otimes \hs_N = \bigotimes_{i=1}^N \hs_i
+\]
+e le osservabili $A^{(i)}$ del sottosistema $i$-esimo nel sistema totale sono date da:
+\[
+\bb{I}^{(1)}\otimes \cdots \otimes \bb{I}^{(i-1)}\otimes A^{(i)}\otimes \bb{I}^{(i+1)}\otimes \cdots \otimes \bb{I}^{(N)}
+\]
+In notazione di\ Dirac, se $\ket{\psi^{(1)}}\in \hs_1$ e $\ket{\phi^{(2)}}\in \hs_2$ lo stato prodotto tensore è denotato \q{implicitamente} con:
+\[
+\ket{\psi^{(1)}}\ket{\phi^{(2)}} \equiv \ket{\psi^{(1)}}\otimes \ket{\phi^{(2)}}
 \]
 \end{axi}
+Poiché, come abbiamo visto, le osservabili che agiscono su ciascun sistema commutano con le osservabili che agiscono su tutti gli altri sottosistemi, se $\mathcal{C}_i$ è un ICOC per il sistema $S_i$, allora un ICOC per il sistema totale $S=\bigcup_{n=1}^N S_i$ è l'insieme degli ICOC dei sottosistemi $\{\mathcal{C}_i\}_{i=1,\dots,N}$.\\
 
-\begin{notation}
-In notazione di Dirac se $\ket{\psi^{(1)}} \in \hs_1$ e $\ket{\phi^{(2)}} \in \hs_2$ lo stato appartenente al prodotto tensore $\hs_1 \times \hs_2$ è semplicemente denotato con $\ket{\psi^{(1)}} \ket{\phi^{(2)}}$.
-\end{notation}
-\begin{remark}
-Come conseguenza delle commutazioni tra osservabili corrispondenti a sottosistemi diversi, se $\mathca C_i$ è un ICOC per il sistema $S_i$ allora un ICOC per $S = \bigcup_{i = 1}^{N} S_i$ è $\{ \mathcal C_i \}_{i = 1, \dots, \mathbb N}$.
-\end{remark}
+Fermiamoci un attimo a riflettere su tali risultati. Se utilizziamo l'interpretazione ondulatoria, per cui le particelle sono rappresentate da \textit{onde di probabilità}, quello che abbiamo ottenuto è sconvolgente. Ci aspettiamo che la funzione d'onda del sistema composto \textit{appartenga ancora allo spazio tridimensionale}. Abbiamo invece trovato che, per $2$ particelle in 3D, la $\psi(\vec{x},\vec{y})$ è definita sullo spazio dei prodotti cartesiani, che è a $6$ dimensioni!\\
+La ragione di ciò è che abbiamo descritto lo spazio degli stati puri come \textbf{lineare}, e perciò bisogna poter sommare i prodotti delle funzioni dei due sottosistemi, e quindi lo spazio deve avere per forza una dimensione più grande.\\
+Per esempio, consideriamo una misura di \textit{polarizzazione} dei fotoni, che in 2D sono scritte come combinazione lineare di vettori $\ket{x}$ e $\ket{y}$.\\
+Facendo una misura (ideale di prima specie) di $x$ sul primo fotone e di $x$ sul secondo, lo stato finale è indicato da $\ket{x^{(1)}}\ket{x^{(2)}}$. Analogamente per $y$: $\ket{y^{(1)}}\ket{y^{(2)}}$. Ma lo stato più generale non sarà uno di questi, ma una combinazione lineare del tipo:
+\[
+\ket{x^{(1)}}\ket{x^{(2)}} + \ket{y^{(1)}}\ket{y^{(2)}}
+\]
+che non si può scrivere come prodotto degli stati dei due sistemi \q{separati} (è una combinazione lineare di tali prodotti).\\
 
-Si osservi che l’assioma che abbiamo appena enunciato ha conseguenze sorprendenti sugli spazi degli stati. Si consideri ad esempio un sistema di due particelle quantistiche. L’onda di probabilità associata al sistema non vive più in tre dimensioni, bensì in sei! Tante più sono le particelle, tante più sono le particelle e tanto più la dimensione dello spazio su cui sono definite le funzioni aumenta. Questo fatto è controintuitivo se si pensa che le ampiezze di probabilità delle particelle potrebbero essere semplicemente sommate. In realtà sommando le ampiezze di probabilità verrebbe persa molta informazione, e il sistema sarebbe quello di una sola particella. % (IMMAGINE somma funzioni d’onda)
-Si può pensare il tutto in analogia con lo spazio delle fasi della meccanica classica: lo spazio delle fasi aumenta di dimensione all’aumentare del numero di particelle. Tuttavia è fondamentale ricordare che \emph{non} esiste propriamente un analogo dello spazio delle fasi in meccanica quantistica.
-
-Quindi la \qm{combinazione} di due sistemi, come due particelle, non è in 1D ma in 2D. Questo appunto deriva dalla struttura lineare dello spazio di Hilbert.
-
-\begin{es}[Polarizzazione dei fotoni]
-Consideriamo i due possibili stati di polarizzazione di un fotone: $\ket{x}$ e $\ket{y}$. Quando entrambi i fotoni hanno polarizzazione $x$ si avrà lo stato $\ket{x^{(1)}}\ket{x^{(2)}}$ nello spazio prodotto, mentre se entrambi sono in polarizzazione $y$ lo stato sarà $\ket{y^{(1)}}\ket{y^{(2)}}$. Ma sappiamo che questi due stati possono trovarsi, come nel caso di una particella, in una sovrapposizione data da $\ket{x^{(1)}}\ket{x^{(2)}} + \ket{y^{(1)}}\ket{y^{(2)}}$. Se questo è lo stato del sistema composto, allora nel caso un fotone sia in polarizzazione $x$ anche l'altro deve esserlo (e lo stesso vale per $y$). Tuttavia in questo stato un fotone non ha polarizzazione ben definita, eppure gli stati dei singoli fotoni sono influenzati reciprocamente. Si è quindi persa la nozione individuale di sottosistema, che lascia il posto alla nozione di sistema quantistico composto, la quale chiaramente non ha analogo classico.
-\end{es}
-
-\begin{oss}
-Per la linearità degli spazi vettoriali, nel nostro caso spazi di Hilbert, e per la definizione di prodotto tensore, esistono stati del sistema composto che non sono scrivibili come prodotto tensore di stati dei sottosistemi. Stati di questo tipo si dicono \emph{entangled} (\q{allacciati}). Questi stati descrivono le situazioni in cui le proprietà dei sottosistemi non sono indipendenti. Questo fatto costituisce la cosiddetta \q{realtà allacciata} dei sottosistemi quantistici.
-
-Questo fenomeno è ovviamente puramente quantistico e non ha analogo classico. Questo anche perché per descriverlo è necessario definire la nozione di prodotto tensore.
-
-Il fenomeno dell'entanglement può essere dedotto esclusivamente dagli assiomi della meccanica quantistica. Tuttavia non ha solo ripercussioni teoriche, come il paradosso EPR, ma anche pratiche e tecnologiche, come il teletrasporto quantistico, il computer quantistico e la crittografia quantistica.
+\begin{oss} \textbf{Importante!}\\
+Per la \textbf{linearità} degli spazi vettoriali, nel nostro caso di Hilbert, e per la definizione di \textbf{prodotto tensore}, esistono stati del sistema composto che \textbf{non sono scrivibili} come prodotto tensore di stati dei sottosistemi (basta che siano una combinazione lineare di prodotti di stati singoli \q{non separabile} in un unico prodotto).\\
+Stati di questo tipo si dicono \textbf{entangled} (=\textit{allacciati}) Essi descrivono una situazione in cui le proprietà dei sottosistemi non sono indipendenti, forzando una \q{realtà allacciata} dei sottosistemi.\\
+Questo è un fenomeno puramente quantistico, perché è necessaria la natura vettoriale per definire $\otimes$! Ciò è alla base di alcuni dei fenomeni più sconcertanti e delle tecnologie quantistiche, come il paradosso EPR, il teletrasporto quantistico, computer quantistico, crittografia quantistica.
 \end{oss}
 
-
-
-\section{Simmetrie}
-Ricapitolando l'evoluzione temporale dei sistemi quantistici:
-\begin{itemize}
-\item Per l'\emph{omogeneità del tempo} le traslazioni temporali devono lasciare invarianti le probabilità di traslazione;
-\item Per il \emph{teorema di Wigner} le uniche trasformazioni che rispettano questo sono quelle unitarie e antiunitarie a meno di una fase, dunque le traslazioni temporali sono rappresentate proiettivamente su $\hs$;
-\item Per il \emph{teorema di Bargmann} Le rappresentazioni proiettive unitarie possono essere ridotte a quelle unitarie del relativo gruppo di ricoprimento universale, quindi le traslazioni $U(t)$ formano in realtà un gruppo ad un parametro di operatori unitari;
-\item Per il \emph{teorema di Stone} esiste un operatore $H$ (identificata fisicamente come l'hamiltoniana), tale che $U(t) = e^{-\frac{i}{\hbar} t H}$.
-\end{itemize}
-
-Dunque partendo solo dall'ipotesi di omogeneità del tempo è possibile costruire un operatore che descrive l'evoluzione nel tempo degli stati fisici. La simmetria di traslazione temporale (identificata dal gruppo ad un parametro di operatori $U(t)$) \q{genera} l'osservabile $H$, il quale è una costante dell'evoluzione, cioè è conservata.
-
-Tutto questo avviene considerando le simmetrie di traslazione temporale, ma cosa avviene se si considerano le simmetrie di traslazione spaziale o quelle di rotazione? Prima di rispondere chiariamo il concetto di simmetria.
-
-\begin{dfn}
-Una \emph{simmetria fisica} è una mappa $A \mapsto A'$ dall'algebra delle osservabili in sé stessa e una mappa $\ket{\psi} \mapsto \ket{\psi'}$ dallo spazio degli stati puri in sé stesso, che preserva la struttura dell'algebra e i valori medi, ovvero
+\begin{oss}
+Riprendiamo lo stato entangled visto prima:
 \[
-\alpha A + \beta B \mapsto \alpha A' + \beta B' \quad \quad \quad A B \mapsto A' B'
+\ket{\psi}\sim
+\ket{x^{(1)}}\ket{x^{(2)}} + \ket{y^{(1)}}\ket{y^{(2)}}
 \]
-\[
-\bra\psi A \ket\psi = \bra{\psi'} A' \ket{\psi'} \qquad \forall \ket\psi, \ket{\psi'}, A, A'
-\]
-\end{dfn}
+Normalizziamolo e riscriviamolo in una notazione \q{più suggestiva}:
+\begin{align*}
+\ket{\psi}= \frac{1}{\sqrt{2}}(
+\ket{\rightarrow_1}\ket{\rightarrow_2}+\ket{\uparrow_1}\ket{\uparrow_2})
+\end{align*}
+Cosa succede se facciamo una misura su di esso? Proviamo, per esempio, a misurare la polarizzazione, lungo $\rightarrow$, del fotone $1$. Poiché lo stato del fotone $1$ è una combinazione di $\ket{\rightarrow}$ e $\ket{\uparrow}$ \textit{in parti uguali}, la probabilità di trovare il fotone orientato lungo $\rightarrow$ o meno è del $50\%$:
+\begin{align*}
+p(\rightarrow_1)= \left|\braket{\rightarrow|\frac{1}{\sqrt{2}}(\ket{\rightarrow_1}+\ket{\uparrow_1})}\right|^2 = \frac{1}{2}
+\end{align*}
+A seguito della misura (ideale di prima specie), lo stato \textit{collasserà} nell'autospazio \textit{compatibile} con l'autovalore misurato. Per esempio, se rileviamo il fotone $1$ con polarizzazione $\rightarrow$ (ossia se \textit{attraversa} un filtro orientato lungo quell'asse), il nuovo stato del sistema sarà ottenuto applicando il \textit{proiettore} $\ket{\rightarrow_1}\bra{\rightarrow_1} \otimes \bb{I}$ a $\ket{\psi}$, da cui si ottiene:
+\begin{align*}
+\ket{\psi_f} = (\hlc{Yellow}{\ket{\rightarrow_1}\bra{\rightarrow_1}}  \otimes \hlc{SkyBlue}{\bb{I}}) \frac{1}{\sqrt{2}}(\hlc{Yellow}{
+\ket{\rightarrow_1}}\hlc{SkyBlue}{\ket{\rightarrow_2}}+\hlc{Yellow}{\ket{\uparrow_1}}\hlc{SkyBlue}{\ket{\uparrow_2}}) = \ket{\rightarrow_1}\ket{\rightarrow_2}
+\end{align*}
+dove ciascuna parte del proiettore agisce sui termini evidenziati con lo stesso colore.\\
+Notiamo ora che se misuriamo la polarizzazione del fotone $2$ nel nuovo stato $\ket{\psi_f}$ otterremo \textit{sempre} il risultato $\rightarrow$, cosa che non era vera per $\ket{\psi}$ iniziale. Ciò significa che la misura di polarizzazione del fotone $1$ ci ha dato informazione anche sulla polarizzazione del fotone $2$.\\
 
-In \MQ il proiettore $\ket\phi \bra\phi$ preserva la probabilità di transizione, infatti
-\[
-\bra\psi (\ket\phi \bra\phi) \ket\psi = \braket{\psi|\phi} \braket{\phi|\psi}
-\]
-da cui si ottiene che
-\[
-\braket{\psi'|\phi'} \braket{\phi'|\psi'} = \braket{\psi|\phi} \braket{\phi|\psi}
-\]
-Allora per il teorema di Wigner $\ket{\psi'} = U \ket\psi$ dove $U$ è unitario oppure è antiunitario (e in quel caso si indica con $\overline U$). Quindi
-\[
-A' = U A U \qquad \text{oppure} \qquad A' = \overline U A \overline U^\dag
-\]
-con gli operatori $U$ e $\overline U$ definiti a meno di una fase (raggi vettori).
+Ciò inizialmente potrebbe non sembrare strano, dato che \q{più misure in una volta sola} si possono fare anche in fisica classica. Per esempio, si considerino due sferette di masse e velocità iniziali conosciute, che urtano elasticamente ad un certo istante $t$. A $t^+$ basta misurare la velocità di una sola delle due per sapere, \textit{per conservazione del momento}, la velocità dell'altra.\\
 
-\begin{dfn}[Simmetria dinamica]
-Una simmetria fisica tale che
-\[
-H \mapsto H' = U H U^\dag = H
-\]
-e che dunque lascia invariata l'hamiltoniana $H$ è detta \emph{simmetria dinamica}.
-\end{dfn}
-
-Se le simmetrie fisiche sono descritte da un gruppo continuo $G$, allora $U$ è necessariamente unitaria (è escluso $\overline U$). Infatti dato $g \in G$, per la struttura di gruppo se $\hat U$ è un raggio vettore unitario deve valere
-\[
-\hat U (g_1) \hat U (g_2) = \hat U (g_1, g_2) \quad \iff \quad U(g_1) U(g_2) = e^{i \alpha (g_1, g_2)} U(g_1, g_2)
-\]
-ma questo fatto non vale per le $\overline U$ antiunitarie, infatti
-\[
-\overline U(g_1) \overline U(g_2) = e^{i \alpha (g_1, g_2)} \overline U(g_1, g_2)
-\]
-non è possibile perché il prodotto tra due trasformazioni antiunitarie è fornisce sempre una trasformazione unitaria.
-
-Se la simmetria è descritta da un gruppo a un parametro i operatori unitari $U(\lambda)$, con $\lambda \in \mathbb R$, ovviamente $U(0) = \mathbb{I}$ e $U(\lambda_1)U(\lambda_2) = U(\lambda_1 + \lambda_2)$. Il teorema di Stone ci assicura che esiste un operatore autoaggiunto $A$, detto \emph{generatore} di $U(\lambda),$ tale che in un dominio denso $D(A)$ valga
-\[
-A = i \frac{d U(\lambda)}{d \lambda}\bigg|_{\lambda = 0}
-\]
-
-Se inoltre $U$ è una simmetria dinamica allora $A$ commuta con l'operatore hamiltoniano $H$. Infatti vale $U(\lambda) H U(\lambda)^\dag = H$, dove l'ultimo $H$ è indipendente da $\lambda$. Pertanto derivando rispetto a $\lambda$ e calcolando la derivata in $\lambda = 0$ si ottiene
-\begin{align}
-0 & = \frac{d}{d \lambda} H \bigg|_{\lambda = 0} = \frac{d}{d \lambda} [U(\lambda) H U(\lambda)^\dag] \bigg|_{\lambda = 0} \notag \\
-& = \frac{d}{d \lambda} U(\lambda) \bigg|_{\lambda = 0} H U(0)^\dag + U(0) \frac{d}{d \lambda} H \bigg|_{\lambda = 0} U(0)^\dag + U(0) H \frac{d}{d \lambda} \overbrace{U(\lambda)^{-1}}^{(U^\dag = U^{-1})} \bigg|_{\lambda = 0} \notag \\
-& = \frac{A}{i} H \mathbb{I} + \mathbb{I} 0 \mathbb{I} + \mathbb{I} H \left(- U(0)^{-2} \frac{d}{d \lambda} U(\lambda) \bigg|_{\lambda = 0} \right) \notag \\
-& = \frac{A H}{i} + 0 - H \mathbb{I}^2 \frac{A}{i} \notag \\
-& = \frac{AH - HA}{i} = \frac{[A,H]}{i} \notag
-\end{align}
-
-Ma se vale ciò allora in visuale di Heisenberg
-\[
-\deriv{A^H(t)}{t} = \frac{[A^H(t), H]}{i \hbar} = \frac{U(t) \overbrace{[A,H]}^{= 0} U(t)^\dag}{i \hbar} = 0
-\]
-In pratica il generatore \emph{non evolve nel tempo}, e $A^H(t) = A$. Questa è la versione quantistica delle costanti del moto classiche. Il fatto visto con la traslazione temporale è generalizzabile: vi è un importante legame tra simmetrie continue e leggi di conservazione.
-
-\subsection{Parentesi sulla teoria dei gruppi}
-\begin{dfn}[Gruppo di Lie]
-Un gruppo $G$ i cui elementi $g \in G$ sono parametrizzabili in modo analitico in funzione di $n$ parametri $x_1, x_2, \dots, x_n$ reali o complessi cosicché si può scrivere $g = g(x_1, x_2, \dots, x_n)$ è detto \emph{gruppo di Lie} a $n$ parametri (reali o complessi).
-\end{dfn}
-
-\begin{es}
-Le traslazioni in $\mathbb R^3$ formano un gruppo di Lie a tre parametri reali, e ugualmente vale per le rotazioni in $\mathbb R^3$. Le trasformazioni di Lorentz formano il \emph{gruppo di Lorentz} il quale ha sei parametri, mentre il gruppo di Poincaré ha anche le traslazioni, ed è un gruppo di Lie a 10 parametri.
-\end{es}
+In \MQ, tuttavia, la faccenda è complicata dal fatto che, a differenza del caso classico, le osservabili non sono \textit{sempre definite}: nello stato $\ket{\psi}$, il primo fotone \textit{non} ha una polarizzazione \q{predeterminata} prima che essa venga misurata. Perciò la misura sul primo fotone ritorna un valore \textit{scelto a caso}, e quella sul secondo avrà lo \textit{stesso valore della prima}. Tuttavia i due fotoni del sistema possono essere separati a grande distanze, e le due misure fatte contemporaneamente, in modo che \textit{non vi sia possibilità} che un qualsiasi segnale possa trasmettersi dalla prima alla seconda, se non a velocità superiori della luce, il che è paradossale.\\
+Sarebbe come lanciare una moneta e sapere \textit{con certezza} che un'altra moneta, dall'altro capo del mondo, è atterrata con la stessa faccia. Ciò avrebbe senso, classicamente, solo se le due monete fossero \textit{truccate}, ossia avessero una sola faccia (uguale in entrambe), e il lancio della prima moneta sia dovuto all'ignoranza dello sperimentatore che non sa di avere a che fare con una moneta del genere.\\
+Una teoria del genere è detta \textit{a variabili nascoste}. Come vedremo in un prossimo capitolo, la supposizione che il risultato di una misura sia in un qualche modo determinato da \q{variabili inaccessibili} è incompatibile con le previsioni matematiche, e sperimentalmente verificabili, della \MQ.
+\end{oss}
 
 \end{document}
+
