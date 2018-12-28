@@ -110,15 +110,16 @@ dove $\chi$ è la funzione caratteristica, e $A$ è la costante di normalizzazio
 \end{equation}
 Ricordiamo che vale la seguente identità\footnote{Pag. 31 di \cite{spazi_hilbert}} per la composizione della delta di Dirac con una funzione differenziabile $g(x)$:
 \[
-\delta(g(x))=\sum_{i}\frac{\delta(x-a_i)}{|g'(a_i)}
+\delta(g(x))=\sum_{i}\frac{\delta(x-a_i)}{|g'(a_i)|}
 \]
 dove $a_i$ sono gli zeri (semplici) di $g(x)$.\\
 Applicandola al nostro caso:
-\begin{align*}
+\begin{align}\nonumber
 \delta\left(\frac{p^2}{2m}-\mathcal{E}\right) &=\frac{1}{|p|/m}\Big|_{p=\pm \sqrt{2m\mathcal{E}}} (\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}}))
 = \\
 &=\hlc{Yellow}{\frac{m}{\sqrt{2m\mathcal{E}}}(\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}}))}
-\end{align*}
+\label{eqn:composizione-delta-MC}
+\end{align}
 Sostituendo nell'integrale in (\ref{eqn:normalizzazione_buca_classica}) otteniamo:
 \begin{align*}
 (\ref{eqn:normalizzazione_buca_classica}) &= a\underbrace{\int_\bb{R} A
@@ -131,27 +132,35 @@ Sostituendo nell'integrale in (\ref{eqn:normalizzazione_buca_classica}) otteniam
 &= a\sqrt{\frac{\mathcal{E}}{2m}}A\overset{!}{=}1\Rightarrow A=\frac{1}{a}\sqrt{\frac{\mathcal{E}}{2m}}
 \end{align*}
 Perciò lo stato (\ref{eqn:stato_classico}) è:
-\[
+\begin{align}
 \rho_\mathcal{E}(x,p)=\frac{1}{a} \sqrt{\frac{\mathcal{E}}{2m}}\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\delta\left(\frac{p^2}{2m}-\mathcal{E}\right)
-\]
+\label{eqn:rhoEMC}
+\end{align}
 Notiamo che \textbf{non si tratta di uno stato puro} (ossia non è possibile scriverlo come una combinazione \textit{finita} di $\delta$ di Dirac). In effetti vi sono $2$ valori possibili per il momento, e $\infty$ per la posizione.\\
 
 Possiamo naturalmente calcolare la probabilità che la particella si trovi in un certo range.\\
-Per esempio, la densità di probabilità che il valore di posizione sia $\lambda \in \left[-\frac{a}{2},\frac{a}{2}\right]$:
+Per esempio, la densità di probabilità che il valore di posizione $\lambda$ sia all'interno di $\left[-\frac{a}{2},\frac{a}{2}\right]$ è data da:
 \begin{align*}
-w^X_{\rho_\mathcal{E}}(\lambda) &= \frac{d}{d\lambda}\int_{-\frac{a}{2}}^{\frac{a}{2}} dp\,\rho_\mathcal{E}(x,p)H(\lambda-x)= \int_{\frac{a}{2}}^{\frac{a}{2}} dx \int_\bb{R} dp\, \rho_\mathcal{E}(x,p)\delta(\lambda-x)=\\
-&=\int_{-\frac{a}{2}}^{\frac{a}{2}} \frac{\delta(\lambda-x)}{a}dx = \frac{1}{a}
+w^X_{\rho_\mathcal{E}}(\lambda) &= 
+\hlc{Yellow}{\frac{d}{d\lambda}}\int_{\bb{R}}dp \int_{-\frac{a}{2}}^{\frac{a}{2}} dx\,\rho_\mathcal{E}(x,p)\hlc{Yellow}{ H(\lambda-x)}
+= \int_{\bb{R}}dp \int_{-\frac{a}{2}}^{\frac{a}{2}}dx\, \rho_\mathcal{E}(x,p)\hlc{Yellow}{\delta(\lambda-x)}=\\
+&\underset{(a)}{=}\int_{-\frac{a}{2}}^{\frac{a}{2}} dx\cancel{ \chi_{\left[-\frac{a}{2},+\frac{a}{2}\right]}(x)}\,\frac{\delta(\lambda-x)}{a} = \frac{1}{a}
 \end{align*}
-come ci si aspetta da una distribuzione uniforme.\\
+Dove in $(a)$ si è svolto l'integrale in $dp$:
+\begin{align*}
+\int_{\bb{R}}\rho_\mathcal{E}(x,p)\,dp&=\int_{\bb{R}}\frac{1}{a}dp\,\sqrt{\frac{\mathcal{E}}{2m}}\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\sqrt{\frac{m}{2\mathcal{E}}}\underbrace{(\delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}}))}_{2} =\\
+&= \frac{1}{a}\chi_{\left[-\frac{a}{2}, \frac{a}{2}\right]}(x)
+\end{align*}
+Il risultato è proprio quello che ci si aspetta da una distribuzione uniforme.\\
 Per quanto riguarda i momenti, abbiamo solo due valori possibili (uno positivo e uno negativo). Per esempio, potremmo calcolare la probabilità che una misura del sistema nello stato  $\rho_{\mathcal{E}}$ trovi esattamente $\sqrt{2m\mathcal{E}}$:
 \begin{align*}
-\mathcal{P}^p_{\rho_\mathcal{E}}(\{\sqrt{2m\mathcal{E}}\})&=\int_\bb{R} \int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p) \rho_\mathcal{E}(x,p)\,dx\,dp = \\
-& =
-\frac{1}{a}\sqrt{\frac{\mathcal{E}}{2m}}
+\mathcal{P}^p_{\rho_\mathcal{E}}(\{\sqrt{2m\mathcal{E}}\})&=\int_\bb{R} \int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p) \hlc{Yellow}{\rho_\mathcal{E}(x,p)}\,dx\,dp = \\
+& \underset{(\ref{eqn:rhoEMC})}{=}
+\hlc{Yellow}{\frac{1}{a}\sqrt{\frac{\mathcal{E}}{2m}}}
 \underbrace{\int_\bb{R} 
-\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)\,dx}_{a}
-\int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p)\, \delta\left(\frac{p^2}{2m}-\mathcal{E}\right)\,dp = \\
-&= \cancel{a} \frac{1}{\cancel{a}}\int_\bb{R} dp\,\sqrt{\frac{\mathcal{E}}{2m}} \sqrt{\frac{m}{2\mathcal{E}}}[
+\hlc{Yellow}{\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)}\,dx}_{a}
+\int_\bb{R} \chi_{\{\sqrt{2m\mathcal{E}}\}}(p)\, \hlc{Yellow}{\delta\left(\frac{p^2}{2m}-\mathcal{E}\right)}\,dp = \\
+&\underset{(\ref{eqn:composizione-delta-MC})}{=} \cancel{a} \frac{1}{\cancel{a}}\int_\bb{R} dp\,\sqrt{\frac{\mathcal{E}}{2m}} \sqrt{\frac{m}{2\mathcal{E}}}[
 \delta(p-\sqrt{2m\mathcal{E}})+\delta(p+\sqrt{2m\mathcal{E}})]\chi_{\{2m\mathcal{E}\}}(p) =\\
 &= \sqrt{\frac{\mathcal{E}}{2m}}\sqrt{\frac{m}{2\mathcal{E}}} = \frac{1}{2}
 \end{align*}

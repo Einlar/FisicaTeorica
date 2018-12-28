@@ -20,7 +20,7 @@ Ciò è vero per il \textbf{teorema di\ Riemann-Lebesgue}, per cui una $f\in L'(
 (e quindi in particolare è vero per le funzioni nello spazio di Schwartz, dato che $\mathcal{S}(\bb{R})\subset L'(\bb{R})$)
 \end{comment}
 \subsection{Il potenziale a gradino}
-Applichiamo\lesson{17}{7/11/2018} la procedura generale vista nella sottosezione precedente ad un esempio concreto.\\
+Applichiamo la procedura generale vista nella sottosezione precedente ad un esempio concreto.\\
 \begin{center}
 \input{Immagini/gradinoesmussato.tex}
 \end{center}
@@ -136,7 +136,7 @@ Chiaramente, ha senso parlare di \q{velocità di un pacchetto} è \q{ben localiz
 \end{equation}
 Sostituendo (\ref{eqn:linearizzazione}) in (\ref{eqn:generico_pacchetto}) otteniamo (omettendo il fattore di normalizzazione per semplicità):
 \begin{align*}
-\psi(x,t)_{lin}&=\int_{-\infty}^{+\infty}\tilde{f}(k)e^{i[kx-(\omega_0+\omega_0'(k-k_0)]t}\,dk=\\
+\psi(x,t)_{lin}&=\int_{-\infty}^{+\infty}\tilde{f}(k)e^{i[kx-(\omega_0+\omega_0'(k-k_0)t]}\,dk=\\
 &=\int_{-\infty}^{+\infty}\tilde{f}(k)\exp\left [i\left(
 \textcolor{Blue}{+k_0 x}-\omega_0 t \textcolor{Blue}{- k_0 x } +k_0 \omega_0' t+ kx-k\omega_0't
 \right)\right ] =\\
@@ -276,7 +276,7 @@ Verifichiamo che in tal modo il pacchetto d'onda sia davvero piccato in $x_0$. C
 \end{equation}
 Concentriamoci sul termine evidenziato in giallo, che corrisponde all'onda \textit{incidente}. A meno di un fattore costante si ha:
 \begin{equation}
-\psi(x,0)_i\propto \int_0^{+\infty}\tilde{f}_{k_0}(k) e^{ik(x-x_0)} dk \underset{(a)}{=}\int_0^{+\infty} \tilde{f}_{0}(k')e^{i(k'+k_0)(x-x_0)}dk
+\psi(x,0)_i\propto \int_0^{+\infty}\tilde{f}_{k_0}(k) e^{ik(x-x_0)} dk \underset{(a)}{=}\int_0^{+\infty} \tilde{f}_{0}(k')e^{i(k'+k_0)(x-x_0)}dk'
 \label{eqn:pacchetto_max1}
 \end{equation}
 dove in (a) si è effettuato il cambio di variabile $k\to k'+k_0$, e si è \textit{traslata} la funzione $\tilde{f}_{k_0}(k)$:

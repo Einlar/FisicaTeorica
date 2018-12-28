@@ -307,9 +307,9 @@ Da cui deriva:
 \ket{j,m}= \sum_{m_1 = -j_1}^{j_1} \sum_{m_2 = -j_2}^{j_2} \braket{j_1, j_2; m_1, m_2| j, m} \ket{j_1, j_2; m_1, m_2}
 \label{eqn:completezza-momento-composto}
 \end{align}
-I termini $\ket{j_1, j_2, m_1, m_2 | j, m}$, con la convenzione $\ket{j_1, j_2, j_1, j - j_1 | j, j} \geq 0$, sono detti coefficienti di \textbf{Clebsch-Gordan} e denotati:
+I termini $\braket{j_1, j_2, m_1, m_2 | j, m}$, con la convenzione $\braket{j_1, j_2, j_1, j - j_1 | j, j} \geq 0$, sono detti coefficienti di \textbf{Clebsch-Gordan} e denotati:
 \begin{align*}
-\ket{j_1, j_2, m_1 m_2 | j, m}  \equiv C^{j_1, j_2, j}_{m_1, m_2, m}
+\braket{j_1, j_2, m_1 m_2 | j, m}  \equiv C^{j_1, j_2, j}_{m_1, m_2, m}
 \end{align*}
 
 Nella discussione precedente abbiamo notato che vale sempre $m=m_1+m_2$, e perciò:
@@ -358,12 +358,13 @@ Per abbassare $j$, invece, sfruttiamo l'ortonormalità dei $\ket{j,m}$, imponend
 Il termine a sinistra è conosciuto (è combinazione di $\ket{j_1, j_2; j_1-1, j_2}$ e $\ket{j_1, j_2; j_1, j_2-1}$ come visto in (\ref{eqn:recursione-momenti-composti})), e perciò possiamo risolvere per il termine a destra. Una volta ottenuto, possiamo poi reiterare questi due passaggi per ottenere tutti gli altri autoket.\\
 
 In particolare, se vogliamo trovare delle relazioni esplicite per ricavare i coefficienti di Clebsch-Gordon, abbassiamo/alziamo $\ket{j,m}$ dato da (\ref{eqn:completezza-momento-composto}):
-\begin{align*}
+\begin{align}\nonumber
 J_{\pm}\ket{j,m}&=\sqrt{j(j+1)-m(m\pm1)}\ket{j_1, j_2; j, m\pm 1} =\\
-&=\sum_{m_1'}\sum_{m_2'} \braket{j_1, j_2;m_1',m_2'|j_1, j_2; j,m}\cdot\\
+&=\sum_{m_1'}\sum_{m_2'} \braket{j_1, j_2;m_1',m_2'|j_1, j_2; j,m}\cdot\\ \nonumber
 &\cdot \Big ( \sqrt{j_1(j_1+1)-m_1'(m_1'\pm1)}\ket{j_1, j_2; m_1' \pm1, m_2'} +\\
 &\quad +\sqrt{j_2(j_2+1)-m_2'(m_2'\pm1)}\ket{j_1, j_2; m_1', m_2' \pm1}\Big)
-\end{align*}
+\label{eqn:ricorsione_generale}
+\end{align}
 
 E prendendo il prodotto scalare con $\bra{j_1, j_2; m_1, m_2}$ si \textit{sopprimono} (per l'ortonormalità) tutti i termini per cui $m_1'-1 \neq m_1$ e $m_2'-1\neq m_2$ e perciò si giunge alla relazione:
 \begin{align}\nonumber

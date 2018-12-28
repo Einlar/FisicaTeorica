@@ -59,7 +59,7 @@
 
 %%GEOMETRIA
 \usepackage[a4paper]{geometry}
- \newgeometry{inner=20mm,
+\newgeometry{inner=20mm,
             outer=49mm,% = marginparsep + marginparwidth 
                        %   + 5mm (between marginpar and page border)
             top=20mm,
@@ -100,6 +100,9 @@
 \newcommand{\vect}[1]{\vec #1}
 \newcommand{\kB}{k_B}
 \newcommand{\sumn}{\sum_{i=1}^N}
+\renewcommand{\ket}{\Ket}
+\renewcommand{\bra}{\Bra}
+\renewcommand{\braket}{\Braket}
 
 \newcommand{\lesson}[2]{\marginpar{(Lezione #1 del #2)}}
 \DeclareRobustCommand{\MQ}{{\small\textsc{MQ}}\xspace}
@@ -154,4 +157,6 @@
 \DeclareMathOperator{\arccsch}{arcCsch}
 \DeclareMathOperator{\arccoth}{arcCoth} 
 
-
+%%CONTATORI
+\newcounter{Esercizio}
+\stepcounter{Esercizio}

@@ -39,15 +39,15 @@ Inoltre, sostituendo (\ref{eqn:AB_traslate}) in (\ref{eqn:def_fluttuazione}) si 
 \end{equation}
 Consideriamo il seguente prodotto scalare:
 \[
-\langle \left(\frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi} \right)^\dag \left ( \frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi }\right ) \rangle \geq 0
+\langle \left(\frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi} \right)^{\hlc{Yellow}{\dag}} \left ( \frac{\bar{A}}{(\Delta A)_\psi}\pm i \frac{\bar{B}}{(\Delta B)_\psi }\right ) \rangle \geq 0
 \]
 che è sempre non negativo, dato che, per un generico operatore $c$, vale, dalla definizione di valor medio:
 \[
-\langle c^\dag c\rangle= (c,c^\dag c \psi)=( c\psi, c\psi ) =\norm{c\psi}^2 \geq 0
+\langle c^\dag c\rangle= (\psi,c^\dag c \psi)=( c\psi, c\psi ) =\norm{c\psi}^2 \geq 0
 \]
 Sviluppando allora i prodotti in (\ref{eqn:prodotto_scalare_indeterminazione}):
 \begin{align*}
-&\langle \left( \frac{\bar{A}^\dag}{(\Delta A)_\psi}\mp i \frac{\bar{B}^\dag}{(\Delta B)_\psi}\right)\left(\frac{\bar{A}}{(\Delta A)_\psi} \pm i \frac{\bar{B}}{(\Delta B)_\psi}\right)\rangle \geq 0\\
+&\langle \left( \frac{\bar{A}^\dag}{(\Delta A)_\psi}\hlc{Yellow}{\mp} i \frac{\bar{B}^\dag}{(\Delta B)_\psi}\right)\left(\frac{\bar{A}}{(\Delta A)_\psi} \pm i \frac{\bar{B}}{(\Delta B)_\psi}\right)\rangle \geq 0\\
 \underset{(\ref{eqn:prodotto_scalare_indeterminazione})}{\Rightarrow} & \underbrace{\frac{\langle \bar{A}^2 \rangle_\psi}{(\Delta A)^2_\psi}}_{=1} +
 \underbrace{\frac{\langle \bar{B}^2\rangle_\psi}{(\Delta B)^2_\psi}}_{=1} \mp i \frac{\overbrace{\langle \bar{B}\bar{A}-\bar{A}\bar{B}\rangle_\psi}^{\langle[\bar{B},\bar{A}]\rangle_\psi}}{(\Delta A)_\psi (\Delta B)_\psi}\geq 0\\
 \Rightarrow &2 \geq\mp i\frac{\langle [\bar{A},\bar{B}]\rangle_\psi}{(\Delta A)_\psi (\Delta B)_\psi} \Rightarrow (\Delta A)_\psi(\Delta B)_\psi\geq\mp\frac{i}{2}\langle [\bar{A},\bar{B}]\rangle_\psi
@@ -324,7 +324,7 @@ In (a) si è usata la commutatività, e in $(b)$ il fatto che $\ket{\phi_n}$ sia
 Ciò suggerisce che vi sia una base comune ad entrambi gli operatori: costruiamola.\\
 Iniziamo notando che, poiché l'autospazio $\hs_{\lambda_n}$ è ortogonale a $\hs_{\lambda_n'}$ perché $\lambda_n\neq \lambda_{n'}$ (autospazi di autovalori distinti), si ha che:
 \[
-\bra{\underbrace{\phi_{n'}}_{\in \hs_{\lambda_{n'}}}}\underbrace{B \ket{\phi_n}}_{\in \hs_{\lambda_n}}=0 \quad \lambda_n \neq \lambda_{n'}
+\underbrace{\bra{\phi_{n'}}}_{\in \hs_{\lambda_{n'}}}\underbrace{B \ket{\phi_n}}_{\in \hs_{\lambda_n}}=0 \quad \lambda_n \neq \lambda_{n'}
 \]
 Consideriamo ora una base $\ket{\phi_n}$ di autovettori di $A$. Tale base esiste per teorema spettrale, dato che:
 \[

@@ -2,12 +2,7 @@
 
 \begin{document}
 
-\section{Lezione ?:\\ \large{Esercizio momento angolare}}
-\vspace{-1em}
-\begin{center}
-    \small{(29/11/2018)}
-\end{center}
-
+\begin{comment}
 Eravamo arrivati a:
 \[
 \underbrace{\hs_{j_1} \otimes \hs_{j_2}}_{\ket{j_1, j_2, m_1, m_2}} = \underbrace{\bigoplus_{j=|j_1-j_2|}^{j_1+j_2}\hs_j}_{\ket{J, M}}
@@ -30,17 +25,18 @@ con la convenzione:
 \[
 \braket{j_1, j_2, j_1, j-j_1|j,j}\geq 0
 \]
+\end{comment}
 
-\subsection{Problema}
-Una particella con spin $1/2$ ha funzione d'onda la cui parte spaziale in $\bb{R}^3$ è data da:
+\section{Esercizio \theEsercizio}\index{Esercizio!Composizione di momenti}
+Una particella con spin $s=\frac{1}{2}$ è descritta, per la componente spaziale in $\bb{R}^3$, dalla funzione d'onda $\psi(\vec{r})$:
 \[
-\psi(\vec{x})=xe^{-a|\vec{x}|}\quad a>0 \text{ cost.}
+\psi(\vec{r})=xe^{-a|\vec{r}|}\quad a>0 \text{ cost.}
 \]
 \begin{enumerate}
 \item Si determinino i possibili risultati e le relative probabilità di una misura di $L_3$
-\item Si assuma che la componente di spin lungo $\hat{z}$ sia $\hbar/2$. Si calcolino le probabilità che una misura di $J_3 = L_3 + S_3$ dia come risultato $0$ o $3\hbar/2$
-\item Si calcoli la probabilità che una misura congiunta di $\vec{J^2}$ e $J_3$ dia come risultato $(3\hbar/4, -\hbar/2)$
-\item Supponendo che la misura del punto $3$ sia stata eseguita con i risultati indicati, una successiva misura di $S_3$ a $t=0$ dà il valore $-\hbar/2$. Se l'Hamiltoniana è:
+\item Si assuma che la componente di spin lungo $\hat{z}$ sia $m_s=\hbar/2$. Si calcolino le probabilità che una misura di $J_3 = L_3 + S_3$ dia come risultato $0$ o $3\hbar/2$.
+\item Si calcoli la probabilità che una misura congiunta di $\vec{J^2}$ e $J_3$ dia come risultato $(3\hbar/4, -\hbar/2)$.
+\item Supponendo che la misura del punto $3$ sia stata eseguita con i risultati indicati, una successiva misura di $S_3$ a $t=0$ dà il valore $m_s=-\hbar/2$. Se l'Hamiltoniana è:
 \[
 H=c\vec{L}\cdot \vec{S} \qquad c \neq 0\text{ cost.}
 \]
@@ -49,199 +45,226 @@ si determini l'evoluto temporale dello stato a $t>0$.
 
 \subsection{Soluzione}
 \begin{enumerate}
-\item Scriviamo la funzione d'onda in coordinate polari, sostituendo $x=r\sin\theta\cos\varphi$. Ricordando la forma delle armoniche sferiche:
+\item Poiché abbiamo a che fare con gli operatori del momento angolare $\vec{L}^{\,2}$ e $L_3$, conviene riscrivere la $\psi(\vec{r})$ come combinazione lineare degli autoket comuni a $\vec{L}^{\,2}$ e $L_3$, ossia come combinazione delle \textit{armoniche sferiche}, che hanno la forma:
 \[
 Y^m_l(\theta,\varphi)=\sqrt{\frac{2l+1}{4\pi}}\sqrt{\frac{(l+|m|)!}{(l-|m|)!}}\frac{1}{2^l l!} \frac{1}{\sin\theta^{|m|}}\frac{\partial^{l-|m|}}{\partial \cos\theta^{l-|m|}}(\sin\theta)^{2l} e^{im\varphi}(\op{sgn} m)^{m}(-1)^l
 \]
-Da:
+Partiamo passando in coordinate sferiche, notando che $e^{-a|\vec{r}|}$ ha già simmetria sferica, e infatti diviene $e^{-ar}$, mentre per il resto usiamo $x=r\sin\theta\cos\varphi$, giungendo a:
+\begin{align*}
+\psi(r, \theta,\varphi) = r\sin\theta \cos\varphi e^{-ar}
+\end{align*}
+Notiamo poi che possiamo riscrivere:
 \[
-x=r\sin\theta\cos\varphi= r\sin\theta \frac{e^{i\varphi}-e^{-i\varphi}}{2}
+x=r\sin\theta\cos\varphi= r\sin\theta \frac{e^{i\varphi}+e^{-i\varphi}}{2}
 \]
-Basta srivere le armoniche con $|m|=1$ e $l=1$:
+come combinazione delle armoniche con $l=1$ e $m=\pm 1$:
 \begin{align*}
 Y^1_1 &= \sqrt{\frac{3}{4\pi}}\sqrt{2!}\frac{1}{2}\sin\theta e^{i\varphi}(-1)=-\sqrt{\frac{3}{8\pi}}\sin\theta e^{i\varphi}\\
-Y^{-1}_1 &= \sqrt{\frac{3}{8\pi}} \sin\theta e^{i\varphi}
+Y^{-1}_1 &= \sqrt{\frac{3}{8\pi}} \sin\theta e^{-i\varphi}
 \end{align*}
 Perciò possiamo riscrivere la funzione d'onda in termini di armoniche sferiche:
 \[
-\psi(\vec{x})=x e^{-a|\vec{x}|}=-r e^{-ar}(Y_1^1 - Y^{-1}_1)
+\psi(\vec{x})=x e^{-a|\vec{x}|}\propto-r e^{-ar}(Y_1^1 - Y^{-1}_1)
 \]
 Poiché $m=\pm 1$, i possibili valori ottenuti da una misura di $L_3$ sono $\pm\hbar$. Il fatto che abbiano coefficienti uguali significa che i due sono equiprobabili, e quindi:
 \[
 W_\psi^{L_3}(\pm \hbar) = \frac{1}{2}
 \]
-\item $\displaystyle \underbrace{\hs_{l}\otimes \hs_s}_{\ket{l,s,m,s_3}} = \underbrace{\bigoplus_{J=|l-s|}^{l+s}\hs_J}_{\ket{J, M}}$
-Riscriviamo allora:
+\item Per determinare le probabilità di una misura di $\vec{J}$ o $J_3$, è necessario spostarsi dalla base $\ket{l, s; m, m_s}$ a quella $\ket{J,M}$:
+\begin{align*}
+\displaystyle \underbrace{\hs_{l}\otimes \hs_s}_{\ket{l,s,m,m_s}} = \underbrace{\bigoplus_{J=|l-s|}^{l+s}\hs_J}_{\ket{J, M}}
+\end{align*}
+Partiamo riscrivendo lo stato $\ket{\psi}$ iniziale in notazione di Dirac, ricordando che dai dati del problema $l=1$, $s=\frac{1}{2}$, $m=\pm 1$, $m_s=\frac{1}{2}$. Trascuriamo, inoltre, la componente radiale, dato che non modifica in alcun modo le misure di $\vec{J}$ e $J_3$, e normalizziamo opportunamente lo stato così ottenuto\footnote{Matematicamente, stiamo utilizzando l'isomorfismo $L^2(\bb{R}^3, d^3x)\cong L^2(\bb{R}_+, r^2\,dr)\otimes L^2(S^2, d\Omega = \sin\theta d\theta d\varphi)$ per lavorare solo in $L^2(S^2)$, dove trascuriamo perciò la componente radiale.}:
 \[
 \ket{\psi}=\frac{\ket{1,\frac{1}{2}, 1, \frac{1}{2}}-\ket{1,\frac{1}{2}, -1,\frac{1}{2}}}{\sqrt{2}}
-\] 
-Sappiamo che $M=J, J-1, \dots, -J$. $J$ può assumere valori da $l-s=\frac{1}{2}$ a $l+s=\frac{3}{2}$, ossia solo $\{\frac{1}{2}, \frac{3}{2}\}$. I valori di $M$ sono allora ottenuti da questi sottraendo un intero: notiamo che procedendo in tal modo non è mai possibile ottenere $0$. Perciò:
+\]
+Sappiamo che $M=J, J-1, \dots, -J$, e che $J$ può assumere valori da $l-s=\frac{1}{2}$ a $l+s=\frac{3}{2}$, ossia solo $\{\frac{1}{2}, \frac{3}{2}\}$. I valori di $M$ sono allora ottenuti da questi sottraendo un intero, e sono perciò $\left\{-\frac{3}{2},-\frac{1}{2},+\frac{1}{2},+\frac{3}{2} \right\}$. Notiamo che tra di essi non compare $0$, che perciò non potrà mai essere il risultato di una misura Perciò:
 \[
 W_\psi^{J_3}(0)=0
 \]
 D'altro canto, per la probabilità di ottenere $J_3=\frac{3}{2}$ dobbiamo calcolare:
 \[
-W_\psi^{J_3}(\frac{3}{2}\hbar) = |\braket{\frac{3}{2}, \frac{3}{2}|\psi}|^2
+W_\psi^{J_3}\left(\frac{3}{2}\hbar\right) = \left|\braket{\frac{3}{2}, \frac{3}{2}|\psi}\right|^2
 \]
-Notiamo che $\frac{3}{2}$ è un massimo, e quindi l'unico modo di ottenerlo è scegliendo $l$ e $s$ massimi, ossia rispettivamente pari a $1$ e $1/2$. Scriviamo quindi:
+Ricordando che $J_3=M=m+m_s$, se scriviamo le prime combinazioni:
 \begin{align*}
-|\braket{\frac{3}{2}, \frac{3}{2}|\psi}|^2 &=
-|\braket{1,\frac{1}{2},1,\frac{1}{2}|\psi}|^2 =\\
+\bm{M} && \bm{m} && \bm{m_s}\\
+\frac{3}{2} && \hlc{Yellow}{1} && \hlc{Yellow}{\frac{1}{2}}\\
+\frac{1}{2} && \hlc{ForestGreen}{0} && \hlc{ForestGreen}{\frac{1}{2}}\\
+&& \hlc{ForestGreen}{\frac{1}{2}} && \hlc{ForestGreen}{0}\\
+\vdots && \vdots && \vdots
+\end{align*}
+notiamo che $\frac{3}{2}$ è il \textit{massimo} valore di $J_3$, e quindi l'unico modo di ottenerlo è scegliendo $l$ e $s$ massimi, ossia rispettivamente pari a $1$ e $1/2$ (evidenziati in giallo). Scriviamo quindi:
+\begin{align*}
+W_\psi^{J_3}\left(\frac{3}{2}\hbar\right) &= \left|\braket{\frac{3}{2}, \frac{3}{2}|\psi}\right|^2 =
+\left|\braket{1,\frac{1}{2};1,\frac{1}{2}|\psi}\right|^2 =\\
 &= \left|
-\braket{1,\frac{1}{2},1,\frac{1}{2}|\frac{1}{\sqrt{2}}(\ket{1,\frac{1}{2},1,\frac{1}{2}}-\ket{1,\frac{1}{2},1,-\frac{1}{2}})}
+\braket{1,\frac{1}{2};1,\frac{1}{2}|\frac{1}{\sqrt{2}}\left(\ket{1,\frac{1}{2};1,\frac{1}{2}}-\ket{1,\frac{1}{2};1,-\frac{1}{2}}\right)}
  \right|^2 = \frac{1}{2}
 \end{align*}
-Dato che, scomponendo il braket in due prodotti, il primo è pari a $1/\sqrt{2}$ e il secondo si annulla (e prendendo il modulo quadro si ottiene il risultato).
+Nel svolgere i conti del braket abbiamo utilizzato l'ortonormalità della base $\ket{l,s;m,m_s}$.
 
 \item Vogliamo ora calcolare:
+\begin{align}
+W_\psi^{\vec{J}^2, J_3}\left(\frac{3}{4}\hbar^2, -\frac{\hbar}{2}\right) =\left | \langle{\hlc{Yellow}{\underbrace{\frac{1}{2}}_{J}, \underbrace{-\frac{1}{2}}_{M}}|\psi\rangle}\right|^2
+\label{eqn:probability-angular-3}
+\end{align}
+Dato che $\vec{J}^2$ ha autovalori della forma $\hbar^2 J(J+1)$, da cui abbiamo ricavato:
 \[
-W_\psi^{\vec{J}^2, J_3}\left(\frac{3}{4}\hbar^2, -\frac{\hbar}{2}\right) =\left | \braket{\hlc{Yellow}{\underbrace{\frac{1}{2}}_{J}, \underbrace{-\frac{1}{2}}_{M}}|\psi}\right|^2
+\hbar^2J(J+1)=\frac{3}{4}\hbar^2\Rightarrow J=\frac{1}{2}
 \]
+Poiché $\ket{\psi}$ è scritta nella base $\ket{l,s;m,m_s}$, per svolgere il braket conviene riscrivere anche $\bra{\frac{1}{2},-\frac{1}{2}}$ in questa base. Possiamo farlo per \q{abbassamenti} successivi, partendo da:
 \[
-J(J+1)=\frac{3}{3}\Rightarrow J=\frac{1}{2}
+\ket{\frac{3}{2}, \frac{3}{2}} =\ket{1, \frac{1}{2};1,\frac{1}{2}}
 \]
-(Nei prossimi conti poniamo temporaneamente $\hbar=1$, e lo reintroduciamo alla fine)\\
-Sappiamo che:
+Applicando $J_-$ e utilizzando l'identità (\ref{eqn:abbasso-alto}), che è la forma già semplificata per il caso comune di abbassare un autoket \textit{massimo}:
 \[
-\ket{\frac{3}{2}, \frac{3}{2}} =\ket{1, \frac{1}{2},1,\frac{1}{2}}
+\underbrace{J_- \ket{\frac{3}{2}, \frac{3}{2}}}_{=(J_-^{(1)}+J_-^{(2)})\ket{1,\frac{1}{2},1,\frac{1}{2}}} = \sqrt{2\left(1+\frac{1}{2}\right)}\ket{\frac{3}{2},\frac{1}{2}} = \hlc{SkyBlue}{\sqrt{3}\ket{\frac{3}{2},\frac{1}{2}}}
 \]
-\q{Abbassiamo} tale autovettore applicando $J_-$:
-\[
-\underbrace{J_- \ket{\frac{3}{2}, \frac{3}{2}}}_{=(J_-^{(1)}+J_-^{(2)})\ket{1,\frac{1}{2},1,\frac{1}{2}}} = \sqrt{\frac{3}{2}\left(\frac{3}{2}-1\right)-\frac{3}{2}\left(\frac{3}{2}-1 \right)}\ket{\frac{3}{2},\frac{1}{2}} = \hlc{SkyBlue}{\sqrt{3}\ket{\frac{3}{2},\frac{1}{2}}}
-\]
-Svolgendo allora i conti:
 \begin{align*}
-(J_-^{(1)} +J_-^{(2)})\ket{1,\frac{1}{2},1,\frac{1}{2}} &= \sqrt{1(1+1)-1(1-1)}\ket{1,\frac{1}{2},0,\frac{1}{2}} + \sqrt{\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(-\frac{1}{2})}\ket{1,\frac{1}{2},1,-\frac{1}{2}}=\\
-&=\hlc{SkyBlue}{ \sqrt{2}\ket{1,\frac{1}{2},0,\frac{1}{2}}+\ket{1,\frac{1}{2},1, -\frac{1}{2}}}
+(J_-^{(1)} +J_-^{(2)})\ket{1,\frac{1}{2};1,\frac{1}{2}} &= \sqrt{2\cdot 1}\ket{1,\frac{1}{2};0,\frac{1}{2}} + \sqrt{2\cdot \frac{1}{2}}\ket{1,\frac{1}{2};1,-\frac{1}{2}}=\\
+&=\hlc{SkyBlue}{ \sqrt{2}\ket{1,\frac{1}{2};0,\frac{1}{2}}+\ket{1,\frac{1}{2};1, -\frac{1}{2}}}
 \end{align*}
-Tuttavia noi vogliamo \q{scendere} al termine evidenziato in giallo di sopra, ma ora siamo arrivati solo al termine azzurro.\\
-La strategia è ora quella di utilizzare l'ortogonalità nel seguente modo:
-\[
-\ket{\frac{3}{2}, \frac{3}{2}} \xrightarrow{J_-} \ket{\frac{3}{2},\frac{1}{2}} \perp \ket{\frac{1}{2},\frac{1}{2}} \xrightarrow{J_-} \ket{\frac{1}{2},-\frac{1}{2}}
-\]
 Dall'uguaglianza dei due termini azzurri ricaviamo:
-\[
-\ket{\frac{3}{2},\frac{1}{2}}=\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},0,\frac{1}{2}} +\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},1,-\frac{1}{2}}
-\]
+\begin{align}
+\ket{\frac{3}{2},\frac{1}{2}}=\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2};0,\frac{1}{2}} +\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2};1,-\frac{1}{2}}
+\label{eqn:tremezzi}
+\end{align}
+Vogliamo ora scendere ulteriormente, per arrivare a $\ket{\frac{1}{2},-\frac{1}{2}}$. Per farlo, dovremo anche abbassare l'autovalore di $J$, per cui usiamo l'ortogonalità:
+\begin{align*}
+\braket{j_1+j_2, j_1+j_2-1| j_1 + j_2-1, j_1+j_2-1} = 0 \Rightarrow \ket{\frac{3}{2},\frac{1}{2}} \perp \ket{\frac{1}{2},\frac{1}{2}}
+\end{align*}
+Notiamo che quest'ultimo autoket può essere combinazione solo di due $\ket{l,s; m, m_s}$, come si può notare dalle prime combinazioni di $M=m+m_s$ scritte sopra, di cui stavolta ci interessano solo i termini evidenziati in azzurro.
+
 Scriviamo allora il nostro obiettivo $\ket{\frac{1}{2},\frac{1}{2}}$ come combinazione lineare di questi autostati:
 \[
 \ket{\frac{1}{2},\frac{1}{2}}=c_1\ket{1,\frac{1}{2},0,\frac{1}{2}}+c_2\ket{1,\frac{1}{2},1,-\frac{1}{2}}
 \]
-E dall'ortogonalità:
-\[
-0=\braket{\frac{1}{2},\frac{1}{2}|\frac{3}{2},\frac{1}{2}} = c_1 \ket{1,\frac{1}{2},0,\frac{1}{2}} + c_2\ket{1,\frac{1}{2},1,-\frac{1}{2}}
-\]
-
-Applicando allora la condizione:
-\[
-\braket{j_1+j_2, j_1+j_2-1| j_1 + j_2-1, j_1+j_2-1} = 0
-\]
-Perciò (*):
+Calcolando allora il prodotto scalare con (\ref{eqn:tremezzi}) (sfruttando l'ortonormalità dei $\ket{l,s;m,m_s}$) e imponendo che il risultato sia nullo per l'ortogonalità:
 \begin{align*}
-0 = \braket{\frac{1}{2},\frac{1}{2}|\frac{3}{2},\frac{1}{2}} = c_1 \sqrt{\frac{2}{3}}+\frac{c_2}{\sqrt{3}}
+0 \overset{!}{=} \braket{\frac{1}{2},\frac{1}{2}|\frac{3}{2},\frac{1}{2}}
+= c_1 \sqrt{\frac{2}{3}}+\frac{c_2}{\sqrt{3}}
 \end{align*}
-Per la convenzione:
+E per la normalizzazione si deve avere $c_1^2 + c_2^2 =1$, con $c_2>0$ per la convenzione:
 \[
-\braket{j_1, j_2, j_1, j-j_1 | j, j} \geq 0
+\braket{j_1, j_2, j_1, j-j_1 | j, j} \geq 0 \Rightarrow c_2 = \braket{\frac{1}{2},\frac{1}{2}|1,\frac{1}{2},1,-\frac{1}{2}} > 0
 \]
-Si ha che:
-\[
-\braket{\frac{1}{2},\frac{1}{2}|1,\frac{1}{2},1,-\frac{1}{2}} > 0
-\]
-e quindi $c_2 > 0$. Ma allora due $c_1$, $c_2$ che soddisfano l'ortogonalità (*) e la convenzione di $c_2 > 0$ sono proprio:
+In questo caso il modo più rapido per trovare $c_1$ e $c_2$ è utilizzare il fatto di algebra lineare per cui dato un vettore $(a, b)$, i vettori perpendicolari \textit{con la stessa norma} sono $(-b, a)$ o $(b,-a)$. Possiamo allora partire da (\ref{eqn:tremezzi}) e da $(\sqrt{\frac{2}{3}},\frac{1}{\sqrt{3}})$ e trovare $(c_1, c_2)$ seguendo lo schema $(-b, a)$, che rispetta la convenzione di $c_2>0$:
 \[
 c_1 = -\sqrt{\frac{1}{3}}; \quad c_2 = \sqrt{\frac{2}{3}}
 \]
 Riepilogando, abbiamo ottenuto:
+\begin{align}\nonumber
+\ket{\frac{3}{2},\frac{3}{2}} &= \ket{1,\frac{1}{2};1,\frac{1}{2}}\\ \nonumber
+\ket{\frac{3}{2},\frac{1}{2}} &= \sqrt{\frac{2}{3}}\ket{1,\frac{1}{2};0,\frac{1}{2}}+\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2};1,-\frac{1}{2}}\\
+\ket{\frac{1}{2},\frac{1}{2}} &= \hlc{Yellow}{-\frac{1}{\sqrt{3}}}\ket{1,\frac{1}{2};0,\frac{1}{2}}+\hlc{Yellow}{\sqrt{\frac{2}{3}}}\ket{1,\frac{1}{2};1,-\frac{1}{2}}
+\label{eqn:unmezzo}
+\end{align}
+Per ottenere $\ket{\frac{1}{2},-\frac{1}{2}}$ basta abbassare $\ket{\frac{1}{2},\frac{1}{2}}$ mediante $J_-$. Utilizziamo allora la formula (\ref{eqn:ricorsione_generale}), con $j=\frac{1}{2}$ e $m=\frac{1}{2}$. Il membro di sinistra diviene: 
 \begin{align*}
-\ket{\frac{3}{2},\frac{3}{2}} &= \ket{1,\frac{1}{2},1,\frac{1}{2}}\\
-\ket{\frac{3}{2},\frac{1}{2}} &= \sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},0,\frac{1}{2}}+\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},1,-\frac{1}{2}}\\
-\ket{\frac{1}{2},\frac{1}{2}} &= -\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,\frac{1}{2}}+\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},1,-\frac{1}{2}}
+J_- \ket{\frac{1}{2},\frac{1}{2}}&= \sqrt{j(j+1)-m(m-1)}\ket{j,m-1}=\\
+&=\sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)-\frac{1}{2}\left(\frac{1}{2}-1\right)} \ket{\frac{1}{2},-\frac{1}{2}}=\hlc{ForestGreen}{\ket{\frac{1}{2},-\frac{1}{2}}}
 \end{align*}
-Per ottenere $\ket{\frac{1}{2},-\frac{1}{2}}$ basta abbassare di $1$:
+Mentre quello di destra è dato da:
+\begin{align*}
+\sum_{m_1' = -j_1}^{+j_1} \sum_{m_2' = -j_2}^{+j_2} \braket{j_1, j_2; m_1', m_2'|j,m} \Big ( \sqrt{j_1(j_1+1)-m_1'(m_1'-1)} \ket{j_1, j_2; m_1'-1, m_2'} +\\
++\sqrt{j_2(j_2+1)-m_2'(m_2'-1)}\ket{j_1, j_2; m_1', m_2'-1} \Big)
+\end{align*}
+dove $j_1 = l = 1$, $j_2 = s = \frac{1}{2}$, $j=m=\frac{1}{2}$, e $\braket{j_1, j_2; m_1', m_2'|j,m}$ sono i coefficienti evidenziati in giallo in (\ref{eqn:unmezzo}), e sono non nulli solo per $(m_1', m_2') = (0,\frac{1}{2}), (1,-\frac{1}{2})$. Svolgendo allora i conti otteniamo:
+\begin{align} \nonumber
+&\left(-\frac{1}{\sqrt{3}}\right)\left[\sqrt{1(1+1)-0\left(0-\frac{1}{2}\right)}\ket{1,\frac{1}{2};-1,\frac{1}{2}}+ \sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)-\frac{1}{2}\left(\frac{1}{2}-1\right)}\ket{1,\frac{1}{2};0,-\frac{1}{2}} \right] +\\ \nonumber
++&\left(\sqrt{\frac{2}{3}}\right)\left[\sqrt{1(1+1)-1(1-1)} \ket{1,\frac{1}{2};0,-\frac{1}{2}}+\sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)-\left(-\frac{1}{2}\right)\left( -\frac{1}{2}-1\right)}\ket{1,\frac{1}{2};1,-\frac{3}{2}} \right]=\\ \nonumber
+=&
+-\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2};-1,\frac{1}{2}} -\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2};0,-\frac{1}{2}} + \frac{2}{\sqrt{3}}\ket{1,\frac{1}{2};0,-\frac{1}{2}}=\\ \label{eqn:ket-finale}
+=& -\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2};-1,\frac{1}{2}}+\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2};0,-\frac{1}{2}} = \hlc{ForestGreen}{\ket{\frac{1}{2},-\frac{1}{2}}}
+\end{align}
+\textbf{Nota}: dato che $\ket{1,\frac{1}{2};1,-\frac{1}{2}}$ ha già lo spin minimo, non è possibile abbassarlo ulteriormente, e infatti il coefficiente di $\ket{1,\frac{1}{2};1,-\frac{3}{2}}$ risulta nullo.\\
+
+\textbf{Riepilogando}, per ottenere $\ket{\frac{1}{2},-\frac{1}{2}}$ abbiamo usato questa strategia:
 \[
-J_- \ket{\frac{1}{2},\frac{1}{2}}=\sqrt{\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(\frac{1}{2}-1)} \ket{\frac{1}{2},-\frac{1}{2}}
+\ket{\frac{3}{2}, \frac{3}{2}} \xrightarrow{J_-} \ket{\frac{3}{2},\frac{1}{2}} \perp \ket{\frac{1}{2},\frac{1}{2}} \xrightarrow{J_-} \ket{\frac{1}{2},-\frac{1}{2}}
 \]
-che è anche $=$, per le regole viste prima, all'applicazione di $(J_-^{(1)}+J_-^{(2)})$ al rispettivo autostato, che conduce ai conti:
+
+Usando il risultato ottenuto in (\ref{eqn:ket-finale}), possiamo allora finalmente calcolare il braket in (\ref{eqn:probability-angular-3}),  e quindi la probabilità cercata:
 \begin{align*}
-&= (-\frac{1}{\sqrt{3}})\sqrt{1(1+1)-0}\ket{1,\frac{1}{2},-1,\frac{1}{2}} + (-\frac{1}{\sqrt{3}})\sqrt{\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(-\frac{1}{2})}\ket{1,\frac{1}{2},0,-\frac{1}{2}}+\\
-&+ \sqrt{\frac{2}{3}}\sqrt{1(1+1)-1(1-1)}\ket{1,\frac{1}{2},0,-\frac{1}{2}} + 0
-\end{align*}
-(dato che l'ultimo autovettore è già il minimo, e non si può abbassare ulteriormente).\\
-Svolgendo i calcoli:
-\begin{align*}
-&=
--\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},-1,\frac{1}{2}} -\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}} + \frac{2}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}} =\\
-&=\ket{\frac{1}{2},-\frac{1}{2}} = \frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}-\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},-1,\frac{1}{2}}
-\end{align*}
-Possiamo allora calcolare, finalmente, la probabilità cercata:
-\begin{align*}
-\left|\bra{\frac{1}{2},-\frac{1}{2}}\frac{1}{\sqrt{2}}(\ket{1,\frac{1}{2},-1,\frac{1}{2}}-\ket{1,\frac{1}{2},1,\frac{1}{2}})\right|^2 =
+W_\psi^{\vec{J}^2, J_3}\left(\frac{3}{4}\hbar^2, -\frac{\hbar}{2}\right)  =\left|\bra{\frac{1}{2},-\frac{1}{2}}\frac{1}{\sqrt{2}}\left(\ket{1,\frac{1}{2},-1,\frac{1}{2}}-\ket{1,\frac{1}{2},1,\frac{1}{2}}\right)\right|^2 =
 \left|\sqrt{\frac{2}{3}}\frac{1}{\sqrt{2}} \right|^2=\frac{1}{3}
 \end{align*}
-Da cui:
+\item La misura di $\vec{J}^{\,2}$ e $J_3$, di risultato $\left(\frac{3\hbar^2}{4},-\frac{\hbar}{2}\right)$, proietta lo stato del sistema sull'autoket $\ket{\frac{1}{2},-\frac{1}{2}}$, che abbiamo già determinato al punto precedente:
+\begin{align}
+\ket{\frac{1}{2},-\frac{1}{2}}=\underbrace{\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}}_{m_s=-1/2}-\sqrt{\frac{2}{3}}\underbrace{\ket{1,\frac{1}{2},-1, \frac{1}{2}}}_{m_s \neq -1/2}
+\label{eqn:autoket-angolare_misura}
+\end{align}
+In questo stato misuriamo $S_3$, ottenendo $-\frac{\hbar}{2}$, ossia $m_s = -\frac{1}{2}$. Ciò fa sì che tutti i termini di (\ref{eqn:autoket-angolare_misura}) che non sono compatibili con tale risultato svaniscano, e perciò il nuovo stato $\ket{\psi(0^+)}$ conterrà solo i rimanenti:
 \[
-W_\psi^{\vec{J}^2,J_3}(\hbar^2\frac{3}{4},-\frac{\hbar}{2})=\frac{1}{3}
+\ket{\psi(0^+)}=\ket{1,\frac{1}{2};0,-\frac{1}{2}}
 \]
-\item Dopo la misura di $\vec{J}^2$ e $J_3$ misuriamo $S_3$ e otteniamo $-\hbar/2$.\\ Ciò proietta lo stato $\ket{\frac{1}{2},-\frac{1}{2}}$
-\[
-\ket{\frac{1}{2},-\frac{1}{2}}=\underbrace{\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}}_{s_3=-1/2}-\sqrt{\frac{2}{3}}\underbrace{\ket{1,\frac{1}{2},-1, \frac{1}{2}}}_{s_3 \neq -1/2}
-\]
-Dopo la misura di $S_3$ \textit{eliminiamo} la seconda componente (che non è compatibile con la misura effettuata), e quindi il nuovo stato sarà:
-\[
-\ket{1,\frac{1}{2},0,-\frac{1}{2}}=\ket{\psi(0^+)}
-\]
+Vogliamo ora calcolare l'evoluto temporale $\ket{\psi(t)}$:
+\begin{align}
+\ket{\psi(t)}=\exp\left(-\frac{i}{\hbar}tH\right)\ket{\psi(0^+)}
+\label{eqn:evoluto-temporale-angolare}
+\end{align}
 Partiamo allora dall'espressione dell'Hamiltoniana:
 \[
 H=c\vec{L}\cdot \vec{S}
 \]
-Sappiamo che:
+In questa forma, non sappiamo ricavare direttamente lo spettro di $\sigma(\vec{L}\cdot \vec{S})$, per cui risulterebbe difficile riscrivere $\ket{\psi(0^+)}$ come combinazione di autostati di $H$. Notiamo però che possiamo riscrivere tale $H$ in funzione di operatori \q{che sappiamo gestire}.\\
+Sappiamo infatti che:
 \[
 \vec{J}=\vec{L}+\vec{S} = \vec{L}\otimes \bb{I} + \bb{I}\otimes \vec{S}
 \]
-e $[\vec{L},\vec{S}]=0$. Scriviamo:
+e $[\vec{L},\vec{S}]=0$. Allora possiamo elevare al quadrato \q{senza problemi}:
 \[
-\vec{J}^2 = \vec{L}^2 + \vec{S}^2 + 2\vec{L}\cdot \vec{S} \Rightarrow  \vec{L}\cdot\vec{S} = \frac{1}{2}\left(\vec{J}^2 - \vec{L}^2 -\vec{S}^2 \right)
+\vec{J}^{\,2} = \vec{L}^{2} + \vec{S}^2 + 2\vec{L}\cdot \vec{S} \Rightarrow  \vec{L}\cdot\vec{S} = \frac{1}{2}\left(\vec{J}^2 - \vec{L}^2 -\vec{S}^2 \right)
 \]
-
-Riscrivendo allora lo stato come:
+E quindi otteniamo:
 \begin{align*}
-\ket{1,\frac{1}{2},0,-\frac{1}{2}}=\sum_{J=\frac{1}{2}}^{\frac{3}{2}} \sum_{M=-J}^{J} \braket{J,M|1,\frac{1}{2},0,-\frac{1}{2}} \ket{J,M}
+H=\frac{c}{2}(\vec{J}^{\,2}-\vec{L}^2 - \vec{S}^2)
 \end{align*}
-Dato che $M=0+(-\frac{1}{2})=-\frac{1}{2}$ si ha che gli unici termini che contribuiscono alla sommatoria sono $\ket{\frac{3}{2},-\frac{1}{2}}$ e $\ket{\frac{1}{2},-\frac{1}{2}}$. Quest'ultimo l'abbiamo già ricavato:
+Vogliamo inoltre che $\ket{\psi(0^+)}$ sia scritta come combinazione di autoket di $H$, ossia di autoket comuni a $\vec{J}^{\,2}$, $\vec{L}^2$, $\vec{S}^2$. Attualmente $\ket{\psi(0^+)}$ è però scritta nella base $\ket{l,s;m, m_s}$, che è fatta di autoket di $\vec{L}^2$ e $\vec{S}^2$, ma non di $\vec{J}^2$. Dobbiamo allora passare in base $\ket{l,s; J, M}$ riscrivendo $\ket{\psi(0^+)}$ come:
+\begin{align}
+\ket{1,\frac{1}{2},0,-\frac{1}{2}}=\sum_{J=\frac{1}{2}}^{\frac{3}{2}} \sum_{M=-J}^{J} \braket{J,M|1,\frac{1}{2},0,-\frac{1}{2}} \ket{J,M}
+\label{eqn:cambio-base-JM}
+\end{align}
+I coefficienti di Clebsh-Gordan sono non nulli solo per $M=m+m_s=0+(-\frac{1}{2})=-\frac{1}{2}$ e perciò gli unici termini che contribuiscono alla sommatoria sono $\ket{\frac{3}{2},-\frac{1}{2}}$ e $\ket{\frac{1}{2},-\frac{1}{2}}$. Quest'ultimo l'abbiamo già ricavato:
 \[
 \ket{\frac{1}{2},-\frac{1}{2}}=-\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},-1,\frac{1}{2}} + \frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}
 \]
-E ci serve ricavare il primo. Ragionando come prima, possiamo per esempio abbassare $\ket{\frac{3}{2}, \frac{1}{2}}$ che già conosciamo:
+E ci manca solo ricavare il primo. Ragionando come prima, possiamo per esempio abbassare $\ket{\frac{3}{2}, \frac{1}{2}}$ che già conosciamo:
 \begin{align*}
 J_- \ket{\frac{3}{2},\frac{1}{2}}&=\sqrt{\frac{3}{2}\left(\frac{3}{2}+1\right)-\frac{1}{2}\left(-\frac{1}{2}\right)}\ket{\frac{3}{2},-\frac{1}{2}} =\\
 &=(L_- + S_-)\left(\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},0,\frac{1}{2}} +\frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},1,-\frac{1}{2}}\right)=\\
-&=\sqrt{\frac{2}{3}}\sqrt{1(1+1)+0}\ket{1,\frac{1}{2},-1,\frac{1}{2}}+\sqrt{\frac{2}{3}}\ket{\frac{1}{2}(\frac{1}{2}+1)-\frac{1}{2}(-\frac{1}{2})}\ket{1,\frac{1}{2},0,-\frac{1}{2}}+\\
-&+\frac{1}{\sqrt{3}} \sqrt{1(1+1)-1(1-1)}\ket{1,\frac{1}{2},0,-\frac{1}{2}}=
-\\
-\ket{\frac{3}{2},-\frac{1}{2}} &= \frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},-1,\frac{1}{2}}+\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}
+&=\sqrt{\frac{2}{3}}\left[\sqrt{1(1+1)+0}\ket{1,\frac{1}{2},-1,\frac{1}{2}}+\sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)-\frac{1}{2}\left(-\frac{1}{2}\right)}\ket{1,\frac{1}{2},0,-\frac{1}{2}}\right]+\\
+&+\frac{1}{\sqrt{3}}\left[ \sqrt{1(1+1)-1(1-1)}\ket{1,\frac{1}{2},0,-\frac{1}{2}} + 0 \right]\\
+\Rightarrow \ket{\frac{3}{2},-\frac{1}{2}} &= \frac{1}{\sqrt{3}}\ket{1,\frac{1}{2},-1,\frac{1}{2}}+\sqrt{\frac{2}{3}}\ket{1,\frac{1}{2},0,-\frac{1}{2}}
 \end{align*}
-E quindi:
+Sostituendo in (\ref{eqn:cambio-base-JM}) e calcolando, otteniamo:
 \begin{align*}
 \ket{1,\frac{1}{2},0,-\frac{1}{2}} &= \braket{\frac{3}{2},-\frac{1}{2}|1,\frac{1}{2},0,-\frac{1 }{2}}\ket{\frac{3}{2},-\frac{1}{2}}+ \braket{\frac{1}{2},-\frac{1}{2}|1,\frac{1}{2},0,-\frac{1}{2}}\ket{\frac{1}{2},-\frac{1}{2}}=\\
 &=\sqrt{\frac{2}{3}}\ket{\frac{3}{2},-\frac{1}{2}} +\frac{1}{\sqrt{3}}\ket{\frac{1}{2},-\frac{1}{2}}
 \end{align*}
-Finalmente possiamo usare autostati di $H$:
+Detti $\ket{\varphi_n} = \ket{J,M}$ gli autostati di $H$, possiamo espandere la (\ref{eqn:evoluto-temporale-angolare}) come:
+\begin{align*}
+\ket{\psi(t)} = \sum_n \exp\left(-\frac{i}{\hbar}\mathcal{E}_n(t-t_0) \right) \ket{\varphi_n} \braket{\varphi_n| \psi(0^+)}
+\end{align*} 
+Calcoliamo gli $\mathcal{E}_n$ dalle equazioni agli autovalori:
 \begin{align*}
 H\ket{\frac{3}{2},-\frac{1}{2}}&=\frac{c}{2}(\vec{J}^2-\overbrace{\vec{L}^2}^{1}-\overbrace{\vec{S}^2}^{1/2})\ket{\frac{3}{2},-\frac{1}{2}}=\\
 &= \frac{c}{2}\hbar^2 \left[\frac{3}{2}\left(\frac{3}{2}+1\right)-1(1+1)-\frac{1}{2}\left(\frac{1}{2}+1\right)\right]\ket{\frac{3}{2},-\frac{1}{2}}=\\
-&=\frac{c}{2}\hbar^2\ket{\frac{3}{2},-\frac{1}{2}}
+&=\frac{c}{2}\hbar^2\ket{\frac{3}{2},-\frac{1}{2}} \Rightarrow  \mathcal{E}_1 =\frac{c}{2}\hbar^2
 \end{align*}
 
 \begin{align*}
 H\ket{\frac{1}{2},-\frac{1}{2}}&=\frac{c}{2}\hbar^2\left[\frac{1}{2}\left(\frac{1}{2}+1\right)-1(1+1)-\frac{1}{2}\left(\frac{1}{2}+1\right)\right]\ket{1,-\frac{1}{2}}=\\
-&=-c\hbar^2 \ket{\frac{1}{2},-\frac{1}{2}}
+&=-c\hbar^2 \ket{\frac{1}{2},-\frac{1}{2}} \Rightarrow \mathcal{E}_2=-c\hbar^2
 \end{align*}
 E infine:
 \begin{align*}
-\ket{\psi(t)}=\exp\left(-i\frac{t}{\hbar}H\right) \ket{1,\frac{1}{2},0,-\frac{1}{2}} = \exp\left(-\frac{itH}{\hbar}\right) \left(\sqrt{\frac{2}{3}}\ket{\frac{3}{2},-\frac{1}{2}}+\frac{1}{\sqrt{3}}\ket{\frac{1}{2},-\frac{1}{2}}\right)
+\ket{\psi(t)}&=\exp\left(-i\frac{t}{\hbar}H\right) \ket{1,\frac{1}{2},0,-\frac{1}{2}} =\\
+&= \exp\left(-\frac{i}{\hbar}\mathcal{E}_1 t\right)\sqrt{\frac{2}{3}}\ket{\frac{3}{2},-\frac{1}{2}}+
+\exp\left(-\frac{i}{\hbar}\mathcal{E}_2 t \right)\frac{1}{\sqrt{3}}\ket{\frac{1}{2},-\frac{1}{2}}\\
 \end{align*}
-Reintroducendo il termine radiale:
+Inserendo allora i valori di $\mathcal{E}_1$ e $\mathcal{E}_2$ e reintroducendo il termine radiale, otteniamo infine:
 \begin{align*}
 \ket{\psi(t)}=-r e^{-ar} \left[\exp\left(-i\frac{c}{2}\hbar t\right) \sqrt{\frac{2}{3}}\ket{\frac{3}{2},-\frac{1}{2}}+e^{ic\hbar t}\ket{\frac{1}{2},-\frac{1}{2}}\right]
 \end{align*}
