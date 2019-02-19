@@ -45,12 +45,13 @@ Valgono allora i seguenti \textbf{isomorfismi} (che esaminiamo senza dimostrare)
 $\displaystyle
 L^2(\bb{R}^n, d^nx) \otimes L^2(\bb{R}^m,d^my) \cong L^2(\bb{R}^{n+m}, d^n x\,d^m y)
 $\\
-Cioè, prendendo un $\phi_n(x)\in L^2(\bb{R}^n,d^n x)$ e un $\psi_m(y) \in L^2(\bb{R}^n, d^n x)$, costruiamo un $U(x,y) \in L^2(\bb{R}^{n+m}, d^nx\, d^my)$ in questo modo:
-\[
-U: \phi_n(x) \otimes \psi_m(y) \mapsto \phi_n(x)\psi_m(y)
-\]
-dove $x$ è un vettore $n$-dimensionale e $y$ un vettore $m$-dimensionale, e $\phi_n$, $\psi_m$ sono funzioni (modulo quadro integrabili) di questi vettori.\\
-Per definire $U$ basta specificare cosa fa se applicata ai vettori $\{v_i\}$ e $\{w_i\}$ delle basi di $L^2(\bb{R}^n)$ e $L^2(\bb{R}^m)$, e poi \textbf{estendere per linearità}.\\
+Cioè, prendendo un $\phi_n(x)\in L^2(\bb{R}^n,d^n x)$ e un $\psi_m(y) \in L^2(\bb{R}^n, d^n x)$, costruiamo un isomorfismo tra gli spazi sopra considerati tramite: 
+\begin{align}
+    U(x,y) &\in L^2(\bb{R}^{n+m}, d^nx\, d^my)\\
+    U: &\phi_n(x) \otimes \psi_m(y) \mapsto \phi_n(x)\psi_m(y)
+\end{align}
+dove $x$ è un vettore $n$-dimensionale e $y$ un vettore $m$-dimensionale, e $\phi_n$, $\psi_m$ sono funzioni (modulo quadro integrabili) di questi vettori, estendendo poi per linearità a combinazioni lineari finite e poi per continuità agli interi spazi.\\
+Alternativamente, per definire $U$ basta specificare cosa fa se applicata ai vettori $\{v_i\}$ e $\{w_i\}$ delle basi di $L^2(\bb{R}^n)$ e $L^2(\bb{R}^m)$, e poi \textbf{estendere per linearità e continuità}.\\
 Nello specifico, fissati i valori di $U(v_i \otimes w_j)$, $U$ è una funzione di vettori $a \in \bb{R}^{n+m}$. Spezzando $a = (a', a'')$ (prime $n$ componenti e restanti $m$), dato che $a'$ e $a''$ sono combinazioni lineari delle basi:
 \[
 a' = \sum_i c_i v_i; \quad a'' = \sum_j d_j w_j
@@ -203,7 +204,7 @@ Ciò inizialmente potrebbe non sembrare strano, dato che \q{più misure in una v
 
 In \MQ, tuttavia, la faccenda è complicata dal fatto che, a differenza del caso classico, le osservabili non sono \textit{sempre definite}: nello stato $\ket{\psi}$, il primo fotone \textit{non} ha una polarizzazione \q{predeterminata} prima che essa venga misurata. Perciò la misura sul primo fotone ritorna un valore \textit{scelto a caso}, e quella sul secondo avrà lo \textit{stesso valore della prima}. Tuttavia i due fotoni del sistema possono essere separati a grande distanze, e le due misure fatte contemporaneamente, in modo che \textit{non vi sia possibilità} che un qualsiasi segnale possa trasmettersi dalla prima alla seconda, se non a velocità superiori della luce, il che è paradossale.\\
 Sarebbe come lanciare una moneta e sapere \textit{con certezza} che un'altra moneta, dall'altro capo del mondo, è atterrata con la stessa faccia. Ciò avrebbe senso, classicamente, solo se le due monete fossero \textit{truccate}, ossia avessero una sola faccia (uguale in entrambe), e il lancio della prima moneta sia dovuto all'ignoranza dello sperimentatore che non sa di avere a che fare con una moneta del genere.\\
-Una teoria del genere è detta \textit{a variabili nascoste}. Come vedremo in un prossimo capitolo, la supposizione che il risultato di una misura sia in un qualche modo determinato da \q{variabili inaccessibili} è incompatibile con le previsioni matematiche, e sperimentalmente verificabili, della \MQ.
+Una teoria del genere è detta \textit{a variabili nascoste}. Come vedremo in un prossimo capitolo, la supposizione che il risultato di una misura sia in un qualche modo determinato da \q{variabili inaccessibili} che si comportino rispettando la località è incompatibile con le previsioni matematiche, e sperimentalmente verificabili, della \MQ.
 \end{oss}
 
 \end{document}

@@ -1,0 +1,301 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+
+\begin{document}
+\begin{comment}
+\section{Lezione X:\\ \large{Paradosso Einstein-Podolski-Rosen (1935) - Parte 2}}
+\vspace{-1em}
+\begin{center}
+    \small{(20/12/2018)}
+\end{center}
+\end{comment}
+
+\subsection{Le disuguaglianze di Bell}
+Rinunciando a $\mathcal{C}$, supponiamo che esistano \textit{variabili nascoste} che assumono valori $\lambda$, che assegnate al sistema (ma a noi sconosciute), determinino \textbf{univocamente} il valore delle osservabili. In altre parole, ogni particella \textit{contiene dei parametri interni} che definiscono il suo comportamento a seguito di ogni misura. Il modello più semplice per una particella di spin $1/2$ si può ottenere immaginando che esista un vettore unitario $\vec{\lambda}$, associato alla particella, e tale che una misura di spin lungo una direzione $\hat{u}$ sia generata da:
+\begin{align*}
+(\vec{S}\cdot \hat{u})(\vec{\lambda}) = \frac{\hbar}{2}\op{sgn}(\vec{\lambda}\cdot \hat{u})
+\end{align*}
+per cui se la misura avviene su un asse $\hat{u}$ che \q{è circa diretto come} $\vec{\lambda}$, allora si otterrà uno spin $\hbar/2$, mentre in caso fosse \q{circa diretto in maniera opposta} a $\vec{\lambda}$ si avrebbe $-\hbar/2$, con un'ambiguità nel caso $\vec{\lambda}\cdot \hat{u} = 0$, che però avviene per un set di punti con misura nulla.\\
+
+Così facendo è possibile mantenere il \textbf{realismo locale}: le particelle hanno sempre stati definiti, e l'indeterminazione nasce dal fatto che i parametri da cui essi dipendono non sono conoscibili.\\
+Notiamo che è possibile scegliere $\lambda$ in infiniti modi, e inventarsi infinite \textit{regole} che colleghino le variabili nascoste ai risultati sperimentali. Ci chiediamo: tra tutte queste possibilità ne esiste almeno una che è compatibile, in tutto e per tutto, con quanto determinato sperimentalmente?\\
+
+Poiché, almeno finora, nessun esperimento ha contraddetto la \MQ, ci aspettiamo che le teorie a variabili nascoste possano replicare tutti i risultati della \MQ: ma come esserne sicuri?\\
+Tale problema, apparentemente insormontabile, fu risolto da un'osservazione \textit{furba} fatta da Bell nel 1965, che consentì di creare un \textit{esperimento} per testare direttamente tale eventualità.\\
+
+Partiamo considerando una \textit{generica teoria a variabili nascoste}, dove i \q{parametri nascosti} sono denotati con $\lambda$, e possono essere di tutti i tipi - possiamo pensare a $\lambda$ come a un vettore di variabili continue/discrete con qualsivoglia spettro e relazione interna. Supponiamo che $\lambda$ codifichi i risultati di ogni possibile misura. Perciò, conoscere $\lambda$ significa conoscere il risultato $A(\lambda)$ di una misura di $A$.\\
+Possiamo pensare che, ottenuta una collezione di $N$ particelle nello stato $\ket{\psi}$, i valori di $\lambda$ differiscano per ogni particella, e che si distribuiscano\footnote{Questa è già un'ipotesi più debole rispetto alla CFD. Infatti, conoscere tutte le $\lambda$ implica conoscere il risultato, con una $\rho(\lambda)$ che si riduce a una delta di Dirac. L'idea è che anche introducendo una sorgente di variabilità, una teoria alle variabili nascoste, come vedremo, non è compatibile con i risultati sperimentali.} secondo una certa $\rho_\psi(\lambda)$, che gode delle usuali proprietà:
+\begin{align}
+\rho_\psi(\lambda) \geq 0 \qquad \int_{\bb{R}} \rho_\psi(\lambda)\,d\lambda =\ 1
+\label{eqn:distr_prob}
+\end{align}
+In tal modo si spiega perché particelle nello stesso stato iniziale possano dare esiti diversi per date misure, per esempio nel caso $\ket{\psi}$ sia un autoket di $S_z$ e si scelga di misurare $S_x$, dato che $[S_x, S_z]\neq 0$.\\
+
+Consideriamo allora la misura che ha causato problemi in primo luogo, ossia la correlazione di spin misurati lungo assi diversi relativi ad una coppia di particelle a spin $1/2$ nello stato di singoletto.\\
+Esplicitamente, detti $\hat{u}$ e $\hat{u}'$ due versori, misuriamo il prodotto (correlazione) dello spin della particella $A$ lungo $\hat{u}$, e della particella $B$ lungo $\hat{u}'$. Se esiste una teoria alle variabili nascoste \textit{valida}, allora esiste una scelta di $\rho(\lambda)$ che è compatibile con il risultato della \MQ per ogni scelta dello stato iniziale $\ket{\psi}$:
+\begin{align*}
+\bra{\psi}(\vec{S}\cdot \hat{u})_A (\vec{S}\cdot \hat{u}')_B \ket{\psi} \overset{?}{=} \int d\lambda\, \rho(\lambda) (\vec{S}\cdot \hat{u})_A(\lambda)(\vec{S}\cdot \hat{u}')_B(\lambda) \quad \forall \ket{\psi}
+\end{align*}
+
+Il trucco sta nel modificare leggermente la misura, in modo che il risultato della teoria a variabili nascoste non cambi, mentre si ottengano previsioni diverse dalla \MQ.\\
+
+Consideriamo due sperimentatori, Alice (A) e Bob (B), che effettuano misure di spin in laboratori a distanza di tipo spazio per la durata dell'esperimento, per cui durante ciascuna misura nessun segnale può andare da $A$ a $B$ o viceversa. A seguito di $N$ misure, Alice e Bob si ritrovano e confrontano le misure ottenute.\\
+
+Alice possiede due \textit{detector} di spin, orientati lungo $\vec{u}_0$ e $\vec{u}_3$ generici (e non uguali), mentre Bob può effettuare misure lungo $\vec{u}_1$ e $\vec{u}_2$. Supponiamo per semplicità (ma senza perdita di generalità) che $\vec{u}_i$ si trovino tutti sullo stesso piano, per esempio $\hat{x}\hat{z}$.\\
+
+L'idea è quella di misurare la seguente quantità:
+\begin{align*}
+B(\{\vec{u}_i\})=(\vec{S}_A \cdot \vec{u}_0) \otimes [\vec{S}_B \cdot \vec{u}_1 - \vec{S}_B \cdot \vec{u}_2 ] +(\vec{S}_A \cdot \vec{u}_3)  \otimes [\vec{S}_B \cdot \vec{u}_1 + \vec{S}_B \cdot \vec{u}_2]
+\end{align*}
+che, se sapessimo le variabili nascoste $\lambda$, avrebbe un valore già determinabile:
+\begin{align}\nonumber
+B(\{\vec{u}_i\},\lambda) &= (\vec{S}_A \cdot \vec{u}_0)(\lambda)[(\vec{S}_B \cdot \vec{u}_1)(\lambda)-(\vec{S}_B \cdot \vec{u}_2)(\lambda)] +\\
+&\,+(\vec{S}_A \cdot \vec{u}_3)(\lambda)[(\vec{S}_B\cdot \vec{u}_1)(\lambda) + (\vec{S}_B \cdot \vec{u}_2)(\lambda)]
+\label{eqn:b-nascosto}
+\end{align}
+L'unica supposizione che facciamo su $\lambda$ è quella della \textbf{località (di Bell)}, ossia che il valore di spin $(\vec{S}_A \cdot \vec{u}_i)(\lambda)$ misurato da Alice sia indipendente da quello $(\vec{S}_B\cdot \vec{u}_i)(\lambda)$ misurato da Bob, dato che le due misure avvengono a distanza di tipo spazio.\\
+Sappiamo, inoltre, che - per quante misure si facciano - i possibili risultati di una misura di spin lungo un asse qualsiasi sono sempre e solo due:
+\begin{align}
+\left(\vec{S}_{\substack{A\\B}} \cdot \vec{u} _i\right)(\lambda) = \pm \frac{\hbar}{2}
+\label{eqn:possibilities}
+\end{align}
+Perciò, nell'ipotesi di località di Bell, i possibili risultati della misura di $B(\{\vec{u}_i\},\lambda)$ nella teoria delle variabili nascoste, si ottengono \textit{esaurendo} le possibilità. Ponendo $\hbar = 1$ da qui in poi, consideriamo:
+\begin{itemize}
+\item Se Bob ottiene due spin uguali, ossia:
+\begin{align*}
+(\vec{S}_B \cdot \vec{u}_1)(\lambda) = (\vec{S}_B \cdot \vec{u}_2)(\lambda)
+\end{align*} 
+Allora da (\ref{eqn:b-nascosto}) e (\ref{eqn:possibilities}) gli unici valori possibili di $B$ sono:
+\begin{align*}
+B(\{\vec{u}_1\},\lambda) = \pm \frac{1}{2}[0] \pm \frac{1}{2}[\pm 1] = \pm \frac{1}{2}
+\end{align*}
+\item Altrimenti, se Bob ha misurato spin diversi:
+\begin{align*}
+\vec{S}_B \cdot \vec{u}_1)(\lambda) = -(\vec{S}_B \cdot \vec{u}_2)(\lambda)
+\end{align*}
+Da (\ref{eqn:b-nascosto}) otteniamo lo stesso range:
+\begin{align*}
+B(\{\vec{u}_2\}, \lambda) = \pm \frac{1}{2}[\pm 1] \pm \frac{1}{2}[0] = \pm \frac{1}{2}
+\end{align*}
+\end{itemize}
+Unendo i due risultati, otteniamo la disuguaglianza:
+\begin{align}
+-\frac{1}{2} \leq B(\{\vec{u}_i\}, \lambda) \leq \frac{1}{2}
+\label{eqn:poss2}
+\end{align}
+Replicando $N\gg 1$ volte l'esperimento, otterremo un valor medio per $B(\{\vec{u}_i\},\lambda)$ che dipenderà dalla forma specifica di $\rho(\lambda)$, e che quindi non possiamo conoscere a priori. L'unica cosa che possiamo fare è porre limiti su di esso: infatti da (\ref{eqn:poss2}) e ricordando (\ref{eqn:distr_prob}), deduciamo:
+\begin{align}
+-\frac{1}{2} \leq \underbrace{\int d\rho_\psi(\lambda) B(\{\vec{u}_i\},\lambda)}_{\langle B(\{\vec{u}_i\})\rangle_\psi}\leq \frac{1}{2}
+\label{eqn:bell-1}
+\end{align}
+Il valore medio $\langle B(\{\vec{u}_i\})\rangle_\psi$ è determinabile sperimentalmente, e perciò tale disuguaglianza è \textit{verificabile}. Inoltre, poiché non abbiamo fatto alcuna ipotesi a riguardo, tali limiti valgono $\forall \ket{\psi}$.\\
+
+Esaminiamo ora a cosa si giunge svolgendo invece i conti tramite la \MQ, nel caso specifico di uno stato \textit{massimamente correlato}, detto \textbf{stato di Bell}. Un esempio, nel caso degli spin che stiamo esaminando, è lo stato di singoletto $\ket{\psi}$:
+\begin{align*}
+\ket{\psi} = \frac{\ket{+}_A \ket{-}_B - \ket{-}_A \ket{+}_B}{\sqrt{2}}
+\end{align*}
+dove $\{\ket{+}, \ket{-}\}$ sono gli autoket di $S_z$. Poiché vogliamo calcolare esiti di misure lungo direzioni generici, conviene passare alla base in direzione $\hat{u}(\theta,\varphi)=(\sin\theta\cos\varphi, \sin\theta\sin\varphi, \cos\theta)$ generica. Partendo da (\ref{eqn:spin-generici-formule}):
+\begin{align*}
+\ket{+}_u &= \cos\frac{\theta}{2}e^{-i\varphi/2}\ket{+} + \sin\frac{\theta}{2}e^{+i\varphi/2}\ket{-}\\
+\ket{-}_u &= -\sin\frac{\theta}{2}e^{-i\varphi/2}\ket{+}+\cos\frac{\theta}{2}e^{i\varphi/2}\ket{-}
+\end{align*}
+E invertendo\footnote{Basta sommare o sottrarre membro a membro dopo aver moltiplicato per $\sin\theta/2$ o $\cos\theta/2$}:
+\begin{align*}
+\ket{+} &= \cos\frac{\theta}{2} e^{i\varphi/2} \ket{+}_u - \sin\frac{\theta}{2}e^{i\varphi/2} \ket{-}_u\\
+\ket{-} &= \sin \frac{\theta}{2} e^{-\varphi/2}\ket{+}_u + \cos\frac{\theta}{2} e^{-i\varphi/2}\ket{-}_u
+\end{align*}
+Usando ora le equazioni agli autovalori:
+\begin{align*}
+(\vec{S}\cdot \hat{u})\ket{+}_u =\frac{1}{2}\ket{+}_u\qquad (\vec{S}\cdot\hat{u})\ket{-}_u = \frac{1}{2}\ket{-}_u
+\end{align*}
+Calcoliamo gli elementi di matrice nella base dove $S_z$ è diagonale:
+\begin{align*}
+\bra{+}(\vec{S}\cdot \hat{u})\ket{+} &= \bra{+}\left(+\frac{1}{2}\cos\frac{\theta}{2}e^{i\varphi/2}\ket{+}_u -\left(-\frac{1}{2}\right) \sin\frac{\theta}{2}e^{i\varphi/2}\ket{-}_u\right)=\\
+&=\frac{1}{2}\cos^2\frac{\theta}{2}-\frac{1}{2}\sin^2\frac{\theta}{2}=\frac{1}{2}\cos\theta\\
+\bra{-}(\vec{S}\cdot \hat{u})\ket{-} &= \bra{-}\left(+\frac{1}{2}\sin\frac{\theta}{2}e^{-i\varphi/2}\ket{+}_u - \frac{1}{2}\cos\frac{\theta}{2}e^{-i\varphi/2}\ket{-}_u\right)=\\
+&=\frac{1}{2}\sin^2\frac{\theta}{2}-\frac{1}{2}\cos^2\frac{\theta}{2} = -\frac{1}{2}\cos\theta\\
+\bra{+}(\vec{S}\cdot \hat{u})\ket{-} &= \bra{+}\left(\frac{1}{2}\sin\frac{\theta}{2}e^{-i\varphi/2}\ket{+}_u - \frac{1}{2}\cos\frac{\theta}{2}e^{-i\varphi/2}\ket{-}_u\right)=\\
+&=\frac{1}{2}\cos\frac{\theta}{2}\sin\frac{\theta}{2}e^{-i\varphi} + \frac{1}{2}\sin\frac{\theta}{2}\cos\frac{\theta}{2}e^{-i\varphi} = \frac{1}{2}\sin\theta e^{-i\varphi}\\
+\bra{-}(\vec{S}\cdot \hat{u})\ket{+}&=\frac{1}{2}\sin\theta e^{+i\varphi}
+\end{align*}
+Sintetizzando:
+\begin{align*}
+\bra{\pm}\vec{S}\cdot \vec{u}\ket{\pm} = \pm \frac{1}{2}\cos\theta && \bra{\pm}\vec{S}\cdot \vec{u}\ket{\mp} = \frac{1}{2}\sin\theta e^{\mp i\varphi}
+\end{align*}
+Usando i risultati appena ottenuti possiamo calcolare il valor medio di una singola misura di correlazione ad angoli generici, con $\hat{u}'(\theta', \varphi)$ (varia l'angolo $\theta$, ma non $\varphi$):
+\begin{align*}
+\bra{\psi}\overbrace{(\vec{S}_A\cdot \hat{u}) \otimes (\vec{S}_B\cdot \hat{u}')}^{S}\ket{\psi} &= \frac{1}{\sqrt{2}}\big(\prescript{}{A}{\bra{+}}
+\prescript{}{B}{\bra{-}}-\prescript{}{A}{\bra{-}}\prescript{}{B}{\bra{+}}\big)S\frac{1}{\sqrt{2}}\big(\ket{+}_A\ket{-}_B-\ket{-}_A\ket{+}_B\big)=\\
+&=\frac{1}{2}\big[
+\prescript{}{A}{\bra{+}}\prescript{}{B}{\bra{-}} S \ket{+}_A\ket{-}_B -
+\prescript{}{A}{\bra{+}} \prescript{}{B}{\bra{-}}S\ket{-}_A\ket{+}_B +\\
+&\quad -\prescript{}{A}{\bra{-}}\prescript{}{B}{\bra{+}}S \ket{+}_A\ket{-}_B + \prescript{}{A}{\bra{-}}\prescript{}{B}{\bra{+}}S\ket{-}_A\ket{+}_B
+\big]
+\end{align*}
+Per ciascun termine basta usare gli opportuni elementi di matrice già calcolati. Per esempio, per il primo caso:
+\begin{align*}
+\prescript{}{A}{\bra{+}}\prescript{}{B}{\bra{-}} S \ket{+}_A\ket{-}_B = \left(\frac{1}{2}\cos\theta\right)\left(-\frac{1}{2}\cos\theta'\right)
+\end{align*}
+abbiamo usato $\bra{+}S_u\ket{+}$ per $A$, e $\bra{-}S_{u'}\ket{-}$ per $B$. Svolgendo i conti:
+\begin{align*}
+\bra{\psi}S\ket{\psi}&=\frac{1}{2}\Big[\left(\frac{1}{2}\cos\theta\right)\left(-\frac{1}{2}\cos\theta'\right) - \left(\frac{1}{2}\sin\theta e^{-i\varphi}\right)\left(\frac{1}{2}\sin\theta' e^{i\varphi}\right)+\\
+&-\left(\frac{1}{2}\sin\theta e^{-i\varphi}\right)\left(\frac{1}{2}\sin\theta'e^{+i\varphi}\right) + \left(-\frac{1}{2}\cos\theta\right)\left(+\frac{1}{2}\cos\theta'\right)\Big] =\\
+&=-\frac{1}{4}\left(\cos\theta \cos\theta' - \sin\theta\sin\theta'\right) = -\frac{1}{4}\cos(\theta-\theta')
+\end{align*}
+Sintetizzando:
+\begin{align}
+\bra{\psi} (\vec{S}_A \cdot \vec{u})(\vec{S}_B \cdot \vec{u}') \ket{\psi} &= -\frac{1}{4}\cos(\theta-\theta')
+\label{eqn:corr1}
+\end{align}
+
+Possiamo finalmente calcolare il valor medio di $B(\{\vec{u}_i\})$ che ci interessa:
+\begin{align*}
+\bra{\psi}B(\{\vec{u}_i\})\ket{\psi} &= \bra{\psi} \Big[
+(\vec{S}_A \cdot \vec{u}_0) \otimes (\vec{S}_B \cdot \vec{u}_1) - (\vec{S}_A \cdot \vec{u}_0 ) \otimes (\vec{S}_B \cdot \vec{u}_2) +\\
+&+(\vec{S}_A \cdot \vec{u}_3) \otimes (\vec{S}_B \cdot \vec{u}_1) + (\vec{S}_A \cdot \vec{u}_3)\otimes (\vec{S}_B \cdot \vec{u}_2)\big] \ket{\psi}
+\end{align*}
+Detti $\alpha_i$ gli angoli (riferiti a $+\hat{x}$) che definiscono i $\vec{u}_i$ unitari, possiamo applicare (\ref{eqn:corr1}) per continuare i calcoli:
+\begin{align*}
+\bra{\psi}B(\{\vec{u}_i\})\ket{\psi} &= -\frac{1}{4}\Big[\cos(\alpha_1-\alpha_0)-\cos(\alpha_2-\alpha_0) + \cos(\alpha_3-\alpha_1) + \cos(\alpha_2-\alpha_3)\Big]=\\
+&= -\frac{1}{4}\big[\cos \theta_1 -\cos\theta_2 + \cos\theta_4 +\cos\theta_3\big]
+\end{align*}
+\textbf{Nota}: le differenze degli $\alpha_i$ possono essere invertite senza cambiare il valore dei $\cos$ di cui sono argomento. Con questa scelta dei segni si ha che i $\theta_i$ definiti dalle differenze rispettano:
+\begin{align*}
+\theta_2 = \theta_1 + \theta_3 + \theta_4
+\end{align*}
+
+Per un'opportuna scelta degli angoli: 
+\begin{align*}
+\theta_1 = \theta_3 = \theta_4  \equiv \theta \Rightarrow  \theta_2 &= 3\theta\\
+ \bra{\psi}B(\{\vec{u}_i\})\ket{\psi}&=-\frac{1}{4}(3\cos\theta - \cos 3\theta)
+\end{align*}
+
+Siamo interessati al \textit{range} di valori che può assumere il valor medio appena calcolato. Cerchiamo quindi i punti critici derivando rispetto a $\theta$:
+
+Ottimizziamo rispetto a $\theta$:
+\begin{align*}
+\frac{\partial}{\partial \theta} \bra{\psi}B(\{\vec{u}_i\}\ket{\psi} = 0 &= \frac{1}{4}(3\sin\theta - 3\sin 3\theta) \Rightarrow  \sin\theta = \sin(3\theta)
+\end{align*}
+Tale equazione ha due classi di soluzioni, una per angoli uguali, con $\theta = 3\theta +2k\pi \Rightarrow \theta = k\pi$, $k \in \bb{Z}$, e una per angoli supplementari $\theta = \pi-3\theta + 2k\pi\Rightarrow \theta = (2k+1)\frac{\pi}{4}$.\\
+Data la periodicità basta studiare l'intervallo $\theta \in [-\pi, +\pi]$, e osservando che $B(\{\vec{u}_i\})$ è pari, ci limitiamo a $\theta \in [0,\pi]$. Si verifica che $B(\theta = 0,\pi)=\mp1/2$, mentre per gli altri due angoli otteniamo un risultato interessante:
+\begin{align*}
+ \bra{\psi}B\left(\theta=\frac{\pi}{4}\right) \ket{\psi} &= -\frac{1}{4}\left(3\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\right)=-\frac{1}{\sqrt{2}}\\
+ \bra{\psi}B\left(\theta=\frac{3\pi}{4}\right) \ket{\psi} &= -\frac{1}{4}\left(-3\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}\right) = \frac{1}{\sqrt{2}}
+\end{align*}
+Perciò la media su $N$ esperimenti avrà un valore compreso tra due limiti \textit{più larghi} di quelli dell'equivalente con variabili nascoste (\ref{eqn:bell-1}):
+\begin{align}
+-\frac{1}{\sqrt{2}} \leq \bra{\psi} B(\{\vec{u}_i\}\ket{\psi} \leq \frac{1}{\sqrt{2}}
+\label{eqn:bell-2}
+\end{align}
+
+Si ha quindi che \MQ e teorie a variabili nascoste locali \textit{non} sono compatibili. Sperimentalmente, l'esecuzione dell'esperimento (di Bell-Aspect) falsifica (\ref{eqn:bell-1}) a $40$ deviazioni standard.\\
+Perciò, non è possibile rinunciare a $\mathcal{C}$, dato che le teorie alternative non sono valide, e ne segue che la \MQ è - allo stato attuale - una teoria completa.\\
+
+Come soluzioni minimali all'EPR rimangono solo il rinunciare a $\mathcal{R}$ o a $\mathcal{L}$: perciò o non vale la controfattualità o non vale il microggettivsmo dei sottosistemi.
+
+\subsection{Il gatto di Schr\"odinger}
+Supponiamo, come ora si ritiene usualmente corretto, che tutta la realtà fisica sia descritta quantisticamente.\\
+Possiamo allora considerare l'unione di \textbf{sistema misurato} e \textbf{apparato misuratore}, che costituisce a sua volta un \textbf{sistema isolato} (volendo, si può includere anche l'ambiente in tale descrizione).
+Perciò, tale sistema dovrebbe evolvere deterministicamente, in modo unitario, come descritto dall'equazione di Schr\"odinger, con una Hamiltoniana come:
+\begin{align*}
+H = H_{\text{sistema}} + H_{\text{apparato}} + H_{\text{interazione s.a.}}
+\end{align*}
+
+Consideriamo ad esempio l'esperimento di Stern-Gerlach per gli elettroni, in cui tramite dei magneti si misura lo spin di tali particelle.
+
+\begin{comment}
+%Inserire disegno
+\begin{figure}[H]
+\centering
+
+\caption{Schema dell'apparato di Stern-Gerlach}
+\end{figure}
+\end{comment}
+
+Denotiamo con $\ket{\psi_+}$ e $\ket{\psi_-}$ funzioni d'onda del sistema misurato (ossia gli autostati di spin dell'$e^-$ lungo $\hat{z}$), con $\ket{0}$ lo stato dell'apparato prima della misura, e con $\ket{+}$, $\ket{-}$ i possibili stati dell'apparato dopo la misura (della componente $\hat{z}$ dello spin).\\
+Se nel fascio iniziale abbiamo solo elettroni con spin $+1/2$, ossia nello stato $\ket{\psi_+}$, avremo solo deviazione verso l'alto, e quindi l'apparato - dopo la misura, sarà nello stato $\ket{+}$, che indica l'avvenuta rilevazione di spin verso l'alto: 
+\begin{align*}
+\ket{\psi_+} \otimes \ket{0} \xrightarrow[\text{misura}]{} \ket{\psi_+}\otimes \ket{+}
+\end{align*}
+D'altro canto, per elettroni tutti con spin $-1/2$, e quindi nello stato $\ket{\psi_-}$:
+\begin{align*}
+\ket{\psi_-}\otimes \ket{0} \xrightarrow[\text{misura}]{} \ket{\psi_-}\otimes \ket{-}
+\end{align*}
+
+Per \textbf{linearità} dell'evoluzione (sistema isolato), possiamo unire i due risultati appena ottenuti per capire cosa succede partendo da elettroni che sono in una combinazione di $\ket{\psi_+}$ e $\ket{\psi_-}$. Da:
+\begin{align*}
+\ket{\psi} = \alpha_+ \ket{\psi_+} + \alpha_- \ket{\psi_-}
+\end{align*}
+Giungiamo a:
+\begin{align}
+\ket{\psi}\otimes \ket{0} \xrightarrow[\text{misura}]{} \alpha_+ \ket{\psi_+} \ket{+} + \alpha_- \ket{\psi_-} \ket{-}
+\label{eqn:misura-spin-gatto}
+\end{align}
+Che questa situazione diventi paradossale lo intuirà Schr\"odinger aggiungendo all'apparato di rivelazione un \textit{gatto}, chiuso in una scatola in cui si trova una boccetta di cianuro inizialmente sigillata. Se la posizione dell'elettrone sullo schermo è $\ket{+}$ scatta un martello che rompe la boccetta di cianuro, provocando la morte del gatto. Se invece la posizione è $\ket{-}$, il martello non scatta e il gatto rimane vivo.\\
+
+Stiamo perciò correlando perfettamente $\ket{+}$ allo stato di $\ket{\text{gatto morto}}$, e $\ket{-}$ a quello di $\ket{\text{gatto vivo}}$. In tal caso, possiamo riscrivere la (\ref{eqn:misura-spin-gatto}) come:
+\begin{align}
+\alpha_+ \ket{\psi_+} \ket{+} \ket{\text{gatto morto}} + \alpha_- \ket{\psi_-} \ket{-} \ket{\text{gatto vivo}}
+\label{eqn:gatto-zombie}
+\end{align} 
+
+Aprendo la scatole troveremo con probabilità $|\alpha_+|^2$ il gatto vivo, e con probabilità $|\alpha_-|^2$ morto.\\
+
+Il problema è che prima dell'apertura della scatola, ma dopo l'esperimento, il gatto è potenzialmente vivo \textbf{e} morto come dice (\ref{eqn:gatto-zombie}).\\
+Cioè sotto l'assunzione di evoluzione unitaria, la sovrapposizione quantistica microscopica di $\ket{\psi_+}$ e $\ket{\psi_-}$ produce tramite \textit{entanglement} una sovrapposizione macroscopica di gatto morto e gatto vivo!\\
+
+Visto che, all'apertura della scatola, il risultato è per $|\alpha_+|^2$ gatto vivo e per $|\alpha_-|^2$ gatto morto e non abbiamo nessuna interferenza tra i due, potremmo essere tentati di affermare che lo stato dopo la misura, ma prima dell'apertura della scatola, sia uno stato misto:
+\begin{align*}
+\rho &= |\alpha_+|^2 \ket{\psi_+}\bra{\psi_+} \otimes \ket{\text{gatto morto}}\bra{\text{gatto morto}} + \\
+&\quad \>\,|\alpha_-|^2 \ket{\psi_-}\bra{\psi_-} \otimes \ket{\text{gatto vivo}}\bra{\text{gatto vivo}}
+\end{align*}
+cioè il gatto è vivo \textbf{o} morto, ma lo sperimentatore non lo sa, e aprendo la scatola \textit{acquisisce} un'informazione, come succede \textit{in senso classico} quando la posizione di una particella è determinata precisamente all'interno di un range di possibilità.\\
+Dopo l'apertura, perciò, lo stato diventa \q{puro} e sappiamo se il gatto è vivo o è morto.\\
+
+Ma $\rho$ è uno stato misto, e si dimostra (teorema di Hepp) che nessuna evoluzione unitaria può portare da uno stato puro a uno stato misto. Perciò, tale soluzione \q{semplice} al paradosso non è percorribile.\\
+
+In definitiva, non c'è una soluzione condivisa a tale paradosso, ma la \MQ funziona benissimo ugualmente!
+
+\subsection{Riepilogo finale}
+(trascrizione delle diapositive disponibili qui: \url{http://www2.pd.infn.it/~march/IstFisTeoMQ.pdf})\\
+La fisica quantistica ci obbliga a rivedere alcune nozioni sulla \q{realtà fisica} che la nostra esperienza, formalizzata dalla fisica classica, ci aveva abituato a pensare come \q{naturali}.\\
+Tali nuove proprietà sono:
+\begin{enumerate}
+\item \textbf{Indeterminismo}: Una conoscenza massimale del sistema ad un istante è data da un'onda di probabilità e non ci consente la previsione certa dei risultati di misure: la \q{realtà quantistica} in ambito predittivo è intrinsecamente indeterministica!\\
+In \MQ (interpretazione ortodossa) la struttura probabilistica è non epistemica (cioè non deriva da una nostra ignoranza). La natura ondulatoria genera, per esempio, il fenomeno dell'\textit{effetto tunnel}.\\
+\textit{Formalismo matematico}: lo \textbf{stato} del sistema che caratterizza la massima informazione (\textit{stato puro}) è descritto da un \textit{raggio vettore} di uno spazio di Hilbert complesso separabile o equivalentemente da un proiettore in un suo sottospazio unidimensionale.
+\begin{itemize}
+\item  Le quantità misurabili, le \textit{osservabili}, sono descritte da \textit{operatori} \textit{autoaggiunti} nello spazio di Hilbert degli stati.
+\item I possibili risultati delle misure (\textit{spettro}) sono descritti dagli autovalori (eventualmente generalizzati) di tali operatori.
+\item Due osservabili possono essere misurate simultaneamente senza disturbo reciproco se e solo se commutano. In tal caso si dicono \textit{osservabili compatibili}.
+\item Un insieme completo (massimale) di osservabili compatibili (ICOC) definisce una \textit{rappresentazione}, cioè un modo possibile di rappresentare lo stato tramite una funzione d'onda che dipende solo dagli autovalori dell'ICOC.
+\end{itemize} 
+\item \textbf{Interferenza delle probabilità}: La probabilità di ottenere un risultato in una misura di un'osservabile è determinata dal modulo quadro della funzione d'onda del sistema (in una rappresentazione associata a un ICOC compatibile con tale osservabile). In caso di alternative non osservate, ma che sarebbero mutualmente esclusive se fossero osservate (come ad esempio, nel caso delle due fenditure, la possibilità dell'elettrone di passare da una o dall'altra fenditura) presenta il fenomeno di interferenza delle probabilità, incomprensibile anche con la probabilità classica (epistemica).\\
+\textit{Formalismo matematico}: La probabilità che misurando una osservabile $A$ in uno stato puro $\psi$ si ottenga un risultato in un insieme reale $\Delta$ è data dal valor medio in $\psi$ del proiettore in $\Delta$ della famiglia spettrale di $A$: $(\psi, P^A(\Delta, \psi)$. Nel caso di più osservabili compatibili $A_i$ si usa invece il valor medio del prodotto di $P^{A_i}(\Delta_j)$
+\item \textbf{Osservazione = disturbo}. Lo stato di un sistema non osservato evolve deterministicamente secondo l'equazione di Schr\"odinger. Il sistema osservato si comporta in modo diverso da come si comporterebbe se non fosse osservato: per esempio, nel caso in cui è osservato l'interferenza delle probabilità scompare, la probabilità diventa epistemica, cioè l'informazione non è più massimale, ovvero il sistema dal punto di vista probabilistico dei risultati è descritto da uno stato misto.\\
+\textit{Formalismo matematico}: L'evoluzione deterministica dello stato $\psi$ non osservato è descritta applicando a $\psi$ la famiglia a un parametro di operatori unitari:
+\begin{align*}
+U(t) = \exp\left(-i\frac{Ht}{\hbar}\right)
+\end{align*}
+\begin{itemize}
+\item  Uno stato \textit{misto} quantistico può essere visto come una distribuzione di probabilità su un insieme numerabile di stati puri, ovvero una somma di tali stati puri rappresentati come proiettori unidimensionali pesati con le relative probabilità. Più in generale è descritto da una matrice densità $\rho$ che è un operatore autoaggiunto positivo di traccia pari a $1$.
+\item Dopo una misura ideale di un'osservabile $A$ in uno stato puro $\psi$ che ha dato un risultato in un insieme reale $\Delta$ lo stato è descritto da $P^A(\Delta)\psi$ (\textit{proiezione di von Neumann})
+\item Se il risultato della misura non è conosciuto, l'informazione sul sistema è descritta da uno stato misto ottenuto pesando con le relative probabilità gli stati puri corrispondenti ai possibili risultati.
+\end{itemize}\item \textbf{Indeterminazione} Non possiamo conoscere simultaneamente con precisione arbitraria tutte le grandezze fisiche; in particolare posizione e momento delle particelle. Non possiamo allroa definire \textit{traiettorie}.
+Matematicamente, vale il principio di indeterminazione di Heisenberg, che per le osservabili posizione $X$ e momento $P$ diviene:
+\begin{align*}
+(\Delta X)_\psi(\Delta\ P)_\psi \geq \frac{\hbar}{2}
+\end{align*}
+\textit{Formalismo matematico}: Se due operatori autoaggiunti $A$ e $B$ che descrivono osservabili non commutano, allora il prodotto delle fluttuazioni delle due osservabili in uno stato (eventualmente in un opportuno dominio) sono maggiori o guuali al modulo del valor medio di $[A,B]/2$ nello stato.
+\begin{itemize}
+\item Poiché i commutatori non nulli di un insieme irriducibile di osservabili, come posizione, momento e spin per una particella elementare, sono proprozionali a $\hbar$, la natura indeterministica della fisica quantistica dipenda da $\hbar$.
+\item La presenza di commutatori non nulli comporta l'esistenza di spettri discreti poporzionali ad $\hbar$, ad esempio per il momento angolare e per l'energia degli stati legati, il che assicura la stabilità della materia, derivabile anche dalla natura di onde stazionarie degli autostati dell'energia.
+\item La natura di raggi vettori degli swtati puri consente, tramite i \textit{teoremi di Wigner e Bargmann}, l'esistenza di spin seminteri. 
+\end{itemize}
+\item \textbf{Entanglement} Esistono stati di sistemi composti in cui le proprietà dei sottosistemi non hanno realtà indipendenti. Applicazioni:\ teletrasporto, crittografia e computer quantistici, la probabile tecnologia del futuro.\\
+\textit{Formalismo matematico}: Lo spazio di Hilbert di un sistema composto di sottosistemi non identici è il prodotto tensore degli spazi di Hilbert dei sottosistemi. Le funzioni d'onda del sistema composto possono essere rappresentate come funzioni degli autovalori di ICOC dei sosttosistemi. Poiché lo spazio di Hilbert totale è uno spazio vettoriale, esistono degli stati in esso che non possono essere scritti come prodotto di stati dei sottosistemi, questi sono gli stati \textit{entangled}.
+\item \textbf{EPR+Bell}: Non è possibile avere sia la proprietà di controfattualità che di località (cioè realismo locale per gli stati)
+\item \textbf{Perdità dell'individualità delle particelle identiche}: La sparizione delle traiettorie comporta che l'identità delle particelle porta alla loro indistinguibilità. La natura di raggi vettori degli stati puri consente poi l'esistenza di statistiche fermioniche che caratterizzano le particelle della materia. Una conseguenza di tale statistica è che esse non possono avere, neppure \textit{potenzialmente}, la stessa posizione e verso dello spin, come affermato dal \textit{principio di esclusione di Pauli}. Implicazioni: incompenetrabilità dei corpi, chimica, proprietà dei solidi.
+\end{enumerate}
+
+\end{document}
+

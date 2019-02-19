@@ -1,0 +1,259 @@
+\documentclass[../../FisicaTeorica.tex]{subfiles}
+\begin{document}
+
+\begin{comment}
+\section{Lezione X:\\ \large{Titolo}}
+\vspace{-1em}
+\begin{center}
+    \small{(17/12/2018)}
+\end{center}
+Correzione per l'esercizio della particella ne campo magnetico. Da $A_x = -B_y$ e $A_y=0$, l'Hamiltoniana è:
+\begin{align*}
+H = \frac{(p_x + eB_y)^2}{2m} + \frac{p_y^2}{2m}
+\end{align*}
+e non:
+\begin{align*}
+H=\frac{p_x^2}{2m} + \frac{(p_y + eB_y)^2}{2m}
+\end{align*}
+Stavamo discutendo la \textbf{teoria delle perturbazioni indipendenti dal tempo}.\\
+Data $H=H_0 + \lambda V$, e indicati con $\ket{\mathcal{E}_n^0}$ gli autostati di $H_0$ e con $\ket{\mathcal{E}_n}$ quelli di $H$, ossia tali che:
+\begin{align*}
+H_0 \ket{\mathcal{E}_n^0} &= \mathcal{E}_n^0\ket{\mathcal{E}_n^0}\\
+H \ket{\mathcal{E}_n} &= \mathcal{E}_n \ket{\mathcal{E}_n}
+\end{align*}
+Per l'\textit{ipotesi perturbativa} possiamo espandere in serie autovalori e autovettori:
+\begin{align*}
+\ket{\mathcal{E}_n} &= \lambda \ket{\mathcal{E}_n^1} + \lambda^2 \ket{\mathcal{E}_n^2} + \dots\\
+\mathcal{E}_n &= \mathcal{E}_n^0 + \lambda \mathcal{E}_n^1 + \lambda^2 \mathcal{E}_n^2 + \dots
+\end{align*}
+nel caso non degenere.\\
+
+Se invece siamo nel caso con degenerazione, per cui $\mathcal{E}_n^0$ ha più di un autovettore $\{\ket{\mathcal{E}_n^0,i}, i = 1,\dots, d(n)=\text{degenerazione di $\mathcal{E}_n^0$}\}$ dobbiamo trovare una base di $\hs_n$ autospazio di $H_0$ per $\mathcal{E}_n^0$:
+\begin{align*}
+\{\ket{\mathcal{E}_n^0, \alpha}, \alpha=1, \dots, d(n)\}
+\end{align*}
+(i cui vettori sono generalmente diversi dai $\ket{\mathcal{E}_n^0,i}$)
+che verifica:
+\begin{align*}
+\bra{\mathcal{E}_n^0,\alpha} V \ket{\mathcal{E}_m^0 \beta} =0 \quad \alpha \neq \beta
+\end{align*}
+Così facendo possiamo applicare la procedura svolta nel caso non degenere senza problemi, ed arrivare a:
+\begin{align*}
+\mathcal{E}_n^\alpha = \mathcal{E}_n^0 +\lambda \bra{\mathcal{E}_n^0 \alpha} V \ket{\mathcal{E}_n^0 \alpha}
+\end{align*}
+\end{comment}
+
+
+\section{Esercizio \theEsercizio}\index{Esercizio!Oscillatore armonico(3)}
+Si consideri un \textit{oscillatore armonico} unidimensionale di massa $m$ e frequenza angolare $\omega$. All'istante $t=0$ l'oscillatore si trova nello stato descritto dalla funzione d'onda $\psi_\alpha$, con $\alpha \in \bb{C}\setminus \{0\}$, determinata univocamente (a meno della normalizzazione) dall'essere autostato dell'operatore $a$:
+\begin{align*}
+a = \frac{1}{\sqrt{2}}(X' + iP')\quad X' = \sqrt{\frac{m\omega}{\hbar}}X, \quad P'=\sqrt{\frac{1}{m\omega \hbar}}P
+\end{align*}
+di autovalore $\alpha$:
+\begin{align*}
+a\ket{\psi_\alpha}=\alpha \ket{\psi_\alpha}
+\end{align*}
+\textbf{Nota}: i $\ket{\psi_\alpha}$ sono detti \textit{stati coerenti}, e hanno applicazioni nei laser.
+\begin{enumerate}
+\item Si determini se $\psi_\alpha$ è autostato dell'Hamiltoniana $H$.
+\item Si determinino i valori medi di $X$, $P$ e $H$ in $\ket{\psi_\alpha}$.
+\item Si determini $(\Delta X)_{\psi_\alpha}(\Delta P)_{\psi_\alpha}$
+\item Si dimostri che l'evoluto temporale di $\ket{\psi_\alpha(t)}$ è ancora autostato di $a$, cioè:
+\begin{align*}
+a \ket{\psi_\alpha(t)} = \alpha(t) \ket{\psi_\alpha(t)}
+\end{align*}
+e si determini $\alpha(t)$.
+\item Si esprima $\ket{\psi_\alpha}$ in funzione degli autostati di $H$ \textit{non normalizzati} $\ket{n}\equiv (a^\dag)^n \ket{0}$, dove $a \ket{0}=0$.
+\end{enumerate}
+
+\subsection{Soluzione}
+\begin{enumerate}
+\item Gli autostati di $H$ per un oscillatore armonico sono le $\ket{\psi_n}$ (che in rappresentazione $\{x\}$ corrispondono alle funzioni di Hermite). Per rispondere alla domanda basta allora verificare quale $\ket{\psi_n}$ è anche autostati di $a$ con operatore $\alpha$, e cioè corrisponde a $\ket{\psi_\alpha}$.\\
+Dalla teoria sappiamo che $a$ è l'operatore di distruzione (o annichilazione) che \q{abbassa} gli autovettori:
+\begin{align*}
+a\ket{\psi_n} = \sqrt{n}\ket{\psi_{n-1}}
+\end{align*}
+Perciò l'unica $\ket{\psi_n}$ che è anche autostato di $a$ è \q{quella che non può essere ulteriormente abbassata}, e cioè $\ket{0}$, con autovalore $\alpha = 0$. Tuttavia $\ket{0}$ non può essere $\ket{\psi_\alpha}$, poiché si è espressamente richiesto $\alpha \in \bb{C}\setminus \{0\}$. Perciò $\ket{\psi_\alpha}$ non è autostato di $H$.
+
+\textbf{Nota}: chiedere $\alpha \in \bb{C}\setminus \{0\}$, e non in $\bb{R}\setminus \{0\}$ è sensato, poiché $a$ non è un operatore hermitiano, e perciò i suoi autovalori non è detto che siano reali.
+\item Partiamo da $X$ e scriviamolo in termini di operatori di creazione e distruzione $a$ e $a^\dag$:
+\begin{align}
+X = \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dag)
+\label{eqn:Xadag}
+\end{align}
+ In tal modo possiamo usare le relazioni (duali) dell'equazione agli autovalori:
+\begin{align}
+a\ket{\psi_\alpha} = \alpha \ket{\psi_\alpha} \leftrightarrow \bra{\psi_\alpha} a^\dag = \alpha^* \bra{\psi_\alpha}
+\label{eqn:autovalori_dual}
+\end{align}
+per calcolare il valor medio in $\ket{\psi_\alpha}$:
+\begin{align*}
+\bra{\psi_\alpha}X\ket{\psi_\alpha} &= \sqrt{\frac{\hbar}{2m\omega}}\bra{\psi_\alpha}(a+a^\dag) \ket{\psi_\alpha}=\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\left(\bra{\psi_\alpha}a\ket{\psi_\alpha}+\bra{\psi_\alpha}a^\dag \ket{\psi_\alpha}\right) =\\
+&= \sqrt{\frac{\hbar}{2m\omega}} \left(\alpha \braket{\psi_\alpha|\psi_\alpha} + \alpha^* \braket{\psi_\alpha|\psi_\alpha}\right)
+=\sqrt{\frac{\hbar}{2m\omega}}(\alpha + \alpha^*)
+\end{align*}
+Facciamo la stessa cosa per $P$ e $H$, dove:
+\begin{align}
+P = \sqrt{\frac{m\hbar \omega}{2}}\frac{1}{i}(a-a^\dag) \qquad H = a^\dag a + \frac{1}{2}
+\label{eqn:Padag}
+\end{align}
+e i valori medi sono dati da:
+\begin{align*}
+\bra{\psi_\alpha}P\ket{\psi_\alpha} &= \sqrt{\frac{m\omega\hbar}{2}}\bra{\psi_\alpha}\left(\frac{a-a^\dag}{i}\right)\ket{\psi_\alpha} = \sqrt{\frac{m\omega\hbar}{2}}\frac{\alpha-\alpha^*}{i}\\
+\bra{\psi_\alpha}H\ket{\psi_\alpha}&=\hbar \omega \bra{\psi_\alpha}a^\dag a + \frac{1}{2}\ket{\psi_\alpha} = \hbar \omega \left(|\alpha|^2 + \frac{1}{2}\right)
+\end{align*}
+
+\textbf{Nota}: per\marginpar{$a$ e $a^\dag$ non hanno autovettori comuni} $a^\dag a$ si è applicato $a^\dag$ al bra a sinistra, e $a$ al ket a destra:
+\begin{align*}
+\bra{\psi_\alpha} a^\dag a \ket{\psi_\alpha} =\alpha^* \bra{\psi_\alpha} \alpha \ket{\psi_\alpha} = \alpha^*\alpha \braket{\psi_\alpha|\psi_\alpha}
+\end{align*}
+Ciò si può fare solo in questo caso, in presenza di sia bra e ket di $\psi_\alpha$. Se avessimo $a^\dag a \ket{\psi_\alpha}$ il risultato sarebbe molto più complesso, dato che $a$ e $a^\dag$ \textbf{non} hanno autovettori comuni non nulli: per di più $a^\dag$ proprio non ne ha (e non è tenuto ad averli, dato che - come $a$ - non è hermitiano). Lo si dimostra tramite i commutatori. Sia ipoteticamente $\ket{\psi}$ autovettore comune di $a$ e $a^\dag$, per cui:
+\begin{align*}
+a \ket{\psi} = \alpha \ket{\psi} \qquad a^\dag \ket{\psi} = \beta \ket{\psi}
+\end{align*} 
+Sappiamo dalla teoria che $[a,a^\dag]=1$. Se lo applichiamo a $\ket{\psi}$:
+\begin{align*}
+[a,a^\dag]\ket{\psi} &= (aa^\dag - a^\dag a)\ket{\psi} = (\beta \alpha - \alpha \beta)\ket{\psi} = 0\\
+[a,a^\dag]\ket{\psi} &= \bb{I} \ket{\psi} =\ket{\psi}
+\end{align*}
+e perciò l'unico autovettore comune è di nuovo $\ket{\psi}=\ket{0}$.
+
+\item Analogamente al punto precedente, partiamo calcolando $X^2$ in termini di $a $ e $a^\dag$ ricordando (\ref{eqn:Xadag}):
+\begin{align*}
+X^2 &= \frac{\hbar}{2m\omega} (a+ a^\dag)(a+a^\dag) = \frac{\hbar}{2m\omega}\left( a^2 + {a^\dag}^2 + \hlc{Yellow}{a^\dag a} + {a a^\dag} \right)=\\
+&\underset{(a)}{=} \frac{\hbar}{2m\omega}\left(a^2 + {a^\dag}^2 + 2a^\dag a + 1\right)
+\end{align*}
+dove in (a) abbiamo riscritto $aa^\dag = [a,a^\dag] + a^\dag a = 1+ a^\dag a$ in modo da poter usare le relazioni per i bra e i ket di $\ket{\psi_\alpha}$ viste in (\ref{eqn:autovalori_dual}) nel calcolo del valor medio:
+\begin{align*}
+\bra{\psi_\alpha}X^2\ket{\psi_\alpha}=\frac{\hbar}{2m\omega} \left(\alpha^2 + {\alpha^*}^2 + 2|\alpha|^2 + 1\right)
+\end{align*}
+Da cui si ricava la fluttuazione cercata usando il valor medio calcolato al punto precedente:
+\begin{align*}
+(\Delta X)^2_{\psi_\alpha} &= \langle X^2 \rangle_{\psi_\alpha} - \langle X \rangle^2_{\psi_\alpha}=\\
+&= \frac{\hbar}{2m\omega} \left( \alpha^2 + {\alpha^*}^2 + 2|\alpha|^2 + 1- (\alpha + \alpha^*)^2\right) = \frac{\hbar}{2m\omega}
+\end{align*}
+Seguiamo la stessa procedura per calcolare $(\Delta P)_{\psi_\alpha}$, ricordando (\ref{eqn:Padag}):
+\begin{align*}
+P^2 &= \frac{m\omega \hbar}{2} \left(\frac{a-a^\dag}{2}\right)^2 = -\frac{m\omega \hbar}{2} \left(a^2 + {a^\dag}^2 - \hlc{Yellow}{{aa^\dag} }-a^\dag a\right) =\\
+&\underset{(a)}{=}-\frac{m\omega \hbar}{2}\left( a^2 + {a^\dag}^2 -2a^\dag a -1\right)\\
+\bra{\psi_\alpha}P^2 \ket{\psi_\alpha} &=-\frac{m\omega\hbar}{2}\left(\alpha^2 + {\alpha^*}^2 - 2|\alpha|^2 -1\right)\\
+(\Delta P)^2_{\psi_\alpha} &= \langle P^2 \rangle_{\psi_\alpha} - \langle P \rangle^2_{\psi_\alpha} = \\
+&=\frac{m\omega \hbar}{2} \left( \alpha^2 + {\alpha^*}^2 -2|\alpha|^2 -1 -\left(\frac{\alpha-\alpha^*}{1}\right)^2\right)= \frac{m\omega \hbar}{2}
+\end{align*}
+Da cui calcoliamo infine il prodotto cercato:
+\begin{align*}
+(\Delta X)_{\psi_\alpha}(\Delta P)_{\psi_\alpha} = \sqrt{\frac{\hbar}{2m\omega}\frac{m\omega \hbar}{2}} =\frac{\hbar}{2}
+\end{align*}
+Notiamo allora che sugli \textit{stati coerenti} dell'oscillatore armonico il principio di Heisenberg è realizzato al suo \textit{minimo}.
+
+\item Lo stato $\ket{\psi_\alpha(t)}$ al tempo $t$ si ottiene dalla formula dell'evoluzione temporale unitaria:
+\begin{align*}
+\ket{\psi_\alpha(t)} \equiv \exp\left(-\frac{itH}{\hbar}\right) \ket{\psi_\alpha}
+\end{align*}
+Valutare l'esponenziale risulta in tal caso molto difficile, poiché non è banale scrivere $\ket{\psi_\alpha}$ come combinazione di autostati di $H$ $\ket{\psi_n}$, e anche facendolo si ottiene una serie infinita difficile da gestire.\\
+Un procedimento \textit{più furbo} sta nell'utilizzare la formula di Hadamard, che è applicabile per espandere un'esponenziale nei casi più generali. Dati due operatori $A$ e $B$ si ha infatti:
+\begin{align} \label{eqn:espansione_hadamard}
+e^A B e^{-A} &= B + [A,B] + \frac{1}{2!}[A,[A,B]] + \dots =\\
+&= \sum_{n=0}^\infty \frac{1}{n!} \underbrace{[A,\dots, [A}_{n \text{ volte}},B\underbrace{]]\dots]}_{n \text{ volte}} \nonumber
+\end{align}
+dove non è neanche richiesto che $A$ sia hermitiano: e infatti, in questo caso, $A=a$ non lo è.\\
+Cerchiamo allora di ricondurci alla forma di (\ref{eqn:espansione_hadamard}). Supponiamo che $\ket{\psi_a(t)}$ rimanga autovettore di $a$, con un autovalore $\alpha(t)$ che in principio dipenderà dal tempo:
+\begin{align*}
+a \ket{\psi_\alpha(t)} = \alpha(t) \ket{\psi_\alpha(t)}
+\end{align*}
+Se troviamo $\alpha(t)$ avremo dimostrato che lo è. Esplicitando allora $\ket{\psi_\alpha(t)}$ giungiamo a:
+\begin{align*}
+a \exp \left(-\frac{itH}{\hbar}\right) \ket{\psi_\alpha} = \alpha(t) \exp\left(-\frac{itH}{\hbar}\right)\ket{\psi_\alpha}
+\end{align*}
+Basta ora moltiplicare a sinistra entrambi i membri per $\exp(itH/\hbar)$, e sfruttare il fatto che $\alpha(t)$ è scalare per semplificare gli esponenziali a destra. Otteniamo così una forma a cui applicare la (\ref{eqn:espansione_hadamard}):
+\begin{align*}
+\exp\left(\frac{itH}{\hbar}\right) a \exp\left(-\frac{itH}{\hbar}\right)\ket{\psi_\alpha} = \alpha(t) \ket{\psi_\alpha}
+\end{align*}
+Per calcolarla, usiamo la formula:
+
+Scrivendo $B=H$ in termini di $a$ e $a^\dag$ per facilitare il calcolo dei commutatori:
+\begin{align*}
+H= \hbar \omega \left(a^\dag a +\frac{1}{2}\right)
+\end{align*}
+Giungiamo a:
+\begin{align*}
+\exp\left(\frac{itH}{\hbar}\right) a \exp\left(-\frac{itH}{\hbar}\right) &= \exp \left(it\omega \left(a^\dag a +\frac{1}{2}\right) \right) a \exp\left(-it\omega \left(a^\dag a + \frac{1}{2}\right)\right) =\\
+&= a + it\omega \left[a^\dag a + \frac{1}{2},a \right] +\dots =\\
+&=a - it\omega a+ \dots = a \sum_{n} \frac{(-i)^n (t\omega)^n}{n!} =e^{-it\omega} a
+\end{align*}
+E sostituendo nell'espressione di sopra, troviamo:
+\begin{align*}
+e^{-it\omega} a \ket{\psi_\alpha} = \hlc{Yellow}{e^{-it\omega}} \alpha \ket{\psi_\alpha}=\hlc{Yellow}{ \alpha(t)}\ket{\psi_\alpha}
+\end{align*}
+da cui $\alpha(t) = \alpha e^{-i\omega t}$, che verifica l'ipotesi che abbiamo fatto in partenza. Abbiamo allora dimostrato che $\ket{\psi_\alpha(t)}$ è ancora autovettore di $a$.
+\item Gli autostati $\ket{n} = (a^\dag)^n \ket{0}$ costituiscono, a meno della normalizzazione, gli autostati di $H$, \q{costruiti} a partire dallo stato fondamentale $\ket{0}$ (ripercorrendo quanto fatto nell'analisi teorica dell'oscillatore armonico), e quindi costituiscono una base ortogonale.\\
+Vogliamo determinare i coefficienti $c_n$ dell'espansione di $\ket{\psi_\alpha}$ in questa base:
+\begin{align*}
+\ket{\psi_\alpha} = \sum_{n=0}^{+\infty} c_n \ket{n}
+\end{align*}
+Applicando $a$ ad entrambi i membri:
+\begin{align}
+a \ket{\psi_\alpha} = \sum_{n=0}^{+\infty} c_n a \ket{n} = \sum_{\bm{n=1}}^{+\infty} c_n \sqrt{n}\ket{n-1}
+\label{eqn:e2}
+\end{align}
+si ha che $a$ \q{abbassa} gli autovettori dell'espansione. D'altro canto, poiché $\ket{\psi_\alpha}$ è $\alpha$-autovalore di $a$:
+\begin{align}
+a \ket{\psi_\alpha} = \alpha \ket{\psi_\alpha} = \alpha \sum_n c_n \ket{n}
+\label{eqn:e1}
+\end{align}
+Uguagliando (\ref{eqn:e2}) e (\ref{eqn:e1}):
+\begin{align*}
+\alpha \sum_{n=0}^{+\infty} c_n \ket{n} = \sum_{n=1} c_n\sqrt{n}\ket{n-1}
+\end{align*}
+Shiftiamo l'indice al secondo membro per riportare le due sommatorie \q{in pari}:
+\begin{align*}
+\alpha \sum_{n=0}^{+\infty} c_n \ket{n} = \sum_{n=0}^{+\infty} \sqrt{n+1} c_{n+1} \ket{n}
+\end{align*}
+L'uguaglianza deve valere per i singoli $\ket{n}$, e quindi:
+\begin{align*}
+\alpha c_n = \sqrt{n+1} c_{n+1} \Rightarrow  c_{n+1} = \frac{\alpha}{\sqrt{n+1}} c_n
+\end{align*}
+che è la relazione di ricorsione che definisce la successione dei coefficienti $c_n$ che stiamo cercando. Reiterandola $n$ volte:
+\begin{align*}
+c_n = \frac{\alpha}{\sqrt{n}} c_{n-1} = \frac{\alpha^2}{\sqrt{n(n-1)}} c_{n-2} = \dots = \frac{\alpha^n}{\sqrt{n!}}c_0
+\end{align*}
+dove $c_0$ è individuato dalla normalizzazione. Fermandoci qui, abbiamo trovato l'espansione:
+\begin{align*}
+\ket{\psi_\alpha} =c_0 \sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}} \ket{n}
+\end{align*}
+Imponendo la normalizzazione (cosa non richiesta nell'esercizio):
+\begin{align*}
+\sum_{n=0}^{+\infty} |c_n|^2 \overset{!}{=} 1 \Rightarrow  \sum_{n=0}^{+\infty} \frac{(|\alpha|^2)^n}{n!} |c_0|^2 = 1
+\end{align*}
+in cui riconosciamo lo sviluppo di un'esponenziale:
+\begin{align*}
+e^{|\alpha|^2}|c_0|^2 = 1 \Rightarrow  |c_0|^2 = e^{-|\alpha|^2} \Rightarrow  c_0 = (e^{-|\alpha^2|})^{1/2} = \exp\left(-\frac{|\alpha|^2}{2}\right)
+\end{align*}
+Perciò, lo sviluppo \textit{normalizzato} degli stati coerenti nella base (normalizzata) $\ket{n}$ degli autostati di $H$ dell'oscillatore armonico è:
+\begin{align*}
+\ket{\psi_\alpha} = \sum_{n=0}^{+\infty} c_n \ket{n} = \exp\left(-\frac{|\alpha|^2}{2}\right) \sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}
+\end{align*}
+
+\textbf{Alternativamente}, un modo (più teorico e generale) per risolvere lo stesso punto è quello riportato qui di seguito.\\
+
+Partiamo dal \textit{suggerimento implicito}:
+\begin{align*}
+a \ket{\psi_\alpha} = \alpha \ket{\psi_\alpha} \Rightarrow  (a-\alpha)\ket{\psi_\alpha} = 0
+\end{align*}
+Allora:
+\begin{align*}
+\exists S \text{ t.c. } SaS^{-1} = a -\alpha \Rightarrow  Sa S^{-1} S\ket{0} = 0 \Rightarrow  S\ket{0} = \psi_\alpha
+\end{align*}
+Da cui:
+\begin{align*}
+e^{\alpha a^\dag} a e^{-\alpha a^\dag} = a + [\alpha a^\dag, a] + \dots
+\end{align*}
+e ricaviamo:
+\begin{align*}
+\ket{\psi_\alpha}=e^{\alpha a^\dag} \ket{0} = \sum_{n=0}^{\infty}\frac{1}{n!} \alpha^n (a^\dag)^n \ket{0} = \sum_{n=0}^{\infty}\frac{1}{n!}\alpha^n \ket{n}
+\end{align*}
+
+\end{enumerate}
+\end{document}
+

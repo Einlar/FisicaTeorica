@@ -142,7 +142,7 @@ i & 0
 \end{pmatrix}
 \]
 Tali matrici sono dette \textbf{matrici di Pauli}\footnote{Si può anche dimostrare che $i\sigma_x, i\sigma_y, i\sigma_z$ formano una base per l'algebra di Lie $\mathfrak{su}(2)$, il che ha intuitivamente senso, dato che lo spin nasce proprio dalla discussione dei generatori delle rotazioni in $\bb{R}^3$.}, e costituiscono la versione \q{adimensionalizzata} delle osservabili associate alle componenti cartesiane dello spin $\vec{S}$, dato che siamo partiti da $\vec{S}=\frac{\hbar}{2}\vec{\sigma}$.\\
-Per trovare invece la componente di $\vec{S}$ lungo un versore generico $\hat{n}$ di $\bb{R}^3$, data da $\vec{S}\cdot \hat{n}$, passiamo in coordinate sferiche, indicando $\hat{n} = (\sin\theta\cos\varphi, \sin\theta\sin\varphi,\cos\theta)$.
+Per trovare invece la componente di $\vec{S}$ lungo un versore generico $\hat{n}$ di $\bb{R}^3$, data da $\vec{S}\cdot \hat{n}$, passiamo in coordinate sferiche, indicando $\hat{n} = (\sin\theta\cos\varphi, \sin\theta\sin\varphi,\cos\theta)$ - dove, come al solito, $\theta \in [0,\pi]$ è l'angolo rispetto alla verticale $\hat{z}$.
 \begin{align*}
 \vec{S}\cdot \vec{n} &= \frac{\hbar}{2}\vec{\sigma}\cdot\hat{n} =\frac{\hbar}{2}\left[\begin{pmatrix}
 0 & 1\\
@@ -190,24 +190,44 @@ a\left(\cos^2\frac{\theta}{2}-\sin^2 \frac{\theta}{2} \mp\left(\cos^2 \frac{\the
 +\frac{\hbar}{2}:\quad \frac{b}{a}=\frac{\sin\theta/2}{\cos\theta/2}e^{i\varphi}\qquad
 -\frac{\hbar}{2}:\quad \frac{b}{a}=-\frac{\cos\theta/2}{\sin\theta/2} e^{i\varphi}
 \end{align*}
-Per \q{simmetria}, scegliamo $a = \cos\frac{\theta}{2}e^{-i\varphi/2}$ per il primo caso, e $a=\sin\frac{\theta}{2}e^{-i\varphi/2}$ per il secondo. Giungiamo allora a:
+Scegliamo ora $a = \cos\frac{\theta}{2}e^{-i\varphi/2}$ per il primo caso, e $a=\sin\frac{\theta}{2}e^{-i\varphi/2}$ per il secondo.
+Otteniamo allora, per gli autostati dello spin in una generica direzione $\hat{n}$ inclinata di $\theta$ rispetto a $\hat{z}$ e \textit{ruotata} di $\varphi$ sul piano $\perp \hat{z}$ (che per $\psi>0$ è antioraria se vista \q{dalla punta} di $+\hat{z}$):
 \begin{align}
 \label{eqn:spin-eigenstates}
-\ket{s_3 = \frac{\hbar}{2}} &\equiv \ket{+\frac{1}{2}} = \begin{pmatrix}
+\ket{s_n = \frac{\hbar}{2}} &\equiv \ket{+\frac{1}{2}}_n = \begin{pmatrix}
 \cos\frac{\theta}{2}e^{-i\varphi/2}\\
 \sin\frac{\theta}{2} e^{i\varphi/2}
 \end{pmatrix}\\ \nonumber
-\ket{s_3 = -\frac{\hbar}{2}} &\equiv \ket{-\frac{1}{2}} = \begin{pmatrix}
+\ket{s_n = -\frac{\hbar}{2}} &\equiv \ket{-\frac{1}{2}}_n = \begin{pmatrix}
 \sin\frac{\theta}{2} e^{-i\varphi/2}\\
 \cos\frac{\theta}{2} e^{i\varphi/2}
 \end{pmatrix}
 \end{align}
+La scelta di $a$ così effettuata è tale che per $\theta = 0$, ossia considerando come direzione $\hat{n} = +\hat{z}$, gli autostati sono scritti come:
+\begin{align*}
+    \ket{+\frac{1}{2}} \equiv \ket{+} = \begin{pmatrix}
+    1\\0\end{pmatrix}; \quad \ket{-\frac{1}{2}} \equiv \ket{-} = \begin{pmatrix}0\\ 1
+    \end{pmatrix}
+\end{align*}
+\textbf{Nota}: ciò vale $\forall \varphi$. Infatti, in questo caso, per $\varphi \neq 0$ si otterrebbe, per esempio, $e^{-i\varphi}\ket{+}$, che è equivalente a $\ket{+}$ una volta normalizzato. Ciò è ragionevole, dato che una rotazione attorno a $\hat{z}$ lascia invariati i vettori diretti come $\hat{z}$.\\
+Tale osservazione ci permette, perciò, di scrivere gli autostati dello spin misurato in una direzione generica (che denoteremo con $\ket{+}_n$ e $\ket{-}_n$) come combinazione lineare degli autoket dello spin misurato lungo $\hat{z}$ (denotati come $\ket{+}$ e $\ket{-}$, senza alcun pedice). Esplicitando le (\ref{eqn:spin-eigenstates}):
+\begin{align} \nonumber
+    \ket{+}_n &= \cos\frac{\theta}{2} e^{-i\varphi/2} \ket{+} + \sin\frac{\theta}{2} e^{+i\varphi/2} \ket{-}\\
+    \ket{-}_n &= -\sin\frac{\theta}{2} e^{-i\varphi/2}\ket{+} + \cos\frac{\theta}{2} e^{i\varphi/2} \ket{-}
+    \label{eqn:spin-generici-formule}
+\end{align}
+Per esempio, per $\theta = \pi/2$ e $\varphi = 0$, ossia per $\hat{n}=+\hat{x}$, otteniamo:
+\begin{align*}
+\ket{+}_x = \frac{1}{\sqrt{2}}(\ket{+}+\ket{-}); \quad \ket{-}_x = \frac{1}{\sqrt{2}}(\ket{-}-\ket{+})
+\end{align*}
+
+Tali formule sono utili nel caso di più misure di spin lungo assi diversi. Per esempio, se un sistema è inizialmente nello stato $\ket{+}_x$, dalla relazione appena vista avremo che una misura di spin lungo $\hat{z}$ darà con probabilità uguali ($p=1/2$) uno dei due risultati $\pm \hbar/2$ possibili.
 
 \subsection{Composizione dei momenti angolari}
 Ci poniamo ora il problema di \textit{comporre} più momenti angolari, al fine di calcolare il \textit{momento angolare totale} di un sistema.\\
 Conti del genere compaiono, per esempio, quando si considerano sia il momento angolare orbitale $\vec{L}$ di un elettrone, che quello \textit{intrinseco} di spin $\vec{S}$, e si cerca di determinare le loro relazioni con $\vec{J}=\vec{L}+\vec{S}$.\\
 
-Occupiamoci fin da subito del caso più generale. Consideriamo due operatori di momento angolare $\vec{J}^{(1)}$ e $\vec{J}^{(2)}$ che agiscono rispettivamente su spazi \textit{distinti} $H_{j_1}$ e $H_{j_2}$ di un sistema composto dato da $\hs=\hs_{j_1} \otimes \hs_{j_2}$, ossia corrispondono a \q{gradi di libertà distinti}:
+Occupiamoci fin da subito del caso più generale. Consideriamo due operatori di momento angolare $\vec{J}^{(1)}$ e $\vec{J}^{(2)}$ che agiscono rispettivamente su spazi \textit{distinti} $\mathcal{H}_{j_1}$ e $\mathcal{H}_{j_2}$ di un sistema composto dato da $\hs=\hs_{j_1} \otimes \hs_{j_2}$, ossia corrispondono a \q{gradi di libertà distinti}:
 \begin{align*}
 \vec{J}^{(1)}=\vec{J}^{(1)}\otimes \bb{I}^{(2)}\qquad \vec{J}^{(2)}=\bb{I}^{(1)}\otimes \vec{J}^{(2)}
 \end{align*}
@@ -244,7 +264,7 @@ Tali autoket verificano le seguenti equazioni agli autovalori:
 
 Le due collezioni di osservabili sono \textit{incompatibili} tra loro, ossia un autoket per una non corrisponde a un unico autoket dell'altra, ma a una certa combinazione lineare. Fisicamente, ciò significa che partendo da stati con $j_1, j_2, j, m$ fissati, misure ripetute produrranno valori di $m_1$ e $m_2$ non unici, ma all'interno di un \textit{range}. Vogliamo ora determinare quali siano questi \textit{range}, e cioè trovare un modo per passare da una base all'altra.\\
 
-Partiamo notando che $\vec{J}_3$ commuta con $\vec{J}^{(1)}_3$ e $\vec{J}^{(2)}_3$, e perciò se questi ultimi due hanno autovalori $\hbar m_1$ e $\hbar m_2$, $J_3 = J_3^{(1)} + J_3^{(2)}$ avrà autovalore $\hbar m = \hbar(m_1+m_2)$. Poiché $m_1$ ed $m_2$ variano all'interno di range determinati da $j_1$ e $j_2$, ci chiediamo quale sia il range di $m$ a partire da $j_1$ e $j_2$. Da questo, ricordando che $m$ varia a sua volta tra $j$ e $-j$, vogliamo trovare anche il range possibile di valori di $j$, ossia degli autovalori di $\vec{J}^{\,2}$.\\
+Partiamo notando che $\vec{J}_3$ commuta con $\vec{J}^{\,(1)}_3$ e $\vec{J}^{\,(2)}_3$, e perciò se questi ultimi due hanno autovalori $\hbar m_1$ e $\hbar m_2$, $J_3 = J_3^{(1)} + J_3^{(2)}$ avrà autovalore $\hbar m = \hbar(m_1+m_2)$. Poiché $m_1$ ed $m_2$ variano all'interno di range determinati da $j_1$ e $j_2$, ci chiediamo quale sia il range di $m$ a partire da $j_1$ e $j_2$. Da questo, ricordando che $m$ varia a sua volta tra $j$ e $-j$, vogliamo trovare anche il range possibile di valori di $j$, ossia degli autovalori di $\vec{J}^{\,2}$.\\
 
 Raccogliamo in tabella tutti i possibili valori di $m_1$ e $m_2$, con i rispettivi valori assunti da $m$, ordinandoli per $m$ decrescenti:
 \begin{align*}

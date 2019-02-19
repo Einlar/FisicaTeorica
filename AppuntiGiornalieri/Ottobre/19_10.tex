@@ -90,11 +90,11 @@ E perciò il dominio di $P_\gamma$ è di nuovo esclusivamente puntuale:
 \]
 Sostituendo l'espressione per $\lambda$ nella soluzione:
 \[
-\psi_\lambda(x) = A \exp\left(i\frac{\lambda}{\hbar}x\right) = A \exp\left [ix\left(\frac{\gamma}{2\pi}+n\right)\right ]; \> n\in\bb{Z}
+\psi_\lambda(x) = A \exp\left(i\frac{\lambda}{\hbar}x\right) = A \exp\left [ix\left(\frac{\gamma}{2\pi}+n\right)\right ] \equiv \psi_n(x); \> n\in\bb{Z}
 \]
 Se condensiamo la parte che dipende da $n$ in un'opportuna funzione $\tilde{\psi}_n(x)$ possiamo riscrivere:
 \[
-\psi_\lambda(x) \rightarrow \psi_n(x) = \tilde{\psi}_n(x) \exp\left(i\frac{\gamma}{2\pi}x\right); \quad \tilde{\psi}_n = \tilde{\psi}_n(2\pi); \quad \lambda = \hbar \left(\frac{\gamma}{2\pi} + n\right); \> n\in \bb{Z}
+\psi_n(x) = \tilde{\psi}_n(x) \exp\left(i\frac{\gamma}{2\pi}x\right); \quad \tilde{\psi}_n(0) = \tilde{\psi}_n(2\pi); \quad \lambda = \hbar \left(\frac{\gamma}{2\pi} + n\right); \> n\in \bb{Z}
 \]
 E perciò, con questa notazione, l'equazione agli autovalori diviene:
 \[
@@ -200,21 +200,18 @@ e^{\oint_{\mathcal{C}}{\left\langle\psi\right|d\psi\rangle\ }}
 dove $\mathcal{C}$ è una curva chiusa nello spazio degli stati (o delle funzioni).\\
 Con questa definizione la fase di Berry è un'osservabile. Mostriamo che il suo valore è non nullo se calcolata lungo un percorso ciclico (per esempio una circonferenza).\\
 %[Done] (correggere negli appunti vecchi la i nella fase di Berry) OK
-Partiamo considerando:
+Partiamo considerando le autofunzioni di $P_\gamma$:
 \[
 \psi_n\left(x\right)=\frac{1}{\sqrt{2\pi}}e^{i\left(n+\frac{\gamma}{2\pi}\right)x}
 \]
-Le $\psi_n$ sono definite a meno di una fase \q{attorno al cerchio}, ossia a meno di una $\psi_\alpha(x)$:
-\[
-\{\psi_\alpha(x)\>|\>\psi_{2\pi}(x) = e^{i\alpha} \psi_0(x)\}; \quad \alpha \in [0,2\pi[
-\]
+Senza modificare l'autovalore è possibile moltiplicarle per una fase \q{attorno al cerchio}.
 Giungiamo quindi alla famiglia:
 \[
 \psi_{n,\alpha}=\frac{1}{\sqrt{2\pi}}e^{i\left(n+\frac{\gamma}{2\pi}\right)\left(x+\alpha\right)}; \quad \psi_{n,2\pi}(x) = e^{i\gamma}\psi_{n,0}(x); \quad \alpha \in [0,2\pi [
 \]
 Possiamo ora definire $\mathcal{C}$:
 \[
-C=\psi_{n,\alpha}\left(x\right)\>|\>  \psi_{n,2\pi}\left(x\right)=e^{i\gamma}\psi_{n,0}(x)
+C=\left \{ \psi_{n,\alpha}\left(x\right)\>|\>  \alpha \in [0,2\pi] \right \}
 \]
 e quindi calcolare l'integrale per la fase di Berry:
 \begin{align*}
@@ -242,7 +239,7 @@ j=1,\ldots,\dim{\mathcal{H}}\right\}$ una base ON per $\hs$, con la condizione c
 \]
 dove in (a) si è usato il fatto che $\left\langle\chi_j\middle|\phi\right\rangle=\left\langle\chi_j\middle|\chi_1\right\rangle=\delta_{j1}$ per l'ortonormalità (essendo $\ket{\phi}$ perpendicolare a tutti i $\ket{\chi_j}$ e parallelo al primo per costruzione).
 \begin{mdframed}[hidealllines=true,backgroundcolor=green!20,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt]
-\textbf{Nota}: in uno spazio di Hilbert\index{Traccia} $\hs$, con $\ket{\chi_j}$ base ON, la \textbf{traccia} è definita come:
+\textbf{Nota}: in uno spazio di Hilbert\index{Traccia} $\hs$, con $\ket{\chi_j}$ base ON, la \textbf{traccia}, per gli operatori per cui è finita, è definita come:
 \[
 \op{Tr}(\cdot) = \sum_j \bra{\chi_j} (\cdot) \ket{\chi_j}
 \]
@@ -287,7 +284,7 @@ Ci si potrebbe allora chiedere\marginpar{$\rho$ $\leftrightarrow$ raggi vettori}
 \rho &\rightarrow e^{i\alpha}\ket{\psi}\bra{\psi}e^{-i\alpha}=\ket{\psi}\bra{\psi}
 \end{align*}
 Ma allora $\rho^2=\rho$ sono in corrispondenza biunivoca con i raggi vettori dello spazio di Hilbert.\\
-Ciò è comodo sperimentalmente, perché $\rho$ costituisce un'osservabile ( e qui potenzialmente può essere misurata).\\
+Ciò è comodo sperimentalmente, perché $\rho$ costituisce un'osservabile (e quindi potenzialmente può essere misurata).\\
 Per esempio, in un sistema di due fotoni, lo stato delle polarizzazioni è una matrice $2\times 2$ di numeri che si possono ricavare sperimentalmente. Perciò, per verificare se un sistema creato in laboratorio sia in uno stato puro o meno, basta determinare tale matrice $A$, calcolarne il quadrato e vedere se viene lo stesso risultato di partenza, ossia se si ha $A^2 = A$.\\
 
 Vediamo che, come nel caso classico, uno stato misto quantistico può essere scritto come una combinazione \textit{convessa}\footnote{Una combinazione convessa è una combinazione lineare di elementi fatta con coefficienti non negativi a somma $1$. Per esempio: $\lambda_1 x_1 + \dots +\lambda_m x_m$ è convessa se $\lambda_i \geq 0$ per $i=1,\dots,m$ e $\sum_{i=1}^m \lambda_i = 1$} di stati puri, scritti come proiettori.\\
@@ -353,7 +350,7 @@ Concretamente, siano per esempio (trascurando, di nuovo, le normalizzazioni):
 \end{align*}
 Si nota quindi che nell'espressione del membro a sinistra mancano tutti i termini fuori dalla diagonale.\\
 
-Nel caso \textbf{classico} possiamo scrivere uno stato come combinazione convessa (non numerabile) di stati puri:
+Nel caso \textbf{classico} possiamo scrivere uno stato come combinazione convessa (in generale non numerabile) di stati puri:
 \[
 \rho \left(q,p\right)=\int dq_0\,dp_0 \rho \left(q_0,p_0\right) \underbrace{\delta \left(q-q_0\right)\delta \left(p-p_0\right)}_{\text{Stati puri}}
 \]
@@ -369,5 +366,5 @@ Abbiamo allora ottenuto una descrizione completamente equivalente a quella che a
 \]
 in cui, tra l'altro, le $\ket{\phi_i}$ non devono neppure essere ON.\\
 Perciò si hanno famiglie \textit{diverse} di stati puri che danno la stessa informazione dello stato misto!\\
-In \MC posso comunque sapere gli stati puri da cui parto -- non so la loro combinazione esatta --, ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
+In \MC posso comunque sapere gli stati puri che contribuiscono allo stato misto -- anche se su di loro ho solo informazioni probabilistiche --, ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
 \end{document}

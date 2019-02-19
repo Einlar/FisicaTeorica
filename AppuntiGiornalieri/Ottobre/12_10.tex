@@ -7,19 +7,19 @@
 
 \subsection{Proiettori e operatori unitari}
 Utilizzando la definizione di \textbf{aggiunto} si possono definire due importanti \textbf{classi} di operatori limitati, che ci torneranno utili più avanti: i proiettori e gli operatori unitari.
-\begin{dfn}[Proiettore]
+\begin{dfn}[Proiettore]\index{Operatore!Proiettore}
 \marginpar{Proiettori} Un operatore limitato $P\in\mathcal{B}(\mathcal{H})$ è un proiettore se $P=P^\dag$ e $P=P^2$.
 \end{dfn}
-Un proiettore $P_\psi$ non è altro che quell'operatore che se applicato ad un vettore ne restituisce la sua proiezione lungo $\psi$ (intesa come vettore\footnote{Nel senso, non come semplice \q{lunghezza della proiezione}, ma come un vettore che punta nella direzione su cui si proietta e che viene riscalato alla lunghezza della proiezione.}).
+Un proiettore $P_\psi$ non è altro che quell'operatore che applicato ad un vettore ne restituisce la sua proiezione lungo $\psi$ (intesa come vettore\footnote{Nel senso, non come semplice \q{lunghezza della proiezione}, ma come un vettore che punta nella direzione su cui si proietta e che viene riscalato alla lunghezza della proiezione.}).
 In particolare si noti che ogni vettore $\psi\in\mathcal{H}$ con $\left|\left|\psi\right|\right|=1$ definisce un proiettore $P_\psi$
 \begin{equation}
 P_\psi\phi=\left(\psi,\phi\right)\psi\qquad \forall\phi\in\mathcal{H}
 \label{eqn:proiettore}
 \end{equation}
 In notazione di Dirac $P_\psi=\left|\psi\right\rangle\left\langle\psi\right|$ e $P_\psi\left|\phi\right\rangle=\left|\psi\right\rangle\left\langle\psi\middle|\phi\right\rangle$\\
-L'analogo delle funzioni dei proiettori sono le funzioni caratteristiche $\chi_\Delta$. Infatti tali funzioni sono a valori reali (e quindi la simmetria è immediatamente verificata) e hanno come valori solo $0$ e $1$, che non cambiano dopo essere stati elevati al quadrati\footnote{In particolare sono gli unici numeri reali con questa proprietà.} (e quindi soddisfano anche $P=P^2$)\footnote{In effetti moltiplicando scalarmente una funzione caratteristica $\chi_\Delta$ con una qualsiasi altra funzione si ottiene la \q{proiezione} di quest'ultima sull'intervallo $\Delta$, cioè una funzione che è nulla ovunque e vale quanto la funzione originaria entro $\Delta$. Ipoteticamente, se scomponessimo $\bb{R}$ in intervalli e sommassimo le proiezioni su ciascuno di essi generate dalle funzioni caratteristiche riotterremo la funzione di partenza, così come sommando le proiezioni di un vettore sui vettori di una base si riottiene il vettore di partenza.}.
+L'analogo dei proiettori nelle funzioni sono le funzioni caratteristiche $\chi_\Delta$. Infatti tali funzioni sono a valori reali (e quindi la simmetria è immediatamente verificata) e hanno come valori solo $0$ e $1$, che non cambiano dopo essere stati elevati al quadrati\footnote{In particolare sono gli unici numeri reali con questa proprietà.} (e quindi soddisfano anche $\chi_\Delta^2 = \chi_\Delta$)\footnote{In effetti moltiplicando scalarmente una funzione caratteristica $\chi_\Delta$ con una qualsiasi altra funzione si ottiene la \q{proiezione} di quest'ultima sull'intervallo $\Delta$, cioè una funzione che è nulla ovunque e vale quanto la funzione originaria entro $\Delta$. Ipoteticamente, se scomponessimo $\bb{R}$ in intervalli e sommassimo le proiezioni su ciascuno di essi generate dalle funzioni caratteristiche riotterremo la funzione di partenza, così come sommando le proiezioni di un vettore sui vettori di una base si riottiene il vettore di partenza.}.
 
-\begin{dfn}[Operatore unitario] \marginpar{Operatori unitari} Un operatore \textbf{limitato} $U\in \mathcal{B}(\hs)$ è unitario se soddisfa:
+\begin{dfn}[Operatore unitario] \marginpar{Operatori unitari}\index{Operatore!Unitario} Un operatore \textbf{limitato} $U\in \mathcal{B}(\hs)$ è unitario se soddisfa:
 \begin{equation}
 UU^\dag=U^\dag U=\bb{I}
 \label{eqn:unitario}
@@ -88,13 +88,13 @@ A\psi=A^\dag\psi \qquad \forall\psi\in D(A)
 \end{dfn}
 In effetti, nel processo di \q{allargare un dominio} e \q{accorciare quello del suo aggiunto} l'unica \q{situazione speciale} è quella in cui entrambi i domini coincidono. Nel definire operatori, richiedere che sia soddisfatta questa condizione (ossia che siano autoaggiunti e non semplicemente simmetrici) è \textit{matematicamente soddisfacente} dunque ciò sembra naturale e non arbitrario.
 Il fatto che la stessa condizione si ritrovi esaminando \q{entità fisiche} - come abbiamo visto nell'esempio del momento (è l'unico modo perché sia simmetrico e dia risultati sensati) - è uno di quei casi speciali in cui la fisica segue le nostre idee di \q{regole naturali}.\\
-Tuttavia, seppur tutto questo sia matematicamente naturale e soddisfacente, è necessaria una giustificazione \q{fisica} del perché succede. Una spiegazione di ciò salta fuori da una proprietà naturale che non abbiamo ancora richiesto.\\
+Tuttavia, seppur tutto questo sia matematicamente naturale e soddisfacente, è necessaria una giustificazione \q{fisica} del perché succede. Una spiegazione di ciò emerge da una proprietà naturale che non abbiamo ancora richiesto.\\
 
 \subsection{Autoaggiuntezza in dimensione $N$: decomposizione spettrale}
 Tra le richieste per le osservabili\marginpar{Operatori autoaggiunti e funzioni degli osservabili} nella descrizione matematica di un sistema fisico c'era la possibilità di definire funzioni di osservabili $f(O)$ dell'osservabile $O$. Qual è la relazione tra richiedere ciò e la proprietà dell'autoaggiuntezza?\\
 
 Partiamo dal caso \textbf{finito dimensionale}.\\
-Se $\dim{\mathcal{H}<\infty}$, allora ogni $A$ simmetrico è anche autoaggiunto, perché $D\left(A\right)\subset \hs \subset D(A^\dag)$.\marginpar{Autovalori di $A$ autoaggiunto sono anche autovalori dell'osservabile}\\
+Se $\dim{\mathcal{H}<\infty}$, allora ogni $A$ simmetrico è anche autoaggiunto, perché $D\left(A\right)= \hs = D(A^\dag)$.\marginpar{Autovalori di $A$ autoaggiunto sono anche autovalori dell'osservabile}\\
 Verifichiamo che gli autovalori di $A$ sono proprio gli autovalori ottenibili dall'osservabile descritto da $A$.\\
 Ricordiamo che se il valor medio dell'osservabile $O$ nello stato $\Sigma$ è $\lambda=\left\langle O\right\rangle_\Sigma$, e la fluttuazione di $O$ nello stato $\Sigma$ è nulla:
 \begin{equation}
@@ -154,7 +154,7 @@ Per le matrici hermitiane\marginpar{Proprietà di operatori autoaggiunti} (ossia
 	\[
 	\langle A \rangle_\psi = \frac{(\psi,A\psi)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{(\psi_n, \psi)(\psi, \psi_n)}{\norm{\psi}^2} = \sum_n \lambda_n \frac{|(\psi_n, \psi)|^2}{\norm{\psi}^2}
 	\]
-	(che è consistente perché $\left(\psi_n, \psi_m\right)=0$ se $\lambda_n\neq \lambda_m$), dove i $\lambda_n$ sono autovalori, e il restante fattore $\displaystyle p_n = \frac{\left|\psi_n,\psi\right|^2}{\left|\left|\psi\right|\right|^2}$ è compreso tra $0$ e $1$, e lo interpretiamo come probabilità.\\
+	(che è consistente perché $\left(\psi_n, \psi_m\right)=0$ se $\lambda_n\neq \lambda_m$), dove i $\lambda_n$ sono autovalori, per semplicità qui assunti non degeneri, e il restante fattore $\displaystyle p_n = \frac{\left|\psi_n,\psi\right|^2}{\left|\left|\psi\right|\right|^2}$ è compreso tra $0$ e $1$, e lo interpretiamo come probabilità.\\
 	Ma allora:
 	\[
 	\sum_{n}{\frac{\left|{(\psi}_n, \psi)\right|^2}{\left|\left|\psi\right|\right|^2}=\sum_{n}\frac{\langle\psi|\psi_n\rangle \langle\psi_n|\psi\rangle }{\langle\psi|\psi\rangle }=1 }
@@ -165,10 +165,10 @@ Per le matrici hermitiane\marginpar{Proprietà di operatori autoaggiunti} (ossia
 	    \sigma \left(A\right)&=\left\{\text {insieme dei valori che posso ottenere misurando } A\right\}= \\
 	    &=\left\{\lambda_n:\text{ insieme degli autovalori di } A\right\}
 	\end{align*}
-\item Possiamo sfruttare la decomposizione spettrale per calcolare funzioni di $A$\marginpar{Funzioni $f(A)$}.\\
+\item Possiamo sfruttare la decomposizione spettrale per definire funzioni di $A$\marginpar{Funzioni $f(A)$}.\\
 Partiamo definendo $P_n$ come il proiettore associato a $\psi_n$, che se applicato ad un vettore lo proietta nel sottospazio 1-dimensionale generato da $\psi_n$. Possiamo riscrivere gli elementi di matrice di $A$ usando $P_n$:
 	\[
-	\left(\psi, A\phi\right)=\sum_{n}{\lambda_n\left(\psi,P_n\phi\right)}=\left(\psi, \left(\sum_{n}{\lambda_n P_n}\right)\right) \Rightarrow A=\sum_{n}{\lambda_n P_n}
+	\left(\psi, A\phi\right)=\sum_{n}{\lambda_n\left(\psi,P_n\phi\right)}=\left(\psi, \left(\sum_{n}{\lambda_n P_n}\right)\phi\right) \Rightarrow A=\sum_{n}{\lambda_n P_n}
 	\]
 	Abbiamo perciò ottenuto $A$ come la somma delle sue \q{proiezioni} $\lambda_n P_n$.\\
 	Ma allora data una funzione reale $f$, possiamo \q{calcolarla in $A$}
@@ -198,7 +198,7 @@ Si verifica immediatamente che $A$ è uguale alla sua trasposta coniugata, e qui
 \begin{enumerate}
     \item Determiniamo gli \textbf{autovalori} $\lambda$ di $A$. Da $\op{det}(A-\lambda \bb{I}) \overset{!}{=} 0$, otteniamo (sviluppo di Laplace lungo la prima colonna)
     \[
-    (2-\lambda)[(2-\lambda)^2-1]-i(-2i+\lambda i -1)-i(-i -2i +\lambda i) = -\lambda^3 + 6\lambda^2 - 9\lambda = -\lambda(\lambda -3)^2 = 0
+    (2-\lambda)[(2-\lambda)^2-1]-i(-2i+\lambda i -i)-i(-i -2i +\lambda i) = -\lambda^3 + 6\lambda^2 - 9\lambda = -\lambda(\lambda -3)^2 = 0
     \]
     Perciò gli autovalori sono $\lambda_1 = 0$ (senza degenerazione) e $\lambda_2 = 3$ (con degenerazione $2$).\\
     \item Troviamo gli \textbf{autovettori} associati a $\lambda_1, \lambda_2$.

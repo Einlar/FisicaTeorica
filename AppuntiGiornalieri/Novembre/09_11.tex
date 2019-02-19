@@ -14,111 +14,166 @@ Consideriamo ora il caso della \textit{buca di potenziale finita}, ovvero il sis
 \[
 V(x)=\bar{V}\chi_{\left[-\frac{a}{2},\frac{a}{2}\right]}(x)
 \]
-Se $\mathcal{E}>0$ la situazione è analoga a quella della barriera di potenziale per $\mathcal{E}>\bar{V}$, solo che in questo caso $\bar{V}<0$ mentre per la barriera $\bar{V}>0$. In entrambi i casi comunque $\sigma(H)$ è continuo con degenerazione $2$.\\
-Anche qui c'è il fenomeno di \emph{risonanza di trasmissione}; una particella \emph{con abbastanza energia} per oltrepassare la barriera ha una certa probabilità di essere riflessa. In particolare per determinate energie la particella \emph{trascorre} più tempo nella regione della buca, e per altri di meno\footnote{rispettivamente al tempo calcolato classicamente}. Questo fenomeno si può intuire  se \textit{estendiamo} gli stati discreti presenti nella buca \q{al di sopra} di essa. Quando una particella ha un'energia tale per cui \textit{corrisponderebbe} a uno stato discreto \textit{esteso}, allora tale particella \q{è in risonanza} e trascorre più tempo nella regione della buca. In maniera analoga ai calcoli dei paragrafi precedenti, per $\bar{V}< \mathcal{E}<0$ se si pone:
-\[
-\chi=\frac{\sqrt{-2m\mathcal{E}}}{\hbar}; \quad k_2=\frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
-\]
-allora le autofunzioni dell'hamiltoniana $H$ sono:
-\[
+Se $\bm{\mathcal{E}>0}$ la situazione è analoga a quella della barriera di potenziale per $\mathcal{E}>\bar{V}$, solo che in questo caso $\bar{V}<0$ mentre per la barriera $\bar{V}>0$. Per le autofunzioni, infatti, valgono le stesse espressioni viste in (\ref{eqn:autofunzioni_rettangolari}):
+\begin{align*}
+\varphi_\mathcal{E}(x) = \begin{cases}
+c^1_+ e^{ik_1 x} + c^1_- e^{-ik_1 x} & x < -\frac{a}{2}\\
+c^2_+ e^{ik_2 x } + c^2_- e^{-ik_2 x} & -\frac{a}{2} < x < \frac{a}{2}\\
+c^3_+ e^{ik_1x} + c^3_- e^{-ik_1 x} & x>\frac{a}{2}
+\end{cases}\\
+k_1 = \frac{\sqrt{2m\mathcal{E}}}{\hbar}; \qquad k_2 = \frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\end{align*}
+ In entrambi i casi $\sigma(H)$ è continuo (dato che le soluzioni oscillano all'infinito, e quindi non sono in $\hs$) con degenerazione $2$ (vi sono $6$ costanti e $4$ condizioni di raccordo - $2$ per la $\varphi_\mathcal{E}(x)$ e $2$ per la derivata $\varphi'_\mathcal{E}(x)$, e perciò $6-4=2$ parametri liberi).\\
+In particolare vale quanto ricavato per il coefficiente di trasmissione $\bb{T}$. Ritroviamo quindi il fenomeno di \emph{risonanza di trasmissione}, per cui una particella viene trasmessa con \textit{certezza} solo per certi valori di energia (tali che $\sin(k_2 a )=0$), ma in generale $\bb{T}\neq 1$, e perciò può capitare che una particella \emph{con abbastanza energia} per oltrepassare la barriera venga invece riflessa.\\
+In particolare per determinate energie la particella \emph{trascorre} più tempo nella regione della buca, e per altri di meno\footnote{rispettivamente al tempo calcolato classicamente}. Questo fenomeno si può intuire  se \textit{estendiamo} gli stati discreti presenti nella buca \q{al di sopra} di essa. Quando una particella ha un'energia che \textit{corrisponderebbe} a quella di uno stato discreto \q{esteso}, allora tale particella \q{è in risonanza} e trascorre più tempo nella regione della buca.\\
+
+D'altro canto, per $\bm{\bar{V}< \mathcal{E}<0}$ riadattiamo l'espressione per $\varphi_\mathcal{E}(x)$, seguendo la stessa idea vista per il caso della barriera rettangolare con $\mathcal{E} < \bar{V}$, solo che qui la modifica va fatta nelle regioni (1) e (3):
+\begin{align*}
+c^1_+ e^{ik_1 x} + c^1_- e^{-ik_1 x} &\to c^1_+ e^{\chi x} + c^1_- e^{-\chi x} \\
+\chi = \frac{\sqrt{-2m\mathcal{E}}}{\hbar}  &= ik_1 \Rightarrow k_1 = -i\chi
+\end{align*}
+Effettuando la sostituzione, otteniamo:
+\begin{align*}
 \varphi_\mathcal{E}(x)=\begin{cases}
-c^1_+ e^{\chi x} + c^1_- e^{-\chi x} & x<-\frac{a}{2} \quad \qquad \, (1)\\
+c^1_+ e^{\chi x} +\cancel{ c^1_- e^{-\chi x}} & x<-\frac{a}{2} \quad \qquad \, (1)\\
 c^2_+ e^{ik_2 x} + c^2_- e^{-ik_2 x} & -\frac{a}{2}<x<\frac{a}{2}\quad \, (2)\\
-c^3_+ e^{ik_3 x}+c^3_- e^{-ik_3 x} & x > \frac{a}{2} \ \quad \ \qquad \, \, (3)
-\end{cases}
-\]
+\cancel{c^3_+ e^{\chi x}}+c^3_- e^{-\chi x} & x > \frac{a}{2} \ \quad \ \qquad \, \, (3)
+\end{cases}\\
+\chi = \frac{\sqrt{-2m\mathcal{E}}}{\hbar}; \qquad k_2 = \frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\end{align*}
 Poiché qualsiasi autofunzione (sia nel caso appartenga ad $\hs$ che ad $\mathcal{S}'$) non può divergere esponenzialmente, abbiamo immediatamente che $c^1_- = c^3_+ = 0$.\\
 
-A questo punto non serve svolgere tutti i conti. Notiamo infatti che, dal caso già studiato della barriera con\ $\mathcal{E}<\bar{V}$ otteniamo il caso della buca finitamente profonda mediante la sostituzione $k_1 \to -i\chi$ e imponendo che $c^1_- = c^3_+ = 0$. Sempre in analogia con quanto fatto per la barriera si ha
-\[
+Notiamo che $\varphi_\mathcal{E}(x)$ è la stessa vista per la barriera rettangolare con $\mathcal{E} > \bar{V}$, se non per la sostituzione $k_1 \leftrightarrow -i\chi$. Possiamo allora riadattare tutti i conti già fatti.\\
+Partendo da (\ref{eqn:matrice_esplicita}) ed effettuando la sostituzione:
+\begin{align*}
 \begin{pmatrix}
 c^3_+\\
 c^3_-
-\end{pmatrix} = (M'M)
-\begin{pmatrix}
-c^1_+\\
-c^1_-
 \end{pmatrix}
-= (M'M)
-\begin{pmatrix}
-c^1_+\\
-0
-\end{pmatrix}
-\]
-Il primo termine diagonale di $M'M$ è nullo, infatti
-\[
-0 = c^3_+ = (M'M)_{11} \underbrace{c^1_+}_{\neq 0} \Rightarrow (M'M)_{11}=0 
-\]
-da cui, sostituendo $k_1$ con $-i \chi$ si ottiene
+=
+\begin{pmatrix}0 \\ c^3_- \end{pmatrix} = (M' M) \begin{pmatrix} c^1_+ \\ c^1_- \end{pmatrix} =\begin{pmatrix} \alpha & \beta\\ \gamma & \delta \end{pmatrix} \begin{pmatrix} c^1_+ \\ 0 \end{pmatrix}
+\end{align*}
+Sviluppando il prodotto:
 \begin{align}
-0 = (M'M)_{11} & \underset{k_1\to-i\chi}{=}e^{-\chi a}
-\left [
-\frac{\chi^2-k_2^2-\overbrace{\sin k_2 a}^{(e^{ik_2 a}-e^{-ik_2 a})/(2i)} + \overbrace{\cos(k_2 a)}^{(e^{ik_2 a}+e^{-ik_2 a})/2} 2\chi k_2}{2\chi k_2}
-\right ] \notag \\
-& = e^{-\chi a}
-\left [
-\frac{\chi^2-k_2^2- \displaystyle\frac{e^{ik_2 a}-e^{-ik_2 a}}{2i} + \displaystyle\frac{e^{ik_2 a}+e^{-ik_2 a}}{2} 2\chi k_2}{2\chi k_2}
-\right ] \notag
+0 = c^3_+ = \alpha c^1_+ + \underbrace{\beta c^1_-}_{0} =\alpha c^1_+ \Rightarrow \alpha = 0
+\label{eqn:alphazero}
 \end{align}
-Semplificando si arriva alla seguente equazione:
-\begin{equation}
-\label{eqn:expandsquared}
-(ik_2 + \chi)^2 e^{ik_2 a}=(-ik_2 + \chi)^2 e^{-ik_2 a}
-\end{equation}
-A questo punto estraendo la radice si ha che
-\[
-\frac{\chi + ik_2}{\chi-ik_2} = \pm e^{ik_2 a} \quad \Rightarrow \quad c^2_+ = \pm c^2_-
-\]
-Infatti valgono le uguaglianze:
-\[
-c^2_+ = M_{11}c^1_+; \quad c^2_- = M_{21} c^1_+
-\]
-dove i coefficienti $M_{11}$ e $M_{21}$ valgono:
+Ma abbiamo già calcolato un'espressione esplicita per $\alpha = (M'M)_{11}$ in (\ref{eqn:matrix_alpha}), o, nella forma più semplificata, nel complesso coniugato di (\ref{eqn:matrix_alpha_coniugato}):
 \begin{align*}
-M_{11} &= \frac{1}{2i}(\chi + ik_2)e^{ik_2 \frac{a}{2}}e^{-\chi\frac{a}{2}}\\
-M_{21} &= -\frac{1}{2i}(\chi-ik_2)e^{ik_2 \frac{a}{2}}e^{-\chi\frac{a}{2}}
+\alpha = e^{\bm{-}ik_1 a}\left[\cos(k_2a) \bm{+} i\frac{k_1^2 + k_2^2}{2k_1 k_2}\sin(k_2a ) \right]
 \end{align*}
-Inoltre si noti che:
-\[
-\varphi_\mathcal{E}(-x)=\pm \varphi_\mathcal{E}(x)
-\]
-dunque prendendo il segno $+$ si ottiene una funzione pari, mentre con il $-$ una dispari. Dalla \eqref{eqn:expandsquared}, prendendo la parte reale o immaginaria si ottiene:
+Effettuando la sostituzione $k_1 \leftrightarrow -i\chi$ giungiamo a:
 \begin{align*}
-\op{Re}&\Rightarrow \frac{\chi^2-k_2^2}{\chi^2+k_2^2} = \pm \cos k_2 a\\
-\op{Im} &\Rightarrow \frac{2k \chi}{\chi^2 + k_2^2}=\pm \sin k_2 a
+\alpha = e^{-a\chi} \left[\cos(k_2 a) + \frac{\chi^2-k_2^2}{2\chi k_2} \sin(k_2a )\right]
 \end{align*}
-Pertanto si giunge all'equazione:
-\[
--1+2\left(\frac{\mathcal{E}}{-\bar{V}}\right)=\frac{\chi^2-k_2^2}{\chi^2+k_2^2}=\pm \cos k_2 a = -1+2\begin{cases}
-\cos^2\left(k_2\frac{a}{2}\right)\\
-\sin^2\left(k_2 \frac{a}{2}\right)
+Da (\ref{eqn:alphazero}) abbiamo quindi un'equazione:
+\begin{align}\nonumber
+&\bcancel{e^{-a\chi}}\left[\frac{2\chi k_2 \cos(k_2a) + (\chi^2-k_2^2)\sin(k_2a)}{\cancel{2\chi k_2}} \right]=0\\ \nonumber
+&\Rightarrow 2\chi k_2 \cos(k_2a) + (\chi^2-k_2^2)\sin(k_2 a) = 0\\ \nonumber
+&\Rightarrow  2\chi k_2 \frac{e^{ik_2 a} + e^{-ik_2 a}}{2} + (\chi^2-k_2^2) \frac{e^{ik_2a} - e^{-ik_2a}}{2i} =0\\ \nonumber
+&\Rightarrow e^{ik_2 a}\hlc{Yellow}{(2i\chi k_2 + \chi^2 -k_2^2 )} + e^{-ik_2 a} \hlc{SkyBlue}{(2i\chi k_2 - \chi^2 +k_2^2)}=0\\ \nonumber
+&\Rightarrow e^{ik_2 a}\hlc{Yellow}{(\chi+ik_2)^2 }= e^{-ik_2 a}\hlc{SkyBlue}{(\chi-ik_2)^2}\\
+&\Rightarrow e^{2ik_2 a} = \frac{(\chi-ik_2)^2}{(\chi+ik_2)^2}\Rightarrow \frac{\chi-ik_2}{\chi+ik_2}= \pm e^{ik_2a}
+\label{eqn:divisione_matrix}
+\end{align}
+Da (\ref{eqn:matrice1}):
+\begin{align*}
+\begin{pmatrix} c^2_+ \\ c^2_- \end{pmatrix} = M \begin{pmatrix} c^1_+ \\ c^1_- \end{pmatrix} = M \begin{pmatrix} c^1_+ \\ 0 \end{pmatrix}\Rightarrow \begin{cases}
+c^2_+ = M_{11} c^1_+\\
+c^2_- = M_{21} c^1_+
 \end{cases}
-\]
-Ed esplicitando il seno e coseno si ottengono le soluzioni finali, date da:
+\end{align*}
+E possiamo calcolare $M_{11}$ e $M_{21}$ da (\ref{eqn:matrixM1prime}), effettuando la sostituzione $k_1 \leftrightarrow -i\chi$:
+\begin{align*}
+M_{11} &= \frac{1}{2i} \left(\frac{\chi + ik_2}{k_2}\right) e^{ik_2 \frac{a}{2}} e^{-\chi \frac{a}{2}}\\
+M_{21} &= -\frac{1}{2i}\left(\frac{\chi - ik_2}{k_2}\right) e^{-ik_2 \frac{a}{2}}e^{-\chi \frac{a}{2}}
+\end{align*}
+Dividendo membro a membro:
+\begin{align*}
+\frac{c^2_-}{c^2_+} = \frac{M_{21}}{M_{11}}\frac{c^1_+}{c^1_+} = -\frac{(\chi-ik_2)}{(\chi+ik_2)} e^{-\cancel{2}ik_2 \frac{a}{\cancel{2}}} \underset{(\ref{eqn:divisione_matrix})}{=} \mp 1 \Rightarrow  c^2_+ = \pm c^2_-
+\end{align*}
+Abbiamo allora due possibilità:
+\begin{itemize}
+\item Prendendo il $+$, ossia con $c^2_+ = c^2_-$ otteniamo una funzione d'onda \textit{pari} all'interno della buca finita. Infatti, per $-\frac{a}{2}< x < \frac{a}{2}$:
+\begin{align*}
+\varphi_{\mathcal{E}}(x) = c^2_+ e^{ik_2 x} + c^2_- e^{-ik_2 x} = c^2_+ (e^{ik_2x}+ e^{-ik_2 x}) \propto \cos
+\end{align*}
+e vale $\varphi_\mathcal{E}(x) = \varphi_\mathcal{E}(-x)$.
+\item Prendendo invece il $-$, con $c^2_+ = - c^2_-$, la $\varphi_\mathcal{E}(x)$ all'interno della buca è dispari:
+\begin{align*}
+\varphi_\mathcal{E}(x) = c^2_+ (e^{ik_2 x} - e^{-ik_2 x}) \propto \sin
+\end{align*}
+con $\varphi_\mathcal{E}(x) = - \varphi_\mathcal{E}(-x)$.
+\end{itemize}
+Cerchiamo ora un'espressione per l'energia $\mathcal{E}$. Partiamo da (\ref{eqn:divisione_matrix}) ed espandiamo l'esponenziale:
+\begin{align*}
+\frac{\chi-ik_2}{\chi + ik_2} = \pm e^{ik_2 a} = \pm(\cos(k_2 a) + i\sin(k_2 a))
+\end{align*}
+Ricaviamo due equazioni reali prendendo parte \textit{reale} e \textit{immaginaria} di entrambi i membri.\\
+Per la parte reale:
+\begin{align}
+\op{Re}\left( \frac{\chi-ik_2}{\chi + ik_2}\right) = \frac{1}{2}\left[\frac{\chi-ik_2}{\chi + ik_2} + \frac{\chi+ik_2}{\chi-ik_2}\right] = \frac{\chi^2-k_2^2}{\chi^2+k_2^2} = \pm\cos(k_2a)\label{eqn:coseno_matrix}
+\end{align}
+Mentre per quella immaginaria:
+\begin{align}\nonumber
+&\op{Im}\left(\frac{\chi-ik_2}{\chi+ik_2}\right)=\frac{1}{2i}\left[\frac{\chi-ik_2}{\chi+ik_2}-\frac{\chi+ik_2}{\chi-ik_2}\right]=-\frac{2k_2\chi}{\chi^2 + k_2^2}=\pm \sin(k_2a)\\
+&\Rightarrow \frac{2k_2 \chi}{\chi^2 + k_2^2} = \mp \sin(k_2a)
+\label{eqn:equazione_seno}
+\end{align}
+Ricordando ora i valori delle costanti:
+\begin{align*}
+\chi = \frac{\sqrt{-2m\mathcal{E}}}{\hbar}; \qquad k_2 = \frac{\sqrt{2m(\mathcal{E}-\bar{V})}}{\hbar}
+\end{align*}
+Possiamo esplicitare la (\ref{eqn:coseno_matrix}):
+\begin{align*}
+\frac{\chi^2 -k_2^2}{\chi^2 + k_2^2} =\frac{-4m\mathcal{E} +2m\bar{V}}{-2m\bar{V}} =-1 + 2\left(\frac{\mathcal{E}}{\bar{V}}\right) =\ \pm \cos(k_2a)
+\end{align*}
+Possiamo semplificare tale equazione invertendo le formule di bisezione:
+\begin{align*}
+\sin^2\left(k_2 \frac{a}{2}\right) &= \frac{1-\cos(k_2a)}{2}\Rightarrow -\cos(k_2 a)=-1+2\sin^2\left(k_2 \frac{a}{2}\right)\\
+\cos^2\left(k_2 \frac{a}{2}\right) &= \frac{1+\cos(k_2a)}{2}\Rightarrow +\cos(k_2a) = -1+2\cos^2\left(k_2\frac{a}{2}\right)
+\end{align*}
+Otteniamo perciò:
+\begin{align}
+-1 + 2\left(\frac{\mathcal{E}}{\bar{V}}\right) = -1 + 2\begin{cases}
+\cos^2 \left(k_2 \frac{a}{2}\right) & (+)\\
+\sin^2 \left(k_2 \frac{a}{2}\right) & (-)
+\end{cases}
+\label{eqn:equazione_coseno}
+\end{align}
+Distinguiamo quindi due casi:
+\begin{itemize}
+\item Prendendo il $+$ in (\ref{eqn:equazione_coseno}), a cui corrisponde prendere il $-$ in (\ref{eqn:equazione_seno}), otteniamo:
 \begin{align*}
 (1):\>
 \begin{cases}
-|\cos \frac{k_2 a}{2}| = \sqrt{\frac{\mathcal{E}}{-\bar{V}}} = \frac{k_2}{\bar{k}}\\
-\sin k_2 a >0
-\end{cases} \quad (2):\
-\begin{cases}
-|\sin \frac{k_2 a}{2}|= \sqrt{\frac{\mathcal{E}}{-\bar{V}}} = \frac{k_2}{\bar{k}}\\
-\sin k_2 a < 0
+\left|\cos\left(k_2 \frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}=\frac{k_2}{\bar{k}}\\
+\sin(k_2 a) < 0
+\end{cases}
+\end{align*} 
+\item Prendendo il $-$ in (\ref{eqn:equazione_coseno}) e quindi il $+$ in (\ref{eqn:equazione_seno}):
+\begin{align*}
+(2):\>\begin{cases}
+\left|\sin\left(k_2\frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}=\frac{k_2}{\bar{k}}\\
+\sin(k_2 a)>0
 \end{cases}
 \end{align*}
+\end{itemize}
+dove abbiamo definito $\bar{k}$:
+\begin{align*}
+\bar{k} = \frac{\sqrt{-2m\bar{V}}}{\hbar}
+\end{align*}
+
 \begin{figure}
 \centering
 \input{Immagini/9_11/Intersezioni.tex}
 \caption{(1) e (2) in funzione di $k_2$, con il plot del membro di sinistra, e il membro di destra con le intersezioni (cioè le soluzioni).}
 \label{fig:solution1and2}
 \end{figure}
-dove:
-\[
-\bar{k}=\frac{\sqrt{-2m\bar{V}}}{\hbar}
-\]
 Le soluzioni (1) e (2) possono sono esplicitate graficamente in figura \ref{fig:solution1and2}, e sono l'intersezione tra la retta e le funzioni seno e coseno in valore assoluto (dove sono accettate solo quelle nelle regioni non proibite). Esse sono le soluzioni dell'equazione agli autovalori per $H$ con $\mathcal{E}<0$. Notiamo che lo spettro dell'hamiltoniana è unicamente discreto, e quindi le autofunzioni $\varphi_\mathcal{E}(x)$ appartengono a $L^2$. Inoltre $\sigma(H)|_{\mathcal{E}<0}=\sigma_P(H)$ è non degenere (degenerazione $1$). Se $\bar{V}\to\infty$ la retta $k_2/\bar{k}$ tende all'asse $x$ ed esaminandone le intersezioni con il coseno e il seno ritroviamo i risultati della buca infinitamente profonda.\\
 
 \subsection{Regole generali per $\sigma(H)$ per potenziali in $1D$ (con al più salti)}
+\label{sec:potenziali_generici}
 \begin{figure}[H]
 \centering
 \input{Immagini/9_11/PotenzialeGenerico.tex}
@@ -190,7 +245,7 @@ Se poi si definisce l'operatore di parità $\mathcal{P}$ come:
 allora si ha che gli autostati di $H$ sono anche autostati di $\mathcal{P}$, con autovalore $+1$ oppure $-1$.
 
 
-\subsection{Esercizio \theEsercizio}\index{Esercizio!Buca infinita (1)}
+\subsection{Esercizio \theEsercizio}\index{Esercizio!Buca infinita (1)} \stepcounter{Esercizio}
 Una particella di massa $m$ si trova nello stato fondamentale (cioè di energia minima) in una buca di potenziale infinita in $[0,a]$. Al tempo $t = 0$ la parete impenetrabile posta in $a$ viene improvvisamente spostata in $x = 2a$. \begin{enumerate}
 \item Calcolare la probabilità che al tempo $\bar{t}>0$ l'energia della particella sia uguale a quella a $t=0^-$
 \item Che sia invece minore.
@@ -280,7 +335,7 @@ ed è già normalizzata in $L^2([0,2a],dx)$ (era normalizzata prima, e abbiamo a
 \]
 Vogliamo quindi calcolare il prodotto scalare per esprimere la $\psi$ sulla base delle autofunzioni di $H_2$:
 \begin{align*}
-\braket{\psi(0^+)|\mathcal{E}_2^2} &= \int_0^a \sqrt{\frac{2}{a}}\sin \frac{\pi x}{a} \sqrt{\frac{2}{a}}\sin \frac{2\pi x}{2a} dx +\int_a^{2a} 0\cdot \sqrt{\frac{1}{a}} \sin \frac{2\pi x}{2a}dx =\\
+\braket{\psi(0^+)|\mathcal{E}_2^2} &= \int_0^a \sqrt{\frac{2}{a}}\sin \frac{\pi x}{a} \sqrt{\frac{1}{a}}\sin \frac{2\pi x}{2a} dx +\int_a^{2a} 0\cdot \sqrt{\frac{1}{a}} \sin \frac{2\pi x}{2a}dx =\\
 &= \frac{\sqrt{2}}{a}\int_0^a \sin^2 \frac{\pi x}{a}= \frac{\sqrt{2}}{a}\frac{a}{2}=\frac{1}{\sqrt{2}}
 \end{align*}
 Ma quindi:

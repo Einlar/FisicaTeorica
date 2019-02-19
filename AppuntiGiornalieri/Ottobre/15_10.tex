@@ -21,7 +21,7 @@ Tuttavia $\{x = \lambda \}$ ha misura di Lebesgue nulla: in altre parole stiamo 
 Siamo costretti ad affermare perciò che $X$ non possiede autovettori - e con ciò termina il primo tentativo di generalizzare la decomposizione spettrale al caso infinito-dimensionale: come possiamo trovare una base ON di autovettori se di autovettori non ce ne sono?\\
 
 Proviamo a tornare al caso $\op{dim}\hs < \infty$ e studiare una strategia alternativa che possa essere generalizzata.\\
-Poco fa, per dimostrare che gli autovalori \q{matematici} (di un operatore) sono tutti e soli quelli \q{fisici} (dell'osservabile rappresentato) nel caso infinito-dimensionale avevamo fatto uso di un argomento probabilistico (le probabilità $p_n$ associate agli autovalori $\lambda_n$ \textit{esauriscono} tutte le possibilità). Potremmo perciò cercare di partire da qui, riesaminando la struttura probabilistica nel caso finito-dimensionale - essenzialmente declinando quanto detto nei paragrafi di descrizione di un sistema fisico %Inserire ref alla parte di probabilità dopo teoria della misura
+Poco fa, per dimostrare che gli autovalori \q{matematici} (di un operatore) sono tutti e soli quelli \q{fisici} (dell'osservabile rappresentato) nel caso finito-dimensionale avevamo fatto uso di un argomento probabilistico (le probabilità $p_n$ associate agli autovalori $\lambda_n$ \textit{esauriscono} tutte le possibilità). Potremmo perciò cercare di partire da qui, riesaminando la struttura probabilistica nel caso finito-dimensionale - essenzialmente declinando quanto detto nei paragrafi di descrizione di un sistema fisico %Inserire ref alla parte di probabilità dopo teoria della misura
 alla luce di quanto appena visto sulle proprietà degli operatori e sulla decomposizione spettrale.\\
 Partiamo\marginpar{Struttura probabilistica per operatori in \MQ} dallo scrivere l'equivalente di (\ref{eqn:POdef})\footnote{$P^O(\lambda) = H(\lambda-O)$} per un operatore, tramite la decomposizione spettrale: %[REF]
 \begin{equation} 
@@ -221,7 +221,7 @@ w_\phi^X\left(\lambda\right)=\frac{dP_\phi^X\left(\lambda\right)}{d\lambda}=\fra
 \]
 Il valor medio è quindi:
 \[
-\left\langle x\right\rangle_\phi=\int \lambda  dP_\phi^X\left(\lambda\right)=\int \lambda  w_\phi^X\left(\lambda\right) d\lambda 
+\left\langle X\right\rangle_\phi=\int \lambda  dP_\phi^X\left(\lambda\right)=\int \lambda  w_\phi^X\left(\lambda\right) d\lambda 
 \]
 Riepilogando: \marginpar{Riepilogo delle \textbf{proprietà} delle \textbf{osservabili}}
 \begin{enumerate}
@@ -235,7 +235,7 @@ Le \textbf{osservabili}\marginpar{Assioma delle osservabili}\index{Assioma!delle
 \end{axi}
 
 \begin{axi}
-La \textbf{probabilità}\marginpar{Assioma della probabilità}\index{Assioma!della probabilità} che una misura di $A$ nello stato $\psi$ (ricavata ripetendo tante volte la misura sperimentale nelle stesse condizioni) sia in $]-\infty , \lambda]$ è data da:
+La \textbf{probabilità}\marginpar{Assioma della probabilità}\index{Assioma!della probabilità} che il risultato di una misura di $A$ nello stato $\psi$ (ricavata ripetendo tante volte la misura sperimentale nelle stesse condizioni) sia in $]-\infty , \lambda]$ è data da:
 \[
 P_\psi^A\left(\lambda\right)=\frac{(\psi,\ P^A\left(\lambda\right)\psi)}{\norm{\psi}^2}
 \]
@@ -264,8 +264,8 @@ Dove $P^A\left(\lambda\right)$ è la \textbf{famiglia spettrale} di $A$ e $\fora
 	    D\left(\vec{p}^{\>2}\right)=\left\{\varphi\in L^2\left(R^n,\ d^nx\right)\middle|\ {\vec{p}}^{\>2}\widetilde{\varphi}\left(\vec{p}\,\right)\in L^2\left(R^n, d^np\right)\right\}
 	    \]
 	\end{thm}
-	\item \textbf{Attenzione}: Conoscere $P^A$ e $P^B$ non porta alla conoscenza di $P^{A+B}$.\\
-	Per esempio, $A=\frac{p^2}{2m}, B=V\left(x\right)$, con $\sigma \left(A\right)= \mathbb{R}_+, \sigma \left(V\left(x\right)\right)=\op{cod} V(x)$ sono entrambi operatori a spettro continuo. Tuttavia la loro somma ha uno spettro discreto: sono per esempio i livelli energetici di una buca infinita.\\
-	(In \MC, d'altro canto, conoscere $P^A$ e $P^B$ porta subito alla conoscenza di $P^{A+B}$.)\\
+	\item \textbf{Attenzione}: Conoscere $\sigma(A)$ e $\sigma(B)$ non porta alla conoscenza di $\sigma(A+B)$.\\
+	Per esempio, $A=\frac{p^2}{2m}, B=V\left(x\right)$, con $\sigma \left(A\right)= \mathbb{R}_+, \sigma \left(V\left(x\right)\right)=\op{cod} V(x)$ sono entrambi operatori a spettro continuo. Tuttavia la loro somma contiene uno spettro discreto: sono per esempio i livelli energetici di una buca infinita.\\
+	(In \MC, d'altro canto, conoscere $\sigma(A)$ e $\sigma(B)$ porta subito alla conoscenza di $\sigma(A+B)$.)\\
 \end{enumerate}
 \end{document}

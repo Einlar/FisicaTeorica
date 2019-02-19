@@ -254,12 +254,13 @@ a^* & -b\\
 \]
 Basta per ciò calcolare due termini di $M'M$, per esempio $a$ e $b$, per avere la visione completa. Partiamo scrivendo $M$ e $M'$ (che si ricava tramite le sostituzioni viste sopra):
 
-\begin{align*}
+\begin{align}
 \bm{M'} &= \frac{1}{2} \begin{pmatrix}
 \left(1+\frac{k_2}{k_1}\right) e^{i(k_2-k_1)\frac{a}{2}} & \left(1-\frac{k_2}{k_1}\right)e^{-i(k_1+k_2)\frac{a}{2}}\\
 \left(1-\frac{k_2}{k_1}\right)e^{i(k_1+k_2)\frac{a}{2}}&
 \left(1+\frac{k_2}{k_1}\right)e^{-i(k_2-k_1)\frac{a}{2}}
 \end{pmatrix}
+\label{eqn:matrixM1prime}
 \\
 \bm{M}&=\frac{1}{2}\begin{pmatrix}
 \left(1+\frac{k_1}{k_2}\right)e^{i(k_2-k_1)\frac{a}{2}} & \left (
@@ -268,27 +269,30 @@ Basta per ciò calcolare due termini di $M'M$, per esempio $a$ e $b$, per avere 
 e^{i(k_2+k_1)\frac{a}{2}}\\
 \left(1-\frac{k_1}{k_2}\right)e^{-i(k_2+k_1)\frac{a}{2}} & \left(1+\frac{k_1}{k_2}\right)e^{-i(k_2-k_1)\frac{a}{2}}
 \end{pmatrix}
-\end{align*} 
+\label{eqn:matrixM1}
+\end{align} 
 Dal prodotto scalare tra la prima riga di $M'$ e la prima colonna di $M$ otteniamo $a$:
-\begin{align*}
-\bm{a}&=\frac{1}{4}\left(1+\frac{k_2}{k_1}\right)\left(1+\frac{k_1}{k_2}\right)e^{ia(k_2-k_1)}+\frac{1}{4}\left(1-\frac{k_2}{k_1}\right)\left(1-\frac{k_1}{k_2}\right)e^{-ia(k_1+k_2)}=\\
-&=\frac{(k_1+k_2)^2 e^{ia(k_2-k_1)}-(k_1-k_2)^2e^{-ia(k_1+k_2)}}{4k_1 k_2} =\\
-&=\frac{(k_1+k_2)^2 - (k_1-k_2)^2 e^{-2iak_2}}{4k_1 k_2 e^{-ia(k_2-k_1}}
-\end{align*}
+\begin{align}\nonumber
+\bm{a}&=\frac{1}{4}\left(1+\frac{k_2}{k_1}\right)\left(1+\frac{k_1}{k_2}\right)e^{ia(k_2-k_1)}+\frac{1}{4}\left(1-\frac{k_2}{k_1}\right)\left(1-\frac{k_1}{k_2}\right)e^{-ia(k_1+k_2)}=\\ \nonumber
+&=\frac{(k_1+k_2)^2 e^{ia(k_2-k_1)}-(k_1-k_2)^2e^{-ia(k_1+k_2)}}{4k_1 k_2} =\\ 
+&=\frac{(k_1+k_2)^2 - (k_1-k_2)^2 e^{-2iak_2}}{4k_1 k_2 e^{-ia(k_2-k_1)}}
+\label{eqn:matrix_alpha}
+\end{align}
 Immediatamente abbiamo $A=a^*$:
 \[
 \bm{A}=a^*=\frac{(k_1+k_2)^2-(k_1-k_2)^2 e^{2iak_2}}{4k_1 k_2 e^{-ia(k_1-k_2)}}
 \]
 Fattorizzando l'esponenziale al denominatore e spezzando la frazione possiamo riscriverlo:
-\begin{align*}
-A&=e^{iak_1}\left( \frac{(k_1+k_2)^2}{4k_1 k_2}e^{-iak_2} - \frac{(k_1-k_2)^2}{4k_1 k_2}e^{iak_2}\right) =\\
-&=e^{iak_1}\left(\frac{(k_1+k_2)^2}{4k_1 k_2} e^{-iak_2}-\frac{(k_1+k_2)^2-4k_1k_2}{4k_1k_2}e^{iak_2}\right)=\\
-&=e^{iak_1}\left(\frac{\textcolor{Blue}{-2i}(k_1+k_2)^2}{4k_1k_2}\left[\frac{e^{-iak_2}-e^{iak_2}}{\textcolor{Blue}{-2i}}\right] + e^{iak_2} \right)=\\
+\begin{align}\nonumber
+A&=e^{iak_1}\left( \frac{(k_1+k_2)^2}{4k_1 k_2}e^{-iak_2} - \frac{(k_1-k_2)^2}{4k_1 k_2}e^{iak_2}\right) =\\\nonumber
+&=e^{iak_1}\left(\frac{(k_1+k_2)^2}{4k_1 k_2} e^{-iak_2}-\frac{(k_1+k_2)^2-4k_1k_2}{4k_1k_2}e^{iak_2}\right)=\\\nonumber
+&=e^{iak_1}\left(\frac{\textcolor{Blue}{-2i}(k_1+k_2)^2}{4k_1k_2}\left[\frac{e^{-iak_2}-e^{iak_2}}{\textcolor{Blue}{-2i}}\right] + e^{iak_2} \right)=\\\nonumber
 &=e^{iak_1}\left(
 i\sin(k_2 a) \left[-\frac{(k_1+k_2)^2}{2k_1 k_2}+1\right] + \cos(k_2 a)\right) =\\
 &= e^{ik_1 a}\left[
 \cos (k_2 a) -i\frac{k_1^2+k_2^2}{2k_1\,k_2}\sin (k_2 a) \right]
-\end{align*}
+\label{eqn:matrix_alpha_coniugato}
+\end{align}
 Analogamente, il prodotto scalare tra la prima riga di $M'$ e la seconda colonna di $M$ restituisce $b$:
 \begin{align*}
 \bm{b}&=\frac{1}{4}\left(1+\frac{k_2}{k_1}\right)\left(1-\frac{k_1}{k_2}\right) e^{ik_2 a} + \frac{1}{4}\left(1-\frac{k_2}{k_1}\right)\left(1+\frac{k_1}{k_2}\right)e^{-ik_2 a}=\\
@@ -475,7 +479,7 @@ Possiamo allora scrivere $c^3_+$ in forma esponenziale:
 c^3_+ = \frac{1}{|A|e^{i\theta(k)}}c^1_+=\underbrace{\frac{1}{|A|}}_{\sqrt{\bb{T}}}e^{-i\theta(k)}c^1_+
 \]
 Ponendo $c^1_+ = e^{-ikx_0}$ si ha che il pacchetto d'onda a $t=0$ è centrato in $x_0$ (come dimostrato nell'esempio precedente).\\ %Inserire ref. precisa [TO DO]
-Inseriamo infine l'\textbf{evoluzione temporale}, per cui $\varphi_\mathcal{E}(x)\to \varphi_\mathcal{E}(x) e^{-\omega t}$, ricordando:
+Inseriamo infine l'\textbf{evoluzione temporale}, per cui $\varphi_\mathcal{E}(x)\to \varphi_\mathcal{E}(x) e^{-i\omega t}$, ricordando:
 \[
 \bm{\omega} \equiv \frac{\mathcal{E}}{\hbar}=\frac{k^2 \hbar}{2m}
 \]

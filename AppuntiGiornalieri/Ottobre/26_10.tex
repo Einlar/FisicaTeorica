@@ -35,7 +35,7 @@ Dove in (a) si è usata la definizione della funzione caratteristica:
 \end{cases}
 \]
 per far \q{collassare} l'integrale.\\
-$P_\psi^A(\{\lambda_n\})$ è dunque la probabilità che una misura di $A$ nello stato $\psi$ restituisca $\lambda_n$.\\
+$P_\psi^A(\{\lambda_n\})$ (denotata anche con $W^A_\psi (\lambda_n)$) è dunque la probabilità che una misura di $A$ nello stato $\psi$ restituisca $\lambda_n$.\\
 \subsubsection{Spettro continuo}
 Se lo spettro è continuo, la misura \q{non pesa i punti} (ossia i punti sono considerati insiemi Lebesgue-trascurabili) e quindi la probabilità di ottenere un certo (singolo) valore di $A$ è nulla. L'unica cosa che possiamo fare è definire una densità di probabilità:
 \begin{equation}
@@ -83,6 +83,7 @@ W_{\psi(t)}^H(\mathcal{E}_1) &= \left| \bra{\varphi_1}
 essendo le autofunzioni ortonormali: $\braket{\varphi_1|\varphi_1}=1$ e $\braket{\varphi_1|\varphi_2}=0$.
 
 \subsection{Note sull'equazione di Schrödinger (Esercizio \theEsercizio)}\index{Esercizio!Buca infinita}
+\stepcounter{Esercizio}
 Occupiamoci ora di esaminare cosa succederebbe se risolvessimo, inappropriatamente, l'equazione di Schrödinger per uno stato che non è nel dominio di $H$. Confronteremo quindi il risultato con la soluzione effettiva (come si era lasciato per esercizio alcune lezioni fa).\\
 Utilizziamo come sistema su cui eseguire i conti la buca infinita tra $[-\frac{a}{2},\frac{a}{2}]$, e consideriamo $\psi(x,t=0)=1$, che non è nel dominio di $H$:
 \[
@@ -142,7 +143,7 @@ Per rendere le cose semplici, consideriamo il caso idealizzato di una\index{Misu
 Per definizione, una \textbf{misura istantanea}\footnote{D'ora in poi, quando parleremo di misure intenderemo che sono istantanee} dell'osservabile $A$ è detta di \textbf{prima specie}\marginpar{Misure di prima specie} se è tale che, ripetendo immediatamente dopo la prima misura un'altra misura di $A$, otteniamo lo stesso risultato con certezza (probabilità $1$). (Ciò è quello che succede sempre in \MC)\\
 Ad esempio la misura di posizione di un elettrone con una lastra fotografica nell'esperimento delle due fenditure non è di prima specie, poiché dopo la misura l'elettrone è \q{distrutto} (dopo la misura \q{è sparito} - viene assorbito da un atomo - e perciò non ha senso chiedere di \q{rimisurarlo}, dato che non è più \q{l'elettrone di prima}).\\
 Ogni misura che non è di prima specie è detta di \textbf{seconda specie} (e non ci occuperemo di esse).\\
-Notiamo che in una misura di prima specie lo stato dopo la misura dipende sia dalla misura stessa che dal risultato, in completa opposizione con quanto succede in \MC, in cui fare una misura è \textit{irrilevante} per l'evoluzione del sistema, e il risultato è univoco e predeterminato. Qual è tale nuovo stato?\\
+Notiamo che in una misura di prima specie lo stato dopo la misura dipende sia dalla misura stessa che dal risultato, in completa opposizione con quanto succede in \MC, in cui fare una misura è \textit{irrilevante} per l'evoluzione del sistema, e il risultato è univoco e predeterminato (per uno stato puro). Qual è tale nuovo stato?\\
 Nel caso in cui lo spettro di $A$ sia discreto $\sigma(A)=\sigma_P(A) = \{\lambda_n\}$ e non degenere, se una misura di prima specie di $A$ dà il risultato $\lambda_0$, dovendo una seconda misura dare lo stesso risultato con probabilità $1$, si ha immediatamente che lo stato dopo la prima misura deve essere un autostato di $A$ appartenente all'autovalore $\lambda_0$, ossia, in notazione di Dirac, uno stato $\ket{\lambda_0}$.\\
 In altri termini, la misura ha \q{distrutto} tutte le informazioni dello stato precedente, dato che la misura di $\lambda_0$ potrebbe essere stata originata da un insieme enormemente grande di stati.\\
 Per questo il risultato di una misura viene chiamato \q{riduzione del pacchetto d'onda}: 
@@ -154,7 +155,7 @@ Infatti, una misura è\marginpar{Proprietà di una misura in \MQ}:
 \begin{itemize}
     \item \textbf{Non unitaria}: $\ket{\lambda_0}\bra{\lambda_0}$ è un operatore non unitario, e quindi \textit{non invertibile}. In altre parole non è possibile ricalcolare uno stato passato a partire da uno stato presente, ottenuto a seguito di una misura.
     \item \textbf{Indeterministica}: L'esito di una misura è scelto \textit{casualmente} tra i possibili autovalori $\lambda_n$ ammessi da tale osservabile
-    \item \textbf{Completamente diversa dall'evoluzione di un sistema isolato}. In effetti un sistema isolato si evolve in maniera deterministica\footnote{Si potrebbe pensare di \textit{estendere} il sistema a comprendere anche l'osservatore, ottenendo per ciò un nuovo sistema che stavolta è isolato, e che quindi si evolve in maniera deterministica. Ma come è possibile ciò, se all'interno di esso atti di misura sconvolgono irrimediabilmente l'evoluzione delle sue componenti? Le due descrizioni non sembrano essere per nulla compatibili! In effetti, questa situazione costituisce il \textbf{problema della misura}, forse l'ultimo grande problema aperto in \MQ. Si tratta comunque di una questione che ha poca importanza sperimentale: nonostante questa ambiguità di fondo, la \MQ produce sempre, in ogni circostanza, risultati confrontabili con gli esperimenti, e che finora non sono mai stati confutati.}, e l'operatore evoluzione è unitario (e quindi invertibile - si può ricalcolare il passato dal presente):
+    \item \textbf{Completamente diversa dall'evoluzione di un sistema isolato}. In effetti un sistema isolato si evolve in maniera deterministica\footnote{Si potrebbe pensare di \textit{estendere} il sistema a comprendere anche l'osservatore, ottenendo per ciò un nuovo sistema che stavolta è isolato, e che quindi si evolve in maniera deterministica. Ma come è possibile ciò, se all'interno di esso atti di misura sconvolgono irrimediabilmente l'evoluzione delle sue componenti? Le due descrizioni non sembrano essere per nulla compatibili! In effetti, questa situazione rappresenta parte del \textbf{problema della misura}, forse l'ultimo grande problema aperto in \MQ. Si tratta comunque di una questione che ha poca importanza sperimentale: nonostante questa ambiguità di fondo, la \MQ produce sempre, in ogni circostanza, risultati confrontabili con gli esperimenti, e che finora non sono mai stati confutati.}, e l'operatore evoluzione è unitario (e quindi invertibile - si può ricalcolare il passato dal presente):
     \[
     \ket{\psi(t)}=\exp\left(-\frac{i}{\hbar}Ht\right)\ket{\psi}
     \]
@@ -166,7 +167,7 @@ A\ket{\lambda_0}=\lambda_0\ket{\lambda_0}
 \]
 $A$ su $\ket{\lambda_0}$ \q{agisce} come un numero, e quindi $\ket{\lambda_0}$ si \q{comporta} come un valore.\\
 In questo modo recuperiamo il concetto di \q{valore di una osservabile} nel processo di misura.%In che senso A agisce come un numero? [Q]\\
-\textit{Possiamo pensare alla descrizione di un'osservabile come una \q{matrice infinito-dimensionale}. I valori dell'osservabile non sono i \q{valori della matrice} (non ha senso), ma i valori dello spettro della matrice - ossia quei particolari numeri che rimangono invariati a seguito di particolari \q{rotazioni} geometriche. Dopo una misura, quella particolare osservabile si comporterà \textit{classicamente}.}.\\
+\textit{Possiamo pensare alla descrizione di un'osservabile come una \q{matrice infinito-dimensionale}. I valori dell'osservabile non sono i \q{valori della matrice} (non ha senso), ma i valori dello spettro della matrice - ossia quei particolari numeri che rimangono invariati a seguito di particolari \q{rotazioni} geometriche. Immediatamente dopo una misura, quella particolare osservabile si comporterà \textit{classicamente} \q{come il valore trovato}}.\\
 Queste considerazioni si generalizzano allo spettro discreto degenere come segue: supponiamo che $\lambda_0$ abbia degenerazione $d(\lambda_0)>1$, allora vi sono $d(\lambda_0)$ autovettori ortonormali: $\{\ket{\lambda_0,r}, r=1,\dots, d(\lambda_0)\}$.\\
 Eseguendo una misura di prima specie di $A$, che dia come risultato $\lambda_0$, possiamo concludere che immediatamente dopo la misura lo stato è nel sottospazio generato da $\{\ket{\lambda_0,r}, r=1,\dots, d(\lambda_n)\}$ e non possiamo sapere di più.\\
 Dato che vorremmo uno stato univocamente definito, introduciamo un'ulteriore idealizzazione.\\

@@ -26,7 +26,7 @@ Applichiamo la procedura generale vista nella sottosezione precedente ad un esem
 \end{center}
 %[IMMAGINE] Potenziale a gradino e potenziale "regolarizzato" smussato (passa da 0 a $\bar{V}>0$ linearmente) [DONE]
 Consideriamo il \textit{potenziale a gradino} $V(x)=\bar{V}H(x)$.\\
-Fisicamente si tratta di un'\textit{idealizzazione} del potenziale di un campo elettrico frenante che agisce su una regione molto piccola, per cui la crescita (che comunque resta lineare) può essere vista come \textit{quasi istantanea}.\\
+Fisicamente si tratta di un'\textit{idealizzazione} del potenziale di un campo elettrico frenante che agisce su una regione molto piccola, per cui la crescita (che comunque resta lineare) può essere vista come un gradino.\\
 
 Cominciamo considerando il sistema in \textbf{Meccanica Classica}.\marginpar{Comportamento in \MC} In particolare, esaminiamo il comportamento di una particella che si trova inizialmente a $x(t=0) = x_0 < 0$ (è cioè a \textit{sinistra} del gradino) e si muove verso di esso con un momento iniziale $p(t=0)=p_0 > 0$. La sua hamiltoniana $H$ (pari all'energia $\mathcal{E}$ della particella) è quindi data da\footnote{Attenzione a non confondere $H$ dell'hamiltoniana con $H(x)$ funzione di Heaviside!}:
 \[
@@ -102,7 +102,7 @@ La particella classica è sostituita da un \textbf{pacchetto d'onde} inizialment
 \textbf{Richiami sulla nozione di pacchetto d'onda}\\
 Un \textbf{pacchetto d'onda} non è altro che \q{un'onda di dimensioni finite}, ossia una perturbazione dello spazio che ha valori $\neq 0$ solo in una \textbf{regione ristretta}, come in genere si verifica sperimentalmente, dato che non si ha a che fare con segnali infiniti.\\
 %Inserire immagine
-Matematicamente, un pacchetto d'onda si ottiene dalla sovrapposizione di un numero arbitrario di onde ideali (es. onde piane), ciascuna con una certa lunghezza d'onda $\lambda$ e un relativo numero d'onda (\textit{angolare}) $k = 2\pi/\lambda$. Scegliendo bene i termini della somma, si ottiene un'interferenza costruttiva in una regione limitata, e distruttiva in tutto il resto dello spazio.\\
+Matematicamente, un pacchetto d'onda si ottiene dalla sovrapposizione di un numero infinito di onde ideali (es. onde piane), ciascuna con una certa lunghezza d'onda $\lambda$ e un relativo numero d'onda (\textit{angolare}) $k = 2\pi/\lambda$. Scegliendo bene i termini della \q{somma} (che, in realtà, è realizzata con un integrale), si ottiene un'interferenza costruttiva in una regione limitata, e distruttiva in tutto il resto dello spazio.\\
 \textbf{Nota}: per \textit{localizzare} il pacchetto è necessario incrementare le regioni di interferenza distruttiva, e quindi considerare nella somma un numero maggiore di termini, ossia più possibili scelte per $k$. Al diminuire dell'\textit{incertezza sulla posizione} del pacchetto corrisponde il crescere dell'\textit{incertezza sul suo momento}, e viceversa.\\
 In generale, partendo da un pacchetto con andamento arbitrario $\psi(x,t)$, la sua rappresentazione in momenti (o $k$, o frequenze, dato che $\omega$ è funzione di $k$) si ottiene per trasformata di Fourier:
 \[
@@ -128,7 +128,7 @@ v=\frac{\omega(k)}{k}
 \]
 (per cui se $\omega(k)=\bar{v}k$ si ha immediatamente $v\equiv \bar{v}$).\\
 In tal caso il mezzo in cui si propaga l'onda è detto \textbf{non dispersivo} (un esempio è il vuoto per un'onda classica): dato che tutte le componenti del pacchetto si muovono in maniera \textit{sincrona}, il pacchetto \q{non si sfalda} e mantiene lo stesso \q{profilo} (envelope). In particolare la velocità del pacchetto è la stessa delle onde che lo compongono. Ecco perché la funzione $\omega = \omega(k)$ è detta \textbf{relazione di dispersione.}\\
-Se invece $\omega=\omega(k)$ non è lineare, si ha \textbf{dispersione}. In tal caso non è detto che il pacchetto, ossia \q{l'inviluppo} della sovrapposizione delle onde, in genere \textbf{non} viaggia alla stessa velocità delle onde che lo compongono, ma a una certa $v_g$, detta \textbf{velocità di gruppo}, che ora deriviamo.\\
+Se invece $\omega=\omega(k)$ non è lineare, si ha \textbf{dispersione}. In tal caso il pacchetto, ossia \q{l'inviluppo} della sovrapposizione delle onde, in genere \textbf{non} viaggia alla stessa velocità delle onde che lo compongono, ma a una certa $v_g$, detta \textbf{velocità di gruppo}, che ora deriviamo.\\
 Chiaramente, ha senso parlare di \q{velocità di un pacchetto} è \q{ben localizzato}, ossia se la sovrapposizione avviene tra onde di simili $k$. Ciò si ha se scegliamo la $\tilde{f}(k)$ con un picco \textit{sharp} attorno a $k_0$. Possiamo allora \textit{linearizzare} $\omega(k)$ sviluppandola in serie di Taylor attorno a $k_0$ (che è il \textit{massimo} che ci interessa) e troncando al primo ordine:
 \begin{equation}
 \omega(k)\approx \underbrace{\omega(k_0)}_{\omega_0} + \underbrace{\frac{\partial \omega(k)}{\partial k}\Big|_{k=k_0}}_{\omega_0'}(k-k_0)
@@ -164,7 +164,7 @@ Un'onda piana in 1D ha la forma generale di $u(x,t)=e^{i(kx-\omega t)}$. Un pacc
 \]
 dove il coefficiente $1/\sqrt{2\pi}$ compare per convenzioni legate alle trasformate di Fourier\footnote{In effetti, la $u(x,t)$ così scritta ha la forma di una trasformata di Fourier. Per approfondimenti vedere i \textit{richiami} all'inizio di questa sezione}. 
 %Ripassare bene i pacchetti d'onda e inserire maggiori ref qui
-Nel caso quantistico non tutte le $u(x,t)$ sono ammesse, ma solo quelle che sono autofunzioni di $H$, e che quindi indichiamo come $\varphi_{\mathcal{E}}(x)$. Per le ampiezze usiamo invece la notazione $\tilde{f}_{k_0}(k)$, dove il pedice indica la posizione del \textit{picco}, e la $\sim$ ne evidenzia la natura di trasformata di Fourier.\\
+Nel caso quantistico, per un pacchetto d'onde che cerchi di approssimare un comportamento particellare, non tutte le $u(x,t)$ sono ammesse, ma solo quelle che sono autofunzioni di $H$, e che quindi indichiamo come $\varphi_{\mathcal{E}}(x)$. Per le ampiezze usiamo invece la notazione $\tilde{f}_{k_0}(k)$, dove il pedice indica la posizione del \textit{picco}, e la $\sim$ ne evidenzia la natura di trasformata di Fourier.\\
 Un'ultima importante modifica sta nel variare gli estremi di integrazione: vogliamo infatti considerare la particella che inizialmente si muove verso il gradino, e che quindi ha $p$ (e di conseguenza $k$) positivo. Basta allora partire da $0$ invece che da $-\infty$.\footnote{Come vedremo, le funzioni d'onda si evolvono in maniera \textit{dispersiva}. La presenza di $k<0$ provocherebbe quindi un veloce \q{sfaldarsi} dell'onda, che - seppur fisicamente accettabile - non corrisponde in questo caso all'analogia classica che stiamo portando avanti.}\\
 Definiamo allora il pacchetto d'onda iniziale come:
 %Se prendessi dei k negativi avrei un'onda che "si sfalda" dilatandosi anche in direzione opposta. 

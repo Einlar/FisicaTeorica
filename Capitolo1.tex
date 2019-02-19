@@ -34,7 +34,7 @@ Il formalismo deve quindi anche spiegare che:
 
 La spiegazione \q{euristica} di questa situazione è che la luce è composta da particelle quantistiche, i fotoni, e quando questi urtano gli elettroni liberi (effetto Compton) li disturbano\footnote{Rimane aperta la questione: come è possibile che questo \q{disturbo} sia esattamente tale da ricostruire la situazione classica, e cioè da rendere $p_{12}(x) = p_1(x) + p_2(x)$} modificandone l'impulso.\\
 Se la luce fosse fatta di onde potremmo ridurre il disturbo riducendo l'intensità dell'onda, ma se osservo l'elettrone vuol dire che un fotone l'ha colpito (e quindi si sta comportando come particella).\\
-Possiamo allora minimizzare l'effetto riducendo il momento del $\gamma$, ma così facendo, per de Broglie, $p = \hbar / \lambda$, e quindi ridurre $p$ significa aumentare la lunghezza d'onda $\lambda$, e così si perde l'informazione su quale fenditura è stata utilizzata per passare. Sperimentalmente, quando $\lambda$ del fotone usato per l'illuminazione è dell'ordine della distanza tra le fenditure, gli elettroni \q{non sono disturbati} e producono la figura di interferenza.\\
+Possiamo allora minimizzare l'effetto riducendo il momento del $\gamma$, ma così facendo, per de Broglie, $p = h / \lambda$, e quindi ridurre $p$ significa aumentare la lunghezza d'onda $\lambda$, e così si perde l'informazione su quale fenditura è stata utilizzata per passare. Sperimentalmente, quando $\lambda$ del fotone usato per l'illuminazione è dell'ordine della distanza tra le fenditure, gli elettroni \q{non sono disturbati} e producono la figura di interferenza.\\
 Come vedremo, questa \q{spiegazione} non è completamente soddisfacente, ma almeno salva la meccanica quantistica da un problema di autoconsistenza.\\
 Infatti, senza la doppia natura ondulatorio-corpuscolare delle particelle coinvolte i fenomeni descritti non sarebbero possibili.\\
 Notiamo che per gli elettroni con funzione d'onda
@@ -42,7 +42,7 @@ $\psi_{12}(x) = \psi_1(x) + \psi_2(x)$
 nessuna delle seguenti affermazioni è corretta:
 \begin{enumerate}
     \item L'elettrone passa dalle fenditure 1 o 2.\\
-    Esclusa perché $p_{12}(x) = p_1(x) + p_2(x)$.
+    Esclusa perché $p_{12}(x) \neq p_1(x) + p_2(x)$.
     \item L'elettrone passa da entrambe le fenditure.\\
     Esclusa perché se cerchiamo di verificare da quale fenditura è passato la troviamo in una sola (e non appena lo sappiamo l'interferenza scompare).
     \item L'elettrone arriva allo schermo senza passare dalle fenditure.\\ Falsa, poiché se chiudiamo le fenditure non arrivano elettroni allo schermo.
@@ -52,7 +52,7 @@ Da queste considerazioni vediamo che non è affatto ovvio poter assumere che l'e
 
 Possiamo rendere più preciso il concetto di \q{disturbo}. 
 Se conosciamo la posizione ad un istante introduciamo un'indeterminazione nel momento (allo stesso istante), e di conseguenza, con l'evoluzione temporale, anche un'indeterminazione nelle posizioni agli istanti successivi.\\
-Es. camera a nebbia: ogni \q{punto} visibile è dato dall'interazione tra una particella e una delle goccioline nella camera, e costituisce una misurazione (affetta da incertezza) della sua posizione, che introduce un'indeterminazione in quelle successive. Perciò alla fine non si misura la traiettoria effettiva della particella, ma una \q{curva}, non necessariamente rettilinea, data dall'effetto delle varie interazioni.
+Es. camera a nebbia: ogni \q{punto} visibile è dato dall'interazione tra una particella e una delle goccioline nella camera, e costituisce una misurazione (affetta da incertezza) della sua posizione, che introduce un'indeterminazione in quelle successive. Perciò alla fine non si misura la traiettoria effettiva della particella, ma una successione di punti non completamente \q{allineati lungo una curva}.
 In ogni caso non è considerabile una traiettoria, in quanto per le indeterminazioni non è possibile capire cosa succede tra un punto e l'altro.\\
 Possiamo riassumere ciò in un altro punto che deve essere soddisfatto dal formalismo utilizzato:
 \begin{enumerate}[label=\Roman*.]
@@ -89,7 +89,7 @@ E_y
 \end{pmatrix}
 \]
 che d'ora in poi indicheremo seguendo la notazione di Dirac come $\ket{\psi}$. La polarizzazione di un'onda gioca un ruolo analogo alla posizione (data tramite la funzione d'onda) di una particella.\\
-Analizziamo meglio $\ket{\psi}$. Sappiamo che un'onda che ha una \textit{polarizzazione lineare} \marginpar{Polarizzazione lineare}di angolo $\alpha$ rispetto a $\hat{x}$ può essere vista come la sovrapposizione di due onde di \textit{stessa fase} che hanno polarizzazioni lungo $\hat{x}$ e $\hat{y}$. Se l'onda iniziale ha intensità $E_0$, le due onde \q{proiettate} avranno intensità $E_{0x} = E_0\cos\alpha$ e $E_{0y} = E_0\sin\alpha$.\\ %Inserire figura pag. 511 Mencuccini
+Analizziamo meglio $\ket{\psi}$. Sappiamo che un'onda che ha una \textit{polarizzazione lineare} \marginpar{Polarizzazione lineare}di angolo $\alpha$ rispetto a $\hat{x}$ può essere vista come la sovrapposizione di due onde di \textit{stessa fase} che hanno polarizzazioni lungo $\hat{x}$ e $\hat{y}$. Se l'onda iniziale ha ampiezza $E_0$, le due onde \q{proiettate} avranno ampiezza $E_{0x} = E_0\cos\alpha$ e $E_{0y} = E_0\sin\alpha$.\\ %Inserire figura pag. 511 Mencuccini
 Perciò le polarizzazioni \q{possono essere sovrapposte},\marginpar{$\ket{\psi}\in \bb{C}^2$} cioè sommate, e quindi $\ket{\psi}$ è un elemento di uno spazio vettoriale complesso, che sarà isomorfo a $\bb{C}^2$ in quanto $\ket{\psi}$ è definito da due coordinate complesse.\\
 \textbf{Nota:} Abbiamo scelto di utilizzare le coordinate in $\bb{C}$ per includere in $E_x$ e $E_y$ anche l'informazione sullo sfasamento. Per esempio, la sovrapposizione di due onde di polarizzazione ortogonale ma \textit{sfasate} di $\pi/2$ produce la \textit{polarizzazione ellittica}\marginpar{Polarizzazione ellittica}.\\
 Data questa premessa, possiamo utilizzare per $\ket{\psi}$ gli \q{strumenti} disponibili su $\bb{C}^2$. Per esempio su $\bb{C}^2$ è definito un prodotto scalare, che denotiamo, seguendo la notazione di Dirac, come $\braket{ \cdot |  \cdot }$, cioè: $\braket{\phi|\psi} = \phi_x^* \psi_x + \phi_y^* \psi_y$, con $\bra{\phi}$ il funzionale lineare su $\bb{C}^2$ dato da $\bra{\phi}: \ket{\psi} \to \braket{\phi|\psi} \in \bb{C}$.\\
@@ -100,8 +100,8 @@ Notiamo quindi che il vettore $\ket{\psi}$ contiene informazioni ridondanti. In 
 Scegliamo quindi $\ket{\psi}$ tale che $\braket{\psi|\psi} = 1$ (norma unitaria).\\
 Agendo \marginpar{Esempi di polarizzazione}nella base canonica di $\bb{C}^2$, alcuni esempi di diverse polarizzazioni (e relativi vettori) sono:
 \begin{itemize}
-    \item \textbf{Polarizzazione lineare}, che può essere verso $\hat{x}$ se $\ket\psi = \ket{x} \equiv (1,0)$, oppure verso $\hat{y}$ se $\ket\psi = \ket{y}\equiv (0,1)$. Oppure può avere, ad esempio, una polarizzazione a $45^\circ$ rispetto a $\hat{x}$ se $\ket\psi = \ket{45^\circ} = \frac{1}{\sqrt{2}}(\ket{x}+\ket{y})$;
-    \item \textbf{Polarizzazione circolare}, che può essere destrorsa se $\ket\psi = \ket{R} = \frac{1}{\sqrt{2}}(1,i)$, oppure sinistrorsa se $\ket\psi = \ket{L} = \frac{1}{\sqrt{2}}(1,-i)$.
+    \item \textbf{Polarizzazione lineare}, che può essere lungo $\hat{x}$ se $\ket\psi = \ket{x} \equiv (1,0)^t$, oppure lungo $\hat{y}$ se $\ket\psi = \ket{y}\equiv (0,1)^t$. Oppure può avere, ad esempio, una polarizzazione a $45^\circ$ rispetto a $\hat{x}$ se $\ket\psi = \ket{45^\circ} = \frac{1}{\sqrt{2}}(\ket{x}+\ket{y})^t$;
+    \item \textbf{Polarizzazione circolare}, che può essere destrorsa se $\ket\psi = \ket{R} = \frac{1}{\sqrt{2}}(1,i)$, oppure sinistrorsa se $\ket\psi = \ket{L} = \frac{1}{\sqrt{2}}(1,-i)^t$.
 \end{itemize}
 In realtà imporre $\norm{\psi} = 1$ per rimuovere informazioni ridondanti restringe lo spazio considerato da $\bb{C}^2$ a $\frac{\bb{C}^2\setminus\{0\}}{\bb{R}_+} \cong S^3$.\\
 Matematicamente,\index{Spazio quoziente} questo è uno \textit{spazio vettoriale quoziente},\marginpar{Spazio vettoriale quoziente} ottenuto \q{identificando} tutti i punti che soddisfano una certa condizione, che in questo caso è \q{il differire solamente per un fattore di scala}. In maniera pittoresca lo spazio quoziente si può pensare (in questo caso) come il prodotto di \q{incollare} tra loro tutti i vettori che \q{puntano nella stessa direzione}, ma hanno diverse \q{lunghezze}. In tal modo si passa da una situazione (in $\bb{C}^2$) in cui ho infiniti modi di scrivere la stessa polarizzazione, a una (nello spazio quoziente) in cui ad ogni punto è associata una sola \q{direzione} di polarizzazione (non ancora una sola polarizzazione - c'è un'altra ambiguità da rimuovere che tratteremo tra poco).\\
@@ -165,11 +165,11 @@ Supponiamo di avere un filtro polarizzatore lungo $\hat{x}$, la teoria elettroma
 e presenterà esclusivamente la componente polarizzata lungo $\hat{x}$.\\
 In meccanica quantistica possiamo ridurre l'intensità fino a che non passi un singolo fotone alla volta attraverso il polarizzatore. Non è ovviamente possibile definire una \q{frazione di un fotone}, quindi il rapporto $|E_x|^2/\norm{\vec{E}}^2 = |\psi_x|^2$ (se $\braket{\psi|\psi} = 1$ non può essere interpretato come \q{frazione di fotone}.\\
 L'unico modo di interpretare il risultato classico in termini di singoli fotoni è perciò che $|\psi_x|^2 = |\braket{x|\psi}|^2$ dia la probabilità che un fotone nella polarizzazione iniziale $\ket{\psi}$ passi attraverso il polarizzatore e sia poi quindi in polarizzazione $\ket{x}$ (e ciò costituisce una \textit{misura} di polarizzazione).\\
-Con questa interpretazione si giustifica la terminologia $|\braket{x|\psi}|^2$ = probabilità di transizione da $\ket{\psi}$ $\ket{x}$ e $\braket{x|\psi}$ = ampiezza di probabilità di transizione da $\ket{\psi}$ a $\ket{x}$.\\
+Con questa interpretazione si giustifica la terminologia $|\braket{x|\psi}|^2$ = probabilità di transizione da $\ket{\psi}$ a $\ket{x}$ e $\braket{x|\psi}$ = ampiezza di probabilità di transizione da $\ket{\psi}$ a $\ket{x}$.\\
 $|\braket{x|\psi}|^2$ è l'analogo (per la polarizzazione) di $|\psi(x)|^2$ (per la posizione di una particella) di Schrödinger.\\
 \textbf{Attenzione!}\marginpar{Le probabilità hanno senso solo \textbf{dopo} una misura} $|\psi_x|^2$ non dà la probabilità che il fotone sia, cioè indipendentemente dalla misura, in polarizzazione $\ket{x}$ prima della misura, ma solo la probabilità di essere trovato in polarizzazione $\ket{x}$ se eseguiamo una misura di  polarizzazione.\\ 
 Questa differenza è evidenziata sperimentalmente, per esempio utilizzando dei cristalli birifrangenti.\\
-Il fenomeno della birifrangenza\marginpar{Birifrangenza}\index{Birifrangenza}, tipo di cristalli come la calcite, consiste nella divisione di un raggio incidente in due raggi sfalsati spazialmente, la cui polarizzazione è ortogonale. Per semplicità consideriamo la polarizzazione del primo raggio uscente pari a $\ket{x}$ e l'altra pari a $\ket{y}$.\\
+Il fenomeno della birifrangenza\marginpar{Birifrangenza}\index{Birifrangenza}, che si verifica in cristalli come la calcite, consiste nella divisione di un raggio incidente in due raggi sfalsati spazialmente, la cui polarizzazione è ortogonale. Per semplicità consideriamo la polarizzazione del primo raggio uscente pari a $\ket{x}$ e l'altra pari a $\ket{y}$.\\
 Ciò avviene perché la struttura anisotropica del cristallo fa sì che onde polarizzate \textbf{parallelamente} all'\textit{asse ottico} proprio del cristallo producano \q{\textbf{raggi straordinari}}, che \textit{non obbediscono} a Snell. Nell'esempio indichiamo la polarizzazione di tali raggi con $\ket{y}$.\\
 D'altro canto, onde polarizzate \textbf{perpendicolarmente} all'\textit{asse ottico} producono \q{\textbf{raggi ordinari}} che \textit{obbediscono} alle leggi di Snell.\\
 \marginpar{\includegraphics[width=3.5cm]{Immagini/cristallobirifrangente.png}}

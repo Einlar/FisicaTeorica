@@ -5,7 +5,7 @@ Chiaramente, due osservabili $A$ e $B$ possono essere (banalmente) compatibili s
 In particolare si avrà $\sigma(B)=\sigma(f(A))=f(\sigma(A))$. Se ciò non succede,\ $A$ e $B$ si dicono \textbf{indipendenti}.\\
 Notiamo che la dipendenza di osservabili compatibili si può verificare sperimentalmente (possiamo misurare entrambe le osservabili e vedere se il valore di una coincide con $f$ calcolata nel valore dell'altra).\\
 \begin{dfn}
-Un insieme $\mathcal{C}$ di osservabili compatibili indipendenti si dice \textbf{completo} se è massimale, ossia se non esiste alcun insieme di osservabili compatibili indipendenti che lo contenga propriamente (non si può trovare insiemi strettamente \q{più grandi}). Quindi $\mathcal{C}$ è completo se una qualunque misura di I specie di un'ulteriore osservabile indipendente che non si trova in $\mathcal{C}$ comporta necessariamente l'aumento delle fluttuazioni di almeno una delle osservabili di $\mathcal{C}$ (ossia eseguire una misura di un qualsiasi osservabile non compresa tra quelle in $\mathcal{C}$ \textit{disturba} quelle delle osservabili in $\mathcal{C}$).
+Un insieme $\mathcal{C}$ di osservabili compatibili indipendenti si dice \textbf{completo} se è massimale, ossia se non esiste alcun insieme di osservabili compatibili indipendenti che lo contenga propriamente (non si possono trovare insiemi strettamente \q{più grandi}). Quindi $\mathcal{C}$ è completo se una qualunque misura di I specie di un'ulteriore osservabile indipendente che non si trova in $\mathcal{C}$ comporta necessariamente l'aumento delle fluttuazioni di almeno una delle osservabili di $\mathcal{C}$ (ossia eseguire una misura di un qualsiasi osservabile non compresa tra quelle in $\mathcal{C}$ \textit{disturba} quelle delle osservabili in $\mathcal{C}$).
 \end{dfn}
 Per le osservabili a spettro discreto, il risultato di una misura di I specie è l'individuazione del sottospazio di $\hs$ corrispondente all'autovalore trovato (quello \textit{compatibile} con la misura ottenuta).\\
 Ci aspettiamo allora che, una volta misurate tutte le osservabili in $\mathcal{C}$, si abbia un'informazione \textit{massimale} sul sistema, ossia che la misura di tutte le $\mathcal{C}$ proietti il sistema su uno \textbf{stato puro}.
@@ -96,7 +96,9 @@ Per una particella in $\bb{R}^3$ potremmo scegliere $\mathcal{C}=\{X,P_y, Z\}$, 
 
 \begin{dfn}
 Un insieme di osservabili $\mathcal{I}$ (non compatibili!) si dice \textbf{irriducibile} se ogni osservabile che commuta con tutti gli elementi di $\mathcal{I}$ è un multiplo dell'identità $\bb{I}$ (ossia il risultato della sua misura è  \textbf{indipendente dello stato} - es. come nel caso dell'osservabile che misura la carica elettrica dell'elettrone).\\
+\begin{comment} %Spiegar meglio, o eventualmente omettere
 Ciò significa che misurare tutte le osservabili in $\mathcal{I}$ non può ridurre il sistema ad uno stato di massima informazione (puro).%Controllare se l'intuizione è giusta 9[TO DO]
+\end{comment}
 \end{dfn}
 \begin{oss}
 Per una particella quantistica elementare \textit{con analogo classico}\footnote{Ossia senza proprietà unicamente quantistiche, come lo \textit{spin}} $\{\vec{X},\vec{P}\,\}$ è un insieme irriducibile.\\ %Cosa si intende per analogo classico? [DOMANDA]
@@ -112,7 +114,7 @@ Ma allora $f$ è una costante:
 \]
 \end{oss}
 
-\section{Esercizio \theEsercizio}\index{Esercizio!Buca infinita (2)}
+\section{Esercizio \theEsercizio}\index{Esercizio!Buca infinita (2)} \stepcounter{Esercizio}
 Una particella di massa $m$ in 1D è immersa nel potenziale (buca infinita):
 \[
 V(x)=\begin{cases}
@@ -439,7 +441,7 @@ W_{\psi(t)}^\mathcal{P}(+1)&=\left(\psi(t),\frac{\bb{I}+\mathcal{P}}{2}\psi(t)\r
 \sum_m c_m \exp\left(-\frac{i}{\hbar}\mathcal{E}_m t\right) \varphi_m}_{m \text{ dispari}} \right) \underset{(b)}{=} \\
 &=\sum_{n, m \text{ dispari}} c_n^* c_m \exp\left(-\frac{i}{\hbar}(\mathcal{E}_m-\mathcal{E}_n)t\right)\underbrace{(\varphi_n, \varphi_m)}_{\delta_{nm}}=\sum_{n \text{ dispari}}|c_n|^2
 \end{align*}
-dove in (a) si sono sviluppate le $\psi(t)$ sulla base degli autostati di $H$ come da formula (\ref{eqn:evoluzione_temporale_totale}), e in (b) si è ristretta la somma ai soli indici negativi, dato che, nel secondo membro del prodotto scalare, all'applicazione del proiettore \q{sopravvivono} solo le $\varphi_m$ pari, che sono quelle dove l'indice $m$ è dispari.\\
+dove in (a) si sono sviluppate le $\psi(t)$ sulla base degli autostati di $H$ come da formula (\ref{eqn:evoluzione_temporale_totale}), e in (b) si è ristretta la somma ai soli indici dispari, dato che, nel secondo membro del prodotto scalare, all'applicazione del proiettore \q{sopravvivono} solo le $\varphi_m$ pari, che sono quelle dove l'indice $m$ è dispari.\\
 Di nuovo, non serve calcolare la somma infinita per $W_{\psi(t)}^{\mathcal{P}}(+1)$, poiché sappiamo che, per il caso opposto di $W_{\psi(t)}^\mathcal{P}(-1)$, la somma è costituita da un solo termine (in quanto solo $c_2 \neq 0$). Basterà allora calcolare la probabilità che l'operatore parità non dia $-1$:
 \[
 W_{\psi(t)}^\mathcal{P}(+1)=1-W_{\psi(t)}^\mathcal{P}(-1)=1-|c_2|^2=1-\frac{1}{2}=\frac{1}{2}

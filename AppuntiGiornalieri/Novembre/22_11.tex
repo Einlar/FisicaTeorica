@@ -3,6 +3,7 @@
 \begin{document}
 
 \section{Le traslazioni spaziali}
+\label{sec:traslazioni_spaziali}
 Possiamo ora facilmente discutere la rappresentazione delle \textit{traslazioni spaziali} seguendo lo stesso schema delle traslazioni temporali.\\
 Partiamo considerando dall'\textbf{omogeneità dello spazio}, per cui i risultati di un esperimento non dipendono dal luogo in cui viene svolto. In \MQ ciò significa che, ogni traslazione delle coordinate $\vec{x} \to \vec{x}+\vec{a}$, con $\vec{a}\in \bb{R}^3$ non modifica le probabilità di transizione $|\braket{\phi|\psi}|^2$.\\
 Consideriamo quindi il gruppo \textit{additivo} $G=(\bb{R}^3, +)$ delle \textit{traslazioni spaziali}. 
@@ -46,6 +47,7 @@ U(\vec{a}\,)=\exp\left({-\frac{i}{\hbar}\vec{a}\cdot \vec{P}\,}\right)
 \]
 
 \section{Momento angolare e rotazioni}
+\label{sec:rotazioni}
 Una osservabile che in \MQ si discosta fortemente dal comportamento classico è il \textbf{momento angolare}.\\
 
 In \MC, utilizzando le coordinate cartesiane in $\bb{R}^3$, le componenti del momento angolare sono (in convenzione di Einstein, con gli indici in lettere latine che vanno intesi da $1$ a $3$):
@@ -110,7 +112,7 @@ Vediamo la relazione di $\vec{L}$ con le rotazioni. Calcoliamo prima:
 \begin{align*}
 [L_i, X_l]&=[\epsilon_{ijk} X_j P_k, X_l] = \epsilon_{ijk} X_j[P_k, X_l] =\\
 &= \epsilon_{ijk} X_j (-i\hbar \delta_{kl}) = - i\hbar \epsilon_{ijk}X_j = i\hbar \epsilon_{ilj}X_j\\
-[L_i, P_l] &= i\hbar \epsilon_{ijk} P_j
+[L_i, P_l] &= i\hbar \epsilon_{ilj} P_j
 \end{align*}
 
 Analogamente a quanto trovato per le traslazioni spaziali, i cui generatori erano dati dal momento (lineare), ci aspettiamo che il momento angolare funga da generatore delle rotazioni. Procediamo, allora, \textit{a ritroso}, partendo da $e_3 = L_3/\hbar$ come generatore di un gruppo di matrici, e verifichiamo che da esso si ottengano effettivamente le rotazioni attorno all'asse $\hat{z}$.\\
@@ -147,37 +149,36 @@ In questi conti stiamo ignorando ogni problema di dominio: per esempio non è de
 
 Svolgiamo lo stesso conto per gli operatori che ci interessano, ossia poniamo nella formula di Hadamard:
 \begin{align*}
-A = -i\frac{\varphi}{n}L_3\qquad B = X_1
+A = -i\frac{\varphi}{\hbar}L_3\qquad B = X_1
 \end{align*}
 Calcolando i vari termini, ci accorgiamo della comparsa delle espansioni di $\sin$ e $\cos$:
 \begin{align*}
-\exp\left( -i\frac{\varphi}{\hbar}L_3 \right) X_1 \exp\left(i\frac{\varphi}{\hbar}L_3 \right) &= X_1 + \frac{i\varphi}{\hbar}[X_1, L_3]+ \frac{1}{2}\left(\frac{i\varphi}{\hbar}\right)^2 [[X_1, L_3], L_3] + \dots =\\
-&= X_1 + i\frac{\varphi}{\hbar}(-i\hbar X_2)+\frac{1}{2}\left(\frac{i\varphi}{\hbar}\right)^2 -i\hbar \underbrace{[X_2,L_3]}_{i\hbar X_1}+\dots=\\
-&=X_1 + \varphi X_2 - \frac{1}{2}\varphi^2 X_1 + \dots \\
-&= X_1\hlc{Yellow}{\left(1-\frac{1}{2}\varphi^2 \dots\right)} + X_2\hlc{SkyBlue}{(\varphi + \dots)} =\\
-&= X_1 \cos\varphi + X_2 \sin\varphi
-\end{align*} %[TO DO] Controllare i conti, e magari mettere qualche termine in più. Controllare bene i segni!
+\exp\left(i\frac{\varphi}{\hbar}L_3 \right) X_1 \exp\left(-i\frac{\varphi}{\hbar}L_3 \right) &= X_1 - \frac{i\varphi}{\hbar}[X_1, L_3]+ \frac{1}{2}\left(\frac{-i\varphi}{\hbar}\right)^2 [[X_1, L_3], L_3] + \dots =\\
+&= X_1 - i\frac{\varphi}{\hbar}(-i\hbar X_2)+\frac{1}{2}\left(\frac{i\varphi}{\hbar}\right)^2 -i\hbar \underbrace{[X_2,L_3]}_{i\hbar X_1}+\dots=\\
+&=X_1 - \varphi X_2 - \frac{1}{2}\varphi^2 X_1 + \dots \\
+&= X_1\hlc{Yellow}{\left(1-\frac{1}{2}\varphi^2 \dots\right)} - X_2\hlc{SkyBlue}{(\varphi + \dots)} =\\
+&= X_1 \cos\varphi - X_2 \sin\varphi
+\end{align*} 
 
 Conti analoghi portano alle \textit{trasformazioni} delle altre componenti dell'operatore posizione $\vec{X}$:
 \begin{align*}
-\exp\left(-i\frac{\varphi}{\hbar}L_3\right) X_2 \exp\left(i\frac{\varphi}{\hbar} L_3 \right)&=X_2 \cos\varphi-X_1\sin\varphi\\
-\exp\left(-i\frac{\varphi}{\hbar}L_3\right) X_3 \exp\left(i\frac{\varphi}{\hbar}L_3\right)&= X_3
+\exp\left(i\frac{\varphi}{\hbar}L_3\right) X_2 \exp\left(-i\frac{\varphi}{\hbar} L_3 \right)&=X_2 \cos\varphi+X_1\sin\varphi\\
+\exp\left(i\frac{\varphi}{\hbar}L_3\right) X_3 \exp\left(-i\frac{\varphi}{\hbar}L_3\right)&= X_3
 \end{align*}
 
 Mettendo tutto insieme otteniamo perciò:
 \[
-\exp\left(-i\frac{\varphi}{\hbar}L_3\right) \vec{X} \exp\left(i\frac{\varphi}{\hbar}L_3 \right) = R(\varphi, \hat{z}) \vec{X}
+\exp\left(i\frac{\varphi}{\hbar}L_3\right) \vec{X} \exp\left(-i\frac{\varphi}{\hbar}L_3 \right) = R(\varphi, \hat{z}) \vec{X}
 \]
 con:
 \[
 R(\varphi, \hat{z}) = \begin{pmatrix}
-\cos\varphi & \sin\varphi & 0\\
--\sin\varphi & \cos\varphi & 0\\
+\cos\varphi & -\sin\varphi & 0\\
+\sin\varphi & \cos\varphi & 0\\
 0 & 0 & 1
 \end{pmatrix}\quad
 \vec{X}=\begin{pmatrix} X_1 \\ X_2 \\ X_3 \end{pmatrix}
 \]
-%Qui vanno cambiati i segni, e va cambiato il segno nella U e anche in tutti i passaggi dopo!
 
 Dove $\hat{z}$ è il versore lungo $z$, e $R(\varphi, \hat{z})$ è la matrice di rotazione di un angolo $\varphi$ intorno all'asse $z$.\\
 Più in generale, se $\vec{n}$ è un versore di $\bb{R}^3$:
@@ -188,7 +189,7 @@ U(\varphi, \vec{n})\equiv \exp\left({-i\frac{\varphi}{\hbar} \vec{L}\cdot \vec{n
 
 Ripetendo gli stessi conti per l'operatore momento $\vec{P}$ si ottiene la stessa cosa:
 \[
-\exp\left(-i\frac{\varphi}{\hbar}L_3\right)\vec{P}\exp\left(i\frac{\varphi}{\hbar}L_3\right)=R(\varphi, \hat{x})\vec{P}
+\exp\left(i\frac{\varphi}{\hbar}L_3\right)\vec{P}\exp\left(-i\frac{\varphi}{\hbar}L_3\right)=R(\varphi, \hat{x})\vec{P}
 \]
 
 Deriviamo allora la trasformazione di una generica funzione d'onda $\psi(\vec{x})$ in rappresentazione $\{\vec{x}\}$. Procediamo alla stessa maniera utilizzata per le traslazioni spaziali, notando che $U(\varphi,\vec{n})$ \textit{agisce} \q{da destra} su un bra come una \textit{rotazione inversa}:

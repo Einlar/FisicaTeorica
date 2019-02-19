@@ -10,7 +10,7 @@ U(2\pi,\vec{n})=\bb{I}&\Rightarrow \sigma(\vec{L}\cdot \vec{n})\subseteq \hbar \
 è questa la rappresentazione più generale delle rotazioni in \MQ? Vediamo ora che \textbf{non} è così.\\
 \end{comment}
 \section{Momento angolare generale}
-Nei paragrafi precedenti abbiamo ricavato una rappresentazione unitaria $U(\varphi, \vec{n})$ delle rotazioni procedendo in analogia con la \MC. Ci chiediamo: è questa l'\textit{immagine più completa}, o nella stranezza della \MQ è possibile trovare altre possibilità?\\
+Nei paragrafi precedenti abbiamo ricavato una rappresentazione unitaria $U(\varphi, \vec{n})$ delle rotazioni procedendo in analogia con la \MC. Ci chiediamo: è questa \textit{la rappresentazione più generale}, o nella stranezza della \MQ è possibile trovare altre possibilità?\\
 
 L'unico modo di capir ciò è ripartire, in analogia alle traslazioni temporali o spaziali, dai concetti di teoria dei gruppi e delle rappresentazioni che abbiamo introdotto negli scorsi capitoli.\\
 
@@ -27,7 +27,51 @@ Il problema è che mentre per le traslazioni temporali/spaziali partivamo da $G=
 Per vedere il perché, esaminiamone la sua struttura di varietà differenziale, su cui fissiamo una parametrizzazione.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.2]{Immagini/23_11/image001.png}
+%\includegraphics[scale=0.2]{Immagini/23_11/image001.png}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Straight Lines [id:da40183777252237163] 
+\draw [color={rgb, 255:red, 0; green, 162; blue, 255 }  ,draw opacity=1 ][line width=1.5]    (170,148) -- (243.98,111.01) ;
+\draw [shift={(246.67,109.67)}, rotate = 513.4300000000001] [fill={rgb, 255:red, 0; green, 162; blue, 255 }  ,fill opacity=1 ][line width=1.5]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Shape: Circle [id:dp16113114672937545] 
+\draw  [fill={rgb, 255:red, 0; green, 170; blue, 255 }  ,fill opacity=0.08 ] (70,148) .. controls (70,92.77) and (114.77,48) .. (170,48) .. controls (225.23,48) and (270,92.77) .. (270,148) .. controls (270,203.23) and (225.23,248) .. (170,248) .. controls (114.77,248) and (70,203.23) .. (70,148) -- cycle ;
+%Curve Lines [id:da30439110405961856] 
+\draw    (70,148) .. controls (69.5,191) and (270.5,191) .. (270,148) ;
+%Curve Lines [id:da07007296402896568] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (70,148) .. controls (70.5,104) and (270.5,104) .. (270,148) ;
+%Straight Lines [id:da5826454046143636] 
+\draw    (170,148) ;
+\draw [shift={(170,148)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da46544261945346554] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (170,148) -- (70,148) ;
+%Straight Lines [id:da1390006582471528] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (170,148) -- (203.98,131.01) ;
+\draw [shift={(206.67,129.67)}, rotate = 513.4300000000001] [fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Shape: Brace [id:dp7780716442715196] 
+\draw   (240,104.33) .. controls (237.96,100.14) and (234.84,99.06) .. (230.64,101.1) -- (219.79,106.38) .. controls (213.8,109.29) and (209.78,108.65) .. (207.74,104.46) .. controls (209.78,108.65) and (207.8,112.21) .. (201.81,115.13)(204.5,113.82) -- (169.23,130.97) .. controls (165.04,133.02) and (163.96,136.14) .. (166,140.33) ;
+%Straight Lines [id:da8799543722044232] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (368.67,155.33) -- (402.65,138.34) ;
+\draw [shift={(405.33,137)}, rotate = 513.4300000000001] [fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Curve Lines [id:da4322040996823717] 
+\draw [color={rgb, 255:red, 0; green, 170; blue, 255 }  ,draw opacity=1 ]   (371.33,164.33) .. controls (378,178.33) and (371.33,185) .. (356,163.67) .. controls (341.05,142.87) and (349.55,131.57) .. (361.72,148.94) ;
+\draw [shift={(362.67,150.33)}, rotate = 236.77] [fill={rgb, 255:red, 0; green, 170; blue, 255 }  ,fill opacity=1 ][line width=0.75]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Curve Lines [id:da7496680426351874] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.45 ]   (218,85.67) .. controls (247.7,67.19) and (248,85.3) .. (299.75,86.31) ;
+\draw [shift={(301.33,86.33)}, rotate = 180.72] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=0.45 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Text Node
+\draw (119.33,136.33) node   {$\pi $};
+% Text Node
+\draw (386.67,96.67) node  [align=left] {Rotazione di angolo $\displaystyle \varphi $\\attorno a $\displaystyle \hat{n}$};
+% Text Node
+\draw (205.33,90.33) node [color={rgb, 255:red, 0; green, 151; blue, 255 }  ,opacity=1 ]  {$\varphi $};
+% Text Node
+\draw (192.67,151.33) node   {$\hat{\textcolor[rgb]{1,0,0}{n}}$};
+% Text Node
+\draw (342.67,167) node [color={rgb, 255:red, 0; green, 151; blue, 255 }  ,opacity=1 ]  {$\varphi $};
+% Text Node
+\draw (414,147) node   {$\hat{\textcolor[rgb]{1,0,0}{n}}$};
+\end{tikzpicture}
 \caption{Parametrizzazione di $SO(3)\cong B^3/\sim$}
 \end{figure}
 Consideriamo la \textit{palla} $B^3$ di raggio $\pi$, ossia la \textit{sfera} 3D considerata con bordo e punti interni, che sappiamo parametrizzare, e mostriamo che è \textit{equivalente} a $SO(3)$. Detto $O$ il centro di $B^3$, un punto $P \in B^3$ definisce una direzione $OP$, che interpretiamo come l'\textit{asse} di una rotazione. La distanza di $P$ da $O$ (che sarà al più $\pi$), indica invece l'\textit{angolo di rotazione}, che sarà (convenzionalmente) in senso orario osservando \q{da $O$ verso la punta di $OP$}\footnote{Il che equivale ad applicare la \textit{regola della mano destra} puntando il pollice verso $P$ e osservando la direzione in cui si piegano le altre quattro dita.}.\\
@@ -53,7 +97,7 @@ Con la condizione $|a|^2 + |b|^2 = \op{det}(T) = +1$. Possiamo riscrivere tale c
 \]
 Otteniamo l'equazione di una sfera\footnote{Con sfera intendiamo sempre la \textit{superficie sferica}. $S^n$ è quindi la superficie $n$-dimensionale di una sfera in $n+1$ dimensioni: $S^2$ è la superficie sferica di una normale sfera 3D, mentre $S^3$ è la \q{superficie} tridimensionale di una ipersfera, che consideriamo immersa in $\bb{R}^4$.} $S^3$ in $4$ dimensioni, che sappiamo essere semplicemente connessa (lo sono tutte le $S^n$ per $n>1$).\\
 
-Si dimostra che ogni punto di $S^3$ parametrizzata \textit{cartesianamente} con $(\op{Re}a, \op{Im}a, \op{Re}B, \op{Im}b)$ corrisponde, \textit{a meno del segno}, a un'unica rotazione in $SO(3)$). Matematicamente, si ha una mappa suriettiva $\tilde{g}: SU(2) \cong \tilde{SO}(3) \to SO(3)$ (che nello specifico è un \textit{ricoprimento a due fogli}) data da:
+Si dimostra che ogni punto di $S^3$ parametrizzata \textit{cartesianamente} con $(\op{Re}a, \op{Im}a, \op{Re}b, \op{Im}b)$ corrisponde, \textit{a meno del segno}, a un'unica rotazione in $SO(3)$). Matematicamente, si ha una mappa suriettiva $\tilde{g}: SU(2) \cong \tilde{SO}(3) \to SO(3)$ (che nello specifico è un \textit{ricoprimento a due fogli}) data da:
 \[
 \pm (\op{Re}a, \op{Im}a, \op{Re}b, \op{Im}b) \mapsto \tilde{g}(\op{Re}a, \op{Im}a, \op{Re}b, \op{Im}b)
 \]
@@ -68,24 +112,148 @@ Allora, pittorescamente, si consideri una sfera unitaria centrata all'origine di
 Graficamente, notiamo che ci sono sempre due punti di $S^2$ che \textit{si proiettano} nello stesso punto di $B^2$: uno \q{dall'alto} e uno \q{dal basso}. In realtà dobbiamo considerare che i punti di $S^2$ all'intersezione con il piano $z=0$ sono \textit{proiettati su se stessi}, ma dobbiamo ricordarci che in $B^2$ abbiamo identificato i punti antipodali, e quindi anche qui è come avere \textit{due proiezioni} per lo stesso punto.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.2]{Immagini/23_11/image002.png}
+%\includegraphics[scale=0.2]{Immagini/23_11/image002.png}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Shape: Ellipse [id:dp16113114672937545] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 4 }  ,fill opacity=0.03 ] (109,140) .. controls (109,93.06) and (146.84,55) .. (193.51,55) .. controls (240.18,55) and (278.02,93.06) .. (278.02,140) .. controls (278.02,186.94) and (240.18,225) .. (193.51,225) .. controls (146.84,225) and (109,186.94) .. (109,140) -- cycle ;
+%Straight Lines [id:da5826454046143636] 
+\draw    (193.51,140) ;
+\draw [shift={(193.51,140)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Shape: Ellipse [id:dp47328058540945217] 
+\draw  [color={rgb, 255:red, 255; green, 171; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 152; blue, 0 }  ,fill opacity=0.37 ] (109,140) .. controls (109,124.61) and (146.84,112.13) .. (193.51,112.13) .. controls (240.18,112.13) and (278.02,124.61) .. (278.02,140) .. controls (278.02,155.39) and (240.18,167.88) .. (193.51,167.88) .. controls (146.84,167.88) and (109,155.39) .. (109,140) -- cycle ;
+%Straight Lines [id:da022890708548279237] 
+\draw    (193.51,140) -- (300.5,140) ;
+\draw [shift={(302.5,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4697495805854659] 
+\draw    (193.51,140) -- (112.9,222.57) ;
+\draw [shift={(111.5,224)}, rotate = 314.31] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7002627403879624] 
+\draw    (193.51,140) -- (193.5,35) ;
+\draw [shift={(193.5,33)}, rotate = 449.99] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8250260887196739] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (160.67,80.33) ;
+\draw [shift={(160.67,80.33)}, rotate = 45] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+\draw [shift={(160.67,80.33)}, rotate = 45] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da2420429997784077] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (160.67,200.33) ;
+\draw [shift={(160.67,200.33)}, rotate = 45] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+\draw [shift={(160.67,200.33)}, rotate = 45] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da11536099244650799] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (160.67,200.33) -- (160.67,80.33) ;
+%Straight Lines [id:da8119194499904872] 
+\draw    (314.67,83.33) ;
+%Straight Lines [id:da5159838245351502] 
+\draw [color={rgb, 255:red, 212; green, 122; blue, 0 }  ,draw opacity=1 ]   (160.67,140.33) ;
+\draw [shift={(160.67,140.33)}, rotate = 0] [color={rgb, 255:red, 212; green, 122; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 212; green, 122; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da45575167491190616] 
+\draw [color={rgb, 255:red, 223; green, 128; blue, 0 }  ,draw opacity=1 ]   (134,120) ;
+\draw [shift={(134,120)}, rotate = 45] [color={rgb, 255:red, 223; green, 128; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da9792435282565981] 
+\draw [color={rgb, 255:red, 223; green, 128; blue, 0 }  ,draw opacity=1 ]   (254.75,159.5) ;
+\draw [shift={(254.75,159.5)}, rotate = 45] [color={rgb, 255:red, 223; green, 128; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da04803136771431049] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (254.75,159.5) -- (134,120) ;
+%Shape: Rectangle [id:dp4450437808918779] 
+\draw  [color={rgb, 255:red, 255; green, 141; blue, 0 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}] (97.08,102) -- (374.19,102) -- (302.36,181) -- (25.24,181) -- cycle ;
+%Curve Lines [id:da30583890940409764] 
+\draw [color={rgb, 255:red, 134; green, 134; blue, 134 }  ,draw opacity=0.5 ]   (168.5,189) .. controls (225.92,246.42) and (344.11,216.61) .. (372.66,167.49) ;
+\draw [shift={(373.5,166)}, rotate = 478.37] [color={rgb, 255:red, 134; green, 134; blue, 134 }  ,draw opacity=0.5 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Text Node
+\draw (421.67,152.33) node  [align=left] {Punti identificati};
+% Text Node
+\draw (291,119) node   {$\textcolor[rgb]{0.85,0.48,0}{B^{2}}$};
+% Text Node
+\draw (255,58.67) node   {$\textcolor[rgb]{1,0,0}{S^{2}}$};
+\end{tikzpicture}
 \caption{Ogni punto di $B^2/\sim$ è \textit{originato} dalla proiezione di esattamente \textit{due} punti di $S^2$}
 \end{figure}
 Possiamo allora comprendere la definizione di $\tilde{g}$ come \textit{a meno del segno}: così facendo stiamo \q{eliminando tutti i doppioni}. Visivamente, ciò significa considerare un solo emisfero (per esempio $S^2_+$), con \textit{mezzo bordo} (dato che anche per i punti su $z=0$ vi sono \textit{due proiezioni}).\\
 Notiamo altre due cose:
 \begin{itemize}
-\item Un diametro di $B^2$, che è il cammino chiuso e incomprimibile che prima dava problemi, risulta come la proiezione di una \textit{circonferenza massimale} su $S^2$, che stavolta è comprimibile a un punto.
+\item Un diametro di $B^2$, che è il cammino chiuso e non contraibile a un punto che prima dava problemi, risulta come la proiezione di una \textit{circonferenza massimale} su $S^2$, che stavolta è contraibile a un punto.
 \item Una rotazione di $2\pi$ corrispondeva in $B^3$ (e quindi anche in $B^2$, per analogia) a passare da un punto sul \textit{bordo} al suo punto antipodale (e infatti i due coincidono su $B^2$). La stessa cosa non si ha più su $S^2$, dato che tale punto è proiezione di \textit{due punti} non coincidenti. Solo ripetendo un'ulteriore rotazione di $2\pi$ anche in $S^2$ i due punti coincideranno.\\
 Stessa cosa si può dimostrare, perdendo però ogni visualizzazione, nel caso a dimensione $3$ che ci interessa, ossia per $SO(3)\cong B^3/\sim$ e $S^3 \cong SU(2) \cong \widetilde{SO}(3)$.\\
 Ciò ha conseguenze fondamentali: se decidiamo di utilizzare una rappresentazione unitaria senza ambiguità di fasi (e quindi \textit{non proiettiva}) tramite il teorema di Bargmann, dovremo spostarci sul gruppo di ricoprimento, che \textit{non} segue le stesse \q{regole} del gruppo di partenza: su $B^3/\sim$ la rotazione di $2\pi$ è nulla, su $S^3$ è quella di $4\pi$ a essere nulla.
 \end{itemize}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.2]{Immagini/23_11/image004.png}
+%\includegraphics[scale=0.2]{Immagini/23_11/image004.png}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Shape: Ellipse [id:dp7445514256669545] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (82,122) .. controls (82,106.54) and (115.24,94) .. (156.25,94) .. controls (197.26,94) and (230.5,106.54) .. (230.5,122) .. controls (230.5,137.46) and (197.26,150) .. (156.25,150) .. controls (115.24,150) and (82,137.46) .. (82,122) -- cycle ;
+%Shape: Circle [id:dp7892424312366932] 
+\draw   (318,127) .. controls (318,88.89) and (348.89,58) .. (387,58) .. controls (425.11,58) and (456,88.89) .. (456,127) .. controls (456,165.11) and (425.11,196) .. (387,196) .. controls (348.89,196) and (318,165.11) .. (318,127) -- cycle ;
+%Straight Lines [id:da5034928990852849] 
+\draw [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ]   (116.33,98.67) ;
+\draw [shift={(116.33,98.67)}, rotate = 45] [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da4277094136328017] 
+\draw [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ]   (205.67,142.67) ;
+\draw [shift={(205.67,142.67)}, rotate = 45] [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da7327434035453719] 
+\draw [color={rgb, 255:red, 255; green, 147; blue, 0 }  ,draw opacity=1 ]   (116.33,98.67) -- (205.67,142.67) ;
+%Curve Lines [id:da7390612498682974] 
+\draw    (318,127) .. controls (318,156.67) and (456,156) .. (456,127) ;
+%Curve Lines [id:da24809832584328761] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (318,127) .. controls (318,98.67) and (456,97.33) .. (456,127) ;
+%Straight Lines [id:da034741596986326506] 
+\draw [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ]   (349.33,108.67) ;
+\draw [shift={(349.33,108.67)}, rotate = 45] [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Straight Lines [id:da5630381010220986] 
+\draw [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ]   (425.04,145.99) ;
+\draw [shift={(425.04,145.99)}, rotate = 45] [color={rgb, 255:red, 233; green, 135; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (-5.59,0) -- (5.59,0)(0,5.59) -- (0,-5.59)   ;
+%Curve Lines [id:da26688963466746696] 
+\draw [color={rgb, 255:red, 228; green, 131; blue, 0 }  ,draw opacity=1 ]   (349.33,108.67) .. controls (352.04,86.99) and (363.04,57.99) .. (387,58) .. controls (410.96,58.01) and (426.04,96.49) .. (425.04,145.99) ;
+%Curve Lines [id:da8347208426497787] 
+\draw [color={rgb, 255:red, 0; green, 29; blue, 255 }  ,draw opacity=1 ]   (425.04,145.99) .. controls (423.04,165.99) and (411.54,195.49) .. (387,196) .. controls (362.46,196.51) and (345.04,153.99) .. (349.33,108.67) ;
+%Straight Lines [id:da872924835063362] 
+\draw [color={rgb, 255:red, 228; green, 131; blue, 0 }  ,draw opacity=1 ]   (416,85.5) -- (417.86,90.61) ;
+\draw [shift={(418.54,92.49)}, rotate = 250.05] [color={rgb, 255:red, 228; green, 131; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da28581469795350256] 
+\draw [color={rgb, 255:red, 0; green, 29; blue, 255 }  ,draw opacity=1 ]   (358.5,172) -- (356.37,167.31) ;
+\draw [shift={(355.54,165.49)}, rotate = 425.53] [color={rgb, 255:red, 0; green, 29; blue, 255 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9280579917751874] 
+\draw [color={rgb, 255:red, 228; green, 131; blue, 0 }  ,draw opacity=1 ]   (161,120.67) -- (167.45,123.79) ;
+\draw [shift={(169.25,124.67)}, rotate = 205.87] [color={rgb, 255:red, 228; green, 131; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da8218417138416625] 
+\draw    (296.5,122) .. controls (282.92,113.27) and (266.52,113.01) .. (249.12,122.13) ;
+\draw [shift={(247.5,123)}, rotate = 330.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+% Text Node
+\draw (175,75) node   {$\textcolor[rgb]{1,0,0}{B^{2} /\sim }$};
+% Text Node
+\draw (108,84) node   {$P$};
+% Text Node
+\draw (227.67,148.33) node   {$P'$};
+% Text Node
+\draw (146.5,128.33) node [color={rgb, 255:red, 223; green, 112; blue, 0 }  ,opacity=1 ]  {$2\pi $};
+% Text Node
+\draw (363.17,117.67) node   {$U$};
+% Text Node
+\draw (411,134.17) node   {$U'$};
+% Text Node
+\draw (397,88.33) node [color={rgb, 255:red, 223; green, 112; blue, 0 }  ,opacity=1 ]  {$2\pi $};
+% Text Node
+\draw (378.5,167.83) node [color={rgb, 255:red, 223; green, 112; blue, 0 }  ,opacity=1 ]  {$\textcolor[rgb]{0,0.22,1}{2\pi }$};
+% Text Node
+\draw (156,176) node   {$P\equiv P'=R( 2\pi ,P)$};
+% Text Node
+\draw (545,99) node   {$U \not\equiv U'=R( 2\pi ,U)$};
+% Text Node
+\draw (540,124) node  [align=left] {ma};
+% Text Node
+\draw (541,149) node   {$U\equiv R( 4\pi ,U)$};
+% Text Node
+\draw (275,96) node   {$\tilde{g}$};
+% Text Node
+\draw (423,50) node   {$S^{2}$};
+\end{tikzpicture}
 \caption{Una rotazione di $2\pi$ su $B^2/\sim$ \q{non sposta il punto} $P$, dato che $P$ e $P'$ sono identificati da $\sim$, ma lo sposta sul ricoprimento $S^2$, dove partendo da $U$ si ritorna a $U$ solo dopo una rotazione di $4\pi$}
 \end{figure}
 
-Applicando allora il teorema di Bargmann, troviamo che una una rappresentazione unitaria in $\hs$ di una rotazione $\tilde{R} \in SU(2)$ sul gruppo di ricoprimento universale di $SO(3)$ sarà una certa $\tilde{U}(\varphi,\vec{n})$, che per teorema di Stone si ottiene dalla mappa esponenziale applicata ad un elemento (o meglio ad una sua rappresentazione) dell'algebra di Lie $\mathfrak{su}(2)$. Detta $\vec{J}$ una rappresentazione in un insieme (denso) di $\hs$ dei generatori (base) dell'algebra di Lie di $SU(2)$ si ha:
+Applicando allora il teorema di Bargmann, troviamo che una rappresentazione unitaria in $\hs$ di una rotazione $\tilde{R} \in SU(2)$ sul gruppo di ricoprimento universale di $SO(3)$ sarà una certa $\tilde{U}(\varphi,\vec{n})$, che per teorema di Stone si ottiene dalla mappa esponenziale applicata ad un elemento (o meglio ad una sua rappresentazione) dell'algebra di Lie $\mathfrak{su}(2)$. Detta $\vec{J}$ una rappresentazione in un insieme (denso) di $\hs$ dei generatori (base) dell'algebra di Lie di $SU(2)$ si ha:
 \[
 \tilde{U}(\varphi,\vec{n}) = \exp\left(-i\frac{\varphi}{\hbar}\vec{n}\cdot \vec{J}\right)
 \]
@@ -170,7 +338,7 @@ E quindi calcolando la radice quadrata di ambo i membri giungiamo a:
 
 Sappiamo da (\ref{eqn:autovalore_aumentato}) che, applicando $J_+$ e $J_-$ a $\ket{\lambda,m}$, possiamo alzare o abbassare arbitrariamente l'autovalore di $J_3$ senza modificare $\lambda$, ma ciò avviene solo a meno che l'applicazione di $J_+$ o $J_-$ non dia il vettore nullo.\\
 
-Perché allora sia la (\ref{eqn:autovalore_aumentato}) che la (\ref{eqn:condizione_m}) siano contemporaneamente vere, si ha che fissato $\lambda$ deve esistere un $m_{\min}$ tale che $J_- \ket{\lambda, m_{min}}=0$, e simmetricamente anche un $m_{\max}$, per cui $J_{max}\ket{\lambda, m_{max}} = 0$, ossia due autovalori che \q{interrompono la catena} e oltre i quali non si può più né scendere né salire\footnote{Il riferimento è voluto.}.\\
+Perché allora sia la (\ref{eqn:autovalore_aumentato}) che la (\ref{eqn:condizione_m}) siano contemporaneamente vere, si ha che fissato $\lambda$ deve esistere un $m_{\min}$ tale che $J_- \ket{\lambda, m_{min}}=0$, e simmetricamente anche un $m_{\max}$, per cui $J_{+}\ket{\lambda, m_{max}} = 0$, ossia due autovalori che \q{interrompono la catena} e oltre i quali non si può più né scendere né salire\footnote{Il riferimento è voluto.}.\\
 
 Cosa succede applicando $\vec{J}^2$ agli autoket di $m$ max o min? Vediamolo:\begin{align*}
 \hlc{Yellow}{\vec{J}^{\,2}} \ket{\lambda, m_{max}} &= \hbar^2 \lambda \ket{\lambda, m_{max}} \underset{(\ref{eqn:Jquadro})}{=} \hlc{Yellow}{(\underbrace{J_- J_+}_{0} + \hbar J_3 + J_3^2)} \ket{\lambda, m_{max}} =

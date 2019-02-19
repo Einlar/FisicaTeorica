@@ -13,9 +13,10 @@ Se inoltre $\psi$ appartiene al dominio dell'operatore energia ($\psi \in D(H)$)
 i\hbar \frac{\partial \psi(t)}{\partial t}=H\psi(t)
 \]
 Analogamente al caso degli stati puri, \marginpar{Evoluzione degli stati misti} uno \textbf{stato misto} $\rho=\sum_i c_i\ket{\phi_i}\bra{\phi_i}$ evolve come:
-\[
+\begin{align}
 \rho(t)=\sum_i c_i\ket{\phi_i(t)}\bra{\phi_i(t)}=\sum_i c_i U(t)\ket{\phi_i}\braket{\phi_i|U^\dag(t)}=U(t)\rho U^\dag(t)
-\]
+\label{eqn:rho_mista}
+\end{align}
 Se tutte le $\ket{\phi_i}\in D(H)$ allora vale anche un'equazione analoga a quella di Schrödinger. Partiamo scrivendo la relazione per le $\ket{\phi_i}$ e quella duale per le $\bra{\phi_i}$ (per cui basta calcolare un complesso coniugato):
 \begin{align*}
 i\hbar \frac{\partial}{\partial t}\ket{\phi_i(t)} &= H\ket{\phi_i(t)}\\
@@ -30,7 +31,7 @@ i\hbar \frac{\partial}{\partial t}\rho(t) = \sum_i c_i\left(H\ket{\phi_i(t)}\bra
 Abbiamo finora discusso l'evoluzione temporale degli stati. Agli effetti potremmo "condensare" la descrizione completa dell'evoluzione di un sistema fisico nella variazione dei suoi stati, e quindi assumere che le osservabili restino sempre le stesse, ossia che gli operatori che le descrivono non dipendano dal tempo.\\
 Tale convenzione fa parte della cosiddetta \textbf{visuale di\ Schrödinger}\marginpar{Visuale di Schrödinger} dell'evoluzione\footnote{In inglese "Schrödinger picture"}:
 \begin{align}
-    \psi &\to \psi(t) = U(t)\psi\,U^\dag (t)
+    \psi &\to \psi(t) = U(t)\psi
     \label{eqn:visuale_schrodinger}
     \\
     A &\to A\nonumber
@@ -51,7 +52,7 @@ Così facendo si ottiene la \textbf{visuale di Heisenberg}\marginpar{Visuale di 
     A &\to A^H(t)=U^\dag (t)A\,U(t)
     \nonumber
 \end{align}
-Confrontando (\ref{eqn:visuale_schrodinger}) con (\ref{eqn:visuale_heisenberg}) si può notare una differenza nell'ordine degli aggiunti. Ciò non sorprende: avevamo notato un qualcosa di simile anche in \MC, quando scrivendo l'evoluzione degli stati in (\ref{eqn:evoluzione_stati_MC}) si otteneva un segno $-$, che non c'era nel caso dell'evoluzione delle sole osservabili.\\
+Confrontando (\ref{eqn:rho_mista}) con (\ref{eqn:visuale_heisenberg}) si può notare una differenza nell'ordine degli aggiunti. Ciò non sorprende: avevamo notato un qualcosa di simile anche in \MC, quando scrivendo l'evoluzione degli stati in (\ref{eqn:evoluzione_stati_MC}) si otteneva un segno $-$, che non c'era nel caso dell'evoluzione delle sole osservabili.\\
 Se il commutatore $[A^H(t), H]$ esiste, allora otteniamo l'\textbf{equazione di Heisenberg}:
 \begin{equation}
 i\hbar \frac{\partial}{\partial t}A^H(t) = i\hbar \frac{d}{dt}(U^t(t)AU(t))
@@ -79,8 +80,8 @@ si potrebbe dire (come fece Dirac) che il commutatore $[\cdot,\cdot]/(i\hbar)$ n
 \{\cdot,\cdot\} \to \frac{[\cdot,\cdot]}{i\hbar}
 \]
 Perciò, per un sistema isolato, l'evoluzione temporale in \MQ procede in un modo molto "classico", e soprattutto è completamente \textbf{deterministica}.\\
-Tuttavia, prima o poi sarà necessario fare una misura, e in quel momento il sistema non potrà più essere considerato isolato, e in particolare esibirà un comportamento quantistico (probabilistico).\\
-Facciamo ora qualche esempio per familiarizzare con il formalismo, e discuteremo poi la teoria della misura (cosa succede ad un sistema quantistico a seguito di una misurazione).\\
+Tuttavia, per ricavare informazioni sarà necessario fare una misura, e in quel momento il sistema non potrà più essere considerato isolato, e in particolare esibirà un comportamento quantistico (probabilistico).\\
+Facciamo ora qualche esempio per familiarizzarci con il formalismo, e discuteremo poi la teoria della misura (cosa succede ad un sistema quantistico a seguito di una misurazione).\\
 \subsection{Buca infinitamente profonda in 1D}
 \label{sec:buca_infinita_1D}
 Consideriamo una buca di potenziale infinitamente profonda tra $[-\frac{a}{2},\frac{a}{2}]$, in una dimensione\footnote{Fisicamente tale sistema descrive \q{pareti impenetrabili}, sia classicamente che quantisticamente}.\\
@@ -315,7 +316,7 @@ Inoltre, poiché $\{\varphi_n\}_{n\in\bb{N}}$ costituisce una base ortonormale p
 \[
 \sigma(H_q)=\{\mathcal{E}_n =\ \frac{\hbar^2 k_n^2}{2m} = \hbar^2 \frac{n^2 \pi^2}{2m a^2}, \> n\in \bb{N}\}
 \]
-In questo senso i sistemi quantistici sono \q{più indeformabili}: per modificarli è necessario dare un certo contributo minimo di energia, mentre nel caso classico basta qualsiasi contributo energetico, per quanto piccolo.
+In questo senso i sistemi quantistici con stati legati sono \q{più indeformabili}: per modificarli è necessario dare un certo contributo minimo di energia, mentre nel caso classico basta qualsiasi contributo energetico, per quanto piccolo.
 \item Mentre in \MC la conoscenza di $\mathcal{E}$ \textbf{non} è massimale (\textbf{stato misto}), in \MQ lo è (\textbf{stato puro}).
 \item La particella quantistica \q{ha dei punti in cui preferisce trovarsi}, e dei punti in cui proprio non si può trovare. Ciò è molto controintuitivo se la pensiamo come particella (\q{biglia}) classica, ma facile da comprendere in un'ottica ondulatoria: un'onda stazionaria presenta infatti dei nodi fissi in cui l'ampiezza dell'oscillazione è nulla.
 \end{itemize}
@@ -333,16 +334,16 @@ w_{\varphi_n}^X(\lambda) = \int dx\, \delta(\lambda-x) |\varphi_n(x)|^2 = |\varp
     \label{fig:plot_bucainfinita}
 \end{figure}
 
-\textbf{Nota}: se consideriamo un potenziale \q{smussato}, che non tende di scatto a $\infty$ ma \q{in maniera continua} con una salita ripida, classicamente ci aspettiamo che la particella \q{rallenti} su tali salite, e quindi ci trascorra più tempo - ci aspettiamo di trovarla più facilmente in quelle parti. In realtà, quantisticamente, quelle sono le posizioni in cui la probabilità è minore).\\
+\textbf{Nota}: se consideriamo un potenziale \q{smussato}, che non tende di scatto a $\infty$ ma \q{in maniera continua} con una salita ripida, classicamente ci aspettiamo che la particella \q{rallenti} su tali salite, e quindi ci trascorra più tempo - ci aspettiamo di trovarla più facilmente in quelle parti. In realtà, quantisticamente, quelle sono le posizioni in cui la probabilità per lo stato di energia minima è minore).\\
 
 %Inserire disegno [IMMAGINE] Grafico del potenziale smussato e della densità di probabilità della posizione, che è massima al centro della buca
 La probabilità $P^X_{\varphi_n}(\lambda)$ non è poi uniforme come nel caso classico, ma tende ad esso per $n\to\infty$, infatti, dalle formule di bisezione per $\sin$ e $\cos$:
 \begin{align*}
 \left\{\cos^2 \left(\frac{n\pi x}{a}\right),\>
-\sin^2 \left(\frac{n\pi x}{a}\right)\right\} &= \frac{1}{2}\left(1\pm \cos \frac{2n\pi x}{a} \right)\xrightarrow[n\to\infty]{\mathcal{S}^*} +\frac{1}{2}\\
+\sin^2 \left(\frac{n\pi x}{a}\right)\right\} &= \frac{1}{2}\left(1\pm \cos \frac{2n\pi x}{a} \right)\xrightarrow[n\to\infty]{\mathcal{S}'} +\frac{1}{2}\\
 P_{\varphi_n}^X(\lambda) &\xrightarrow[n\to\infty]{} \frac{2}{a}\frac{1}{2} = \frac{1}{a}
 \end{align*} %[TO DO] Specificare esattamente cosa succede a fronte dell'approfondimento del 7/11
-Dove si fa uso della convergenza debole\footnote{CFR pag. 24 di \cite{spazi_hilbert}} in $\mathcal{S}^*$.\\
+Dove si fa uso della convergenza debole\footnote{CFR pag. 24 di \cite{spazi_hilbert}} in $\mathcal{S}'$.\\
 
 Proviamo ora ad esaminare l'evoluzione temporale del sistema partendo dallo stato iniziale 
 \begin{equation}

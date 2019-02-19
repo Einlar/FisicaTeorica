@@ -24,7 +24,7 @@ dove in (a) si è usato il fatto che $dP^A(\lambda)$ è autoaggiunto, e perciò 
 \label{dim:esponenzialeunitario}
 \end{oss}
 \begin{oss}
-Dato un vettore in notazione di Dirac $\ket{\phi}$ il proiettore $P_\phi =\ket{\phi}\bra{\phi}$ è autoaggiunto, quindi descrive un'osservabile (per la corrispondenza biunovica tra autoaggiunti e famiglie spettrali), che corrisponde alla domanda: il sistema si trova nello stato $\ket{\phi}$?\\
+Dato un vettore in notazione di Dirac $\ket{\phi}$ il proiettore $P_\phi =\ket{\phi}\bra{\phi}$ è autoaggiunto, quindi descrive un'osservabile (per la corrispondenza biunivoca tra autoaggiunti e famiglie spettrali), che corrisponde alla domanda: il sistema si trova nello stato $\ket{\phi}$?\\
 Il valor medio di $\ket{\phi}\bra{\phi}$ nello stato $\ket{\psi}$ è infatti dato da (assumendo stati normalizzati, con $\braket{\phi|\phi} = 1 = \braket{\psi|\psi}$):
 \[
 (\psi, P_\phi \psi) = 
@@ -159,10 +159,10 @@ A = -i\hbar \frac{d}{dx}
 
 \section{Spettro di un operatore}
 Ci poniamo ora il problema di determinare quali valori si possono ottenere con una misura di un operatore autoaggiunto $A=A^\dag$ (o meglio, dell'osservabile da esso descritto).\\
-Nel caso $\dim{\mathcal{H}}<\infty$ si ha che $\sigma \left(A\right)= \left\{\lambda_n\text{ autovalori}\right\}$, analogamente al caso classico, dove un'osservabile è data da una funzione $f(q,p)$ i cui valori sono tutti autovalori ($\op{cod} f = \{\text{autovalori di }f\}$).\\
+Nel caso $\dim{\mathcal{H}}<\infty$ si ha che $\sigma \left(A\right)= \left\{\lambda_n\text{ autovalori}\right\}$, analogamente al caso classico, dove un'osservabile è data da una funzione $f(q,p)$ i cui valori, che costituiscono lo spettro, sono tutti autovalori ($\op{cod} f = \{\text{autovalori di }f\}$).\\
 Tuttavia, per $\dim{\mathcal{H}}=\infty$, sorgono fin da subito dei problemi.  Infatti, un autovalore è definito come:
 \[
-\left(\Delta O\right)_{\lambda,\psi_\lambda}=0 = \norm{(A-\lambda)\psi_\lambda}^2
+\left(\Delta O\right)_{\lambda,\psi_\lambda}=0 = \norm{(A-\lambda)\psi_\lambda}
 \]
 Con $\psi_\lambda$ autovettore di autovalore $\lambda$ 
 (l'equivalenza tra le due scritture è stata ricavata in (\ref{eqn:fluttuazione-autoaggiunto})).\\
@@ -171,7 +171,7 @@ Proviamo a imporre tale condizione per trovare gli autovalori dell'operatore \te
 \left\langle\left(X-a\right)^2\right\rangle_\psi=\int \left(x-a\right)^2\left|\psi\left(x\right)\right|^2dx=0\Rightarrow \left(x-a\right)^2\psi \left(x\right)=0\Rightarrow  \psi \left(x\right)=0 
 \]
 (un integrale di quantità positive è nullo se e solo se la funzione integranda è nulla, a meno di insiemi Lebesgue-trascurabili, e perciò in ogni caso corrisponde alla funzione $f\equiv 0$ in $L^2$, considerata come classe di equivalenza).\\
-Poiché l'unico risultato è la funzione nulla, ciò significa che in $L^2$ non esiste alcun autovalore diverso da $0$. Fisicamente vuol dire che non esiste la possibilità di localizzare una particella in un punto in \MQ, e matematicamente che:
+Poiché l'unico risultato è la funzione nulla, ciò significa che in $L^2$ non esiste alcun autovalore. Fisicamente vuol dire che non esiste la possibilità di localizzare una particella in un punto in \MQ, e matematicamente che:
 \[
 \nexists\> \psi_a\>|\> \left(\Delta X\right)_{a,\psi_a}=0
 \]
@@ -260,7 +260,7 @@ L'insieme dei valori ottenibili da una misura dell'osservabile descritta dall'op
 	otteniamo la tesi.\\
 	In particolare ciò significa che lo spettro di un operatore autoaggiunto non dipende dalla sua rappresentazione in uno spazio di Hilbert concreto (come tutte le quantità confrontabili con l'esperimento), perché gli isomorfismi tra spazi di Hilbert concreti in cui si rappresentano le osservabili sono unitari.\\
 	Perciò: 
-	$\sigma \left(-i\hbar\frac{d}{dx}\right)$ in $L^2(\bb{R}, dx)$ è uguale a $\sigma \left(p\right)$ in $L^2(\bb{R},dp)$.\\
+	$\sigma \left(-i\hbar\frac{d}{dx}\right)$ in $L^2(\bb{R}, dx)$ è uguale a $\sigma \left(p\right)$ in $L^2(\bb{R},dp)$, ove con $p$ si è qui rappresentato l'operatore di moltiplicazione per $p$.\\
 	Per esercizio, verificalo per $X$ (posizione). Come è rappresentato in $L^2(\bb{R}, dp)$?
 	\begin{oss}
 	Se $A$ è limitato e autoaggiunto:\marginpar{Operatore limitato $\leftrightarrow$ spettro limitato}

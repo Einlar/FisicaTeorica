@@ -11,7 +11,7 @@ Vediamo più in generale il significato degli autovalori e autovettori generaliz
 \[
 A F_\lambda (\varphi) \equiv F_\lambda (A \varphi) = \lambda F_\lambda(\varphi) \qquad \forall \varphi \in \Phi_A
 \]
-Si noti che $\varphi$ deve appartenere allo spazio con topologia forte $\Phi_A$. Quindi ad esempio nel caso dell'operatore posizione $X$ si ha $\Phi_X = \mathcal S(\mathbb R)$, $\Phi_X' = \mathcal S'(\mathbb R)$ e $F_\lambda = \delta(\lambda - x)$, dunque la scrittura
+Si noti che $\varphi$ deve appartenere allo spazio con la topologia più forte $\Phi_A$. Quindi ad esempio nel caso dell'operatore posizione $X$ si ha $\Phi_X = \mathcal S(\mathbb R)$, $\Phi_X' = \mathcal S'(\mathbb R)$ e $F_\lambda = \delta(\lambda - x)$, dunque la scrittura
 \[
 x \delta(\lambda - x) = \lambda \delta(\lambda - x)
 \]
@@ -22,7 +22,7 @@ va in realtà interpretata come
 
 Il teorema seguente è fondamentale per la costruzione del formalismo di Dirac.
 \begin{thm}
-Dato $A$ autoaggiunto esiste sempre almeno uno spazio $\Phi_A$ con topologia forte che soddisfa alle condizioni volute.
+Dato $A$ autoaggiunto esiste sempre almeno uno spazio $\Phi_A$ che soddisfa alle condizioni volute.
 \end{thm}
 Inoltre vale il seguente risultato.
 \begin{thm}
@@ -42,7 +42,7 @@ Con il formalismo di Dirac si adottano le seguenti notazioni.
 \bra\lambda \, A = \lambda \bra\lambda \qquad \qquad \lambda \in \sigma(A)
 \]
 In pratica invece che scrivere l'equazione agli autovalori con i ket $\ket\lambda$ la si scrive con i bra $\bra\lambda$.
-\item Si denota con $\ket\varphi$ un ket nello spazio con topologia forte $\Phi_A$ e con
+\item Si denota con $\ket\varphi$ un ket nello spazio $\Phi_A$ e con
 \[
 \braket{\lambda | \varphi} \equiv F_\lambda (\varphi)
 \]
@@ -98,8 +98,8 @@ Infine la relazione di completezza per un generico $\Phi'_A$ è perfettamente id
 \item potenza di calcolo, in particolare la relazione di completezza;
 \item l'equazione agli autovalori funziona in modo naturale anche con lo spettro continuo $\sigma_C(A)$;
 \item fornisce un modo semplice per vedere se $\lambda$ appartiene allo spettro discreto o a quello continuo: $\lambda \in \sigma_p(A)$ se $\ket\psi \in \dom(A)$, mentre $\lambda \notin \sigma_p(A)$ se $\ket\psi \notin \hs$.
-\item La notazione di Dirac non ammette comunque soluzioni che divergono all'infinito, poiché non stanno in $\mathcal{S}^\prime\left(\mathbb{R}\right)$. Per esempio, se consideriamo l'hamiltoniana $H=\frac{p^2}{2m}+V(x)$, con $\Phi_H\subseteq \mathcal S(R)$ e $\Phi_H^\prime\subseteq \mathcal S\left(\mathbb{R}\right)$
-allora non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in $\Phi_H^\prime$. Un'onda piana invece non è in $L^2$, ma in $\mathcal S\left(\mathbb{R}\right)$ sì, e quindi è una soluzione accettata.
+\item La notazione di Dirac non ammette comunque soluzioni che divergono esponenzialmente, poiché non stanno in $\mathcal{S}^\prime\left(\mathbb{R}\right)$. Per esempio, se consideriamo l'hamiltoniana $H=\frac{p^2}{2m}+V(x)$, con $\Phi_H\subseteq \mathcal S(R)$ e $\mathcal S'\left(\mathbb{R}\right) \subseteq \Phi'_H$
+allora non posso prendere le soluzioni che divergono esponenzialmente perché non stanno in $\Phi_H^\prime$. Un'onda piana invece non è in $L^2$, ma in $\mathcal S'\left(\mathbb{R}\right)$ sì, e quindi è una soluzione accettata.
 \end{enumerate}
 
 \subsubsection{Svantaggi}
@@ -137,13 +137,13 @@ Tuttavia è necessario fare attenzione al fatto che se $\bra x \in \Phi'_X$ e $\
 % Nuova sezione sull'operatore momento (dopo il formalismo di Dirac)
 
 \section{L'operatore momento}
-In questa sezione si analizza l'osservabile momento in meccanica quantistica. Tale analisi, oltre ad essere fondamentale in fisica, mostra come il cambiamento del dominio degli operatori in meccanica quantistica possa modificare completamente la fisica del sistema.
+In questa sezione si analizza l'osservabile momento in meccanica quantistica. Tale analisi, oltre ad essere fondamentale in fisica, mostra come il cambiamento del dominio degli operatori in meccanica quantistica possa modificare completamente la fisica del sistema che essi descrivono.
 \subsection{Momento in $\bb{R}$}
-Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ \q{a dominio reale}, cioè su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice \q{regolarità}.\\
+Consideriamo l'operatore momento $P=-i\hbar \frac{d}{dx}$ su $\hs = L^2(\bm{\bb{R}}, dx)$. Esaminiamone nel dettaglio il dominio, espandendo tutte le condizioni che avevamo prima sintetizzato con una semplice \q{regolarità}.\\
 In particolar modo, è necessario chiedere che:
 \begin{itemize}
     \item Esista la derivata $\psi'$ \textit{quasi ovunque}.
-    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e sia \q{integrabile alla Lebesgue su ogni compatto}:
+    \item Poiché dovremo fare un'\textit{integrazione per parti}, ci serve che $\psi' \in L^2(\bb{R}, dx)$ e su ogni compatto valga l'integrazione per parti:
     \[
     \int_a^b \psi'(x)dx = \psi(b)-\psi(a) \qquad \forall [a,b] \subset \bb{R}
     \]
@@ -162,12 +162,12 @@ Fissate queste condizioni, si ha subito che se $\psi$ , $\psi^\prime\in L^2(R, d
 \lim_{x\rightarrow\pm\infty}{\psi\left(x\right)}=0
 \]
 A priori non è nemmeno ovvio che tale limite esista. Potremmo per esempio considerare una funzione che si annulla ovunque, se non in determinati intervalli (di misura non nulla), in cui \q{salta} a un certo valore positivo. Calibrando opportunamente la larghezza dei \q{salti} e distanziandoli tra loro si può far sì che l'integrale di tale $\psi$ converga a un valore finito - e quindi che $\psi \in L^2$. Tuttavia, poiché tali \q{salti} sono sempre presenti, per quanto grande sia $M$, per $x>M$ la funzione assume valori che non si avvicinano a $0$ più del valore del \q{salto}, e perciò il limite a $\infty$ non esiste.\\
-Tuttavia, se $\psi$ e $\psi' \in L^2(\bb{R})$, allora lo sono anche su $\mathbb{R}_+$: $\psi$,$\psi^\prime\in L^2([0, +\infty [, dx)$. Ma allora:
+Tuttavia, se $\psi$ e $\psi' \in L^2(\bb{R})$, allora: $\psi$,$\psi^\prime\in L^2([0, +\infty [, dx)$. Di conseguenza esiste finito:
 \[
-\int_0^\infty dx (\psi^*(x)\psi'(x)+{\psi^*}'(x)\psi(x)) = \int_0^\infty dx \frac{d}{dx}(\psi^*(x), \psi(x)) = \norm{\psi(\infty)}^2 - \norm{\psi(0)}^2
+\int_0^\infty dx (\psi^*(x)\psi'(x)+{\psi^*}'(x)\psi(x)) = \int_0^\infty dx \frac{d}{dx}(\psi^*(x), \psi(x)) = |\psi(\infty)|^2 - |\psi(0)|^2
 \]
-e tale integrale esiste finito perché abbiamo richiesto sia possibile l'integrazione per parti.\\
-Ma allora esiste $\norm{\psi(\infty)}$, e quindi anche:
+e l'ultima uguaglianza è soddisfatta perché abbiamo richiesto sia possibile l'integrazione per parti.\\
+Ma allora esiste $|\psi(\infty)|$, e quindi anche:
 \begin{equation}
 \psi(\infty) = \lim_{x\to\infty} \psi(x) = 0
 \label{eqn:psitozero}
@@ -184,7 +184,7 @@ Calcolando il prodotto scalare:
 \hlc{Yellow}{-i\hbar\phi^\ast\left(x\right)\psi\left(x\right)\big|_{-\infty}^{+\infty}}+\int{\left[\hlc{SkyBlue}{-i\hbar\frac{d}{dx}\phi\left(x\right)}\right]^\ast\psi\left(x\right)dx}}
 \]
 (dove in (a) si è integrato per parti).\\
-Se il termine evidenziato in giallo si annullasse avremmo dimostrato che l'aggiunto $P^\dag$ ha la stessa forma di $P$, ossia che $P$ è simmetrico (le espressioni corrispondenti a $P$ e $P^\dag$ sono evidenziati in azzurro). Sappiamo che tale termine si annulla poiché, come visto in (\ref{eqn:psitozero}), $\psi(x)$ si annulla all'infinito. Tale conclusione è però valida solamente se l'integrazione per parti effettuata in (a) è sensata, ossia se anche per $\phi$ valgono le richieste che abbiamo fatto per $\psi$ a tal proposito, e cioè che $\phi'$ esista quasi ovunque, $\phi, \phi' \in L^2(\bb{R},dx)$ e $\phi'$ Lebesgue-integrabile su compatti.\\
+Se il termine evidenziato in giallo si annullasse avremmo dimostrato che l'aggiunto $P^\dag$ ha la stessa forma di $P$, ossia che $P$ è simmetrico (le espressioni corrispondenti a $P$ e $P^\dag$ sono evidenziati in azzurro). Sappiamo che tale termine si annulla poiché, come visto in (\ref{eqn:psitozero}), $\psi(x)$ si annulla all'infinito. Tale conclusione è però valida solamente se l'integrazione per parti effettuata in (a) è sensata, ossia se anche per $\phi$ valgono le richieste che abbiamo fatto per $\psi$ a tal proposito, e cioè che $\phi'$ esista quasi ovunque, $\phi, \phi' \in L^2(\bb{R},dx)$ e per $\phi'$ valga l'integrazione per parti sui compatti.\\
 Ma allora le condizioni che abbiamo imposto per trovare $D(P)$ sono esattamente le stesse che caratterizzano $D\left(P^\dag\right)$, e quindi:
 \[
 D\left(P\right)=D(P^\dag)

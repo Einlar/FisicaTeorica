@@ -25,7 +25,7 @@ Giungiamo allora a:
 \[
 H_0 = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+m\frac{\omega^2}{2}x^2; \quad D(H_0)=\mathcal{S}(\bb{R})
 \]
-Si può dimostrare l'autoaggiuntezza ($H_0^\dag = H_0$), anche per un dominio $D(H)$ più ampio di $D(H_0)$, ma per ora ci limitiamo a tale caso per semplicità.\\
+Si dimostra che $H_0^\dag \equiv H$ è autoaggiunto (cioè $H_0^\dag = (H_0^\dag)^\dag$) e questa è l'hamiltoniana dell'oscillatore armonico, se vogliamo essere matematicamente precisi. Ma per semplicità consideriamo in seguito le operazioni definite in $D(H_0)$.\\ 
 L'equazione di Schr\"odinger stazionaria è allora:
 \begin{align*}
 \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{1}{2}m\omega^2 x^2\right]\psi(x) = \mathcal{E}\psi(x)
@@ -138,11 +138,15 @@ Dove $A$ è fissata dalla normalizzazione:
 \[
 A = \left(\frac{m\omega}{\pi \hbar}\right)^{1/4}
 \]
-Riconosciamo in $\psi_0(x')$ la funzione di Hermite $H_0(x')$. Possiamo ora iterare  $a^\dag$ per ottenere tutti gli altri autostati, che corrispondono ancora a funzioni di Hermite $H_n(x')$ di ordine $n$-esimo:
+Riconosciamo in $\psi_0(x')$ la funzione di Hermite $h_0(x')$. Possiamo ora iterare  $a^\dag$ per ottenere tutti gli altri autostati, che corrispondono ancora a funzioni di Hermite $h_n(x')$ di ordine $n$-esimo:
 \[
-(a^\dag)^n \psi_0(x) = \left(x'-\frac{d}{dx'}\right)^n H_0(x') \sim H_n(x')
+(a^\dag)^n \psi_0(x) = \left(x'-\frac{d}{dx'}\right)^n h_0(x') \sim h_n(x')
 \]
-Le funzioni di Hermite $\{H_n(x)\}_{n\in \bb{N}}$ costituiscono una base ON\footnote{CFR pag. 17 di \cite{spazi_hilbert}} in $L^2(\bb{R},dx)$. Ne segue allora che gli autovalori $n\in \bb{N}$ esauriscono $\sigma(N)$, quindi scrivendo $H_n(x)=\braket{x|n}$ vale la completezza di Dirac $\sum_{n\in \bb{N}}\ket{n}\bra{n}=\bb{I}$. Perciò non c'è $\sigma_C(N)$ e lo spettro è non degenere.\\
+Più precisamente le funzioni di Hermite $h_n(x)$ sono definite da:
+\begin{align*}
+    h_n(x) = \left(2^n n! \sqrt{\pi}\right)^{-\frac{1}{2}}\left( x - \frac{d}{dx}\right)^n \exp\left(-\frac{x^2}{2}\right)
+\end{align*}
+Si dimostra che le $\{h_n(x)\}_{n\in \bb{N}}$ costituiscono una base ON\footnote{CFR pag. 17 di \cite{spazi_hilbert}} in $L^2(\bb{R},dx)$. Ne segue allora che gli autovalori $n\in \bb{N}$ esauriscono $\sigma(N)$, quindi scrivendo $h_n(x)=\braket{x|n}$ vale la completezza di Dirac $\sum_{n\in \bb{N}}\ket{n}\bra{n}=\bb{I}$. Perciò non c'è $\sigma_C(N)$ e lo spettro è non degenere.\\
 Notiamo ora che:
 \begin{enumerate}
 \item Dalla relazione tra gli spettri in (\ref{eqn:relazione_spettrale}) ricaviamo $\sigma(H)$:
@@ -199,9 +203,10 @@ Da cui:
 |c_-(n)|^2 = n \Rightarrow c_-(n) = \sqrt{n}
 \end{align*}
 \textbf{Riepilogando}:
-\[
+\begin{align}
 a^\dag \ket{n} = \sqrt{n+1}\ket{n+1}\qquad a\ket{n}=\sqrt{n}\ket{n-1}
-\]
+\label{eqn:normalizzazione-costruzione-distruzione}
+\end{align}
 \item Nella \textit{old quantum theory} Planck era giunto a $\mathcal{E}_n \cong \hbar \omega n$, da cui però manca il termine $\hbar \omega/2$, che dà l'\textit{energia di punto zero} $\hbar \omega (n+1/2)$, necessaria per il principio di indeterminazione.\\
 Dimostriamo, infatti, che l'energia dell'oscillatore armonico ha un minimo $\neq 0$. Data una $\psi \in D(H)$ generica, il valor medio di $H$ è dato da:
 \begin{align*}
@@ -236,7 +241,7 @@ Notiamo che lo stato fondamentale dell'oscillatore armonico, per cui $H=\hbar\om
 \end{enumerate}
 
 
-\subsection{Esercizio \theEsercizio}\index{Esercizio!Oscillatore armonico}
+\subsection{Esercizio \theEsercizio}\index{Esercizio!Oscillatore armonico} \stepcounter{Esercizio}
 L'Hamiltoniana di una particella di massa $m$ in 1D è data da:
 \[
 H=\frac{P^2}{2m} + AX^2 + BX + C; \quad A,B,C \in \bb{R}, \> A > 0
@@ -375,35 +380,37 @@ Dato che:
 \begin{align*}
 \mathcal{E}_n = \hbar \omega \left(n+\frac{1}{2}\right) + V_0
 \end{align*}
-Prendendo il complesso coniugato, abbiamo calcolato anche la rispettiva parte a sinistra. Giungiamo allora a:
+Tutto ciò si può scrivere in maniera più semplice estraendo dagli esponenziali un termine $\exp\left(-i\left(\frac{1}{2}\omega t+\frac{V_0}{\hbar}\right)\right)$:
+\begin{align*}
+\frac{1}{\sqrt{2}}\exp\left(-i\left(\frac{1}{2}\omega t+\frac{V_0}{\hbar}\right)\right)\left[ \ket{\psi_0} +e^{-i\omega t} \ket{\psi_1}\right]
+\end{align*}
+Prendendo il complesso coniugato, abbiamo calcolato anche la rispettiva parte a sinistra. Sostituendo nell'espressione generale, e semplificando gli esponenziali comuni raccolti nel bra e nel ket (che sono solamente fattori moltiplicativi, e quindi li possiamo spostare):
+\begin{align}
+(\ref{eqn:valor-medio-punto3_3}) =\alpha + \frac{1}{2}\left[ \bra{\psi_0} + e^{i\omega t}\bra{\psi_1}
+\right] X \left[ \ket{\psi_0} +e^{-i\omega t}\ket{\psi_1}\right]
+\label{eqn:valor-medio-punto3_4}
+\end{align}
+\begin{comment}
 \begin{align}\nonumber
 (\ref{eqn:valor-medio-punto3_3}) = \alpha +\frac{1}{2}\left[\exp\left(\frac{i}{\hbar}\left(\hbar \frac{\omega}{2}+ V_0\right)t \right)\bra{\psi_0}+\exp\left(\frac{i}{\hbar}\left(\frac{3}{2}\hbar \omega + V_0\right)t\right)\bra{\psi_1}\right] X\\
 \left[\exp\left(-\frac{i}{\hbar}\left(\hbar \frac{\omega}{2}+V_0\right)t\right) \ket{\psi_0} + \exp\left(-\frac{i}{\hbar}\left(\frac{3}{2}\hbar \omega + V_0\right) t \right)\ket{\psi_1}\right]
-\label{eqn:valor-medio-punto3_4}
 \end{align}
+\end{comment}
 Le $\ket{\psi_0}$ e $\ket{\psi_1}$ non sono però autostati di $X$. Tuttavia, possiamo riscrivere $X$ come combinazione di $a$ e $a^\dag$, di cui conosciamo l'azione sulle $\ket{\psi_n}$. Usiamo allora l'identità:
 \begin{align*}
 X=\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} (a+a^\dag)
 \end{align*}
-Gli operatori $a$ e $a^\dag$ rispettivamente \textit{abbassano} e \textit{alzano} gli autostati. Perciò, dei $4$ braket che compaiono espandendo la (\ref{eqn:valor-medio-punto3_4}), ne restano solo $2$, dato che:
+Gli operatori $a$ e $a^\dag$ rispettivamente \textit{abbassano} e \textit{alzano} gli autostati. Perciò, dei $4$ braket che compaiono espandendo la (\ref{eqn:valor-medio-punto3_4}), ne restano solo $2$, come si dimostra usando le relazioni di normalizzazione ricavate dalla formula in (\ref{eqn:normalizzazione-costruzione-distruzione}) e l'ortonormalità delle $\ket{\psi_n}$:
 \begin{align*}
-\bra{\psi_0}a\ket{\psi_1} &= 1 && \bra{\psi_0} a^\dag \ket{\psi_1} =0\\
-\bra{\psi_1}a\ket{\psi_0} &= 0 && \bra{\psi_1}a^\dag \ket{\psi_0} =1
+\bra{\psi_0}a\ket{\psi_1} &= \braket{\psi_0|\sqrt{1}\psi_0}=1 && \bra{\psi_0} a^\dag \ket{\psi_1} =\braket{\psi_0|\sqrt{2}\psi_2}=0\\
+\bra{\psi_1}a\ket{\psi_0} &= \braket{\psi_1|0}= 0 && \bra{\psi_1}a^\dag \ket{\psi_0} = \braket{\psi_1|\sqrt{1}\psi_1}=1
 \end{align*}
 E perciò arriviamo a:
 \begin{align*}
-(\ref{eqn:valor-medio-punto3_4}) =\alpha+
-\frac{1}{2}\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} \left[
-\exp\left(\frac{i}{\hbar}t\left(\mathcal{E}_0 - \bra{\psi_0}a \ket{\psi_1}\mathcal{E}_1 \right) \right)+ \exp\left(\frac{i}{\hbar}t\left(\mathcal{E}_1-\bra{\psi_1}a^\dag \ket{\psi_0}\mathcal{E}_0\right)\right)\right]
-\end{align*}
-Calcolando:
-\begin{align*}
-\mathcal{E}_1-\mathcal{E}_0=\frac{3}{2}\hbar \omega + V_0 - \left(\frac{1}{2}\hbar \omega + V_0\right)=\hbar \omega
-\end{align*}
-Otteniamo, infine:
-\begin{align*}
-\avg{X}_{\psi(t)}=\alpha+ \left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}}\left[ \frac{\displaystyle \exp\left(-\frac{i}{\hbar}t\hbar \omega\right) +\exp\left(\frac{i}{\hbar}t\hbar \omega\right)}{2}
-\right] = \alpha + \left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} \cos(\omega t)
+(\ref{eqn:valor-medio-punto3_4}) &=\alpha+
+\frac{1}{2}\left(\frac{\hbar}{2m\omega}\right)^\frac{1}{2} \left[\bra{\psi_0} + e^{i\omega t}\bra{\psi_1}\right](a+a^\dag) \left[\ket{\psi_0} + e^{-i\omega t}\ket{\psi_1}\right] =\\
+&=\alpha + \frac{1}{2}\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}} \left[ \bra{\psi_0}a\ket{\psi_1} e^{-i\omega t} + \bra{\psi_1}a^\dag \ket{\psi_0} e^{i\omega t}\right] =\\
+&=\alpha + \left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}}\left[\frac{e^{i\omega t}+e^{-i\omega t}}{2}\right]=\alpha+\left(\frac{\hbar}{2m\omega}\right)^{\frac{1}{2}}\cos(\omega t)
 \end{align*}
 Come ci si potrebbe aspettare, il valor medio della misura \textit{oscilla} di moto armonico attorno ad $x=\alpha$, in analogia con il caso classico. 
 \item Notiamo che l'operatore $\mathcal{P}_1$ così definito non è altro che la \textit{parità (anti)traslata}\footnote{Si noti che la posizione degli aggiunti è invertita rispetto alla traslazione \textit{diretta}. Intuitivamente, per applicare $\mathcal{P}$ a $H$, che non è \q{centrato} in $0$ ma in $\alpha$, dobbiamo prima antitraslarlo, poi calcolare $\mathcal{P}$ e poi ritraslare il risultato.} di $\alpha=-B/(2A)$: \begin{align*}

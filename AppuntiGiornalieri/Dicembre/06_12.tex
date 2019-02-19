@@ -1,7 +1,9 @@
 \documentclass[../../FisicaTeorica.tex]{subfiles}
 
+
 \begin{document}
 
+\begin{comment}
 \section{Lezione ?:\\ \large{}}
 \vspace{-1em}
 \begin{center}
@@ -10,8 +12,11 @@
 
 Alcuni esercizi di esami scorsi sono disponibili a \url{https://www2.pd.infn.it/~march/} nella cartella \textit{Meccanica Quantistica}.
 
-\subsection{Esercizio}
-Si consideri una particella quantistica priva di spin di massa $m$ e carica $e$ in un piano in presenza di un campo magneitco uniforme e costante $\vec{B}$ perpendicolare al piano. Si denoti con $\vec{A}$ il potenziale vettore osservato a $\vec{B}$ e si ponga $c=1$.
+\end{comment}
+
+\section{Esercizio \theEsercizio}\index{Esercizio!Oscillatore armonico(2)}
+\stepcounter{Esercizio}
+Si consideri una particella quantistica priva di spin di massa $m$ e carica $e$ ancorata a un piano in presenza di un campo magnetico uniforme e costante $\vec{B}$ perpendicolare al piano. Si denoti con $\vec{A}$ il potenziale vettore osservato a $\vec{B}$ e si ponga $c=1$. 
 \begin{enumerate}
 \item Si scriva l'Hamiltoniana quantistica del sistema
 \item Si determini in funzione di $\vec{X}=\{X,Y\}$ e $\vec{P}= \{P_x, P_y\}$ la velocità $\vec{V}=\{V_x, V_y\}$ e si calcoli il commutatore di $V_x$ con $V_y$ in rappresentazione $\{\vec{x}\}$.
@@ -19,139 +24,165 @@ Si consideri una particella quantistica priva di spin di massa $m$ e carica $e$ 
 \item Definite le coordinate $X_0=\frac{m}{eB}V_y + X$ e $Y_0 = -\frac{m}{eB}V_x + Y$ (analogo quantistico del centro dell'orbita di ciclotrone classica), si determini l'algebra dei commutatori di $\vec{X}_0$ e $\vec{V}$
 \item Si determini un ICOC per il sistema e, utilizzando le $\vec{X}_0$, la degenerazione di $\sigma(H)$.
 \item Supponendo ora che la particella sia confinata (pareti impenetrabili) in un quadrato di lato $L$ e scegliendo
-$A_x = -B_y$ e $A_y=0$ per il potenziale vettore, si stimi la degenerazione di $\sigma(H)$ in questo caso.
+$A_x = -B y$ e $A_y=0$ per il potenziale vettore, si stimi la degenerazione di $\sigma(H)$ in questo caso.
 \end{enumerate}
 
 \subsection{Soluzione}
 \begin{enumerate}
-\item Consideriamo la posizione della particella sul piano 2D come $\vec{X}={X,Y}$. L'Hamiltoniana $H$ in rappresentazione $\{\vec{x}\}$ è data da:
+\item Consideriamo la posizione della particella sul piano 2D come $\vec{X}={X,Y}$.\\
+L'Hamiltoniana \textit{classica} di una particella di carica $e$ che si muove all'interno di un campo elettromagnetico di potenziale vettore $\vec{A}(\vec{x})$ e scalare $\varphi(\vec{x})$ è data (usando le unità di Gauss per i campi):
 \begin{align*}
-H=\frac{(-i\hbar \vec{\nabla} - e\vec{A}(x))^2}{2m}=\frac{(\vec{P}-e\vec{A})^2}{2m}
+H = \frac{1}{2m}\left(\vec{p}-\frac{q}{c}\vec{A}(\vec{x},t)\right)^2 + q\varphi(\vec{x},t)
 \end{align*}
-con $\vec{A}$ potenziale vettore, e si è posto $c=1$.
-\item La velocità $\vec{V}$ è definita da:
+In questo caso il campo è puramente magnetico e indipendente dal tempo, da cui $\varphi \equiv 0$. Inserendo allora le espressioni per gli operatori quantistici, e ponendo $c=1$, otteniamo l'Hamiltoniana $H$ in rappresentazione $\{\vec{x}\}$:
+\begin{align}
+H=\frac{(-i\hbar \vec{\nabla} - e\vec{A}(\vec{x}))^2}{2m}=\frac{(\vec{P}-e\vec{A})^2}{2m}
+\label{eqn:magnetic-hamiltonian}
+\end{align}
+\item La velocità $\vec{V}$ è definita come la derivata temporale del vettore posizione. Usando allora la relazione ricavata esaminando la visuale di Heisenberg:
 \begin{align*}
 \vec{V} = \frac{d\vec{X}}{dt} = \frac{[\vec{X},H]}{i\hbar}
 \end{align*}
-(dove si è usata la relazione della visuale di Heisenberg).\\
-Calcoliamo:
-\begin{align*}
-\frac{dX_i}{dt} = \frac{[X_i, H]}{i\hbar}&=[X_i, \frac{\vec{P}^2}{2m} - \frac{e(\vec{A}\cdot \vec{P}+\vec{P}\cdot \vec{A})}{2m} ]\\
-&=\frac{P_i}{m} - \frac{e}{2m}\left(
-A_i\frac{[X_i, P_i]}{i\hbar} + \frac{[X_i, P_i]A_i}{i\hbar}
- \right) =\\
- &=\frac{P_i - eA_i}{m}
-\end{align*}
-Determiniamo ora il commutatore delle velocità:
-\begin{align*}
-[V_x, V_y] &\underset{}{=} \frac{1}{m^2} [P_x - eA_x, P_y - eA_y]= \\
+Calcolando componente per componente:
+\begin{align}\nonumber
+\frac{dX_i}{dt} = \frac{[X_i, H]}{i\hbar}&=\frac{1}{i\hbar}\left[X_i, \frac{1}{2m}(\vec{P}^{2} - e\left(\vec{A}\cdot \vec{P} + \vec{P}\cdot \vec{A}) + e^2\vec{A}^{\,2}\right)\right]=\\\nonumber
+&\underset{(a)}{=}\frac{1}{2mi\hbar}\left[X_i, \vec{P}^2 -e(\vec{A}\cdot \vec{P}+\vec{P}\cdot \vec{A}) \right]=\\\nonumber
+&= \frac{1}{2mi\hbar} \left({\hlc{Yellow}{[X_i, \vec{P}^2]} }- e(\vec{A}\cdot[X_i,\vec{P}] + [X_i, \vec{P}]\cdot \vec{A} ) \right) =\\\nonumber
+&\underset{(b)}{=} \frac{1}{2mi\hbar}\left(\hlc{Yellow}{2i\hbar P} -2e A_i\hlc{SkyBlue}{[X_i,P_i]} \right)=\\
+&= \frac{P}{m} -\frac{e}{mi\hbar}A_i \hlc{SkyBlue}{i\hbar} =\frac{P_i - eA_i}{m} \label{eqn:derivate-posizione}
+\end{align}
+In (a) si è usato il fatto che $[X_i, \vec{A}]=0=[X_i, \vec{A}^2]$, dato che il potenziale vettore è una normale funzione di $\vec{x}$. In (b), invece, si ha che $[X_i, P_j]=i\hbar \delta_{ij}$, e quindi l'unico termine non nullo è quello per $[X_i, P_i]$: ciò riduce la somma del prodotto scalare da tre a un unico termine.\\
+Possiamo ora determinare il commutatore delle velocità:
+\begin{align} \nonumber
+[V_x, V_y] &\underset{}{=} \frac{1}{m^2} [P_x - eA_x, P_y - eA_y]= \\\label{eqn:commutatore-velocities}
 &=-\frac{e}{m^2}([A_x, P_y] + [P_x,A_y])
-\end{align*}
-(dato che componenti lungo gli stessi assi commutano). Continuando i conti in rappresentazione $\{\vec{x}\}$:
+\end{align}
+dato che componenti di $A$ e $P$ lungo diversi assi commutano.\\ Per continuare i conti, come richiesto dal testo, passiamo in rappresentazione $\{\vec{x}\}$, dove $\vec{P}=-i\hbar \nabla$. Dato che stiamo lavorando con operatori, conviene applicare il tutto ad una funzione generica $\psi(\vec{x})$. Il primo commutatore diviene allora:
 \begin{align*}
-&= [A_x, P_y]\psi(\vec{x}) =A_x(\vec{x})\left( -i\hbar \frac{\partial}{\partial y}\psi(\vec{x})\right) - \left(-i\hbar \frac{\partial}{\partial x}(A(\vec{x})\psi(\vec{x}))\right)=\\
-&=i\hbar \frac{\partial}{\partial y}A_x(\vec{x})
+[A_x, P_y]\psi(\vec{x}) &=A_x(\vec{x})\left( -i\hbar \frac{\partial}{\partial y}\psi(\vec{x})\right) - \left(-i\hbar \frac{\partial}{\partial y}(A_x(\vec{x})\psi(\vec{x}))\right)=\\
+&= \bcancel{-i\hbar A_x(\vec{x})\frac{\partial}{\partial y}\psi(\vec{x})}+\bcancel{i\hbar A_x(\vec{x})\frac{\partial}{\partial y}\psi(\vec{x})} + i\hbar \psi(\vec{x})\frac{\partial}{\partial y}A_x(\vec{x})=\\
+&=i\hbar\psi(\vec{x}) \frac{\partial}{\partial y}A_x(\vec{x}) \Rightarrow  [A_x,P_y] =i\hbar \frac{\partial A_x}{\partial y}
 \end{align*}
-e sostituendo di sopra si giunge a:
+E analogamente per il secondo si ottiene:
 \begin{align*}
-[V_x, V_y] = -\frac{e}{m^2} \left(i\hbar \frac{\partial}{\partial y}A_x - i\hbar \frac{\partial}{\partial x}A_y \right)
+[P_x,A_y]=-[A_y,P_x] =-i\hbar\frac{\partial A_y}{\partial x}
 \end{align*}
-\item Cerchiamo $\sigma(H)$. Ricordando che $\vec{B}$ è uniforme e costante, osserviamo che ridefinendo:
+Sostituendo tali risultati in (\ref{eqn:commutatore-velocities}) giungiamo a:
+\begin{align*}
+[V_x, V_y] = -\frac{e}{m^2} \left(i\hbar \frac{\partial}{\partial y}A_x - i\hbar \frac{\partial}{\partial x}A_y \right)=\frac{i\hbar e}{m^2}\left(\frac{\partial}{\partial x}A_y-\frac{\partial}{\partial y} A_x\right) 
+\end{align*}
+Espandendo $\vec{B} = (0,0,B)^t = \nabla \times \vec{A}$, notiamo che il termine tra parentesi è proprio $B$:
+\begin{align}
+[V_x, V_y] = \frac{i\hbar e}{m^2}B
+\label{eqn:commutatore-velocities-result}
+\end{align}
+Abbiamo perciò scoperto che la presenza del campo magnetico fa sì che le velocità in direzioni diverse non commutino tra loro.
+\item Vogliamo ora trovare $\sigma(H)$. Per farlo, conviene ragionare per analogia. Osservando l'Hamiltoniana in (\ref{eqn:magnetic-hamiltonian}) notiamo la presenza di un quadrato: proviamo allora ad espanderlo, magari usando le grandezze definite nei punti precedenti:
+\begin{align*}
+H&=\frac{1}{2m}\left[(P_x - eA_x)^2 + (P_y - eA_y)^2\right]=\frac{1}{2m}\left[ m^2 V_x^2 + m^2 V_y^2\right] =\\
+&= \frac{m}{2}\left[V_x^2 + V_y^2\right]
+\end{align*}
+L'Hamiltoniana così riscritta assomiglia a quella di un oscillatore armonico: la differenza principale è che qui abbiamo $V_x$ e $V_y$, mentre nel caso dell'oscillatore compaiono $X$ e $P$. Dalla teoria sappiamo però che lo spettro, nel caso dell'oscillatore, non dipende dalla natura dei singoli operatori, ma unicamente dalle relazioni di commutazione che intercorrono tra essi. Vorremmo allora che $[V_x, V_y] = [X, P]=i\hbar$. Da (\ref{eqn:commutatore-velocities-result}) sappiamo già che non è così, ma che la differenza è data solo un fattore \textbf{costante} $eB/m^2$ (dato che $B$ è uniforme per ipotesi), e possiamo perciò sistemarla \textit{riscalando opportunamente} $V_x$ e $V_y$. Per farlo possiamo allora distribuire il fattore reciproco $m^2/eB$ in modo simmetrico, definiamo le velocità riscalate $\tilde{V}_x$, $\tilde{V}_y$ come:
 \begin{align*}
 \tilde{V}_x \equiv \frac{m}{\sqrt{eB}}V_x \qquad \tilde{V}_y \equiv \frac{m}{\sqrt{eB}}V_y
 \end{align*}
-in modo che:
+E in tal modo si ha:
 \begin{align*}
-[\tilde{V}_x, \tilde{V}_y] = i\hbar
+[\tilde{V}_x, \tilde{V}_y] = i\hbar = [X,P]
 \end{align*}
-L'Hamiltoniana diviene perciò:
-\begin{align*}
-H=\frac{m}{2}(V_x^2 + V_y^2) = \frac{eB}{2m}(\tilde{V}_x^2 + \tilde{V}_y^2)
+Sostituendo nell'Hamiltoniana otteniamo:\begin{align*}
+H=\frac{m}{2}\left(V_x^2 + V_y^2\right) = \frac{eB}{2m}\left(\tilde{V}_x^2 + \tilde{V}_y^2\right)
 \end{align*}
-Dato che il commutatore $[\tilde{V}_x, \tilde{V}_y]$ è analogo a quello $[X,P_x] = i\hbar$, e perciò l'algebra generata dalle due coppie di grandezze è la stessa. In altre parole, se sostituiamo a $\tilde{V}_x \to X$ e $\tilde{V}_y \to Y$, otteniamo una nuova hamiltoniana che corrisponde ad un \textit{sistema diverso}, ma ha lo stesso spettro della precedente\footnote{Dato che lo spettro dipende, in tali casi, unicamente dall'algebra dei commutatori, come ricavato per l'oscillatore armonico tramite l'uso degli operatori di creazione/distruzione}:
+Poiché allora il commutatore $[\tilde{V}_x, \tilde{V}_y]$ è lo stesso di $[X,P_x] = i\hbar$, si ha che l'algebra generata dalle due coppie di grandezze è la stessa. In altre parole, se sostituiamo a $\tilde{V}_x \to X$ e $\tilde{V}_y \to P_{x}$, otteniamo una nuova hamiltoniana che corrisponde ad un \textit{sistema diverso}, ma ha lo stesso spettro della precedente\footnote{Dato che lo spettro dipende, in tali casi, unicamente dall'algebra dei commutatori, come ricavato per l'oscillatore armonico tramite l'uso degli operatori di creazione/distruzione}:
 \begin{align*}
-H'=\frac{eB}{2m}(X^2+P_x^2)
+H'=\frac{eB}{2m}\left(X^2+P_x^2\right); \quad \sigma(H')=\sigma(H)
 \end{align*} 
-Il vantaggio di questa $H'$ è che è l'hamiltoniana di un oscillatore armonico, di cui sappiamo lo spettro. Mettiamola nella forma per confrontarla con l'oscillatore:
+Il vantaggio di questa $H'$ è che è l'hamiltoniana di un oscillatore armonico, di cui conosciamo lo spettro. Confrontiamola con la forma \q{canonica} per trovare i valori delle costanti:
 \begin{align*}
-H'=\frac{P^2}{2M} + \frac{M\omega^2}{2}X^2
+H'=\frac{eB}{2m}\left(X^2 + P_x^2\right) \overset{!}{=} \frac{1}{2M}\left(P^2 + M^2 \omega^2 X^2\right)
 \end{align*}
-con le sostituzioni:
+Da cui:
 \begin{align*}
-\frac{eB}{m} = \frac{1}{M}\quad M\omega^2 = \frac{eB}{m}\quad \omega = \frac{eB}{m}
+\frac{eB}{\bcancel{2}m} = \frac{1}{\bcancel{2}M};\quad M^2\omega^2 = 1 \Rightarrow  \omega =\frac{1}{M}=\frac{eB}{m}
 \end{align*}
-Poiché sappiamo lo spettro dell'hamiltoniana nel caso dell'oscillatore armonico, e quindi di $H'$, sappiamo automaticamente anche lo spettro di $H$, dato che è lo stesso perché l'algebra dei commutatori è la medesima. Otteniamo quindi:
+Dalla formula per lo spettro dell'oscillatore armonico giungiamo allo spettro cercato:
 \begin{align*}
-\sigma(H) = \hbar \omega\left(\bb{N}+\frac{1}{2}\right) + \frac{\hbar eB}{m}\left(\bb{N}+\frac{1}{2}\right)
+\sigma(H) = \sigma(H')= \hbar \omega\left(\bb{N}+\frac{1}{2}\right) = \frac{\hbar eB}{m}\left(\bb{N}+\frac{1}{2}\right)
 \end{align*}
-unicamente discreto. Gli elementi di questo spettro sono detti, nello specifico, \textbf{livelli di Landau}.\\
+Abbiamo scoperto che $\sigma(H)$ è unicamente discreto. Gli elementi di questo spettro sono detti, nello specifico, \textbf{livelli di Landau}.\\
 
-Il collegamento tra particella in $\vec{B}$ uniforme, e l'oscillatore armonico non è troppo strano: del resto sappiamo (classicamente) che l'effetto di $\vec{B}$\ è quello di far girare la particella nell'orbita (circolare) di ciclotrone, che vista proiettata sui due assi cartesiani corrisponde a due moti armonici. Quello che può risultare strano è che qui abbiamo \textit{un solo moto} di oscillatore, e in un certo senso il comportamento di un sistema 2D è \q{codificato} in quello di un sistema 1D. I punti successivi gettano luce su questo aspetto, in quanto vedremo che, nel caso quantistico, $X_0$ e $Y_0$ \textbf{non} sono simultaneamente conoscibili (al contrario del caso classico).
+Il collegamento tra particella in $\vec{B}$ uniforme, e l'oscillatore armonico non è troppo strano: del resto sappiamo (classicamente) che l'effetto di $\vec{B}$\ è quello di far girare la particella nell'orbita (circolare) di ciclotrone, che vista proiettata sui due assi cartesiani corrisponde a due moti armonici. Quello che può risultare strano è che qui abbiamo \textit{un solo moto} di oscillatore, e in un certo senso il comportamento di un sistema 2D è \q{codificato} in quello di un sistema 1D. I punti successivi gettano luce su questo aspetto, in quanto vedremo che, nel caso quantistico, le coordinate del centro dell'orbita $X_0$ e $Y_0$ \textbf{non} sono simultaneamente conoscibili (al contrario del caso classico). Si potrebbe allora dire, \textit{euristicamente}, che il passaggio al mondo quantistico \q{dimezza} le osservabili simultaneamente conoscibili.
 \item Definite le coordinate di centro dell'orbita:
 \begin{align*}
 X_0 \equiv \frac{m}{eB}V_y + X\qquad Y_0 \equiv -\frac{m}{eB}V_x + Y
 \end{align*}
 vogliamo trovare l'algebra dei commutatori di $\vec{X}_0$ e $\vec{V}$ (ossia i commutatori di tutte le coppie possibili delle osservabili). Procediamo con i conti:
 \begin{align*}
-[X_0, Y_0] &= \left[\frac{m}{eB}V_y + X, -\frac{m}{eB}V_x + Y\right] = -\left(\frac{m}{eB}\right)^2 [V_y, V_x] + \frac{m}{eB}[V_y, Y] -\frac{m}{eB}[X,V_x]=\\
-&=-\left(\frac{m}{eB}\right)^2 \left(-i\hbar \frac{eB}{m^2}\right) + \frac{m}{eB}\left[\frac{P_y}{m},Y\right]-\frac{m}{eB}\left[X, \frac{P_x}{m}\right]=\\
-&= i\hbar \frac{1}{eB} - \frac{i\hbar}{m}\frac{m}{eB} - \frac{i\hbar}{m}\frac{m}{eB} = -\frac{i\hbar}{eB} \\
+[X_0, Y_0] &= \left[\frac{m}{eB}V_y + X, -\frac{m}{eB}V_x + Y\right] = -\left(\frac{m}{eB}\right)^2 \hlc{Yellow}{[V_y, V_x]} + \frac{m}{eB}\left([V_y, Y] -[X,V_x]\right)=\\
+&\underset{(a)}{=}-\left(\frac{m}{eB}\right)^2 \hlc{Yellow}{\left(-i\hbar \frac{eB}{m^2}\right) }+ \frac{m}{eB}\left(\hlc{SkyBlue}{\left[\frac{P_y}{m},Y\right]}-\left[X, \frac{P_x}{m}\right]\right)=\\
+&= i\hbar \frac{1}{eB} \hlc{SkyBlue}{- \frac{i\hbar}{m}}\frac{m}{eB} - \frac{i\hbar}{m}\frac{m}{eB} = -\frac{i\hbar}{eB} \\
 [X_0, V_x] &= \left[\frac{m}{eB}V_y + X, V_x \right] = \frac{m}{eB}\left(-i\hbar \frac{eB}{m^2}\right) + \frac{i\hbar}{m} = 0\\
 [Y_0, V_y] &= \left[-\frac{m}{eB}V_x +Y, V_y\right] = -\frac{m}{eB}\left(i\hbar \frac{eB}{m^2} \right) + \frac{i\hbar}{m} = 0\\
 [X_0, V_y] &= \left[\frac{m}{eB}V_y + X, V_y \right] = 0\\
 [Y_0, V_x] &= 0 
 \end{align*}
-\item Si determini un ICOC utilizzando $\vec{X}_0$ e si determini la degenerazione di $\sigma(H)$.\\
-Sappiamo che in un sistema 2D, sia $\{X, Y\}$ che $\{P_x, P_y\}$ sono ICOC, ma nessuno dei due contiene le variabili che vorremmo. Notiamo che $P_x$ è il momento coniugato di $X$, e infatti $[X,P_x]=i\hbar$, e $P_y$ è coniugato a $Y$, infatti $[Y,P_y] = i\hbar$.\\
-Dai conti precedenti sappiamo che $X_0$ commuta con $V_x$. Scegliamo quindi $\{X_0, V_x\}$. Il momento coniugato di $X_0$ è $\propto Y_0$, e quello coniugato a $V_x$ è $\propto V_y$. Analogamente, perciò, potremmo prendere $\{Y_0, V_y\}$ come ICOC.\\
-Come vediamo che sono effettivamente ICOC? Dalla definizione si può dimostrare che gli autovettori della base comune sono nondegeneri.\\
+dove in (a) abbiamo usato la relazione \textit{classica} $\vec{P}=m\vec{V}$.
+\item Sappiamo che in un sistema 2D, sia $\{X, Y\}$ che $\{P_x, P_y\}$ sono ICOC, ma nessuno dei due contiene le variabili $\vec{X}_0$ che vorremmo. Notiamo che $P_x$ è il momento coniugato di $X$, e infatti $[X,P_x]=i\hbar$, e $P_y$ è coniugato a $Y$, infatti $[Y,P_y] = i\hbar$. Per \textit{coniugazione} possiamo allora passare da un ICOC all'altro.\\
+Dai conti precedenti sappiamo che $X_0$ commuta con $V_x$. Scegliamo quindi come ICOC $\{X_0, V_x\}$. Il momento coniugato di $X_0$ è $\propto Y_0$, e quello coniugato a $V_x$ è $\propto V_y$. Analogamente, perciò, potremmo prendere $\{Y_0, V_y\}$ come ICOC.\\
 
-Osserviamo ora che:
+Vogliamo ora determinare la degenerazione di $\sigma(H)$, ossia il numero di autostati corrispondenti allo stesso valore di energia $H$. Un buon punto di partenza per far ciò è osservare la forma di $H$, e chiedersi quali operazioni la lascino invariata - in altre parole, \textit{spesso} la degenerazione si nasconde dietro a una simmetria del sistema.\\
+Partendo allora da:
+\begin{align*}
+H = \frac{m}{2} \left(V_x^2 + V_y^2\right)
+\end{align*}
+possiamo notare che $H$ resta invariata da traslazioni. Ci aspettiamo perciò, intuitivamente, che $\sigma(H)$ abbia degenerazione infinita: fissata un'energia $\mathcal{E}$, è possibile traslare il sistema come si vuole - in infiniti modi - e quindi avremo infinite funzioni d'onda differenti con la stessa $\mathcal{E}$.\\
+Verifichiamo rigorosamente tutto ciò. L'idea è di trovare una base di autostati comuni di $H$ e una coordinata che definisca la \textit{posizione} del sistema, e notare che gli infiniti autoket di quest'ultima corrispondono allo stesso autovalore di $H$. Potremmo per esempio usare $X_0$. Dato che $[X_0, V_x]=0$ e $[X_0, V_y]=0$, si ha che:
 \begin{align*}
 [H, X_0] = 0
 \end{align*}
-dato che:
-\begin{align*}
-[X_0, V_x]=0\qquad [X_0, V_y]=0
-\end{align*} 
 perciò $H$ è compatibile con $X_0$, e $H$ \textit{non dipende} da $X_0$. Quindi $H$ e $X_0$ hanno autovettori comuni (per la compatibilità), ma fissato l'autovalore di $H$, come $\mathcal{E}_n = \frac{\hbar eB}{m}\left(n+\frac{1}{2}\right)$, $X_0$ può assumere un qualsiasi autovalore. Perciò la degenerazione di $\sigma(H)$ è infinita.\\
-Ciò è sensato? In termini classici, le particelle compiono l'orbita di ciclotrone a causa del campo magnetico. Ragionevolmente, il campo magnetico fissa il raggio dell'orbita, ma il centro si può scegliere \textit{qualunque}, basta traslare il sistema. Da qui la degenerazione infinita (se possiamo sempre traslare il sistema, ossia se il piano su cui si trova è infinito).
 
-\item Supponiamo invece che la particella sia vincolata ad appartenere a un quadrato di lato $L$. Scegliamo per il potenziale vettore:
-\begin{align*}
+Tutto ciò deriva, intuitivamente, dal fatto che, in termini classici, le particelle compiono orbite di ciclotrone a causa del campo magnetico. Ragionevolmente, il campo magnetico fissa il raggio dell'orbita, ma il centro si può scegliere \textit{qualunque}, basta traslare il sistema. Da qui la degenerazione infinita (ammesso che si possa sempre traslare il sistema senza alterarlo, ossia che $B$ agisca su un piano infinito).
+
+\item Supponiamo invece che la particella sia vincolata ad appartenere a un quadrato di lato $L$. Scegliamo per il potenziale vettore (\textit{fissando il gauge}):
+\begin{align}
 A_x = -By\quad A_y = 0
-\end{align*}
-Vogliamo stimare la degenerazione di $\sigma(H)$.
+\label{eqn:pot-vettore-gauge}
+\end{align}
+Vogliamo stimare la degenerazione di $\sigma(H)$ in questo caso. Ci aspettiamo che vi sia ancora degenerazione, ma forse non infinita, dato che ora il piano ha una dimensione finita. Esplicitiamo l'Hamiltoniana:
 \begin{align*}
-H=\frac{P_x^2}{2m} + \frac{(P_y + eB Y)^2}{2m}
+H=\frac{(P_x+eBY)^2}{2m} + \frac{(P_y)^2}{2m}
 \end{align*}
 e si ha che:
 \begin{align*}
-\left[\frac{P_x^2}{2m}, \frac{(P_y + eBY)^2}{2m}\right] =0
+\left[P_x, H\right] =0
 \end{align*}
-$P_x$ è il momento in $[0, L]$. Perché sia autoaggiunto vale ancora la condizione di periodicità, e abbiamo già ricavato in questo caso i suoi autovalori:
+Ciò significa che $P_x$ è \textit{costante}, e che esiste una base comune di autoket di $P_x$ e $H$.\\
+$P_x$ è il momento in $[0, L]$, e quindi ha \textbf{spettro discreto}. Infatti, imponendo la condizione di periodicità ai suoi autostati (che hanno la forma di \textit{onde piane}) otteniamo gli autovalori:
 \begin{align*}
-\exp \left(i\frac{p}{\hbar}L\right)=1\Rightarrow \sigma(P_x)=\frac{2\pi\hbar}{L}n; \quad n \in \bb{N}
+\exp \left(i\frac{p}{\hbar}L\right)\overset{!}{=}\exp\left(i\frac{p}{\hbar}0\right)=1\Rightarrow \sigma(P_x)=\frac{2\pi\hbar}{L}n; \quad n \in \bb{N}
 \end{align*}
-Perciò vale:
+Il fatto che il momento possa assumere valori a salti discreti fa pensare che non tutte le orbite siano possibili. In particolare, ci aspettiamo che la posizione del centro non possa essere qualunque. Calcolando per esempio $Y_0$:
 \begin{align*}
-Y_0 = -\frac{m}{eB} V_x + Y = -\frac{m}{eB}\left(\frac{P_x-eBY}{m}\right) + Y = -\frac{P_x}{eB} -Y + Y = -\frac{P_x}{eB}
+Y_0 = -\frac{m}{eB} V_x + Y \underset{\substack{(\ref{eqn:derivate-posizione})\\(\ref{eqn:pot-vettore-gauge})}}{=} -\frac{m}{eB}\left(\frac{P_x-eBY}{m}\right) + Y = -\frac{P_x}{eB} -Y + Y = -\frac{P_x}{eB}
 \end{align*}
 Pertanto lo spettro di $Y_0$ è pari a:
 \begin{align*}
 \sigma(Y_0) = -\frac{\sigma(P_x)}{eB}
 \end{align*}
-Sappiamo che $[H, Y_0]=0$. Scelto un autovalore $\mathcal{E}_n = \frac{\hbar e B}{m}\left(n+\frac{1}{2}\right)$ possiamo scegliere come vogliamo $Y_0$. Perciò:
+Sappiamo che $[H, Y_0]=0$, e perciò, seguendo lo stesso ragionamento del punto precedente, si ha che fissato un autovalore $\mathcal{E}_n = \frac{\hbar e B}{m}\left(n+\frac{1}{2}\right)$ possiamo scegliere come vogliamo $Y_0$. Perciò:
 \begin{align*}
-\sigma(Y_0) = -\frac{2\pi \hbar}{L}\bb{Z}= -\frac{2\pi\hbar}{L}k; \quad k\in \bb{Z}
+\sigma(Y_0) = -\frac{2\pi \hbar}{eBL}\bb{Z}= -\frac{2\pi\hbar}{eBL}k; \quad k\in \bb{Z}
 \end{align*}
 Ma sappiamo che $Y_0$ rappresenta un centro di un'orbita, e dal vincolo sul piano si deve avere:
-\begin{align*}
+\begin{align}
 0 \leq \sigma(Y_0) \leq L \Rightarrow  0\leq \frac{2\pi\hbar k}{eBL}\leq L \Rightarrow 0 \leq k \leq \frac{eBL^2}{2\pi \hbar}
-\end{align*}
-e perciò la degenerazione di un $\mathcal{E}_n$ è $\approx \frac{eBL^2}{2\pi\hbar}$.
+\label{eqn:degenerazione-landau}
+\end{align}
+e perciò la degenerazione di un $\mathcal{E}_n$ è $\approx \frac{eBL^2}{2\pi\hbar}$. Il valore è solo approssimato, dato che vi sarebbero diverse sottigliezze da discutere, di cui ora non ci occupiamo. Ragionando in maniera classica, poiché $r$ è inversamente proporzionale a $B$, si ha che la degenerazione di $\sigma(H)$ aumenta all'aumentare dell'intensità del campo magnetico $B$.
 \end{enumerate}
 
+\begin{comment}
 \subsection{Complemento: le funzioni di Hermite}
 I polinomi di Hermite sono definiti come:
 \begin{align*}
@@ -162,5 +193,8 @@ Da cui si definiscono le \textbf{funzioni di Hermite} (normalizzate):
 h_n(x) &= \left( 2^n n! \sqrt{\pi}\right)^{-\frac{1}{2}} H_n(x) e^{-\frac{x}{2}} =\\
 &= (2^n n! \sqrt{\pi})^{-\frac{1}{2}} \left(x-\frac{d}{dx}\right)^n e^{-\frac{x^2}{2}}
 \end{align*}
+\end{comment}
 \end{document}
+
+
 

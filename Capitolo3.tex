@@ -5,7 +5,7 @@
 La meccanica quantistica è uno degli ambiti scientifici nei quali la fisica e la matematica più astratta manifestano reciproche influenze. Nella prima metà del novecento diversi matematici e fisici tentarono di costruire una solida base formale capace di assiomatizzare tutto ciò che fino ad allora era solo un fatto sperimentale. \\
 La prima formulazione fu quella Hilbertiana (o Standard), elaborata da Hilbert, Dirac (1930) e von Neumann (1932).\\ Anche se la formulazione di Dirac e quella di von Neumann si possono considerare equivalenti, tuttavia la matematica utilizzata da Dirac (un \q{autentico} fisico) è diversa da quella utilizzata da von Neumann (un fisico-matematico).\\
 \textbf{Il formalismo di \textbf{Dirac}} è il più seguito dai fisici per la sua maggiore flessibilità e semplicità\footnote{Ciò rispecchia il minimalismo di Dirac, il quale riteneva che le teorie potessero essere corrette solo se semplici.}, seppur a costo di molta difficoltà di formalizzazione rigorosa. Solo nel dopoguerra, con la teoria delle distribuzioni, fu possibile giustificare esaustivamente la matematica di Dirac.\\
-\textbf{Il formalismo di von Neumann} è invece quello più seguito dai fisici-matematici, essendo caratterizzato da una minor flessibilità ma da un maggior rigore matematico e una solida base formale.
+\textbf{Il formalismo di von Neumann} è invece quello più seguito dai fisici-matematici, essendo caratterizzato da un maggior rigore matematico e una solida base formale, anche se formalmente è meno flessibile.
 
 \section{Stati puri}\label{sec:stati_puri}
 Gli stati puri sono codificati dalle funzioni d'onda $\psi \left(x\right)$ di Schrödinger, analogamente agli stati $\ket{\psi}$ stati di polarizzazione, e sono gli stati che comprendono la \textbf{massima informazione}.
@@ -89,21 +89,21 @@ Quindi ci sono due casi:
 Uno spazio si dice \textbf{separabile} \marginpar{Spazio di Hilbert separabile} se in esso esiste un sottoinsieme \textbf{denso} e \textbf{numerabile}. Nel caso degli spazi di Hilbert, tale condizione è equivalente ad avere una \textbf{base ortonormale numerabile}.\\
 \end{dfn}
 \begin{expl}
-Un esempio di spazio separabile è $\bb{R}$, in quanto contiene $\bb{Q}$, che è numerabile e denso in $\bb{R}$ (ogni intorno non vuoto di un numero reale contiene almeno un numero razionale\footnote{Ciò significa che si può approssimare con precisione arbitraria i reali (non numerabili) partendo solamente dai razionali, che sono numerabili. Analogamente, per uno spazio di Hilbert è possibile approssimare bene qualsiasi suo elemento usando una combinazione lineare di vettori di una base \textit{numerabile}.}).
+Un esempio di spazio separabile è $\bb{R}$, in quanto contiene $\bb{Q}$, che è numerabile e denso in $\bb{R}$ (ogni intorno non vuoto di un numero reale contiene almeno un numero razionale\footnote{Ciò significa che si può approssimare con precisione arbitraria i reali (non numerabili) partendo solamente dai razionali, che sono numerabili. Analogamente, per uno spazio di Hilbert è possibile approssimare bene qualsiasi suo elemento usando una combinazione lineare a coefficienti razionali di vettori di una base \textit{numerabile}.}).
 \end{expl}
-Se $\mathcal{H}$ è separabile, per quanto detto prima sugli spazi con basi ON numerabili, è allora isomorfo a $l_2$. \marginpar{$\mathcal{H}$ separabile isomorfo a $l_2$} Data una base ON numerabile $\left\{\phi_n\right\}$ di $\mathcal{H}$, tale isomorfismo si ottiene con:
+Se $\mathcal{H}$ è separabile, per quanto detto prima sugli spazi con basi ON numerabili, è allora isomorfo a $\bb{C}^N$ o a $l_2$. \marginpar{$\mathcal{H}$ separabile isomorfo a $l_2$} Data una base ON numerabile $\left\{\phi_n\right\}$ di $\mathcal{H}$, tale isomorfismo si ottiene con:
 \[
-\psi = \sum_{n}{a_n\phi_n} \ \ \mapsto \ \ \left\{a_n\right\}_{\mathbb{C}^n,l_2} \qquad \forall \psi \in \mathcal{H}
+\psi = \sum_{n}{a_n\phi_n} \ \ \mapsto \ \ \left\{a_n\right\}_{\mathbb{C}^N,l_2} \qquad \forall \psi \in \mathcal{H}
 \]
 Analogamente al caso finito-dimensionale, identifichiamo un vettore $\psi \in \mathcal{H}$ con la successione - che sarà numerabile, essendo $\mathcal{H}$ separabile - dei suoi coefficienti rispetto ad una base ON.\\
 
 \lesson{6}{11/10/2018} % Nuova lezione
-A prima vista sembrerebbe che il numero di funzioni di $L^2$ sia molto più grande di quante siano le successioni in ${\mathbb C^N}$. Ma questo è falso perché quando si costruisce $L^2$ si creano le classi di equivalenza, e il risultato è \q{ridurre} di molto il numero di funzioni. Intuitivamente si può pensare di \q{ruotare} la base delle funzioni di $L^2$ (si pensi al caso di ${\mathbb C}^N$) per passare da una rappresentazione all'altra. \\
+A prima vista sembrerebbe che il numero di funzioni di $L^2$ sia molto più grande di quante siano le successioni in ${\mathbb C^N}$. Ma questo è falso perché quando si costruisce $L^2$ si creano le classi di equivalenza, e il risultato è \q{ridurre} di molto il numero di elementi. Intuitivamente si può pensare di \q{ruotare} la base delle funzioni di $L^2$ (si pensi al caso di ${\mathbb C}^N$) per passare da una rappresentazione all'altra. \\
 
 \subsection{Equivalenza tra gli spazi della \MQ}
 Tramite questi isomorfismi \marginpar{Equivalenza tra Heisenberg e Schrödinger} possiamo garantire l'\textbf{equivalenza} tra la \textbf{meccanica ondulatoria} di \textbf{Schrödinger}, dove le funzioni d'onda $\psi(x)$ vivono in $\mathcal{H}=L^2(\bb{R}, dx)$ e la \textbf{meccanica matriciale} di \textbf{Heisenberg} in cui $q_{mn}, p_{mn}$ agiscono come matrici $\infty$-dimensionali su $l_2$.\\
 Ad ogni elemento $\psi(x)$ dello spazio delle funzioni di Schrödinger è associata una successione $\{a_n\}$ (un vettore $\infty$-dimensionale), cioè uno stato dello spazio di Heisenberg. Ad ogni operatore nello spazio di Schrödinger (il quale data una funzione restituisce un'altra funzione) è associata una matrice $\infty$-dimensionale che agisce sui vettori $\infty$-dimensionali di Heisenberg secondo le regole del prodotto matriciale. Il teorema non fornisce un modo pratico per passare da una all'altra rappresentazione, ma dimostra che questo modo esiste. \\
-Più precisamente data $\left\{a_n\right\}\in l_2$, e data una funzione $\psi$ di Schrödinger, siano le  $\phi_n$ le soluzioni dell'equazione stazionaria di Schrödinger per l'oscillatore armonico, che sono anche una base ortonormale di $L^2(\bb{R}, dx)$. Allora la mappa di isomorfismo è:
+Più precisamente data una funzione $\psi$ di Schrödinger, siano $\phi_n$ le soluzioni dell'equazione stazionaria di Schrödinger per l'oscillatore armonico, che sono anche una base ortonormale di $L^2(\bb{R}, dx)$. Allora la mappa di isomorfismo è:
 \[
 L^2\left(\mathbb R,dx\right)\ni\psi \mapsto \left\{a_n=\left(\phi_n,\ \psi\right)\right\}_{i=1}^\infty\in l_2
 \]
@@ -156,16 +156,16 @@ Come vedremo, anche la notazione $\psi \left(\vec{x}\right)=\langle \vec{x}|\psi
 \begin{enumerate}
     \item Tutte le operazioni \textbf{lineari}\marginpar{Gli stati sono definiti a meno di una fase} hanno senso e vanno eseguite in $\hs$ e poi eventualmente proiettate nell'\textbf{insieme dei raggi vettori} in 
     \[ \mathcal{S}=\frac{\mathcal{H}\setminus\left\{0\right\}}{\mathbb{C}\setminus\left\{0\right\}} \]
-    In quanto ogni stato puro è rappresentabile come un elemento di $\hs$ \textit{a meno di una fase} (come avevamo visto alla sezione \ref{sec:stati_puri}).\\
-    \textbf{Nota}: tale proiezione va fatta \textit{per ultima}. Ad esempio, se uno stato è descritto da un $|\phi \rangle$  normalizzato a meno di una fase e $|\psi \rangle$ similmente (con $\left\langle\psi\middle|\phi\right\rangle=0$, cioè vettori ortogonali), $\frac{1}{\sqrt2}(|\psi \rangle +|\phi \rangle )$ non descrive uno stato \textit{a meno di } \textbf{due} \textit{fasi}, ma sempre a meno di una! Questo perché la fase relativa tra $|\psi \rangle$  e $|\phi \rangle$ è fisicamente osservabile. Matematicamente:
+    In quanto ogni stato puro è rappresentabile come un elemento di $\hs$ \textit{a meno di un complesso non nullo} (come avevamo visto alla sezione \ref{sec:stati_puri}).\\
+    \textbf{Nota}: tale proiezione va fatta \textit{per ultima}. Ad esempio, se uno stato è descritto da un $|\phi \rangle$  normalizzato a meno di una fase e $|\psi \rangle$ similmente (con $\ket{\psi}$ e $\ket{\phi}$ non paralleli), $\frac{1}{\sqrt2}(|\psi \rangle +|\phi \rangle )$ non descrive uno stato \textit{a meno di} \textbf{due} \textit{fasi}, ma sempre a meno di una! Questo perché la fase relativa tra $|\psi \rangle$  e $|\phi \rangle$ è fisicamente osservabile. Matematicamente, infatti, i seguenti due stati \textit{non} sono equivalenti:
 	\[
-	\frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )\neq \frac{1}{\sqrt2}(\left|\phi\right\rangle+e^{i\gamma}|\psi \rangle )
+	\frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )\not\equiv \frac{1}{\sqrt2}(\left|\phi\right\rangle+e^{i\gamma}|\psi \rangle )
 	\]
-	Anche se:
-	\[ \frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )=e^{i\alpha}\frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )
+	Anche se (intendendo sempre l'uguaglianza come equivalenza \textit{di stati}):
+	\[ \frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )\equiv e^{i\alpha}\frac{1}{\sqrt2}\left(|\phi\right\rangle+|\psi \rangle )
 	\]
 	dove è importante notare che le uguaglianze o disuguaglianze si intendono come uguaglianze o disuguaglianze \textit{tra stati}.\\
-	Insomma, l'idea è che \textit{lo stato finale} a cui si giunge al termine dei conti è definito a meno di una fase, esattamente come tutti gli stati iniziali.
+	Insomma, l'idea è che \textit{il vettore di stato finale} a cui si giunge al termine dei conti è definito a meno di una fase, esattamente come tutti i vettori di stato iniziali, se normalizzati.
 \item In $\mathcal{S}$ è naturalmente definita una \textbf{distanza} (o metrica)\marginpar{Distanza su $\mathcal{S}$}:
 \[
 d(\ket{\psi},\ket{\phi}) = \left [ 1-\frac{|\braket{\psi|\phi}|^2}{\norm{\psi}^2 \norm{\phi}^2}\right]^{\frac{1}{2}}
@@ -178,9 +178,9 @@ Si noti che vale $d(\alpha\ket{\psi}, \ket{\phi}) = d(\ket{\psi},\ket{\phi})$ co
 	
 \section{Osservabili}
 Occupiamoci ora di analizzare la descrizione matematica delle osservabili.\\
-Abbiamo già visto che nella descrizione di Heisenberg le osservabili sono ottenute da matrici infinito-dimensionali ${\vec{q}}_{mn}$, ${\vec{p}}_{mn}$, mentre per Schrödinger le osservabili sono operatori $\vec{x}$, $-i\hbar \vec{\nabla}$ che agiscono sulle funzioni d'onda $\psi$ mediante gli operatori lineari
+Abbiamo già visto che nella descrizione di Heisenberg le osservabili sono ottenute da matrici infinito-dimensionali ${\vec{q}}_{mn}$, ${\vec{p}}_{mn}$, mentre per Schrödinger le osservabili sono operatori $\vec{x}$, $-i\hbar \vec{\nabla}$ che agiscono sulle funzioni d'onda $\psi$ e i loro valor medi sono dati da:
 \[
-\langle \hat{x}\rangle_\psi = \frac{(\psi, \vec{x}\psi)}{\norm{\psi}^2}, \quad \langle \hat{p}\rangle_\psi = \frac{(\psi, -i\hbar \vec{\nabla}\psi)}{\norm{\psi}^2}
+\langle X\rangle_\psi = \frac{(\psi, \vec{x}\psi)}{\norm{\psi}^2}, \quad \langle P\rangle_\psi = \frac{(\psi, -i\hbar \vec{\nabla}\psi)}{\norm{\psi}^2}
 \]
 
 \subsection{Prime proprietà: linearità e densità del dominio}
@@ -189,7 +189,7 @@ Per le osservabili dunque richiediamo le seguenti proprietà:
     \item \textbf{Linearità}: Le osservabili sono descritte da \emph{operatori lineari}\marginpar{Osservabili = operatori lineari} su $\hs$ (spazio dei vettori di stato).
     Oltre al fatto che gli operatori comuni (posizione e momento) sono evidentemente lineari, questa proprietà garantisce che i valori medi dipendano dallo stato e non dal vettore scelto per rappresentarlo. Infatti se l'osservabile $O$ è descritta dall'operatore $A$, con $A:\hs \to \hs$, dato $\alpha \in \bb{C}\setminus \{0\}$ si ha: \marginpar{Valor medio e osservabile}
     \[
-    \avg{O}_{\alpha \psi} = \avg{A}_{\alpha \psi}  \ = \ \frac{(\alpha\psi,A(\alpha\psi))}{\norm{a\psi}^2} \ \overset{(a)}{=} \ \frac{\alpha^2}{\alpha^2} \frac{(\psi,A\psi)}{\norm{\psi}^2} \ = \ \avg{A}_\psi = \avg{O}_\psi
+    \avg{O}_{\alpha \psi} = \avg{A}_{\alpha \psi}  \ = \ \frac{(\alpha\psi,A(\alpha\psi))}{\norm{\alpha\psi}^2} \ \overset{(a)}{=} \ \frac{\alpha^2}{\alpha^2} \frac{(\psi,A\psi)}{\norm{\psi}^2} \ = \ \avg{A}_\psi = \avg{O}_\psi
     \]
     dove il passaggio $(a)$ è valido se $A$ è lineare, ovvero se $A(\alpha \psi) = \alpha A\psi$. 
     Pertanto il \textbf{valor medio} dell'\textbf{osservabile} nello \textbf{stato} $\psi$ non cambia se applichiamo $A$ ad una funzione d'onda $\psi$ moltiplicata per un $\alpha \in \bb{C}$, dato che $\alpha\psi$ descrive lo stesso \textbf{stato} di $\psi$, esattamente come vogliamo.
@@ -224,7 +224,7 @@ Partendo da un operatore $A$ lineare e con dominio $D(A)$ denso in $\hs$ possiam
 	Consideriamo l'operatore energia: 
 	\[H=\frac{p^2}{2m}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\]
 	e applichiamolo al caso della buca 1-dimensionale infinitamente profonda\footnote{Che può essere immaginata come una \q{scatola} con pareti impenetrabili, dove il potenziale è $+\infty$} tra $0$ e $1$.
-	Allora $D\left(H\right)=\left\{\psi\text{\ regolare,\ e\ poi\ } \psi\left(0\right)=\psi\left(1\right)=0\right\}$.\footnote{L'ipotesi di regolarità è necessaria poiché applicare l'operatore $H$ significa calcolare una derivata seconda, e perciò le $\psi$ in $D(H)$ devono essere derivabili due volte}
+	Allora $D\left(H\right)=\left\{\psi\text{\ regolare,\ e\ poi\ } \psi\left(0\right)=\psi\left(1\right)=0\right\}$.\footnote{L'ipotesi di regolarità è necessaria poiché applicare l'operatore $H$ significa calcolare una derivata seconda, e perciò le $\psi$ in $D(H)$ devono essere derivabili \textit{quasi ovunque} due volte. In generale rimarremo sul vago nella definizione precisa di regolarità, che richiederà essenzialmente che le operazioni che eseguiamo siano ben definite.}
 	Prendiamo una $\psi=1$ in $[0,1]$, che chiaramente non appartiene a $D(H)$. 
 	Allora:
 	$\left(\psi H,\psi\right)=0$ (la derivata seconda di $1$ è nulla).
@@ -232,7 +232,7 @@ Partendo da un operatore $A$ lineare e con dominio $D(A)$ denso in $\hs$ possiam
 	\end{es}
 
 \subsection{Definizione mediante gli elementi di matrice}
-\textbf{Se} $D(A)$ è \textbf{denso} in $\hs$ (cosa che abbiamo assunto per tutti gli osservabili), per determinare $A$ possiamo dare\marginpar{Elementi di matrice di un operatore con dominio denso} gli \q{elementi di matrice di $A$}, ossia 
+\textbf{Se} $D(A)$ è \textbf{denso} in $\hs$ (cosa che abbiamo assunto per tutte le osservabili), per determinare $A$ possiamo dare\marginpar{Elementi di matrice di un operatore con dominio denso} gli \q{elementi di matrice di $A$}, ossia 
 \[
 \left\{\left(\phi,\ A\psi\right),\ \psi\in D\left(A\right),\ \phi\in D\text{\ denso\ in\ }\mathcal{H}\right\}
 \]

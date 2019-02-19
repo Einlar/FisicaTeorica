@@ -3,10 +3,8 @@
 
 \section{Concetti di teoria dei gruppi}
 Come vedremo nei prossimi capitoli, il concetto di \textbf{simmetria} è di fondamentale importanza in \MQ: la presenza di trasformazioni che \q{lasciano invariato} un sistema consente infatti di semplificare conti che altrimenti sarebbero infattibili, e anche di mettere in evidenza conseguenze teoriche di grande interesse.\\
-In particolare, nel capitolo \# %inserire ref [TO DO]
- useremo la simmetria data dall'omogeneità del tempo per ricavare l'evoluzione di un sistema isolato, e nel capitolo \# %inserire ref [TO DO]
-esamineremo le simmetrie traslazionale e rotazionale, trovando, nel caso di quest'ultima, un fenomeno senza analogo classico.\\
-Il \textit{framework} più adatto per la trattazione matematica delle simmetrie è quello della \textbf{teoria dei gruppi} (in particolare dei gruppi di Lie), e della \textbf{teoria delle rappresentazioni} (che permetterà di associare a simmetrie \q{astratte} \textit{oggetti concreti da usare nei conti}, e di cui studiare le proprietà).\\
+In particolare, nel capitolo \ref{sec:time-evolution} useremo la simmetria data dall'omogeneità del tempo per ricavare l'evoluzione di un sistema isolato, e nei capitoli \ref{sec:traslazioni_spaziali} e \ref{sec:rotazioni} esamineremo le simmetrie traslazionale e rotazionale, trovando, nel caso di quest'ultima, un fenomeno senza analogo classico.\\
+Il \textit{framework} più adatto per la trattazione matematica delle simmetrie è quello della \textbf{teoria dei gruppi} (in particolare dei gruppi di Lie, come accenneremo in seguito), e della \textbf{teoria delle rappresentazioni} (che permetterà di associare a simmetrie \q{astratte} \textit{oggetti concreti da usare nei conti}, e di cui studiare le proprietà).\\
 Nel seguente capitolo, perciò, introduciamo alcuni aspetti elementari di questa branca (estremamente ampia) della matematica pura.
 
 %\begin{expl}
@@ -39,7 +37,7 @@ Le altre proprietà sono immediate: le traslazioni sono associative (di più, no
 Notiamo ora che le traslazioni e le rotazioni hanno però ben più proprietà rispetto a quelle conferite unicamente dalla struttura di gruppo. Sono, infatti, in un certo senso, \q{continue}, ossia data una trasformazione $g$ è sempre possibile trovare una trasformazione \q{arbitrariamente vicina} ad essa, esattamente come succede con i punti di $\bb{R}^n$. In altre parole, un $G$ \q{continuo} \textit{assomiglia} (almeno localmente) a un aperto di $\bb{R}^n$ - ossia si comporta come una \textit{varietà differenziale}. Definiamo quindi:
 
 \begin{dfn}
-Un \textbf{gruppo di Lie}\marginpar{Gruppo di Lie}\index{Gruppo!di Lie} $(G,*)$ è un gruppo che è anche una varietà differenziale. In particolare ciò significa che l'operazione di gruppo $*$ è una funzione \textit{differenziabile}\footnote{Qui useremo il termine \textit{differenziabile} come sinonimo di $\mathcal{C}^\infty$}. Indichiamola allora come una funzione $x * y = \mu(x,y)$, per cui sono definite (e sono continue) le derivate parziali rispetto a $x$ e $y$ di qualsiasi ordine.
+Un \textbf{gruppo di Lie}\marginpar{Gruppo di Lie}\index{Gruppo!di Lie} $(G,*)$ è un gruppo che è anche una varietà differenziale. In particolare ciò significa che l'operazione di gruppo $*$ è una applicazione \textit{differenziabile}\footnote{Qui useremo il termine \textit{differenziabile} in modo vago: per la precisione, nel caso di gruppi di Lie, il grado di differenziabilità è quello delle funzioni analitiche}. Indichiamola allora come una funzione $x * y = \mu(x,y)$, per cui sono definite (e sono continue) le derivate parziali rispetto a $x$ e $y$ di qualsiasi ordine.
 \end{dfn}
 
 Un esempio di gruppo di Lie è il cosiddetto \textit{gruppo cerchio} $\bb{T}$, che è costituito da tutti i numeri complessi di modulo unitario\footnote{Poiché le matrici $1\times 1$ sono effettivamente numeri complessi, spesso si indica $\bb{T}$ come $U(1)$, ossia il gruppo di matrici unitarie $1 \times 1$}:
@@ -75,20 +73,20 @@ Nella notazione è più comodo \q{spezzare} la $\varphi(g,x)$: definiamo cioè l
 Nella pratica, questa definizione è fin troppo generica per quello che intendiamo fare. Noi ci occuperemo infatti di applicare simmetrie a spazi vettoriali (in particolare a spazi di Hilbert, $\hs$) e quindi ci concentriamo su quelle trasformazioni che \textit{preservano} la struttura di spazio vettoriale, ossia le trasformazioni lineari.\\
 Un'azione che è anche \textit{lineare} si dice \textbf{rappresentazione lineare} di un gruppo $G$. Più precisamente:
 \begin{dfn}
-Una \textbf{rappresentazione lineare}\marginpar{Rappresentazione lineare di un gruppo}\index{Gruppo!rappresentazione lineare} di un gruppo $(G,*)$ su uno spazio vettoriale $V$ è una mappa (non necessariamente biiettiva) $O:G\to \mathcal{L}(V)$ che associa ad ogni elemento di $G$ un \textit{operatore lineare invertibile} $O(g) \in \mathcal{L}(V)$ che soddisfa:
+Una \textbf{rappresentazione lineare}\marginpar{Rappresentazione lineare di un gruppo}\index{Gruppo!rappresentazione lineare} di un gruppo $(G,*)$ su uno spazio vettoriale $V$ è una mappa $O:G\to \mathcal{L}(V)$, ove $\mathcal{L}(V)$ indica lo spazio degli operatori lineari su $V$, che associa ad ogni elemento di $G$ un \textit{operatore lineare invertibile} $O(g) \in \mathcal{L}(V)$ che soddisfa:
 \begin{itemize}
 \item $O(e) = \op{id}_V$
 \item $O(g_1 *\ g_2)=O(g_1)\circ O(g_2)$
 \end{itemize}
 Si tratta cioè di quella particolare azione di $G$ che avviene tramite operatori lineari invertibili.
 \end{dfn}
-
+\begin{comment} %Va resa più precisa
 \begin{expl}
 Volendo essere precisi, una rappresentazione lineare è un \textbf{omeomorfismo di gruppi} (di Lie) tra $G$ e il \textbf{gruppo di automorfismo} di $V$, indicato con $GL(V)$.\\
 Quest'ultimo è definito infatti come l'insieme di tutti gli \textbf{automorfismi} (ossia gli isomorfismi che collegano $V$ a se stesso), che si può dimostrare avere una struttura di gruppo.\\
 Un omeomorfismo di gruppi, d'altro canto, è una qualsiasi mappa $h:G\to H$, dove $(G,*)$ e $(H,\cdot)$ sono gruppi, che verifica $h(u*v) = h(u)\cdot h(v)$.
 \end{expl}
-
+\end{comment}
 Nella pratica, se $V$ è di $\op{dim} n$, possiamo fissare una base su di esso scegliendo $n$ vettori linearmente indipendenti, e di conseguenza scrivere $O \in \mathcal{L}(V)$ come una matrice $n\times n$ con $\op{det} \neq 0$ (dovendo essere invertibile).\\
 
 Facciamo un esempio partendo dal gruppo $\bb{T}$ introdotto in precedenza, che ricordiamo essere:
@@ -121,7 +119,7 @@ e^{i\theta_1} \cdot e^{i\theta_2} = e^{i(\theta_1 +\theta_2)} = \begin{pmatrix}
 \]
 come si può verificare svolgendo i conti e utilizzando le formule di addizione/sottrazione di seno/coseno.\\
 
-\textbf{Riepilogando}: il nostro obiettivo è descrivere matematicamente le simmetrie di un sistema, per semplificarci i conti e capirci qualcosa di più. Abbiamo così \textit{costruito} tali simmetrie partendo dalla nozione di \textit{gruppo}, che ci dà le proprietà fondamentali (composizione e invertibilità). Considerando che traslazioni/rotazioni possono essere \q{piccole a piacimento} abbiamo aggiunto al gruppo una struttura \q{continua}, trasformandolo in un \textit{gruppo di Lie}. Infine, abbiamo specificato in che senso gli elementi di un gruppo di Lie \q{fungono da trasformazioni} tramite l'idea di \textit{rappresentazione lineare}.\\
+\textbf{Riepilogando}: il nostro obiettivo è descrivere matematicamente le simmetrie di un sistema, per semplificarci i conti e capirci qualcosa di più. Abbiamo così \textit{caratterizzato matematicamente} tali simmetrie partendo dalla nozione di \textit{gruppo}, che ci dà le proprietà fondamentali (composizione e invertibilità). Considerando che traslazioni/rotazioni possono essere \q{piccole a piacimento} abbiamo aggiunto al gruppo una struttura \q{continua}, trasformandolo in un \textit{gruppo di Lie}. Infine, abbiamo specificato in che senso gli elementi di un gruppo di Lie \q{fungono da trasformazioni} tramite l'idea di \textit{rappresentazione lineare}.\\
 È giunto il momento di \textit{concretizzare} tutto ciò nel campo della \MQ.\\
 
 \begin{dfn}
@@ -138,7 +136,7 @@ Una simmetria fisica così definita \textbf{preserva} automaticamente le \textbf
 e l'ultimo termine è uguale al primo per la proprietà (a).
 \end{dfn} 
 
-Utilizzando i termini definiti in precedenza, $T$ è quindi una rappresentazione del rispettivo gruppo di simmetria, e agisce nello spazio degli \textit{stati}, che non è propriamente $\hs$, ma lo spazio dei \textbf{raggi vettori} $\mathcal{PH}$. Infatti, dai postulati della \MQ sappiamo che una $\ket{\psi} \in \hs$ e $e^{i\gamma} \ket{\psi}$ rappresentano lo stesso stato (puro)\footnote{In generale moltiplicare $\ket{\psi}$ per un qualsiasi complesso $a$ non cambia lo stato. Poiché lavoriamo con vettori normalizzati, $a\ket{\psi}$ equivale, dopo alla normalizzazione, ad un certo sfasamento $e^{i\gamma}$ di $\ket{\psi}$}: ciò deriva dal fatto che le \textit{fasi \q{assolute}}  $\gamma$ non sono misurabili, ma lo sono solo quelle relative, e perciò \q{sfasare} lo stato del sistema non cambia i risultati sperimentali.\\
+Utilizzando i termini definiti in precedenza, $T$ è quindi una rappresentazione del rispettivo gruppo di simmetria, e agisce nello spazio degli \textit{stati}, che non è propriamente $\hs$, ma lo spazio dei \textbf{raggi vettori} $\mathcal{PH}$. Infatti, dai postulati della \MQ sappiamo che una $\ket{\psi} \in \hs$ e $e^{i\gamma} \ket{\psi}$ rappresentano lo stesso stato (puro)\footnote{In generale moltiplicare $\ket{\psi}$ per un qualsiasi complesso $a$ non cambia lo stato. Poiché lavoriamo con vettori normalizzati, $a\ket{\psi}$ equivale, dopo alla normalizzazione, ad un certo sfasamento $e^{i\gamma}$ di $\ket{\psi}$}: ciò deriva dal fatto che le \textit{fasi \q{assolute}}  $\gamma$ non sono misurabili, ma lo sono solo quelle relative, e perciò \q{sfasare} il vettore di stato del sistema non cambia i risultati sperimentali.\\
 Ciò è un problema: $\mathcal{PH}$ non è neanche uno spazio vettoriale, ma uno spazio \textit{proiettivo} su cui è difficile lavorare.\\
 Un'idea per procedere è allora la seguente. Partiamo da una simmetria associata ad un gruppo $(G,*)$, la cui rappresentazione $T(g), g\in G$ agisce su $\mathcal{PH}$:
 \[
@@ -154,7 +152,7 @@ Un'idea, allora, è di prendere al posto di $T(g)$ una trasformazione $V(g):\hs\
 \pi: 
 V(g)(v)\mapsto T(g)(\pi(v))
 \]
-Tuttavia, poiché $\pi$ è una proiezione, e quindi è \textit{non iniettiva}, si ha che anche tutte le $e^{i\gamma}V(g)(v)$ soddisfano questa proprietà, e quindi la scelta di $V(g)$ non è unica, ma a meno di un fattore moltiplicativo.\\
+Tuttavia, poiché $\pi$ è una proiezione, e quindi è \textit{non iniettiva}, si ha che anche tutte le $e^{i\gamma}V(g)(v)$ soddisfano questa proprietà, e quindi la scelta di $V(g)$ non è unica, ma è definita a meno di un fattore moltiplicativo.\\
 Di conseguenza, la proprietà di gruppo diverrà:
 \[
 V(g*h) = e^{i\alpha(g,h)} V(g) \circ V(h)
@@ -202,7 +200,7 @@ Il membro a sinistra è antiunitario, mentre quello a destra è la composizione 
 \]
 Ma l'unico operatore che è sia unitario che antiunitario (e può quindi soddisfare l'uguaglianza (\ref{eqn:antiunitari_gruppo})) è l'operatore nullo, che non può essere una rappresentazione (proiettiva) di un gruppo (per esempio non mappa l'elemento neutro nell'identità).\\
 
-\textbf{Nota}: gli operatori antiunitari possono però rappresentare (proiettivamente) simmetrie \q{discrete}, come \textit{parità} e \textit{inversione temporale}\footnote{Per approfondimenti, fare riferimento alla sezione $5$ di \url{https://www.ias.ac.in/article/fulltext/reso/019/10/0900-0916}}.\\
+\textbf{Nota}: gli operatori antiunitari possono però rappresentare (proiettivamente) simmetrie \q{discrete}, come la \textit{parità} e l'\textit{inversione temporale}\footnote{Per approfondimenti, fare riferimento alla sezione $5$ di \url{https://www.ias.ac.in/article/fulltext/reso/019/10/0900-0916}}.\\
 
 \textbf{Riepilogando}: abbiamo scoperto che una simmetria fisica con una struttura di gruppo $(G,*)$ è \textit{rappresentata proiettivamente} da una mappa $G\ni g\mapsto U(g):\hs \to \hs$, con $U(g)$ operatore unitario.\\
 
@@ -216,7 +214,7 @@ U(g*h) = U(g)U(h)
 \]
 
 Fortunatamente, ciò è possibile, ma sotto opportune condizioni.\\
-La prima è che $G$ sia semplicemente connesso (intuitivamente, se così non fosse si potrebbero avere rappresentazioni \q{diverse} sulle varie componenti connesse), e la seconda è che, nel caso di $\hs$ infinito-dimensionale, $G$ abbia determinate (deboli) proprietà, che nella pratica considereremo sempre soddisfatte.\\
+La prima è che $G$ sia connesso\footnote{In maniera \textit{pittoresca} si immagini $G$ come un \q{tutt'uno}, ossia un insieme fatto di un \q{solo pezzo}} (intuitivamente, se così non fosse si potrebbero avere rappresentazioni \q{diverse} sulle varie componenti connesse) e semplicemente connesso\footnote{Ossia connesso per archi e tale che ogni curva in $G$ possa essere contratta con continuità ad un punto rimanendo in $G$. Sempre in maniera \textit{pittoresca}, si immagini $G$ semplicemente connesso come \q{senza buchi}}, e la seconda è che, nel caso di $\hs$ infinito-dimensionale, $G$ abbia determinate (deboli) proprietà, che nella pratica considereremo sempre soddisfatte.\\
 
 Purtroppo molti gruppi interessanti \textbf{non} sono semplicemente connessi. Ciò significa, matematicamente, che data una curva \textbf{chiusa} $f: \bb{R}\to G$, $t \mapsto f(t)$, non è possibile \q{deformarla con continuità} a un punto senza uscire da $G$.\\
 Per esempio, si consideri $G=\bb{T}$, che \textit{è} il cerchio unitario. Una qualsiasi curva chiusa che \q{gira attorno al cerchio} non è contraibile. Pittorescamente, si immagini di cercare di \q{comprimere ad un punto} un elastico che avvolge un bicchiere (il cui contorno circolare costituisce \textit{i punti del gruppo $\bb{T}$}): le uniche possibilità sono \textit{rompere l'elastico} (e quindi fare una trasformazione \textit{non continua}) oppure toglierlo dal bicchiere (ossia \textit{uscire} da $G$).\\
@@ -225,7 +223,7 @@ Un'idea per ovviare a questo problema è quella di considerare un gruppo \q{il p
 Chiameremo questo $\tilde{G}$ \textbf{ricoprimento universale} di $G$. Formalizziamo in termini matematici tale concetto nella seguente definizione:
 
 \begin{dfn}
-Dato un gruppo $(G,*)$\marginpar{Ricoprimento universale di un gruppo}, definiamo $(\widetilde{G},\cdot)$, il gruppo di \textbf{ricoprimento} (o rivestimento) \textbf{universale} di G, come il più piccolo gruppo che ha le seguenti proprietà:
+Dato un gruppo $(G,*)$\marginpar{Ricoprimento universale di un gruppo} connesso, definiamo $(\widetilde{G},\cdot)$, il gruppo di \textbf{ricoprimento} (o rivestimento) \textbf{universale} di G, come il più piccolo gruppo che ha le seguenti proprietà:
 \begin{enumerate}
     \item Omeomorfo a $G$, cioè esiste una mappa $\pi$ dal ricoprimento al gruppo originario $\pi :\widetilde{G}\to G$ che preserva la struttura di gruppo:
 \[
@@ -254,7 +252,7 @@ Potremmo però considerare una \q{spirale} infinita in tre dimensioni, la cui pr
 
 Possiamo finalmente enunciare il risultato che stavamo cercando:
 \begin{thm}
-Sotto assunzioni deboli\marginpar{Teorema di Bargmann} su $G$, esiste una corrispondenza biunivoca tra le rappresentazioni proiettive continue di un gruppo $G$ e le rappresentazioni unitarie del suo gruppo di ricoprimento universale $\widetilde{G}$.
+Sotto assunzioni deboli\marginpar{Teorema di Bargmann} su $G$ connesso, esiste una corrispondenza biunivoca tra le rappresentazioni proiettive continue di un gruppo $G$ e le rappresentazioni unitarie del suo gruppo di ricoprimento universale $\widetilde{G}$.
 \end{thm}
 
 Concretizziamo tutto ciò nel caso delle \textbf{traslazioni}.\\
@@ -300,11 +298,11 @@ q_{mn}\left(t\right)&=q_{mn}e^{i\omega_{mn}t}
 \end{align*}
 Calcoliamone la derivata temporale:
 \begin{align*}
-\dot{q_{mn}}\left(t\right)&=i\omega_{mn}e^{i\omega_{mn}t}\underset{(a)}{=}
+\dot{q_{mn}}\left(t\right)&=q_{mn} i\omega_{mn}e^{i\omega_{mn}t}\underset{(a)}{=}
 \frac{\mathcal{E}_n-\mathcal{E}_m}{i\hbar}q_{mn}\left(t\right)=\frac{\left[q,H\right]_{mn}}{i\hbar}
 \end{align*}
 dove in (a) si è sostituita l'espressione per l'energia $\mathcal{E}=\hbar \omega$, mentre nell'ultimo introduciamo come $H$ la \textit{matrice diagonale} delle energie $\mathcal{E}_i$. In tal modo, ricordando che $q$ è la matrice (infinito-dim.) delle $q_{mn}$, possiamo usare la notazione più compatta del commutatore di matrici.\\
-Estendendo ad una generica osservabile $A$ troviamo, l'evoluzione temporale di $A$, indicata con $A^H\left(t\right)$, deve soddisfare la seguente relazione:\index{Evoluzione temporale!Heisenberg}
+Estendendo ad una generica osservabile $A$ troviamo che l'evoluzione temporale di $A$, indicata con $A^H\left(t\right)$, deve soddisfare la seguente relazione:\index{Evoluzione temporale!Heisenberg}
 \[
 \frac{dA^H(t)}{dt}=\frac{[A^H(t), H]}{i\hbar}
 \]
@@ -404,7 +402,7 @@ Espandiamo la relazione $U(t) = e^{-iHt/\hbar}$ data dal teorema di Stone per l'
         \label{eqn:evoluzionetemporale_nodeg}
         \end{align}
 Vedremo nelle prossime sezioni %[TO DO] Mettere ref all'esempio che viene fatto
-cosa succede a risolvere l'equazione di Schrödinger per una $\psi \notin D(H)$, come quella definita da $\psi(x)=1$ tra $0$ e $1$ (e pari $0$ altrimenti). Noteremo allora come il metodo generale, per cui $\psi(t)=U(t)\psi$, produrrà la soluzione corretta, mentre l'equazione di Schr\"odinger dipendente dal tempo produrrà un risultato assurdo.\\
+cosa succede a risolvere l'equazione di Schrödinger per una $\psi \notin D(H)$, come quella definita da $\psi(x)=1$ tra $0$ e $1$ (e pari a $0$ altrimenti). Noteremo allora come il metodo generale, per cui $\psi(t)=U(t)\psi$, produrrà la soluzione corretta, mentre l'equazione di Schr\"odinger dipendente dal tempo produrrà un risultato assurdo.\\
 
 \textbf{Riepilogando}: siamo partiti dall'\textbf{omogeneità del tempo}, da cui deriva che le \textit{traslazioni temporali} (descritte dal gruppo $(\bb{R},+)$) devono lasciare invariate le probabilità di transizione.\\
 Partendo da tale proprietà, Wigner ha dimostrato che  tali trasformazioni sono \textit{rappresentate proiettivamente} su $\hs$, e Bargmann, notando che il ricoprimento universale del gruppo di omogeneità è $\bb{R}$, ha dimostrato che sono rappresentate da un gruppo a un parametro di operatori unitari $U(t)$, e infine per teorema di Stone si giunge all'espressione:

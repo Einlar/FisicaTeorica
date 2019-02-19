@@ -34,12 +34,12 @@ Dimostriamo che tali $a$ non soddisfano la definizione in (\ref{eqn:spettroA}):
 \underset{(a)}{=}\inf_\phi{\frac{\left|\left|\phi\right|\right|^2}{\left|\left|\left(A-a\bb{I}\right)^{-1}\phi\right|\right|^2}}=\\
 &\underset{(b)}{=}\frac{1}{\sup_\phi{\frac{\left|\left|\left(A-a\right)^{-1}\phi\right|\right|^2}{\left|\left|\phi\right|\right|^2}}}\underset{(c)}{=}\frac{1}{\left|\left|\left(A-a\bb{I}\right)^{-1}\right|\right|^2}>\frac{1}{C^2}
 \end{align*}
-In (a) si è definito $\phi = (A-a\bb{I})\psi$ per $\psi \in D\left(A\right)$, da cui $\left(A-a\mathbb{I}\right)^{-1}\phi =\psi$. In (b) portiamo tutto al denominatore, e l'estremo inferiore di una frazione con numeratore fissato si ottiene \q{massimizzando} il denominatore. Ma allora applicando Riesz (norma di un funzionale) in (c) si ha che l'$\inf$ di partenza è maggiore di un numero \textit{piccolo} ma certamente maggiore di $0$. Perciò gli $a \notin \sigma(A)_{\text{mat}}$, ossia quelli per cui $(A-a\bb{I})^{-1}\in\mathcal{B}(\hs)$, non sono autovalori per la (\ref{eqn:spettroA}). Perciò:
+In (a) si è definito $\phi = (A-a\bb{I})\psi$ per $\psi \in D\left(A\right)$, da cui $\left(A-a\mathbb{I}\right)^{-1}\phi =\psi$. In (b) portiamo tutto al denominatore, e l'estremo inferiore di una frazione con numeratore fissato si ottiene \q{massimizzando} il denominatore. Ma allora applicando Riesz (norma di un funzionale) in (c) si ha che l'$\inf$ di partenza è maggiore di un numero certamente maggiore di $0$. Perciò gli $a \notin \sigma(A)_{\text{mat}}$, ossia quelli per cui $(A-a\bb{I})^{-1}\in\mathcal{B}(\hs)$, non sono autovalori per la (\ref{eqn:spettroA}). Perciò:
 \[
 \sigma(A)_{\text{mat}}^C \subseteq \sigma(A)^C \Leftrightarrow \sigma(A) \subseteq \sigma(A)_{\text{mat}}
 \]
 (dove $B^C$ è l'insieme complementare di $B$).\\
-Ci serve ora dimostrare l'inclusione inversa, ossia che tutti gli autovalori \q{matematici} siano anche autovalori per la (\ref{eqn:spettroA}).\\
+Ci serve ora dimostrare l'inclusione inversa, ossia che tutti i valori nello \q{spettro matematico} per le osservabili siano anche autovalori per la (\ref{eqn:spettroA}).\\
 Se $a\in\sigma(A)_{\text{mat}}$, cioè se $\left(A-a\right)^{-1}\notin B\left(\mathcal{H}\right)$,  abbiamo 3 casi:
 \begin{enumerate}
     \item 
@@ -115,12 +115,12 @@ Siccome i $\ket{\lambda_n}$ costituiscono una base ON, possiamo scrivere un qual
 \langle \phi |=\sum_{n}{\langle\phi|\lambda_n\rangle \langle\lambda_n|}
 \label{eqn:bra-ket}
 \end{equation}
-dove $\langle \lambda_n|$ sono i funzionali in $\mathcal{H}^\ast$ associati a $|\lambda_n \rangle$  per Riesz. In notazione di Dirac la relazione di Parseval, che permette di scrivere il prodotto scalare come una serie, ha la seguente forma:
+dove $\langle \lambda_n|$ sono i funzionali in $\mathcal{H}^\ast$ associati a $|\lambda_n \rangle$  per Riesz. In notazione di Dirac la relazione di Parseval, che permette di scrivere il prodotto scalare in termini dei coefficienti rispetto alla base, ha la seguente forma:
 \begin{equation}
 \left\langle\phi\middle|\psi\right\rangle=\sum_{n}{\langle\phi|\lambda_n\rangle \langle\lambda_n|\psi\rangle }
 \label{eqn:parseval-relazione}
 \end{equation}
-Si ha che (\ref{eqn:bra-ket}) e (\ref{eqn:parseval-relazione}) sono compatibili solamente se $\left\langle\lambda_n\middle|\lambda_m\right\rangle=\delta_{mn}$, e questo fatto è sintetizzato nella \textbf{relazione di completezza di Dirac}:
+Si ha che (\ref{eqn:bra-ket}) e (\ref{eqn:parseval-relazione}) sono compatibili solamente se $\left\langle\lambda_n\middle|\lambda_m\right\rangle=\delta_{mn}$, e le formule precedenti sono sintetizzate nella \textbf{relazione di completezza di Dirac}:
 \[
 \sum_{n}{|\lambda_n\rangle \langle\lambda_n|}=\bb{I}
 \]
@@ -184,14 +184,10 @@ A\int d\lambda  \left|\lambda\right\rangle\left\langle\lambda\right|=\int d\lamb
 \subsection{Formalismo per uno spettro generale}
 I casi visti fin ora sono quelli con spettro puramente discreto e puramente continuo, in entrambi i casi senza degenerazioni. Fortunatamente il formalismo di Dirac si generalizza facilmente ad uno spettro qualsiasi (sia discreto che continuo) $\sigma \left(A\right)= \sigma_P(A)\cup \sigma_C\left(A\right)$ e con eventuali degenerazioni.\\
 \begin{dfn}[degenerazione]
-Dato un autovalore $\lambda_n\in \sigma_P(A)$ o un autovalore generalizzato ($\lambda \in \sigma_C(A)$) diremo che ha \textbf{degenerazione} $d(\lambda_n)$ o $d\left(\lambda\right)$ se le equazioni agli autovalori corrispondenti (nel senso di Dirac) hanno $d\left(\lambda_n\right)$ o $d\left(\lambda\right)$ soluzioni indipendenti (in $\hs$) che denotiamo rispettivamente con $\ket{\lambda_{n}, r}$ (per $r=1,\dots, d(\lambda_n$) e $\ket{\lambda, r}$ per $r = 1,\dots, d(\lambda)$ (con $d(\lambda) \in \bb{N}$ ed eventualmente $\infty$).
+Dato un autovalore $\lambda_n\in \sigma_P(A)$ o un autovalore generalizzato ($\lambda \in \sigma_C(A)$) diremo che ha \textbf{degenerazione} $d(\lambda_n)$ o $d\left(\lambda\right)$ se le equazioni agli autovalori corrispondenti (nel senso di Dirac) hanno $d\left(\lambda_n\right)$ o $d\left(\lambda\right)$ soluzioni indipendenti (per $\hs$ nel senso esplicitato in seguito) che denotiamo rispettivamente con $\ket{\lambda_{n}, r}$ (per $r=1,\dots, d(\lambda_n$) e $\ket{\lambda, r}$ per $r = 1,\dots, d(\lambda)$ (con $d(\lambda) \in \bb{N}$ ed eventualmente $\infty$).
 \end{dfn}
 Nel caso in cui lo spettro abbia una componente discreta e una continua allora la notazione di Dirac permette semplicemente di sommare le due componenti nelle formule del paragrafo precedente.
 Ad esempio la relazione di completezza nel caso di uno spettro qualsiasi diviene:
-\[
-\sum_{\lambda_n\in\sigma_P\left(A\right)}{\left|\lambda_n\right\rangle\left\langle\lambda_n\right|+\int_{\sigma_C\left(A\right)} d\lambda\left|\lambda\right\rangle\left\langle\lambda\right|=\mathbb{I}_\mathcal{H}}
-\]
-Se inoltre sono presenti degenerazioni, per ciascuna di esse si dovranno ovviamente sommare tutti gli stati corrispondenti soggetti a degenerazione:
 \[
 \sum_{\lambda_n\in\sigma_P\left(A\right)}\sum_{r=1}^{d\left(\lambda_n\right)}{\left|\lambda_n,r\right\rangle\left\langle\lambda_n,r\right|+\int_{\sigma_C\left(A\right)}d\lambda\sum_{r=1}^{d\left(\lambda\right)}\left|\lambda,r\right\rangle\left\langle\lambda,r\right|=\mathbb{I}_\mathcal{H}}
 \]
@@ -201,7 +197,7 @@ f\left(A\right)= \sum_{\lambda_n\in\sigma_D\left(A\right)} f\left(\lambda_n\righ
 \]
 Notiamo che per lo spettro generale anche nei casi più \q{semplici} è necessaria la completezza.\\
 
-Ad esempio sia $H$ l'hamiltoniana dell'atomo di idrogeno. Negli stati in cui l'elettrone è legato l'energia è quantizzata, con degenerazione $n^2$, ma quando è libero possiamo scegliere una qualsiasi energia in un range continuo, e vi è un qualsiasi numero di stati che hanno una determinata energia (la degenerazione è infinita):
+Ad esempio sia $H$ l'hamiltoniana dell'atomo di idrogeno. Negli stati in cui l'elettrone è legato l'energia è quantizzata, con degenerazione $n^2$, ma quando è libero possiamo scegliere una qualsiasi energia in un range continuo, e vi è un numero di stati infinito con una determinata energia (la degenerazione è infinita):
 \[
 \sigma \left(H\right)=\left\{-\frac{c}{n^2},n\in\mathbb{N}\right\}\cup \left\{x>0,x\in\mathbb{R}\right\}
 \]
@@ -229,7 +225,7 @@ La situazione è analoga, anche se opposta a quella dell'operatore posizione: in
 Viste in quest'ottica le distribuzioni sono estremamente comode, ma la domanda sorge spontanea: possono essere considerate come \q{stati fisici}, cioè stati corrispondenti a situazioni reali? Se questo fosse possibile, allora tutta la formulazione assiomatica della \MQ non sarebbe coerente con il principio di indeterminazione. Il fatto che le soluzioni dell'equazione agli autovalori non siano in $L^2(\bb{R})$ significa che esse non corrispondono a \q{stati fisici}, fisicamente possibili. In particolare, ciò vuol dire che non è comunque possibile localizzare una particella perfettamente in un punto, né assegnarle un singolo momento definito.
 Questo artefatto matematico permette solo di estendere lo spazio degli autostati, ma non \q{aggiunge} funzioni di $L^2$ bensì istituisce nuove soluzioni \q{non fisiche} dell'equazione agli autovalori.
 
-La teoria delle distribuzioni permette di formalizzare in modo rigoroso questi concetti. Lo spazio $\mathcal{S}'\left(\mathbb{R}\right)$ è definito come l'insieme dei funzionali lineari continui su $\hs(\bb{R})$, ovvero lo spazio delle funzioni $\mathcal{C}^\infty$ che descrescono all'infinito (assieme a tutte le loro derivate) più rapidamente di $x^{-n}$ per ogni $n \in \mathbb N$. Questa definizione è facilmente generalizzabile in dimensione $n$:
+La teoria delle distribuzioni permette di formalizzare in modo rigoroso questi concetti. Lo spazio $\mathcal{S}'\left(\mathbb{R}\right)$ è definito come l'insieme dei funzionali lineari continui su $\mathcal{S}(\bb{R})$, ovvero lo spazio delle funzioni $\mathcal{C}^\infty$ che descrescono all'infinito (assieme a tutte le loro derivate) più rapidamente di $x^{-n}$ per ogni $n \in \mathbb N$. Questa definizione è facilmente generalizzabile in dimensione $n$:
 \begin{itemize}
     \item $\mathcal{S}\left(\mathbb{R}^n\right)$ è lo spazio delle funzioni $\mathcal{C}^\infty$ su $\mathbb{R}^n$ che decrescono più velocemente della norma $\left|\left|x\right|\right|^{-m}$ per ogni $m \in \mathbb N$;
     \item $\mathcal{S}'(\bb{R}^n)$ è lo spazio dei funzionali lineari continui su $\mathcal{S}(\bb{R}^n)$.
@@ -247,22 +243,22 @@ Dunque l'idea, come già anticipato, è quella di risolvere l'equazione agli aut
 \sigma(X) = \sigma_C(X) = \bb{R} \qquad \quad \sigma(P) = \sigma_C(P) = \bb{R}
 \]
 \lesson{11}{18/10/2018}
-Abbiamo visto che, almeno nel caso di posizione e momento, gli autovalori generalizzati sono quelli dello spettro continuo. Questo fatto vale in realtà in generale per quelaiasi osservabile: la differenza tra gli autovettori generalizzati di $\mathcal{S}'$ e gli autovettori \q{algebrici} di $\hs$ è esattamente ciò che distingue lo \textit{spettro discreto} dallo \textit{spettro continuo}.
+Abbiamo visto che, almeno nel caso di posizione e momento, gli autovalori generalizzati sono quelli dello spettro continuo. Questo fatto vale in realtà in generale per qualsiasi osservabile: la differenza tra gli autovettori generalizzati di $\mathcal{S}'$ e gli autovettori \q{algebrici} di $\hs$ è esattamente ciò che distingue lo \textit{spettro discreto} dallo \textit{spettro continuo}.
 Concretamente, se la soluzione dell'equazione agli autovalori è in $\mathcal{S}'\left(\mathbb{R}\right)$, ma non è in $\hs$ l'autovalore corrispondente appartiene allo \textbf{spettro continuo}. Se invece l'autovettore è in $\hs$ lo spettro corrispondente appartiene allo \textbf{spettro discreto}.\\
 
-Queste idee ovviamente non appartengono più alle intuizioni di Dirac, ma fanno parte della successiva teoria distribuzionale. Uno dei massimi esponenti di questa teoria fu Gel'fand della scuola russa. Come trovare lo\marginpar{Spettro di un operatore $A$ autoaggiunto per Gel'fand} spettro di un operatore autoaggiunto $A$ nel formalismo di Dirac? L'idea di Gel'fand fu quella di trovare uno spazio $\Phi_A$ più \q{piccolo} di $\hs$, ma tale che il suo duale $\Phi'_A$ avesse potuto estendere lo spazio degli stati $\hs$, in pratica:
+Queste idee ovviamente non appartengono più alle intuizioni di Dirac, ma fanno parte della successiva teoria distribuzionale. Uno dei massimi esponenti di questa teoria fu Gel'fand della scuola russa. Come trovare lo\marginpar{Spettro di un operatore $A$ autoaggiunto per Gel'fand} spettro di un operatore autoaggiunto $A$ nel formalismo di Dirac? L'idea di Gel'fand fu quella di trovare uno spazio $\Phi_A$ più \q{piccolo} di $\hs$, ma tale che il suo duale $\Phi'_A$ potesse estendere lo spazio degli stati $\hs$, in pratica:
 \begin{equation}
 \Phi_A \subset \hs \approx \hs' \subset \Phi_A'
 \label{tripletta-gelfand}
 \end{equation}
-Tale catena di inclusioni, che generalizza quella vista in (\ref{eqn:triplettametodi}), è detta \textbf{tripletta di Gel'fand}, e $\Phi_A'$ è detto \textbf{spazio di Hilbert equipaggiato} o \textbf{allargato} (\textit{rigged Hilbert space}). Gel'fand comprese che creando uno spazio con una topologia più forte, dunque uno spazio $\Phi_A$ contenuto in $\hs$, la topologia del suo duale $\Phi_A'$ sarebbe stata più debole, e dunque si sarebbe creata un'estensione $\hs'$. Un esempio di spazio di Hilbert equipaggiato è lo spazio delle distribuzioni $\mathcal S'$.
+Tale catena di inclusioni, che generalizza quella vista in (\ref{eqn:triplettametodi}), è detta \textbf{tripletta di Gel'fand}, e $(\Phi_A, \mathcal{H}, \Phi'_A)$ è detto \textbf{spazio di Hilbert equipaggiato} o \textbf{allargato} (\textit{rigged Hilbert space}). Gel'fand comprese che creando uno spazio con una topologia più forte, dunque uno spazio $\Phi_A$ contenuto in $\hs$, la topologia del suo duale $\Phi_A'$ sarebbe stata più debole, e dunque si sarebbe creata un'estensione di $\hs'$. Un esempio di spazio di Hilbert equipaggiato è lo spazio dato dalle distribuzioni: $(\mathcal{S}, \mathcal{H}, \mathcal{S}')$.
 
 La teoria che a partire da queste definizioni fornisce una spiegazione completa del formalismo di Dirac è molto sofisticata. Infatti è necessario fare le seguenti ulteriori richieste nella definizione di $\Phi_A$:
 \begin{enumerate}
     \item $\Phi_A$ dev'essere \emph{contenuto nel dominio} di $A$, dunque $\displaystyle \Phi_A\subseteq D\left(A\right)$. Ad esempio nel caso delle distribuzioni e dell'operatore posizione, lo spazio delle funzioni di prova $\mathcal S\left(\mathbb{R}\right)$ è contenuto in $D(X)$;
 	\item Nella topologia di $\hs$, $\Phi_A$ dev'essere \emph{denso} in $\hs$, ovvero $\overline{\Phi_A} = \hs$. Nel caso particolare delle distribuzioni si dimostra che $\overline{\mathcal{S}\left(\mathbb{R}\right)} = L^2(\mathbb R)$;
-	\item $A$ dev'essere \emph{continuo} in $\Phi_A$ nella topologia forte (quella di $\Phi_A$), e questo è vero per $X$ nella topologia di $\mathcal S\left(\mathbb{R}\right)$;
-	\item $\Phi_A$ dev'essere \q{\emph{nucleare}} cioè i funzionali lineari continui sullo spazio\footnote{Il simbolo $\otimes$ indica il prodotto tensoriale tra due spazi.} delle coppie $\Phi_A\otimes \Phi_A$ sono lineari e continui anche nello spazio delle combinazioni lineari (eventualmente infinite) degli elementi dello spazio dei prodotti. Nel caso delle distribuzioni una coppia è ad esempio $f,g\in \mathcal{S}(\bb{R})\otimes \mathcal{S}\left(\mathbb{R}\right)$ mentre i prodotti sono $f\left(x,y\right)\in \mathcal S\left(\mathbb{R}^2\right)$. Dunque la nuclearità richiede che i funzionali lineari continui su $\mathcal{S}\left(\mathbb{R}\right)\otimes \mathcal{S}\left(\mathbb{R}\right)$ siano lineari e continui su $\mathcal S(\mathbb R \times \mathbb R) = \mathcal{S}(\mathbb{R}^2)$.
+	\item $A$ dev'essere \emph{continuo} in $\Phi_A$ nella topologia di $\Phi_A$, e questo è vero per $X$ nella topologia di $\mathcal S\left(\mathbb{R}\right)$;
+	\item $\Phi_A$ dev'essere \q{\emph{nucleare}} cioè i funzionali lineari continui sullo spazio\footnote{Il simbolo $\otimes$ indica il prodotto tensoriale tra due spazi.} delle coppie $\Phi_A\times \Phi_A$ sono lineari e continui anche nello spazio delle combinazioni lineari (eventualmente infinite) degli elementi dello spazio dei prodotti $\Phi_A \otimes \Phi_A$. Nel caso delle distribuzioni una coppia è ad esempio $f,g\in \mathcal{S}(\bb{R})\times \mathcal{S}\left(\mathbb{R}\right)$ mentre i prodotti sono $f\left(x,y\right)\in \mathcal S\left(\mathbb{R}^2\right) = \mathcal{S}(\bb{R})\otimes \mathcal{S}(\bb{R})$. Dunque la nuclearità richiede che i funzionali lineari continui su $\mathcal{S}\left(\mathbb{R}\right)\times \mathcal{S}\left(\mathbb{R}\right)$ siano lineari e continui su $\mathcal S(\mathbb R \otimes \mathbb R) = \mathcal{S}(\mathbb{R}^2)$.
 	
 	\subsubsection{Giustificazione della richiesta di nuclearità}
 	Perché è necessario richiedere l'ultima richiesta, quella di nuclearità? 
@@ -285,14 +281,16 @@ La teoria che a partire da queste definizioni fornisce una spiegazione completa 
 	\]
 	dunque analogamente al caso dello spettro discreto si ottiene:
 	\begin{align}
-	\left\langle\phi\left|A\right|\psi\right\rangle=\left\langle\phi\left|\mathbb{I}A\mathbb{I}\right|\psi\right\rangle&=\int d\lambda \  d\lambda'\left\langle\phi\middle|\lambda'\right\rangle\left\langle\lambda\left|A\right|\lambda'\right\rangle\left\langle\lambda'\middle|\psi\right\rangle \notag \\
+	\left\langle\phi\left|A\right|\psi\right\rangle
+	=\left\langle\phi\left|\mathbb{I}A\mathbb{I}\right|\psi\right\rangle&=
+	\int d\lambda \  d\lambda'\left\langle\phi\middle|\lambda\right\rangle\left\langle\lambda\left|A\right|\lambda'\right\rangle\left\langle\lambda'\middle|\psi\right\rangle \notag \\
 	& =\int d\lambda \ d\lambda' \ \left\langle\lambda\left|A\right|\lambda'\right\rangle\left\langle\lambda|\phi\right\rangle^\ast\left\langle\lambda'\middle|\psi\right\rangle \notag
 	\end{align}
 	Ma ciò non è possibile in $L^2$. Infatti si consideri ad esempio $A=\mathbb I$, e siano $f,g\in L^2$. Allora se $x = \lambda$ e $y = \lambda'$ deve verificarsi
 	\[
 	\left(f,\mathbb{I}g\right)=\int dx \, dy \, k\left(x,y\right)f^\ast\left(x\right)g\left(y\right)
 	=\int f^\ast\left(x\right) g\left(x\right)dx
-	\] ovvero il funzionale dev'essere lineare e continuo in $f^\ast$ e in $g$ separatamente e nei loro prodotti. Tuttavia non esiste alcuna funzione $k\left(x,y\right)$ che renda il funzionale lineare e continuo sia in $L^2\left(\mathbb{R}\right)\otimes L^2\left(\mathbb{R}\right)$ che in $L^2(\mathbb{R}^2)$.
+	\] ovvero il funzionale è lineare e continuo in $f^\ast$ e in $g$ separatamente e nei loro prodotti. Tuttavia non esiste alcuna funzione $k\left(x,y\right)$ che renda il funzionale lineare e continuo in $L^2\left(\mathbb{R}\right)\otimes L^2\left(\mathbb{R}\right) = L^2(\mathbb{R}^2)$.
 	% che per Riesz dovrebbe appartenere a $L^2\left(\mathbb{R}^2\right)$ [non mi è chiara questa parte]
 	Ma una soluzione possibile è prendere $k\left(x,y\right)=\delta \left(x-y\right)$ che come sappiamo non è in $L^2\left(\mathbb{R}^2\right)$
 	ma in $\mathcal{S}'\left(\mathbb{R}^2\right)$. Per questo, se lo spazio equipaggiato $\Phi'_A$ è generico, è necessario richiedere come ipotesi che la condizione di nuclearità sia verificata.
