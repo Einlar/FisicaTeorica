@@ -147,22 +147,35 @@ Distinguiamo quindi due casi:
 \begin{align*}
 (1):\>
 \begin{cases}
-\left|\cos\left(k_2 \frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}=\frac{k_2}{\bar{k}}\\
+\left|\cos\left(k_2 \frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}\\
 \sin(k_2 a) < 0
 \end{cases}
 \end{align*} 
-\item Prendendo il $-$ in (\ref{eqn:equazione_coseno}) e quindi il $+$ in (\ref{eqn:equazione_seno}):
+Con un'opportuna manipolazione, possiamo ricavare al secondo membro di (1) un termine lineare in $k_2$. Infatti, elevando al quadrato e sottraendo a $1$:
 \begin{align*}
-(2):\>\begin{cases}
-\left|\sin\left(k_2\frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}=\frac{k_2}{\bar{k}}\\
-\sin(k_2 a)>0
-\end{cases}
+    1-\cos^2\left( k_2 \frac{a}{2} \right) = \sin^2\left(k_2 \frac{a}{2}\right) = 1 - \frac{\mathcal{E}}{\bar{V}} = \frac{\bar{V}-\mathcal{E}}{\bar{V}}
 \end{align*}
-\end{itemize}
+E prendendo di nuovo la radice quadrata:
+\begin{align*}
+    \left| \sin\left(k_2 \frac{a}{2}\right) \right| = \frac{\bar{V}-\mathcal{E}}{\bar{V}} = \frac{k_2}{\bar{k}}
+\end{align*}
 dove abbiamo definito $\bar{k}$:
 \begin{align*}
 \bar{k} = \frac{\sqrt{-2m\bar{V}}}{\hbar}
 \end{align*}
+\item Prendendo il $-$ in (\ref{eqn:equazione_coseno}) e quindi il $+$ in (\ref{eqn:equazione_seno}):
+\begin{align*}
+(2):\>\begin{cases}
+\left|\sin\left(k_2\frac{a}{2}\right)\right| = \sqrt{\frac{\mathcal{E}}{\bar{V}}}\\
+\sin(k_2 a)>0
+\end{cases}
+\end{align*}
+Analogamente al caso precedente, ricaviamo:
+\begin{align}
+    \left|\cos\left(k_2 \frac{a}{2}\right) \right| = \frac{k_2}{\bar{k}}
+\end{align}
+\end{itemize}
+
 
 \begin{figure}
 \centering
@@ -186,17 +199,18 @@ Consideriamo ora il potenziale generico $V(x)$ in figura; richiediamo che $V$ si
 
 
 \subsubsection{Caso $\bm{V_{\text{min}} < \mathcal{E} < 0}$}
+Questo è il caso di una particella \q{confinata in una regione limitata da entrambi i lati}.\\
 Le soluzioni sono del tipo $\varphi_\mathcal{E}\sim e^{\mp c_\pm x}$. La funzione non può divergere, e in particolare $\varphi_\mathcal{E}\in \hs$. Lo spettro è inoltre non degenere, cioè ha degenerazione 1. Per dimostrarlo supponiamo che $\psi_1$ e $\psi_2$ siano due soluzioni corrispondenti alla stessa energia $\mathcal{E}$, e dimostriamo che rappresentano lo stesso stato. Si ha che
 \begin{align*}
 \psi_1'' + \frac{2m}{\hbar^2}(\mathcal{E}-V(x))\psi_1 &= 0\\[0.6em]
 \psi_2'' + \frac{2m}{\hbar^2}(\mathcal{E}-V(x))\psi_2 &= 0
 \end{align*}
-Dividendo la prima per $\psi_1$ e la seconda per $\psi_2$ si ottiene:
+Dividendo la prima per $\psi_1$, la seconda per $\psi_2$ e sottraendo membro a membro:
 \begin{align*}
-\frac{\psi_1''}{\psi_1}=\frac{2m}{\hbar^2}((V(x)-\mathcal{E})=\frac{\psi_2''}{\psi_2} & \quad \Rightarrow \quad \psi_1''\psi_2 - \psi_1\psi_2'' = 0\\
+\frac{\psi_1''}{\psi_1} - \frac{\psi_2''}{\psi_2} = 0 &\Rightarrow \quad \psi_1''\psi_2 - \psi_1\psi_2'' = 0\\
 & \Rightarrow \quad \frac{d}{dx}(\psi_1' \psi_2 - \psi_1 \psi_2') = 0
 \end{align*}
-e quindi la funzione $\psi_1'\psi_2 - \psi_1 \psi_2'$ deve essere una costante. Tale funzione è regolare perché $\psi_{1,2}$ è derivabile due volte. Inoltre tale funzione è in $\hs$ (perché appartiene a $\mathcal{E}\in \sigma_P(H)$), ma quindi è quadrato sommabile e necessariamente tende a 0 all'infinito. L'unica funzione costante in $\hs$ è quella identicamente nulla. Quindi
+e quindi la funzione $\psi_1'\psi_2 - \psi_1 \psi_2'$ deve essere una costante. Tale funzione è regolare perché $\psi_{1,2}$ è derivabile due volte (dato che è soluzione dell'equazione di Schr\"odinger. Inoltre tale funzione è in $\hs$ (perché è combinazione $\mathcal{C}^\infty$ di autofunzioni $\varphi_\mathcal{E}$ di autovalori nello spettro discreto $\sigma_P(H)$), ma quindi è quadrato sommabile e necessariamente tende a 0 all'infinito. L'unica funzione costante in $\hs$ è quella identicamente nulla. Quindi
 \[
 (\psi_1' \psi_2 - \psi_1 \psi_2')(x) = 0 \quad \Rightarrow \quad \frac{\psi_1'(x)}{\psi_1(x)} = \frac{\psi_2'(x)}{\psi_2(x)}
 \]
@@ -209,6 +223,7 @@ dove $c$ è una costante di integrazione. Quindi $\psi_1$ e $\psi_2$ differiscon
 Segue che lo spettro  $\sigma(H)|_{V_\text{min} < \mathcal{E} < 0}$ è non degenere.
 
 \subsubsection{Caso $\bm{0 < \mathcal{E} < V(-\infty)}$}
+Questo è il caso di una particella \q{confinata da un lato}.\\
 La soluzione ha un andamento del tipo:
 \[
 \varphi_\mathcal{E}(x) = \begin{cases}
@@ -217,9 +232,10 @@ e^{\chi x} & x\to-\infty
 \end{cases} \qquad \chi =\ \frac{\sqrt{2m(V(+\infty)-\mathcal{E})}}{\hbar}
 \]
 Poiché la soluzione $\varphi_{\mathcal E}$ oscilla infinitamente non può appartenere ad $\hs$, e quindi lo spettro $\sigma(H)|_{0<\mathcal{E}<V(-\infty)}$ dell'hamiltoniana è necessariamente continuo.
-Inoltre siccome $\varphi_\mathcal{E}(-\infty) = 0$ possiamo applicare gli stessi ragionamenti del teorema visto al punto precedente e quindi affermare che $\sigma(H)$ è non degenere.
+Inoltre siccome $\varphi_\mathcal{E}(-\infty) = 0$ (dato che $V(-\infty) = 0$) possiamo applicare gli stessi ragionamenti del teorema visto al punto precedente e quindi affermare che $\sigma(H)$ è non degenere.
 
 \subsubsection{Caso $\bm{\mathcal{E} > V(-\infty)}$}
+Questo è il caso di una particella \q{non confinata}, come per esempio il caso del potenziale a gradino con $\mathcal{E}>\bar{V}$ visto precedentemente.\\
 Le soluzioni risultano
 \[
 \varphi_\mathcal{E}(x) = \begin{cases}

@@ -12,7 +12,7 @@
 \end{comment}
 
 \section{Potenziale centrale}
-Occupiamoci ora dello studio di potenziali $U(r)$ a simmetria centrale, ossia che dipendono solo dalla distanza $r$ da un \textit{centro} fissato. Tale caso è infatti di grande rilevanza fisica, dato che ci permetterà di creare un modello dettagliato dell'\textit{atomo di idrogeno}.\\
+Occupiamoci ora dello studio di potenziali $U(r)$ a simmetria centrale\footnote{Alcune fonti a riguardo sono disponibili in \cite{fonti_pot-centrale}}, ossia che dipendono solo dalla distanza $r$ da un \textit{centro} fissato. Tale caso è infatti di grande rilevanza fisica, dato che ci permetterà di creare un modello dettagliato dell'\textit{atomo di idrogeno}.\\
 
 Partiamo considerando, in generale,\marginpar{Moto di due particelle nel sdr del centro di massa} un sistema di due particelle distinguibili in $\bb{R}^3$ (che saranno protone ed elettrone nel caso dell'atomo di idrogeno) di massa rispettivamente $m_1$ e $m_2$, che interagiscono tra loro mediante un potenziale centrale $U(r)$, dove $r=|\vec{x}_1 - \vec{x}_2|$ è la distanza che le separa.\\
 L'Hamiltoniana \textbf{classica} è data da:
@@ -28,9 +28,10 @@ Per poter sfruttare la simmetria sferica del sistema, conviene riscrivere il tut
 \vec{R}=\frac{m_1 \vec{x}_1 + m_2 \vec{x}_2}{m_1+m_2}; \quad \vec{x}=\vec{x}_1 -\vec{x}_2; \quad \hs \cong L^2(\bb{R}^3, d^3R) \otimes L^2(\bb{R}^3, d^3x)
 \]
 Da cui otteniamo:
-\[
+\begin{align}
 H_{12}=\underbrace{-\frac{\hbar^2}{2M}\Delta_R}_{H_R} \underbrace{- \frac{\hbar^2}{2m}\Delta_x + U(r)}_{H}\qquad M=m_1+m_2; \quad m=\frac{m_1 m_2}{m_1+m_2}
-\]
+\label{eqn:hamiltoniana_centrale}
+\end{align}
 dove riconosciamo in $m$ la \textit{massa ridotta} del sistema.\\
 Esaminiamo i domini di autoaggiuntezza. $H_R$ è l'Hamiltoniana di una particella libera, di massa $M$ e centrata al CM, ed è definita in:
 \[
@@ -46,7 +47,7 @@ Scriviamo allora l'equazione di Schr\"odinger stazionaria per il sistema:
 \left[-\frac{\hbar^2}{2M}\Delta_R - \frac{\hbar^2}{2m}\Delta_x + U(r)\right]\Psi(\vec{R},\vec{x})=\mathcal{E}_{tot}\Psi(\vec{R},\vec{x})
 \label{eqn:schrodinger-centrale1}
 \end{align}
-Dato che i termini dell'Hamiltoniana agiscono dipendono rispettivamente solo da $\vec{R}$ o da $\vec{x}$, e mai da entrambi contemporaneamente, possiamo cercare una soluzione $\Psi(\vec{R},\vec{x})$ \textit{fattorizzata}:
+Dato che ogni termine dell'Hamiltoniana dipende rispettivamente solo da $\vec{R}$ o da $\vec{x}$, e mai da entrambi contemporaneamente, possiamo cercare una soluzione $\Psi(\vec{R},\vec{x})$ \textit{fattorizzata}:
 \[
 \Psi(\vec{R},\vec{x})=\varphi(\vec{R})\psi(\vec{x})
 \]
@@ -106,7 +107,7 @@ In (c) \q{invertiamo} il prodotto scalare tramite i commutatori. In notazione di
 \vec{X}\cdot \vec{P} = X_i P_i = [X_i, P_i] + P_i X_i = 3i\hbar + \vec{P}\cdot \vec{X} \Rightarrow  \vec{P}\cdot \vec{X} = \vec{X}\cdot\vec{P} - 3i\hbar
 \end{align*}
 
-Invertendo la (\ref{eqn:Lquadro_Pquadro}) otteniamo $\vec{P}^2$ in termini di $\vec{L}^2$:
+Invertendo la (\ref{eqn:Lquadro_Pquadro})\marginpar{$\vec{P}^2$ in funzione di $\vec{L}^2$} otteniamo $\vec{P}^2$ in termini di $\vec{L}^2$:
 \begin{align}
 \vec{P}^{\,2} =\vec{X}^{-2} [(\vec{X}\cdot \vec{P})^2+\vec{L}^{\,2}-i\hbar \vec{X}\cdot\vec{P}]
 \label{eqn:Pquadro_Lquadro}
@@ -149,9 +150,9 @@ E infine otteniamo:
 \vec{P}^{\,2}=\frac{1}{r^2}\left[\hlc{Yellow}{-\hbar^2r \frac{\partial^2}{\partial r^2}r}+ \vec{L}^2 \right]
 \label{eqn:Pquadro_Lquadro3}
 \end{align}
-Sostituendo nell'Hamiltoniana $H$, giungiamo a:
+Sostituendo nell'Hamiltoniana $H$ (\ref{eqn:hamiltoniana_centrale}), giungiamo a:
 \begin{align}
-H=\frac{1}{2m}\left[\hlc{Yellow}{-\frac{\hbar^2}{r}\frac{\partial^2}{\partial r^2}r} +\frac{\vec{L}^2}{r^2}\right]
+H=\frac{1}{2m}\left[\hlc{Yellow}{-\frac{\hbar^2}{r}\frac{\partial^2}{\partial r^2}r} +\frac{\vec{L}^2}{r^2}\right]+U(r)
 \label{eqn:hamiltoniana-centrale}
 \end{align}
 
@@ -193,7 +194,7 @@ Infatti, prendendo:
 \[
 \varphi \in D((P^2_r)^\dag), \> \psi \in D(P_r^2)
 \]
-e calcolando gli elementi di matrice, si ha che:
+e calcolando gli elementi di matrice (dividendo per le costanti in modo da alleggerire la notazione), si ha che:
 \begin{comment}
 \begin{align*}
 \left(\varphi, \frac{P_r^2 \psi}{\hbar^2}\right) &=\int_0^\infty \varphi*(r) \frac{1}{r}\frac{\partial^2}{\partial r^2}(r\psi(r)) r^2\,dr \underset{\text{int parti}}{=}
@@ -227,7 +228,7 @@ Da cui:
 (\ref{eqn:elemento-matrice-Pquadro})=(r\varphi^*)\frac{\partial}{\partial r}(r\psi)\Big|_0^{+\infty} -\frac{\partial}{\partial r}(r\varphi^*)r\psi\Big|_0^{+\infty} + \int_0^{+\infty}dr\,(r\psi) \frac{\partial^2}{\partial r^2}(r\varphi^*)
 \label{eqn:elemento-matrice-Pquadro2}
 \end{align}
-Riconosciamo nell'ultimo termine il prodotto scalare tra $P_r^2/-\hbar^2$ applicato a $\varphi^*$ e $\psi$, come desiderato. Inoltre, essendo $\varphi, \psi \in L^2$, sappiamo che $\varphi^*(+\infty)\to 0$, e $\psi(+\infty)\to 0$, e perciò:
+Riconosciamo nell'ultimo termine il prodotto scalare tra $P_r^2/(-\hbar^2)$ applicato a $\varphi^*$ e $\psi$, come desiderato. Inoltre, essendo $\varphi, \psi \in L^2$, sappiamo che $\varphi^*(+\infty)\to 0$, e $\psi(+\infty)\to 0$, e perciò:
 \begin{align*}
 (\ref{eqn:elemento-matrice-Pquadro2})=-\hlc{ForestGreen}{\left(r\varphi^*\frac{\partial}{\partial r}(r\psi)\right)(0)} +\hlc{Yellow}{ \left(\frac{\partial}{\partial r}(r\varphi')r\psi\right)(0)} + \left(\frac{P_r^2}{-\hbar^2}\varphi,\psi\right)
 \end{align*}
@@ -247,11 +248,11 @@ dimostra l'autoaggiuntezza di $P_r^2$.\\
 
 L'Hamiltoniana \textit{ridotta} $H$ del sistema è allora:
 \[
-H = \frac{1}{2m}\left[P_r^2 + U(r) + \frac{\vec{L}}{r^2} (\theta,\varphi)\right]\quad \lim_{r\to 0} r\psi(r) = 0
+H = \frac{1}{2m}\left[P_r^2  + \frac{\vec{L}}{r^2} (\theta,\varphi)\right]+ U(r)\quad \lim_{r\to 0} r\psi(r) = 0
 \]
 Scriviamo quindi l'equazione di Schr\"odinger stazionaria:
 \begin{align}
-\frac{1}{2m}\left[\vec{P}_r^2 + \frac{\vec{L}^2}{r^2}(\theta,\varphi) + U(r)\right] \psi(r,\theta,\varphi) = \mathcal{E}\psi(r,\theta,\varphi)
+\left[\frac{1}{2m}\left(\vec{P}_r^2 + \frac{\vec{L}^2}{r^2}(\theta,\varphi)\right) + U(r)\right] \psi(r,\theta,\varphi) = \mathcal{E}\psi(r,\theta,\varphi)
 \label{eqn:schrody-centrale2}
 \end{align}
 Vogliamo ora trovare esplicitamente gli autoket comuni $\ket{\epsilon, l, m}$.
@@ -266,7 +267,7 @@ L_\pm \psi_{\epsilon l m}(\vec{r}) &= h_{\epsilon l m}(r)L_\pm Y_l^m(\theta,\var
 \end{align*}
 E perciò $h_{\epsilon l m}(r) = h_{\epsilon l, m\pm 1}(r)$. In altre parole, $h$ è indipendente dall'indice $m$, che perciò possiamo rimuovere. Giungiamo allora a:
 \begin{align}
-\psi_{\epsilon l m}(r,\theta,\varphi)=h_{lm}(r) Y_l^m(\theta,\varphi)
+\psi_{\epsilon l m}(r,\theta,\varphi)=h_{\epsilon m}(r) Y_l^m(\theta,\varphi)
 \label{eqn:soluzione_fattorizzata_centrale}
 \end{align}
 Per cui valgono le equazioni agli autovalori:
@@ -278,13 +279,14 @@ Ci rimane solo da trovare un'espressione esplicita per $h_{\epsilon l}(r)$, per 
 \left[ - \frac{\hbar^2}{r}\frac{d^2}{dr^2} \hlc{Yellow}{r} + \frac{\hbar^2 l (l+1)}{r^2}-2m(\mathcal{E}-U(r)\right] h_{\epsilon l}(r) = 0
 \label{eqn:autoval_psi}
 \end{align}
-Possiamo semplificare tale equazione includendo l'$r$ evidenziato nella funzione, e cioè definendo:
+Possiamo semplificare tale equazione includendo l'$r$ evidenziato nella funzione\footnote{E, per gli altri termini, usiamo l'$r$ al denominatore del primo termine}, e cioè definendo:
 \[
 \chi_{\epsilon l}(r) = rh_{\epsilon l}(r)
 \]
 Dalla condizione $\lim_{r\to 0}r \psi(r) = 0$ abbiamo:
 \[
-\chi_{\epsilon l } = 0
+\lim_{r\to 0} 
+\chi_{\epsilon l }(r) = 0
 \]
 Perciò la (\ref{eqn:autoval_psi}) diviene:
 \begin{align}
@@ -311,7 +313,7 @@ Così facendo, otteniamo l'equazione:
 \left[-\frac{\hbar^2}{2m}\frac{d^2}{dr^2} + U_l^{\mathrm{eff}}(r)\right]\chi_{\epsilon l}(r)=\mathcal{E}_{\epsilon l} \chi_{\epsilon l}
 \end{align*}
 che è l'equazione di Schr\"odinger stazionaria per una particella confinata in $\mathbb{R}_+$ in un potenziale unidimensionale\footnote{Ponendo $U_{l}^{\mathrm{eff}}(r)=+\infty$ per $r<0$ possiamo ricondurre il problema a tutto $\bb{R}$.}\\
-Di tale sistema, almeno qualitativamente, sappiamo già dire tutto. Facendo riferimento alla sezione \ref{sec:potenziali_generici}, poiché $U_l^\mathrm{eff}(0)=+\infty$ (e infatti si ha $\chi(0)=0$) il moto avviene in una regione semilimitata, ossia solo per $r>0$. Ne segue che, fissati $l$ e $m$, lo spettro $\sigma(H)$ è sempre non degenere. Ma questo è proprio quello che volevamo dimostrare: possiamo perciò affermare che $\{H, \vec{L}^{\,2},L_3\}$ costituisca un ICOC per il sistema considerato.\\
+Di tale sistema, almeno qualitativamente, sappiamo già dire tutto. Facendo riferimento alla sezione \ref{sec:potenziali_generici}, poiché $U_l^\mathrm{eff}(0)=+\infty$ (e infatti si ha $\chi(0)=0$) il moto avviene in una regione semilimitata, ossia solo per $r>0$. Ne segue che,\marginpar{ICOC $\{H,\vec{L}^2, L_3\}$} fissati $l$ e $m$, lo spettro $\sigma(H)$ è sempre non degenere. Ma questo è proprio quello che volevamo dimostrare: possiamo perciò affermare che $\{H, \vec{L}^{\,2},L_3\}$ costituisca un ICOC per il sistema considerato.\\
 A seconda del valore di $\mathcal{E}$ si presentano allora due casi:
 \begin{itemize}
 \item $V_{\min} < \mathcal{E} < 0$: le soluzioni $\chi_{\epsilon l}(r) \in L^2(\bb{R})$, e perciò devono soddisfare la condizione $\chi(0)=0$. Ciò corrisponde allo \textit{spettro discreto} degli \textit{stati legati}.
@@ -339,7 +341,7 @@ Sostituiamo in (\ref{eqn:potenziale_centrale_nullo}) per esaminare l'equazione n
 In principio, $r^{l+1}$ e $r^{-l}$ sono due soluzioni possibili. Di queste, tuttavia, $r^{-l}$ è \textit{spuria}, ed è introdotta dal fatto che, nel passaggio a coordinate sferiche, si ha una singolarità all'origine (dove la matrice jacobiana è singolare). Possiamo scartarla osservando che:
 \begin{itemize}
 \item Per lo \textit{spettro discreto} deve essere $\chi_{\epsilon l}(0) = 0$, e $r^{-l} \neq 0$ (o addirittura diverge) per $l\geq 0$.
-\item Per lo \textit{spettro continuo}, deve essere $\psi=h\chi \in \mathcal{S}'$, e perciò non possiamo immediatamente scartare $r^{-l}$. Notiamo però che per $l>0$ la $\psi$ non è normalizzabile in coordinate sferiche, mentre per $l=0$ si ha che $\chi_{\epsilon 0}\sim1$, da cui $h=\chi/r \sim r^{-1}$, e dato che $Y_0 \sim 1$, la $\psi = hY \sim r^{-1}$. Ma tale $\psi$ non può essere (nemmeno in $\mathcal{S}'$) la funzione d'onda di uno stato stazionario, poiché non verifica l'equazione di Schr\"odinger. Infatti, il suo laplaciano (che compare nell'equazione stazionaria) è una $\delta$:
+\item Per lo \textit{spettro continuo}, deve essere $\psi=hY \in \mathcal{S}'$, e perciò non possiamo immediatamente scartare $r^{-l}$. Notiamo però che per $l>0$ la $\psi$ non è normalizzabile in coordinate sferiche, mentre per $l=0$ si ha che $\chi_{\epsilon 0}\sim1$, da cui $h=\chi/r \sim r^{-1}$, e dato che $Y_0 \sim 1$, la $\psi = hY \sim r^{-1}$. Ma tale $\psi$ non può essere (nemmeno in $\mathcal{S}'$) la funzione d'onda di uno stato stazionario, poiché non verifica l'equazione di Schr\"odinger. Infatti, il suo laplaciano (che compare nell'equazione stazionaria) è una $\delta$:
 \begin{align*}
 \Delta(hY)\sim \Delta \frac{1}{r} = \delta^{(3)}(\vec{x})
 \end{align*}
@@ -442,7 +444,7 @@ Perciò:
 h_{\epsilon l}(r) \underset{r\to \infty}{\sim} \frac{\sin(kr - l\frac{\pi}{2})}{r}
 \end{align*}
 Tale funzione non\footnote{Infatti è della forma $\sin(x)/x$ che è localmente integrabile, ma non Lebesgue-integrabile - come si ricorda dai corsi di Analisi.} è in $L^2(\bb{R}_+, r^2 dr)$, ma è ancora una distribuzione in $\mathcal{S}'(\bb{R})$.\\
-Concludiamo perciò che per $U(r)\equiv 0$,lo spettro è continuo: $\sigma(H)= \sigma_C(H) =\bb{R}_+$.\\
+Concludiamo perciò che per $U(r)\equiv 0$,lo spettro è continuo: $\sigma(H)= \sigma_C(H) =\bb{R}_+$, come del resto ci si aspetta, dato che la particella non è vincolata.\\
 
 \textbf{Oss}: Notiamo che la scelta di $\sin(kr)/r$ rispetto a $\cos(kr)/r$ per $h_{\epsilon 0}$ era dettata dal comportamento in $r=0$. Per l'andamento asintotico tale vincolo viene meno.\\
 Quindi per un potenziale $U(r)$ che non pone vincoli a $r=0$ entrambe le soluzioni $\sin(kr)/r$ e $\cos(kr)/r$ per $h_{\epsilon 0}$ risultano accettabili.\\

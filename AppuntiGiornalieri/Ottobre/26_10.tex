@@ -18,7 +18,7 @@ dove gli autovettori generalizzati sono ortonormali:
 \[
 \braket{\lambda_{n},r|\lambda_{m},r'}=\delta_{nm}\delta_{rr'}
 \]
-Sostituendo tale risultato in (\ref{eqn:prob_generale}) si ottiene:
+Sostituendo tale risultato in (\ref{eqn:prob_generale}) si ottiene, per la probabilità che una misura di $A$ abbia un risultato pari a un elemento $\lambda_n$ dello spettro $\sigma(A)$:
 \begin{align}
 P_\psi^A(\{\lambda_n\})&=\int_\bb{R} \chi_{\{\lambda_n\}}(\lambda)dP_\psi^A(\lambda)=\nonumber \\
 &=
@@ -165,7 +165,7 @@ Quindi se \q{osserviamo} ossia eseguiamo delle misure (di prima specie) nel sist
 \[
 A\ket{\lambda_0}=\lambda_0\ket{\lambda_0}
 \]
-$A$ su $\ket{\lambda_0}$ \q{agisce} come un numero, e quindi $\ket{\lambda_0}$ si \q{comporta} come un valore.\\
+$A$ su $\ket{\lambda_0}$ \q{agisce} come un numero, e quindi $A$ si \q{comporta} come un valore.\\
 In questo modo recuperiamo il concetto di \q{valore di una osservabile} nel processo di misura.%In che senso A agisce come un numero? [Q]\\
 \textit{Possiamo pensare alla descrizione di un'osservabile come una \q{matrice infinito-dimensionale}. I valori dell'osservabile non sono i \q{valori della matrice} (non ha senso), ma i valori dello spettro della matrice - ossia quei particolari numeri che rimangono invariati a seguito di particolari \q{rotazioni} geometriche. Immediatamente dopo una misura, quella particolare osservabile si comporterà \textit{classicamente} \q{come il valore trovato}}.\\
 Queste considerazioni si generalizzano allo spettro discreto degenere come segue: supponiamo che $\lambda_0$ abbia degenerazione $d(\lambda_0)>1$, allora vi sono $d(\lambda_0)$ autovettori ortonormali: $\{\ket{\lambda_0,r}, r=1,\dots, d(\lambda_0)\}$.\\
@@ -177,7 +177,7 @@ Per definirla matematicamente facciamo ricorso alla nozione di distanza nello sp
 d(\ket{\psi},\ket{\phi}) = (1-|\braket{\psi|\phi}|^2)^{1/2}
 \]
 Per definizione una misura di prima specie è \textbf{ideale} se la distanza tra lo stato $\ket{\psi_i}$ immediatamente prima della misura e lo stato $\ket{\psi_f}$ immediatamente dopo la misura è la \textbf{minima} compatibilmente con il risultato trovato.\\
-Partendo allora da $\ket{\psi}_i$
+Partendo allora da $\ket{\psi}_i$ ed espandendo nella base degli autovettori (generalizzati) di $A$:
 \[
 \ket{\psi_i}=\sum_{\lambda_n \in \sigma(A)}\sum_{r=1}^{d(\lambda_n)} \underbrace{c(\lambda_n,r)}_{\braket{\lambda_n,r|\psi}}\ket{\lambda_n,r}\quad t=0^-
 \]
@@ -223,8 +223,8 @@ e questo suggerisce il \textbf{postulato di proiezione di von Neumann}:\marginpa
 \begin{axi}
 Se una misura ideale di prima specie della osservabile $A$ nello stato $\ket{\psi}$ dà un risultato nell'insieme (misurabile) $\Delta$, immediatamente dopo la misura lo stato del sistema è descritto dallo stato calcolato generalizzando (\ref{eqn:proiezione1}) ad uno spettro qualsiasi:
 \begin{align*}
-P^A(\Delta)\ket{\psi} \equiv \int \chi_\Delta(\lambda)\,dP^A(\lambda)\ket{\psi}&=\int_{\Delta \subset \sigma_C(A)} d\lambda\, \sum_{r=1}^{d(\lambda)}\ket{\lambda,r}\braket{\lambda,r|\psi}+\\
-&+ \sum_{\sigma_P(A)\ni \lambda_n \subset \Delta} \sum_{r=1}^{d(\lambda_n)} \ket{\lambda_n,r}\braket{\lambda_n,r|\psi}
+P^A(\Delta)\ket{\psi} \equiv \int \chi_\Delta(\lambda)\,dP^A(\lambda)\ket{\psi}&=\int_{\Delta \cap \sigma_C(A)} d\lambda\, \sum_{r=1}^{d(\lambda)}\ket{\lambda,r}\braket{\lambda,r|\psi}+\\
+&+ \sum_{\{\sigma_P(A)\ni \lambda_n\} \cap \Delta} \sum_{r=1}^{d(\lambda_n)} \ket{\lambda_n,r}\braket{\lambda_n,r|\psi}
 \end{align*}
 In particolare lo stato finale normalizzato è:
 \[
@@ -232,7 +232,7 @@ In particolare lo stato finale normalizzato è:
 \]
 Poiché $P^A(\Delta)$ è un proiettore, e quindi possiamo scriverne la norma al quadrato come:
 \[
-P^A(\Delta)^\dag P^A(\Delta)=P^A(\Delta)^2=P^A(\Delta))
+P^A(\Delta)^\dag P^A(\Delta)=(P^A(\Delta))^2=P^A(\Delta)
 \]
 \end{axi}
 

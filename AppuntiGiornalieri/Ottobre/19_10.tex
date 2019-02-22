@@ -81,9 +81,11 @@ Ma che osservabile corrisponde a questo operatore? Partiamo dalla solita soluzio
 e^{i\gamma}\psi_\lambda\left(0\right)=e^{i\gamma}A e^{i\frac{\lambda}{\hbar}\cdot 0}=e^{i\gamma}A\overset{!}{=}\psi_\lambda\left(2\pi\right)=A e^{i\frac{\lambda}{\hbar}2\pi}
 \]
 Da cui: 
-\[
-e^{i\gamma}=e^{i\frac{\lambda}{\hbar}2\pi}\Rightarrow \lambda = \hbar \left(\frac{\gamma}{2\pi} + n\right), \> n\in \bb{Z}
-\]
+\begin{align}
+e^{i\gamma}&=e^{i\frac{\lambda}{\hbar}2\pi}\Rightarrow \exp\left(i\left(\frac{\lambda}{\hbar}2\pi -\gamma\right)\right) = 1\\
+\frac{\lambda}{\hbar}2\pi -\gamma = 2\pi n \Rightarrow 
+\lambda = \hbar \left(\frac{\gamma}{2\pi} + n\right), \> n\in \bb{Z}
+\end{align}
 E perciò il dominio di $P_\gamma$ è di nuovo esclusivamente puntuale:
 \[
 \sigma\left(P_\gamma\right)= \sigma_P\left(P_\gamma\right)= \left\{\hbar\left(\frac{\gamma}{2\pi}+n\right),\ n\in\mathbb{Z}\right\}
@@ -107,11 +109,11 @@ Ma allora portando l'esponenziale evidenziata in azzurro a sinistra possiamo evi
 E sostituendo la definizione di $P_\gamma$:
 \[
 \left(e^{-i\frac{\gamma}{2\pi}x}\ P_\gamma\ e^{i\frac{\gamma}{2\pi}x}\right){\widetilde{\psi}}_n\left(x\right)=
-e^{-\frac{i\gamma}{2\pi}x}\left(-i\hbar\frac{d}{dx}\left(e^{i\frac{\gamma}{2\pi}x}\psi\right)\left(x\right)\right)=\frac{\gamma\hbar}{2\pi}\psi
-\left(x\right)-i\hbar \frac{d}{dx}\psi(x)
+e^{-\frac{i\gamma}{2\pi}x}\left(-i\hbar\frac{d}{dx}\left(e^{i\frac{\gamma}{2\pi}x}\tilde{\psi}_n\right)\left(x\right)\right)=\frac{\gamma\hbar}{2\pi}\tilde{\psi}_n
+\left(x\right)-i\hbar \frac{d}{dx}\tilde{\psi}_n(x)
 \]
 (Nota: la derivata in un prodotto di operatori agisce su tutto quello che sta alla sua destra).\\
-Quindi, se consideriamo solo gli operatori (rimuovendo le $\psi(x)$) giungiamo all'uguaglianza:
+Quindi, se consideriamo solo gli operatori (rimuovendo le $\tilde{\psi}_n(x)$) giungiamo all'uguaglianza:
 \[
 e^{-i\frac{\gamma}{2\pi}x}\left(-i\hbar\frac{d}{dx}\right)e^{i\frac{\gamma}{2\pi}x}=\frac{\gamma\hbar}{2\pi}\underbrace{-i\hbar \frac{d}{dx}}_{P_0} = \frac{\gamma \hbar}{2\pi} + P_0
 \]
@@ -207,7 +209,7 @@ Partiamo considerando le autofunzioni di $P_\gamma$:
 Senza modificare l'autovalore è possibile moltiplicarle per una fase \q{attorno al cerchio}.
 Giungiamo quindi alla famiglia:
 \[
-\psi_{n,\alpha}=\frac{1}{\sqrt{2\pi}}e^{i\left(n+\frac{\gamma}{2\pi}\right)\left(x+\alpha\right)}; \quad \psi_{n,2\pi}(x) = e^{i\gamma}\psi_{n,0}(x); \quad \alpha \in [0,2\pi [
+\psi_{n,\alpha}=\frac{1}{\sqrt{2\pi}}e^{i\left(n+\frac{\gamma}{2\pi}\right)\left(x+\alpha\right)}; \quad \psi_{n,2\pi}(x) = e^{i\alpha}\psi_{n,0}(x); \quad \alpha \in [0,2\pi [
 \]
 Possiamo ora definire $\mathcal{C}$:
 \[
@@ -223,7 +225,7 @@ e^{\oint_{\mathcal{C}}\left\langle\psi\middle| d\psi\right\rangle}&=\exp{\int_{0
 \section{Stati misti in \MQ}
 Supponiamo di non conoscere in quale stato puro $\ket{\phi}$ il sistema si trovi, ma solo di sapere che può essere negli stati puri $\left|\phi_1\right\rangle,\dots, |\phi_n\rangle $ (che consideriamo normalizzati, $\braket{\phi_i|\phi_i}=1$) con probabilità $p_1\dots p_n$, $\sum_{i=1}^{n}p_i=1$.\\
 \textbf{Nota}: $n$ è per forza numerabile, ma le $\phi$ non hanno vincoli di ortogonalità, e le $p_i$ sono probabilità classiche.\\
-Dalle regole della probabilità, se $\Sigma$ denota lo stato di informazione non massimale (misto) sopra descritto e $A$ è un'osservabile, allora il valor medio di A nello stato $\Sigma$ è dato da una \q{media pesata} dei valor medi dei singoli stati puri:
+Dalle regole della probabilità,\marginpar{Valor medio di uno stato misto} se $\Sigma$ denota lo stato di informazione non massimale (misto) sopra descritto e $A$ è un'osservabile, allora il valor medio di A nello stato $\Sigma$ è dato da una \q{media pesata} dei valor medi dei singoli stati puri:
 \[
 \langle A \rangle_\Sigma = \sum_{i=1}^n p_i\bra{\phi_i}A\ket{\phi_i}
 \]
@@ -235,7 +237,7 @@ Osserviamo che se $\phi$ è un qualsiasi stato di $\hs$, possiamo scrivere il va
 Infatti, sia $\left\{\left|\chi_j\right\rangle,\
 j=1,\ldots,\dim{\mathcal{H}}\right\}$ una base ON per $\hs$, con la condizione che $\left|\chi_1\right\rangle=\ket{\phi}$ (allineo il primo vettore della base con il vettore in esame). Allora:
 \[
-\op{Tr}(\ket{\phi}\bra{\phi}A) = \sum_{j=1}^{\op{dim}\hs}\bra{\chi_j}(\ket{\phi}\bra{\phi}A)\ket{\chi_j} \underset{(a)}{=} \sum_{j=1}^{\op{dim}\hs}\delta_{ji}\bra{\phi}A\ket{\chi_j} = \bra{\phi}A\ket{\phi}
+\op{Tr}(\ket{\phi}\bra{\phi}A) = \sum_{j=1}^{\op{dim}\hs}\bra{\chi_j}(\ket{\phi}\bra{\phi}A)\ket{\chi_j} \underset{(a)}{=} \sum_{j=1}^{\op{dim}\hs}\delta_{j1}\bra{\phi}A\ket{\chi_j} = \bra{\phi}A\ket{\phi}
 \]
 dove in (a) si è usato il fatto che $\left\langle\chi_j\middle|\phi\right\rangle=\left\langle\chi_j\middle|\chi_1\right\rangle=\delta_{j1}$ per l'ortonormalità (essendo $\ket{\phi}$ perpendicolare a tutti i $\ket{\chi_j}$ e parallelo al primo per costruzione).
 \begin{mdframed}[hidealllines=true,backgroundcolor=green!20,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt]
@@ -285,7 +287,7 @@ Ci si potrebbe allora chiedere\marginpar{$\rho$ $\leftrightarrow$ raggi vettori}
 \end{align*}
 Ma allora $\rho^2=\rho$ sono in corrispondenza biunivoca con i raggi vettori dello spazio di Hilbert.\\
 Ciò è comodo sperimentalmente, perché $\rho$ costituisce un'osservabile (e quindi potenzialmente può essere misurata).\\
-Per esempio, in un sistema di due fotoni, lo stato delle polarizzazioni è una matrice $2\times 2$ di numeri che si possono ricavare sperimentalmente. Perciò, per verificare se un sistema creato in laboratorio sia in uno stato puro o meno, basta determinare tale matrice $A$, calcolarne il quadrato e vedere se viene lo stesso risultato di partenza, ossia se si ha $A^2 = A$.\\
+Per esempio,\marginpar{Come verificare sperimentalmente uno stato puro} in un sistema di due fotoni, lo stato delle polarizzazioni è una matrice $2\times 2$ di numeri che si possono ricavare sperimentalmente. Perciò, per verificare se un sistema creato in laboratorio sia in uno stato puro o meno, basta determinare tale matrice $A$, calcolarne il quadrato e vedere se viene lo stesso risultato di partenza, ossia se si ha $A^2 = A$.\\
 
 Vediamo che, come nel caso classico, uno stato misto quantistico può essere scritto come una combinazione \textit{convessa}\footnote{Una combinazione convessa è una combinazione lineare di elementi fatta con coefficienti non negativi a somma $1$. Per esempio: $\lambda_1 x_1 + \dots +\lambda_m x_m$ è convessa se $\lambda_i \geq 0$ per $i=1,\dots,m$ e $\sum_{i=1}^m \lambda_i = 1$} di stati puri, scritti come proiettori.\\
 \textbf{Attenzione}: partendo dalla decomposizione di $\ket{\psi} = \ket{\psi_1}+\ket{\psi_2}$ si potrebbe essere tentati di scrivere la seguente relazione per la sovrapposizione di stati:
@@ -365,6 +367,7 @@ Abbiamo allora ottenuto una descrizione completamente equivalente a quella che a
 \rho = \sum_{i}{p_i|\phi_i\rangle\langle\phi_i|}
 \]
 in cui, tra l'altro, le $\ket{\phi_i}$ non devono neppure essere ON.\\
+Il problema è: quali sono gli stati che \q{compongono} $\rho$? Sono i $\ket{\phi_i}$ o $\ket{\lambda_i}$? Le due descrizioni sono equivalenti, e quindi la risposta non è univoca.\\
 Perciò si hanno famiglie \textit{diverse} di stati puri che danno la stessa informazione dello stato misto!\\
 In \MC posso comunque sapere gli stati puri che contribuiscono allo stato misto -- anche se su di loro ho solo informazioni probabilistiche --, ma in \MQ in uno stato misto non è chiara neanche la famiglia di stati puri sottostante (è un livello decisamente più profondo di ignoranza).
 \end{document}

@@ -14,7 +14,7 @@ i\hbar \frac{\partial \psi(t)}{\partial t}=H\psi(t)
 \]
 Analogamente al caso degli stati puri, \marginpar{Evoluzione degli stati misti} uno \textbf{stato misto} $\rho=\sum_i c_i\ket{\phi_i}\bra{\phi_i}$ evolve come:
 \begin{align}
-\rho(t)=\sum_i c_i\ket{\phi_i(t)}\bra{\phi_i(t)}=\sum_i c_i U(t)\ket{\phi_i}\braket{\phi_i|U^\dag(t)}=U(t)\rho U^\dag(t)
+\rho(t)=\sum_i c_i\ket{\phi_i(t)}\bra{\phi_i(t)}=\sum_i c_i U(t)\ket{\phi_i}\bra{\phi_i}U^\dag(t)=U(t)\rho U^\dag(t)
 \label{eqn:rho_mista}
 \end{align}
 Se tutte le $\ket{\phi_i}\in D(H)$ allora vale anche un'equazione analoga a quella di Schrödinger. Partiamo scrivendo la relazione per le $\ket{\phi_i}$ e quella duale per le $\bra{\phi_i}$ (per cui basta calcolare un complesso coniugato):
@@ -36,7 +36,7 @@ Tale convenzione fa parte della cosiddetta \textbf{visuale di\ Schrödinger}\mar
     \\
     A &\to A\nonumber
 \end{align}
-Del resto, sperimentalmente abbiamo accesso esclusivamente ai valor medi, che evolvono come:
+Del resto, sperimentalmente abbiamo accesso esclusivamente ai valor medi, che evolvono come:\marginpar{Evoluzione di un'osservabile: $A^H(t)$}
 \begin{equation}
 \langle A\rangle_{\psi(t)}=\bra{\psi(t)}A\ket{\psi(t)}=\bra{\psi}U^\dag(t)AU(t)\ket{\psi} = \bra{\psi}A^H(t)\ket{\psi} = \langle A^H(t)\rangle_\psi
 \label{eqn:evoluzione_valor_medi}
@@ -53,10 +53,12 @@ Così facendo si ottiene la \textbf{visuale di Heisenberg}\marginpar{Visuale di 
     \nonumber
 \end{align}
 Confrontando (\ref{eqn:rho_mista}) con (\ref{eqn:visuale_heisenberg}) si può notare una differenza nell'ordine degli aggiunti. Ciò non sorprende: avevamo notato un qualcosa di simile anche in \MC, quando scrivendo l'evoluzione degli stati in (\ref{eqn:evoluzione_stati_MC}) si otteneva un segno $-$, che non c'era nel caso dell'evoluzione delle sole osservabili.\\
+
+Notiamo inoltre che la formula $A^H(t) = U^\dag(t) A U(t)$ risulta \textit{diversa} rispetto a quella di una normale simmetria fisica vista in (\ref{eqn:op_simmetrizzato}). Il punto chiave è che, nelle visuali di Schr\"odinger o Heisenberg, solo le osservabili o solo gli stati si evolvono, e mai entrambi contemporaneamente, mentre nel caso di una simmetria fisica (es. una rotazione) sia operatori che stati vengono modificati.\\
+
 Se il commutatore $[A^H(t), H]$ esiste, allora otteniamo l'\textbf{equazione di Heisenberg}:
 \begin{equation}
-i\hbar \frac{\partial}{\partial t}A^H(t) = i\hbar \frac{d}{dt}(U^t(t)AU(t))
-) = i\hbar \frac{dU^\dag(t)}{dt}AU(t)+i\hbar U^\dag(t)A\frac{dU(t)}{dt} = -HU^\dag(t)AU(t)
+i\hbar \frac{\partial}{\partial t}A^H(t) = i\hbar \frac{d}{dt}(U^\dag(t)AU(t)) = i\hbar \frac{dU^\dag(t)}{dt}AU(t)+i\hbar U^\dag(t)A\frac{dU(t)}{dt}
 \label{eqn:equazione_heisenberg}
 \end{equation}
 Sostituendo le espressioni per $U(t)$ e $U^\dag(t)$:
@@ -181,7 +183,7 @@ Prendiamo $\psi \in D(H^\dag)$, $\varphi \in D(H)$ e verifichiamo:
 (\psi, H\varphi) = (H^\dag \psi,\varphi)
 \label{eqn:autoaggiuntezza_H}
 \end{equation}
-Espandendo i prodotti scalari e \q{spostando} la derivata seconda sulla $\psi$ con un'integrazione per parti (in (a) e in (b)):
+Espandendo i prodotti scalari\marginpar{La funzione d'onda si annulla ai margini di una buca infinita} e \q{spostando} la derivata seconda sulla $\psi$ con un'integrazione per parti (in (a) e in (b)):
 \begin{align*}
 -\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}} \psi^*(x) \varphi''(x)dx &\underset{(a)}{=} -\frac{\hbar^2}{2m}\psi^*\varphi' \big|_{-\frac{a}{2}}^{\frac{a}{2}} + \frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}'(x)\varphi'(x)dx\\
 &\underset{(b)}{=} \hlc{SkyBlue}{-\frac{\hbar^2}{2m}\psi^*\varphi'\big|_{-\frac{a}{2}}^{\frac{a}{2}}+\frac{\hbar^2}{2m}{\psi^*}'\varphi\big|_{-\frac{a}{2}}^{\frac{a}{2}}} - \underbrace{\frac{\hbar^2}{2m}\int_{-\frac{a}{2}}^{\frac{a}{2}}{\psi^*}''(x)\varphi(x)dx}_{=(H^\dag \psi,\varphi)}
@@ -244,7 +246,7 @@ e^{-ik\frac{a}{2}} & e^{ik\frac{a}{2}}
  = 0 \Rightarrow e^{ika} = e^{-ika}\Leftrightarrow \sin(ka)=0
 \label{eqn:matrice_singolare}
 \end{equation}
-Otteniamo perciò un insieme discreto di soluzioni, le cui pulsazioni soddisfano: $k_n a = n\pi$ $n\in \bb{Z}$. Sostituendo in (\ref{eqn:oscillatore_armonico}) otteniamo che gli autovalori dell'energia, ossia i possibili risultati che si possono ottenere da una misura dell'energia della particella nella buca, sono:
+Otteniamo perciò un insieme discreto di soluzioni, le cui pulsazioni soddisfano: $k_n a = n\pi$ $n\in \bb{Z}$. Sostituendo in (\ref{eqn:oscillatore_armonico}) otteniamo che gli autovalori dell'energia, ossia i possibili risultati che si possono ottenere da una misura dell'energia della particella nella buca, sono:\marginpar{Autovalori di $H$ per la buca infinita}
 \begin{equation}
     \mathcal{E}_n = \frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2
     \label{eqn:autovalori_buca}
@@ -300,7 +302,7 @@ La normalizzazione è identica al caso precedente, e alla fine si ottiene:
 \varphi_{\mathcal{E}}^{2n+1}(x)&=\sqrt{\frac{2}{a}}\cos\left(\frac{(2n+1)\pi}{a} x\right)
 \end{align*}
 \end{enumerate}
-Alla fine, le soluzioni dell'equazione agli autovalori in $D(H)$ sono quindi:
+Alla fine, le soluzioni dell'equazione agli autovalori in $D(H)$ sono quindi:\marginpar{Autofunzioni di $H$ per la buca infinita}
 \[
 \varphi_n(x) = \begin{cases}
 \sqrt{\frac{2}{a}}\cos\left(\frac{n\pi x}{a}\right) & n \text{ dispari } >0\\
@@ -308,6 +310,7 @@ Alla fine, le soluzioni dell'equazione agli autovalori in $D(H)$ sono quindi:
 n \text{ pari } > 0
 \end{cases}
 \]
+Notiamo che tali autofunzioni sono pari per $n$ dispari, e dispari per $n$ pari (con $n>0$).\\
 Abbiamo quindi dimostrato che esiste una (sola) soluzione $\forall n \in \bb{N}$, per cui la degenerazione di $\sigma_P(H)=1$.\\
 Inoltre, poiché $\{\varphi_n\}_{n\in\bb{N}}$ costituisce una base ortonormale per $L^2([-\frac{a}{2},\frac{a}{2}],dx)$, lo spettro è esclusivamente puntuale, e quindi non c'è $\sigma_C(H)$.\\
 \subsubsection{Differenze tra \MC e \MQ}
@@ -337,7 +340,7 @@ w_{\varphi_n}^X(\lambda) = \int dx\, \delta(\lambda-x) |\varphi_n(x)|^2 = |\varp
 \textbf{Nota}: se consideriamo un potenziale \q{smussato}, che non tende di scatto a $\infty$ ma \q{in maniera continua} con una salita ripida, classicamente ci aspettiamo che la particella \q{rallenti} su tali salite, e quindi ci trascorra più tempo - ci aspettiamo di trovarla più facilmente in quelle parti. In realtà, quantisticamente, quelle sono le posizioni in cui la probabilità per lo stato di energia minima è minore).\\
 
 %Inserire disegno [IMMAGINE] Grafico del potenziale smussato e della densità di probabilità della posizione, che è massima al centro della buca
-La probabilità $P^X_{\varphi_n}(\lambda)$ non è poi uniforme come nel caso classico, ma tende ad esso per $n\to\infty$, infatti, dalle formule di bisezione per $\sin$ e $\cos$:
+La probabilità $P^X_{\varphi_n}(\lambda)$ non è poi uniforme come nel caso classico, ma tende ad esso\marginpar{Principio di corrispondenza per la buca infinita} per $n\to\infty$, infatti, dalle formule di bisezione per $\sin$ e $\cos$:
 \begin{align*}
 \left\{\cos^2 \left(\frac{n\pi x}{a}\right),\>
 \sin^2 \left(\frac{n\pi x}{a}\right)\right\} &= \frac{1}{2}\left(1\pm \cos \frac{2n\pi x}{a} \right)\xrightarrow[n\to\infty]{\mathcal{S}'} +\frac{1}{2}\\
@@ -345,7 +348,7 @@ P_{\varphi_n}^X(\lambda) &\xrightarrow[n\to\infty]{} \frac{2}{a}\frac{1}{2} = \f
 \end{align*} %[TO DO] Specificare esattamente cosa succede a fronte dell'approfondimento del 7/11
 Dove si fa uso della convergenza debole\footnote{CFR pag. 24 di \cite{spazi_hilbert}} in $\mathcal{S}'$.\\
 
-Proviamo ora ad esaminare l'evoluzione temporale del sistema partendo dallo stato iniziale 
+Proviamo \marginpar{Esempio (buca infinita)}ora ad esaminare l'evoluzione temporale del sistema partendo dallo stato iniziale $\psi(x,t_0)$ così definito:
 \begin{equation}
 \psi(x,t_0) = \cos\frac{\pi}{a} x+2\sin\frac{2\pi}{a}x
 \label{eqn:stato_iniziale}

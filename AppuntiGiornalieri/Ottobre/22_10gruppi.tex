@@ -122,7 +122,7 @@ come si può verificare svolgendo i conti e utilizzando le formule di addizione/
 \textbf{Riepilogando}: il nostro obiettivo è descrivere matematicamente le simmetrie di un sistema, per semplificarci i conti e capirci qualcosa di più. Abbiamo così \textit{caratterizzato matematicamente} tali simmetrie partendo dalla nozione di \textit{gruppo}, che ci dà le proprietà fondamentali (composizione e invertibilità). Considerando che traslazioni/rotazioni possono essere \q{piccole a piacimento} abbiamo aggiunto al gruppo una struttura \q{continua}, trasformandolo in un \textit{gruppo di Lie}. Infine, abbiamo specificato in che senso gli elementi di un gruppo di Lie \q{fungono da trasformazioni} tramite l'idea di \textit{rappresentazione lineare}.\\
 È giunto il momento di \textit{concretizzare} tutto ciò nel campo della \MQ.\\
 
-\begin{dfn}
+\begin{dfn}\label{dfn:simmetria_fisica}
 Definiamo una \textbf{simmetria fisica}\index{Simmetria!fisica} $T$ come una mappa che trasforma \textit{osservabili} in altre \textit{osservabili}, e \textit{stati puri} in altri \textit{stati puri}, rispettando la struttura dell'algebra (ossia una combinazione lineare di osservabili è mandata nella combinazione lineare delle osservabili \textit{trasformate}, e stessa cosa per i prodotti (b)) e preservando i \textit{valor medi} (a). Tali richieste corrispondono alla definizione di simmetria come una trasformazione che \q{non cambia i risultati degli esperimenti}.\\
 Matematicamente, chiediamo che $T$, che mappa osservabili $A \mapsto A'$ e stati $\ket{\psi}\mapsto \ket{\psi'}$, verifichi le seguenti proprietà:
 \[
@@ -135,6 +135,12 @@ Una simmetria fisica così definita \textbf{preserva} automaticamente le \textbf
 \] 
 e l'ultimo termine è uguale al primo per la proprietà (a).
 \end{dfn} 
+
+Indicando con $U$ la \textit{trasformazione di simmetria}, dalla definizione di simmetria fisica troviamo immediatamente la formula di trasformazione per un generico operatore $A$:
+\begin{align}
+    &\bra{\psi'}A'\ket{\psi'} \overset{!}{=} \bra{\psi}A\ket{\psi} \nonumber \\
+    &\Rightarrow \bra{U\psi}A'\ket{U\psi} = \bra{\psi}U^\dag A' U \ket{\psi} \overset{!}{=} \bra{\psi}A\ket{\psi} \Rightarrow U^\dag A' U = A \Rightarrow A' = UAU^\dag \label{eqn:op_simmetrizzato}
+\end{align}
 
 Utilizzando i termini definiti in precedenza, $T$ è quindi una rappresentazione del rispettivo gruppo di simmetria, e agisce nello spazio degli \textit{stati}, che non è propriamente $\hs$, ma lo spazio dei \textbf{raggi vettori} $\mathcal{PH}$. Infatti, dai postulati della \MQ sappiamo che una $\ket{\psi} \in \hs$ e $e^{i\gamma} \ket{\psi}$ rappresentano lo stesso stato (puro)\footnote{In generale moltiplicare $\ket{\psi}$ per un qualsiasi complesso $a$ non cambia lo stato. Poiché lavoriamo con vettori normalizzati, $a\ket{\psi}$ equivale, dopo alla normalizzazione, ad un certo sfasamento $e^{i\gamma}$ di $\ket{\psi}$}: ciò deriva dal fatto che le \textit{fasi \q{assolute}}  $\gamma$ non sono misurabili, ma lo sono solo quelle relative, e perciò \q{sfasare} il vettore di stato del sistema non cambia i risultati sperimentali.\\
 Ciò è un problema: $\mathcal{PH}$ non è neanche uno spazio vettoriale, ma uno spazio \textit{proiettivo} su cui è difficile lavorare.\\
@@ -169,7 +175,7 @@ Ricordiamo che un operatore $U$ si dice \textbf{unitario} se verifica $U^\dag U 
 \ket{\psi'}=U\ket{\psi}
 \end{cases}\Rightarrow |\braket{\phi'|\psi'}|^2=|\braket{U\phi|U\psi}|^2=|\braket{\phi|U^\dag U \psi}|^2 =|\braket{\phi|\psi}|^2
 \]
-Un operatore $\bar{U}$ si dice \textbf{antiunitario} se invece soddisfa $(\bar{U}\phi,\bar{U}\psi)=(\psi,\phi)^*$. Poiché la coniugazione preserva il modulo, si ha che anche $\bar{U}$ preserva le probabiltà di transizione.
+Un operatore $\bar{U}$ si dice \textbf{antiunitario} se invece soddisfa $(\bar{U}\phi,\bar{U}\psi)=(\phi,\psi)^*$. Poiché la coniugazione preserva il modulo, si ha che anche $\bar{U}$ preserva le probabiltà di transizione.
 \end{dfn}
 
 Perciò operatori unitari o antiunitari su $\hs$, se considerati \textit{a meno di una costante}, sono rappresentazioni proiettive di simmetrie fisiche.\\
@@ -299,9 +305,9 @@ q_{mn}\left(t\right)&=q_{mn}e^{i\omega_{mn}t}
 Calcoliamone la derivata temporale:
 \begin{align*}
 \dot{q_{mn}}\left(t\right)&=q_{mn} i\omega_{mn}e^{i\omega_{mn}t}\underset{(a)}{=}
-\frac{\mathcal{E}_n-\mathcal{E}_m}{i\hbar}q_{mn}\left(t\right)=\frac{\left[q,H\right]_{mn}}{i\hbar}
+\frac{\mathcal{E}_n-\mathcal{E}_m}{i\hbar}q_{mn}\left(t\right)\underset{(b)}{=}\frac{\left[q,H\right]_{mn}}{i\hbar}
 \end{align*}
-dove in (a) si è sostituita l'espressione per l'energia $\mathcal{E}=\hbar \omega$, mentre nell'ultimo introduciamo come $H$ la \textit{matrice diagonale} delle energie $\mathcal{E}_i$. In tal modo, ricordando che $q$ è la matrice (infinito-dim.) delle $q_{mn}$, possiamo usare la notazione più compatta del commutatore di matrici.\\
+dove in (a) si è usata la relazione di Rydberg, per cui $\omega_{mn} = \omega_n - \omega_m$ (ogni frequenza è differenza di due frequenze fissate), assieme all'espressione per l'energia $\mathcal{E}=\hbar \omega$, mentre in (b) introduciamo come $H$ la \textit{matrice diagonale} delle energie $\mathcal{E}_i$. In tal modo, ricordando che $q$ è la matrice (infinito-dim.) delle $q_{mn}$, possiamo usare la notazione più compatta del commutatore di matrici.\\
 Estendendo ad una generica osservabile $A$ troviamo che l'evoluzione temporale di $A$, indicata con $A^H\left(t\right)$, deve soddisfare la seguente relazione:\index{Evoluzione temporale!Heisenberg}
 \[
 \frac{dA^H(t)}{dt}=\frac{[A^H(t), H]}{i\hbar}
@@ -317,9 +323,9 @@ i\hbar \frac{\partial}{\partial t} \psi(t) = H\psi(t)
 Abbiamo appena visto due \q{descrizioni dell'evoluzione temporale}. Ma qual è esattamente la relazione tra di esse? (Ci aspettiamo siano equivalenti, ma come?)\\
 Di nuovo, l'identificazione tra i due modi di procedere fu effettuata da Dirac.\\
 Considereremo in questo corso i soli \textbf{sistemi isolati}, per cui vale l'\textbf{omogeneità del tempo}\index{Omogeneità del tempo}\marginpar{Omogeneità del tempo}: essendo non \q{perturbati}, fare le misure \q{prima} o \q{dopo} non cambia il risultato, contano solo gli intervalli di tempo \textit{relativi} tra due misurazioni successive.\\ Matematicamente, l'evoluzione temporale del sistema è quindi data da una traslazione temporale che forma un gruppo additivo $(\bb{R},+)$ isomorfo a $\bb{R}$.
-Ciò corrisponde al fatto che, se il sistema $\Sigma$ diviene $\Sigma\left(t_1\right)$ ad un tempo $t_1$ e $\Sigma\left(t_2\right)$ dopo un ulteriore $t_2$, a $\Sigma\left(t_2\right)$ posso arrivare a tale stato \q{finale} in maniera completamente equivalente partendo da $\Sigma$ e lasciando passare un tempo $t_1+t_2$ (dato che non ci saranno perturbazioni nel frattempo).\\
+Ciò corrisponde al fatto che, se un sistema nello stato $\Sigma(0)$ a $t=0$ evolve nello stato $\Sigma\left(t_1\right)$ ad un tempo $t_1$ e a $\Sigma\left(t_2\right)$ dopo un ulteriore $t_2$, possiamo arrivare a tale stato \q{finale} $\Sigma(t_2)$ in maniera completamente equivalente partendo da $\Sigma(0)$ e lasciando passare un tempo $t_1+t_2$ (dato che non ci saranno perturbazioni nel frattempo).\\
 
-Consideriamo la probabilità di transizione da $\ket{\phi}$ a $\ket{\psi}$ data da: $\braket{\phi|\psi}^2$. 
+Consideriamo\marginpar{Evoluzione temporale di sistemi isolati preserva le probabilità di transizione} la probabilità di transizione da $\ket{\phi}$ a $\ket{\psi}$ data da: $\braket{\phi|\psi}^2$. 
 Se l'evoluzione temporale è data da $\ket{\phi}\to \ket{\phi \left(t\right)}$ dopo un certo $t$, $\ket{\psi}\to \ket{\psi\left(t\right)}$ dopo un certo $t$, allora, per omogeneità del tempo:
 \[
 \left|\left\langle\phi\left(t\right)\middle|\psi\left(t\right)\right\rangle\right|^2=\braket{\phi|\psi}^2
@@ -330,14 +336,14 @@ Allora, un operatore che descrive l'evoluzione temporale per $\ket{\phi}\to |\ph
 \[
 \braket{\phi|\psi}^2=\left|\left\langle\phi^\prime\middle|\psi^\prime\right\rangle\right|^2
 \]
-E quindi corrisponde ad una \textbf{simmetria fisica} come definita nella sezione precedente.\\
+E quindi corrisponde ad una \textbf{simmetria fisica} come definita nella (Definizione \ref{dfn:simmetria_fisica}).\\
 Poiché il gruppo $(\bb{R},+)$ da cui essa deriva è un gruppo \q{continuo} (di Lie), si ha che una sua \textit{rappresentazione proiettiva} in $\hs$ è data da operatori \textbf{unitari} (per il teorema di Wigner, da cui escludiamo gli operatori antiunitari).\\
 Avremo cioè una mappa (la rappresentazione) che manda elementi del gruppo $t\in \bb{R}$ in operatori unitari $U(t)$ che è \textit{compatibile} con l'operazione di gruppo (che in questo caso è la normale addizione). Vale cioè:
 \[
 U\left(t_1\right)U\left(t_2\right)=e^{i\alpha\left(t_1,t_2\right)}U\left(t_1+t_2\right)\quad \forall t_1,t_2\in \bb{R}
 \]
 La fase $\alpha(t_1,t_2)$ è data dal fatto che si tratta di una rappresentazione \textit{proiettiva}, e quindi gli operatori $U(t_1)$ e $U(t_2)$ sono \textit{definiti a meno di una fase}.\\
-Se passiamo però ad una rappresentazione del gruppo di ricoprimento universale di $(\bb{R},+)$, che è $(\bb{R},+)$ stesso dato che è già semplicemente connesso, possiamo eliminare la fase per il \textit{teorema di Bargmann}, e ottenre una \textit{rappresentazione unitaria} (non più proiettiva), data da $t\mapsto U(t)$ con:
+Se passiamo però ad una rappresentazione del gruppo di ricoprimento universale di $(\bb{R},+)$, che è $(\bb{R},+)$ stesso dato che è già semplicemente connesso, possiamo eliminare la fase per il \textit{teorema di Bargmann}, e ottenere una \textit{rappresentazione unitaria} (non più proiettiva), data da $t\mapsto U(t)$ con:
 \begin{align*}
 U(t_1)U(t_2) = U(t_1+t_2)\quad \forall t_1,t_2 \in \bb{R}
 \end{align*}
@@ -374,7 +380,7 @@ U\left(t\right)=e^{-\frac{i}{\hbar}Ht}
 Ove $H$ è l'hamiltoniana quantistica, che descrive l'energia del sistema.\\
 \textit{Questa è l'equazione più generale possibile, che vale per qualsiasi $\psi$!}\\
 
-Se in più $\psi \in D(H)$, allora, dal teorema di Stone otteniamo l'equazione di Schrödinger:
+Se in più $\psi \in D(H)$, allora, dal teorema di Stone otteniamo l'equazione di Schrödinger, sviluppando la seguente derivata:
 \[
 i\hbar \frac{\partial}{\partial t}\hlc{Yellow}{\psi(t)} =
 i\hbar \frac{\partial}{\partial t} \hlc{Yellow}{U(t)\psi}=

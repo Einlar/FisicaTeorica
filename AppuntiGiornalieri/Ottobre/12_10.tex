@@ -11,7 +11,7 @@ Utilizzando la definizione di \textbf{aggiunto} si possono definire due importan
 \marginpar{Proiettori} Un operatore limitato $P\in\mathcal{B}(\mathcal{H})$ è un proiettore se $P=P^\dag$ e $P=P^2$.
 \end{dfn}
 Un proiettore $P_\psi$ non è altro che quell'operatore che applicato ad un vettore ne restituisce la sua proiezione lungo $\psi$ (intesa come vettore\footnote{Nel senso, non come semplice \q{lunghezza della proiezione}, ma come un vettore che punta nella direzione su cui si proietta e che viene riscalato alla lunghezza della proiezione.}).
-In particolare si noti che ogni vettore $\psi\in\mathcal{H}$ con $\left|\left|\psi\right|\right|=1$ definisce un proiettore $P_\psi$
+In particolare si noti che ogni vettore $\psi\in\mathcal{H}$ con $\left|\left|\psi\right|\right|=1$ definisce (tramite Riesz) un proiettore $P_\psi$
 \begin{equation}
 P_\psi\phi=\left(\psi,\phi\right)\psi\qquad \forall\phi\in\mathcal{H}
 \label{eqn:proiettore}
@@ -25,22 +25,22 @@ UU^\dag=U^\dag U=\bb{I}
 \label{eqn:unitario}
 \end{equation}
 \end{dfn}
-Nota: in $\dim{\mathcal{H}=\infty}$ nella definizione valgono entrambe le uguaglianze, in quanto potrebbero esserci operatori $U$ per cui $U U^\dag = \bb{I}$ ma non $U^\dag U = \bb{I}$. \\
+Nota: in $\dim{\mathcal{H}=\infty}$ nella definizione devono essere verificate entrambe le uguaglianze, in quanto potrebbero esserci operatori $U$ per cui $U U^\dag = \bb{I}$ ma non $U^\dag U = \bb{I}$. \\
 
-In generale se dato $A\in B\left(\mathcal{H}\right) \exists B\>|\> AB=BA=I$, diciamo che $B$ è l'\textbf{inverso} di $A$ e lo denotiamo con $A^{-1}$. \\
-Perciò un'altra maniera per definire gli operatori unitari è
+In generale se dato $A\in B\left(\mathcal{H}\right) \exists B\>|\> AB=BA=\bb{I}$, diciamo che $B$ è l'\textbf{inverso} di $A$ e lo denotiamo con $A^{-1}$. \\
+Si ha perciò che un operatore è unitario se e solo se il suo aggiunto coincide con il suo inverso:
 \[
 U \text{ unitario} \quad \Leftrightarrow \quad U^\dag=U^{-1}
 \]
-Nelle funzioni a variabile complessa l'analogo dell'aggiunto è il complesso coniugato. Perciò le funzioni \q{unitarie} sono quelle della forma $e^{i\alpha\left(x\right)}$ (il loro complesso coniugato $e^{-i\alpha(x)}$ è effettivamente pari al loro inverso). \\
+Nelle funzioni a variabile complessa l'analogo dell'aggiunto è il complesso coniugato. Perciò le funzioni \q{unitarie} sono della forma $e^{i\alpha\left(x\right)}$ (il loro complesso coniugato $e^{-i\alpha(x)}$ è effettivamente pari al loro inverso). \\
 
 \subsection{Autoaggiuntezza: uguaglianza dei domini di $A$ e $A^\dag$}
 
 Diversi indizi mostrano che la simmetria non basta per definire un operatore da poter associare ad un'osservabile quantistica. L'esempio seguente mostra come sia necessaria una proprietà più forte che include la simmetria: l'autoaggiuntezza.
 \marginpar{Esempio: l'operatore momento e la necessità di operatori autoaggiunti}
-Consideriamo l'operatore $P_0$ in $\mathcal{H}=L^2(\left[0,1\right], dx)$\footnote{Tale spazio corrisponde fisicamente a quello delle funzioni d'onda nella buca di potenziale 1-dimensionale di profondità infinita tra $0$ e $1$, ossia alla \q{scatola} con pareti impenetrabili in una dimensione}:
+Consideriamo \q{un candidato} per l'operatore momento, che denominiamo $P_0$, in $\mathcal{H}=L^2(\left[0,1\right], dx)$\footnote{Tale spazio corrisponde fisicamente a quello delle funzioni d'onda nella buca di potenziale 1-dimensionale di profondità infinita tra $0$ e $1$, ossia alla \q{scatola} con pareti impenetrabili in una dimensione}:
 \[
-P_0=-i\hbar\frac{d}{dx};\quad D\left(P_0\right)=\left\{\psi\>|\> \psi\left(0\right)= \psi\left(1\right)=0\text{  e regolari}\right\}
+P_0=-i\hbar\frac{d}{dx};\quad D\left(P_0\right)=\left\{\psi \in \hs \>|\> \psi\left(0\right)= \psi\left(1\right)=0\text{  e regolari}\right\}
 \]
 $P_0$ è l'operatore del momento, e per il suo dominio abbiamo scelto tutte le funzioni sufficientemente regolari (in modo che la derivata sia definita) che si annullano in $0$ e $1$ (essendo qui il potenziale pari a $\infty$).\\
 Dimostriamo che $P_0$ è simmetrico, ossia che $P_0\subseteq P_0^\dag$, e che $\forall\phi, \psi\in D\left(P_0\right)$ si ha $\left(\psi, P_0\phi\right)=\left(P_0\psi, \phi\right)$
@@ -48,7 +48,7 @@ Dimostriamo che $P_0$ è simmetrico, ossia che $P_0\subseteq P_0^\dag$, e che $\
 (\psi,P_0\phi) &= \int_0^1 \psi^*(x) \left ( -i\hbar \frac{d}{dx} \phi \right)(x) dx =\\
 &\underset{(a)}{=} \hlc{Yellow}{-i\hbar (\psi^*\phi)(x)|_0^1} + i\hbar \int_0^1 \frac{d}{dx}\psi^*(x) \phi(x) dx = (P_0\psi, \phi)
 \end{align*}
-In (a) si è integrato per parti, e il termine evidenziato è nullo in quanto $\psi\left(0\right)= \phi\left(0\right)=0$ e $\psi\left(1\right)= \phi\left(1\right)=0$, per come abbiamo scelto il dominio $D(P_0)$.
+In (a) si è integrato per parti, e il termine evidenziato è nullo in quanto $\psi\left(0\right)=0$ e $\psi\left(1\right)= 0$, per come abbiamo scelto il dominio $D(P_0)$ (in particolare, notiamo che perché si annulli non è necessario richiedere alcuna condizione su $\phi \in D(P_0^\dag)$, se non la regolarità).
 Quali sarebbero i possibili risultati di misura del momento di $P_0$? Basta risolvere l'equazione agli autovalori:
 \[
 -i\hbar\frac{d}{dx}\psi_\lambda\left(x\right)=\lambda\psi\left(x\right)\Rightarrow \psi_\lambda\left(x\right)=c e^{\frac{i}{\hbar}\lambda x}
@@ -114,11 +114,11 @@ Sappiamo che $A=A^\dag$ (autoaggiunto) e in particolare $\left(\psi,A\psi\right)
 \]
 Poiché $A$ è autoaggiunto, e quindi $A=A^\dag$:
 \begin{align}
-\nonumber =\left(\left[A-\left(\psi,A\psi\right)\right]\psi,\left[A-\left(\psi,A\psi\right)\right]\psi\right)=\norm{\left[A-\left(\psi,A\psi\right)\right]\psi}^2&=\left|\left|\left(A-\lambda\right)\psi\right|\right|^2 = 0\\
+\nonumber =\left(\left[A-\left(\psi,A\psi\right)\right]\psi,\left[A-\left(\psi,A\psi\right)\right]\psi\right)=\norm{\left[A-\underbrace{\left(\psi,A\psi\right)}_{\lambda}\right]\psi}^2&=\left|\left|\left(A-\lambda\right)\psi\right|\right|^2 = 0\\
 \label{eqn:fluttuazione-autoaggiunto}
  &\Rightarrow A\psi=\lambda\psi
 \end{align}
-Abbiamo quindi dimostrato che tutti gli autovalori \textit{in senso matematico} sono autovalori \textit{in senso fisico}, cioè che tra i valori $\lambda \in \sigma \left(O\right)$ si trovano gli autovalori (matematici) di $A$.
+Quindi si ha che da $A\psi = \lambda \psi$, dove $\psi$ è un autovettore in senso \q{matematico}, deriva immediatamente che $(\Delta O)_\Sigma^2 = 0$, e quindi $\psi$ è anche autovettore in senso \q{fisico}, cioè costituisce autostato di un'osservabile. Segue che tutti gli autovalori \textit{in senso matematico} sono autovalori \textit{in senso fisico}, cioè che tra i valori $\lambda \in \sigma \left(O\right)$ si trovano gli autovalori (matematici) di $A$.
 \[
 \sigma\left(A\right)\supseteq\left\{\lambda\text{ autovalori dell'operatore } A\right\}
 \]
@@ -128,7 +128,7 @@ Resta da dimostrare se tali autovalori \q{matematici} coincidono con \textit{tut
 Se $\psi_n$ e $\psi_m$ sono autovettori\marginpar{Decomposizione spettrale} (anche se $\dim{\mathcal{H}=\infty}$) di $A$ simmetrico, appartenenti agli autovalori $\lambda_n$, $\lambda_m$, con $\lambda_n\neq \lambda_m$, allora $\left(\psi_n, \psi_m\right)=0$
 \end{thm}
 \begin{proof} Dalla definizione di autovettore $\psi_m$ di $A$ con autovalore $\lambda_m$ si ha che $A\psi_m = \lambda_m \psi_m$ e dunque $\left(\psi_n, A\psi_m\right)=\lambda_m\left(\psi_n, \psi_m\right)$.
-Poiché $A$ è simmetrica, vale $(\psi, A \phi) = (A \psi, \phi)$, e poiché anche $\psi_n$ è autovettore si hai:
+Poiché $A$ è simmetrica, vale $(\psi, A \phi) = (A \psi, \phi)$, e poiché anche $\psi_n$ è autovettore si ha:
 \[ (\psi_n, A\psi_m) = (A\psi_n, \psi_m) = \lambda_n (\psi_n, \psi_m)\]\\
 Unendo le due uguaglianze (essendo $\left(\lambda_n-\lambda_m\right)\neq 0$) si ottiene:
 \[
@@ -255,7 +255,7 @@ Si verifica immediatamente che $A$ è uguale alla sua trasposta coniugata, e qui
 \end{itemize}
 \item Otteniamo ora i \textbf{proiettori} a partire dagli autovalori. Partendo dalla definizione di (\ref{eqn:proiettore}) in notazione di Dirac, e riconoscendo che in $\bb{C}^3$ un \q{bra} è un vettore-riga $1\times 3$ (essendo un funzionale che agisce su vettori di dim. 3) mentre un \q{ket} è un normale vettore-colonna $3\times 1$, basta svolgere dei prodotti matriciali, che daranno come risultato un operatore (ossia una matrice $3\times 3$, dato che moltiplichiamo $(3\times 1) \cdot (1\times 3)$):
 \begin{align*}
-	P_0&=\left|\psi_0\right\rangle\left\langle\psi_0\right|=\frac{1}{\sqrt3}\left(\begin{matrix}i\\1\\-1\\\end{matrix}\right)\frac{1}{\sqrt3}\left(\begin{matrix}-i\\1\\-1\\\end{matrix}\right)=\frac{1}{3}\left(\begin{matrix}1&i&-i\\-i&1&-1\\i&-1&1\\\end{matrix}\right)\\
+	P_0&=\left|\psi_0\right\rangle\left\langle\psi_0\right|=\frac{1}{\sqrt3}\left(\begin{matrix}i\\1\\-1\\\end{matrix}\right)\frac{1}{\sqrt3}\left(\begin{matrix}-i & 1 & -1\end{matrix}\right)=\frac{1}{3}\left(\begin{matrix}1&i&-i\\-i&1&-1\\i&-1&1\\\end{matrix}\right)\\
 	P_{3,1}&=|\psi_{3,1}\rangle \langle \psi_{3,1}|=\frac{1}{6}\left(\begin{matrix}4&-2i&2i\\2i&1&-1\\-2i&-1&1\\\end{matrix}\right)\\
 	P_{3,2}&=\left|\psi_{3,2}\right\rangle\left\langle\psi_{3,2}\right|=\frac{1}{2}\left(\begin{matrix}0&0&0\\0&1&1\\0&1&1\\\end{matrix}\right)
 	\end{align*}

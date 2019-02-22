@@ -32,7 +32,7 @@ Il valor medio di $\ket{\phi}\bra{\phi}$ nello stato $\ket{\psi}$ è infatti dat
 \]
 che viene detto \textbf{probabilità di transizione}\marginpar{Probabilità di transizione} (e $\braket{\psi|\phi}$ ampiezza di transizione) da $\ket{\phi}$ a $\ket{\psi}$.\\
 Poiché tale probabilità è non nulla anche per $\ket{\phi}\neq\ket{\psi}$ (anche come raggi vettori), vediamo che in \MQ \textbf{gli stati puri non sono mutualmente esclusivi}, come invece avviene nel caso classico,\marginpar{Stati puri distinti non sono mutualmente esclusivi} in cui o due punti (intesi nello spazio delle fasi $\Omega$) coincidono o sono distinti.\\
-In \MQ, dando l'analogo delle condizioni iniziali (vettore nello spazio di Hilbert, stato puro = massima informazione), provando a fare una misura in generale posso ottenere il risultato di uno stato diverso. Alternativamente, se preparo il sistema ad un istante $t=0$ nello $\ket{\phi}$, a $t=0^+$ è possibile trovarlo nello stato $\ket{\psi}\neq\ket{\phi}$!\\
+In \MQ, dando l'analogo delle condizioni iniziali (vettore nello spazio di Hilbert, stato puro = massima informazione), provando a fare una misura in generale possiamo ottenere il risultato di uno stato diverso. Alternativamente, se preparo il sistema ad un istante $t=0$ nello $\ket{\phi}$, a $t=0^+$ è possibile trovarlo nello stato $\ket{\psi}\neq\ket{\phi}$!\\
 Matematicamente ciò è dato dal fatto che due generici vettori, se moltiplicati scalarmente, non sempre devono dare un risultato nullo - tale ovvietà produce un risultato fisico per nulla intuitivo.\\
 Del resto, in \MC gli stati puri sono costituiti da delta di Dirac, e il prodotto di due $\delta$ diverse è per forza nullo.
 \end{oss}
@@ -160,7 +160,7 @@ A = -i\hbar \frac{d}{dx}
 \section{Spettro di un operatore}
 Ci poniamo ora il problema di determinare quali valori si possono ottenere con una misura di un operatore autoaggiunto $A=A^\dag$ (o meglio, dell'osservabile da esso descritto).\\
 Nel caso $\dim{\mathcal{H}}<\infty$ si ha che $\sigma \left(A\right)= \left\{\lambda_n\text{ autovalori}\right\}$, analogamente al caso classico, dove un'osservabile è data da una funzione $f(q,p)$ i cui valori, che costituiscono lo spettro, sono tutti autovalori ($\op{cod} f = \{\text{autovalori di }f\}$).\\
-Tuttavia, per $\dim{\mathcal{H}}=\infty$, sorgono fin da subito dei problemi.  Infatti, un autovalore è definito come:
+Tuttavia, per $\dim{\mathcal{H}}=\infty$, sorgono fin da subito dei problemi.  Infatti, un autovalore è definito come (\ref{eqn:fluttuazione-autoaggiunto}):
 \[
 \left(\Delta O\right)_{\lambda,\psi_\lambda}=0 = \norm{(A-\lambda)\psi_\lambda}
 \]
@@ -192,9 +192,9 @@ E l'applicazione dell'operatore $X$ su una $\psi_n$ è ben definita:
 \[
 \norm{x\psi_n}^2 = \int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}} x^2 n\,dx = \frac{nx^3}{3}\Big |^{a+\frac{1}{2n}}_{a-\frac{1}{2n}} < \infty
 \]
-Cerchiamo allora di calcolare gli autovalori con la richiesta \q{più larga} precedentemente discussa:
+Cerchiamo allora di calcolare gli autovalori con la richiesta \q{più larga} precedentemente discussa:\marginpar{Dimostrazione che $\sigma(X)=\bb{R}$}
 \begin{align*}
-\inf_{\psi\in D\left(X\right)}{\left(\Delta X\right)_{a,\psi}^2}&\underset{(a)}{\leq} \inf_{n\in \bb{N}}{\left(\Delta X\right)_{a,\psi_n}^2}=
+\inf_{\psi\in D\left(X\right)}{\left(\Delta X\right)_{a,\psi}^2}&\underset{(a)}{\leq} \inf_{n\in \bb{N}}{\left(\Delta X\right)_{a,\psi_n}^2} \underset{(\ref{eqn:fluttuazione-autoaggiunto})}{=}
 \inf_{n\in\bb{N}}\int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}} \norm{X-\lambda}^2 \norm{\psi_\lambda}^2 = \\
 &= \inf_{n\in\bb{N}}{\int_{a-\frac{1}{2n}}^{a+\frac{1}{2n}}{{n\left(x-a\right)}^2dx}} \\
 &\xRightarrow[(x-a)\to x]{} \inf_{n\in\bb{N}}{n\int_{-\frac{1}{2n}}^{\frac{1}{2n}}{x^2dx}=\inf_{n\in\bb{N}}{n\frac{2}{3}\left(\frac{1}{2n}\right)^3}}=0
@@ -226,7 +226,7 @@ L'insieme dei valori ottenibili da una misura dell'osservabile descritta dall'op
 	\left(\Delta A\right)_{a,\psi_a}^2=\left|\left|\left(A-a\right)\psi_a\right|\right|^2=0\Rightarrow \left(A-a\right)\psi_a=0
 	\]
 	Perciò gli $\psi_a$ sono detti gli \textbf{autovettori} di $A$ appartenenti all'\textbf{autovalore} $a$ e $\left(A-a\right)\psi_a=0$ è l'\textbf{equazione agli autovalori}.\\
-	\textbf{Nota:} lo spettro discreto è costituito al più da un insieme numerabile di punti. Se così non fosse, avremmo un insieme non numerabile di autovettori ortogonali tra loro nello spazio di Hilbert, cosa che è assurda perché $\hs$ è separabile. Tuttavia, lo spettro discreto potrebbe essere denso\footnote{ciò si verifica, per esempio, nel caso di elettroni in un cristallo disordinato. La scoperta di ciò valse un premio Nobel in fisica nel 1977 a Philip Warren Anderson} in $\hs$.
+	\textbf{Nota:} lo spettro discreto\marginpar{Numerabilità dello spettro discreto} è costituito al più da un insieme numerabile di punti. Se così non fosse, avremmo un insieme non numerabile di autovettori ortogonali tra loro nello spazio di Hilbert, cosa che è assurda perché $\hs$ è separabile. Tuttavia, lo spettro discreto potrebbe essere denso\footnote{ciò si verifica, per esempio, nel caso di elettroni in un cristallo disordinato. La scoperta di ciò valse un premio Nobel in fisica nel 1977 a Philip Warren Anderson} in $\hs$.
 	\item D'altro canto, i punti dello spettro di $\sigma \left(A\right)$ in cui la fluttuazione ha estremo inferiore nullo in $D(A)$, ma \textbf{non minimo}, sono detti \textbf{spettro continuo}\marginpar{Spettro continuo} $\sigma_C\left(A\right)$ di $A$ e per essi \textbf{non c'è} autovettore $\psi_a\in D(A)$.\\
 	(Come vedremo, nel formalismo di Dirac c'è una caratterizzazione più semplice di $\sigma_C(A)$)\\
 	\end{itemize}
@@ -235,14 +235,17 @@ L'insieme dei valori ottenibili da una misura dell'osservabile descritta dall'op
 	\[
 	\sigma \left(U^\dag A\ U\right)= \sigma \left(A\right)
 	\]
-	Osserviamo innanzitutto che se $U^\dag A U\psi \in \hs \Rightarrow U\psi \in D(A)$. Definiamo $\phi \equiv U\psi$.\\
-	Allora si ha che se $\phi \in D\left(A\right)$, possiamo sempre trovare un $\psi$ t.c. $U\psi =\phi$ ($U$ è unitario, perciò invertibile) e allora $U^\dag\phi =U^\dag U \psi =\psi$, con $\psi \in D(U^\dag A U)$.\\
-	Perciò vale:
+	Osserviamo innanzitutto che se $U^\dag A U\psi$ è ben definito, ossia se risulta in un vettore $\in \hs$, necessariamente  $\phi \equiv U\psi \in D(A)$. Perciò:
+	\begin{align}
+	    \psi \in D(U^\dag A U) \Rightarrow \phi \equiv U\psi \in D(A)
+	\end{align}
+	D'altro canto, se partiamo da un generico $\phi \in D(A)$ possiamo procedere a ritroso e trovare un $\psi$ t.c.  t.c. $U\psi =\phi$ ($U$ è unitario, perciò invertibile) e allora $U^\dag\phi =U^\dag U \psi =\psi$, con $\psi \in D(U^\dag A U)$.\\
+	Perciò vale la doppia implicazione:
 	\begin{equation}
 	    \psi \in D\left(U^\dag A\ U\right)\Leftrightarrow \phi =U\psi \in D(A)
 	    \label{eqn:relazionedomini}
 	\end{equation}
-	Calcolando l'estremo inferiore:
+	Ciò garantisce che le operazioni che eseguiremo nei prossimi passaggi siano ben definite. Calcolando l'estremo inferiore:
 	\begin{align*}
 	   &\inf_{\psi \in D(U^\dag A U)} \left (\Delta(U^\dag A U) \right )^2_{a,\psi}
 	   =\inf_{\psi \in D(U^\dagger A U)} \norm{(U^\dag A U-a)\psi}^2 =\\

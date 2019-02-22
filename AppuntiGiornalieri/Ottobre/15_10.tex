@@ -16,7 +16,7 @@ Applicando la definizione di $X$:
 \[
 X\psi_\lambda(x) = x\psi_\lambda(x) \Rightarrow (x-\lambda)\psi_\lambda (x) = 0
 \]
-Scartiamo la soluzione banale $\psi_\lambda(x) \equiv 0$ che non è fisica\footnote{La posizione di una particella non può essere \q{da nessuna parte}!}, ma allora l'equazione di sopra deve valere solo per $x = \lambda$.\\
+Scartiamo la soluzione banale $\psi_\lambda(x) \equiv 0$ che non è fisica\footnote{La posizione di una particella non può essere \q{da nessuna parte}! Inoltre tale $\psi = 0$ non è neanche normalizzabile.}, ma allora l'equazione di sopra deve valere solo per $x = \lambda$.\\
 Tuttavia $\{x = \lambda \}$ ha misura di Lebesgue nulla: in altre parole stiamo cercando una soluzione (non nulla) che sia $0$ per tutte le $x$ tranne $\lambda$ (ossia tranne un insieme Lebesgue-trascurabile). Ma tale funzione, in $L^2$, è quella nulla, che abbiamo appena scartato!\\
 Siamo costretti ad affermare perciò che $X$ non possiede autovettori - e con ciò termina il primo tentativo di generalizzare la decomposizione spettrale al caso infinito-dimensionale: come possiamo trovare una base ON di autovettori se di autovettori non ce ne sono?\\
 
@@ -31,11 +31,11 @@ P^A\left(\lambda\right)=\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}\equiv H(\la
 (che si intende valida per ogni stato $\psi$. Nota: con $P^A(\lambda)$ indichiamo un operatore che dipende da $\lambda$, non una funzione reale a valori reali!)\\
 Ma allora da (\ref{eqn:Omedio})\footnote{$\langle O \rangle_\Sigma = \int_\bb{R} \lambda\, d\langle H(\lambda-O)\rangle_\Sigma$} sappiamo che: %[REF]
 \[
-\langle O \rangle_\Sigma = \int_\bb{R} \lambda\, d\langle P^O(x)\rangle_\Sigma 
+\langle O \rangle_\Sigma = \int_\bb{R} \lambda\, d\langle P^O(\lambda)\rangle_\Sigma 
 \]
 Nel caso degli operatori basta quindi calcolare il valor medio dell'operatore definito in (\ref{eqn:PA}), e si ottiene quindi, nel caso normalizzato (ossia con $\norm{\psi} = 1$):
 \begin{equation}
-\left\langle A\right\rangle_\psi= \int_\bb{R} \lambda dP^A_\Sigma(\lambda) =\int_{\mathbb{R}}{\lambda\, d \underbrace{(\psi,P^A\left(\lambda\right)\psi)}_{P_\psi^A(\lambda)}}
+\left\langle A\right\rangle_\psi= \int_\bb{R} \lambda dP^A_\psi(\lambda) =\int_{\mathbb{R}}{\lambda\, d \underbrace{(\psi,P^A\left(\lambda\right)\psi)}_{P_\psi^A(\lambda)}}
 \label{eqn:valormedioA}
 \end{equation}
 Abbiamo quindi adattato la scrittura \q{probabilistica} dei valori medi anche al caso degli operatori.\\
@@ -71,7 +71,7 @@ Si tratta di una funzione reale, che interpretiamo come la probabilità che effe
     \caption{Andamento di $P_\psi^A(\lambda)$}
     \label{fig:Pautov}
 \end{figure}
-Supponiamo di porre sulla retta reale gli autovalori, in ordine crescente. In particolare, vi sarà un autovalore minimo $\lambda_1$, prima del quale la $P_\psi^A\left(\lambda\right)$ è nulla. Quando incontra il primo autovalore vi è un \q{gradino} (dato dalla Heaviside), e allo stesso modo per i successivi autovalori, con \q{il salto} tra ciascuno che è dato dal peso $\left|\psi_n,\ \psi\right|^2$, come illustrato in figura \ref{fig:Pautov}.\\
+Supponiamo di porre sulla retta reale gli autovalori, in ordine crescente. In particolare, vi sarà un autovalore minimo $\lambda_1$, prima del quale la $P_\psi^A\left(\lambda\right)$ è nulla. Quando incontra il primo autovalore vi è un \q{gradino} (dato dalla Heaviside), e allo stesso modo per i successivi autovalori, con \q{il salto} tra ciascuno che è dato dal peso $\left|(\psi_n,\ \psi)\right|^2$, come illustrato in figura \ref{fig:Pautov}.\\
 Alla fine (dopo tutti gli autovalori), giungerà ovviamente a $1$, essendo normalizzata la $\psi$ normalizzata: $\norm{\psi}=1$. Perciò:
 \[
 \sum_{n}\left|(\psi_n,\ \psi\right)|^2=1
@@ -84,7 +84,7 @@ Perciò costruendo l'operatore $P^A$ grazie alla decomposizione spettrale possia
 Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$} degli operatori $\left\{P^A\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ dati da $P^A(\lambda) = \sum_n H(\lambda-\lambda_n)P_n$
 (siamo sempre nel caso di $\dim{\mathcal{H}}<\infty$). L'idea è di richiedere le stesse proprietà anche nel caso infinito-dimensionale, in modo da svincolarsi dalle equazioni agli autovalori e poter generalizzare.
 \begin{enumerate}
-    \item $P^A(\lambda)$ è un \textbf{proiettore}\marginpar{$P^A(\lambda)$ è un proiettore}. Infatti è autoaggiunto:
+    \item $P^A(\lambda)$ è un \textbf{proiettore}\marginpar{$P^A(\lambda)$ è un proiettore}. Infatti è autoaggiunto, come si può dimostrare lavorando in rappresentazione spettrale, e cioè scrivendo $P^A(\lambda)$ come somma di proiettori sui singoli autovettori \q{pesati} da funzioni dei singoli autovalori:
     \[
 	\left(\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}\right)^\dag=\sum_{n}{H\left(\lambda-\lambda_n\right)^\ast\ P_n^\dag}=\sum_{n}{H\left(\lambda-\lambda_n\right)P_n}
 	\]
@@ -139,7 +139,7 @@ Elenchiamo ora alcune \textbf{proprietà}\marginpar{Proprietà di $P^A(\lambda)$
 	\]
 \end{enumerate}
 \begin{dfn}
-Una famiglia di proiettori\marginpar{Famiglia spettrale} $\left\{P\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ che soddisfa le proprietà 2-4, è detta \textbf{famiglia spettrale}.
+Una famiglia di proiettori\marginpar{Famiglia spettrale} $\left\{P\left(\lambda\right),\ \lambda\in\mathbb{R}\right\}$ che soddisfa le proprietà 2-4, è detta \textbf{famiglia spettrale}\footnote{La proprietà $1$ è già soddisfatta quando richiediamo che sia una famiglia di proiettori}.
 \end{dfn}
 
 \begin{thm}
@@ -149,7 +149,7 @@ Esiste una corrispondenza biunivoca\marginpar{Operatore autoaggiunto $\leftright
 D\left(A\right)&= \left\{\phi\in\mathcal{H}\ |\ \int_{\mathbb{R}}{\lambda^2\ d\left(\phi,P\left(\lambda\right)\phi\right)<\infty}\right\} 
 \label{eqn:dominiofamigliaspettrale}
 \end{align}
-Si ha che $D(A)$ è denso, quindi per definire $A$ basta darne gli elementi di matrice:
+Si ha che $D(A)$ è denso, quindi per definire $A$ basta darne gli elementi di matrice, che sono ben definiti grazie alla scelta fatta per il dominio $D(A)$:
 \[
 \left(\phi,A\phi\right)=\int_\bb{R} \lambda\, d\left(\phi,P\left(\lambda\right)\phi\right)
 \]
@@ -231,7 +231,7 @@ Riepilogando: \marginpar{Riepilogo delle \textbf{proprietà} delle \textbf{osser
 \end{enumerate}
 Enunciamo questi risultati, che abbiamo costruito nei paragrafi precedenti e che sono estensivamente corroborati dall'evidenza, come \textbf{assiomi} del formalismo quantistico.
 \begin{axi}
-Le \textbf{osservabili}\marginpar{Assioma delle osservabili}\index{Assioma!delle osservabili} di un sistema quantistico, i cui \textbf{stati puri} sono descritti dai \textbf{raggi vettori} di $\hs$, sono descritti da \textbf{operatori autoaggiunti} $A=A^\dag$ in $\hs$.
+Le \textbf{osservabili}\marginpar{Assioma delle osservabili}\index{Assioma!delle osservabili} di un sistema quantistico, i cui \textbf{stati puri} sono descritti dai \textbf{raggi vettori} di $\hs$, sono descritti da \textbf{operatori autoaggiunti} $A=A^\dag$ in $\hs$ (lineari e densamente definiti).
 \end{axi}
 
 \begin{axi}
@@ -259,7 +259,7 @@ Dove $P^A\left(\lambda\right)$ è la \textbf{famiglia spettrale} di $A$ e $\fora
 	Con $A=\frac{{\vec{p}}^2}{2m}, B=V(\vec{x})$\\
 	Fortunatamente, molti casi importanti sono coperti dal seguente risultato:
 	\begin{thm}
-	Se $V$ è limitato in $\mathbb{R}^n$, oppure se $n=3$ e $V$ è Coulombiano (es. potenziale elettrostatico), allora $H$ è autoaggiunto nel dominio di $A$ definito da:
+	Se $V$ è limitato in $\mathbb{R}^n$, oppure se $n=3$ e $V$ è Coulombiano (es. potenziale elettrostatico), allora $H$ è autoaggiunto nel dominio di $A$ definito da: \marginpar{Autoaggiuntezza dell'Hamiltoniana $H$}
 	    \[
 	    D\left(\vec{p}^{\>2}\right)=\left\{\varphi\in L^2\left(R^n,\ d^nx\right)\middle|\ {\vec{p}}^{\>2}\widetilde{\varphi}\left(\vec{p}\,\right)\in L^2\left(R^n, d^np\right)\right\}
 	    \]

@@ -9,7 +9,7 @@ Vogliamo trovare la forma esplicita degli autoket $\ket{l,m}$ comuni a $\vec{L}^
 
 Conviene allora partire esprimendo gli operatori che ci servono, ossia $L_3$ e $L_\pm$ (da cui si ricava anche $\vec{L}^2$), in coordinate \q{compatibili} con la simmetria rotazionale che stiamo studiando, ossia le \textbf{coordinate polari} $\{r,\theta,\varphi\}$.\\
  
-Ricordiamo il passaggio da coordinate sferiche a cartesiane e viceversa:
+Ricordiamo il passaggio da coordinate sferiche a cartesiane e viceversa:\marginpar{1. $L_3, L_\pm, L^2$ in coordinate polari}
 \begin{align*}
 \begin{cases}
 x = r\sin\theta \cos \varphi\\
@@ -172,7 +172,7 @@ e cerchiamo le autofunzioni $f_{ln}(\theta,\varphi)$ di $\vec{L}^{\,2}$ e $L_3$ 
 L_3 f_{lm}(\theta,\varphi) &= \hbar m f_{lm}(\theta,\varphi)\label{eqn:autovalori-L_3}\\
 \vec{L}^2 f_{lm}(\theta,\varphi) &= \hbar^2 l(l+1) f_{lm}(\theta,\varphi)\label{eqn:autoalori-Lquadro}
 \end{align}
-Utilizziamo una tecnica comune nella risoluzione di equazioni differenziali alle derivate parziali, che sta nel cercare soluzioni \textit{fattorizzabili} del tipo:
+Utilizziamo una\marginpar{2. Autofunzioni fattorizzate} tecnica comune nella risoluzione di equazioni differenziali alle derivate parziali, che sta nel cercare soluzioni \textit{fattorizzabili} del tipo:
 \begin{align*}
 f_{lm}(\theta,\varphi) = \Theta_{lm}(\theta) \Phi_{lm}(\varphi)
 \end{align*}
@@ -180,7 +180,7 @@ Sostituendo nella (\ref{eqn:autovalori-L_3}) otteniamo (sopprimendo temporaneame
 \begin{align*}
 L_3 \Theta(\theta)\Phi(\varphi) = \frac{\bcancel{\hbar}}{i}\cancel{\Theta(\theta)}\frac{\partial}{\partial\varphi} \Phi(\varphi)=\bcancel{\hbar} m\cancel{ \Theta(\theta)}\Phi(\varphi)
 \end{align*}
-che è a variabili separabili, e conduce a:
+che è a variabili separabili, e conduce a:\marginpar{$\Phi(\varphi)$}
 \begin{align*}
 \frac{\Phi'(\varphi)}{\Phi(\varphi)} = im \Rightarrow \Phi(\varphi) \sim e^{im\varphi}
 \end{align*}
@@ -194,7 +194,7 @@ Ciò si verifica applicando $\vec{L}^2$ ad un'autofunzione:
 &=-\cancel{e^{im\varphi}}\left(-\frac{m^2}{\sin^2 \theta} +\frac{\partial^2}{\partial \theta^2} + \cot\theta \frac{\partial}{\partial \theta} \right)\Theta(\theta)= l(l+1)\Theta(\theta) \cancel{e^{im\varphi}}
 \end{align*}
 E perciò $\Theta(\theta)$ dipende solo da $m^2$, e perciò non \q{avverte} cambiamenti di segno di $m$.\\
-L'equazione differenziale appena ricavata è difficile da risolvere direttamente\footnote{Lo si può comunque fare, per esempio tramite metodi con \textit{serie di potenze}, come accennato qui: \url{http://www.eng.fsu.edu/~dommelen/quantum/style_a/nt_soll2.html}}, ma fortunatamente possiamo utilizzare i risultati ottenuti esaminando l'algebra di $\vec{L}$. Supponiamo infatti che esista un autoket $\ket{l,l}$ \q{massimo}, nel senso che $L_+$ non possa \q{alzarlo} ulteriormente, e tale che applicando ad esso $L_-$ iterativamente sia possibile ottenere \textit{tutti} gli altri autoket:
+L'equazione differenziale appena ricavata è difficile da risolvere direttamente\footnote{Lo si può comunque fare, per esempio tramite metodi con \textit{serie di potenze}, come accennato qui: \url{http://www.eng.fsu.edu/~dommelen/quantum/style_a/nt_soll2.html}}, ma fortunatamente possiamo utilizzare i risultati ottenuti esaminando l'algebra di $\vec{L}$. Supponiamo infatti che esista un autoket $\ket{l,l}$ \q{massimo}, nel senso che $L_+$ non possa \q{alzarlo} ulteriormente, e tale che applicando ad esso $L_-$ iterativamente sia possibile ottenere \textit{tutti} gli altri autoket:\marginpar{$\Theta(\theta)$ tramite $L_+$}
 \begin{align}
 L_+ \ket{l,l}&=0 \label{eqn:autoket-max}\\
 \ket{l,m} &\propto L_-^{l-m}\ket{l,l} \label{eqn:autoket-abbassato} \qquad (m>0)
@@ -263,7 +263,7 @@ f_{l,|m|}(\theta,\varphi) &\propto e^{i|m|\varphi} \left(\frac{1}{\sin^{|m|+1}(\
 &=e^{i|m|\varphi}\sin^{-|m|}(\theta)\left(\frac{1}{\hlc{ForestGreen}{\sin\theta}}\frac{\partial}{\hlc{ForestGreen}{\partial \theta}}\right)^{l-|m|}\sin^{2l}(\theta) =\\
 &=e^{i|m|\varphi}\frac{1}{\sin^{|m|}(\theta)}\left(\frac{d}{d\cos\theta}\right)^{l-|m|}\sin^{2l}(\theta)
 \end{align*}
-Le $f_{lm}(\theta,\varphi)$ \textit{normalizzate} sono dette \textbf{armoniche sferiche}\marginpar{Armoniche sferiche}\index{Armoniche sferiche}, e assumono la seguente forma:
+Le $f_{lm}(\theta,\varphi)$ \textit{normalizzate} sono dette \textbf{armoniche sferiche}\marginpar{3. Armoniche sferiche $Y_l^m(\theta,\varphi)$}\index{Armoniche sferiche}, e assumono la seguente forma:
 \begin{align*}
 Y_l^m(\theta,\varphi)\equiv f_{lm}(\theta,\varphi)=\sqrt{\frac{(2l+1)}{4\pi}} \sqrt{\frac{(l+|m|)!}{(l-|m|)!}}\frac{1}{2^l l!} \frac{1}{(\sin\theta)^{|m|}} \frac{\partial^{l-|m|}}{\partial \cos\theta^{l-|m|}} (\sin\theta)^{2l} e^{im\varphi}
 \end{align*}
@@ -297,7 +297,7 @@ Perciò per $l$ pari l'armonica è una funzione pari, e per $l$ dispari è dispa
 Si\marginpar{Armoniche sferiche come base ON} può dimostrare che le funzioni $\{Y^m_l = \braket{\theta,\varphi|l,m}, l\in \bb{N}, m\in \bb{Z}\cap [-l,l]\}$ costituiscono una \textbf{base ortonormale} in $L^2(S^2, d\Omega)$ e pertanto:
 \begin{itemize}
 \item Esiste un autoket $\ket{l,l} \in L^2$ comune a $\vec{L}^2$ e $L_3$, da cui, tramite $L_-$, si possono costruire \textit{tutti} gli autovalori di $\vec{L}^{\,2}$ e $L_3$, i cui rispettivi autoket appartengono \textit{sempre} a $L^2$.\\
-Si ha allora che lo spettro di $\vec{L}^2$ è \textit{puramente discreto}, ed è dato da:
+Si ha allora che lo spettro di $\vec{L}^2$ è \textit{puramente discreto}, ed è dato da:\marginpar{$\vec{L}^2$ è a spettro discreto}
 \begin{align*}
 \sigma(\vec{L}^{\,2})=\sigma_P(\vec{L}^{\,2}) = \{\hbar^2 l(l+1), l\in \bb{N}\}
 \end{align*}

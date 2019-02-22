@@ -108,7 +108,7 @@ Cerchiamo di dare un'intuizione \textit{pittoresca} della situazione. Spostiamoc
 Come prima, identifichiamo gli antipodi di $B^2$, dato che nella nostra analogia corrisponderebbero alle \textit{stesse trasformazioni}. Abbiamo quindi che $B^2$ non è semplicemente connesso (un diametro di $B^2$ è un percorso chiuso che non si può contrarre a un punto con continuità).\\
 Vogliamo trovare un'altra varietà $\tilde{G}$, che sia semplicemente connessa, tale che esista una mappa suriettiva $\tilde{g}:\tilde{G}\to B^2$, ossia per cui ogni punto di $B^2$ abbia \textit{almeno una controimmagine} in $\tilde{G}$.\\
 Proviamo con $S^2$ (visto che nel caso a dimensione maggiore abbiamo usato $S^3$), che è la superficie di una sfera tridimensionale - ed è semplicemente connessa.\\
-Allora, pittorescamente, si consideri una sfera unitaria centrata all'origine di un piano cartesiano, e il piano $\hat{x}\hat{y}$ che la \textit{taglia} a metà. $\tilde{g}$ si può interpretare come la \textit{proiezione} dei punti della sfera sul piano. In particolare, notiamo che ogni punto del cerchio unitario $B^2$ sul piano $\hat{x}\hat{y}$ si ottiene dalla proiezione di almeno un punto di $S^2$.\\
+Allora, pittorescamente, si consideri una sfera unitaria centrata all'origine di un piano cartesiano, e il piano $\hat{x}\hat{y}$ che la \textit{taglia} a metà. $\tilde{g}$ si può interpretare come la \textit{proiezione} dei punti della sfera sul piano. In particolare, notiamo che ogni punto del cerchio unitario $B^2$ sul piano $\hat{x}\hat{y}$ si ottiene dalla proiezione di almeno un punto di $S^2$, e quindi $\tilde{g}$ è una mappa suriettiva..\\
 Graficamente, notiamo che ci sono sempre due punti di $S^2$ che \textit{si proiettano} nello stesso punto di $B^2$: uno \q{dall'alto} e uno \q{dal basso}. In realtà dobbiamo considerare che i punti di $S^2$ all'intersezione con il piano $z=0$ sono \textit{proiettati su se stessi}, ma dobbiamo ricordarci che in $B^2$ abbiamo identificato i punti antipodali, e quindi anche qui è come avere \textit{due proiezioni} per lo stesso punto.
 \begin{figure}[H]
 \centering
@@ -271,7 +271,7 @@ Una procedura efficiente per far ciò consiste nel notare che, trovato un autove
 Definiamo allora $J_{\pm} \equiv J_1 \pm i J_2$, ove $J_- = (J_+)^\dag$. Ricaviamone subito le relazioni di commutazione. Ricordando (\ref{eqn:condizione_j}) e sfruttando la bilinearità del commutatore si ha:
 \begin{align}\nonumber
 [J_3, J_{\pm}] &= [J_3, J_1 \pm i J_2] = i\hbar (\overbrace{\epsilon_{312}}^{1} J_2 \pm i\overbrace{ \epsilon_{321}}^{-1}J_1) =\\
-&=i\hbar (J_2 \mp iJ_1) = \hbar (\pm i J_2 + J_1) = \pm \hbar(J_1 \pm i J_2) = \pm \hbar J_\pm
+&=i\hbar (J_2 \mp iJ_1) = \hbar (i J_2 \pm J_1) = \pm \hbar(J_1 \pm i J_2) = \pm \hbar J_\pm
 \label{eqn:commutazione_Jpm}
 \\
 [J_+, J_-] &= [J_1 + iJ_2, J_1 - iJ_2]=i[J_2, J_1]-i[J_1,J_2]=\\
@@ -332,7 +332,7 @@ Partiamo sommando le disuguaglianze (\ref{eqn:piu1}) e (\ref{eqn:meno1}):
 \end{align*}
 E quindi calcolando la radice quadrata di ambo i membri giungiamo a:
 \begin{equation}
-|m| \leq \sqrt{\lambda}
+|m| \leq \sqrt{\lambda} \Rightarrow -\sqrt{\lambda} \leq m \leq + \sqrt{\lambda}
 \label{eqn:condizione_m}
 \end{equation}
 
@@ -367,7 +367,7 @@ Esplicitamente, fissato allora $j \in \bb{N}/2$ i possibili valori di $m$ sono:
 \]
 che coprono $2j+1$ possibilità.\\
 %[CFR Pag. 192 Sakurai]
-Se imponiamo a $\ket{j,m}$ di avere norma $1$: %[TO DO] Sistemare qua
+Se \marginpar{Coefficienti di normalizzazione}imponiamo a $\ket{j,m}$ di avere norma $1$: %[TO DO] Sistemare qua
 \begin{align*}
 J_\pm \ket{j,m} &= c_\pm (j,m) \ket{j, m\pm 1}\\
 \norm{J_+ \ket{j,m}}^2&=|c_\pm (j,m)|^2
@@ -377,7 +377,7 @@ Da cui:
 \begin{align*}
 \norm{J_\pm \ket{\lambda,m}}^2=\hbar^2(\lambda-m(m\pm 1)) =\hbar^2(j(j+1)-m(m\pm 1)) = |c_{\pm}(j,m)|^2
 \end{align*}
-Con una scelta opportuna di fase possiamo infine scrivere:
+Con una scelta opportuna di fase possiamo fissare il segno (positivo) della radice, e quindi scrivere:
 \[
 J_\pm \ket{j,m}=\sqrt{j(j+1)-m(m\pm 1)} \ket{j, m\pm 1}
 \]

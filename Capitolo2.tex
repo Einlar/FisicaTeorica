@@ -411,9 +411,9 @@ f\left(O\right)=\int f\left(\lambda\right)dP^O\left(\lambda\right); \quad O=\int
 L'interpretazione probabilistica di $\langle O \rangle_\Sigma = \int \lambda d\langle P^O(x)\rangle_\Sigma$ è perciò:
 \begin{itemize}
     \item $\lambda$ descrive i possibili risultati a priori dalla misura di $O$, cioè i punti di $\bb{R}$ (essendo $O$ un'osservabile, cioè una grandezza che possiamo \textit{misurare sperimentalmente}, e le misure sperimentali danno solo valori reali)
-    \item $P_\Sigma^O\left(\Delta\right)$ = probabilità che una misura di $O$ dia un valore contenuto nell'intervallo $\Delta$
-    \item $P_\Sigma^O\left(\lambda\right)$ = probabilità che una misura di $O$ restituisca un valore $\leq \lambda$
-    \item $dP_\Sigma^O\left(\lambda\right)$ = probabilità che una misura di $O$ restituisca un valore tra $\lambda$ e $\lambda + d\lambda$
+    \item $P_\Sigma^O\left(\Delta\right)$ = probabilità che una misura di $O$ eseguita su un sistema nello stato $\Sigma$ dia un valore contenuto nell'intervallo $\Delta$
+    \item $P_\Sigma^O\left(\lambda\right)$ = probabilità che una misura di $O$ (eseguita su un sistema nello stato $\Sigma$) restituisca un valore $\leq \lambda$
+    \item $dP_\Sigma^O\left(\lambda\right)$ = probabilità che una misura di $O$ (eseguita su un sistema nello stato $\Sigma$) restituisca un valore tra $\lambda$ e $\lambda + d\lambda$
 \end{itemize}
 Quindi note le $P_\Sigma^O\left(\lambda\right)$ e astrattamente $P^O\left(\lambda\right)$ sono noti i valori medi di tutte le funzioni di $O$ (in quanto sappiamo l'esatta distribuzione dell'osservabile da cui tale funzioni dipendono).\\
 Le $dP_\Sigma^O\left(\lambda\right)$ sono precisamente le misure di probabilità rispetto alle quali è definito il teorema del limite dei grandi numeri per il valor medio. Applicando tale teorema si ottiene che, al limite di misure infinite, la media dei risultati sperimentali tende ai valori medi calcolati teoricamente tramite integrazione.\\
@@ -521,7 +521,7 @@ Giustifichiamolo matematicamente. Per il \textbf{teorema di Liouville}, in un si
 \[ \left\langle f\left(t\right)\right\rangle_\rho=\int dq\,dp\, \rho\left(q,p\right)f\left(q\left(t\right),\ p\left(t\right)\right) \]
 Applicando Liouville si passa a:
 \[
-=\int dq\left(t\right) dp\left(t\right)\rho\left(q,t\right)f\left(q\left(t\right),p\left(t\right)\right)
+=\int dq\left(t\right) dp\left(t\right)\rho\left(q,p\right)f\left(q\left(t\right),p\left(t\right)\right)
 \]
 Ed effettuando il cambio di variabili (\q{traslazione temporale}) $q\left(t\right),p\left(t\right)\mapsto q,p$ e $ q,p\mapsto q\left(-t\right),p(-t))$:
 \[

@@ -6,7 +6,7 @@
 
 Occupiamoci ora di studiare il comportamento di un \textbf{oscillatore armonico}, che ha applicazioni per lo studio di svariati fenomeni, come le vibrazioni di cristalli, o per l'espansione dei campi in modi normali: si ha infatti che ogni moto periodico nei pressi di un \textit{minimo} dell'energia potenziale (ossia un punto di equilibrio) è ben approssimato da un oscillatore armonico\footnote{CFR \cite{griffiths} pag. 47.}.\\
 
-In questa sezione ci limiteremo al caso \textbf{unidimensionale}. In \MC, dette $q$ e $p$ rispettivamente la posizione e il momento di un punto di massa $m$, legato ad una molla di costante elastica $k$ centrata all'origine, si ottiene la seguente Hamiltoniana:
+In questa sezione ci limiteremo al caso \textbf{unidimensionale}.\marginpar{Oscillatore classico} In \MC, dette $q$ e $p$ rispettivamente la posizione e il momento di un punto di massa $m$, legato ad una molla di costante elastica $k$ centrata all'origine, si ottiene la seguente Hamiltoniana:
 \begin{align*}
 H=\frac{p^2}{2m}+\frac{1}{2}m\omega^2 q^2\qquad \omega = \sqrt{\frac{k}{m}}
 \end{align*}
@@ -16,7 +16,7 @@ q(t) = A\sin(\omega t) + B\cos(\omega t)
 \end{align*}
 Poiché $p$ e $q$ possono potenzialmente assumere qualsiasi valore ($\sigma(p)=\sigma(q)=\bb{R}$), e in \MQ lo spettro di una somma è la somma degli spettri, si ha che $\sigma(H) = \bb{R}$, ed è quindi \textit{puramente continuo}.\\
 
-Scopriremo che, invece, in \MQ $\sigma(H)$ è \textit{discreto}, e un ICOC per il sistema è dato dal solo $H$.\\
+Scopriremo che, invece,\marginpar{Oscillatore quantistico} in \MQ $\sigma(H)$ è \textit{discreto}, e un ICOC per il sistema è dato dal solo $H$.\\
 Lavoriamo in rappresentazione $\{x\}$, fissando $\hs=L^2(\bb{R},dx)$. L'Hamiltoniana quantistica $H_0$ si ottiene sostituendo le \q{versioni quantistiche} di posizione e momento, ossia $P$ e $X$, che in rappresentazione $\{x\}$ sono dati da:
 \begin{align*}
 X = x \qquad P=-i\hbar\frac{d}{dx}
@@ -42,7 +42,7 @@ u^2+v^2 = (u-iv)(u+iv)
 Dato che stiamo lavorando con operatori che in genere \textit{non commutano}, la fattorizzazione non sarà perfetta - ma ci consentirà comunque di ottenere una soluzione.\\
 Prima di fattorizzare, raccogliamo un fattore $m\omega$ per \q{simmetrizzare} i due quadrati, e anche un $\hbar$ per \q{adimensionalizzarli}. Tale passaggio serve unicamente per velocizzare i conti successivi, togliendo di torno delle fastidiose costanti:
 \begin{align*}
-H_0 = \frac{\hbar\omega}{2}\left[\underbrace{\frac{P^2}{\hbar m\omega}}_{B^2} + \underbrace{\frac{m\omega X^2}{\hbar}}_{A^2}\right] \to \hbar \omega \left(\frac{A-iB}{\sqrt{2}}\right)\left(\frac{A+iB}{\sqrt{2}}\right)
+H_0 = \frac{\hbar\omega}{\hlc{Yellow}{2}}\left[\underbrace{\frac{P^2}{\hbar m\omega}}_{B^2} + \underbrace{\frac{m\omega X^2}{\hbar}}_{A^2}\right] \to \hbar \omega \left(\frac{A-iB}{\hlc{Yellow}{\sqrt{2}}}\right)\left(\frac{A+iB}{\hlc{Yellow}{\sqrt{2}}}\right)
 \end{align*}
 $A$ e $B$ non sono altro che \q{riscalamenti} di momento $P$ e posizione $X$, e quindi li chiamiamo in accordo:
 \begin{align*}
@@ -107,10 +107,10 @@ Dimostriamolo:
 N a\psi_\lambda&= ([N,a]+aN)\psi_\lambda = (-a +a\lambda) \psi_\lambda = (\lambda-1)a \psi_\lambda\\
 N a^\dag \psi_\lambda &= ([N, a^\dag]+a^\dag N) \psi_\lambda = (a^\dag + a^\dag \lambda) \psi_\lambda = (\lambda+1) a^\dag
 \end{align*} 
-Per questa ragione, $a$ è chiamato \textbf{operatore di distruzione} (o annichilazione), dato che \textit{abbassa} un autovalore, e $a^\dag$ \textbf{operatore di creazione}\footnote{Una motivazione migliore di tali nomi deriva dal fatto che i campi sono sviluppati come modi normali di oscillatori armonici, e in teoria dei campi le particelle sono \textit{eccitazioni} di questi campi, si ha che tali operatori effettivamente \textit{creano} e \textit{distruggono} particelle.}.
+Per questa ragione, $a$ è chiamato \textbf{operatore di distruzione} (o annichilazione),\marginpar{Operatori di annichilazione ($a$) e creazione ($a^\dag$)} dato che \textit{abbassa} un autovalore, e $a^\dag$ \textbf{operatore di creazione}\footnote{Una motivazione migliore di tali nomi deriva dal fatto che i campi sono sviluppati come modi normali di oscillatori armonici, e in teoria dei campi le particelle sono \textit{eccitazioni} di questi campi, si ha che tali operatori effettivamente \textit{creano} e \textit{distruggono} particelle.}.
 Ma allora iterando $n$-volte l'applicazione di $a$ si ha che anche $\lambda-n$ è un autovalore corrispondente all'autovettore $a^n\psi_\lambda$ (se è diverso da $0$).\\
 Tuttavia, abbiamo dimostrato che $\lambda \geq 0$, ossia che tutti gli autovalori di $N$ sono positivi. Ma scegliendo un $n$ sufficientemente grande, si ha che $\lambda-n < 0$ - e ciò non può essere. L'unico modo è allora che $\lambda$ sia un intero positivo, che chiamiamo $m$, cosicché dopo $m$ iterazioni $a^m\psi_\lambda = (\lambda-m)\psi_\lambda = 0$ e la catena si interrompe. Avremo quindi una successione di autovalori di $N$ dati da $m$, $m-1, \dots, 0$.\\
-Ma allora applicando a $\psi_0$ (che esiste se esiste $\psi_\lambda$) potenze di $a^\dag$, possiamo alzare di quanto vogliamo gli autovalori, dato che non esiste in generale un \q{tetto} per l'energia. Partendo da $0$ e salendo \textit{a passi interi}, otteniamo che tutti i numeri naturali fanno parte dello spettro di $N$.\\
+Ma allora applicando a $\psi_0$ (che esiste se esiste $\psi_\lambda$) potenze di $a^\dag$, possiamo alzare di quanto vogliamo gli autovalori, dato che non esiste in generale un \q{tetto} per l'energia. Partendo da $0$ e salendo \textit{a passi interi}, otteniamo che tutti i numeri naturali fanno parte dello spettro di $N$.\marginpar{$\sigma(N) = \bb{N}$}\\
 
 Naturalmente, tutto ciò funziona ammesso che esista un $\psi_\lambda$ iniziale da cui partire. Poiché partendo da un \textit{qualsiasi} $\psi_\lambda$ consente di generare tutti gli autovalori, conviene, per semplicità, cercare di dimostrare l'esistenza per $\lambda=0$, ossia risolvere l'equazione agli autovalori:
 \begin{align*}
@@ -124,7 +124,7 @@ x+i\left(-\frac{i\hbar}{\sqrt{m\hbar \omega}}\frac{d}{dx} \right)
 \end{align*}
 Con la sostituzione:
 \begin{align*}
-x'=\sqrt{\frac{m\omega}{\hbar}}x
+x'=\sqrt{\frac{m\omega}{\hbar}}x \Rightarrow \frac{d}{dx} = \frac{dx'}{dx} \frac{d}{dx'} = \sqrt{\frac{m\omega}{\hbar}} \frac{d}{dx'}
 \end{align*}
 Il problema si semplifica notevolmente. Separando le variabili e integrando in $x'$:
 \begin{align*}

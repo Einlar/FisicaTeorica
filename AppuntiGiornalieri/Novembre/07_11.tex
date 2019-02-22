@@ -122,7 +122,7 @@ giungiamo alla scrittura di un generico pacchetto come:
 \psi(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\tilde{f}(k) e^{i(kx-\omega(k)t)}dk
 \label{eqn:generico_pacchetto}
 \end{equation}
-Se la funzione $\omega=\omega(k)$ è lineare, allora tutte le onde che compongono il pacchetto \textit{si muovono alla stessa velocità}, che è detta \textit{velocità di fase} ed è data da:
+Se la funzione $\omega=\omega(k)$ è lineare, allora tutte le onde che compongono il pacchetto \textit{si muovono alla stessa velocità}, che è detta \textit{velocità di fase} ed è data dalla \textit{pendenza} di $\omega(k)$:
 \[
 v=\frac{\omega(k)}{k}
 \]
@@ -214,7 +214,7 @@ Analogamente, per $x\geq 0$ si ha che $H(x)=1$, e quindi l'equazione diviene:
 &\Rightarrow \varphi_\mathcal{E}(x)=c^2_+e^{\chi x}+c_-^2e^{-\chi x};\quad x\geq 0
 \label{eqn:conti_positivi}
 \end{align}
-Riepilogando:
+Riepilogando: \marginpar{Autofunzioni del potenziale a gradino}
 \begin{equation}
 \varphi_\mathcal{E}(x) = 
 \begin{cases}
@@ -234,8 +234,8 @@ Perciò avremo che:
 \[
 \sigma(H)\Big|_{\mathcal{E}<\bar{V}}=\sigma_C(H)\Big|_{0<\mathcal{E}<\bar{V}}
 \]
-Notiamo che le $\varphi$ dipendono da $3$ coefficienti, e imponendo le $2$ equazioni di \textit{raccordo} (per continuità e derivabilità) resta un coefficiente non determinato, e quindi la degenerazione degli autovalori è $1$.\\
-Le equazioni di raccordo per $\varphi_{\mathcal{E}}$ e $\varphi'_{\mathcal{E}}$ portano a:
+Notiamo che le $\varphi$ dipendono da $3$ coefficienti, e imponendo le $2$ equazioni di \textit{raccordo} (per continuità e derivabilità) resta un coefficiente non determinato\marginpar{Degenerazione = 1}, e quindi la degenerazione degli autovalori è $1$.\\
+Le equazioni di raccordo\marginpar{Condizioni di raccordo} per $\varphi_{\mathcal{E}}$ e $\varphi'_{\mathcal{E}}$ portano a:
 \begin{align}
 \lim_{x\to 0^-}\varphi_\mathcal{E}(x) \overset{!}{=}\lim_{x\to 0^+}\varphi_\mathcal{E}(x) &\Rightarrow c^1_+ + c^1_- =\ c^2_- \label{eqn:cont}
 \\
@@ -256,7 +256,7 @@ A_+=1+i\frac{\chi}{k}&=\left|1+i\frac{\chi}{k}\right|e^{i\theta(k)}\\
 &= \sqrt{\frac{\bar{k}^2}{k^2}-1}; \quad \bar{k}=\frac{\sqrt{2m\bar{V}}}{\hbar}
 \end{align*}
 dove $\bar{k}$ è il numero dell'onda che ha la stessa energia $\bar{V}$ del gradino. Il complesso coniugato $A_- =\ 1-i\frac{\chi}{k}$ ha quindi lo stesso modulo e angolo $\theta(k)$ opposto.\\
-Le costanti $c_-^1$ e $c_-^2$ divengono quindi:
+Le costanti $c_-^1$ e $c_-^2$ divengono quindi:\marginpar{Costanti in coordinate polari}
 \begin{align}
 c^2_- &= \frac{2}{|1+i\frac{\chi}{k}|e^{i\theta(k)}}c^1_+ = \frac{2 c^1_+}{|1+i\frac{\chi}{k}|}e^{-i\theta(k)}
 \label{eqn:c2-}
@@ -264,7 +264,7 @@ c^2_- &= \frac{2}{|1+i\frac{\chi}{k}|e^{i\theta(k)}}c^1_+ = \frac{2 c^1_+}{|1+i\
 c^1_- &= \frac{|1-i\frac{\chi}{k}|e^{-i\theta(k)}}{|1+i\frac{\chi}{k}|e^{i\theta(k)}}c^1_+ = c^1_+ e^{-2i\theta(k)}
 \label{eqn:c1-}
 \end{align}
-Conviene ora \textit{collegare} le costanti alle condizioni iniziali. In particolare, possiamo scegliere $c^1_+$ (che è un \textit{parametro libero} dato dalla degenerazione degli stati) in modo che il pacchetto sia piccato attorno a $x_0$ all'istante iniziale. In particolare poniamo:
+Conviene ora \textit{collegare} le costanti alle condizioni iniziali.\marginpar{Condizioni iniziali} In particolare, possiamo scegliere $c^1_+$ (che è un \textit{parametro libero} dato dalla degenerazione degli stati) in modo che il pacchetto sia piccato attorno a $x_0$ all'istante iniziale. In particolare poniamo:
 \begin{equation}
 c^1_+ = e^{-ikx_0}
 \label{eqn:c1+}
@@ -417,7 +417,7 @@ Lo spettro è nuovamente solo continuo (le soluzioni oscillano all'infinito, e q
 \[
 \sigma(H)\Big|_{\mathcal{E}>\bar{V}}=\sigma_C(H)\Big|_{\mathcal{E}>\bar{V}}
 \]
-Abbiamo $4$ coefficienti e $2$ equazioni di raccordo, per cui la degenerazione degli autovalori è $4-2=2$.\\
+Abbiamo $4$ coefficienti e $2$ equazioni di raccordo\marginpar{Degenerazione = 2}, per cui la degenerazione degli autovalori è $4-2=2$.\\
 Notiamo che $c^2_- \neq 0$ conduce alla soluzione di una particella che, giungendo da $x=+\infty$, attraversa il gradino da destra a sinistra. Poiché ci interessa invece la dinamica di attraversamento da sinistra a destra, imponiamo $c^2_-=0$.\\
 Allora dividendo (\ref{eqn:raccordo_derivata}) per $ik$ e sommando membro a membro con (\ref{eqn:raccordo_continua}), si ricava immediatamente $c^2_+$, e di conseguenza $c^1_-$:
 \begin{equation}
@@ -448,23 +448,24 @@ Di nuovo, ciò va contro l'intuizione: nonostante il potenziale \textit{non bast
 \subsubsection{L'equazione di continuità}
 Cerchiamo di quantificare la componente riflessa e trasmessa dell'onda. Per farlo ci servirà un modo per esaminare l'evoluzione non della funzione d'onda, ma del suo modulo quadro, che esprime le probabilità che ci interessano.\\
 Partendo dall'equazione di Schrodinger possiamo giungere alla relazione che ci interessa sul modulo quadro, derivando la cosiddetta \textbf{equazione di continuità} per la densità di probabilità. Limitiamoci al caso unidimensionale, in cui l'equazione di Schrodinger è: 
-\begin{equation}
-i\hbar \frac{\partial \psi}{\partial t}(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi(x,t)+V(x)\psi(x,t)
+\begin{align}
+i\hbar \frac{d}{dt} \ket{\psi(t)} &= H\ket{\psi(t)}\\
+i\hbar \frac{\partial \psi}{\partial t}(x,t)&=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi(x,t)+V(x)\psi(x,t)
 \label{eqn:schrodinger1D}
-\end{equation}
+\end{align}
 e la sua (duale) complessa coniugata è data da:
 \begin{equation}
 -i\hbar \frac{\partial \psi^*}{\partial t}(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi^*(x,t)+V(x)\psi^*(x,t)
 \label{eqn:schrodinger1Dduale}
 \end{equation}
-Moltiplicando (\ref{eqn:schrodinger1D}) per $\psi^*$ e (\ref{eqn:schrodinger1Dduale}) per $\psi$ e sottraendo membro a membro si giunge a:
+Moltiplicando (\ref{eqn:schrodinger1D}) per $\psi^*$ e (\ref{eqn:schrodinger1Dduale}) per $\psi$ e sottraendo membro a membro i contributi dei $V$ si semplificano, e si giunge a:
 \begin{align}
 \nonumber
 \span
 i\hbar\underbrace{\left(
 \psi^*\frac{\partial \psi}{\partial t}+\frac{\partial \psi^*}{\partial t}\psi
 \right)}_{\frac{\partial}{\partial t}(\psi^*\psi)=\frac{\partial }{\partial t}|\psi(x,t)|^2} =-\frac{\hbar^2}{2m}\left [
-\psi^*\left(\frac{\partial^2}{\partial x^2}+\bcancel{V}\right) \psi-\psi\left(\frac{\partial^2}{\partial x^2}+\bcancel{V}\right) \psi^*
+\psi^*\left(\frac{\partial^2}{\partial x^2}\right) \psi-\psi\left(\frac{\partial^2}{\partial x^2}\right) \psi^*
 \right ]\span\span\span\\
 \nonumber
 &\Rightarrow &&
@@ -485,7 +486,7 @@ i\hbar\underbrace{\left(
 &\Rightarrow  && \frac{\partial}{\partial t}|\psi(x,t)|^2 +\frac{\partial}{\partial x}j(x,t) = 0 \span
 \label{eqn:probability_continuity}
 \end{align}
-L'equazione (\ref{eqn:probability_continuity}) è detta \textbf{equazione di continuità} per la probabilità\index{Equazione di continuità}. Si tratta di una relazione analoga a quella già ricavata per i fluidi o per la conservazione locale di carica dalle leggi di Maxwell. Intuitivamente, significa che la \textit{probabilità} che una particella si trovi in un dato punto $x$ al tempo $t$ (codificata dal modulo quadro della sua funzione d'onda $\psi(x,t)$) può variare solamente a seguito della variazione delle probabilità dei punti circostanti. In altre parole, se la probabilità di trovarsi a $x=0$ aumenta, quella nei punti \textbf{limitrofi} deve essere diminuita, cioè la probabilità \q{non fa salti}, ma si propaga come un \textit{fluido} che scorre e si addensa nelle regioni \q{più probabili}. La variazione di probabilità in una regione sarà quindi pari al \q{flusso} di probabilità che attraversa il suo bordo: in particolare la probabilità salirà se il flusso è entrante (negativo), e scenderà se il flusso è uscente (positivo) e rimarrà costante se il flusso è nullo. Tale idea, espressa matematicamente in forma differenziale, è in sintesi quella dell'equazione (\ref{eqn:probability_continuity}).\\
+L'equazione (\ref{eqn:probability_continuity}) è detta \textbf{equazione di continuità}\marginpar{Equazione di continuità} per la probabilità\index{Equazione di continuità}. Si tratta di una relazione analoga a quella già ricavata per i fluidi o per la conservazione locale di carica dalle leggi di Maxwell. Intuitivamente, significa che la \textit{probabilità} che una particella si trovi in un dato punto $x$ al tempo $t$ (codificata dal modulo quadro della sua funzione d'onda $\psi(x,t)$) può variare solamente a seguito della variazione delle probabilità dei punti circostanti. In altre parole, se la probabilità di trovarsi a $x=0$ aumenta, quella nei punti \textbf{limitrofi} deve essere diminuita, cioè la probabilità \q{non fa salti}, ma si propaga come un \textit{fluido} che scorre e si addensa nelle regioni \q{più probabili}. La variazione di probabilità in una regione sarà quindi pari al \q{flusso} di probabilità che attraversa il suo bordo: in particolare la probabilità salirà se il flusso è entrante (negativo), e scenderà se il flusso è uscente (positivo) e rimarrà costante se il flusso è nullo. Tale idea, espressa matematicamente in forma differenziale, è in sintesi quella dell'equazione (\ref{eqn:probability_continuity}).\\
 
 
 Nel caso particolare di una autofunzione di $H$:
@@ -495,7 +496,7 @@ Nel caso particolare di una autofunzione di $H$:
 \underbrace{\left |\exp\left({-\frac{i}{\hbar}\mathcal{E}t}\right)\right|
 }_{=1}|\varphi_\mathcal{E}(x)|^2 =|\varphi_\mathcal{E}(x)|^2
 \]
-Perciò la densità di probabilità associata alle autofunzioni è \textit{costante} nel tempo. Sostituendo nell'equazione di continuità:
+Perciò la densità di probabilità associata alle autofunzioni è \textit{costante} nel tempo (e infatti le autofunzioni di $H$ sono dette \textit{stati stazionari}). Sostituendo nell'equazione di continuità:
 \[
 \frac{\partial}{\partial t}|\varphi_\mathcal{E}(x,t)|^2=0=
 \frac{d}{dx}j(x)

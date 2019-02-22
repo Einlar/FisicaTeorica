@@ -22,8 +22,8 @@ Notiamo che è possibile scegliere $\lambda$ in infiniti modi, e inventarsi infi
 Poiché, almeno finora, nessun esperimento ha contraddetto la \MQ, ci aspettiamo che le teorie a variabili nascoste possano replicare tutti i risultati della \MQ: ma come esserne sicuri?\\
 Tale problema, apparentemente insormontabile, fu risolto da un'osservazione \textit{furba} fatta da Bell nel 1965, che consentì di creare un \textit{esperimento} per testare direttamente tale eventualità.\\
 
-Partiamo considerando una \textit{generica teoria a variabili nascoste}, dove i \q{parametri nascosti} sono denotati con $\lambda$, e possono essere di tutti i tipi - possiamo pensare a $\lambda$ come a un vettore di variabili continue/discrete con qualsivoglia spettro e relazione interna. Supponiamo che $\lambda$ codifichi i risultati di ogni possibile misura. Perciò, conoscere $\lambda$ significa conoscere il risultato $A(\lambda)$ di una misura di $A$.\\
-Possiamo pensare che, ottenuta una collezione di $N$ particelle nello stato $\ket{\psi}$, i valori di $\lambda$ differiscano per ogni particella, e che si distribuiscano\footnote{Questa è già un'ipotesi più debole rispetto alla CFD. Infatti, conoscere tutte le $\lambda$ implica conoscere il risultato, con una $\rho(\lambda)$ che si riduce a una delta di Dirac. L'idea è che anche introducendo una sorgente di variabilità, una teoria alle variabili nascoste, come vedremo, non è compatibile con i risultati sperimentali.} secondo una certa $\rho_\psi(\lambda)$, che gode delle usuali proprietà:
+Partiamo considerando una \textit{generica teoria a variabili nascoste}, dove i \q{parametri nascosti} sono denotati con $\lambda$, e possono essere di tutti i tipi - possiamo pensare a $\lambda$ come a un vettore di variabili continue/discrete con qualsivoglia spettro e relazione interna. Supponiamo che $\lambda$ codifichi i risultati di ogni possibile misura. Perciò, conoscere $\lambda$ significa conoscere il risultato $A(\lambda)$ di una misura di $A$ (come avviene in \MC).\\
+Possiamo pensare che, ottenuta una collezione di $N$ particelle nello stato $\ket{\psi}$, i valori di $\lambda$ differiscano per ogni particella, e che si distribuiscano\footnote{Questa è già un'ipotesi più debole rispetto alla CFD. Infatti, conoscere tutte le $\lambda$ implica conoscere il risultato, con una $\rho(\lambda)$ che si riduce a una delta di Dirac. L'idea è che anche introducendo una sorgente di variabilità, una teoria alle variabili nascoste, come vedremo, non è compatibile con i risultati sperimentali.} secondo una certa $\rho_\psi(\lambda)$, che gode delle usuali proprietà di una distribuzione di probabilità:
 \begin{align}
 \rho_\psi(\lambda) \geq 0 \qquad \int_{\bb{R}} \rho_\psi(\lambda)\,d\lambda =\ 1
 \label{eqn:distr_prob}
@@ -33,12 +33,12 @@ In tal modo si spiega perché particelle nello stesso stato iniziale possano dar
 Consideriamo allora la misura che ha causato problemi in primo luogo, ossia la correlazione di spin misurati lungo assi diversi relativi ad una coppia di particelle a spin $1/2$ nello stato di singoletto.\\
 Esplicitamente, detti $\hat{u}$ e $\hat{u}'$ due versori, misuriamo il prodotto (correlazione) dello spin della particella $A$ lungo $\hat{u}$, e della particella $B$ lungo $\hat{u}'$. Se esiste una teoria alle variabili nascoste \textit{valida}, allora esiste una scelta di $\rho(\lambda)$ che è compatibile con il risultato della \MQ per ogni scelta dello stato iniziale $\ket{\psi}$:
 \begin{align*}
-\bra{\psi}(\vec{S}\cdot \hat{u})_A (\vec{S}\cdot \hat{u}')_B \ket{\psi} \overset{?}{=} \int d\lambda\, \rho(\lambda) (\vec{S}\cdot \hat{u})_A(\lambda)(\vec{S}\cdot \hat{u}')_B(\lambda) \quad \forall \ket{\psi}
+\bra{\psi}(\vec{S}\cdot \hat{u})_A \otimes (\vec{S}\cdot \hat{u}')_B \ket{\psi} \overset{?}{=} \int d\lambda\, \rho(\lambda) (\vec{S}\cdot \hat{u})_A(\lambda)(\vec{S}\cdot \hat{u}')_B(\lambda) \quad \forall \ket{\psi}
 \end{align*}
 
 Il trucco sta nel modificare leggermente la misura, in modo che il risultato della teoria a variabili nascoste non cambi, mentre si ottengano previsioni diverse dalla \MQ.\\
 
-Consideriamo due sperimentatori, Alice (A) e Bob (B), che effettuano misure di spin in laboratori a distanza di tipo spazio per la durata dell'esperimento, per cui durante ciascuna misura nessun segnale può andare da $A$ a $B$ o viceversa. A seguito di $N$ misure, Alice e Bob si ritrovano e confrontano le misure ottenute.\\
+Consideriamo due sperimentatori, Alice (A) e Bob (B), che effettuano misure di spin in laboratori a distanza di tipo spazio per la durata dell'esperimento, per cui durante ciascuna misura nessun segnale può andare da $A$ a $B$ o viceversa. A seguito di $N$ misure, Alice e Bob si ritrovano e confrontano i risultati ottenuti.\\
 
 Alice possiede due \textit{detector} di spin, orientati lungo $\vec{u}_0$ e $\vec{u}_3$ generici (e non uguali), mentre Bob può effettuare misure lungo $\vec{u}_1$ e $\vec{u}_2$. Supponiamo per semplicità (ma senza perdita di generalità) che $\vec{u}_i$ si trovino tutti sullo stesso piano, per esempio $\hat{x}\hat{z}$.\\
 
@@ -105,7 +105,7 @@ E invertendo\footnote{Basta sommare o sottrarre membro a membro dopo aver moltip
 \end{align*}
 Usando ora le equazioni agli autovalori:
 \begin{align*}
-(\vec{S}\cdot \hat{u})\ket{+}_u =\frac{1}{2}\ket{+}_u\qquad (\vec{S}\cdot\hat{u})\ket{-}_u = \frac{1}{2}\ket{-}_u
+(\vec{S}\cdot \hat{u})\ket{\pm}_u =\pm \frac{1}{2}\ket{\pm}_u
 \end{align*}
 Calcoliamo gli elementi di matrice nella base dove $S_z$ è diagonale:
 \begin{align*}
@@ -155,12 +155,16 @@ Possiamo finalmente calcolare il valor medio di $B(\{\vec{u}_i\})$ che ci intere
 \end{align*}
 Detti $\alpha_i$ gli angoli (riferiti a $+\hat{x}$) che definiscono i $\vec{u}_i$ unitari, possiamo applicare (\ref{eqn:corr1}) per continuare i calcoli:
 \begin{align*}
-\bra{\psi}B(\{\vec{u}_i\})\ket{\psi} &= -\frac{1}{4}\Big[\cos(\alpha_1-\alpha_0)-\cos(\alpha_2-\alpha_0) + \cos(\alpha_3-\alpha_1) + \cos(\alpha_2-\alpha_3)\Big]=\\
+\bra{\psi}B(\{\vec{u}_i\})\ket{\psi} &= -\frac{1}{4}\Big[\cos(\overbrace{\alpha_1-\alpha_0}^{\theta_1})-\cos(\overbrace{\alpha_2-\alpha_0}^{\theta_2}) + \cos(\overbrace{\alpha_3-\alpha_1}^{\theta_4}) + \cos(\overbrace{\alpha_2-\alpha_3}^{\theta_3})\Big]=\\
 &= -\frac{1}{4}\big[\cos \theta_1 -\cos\theta_2 + \cos\theta_4 +\cos\theta_3\big]
 \end{align*}
 \textbf{Nota}: le differenze degli $\alpha_i$ possono essere invertite senza cambiare il valore dei $\cos$ di cui sono argomento. Con questa scelta dei segni si ha che i $\theta_i$ definiti dalle differenze rispettano:
 \begin{align*}
 \theta_2 = \theta_1 + \theta_3 + \theta_4
+\end{align*}
+in quanto:
+\begin{align*}
+    (\alpha_2 - \alpha_0) = (\bcancel{\alpha_1} - \alpha_0) + (\alpha_2 -\cancel{\alpha_3}) + (\cancel{\alpha_3} - \bcancel{\alpha_1})
 \end{align*}
 
 Per un'opportuna scelta degli angoli: 
@@ -243,7 +247,7 @@ Aprendo la scatole troveremo con probabilità $|\alpha_+|^2$ il gatto vivo, e co
 Il problema è che prima dell'apertura della scatola, ma dopo l'esperimento, il gatto è potenzialmente vivo \textbf{e} morto come dice (\ref{eqn:gatto-zombie}).\\
 Cioè sotto l'assunzione di evoluzione unitaria, la sovrapposizione quantistica microscopica di $\ket{\psi_+}$ e $\ket{\psi_-}$ produce tramite \textit{entanglement} una sovrapposizione macroscopica di gatto morto e gatto vivo!\\
 
-Visto che, all'apertura della scatola, il risultato è per $|\alpha_+|^2$ gatto vivo e per $|\alpha_-|^2$ gatto morto e non abbiamo nessuna interferenza tra i due, potremmo essere tentati di affermare che lo stato dopo la misura, ma prima dell'apertura della scatola, sia uno stato misto:
+Visto che, all'apertura della scatola, il risultato è per $|\alpha_+|^2$ gatto vivo e per $|\alpha_-|^2$ gatto morto e non abbiamo nessuna interferenza tra i due, potremmo essere tentati di affermare che lo stato dopo la misura, ma prima dell'apertura della scatola, sia uno stato misto, in cui gli stati di \textit{gatto morto} e \textit{gatto vivo} sono \q{pesati} dalle probabilità $|\alpha_+|^2$ e $|\alpha_-|^2$:
 \begin{align*}
 \rho &= |\alpha_+|^2 \ket{\psi_+}\bra{\psi_+} \otimes \ket{\text{gatto morto}}\bra{\text{gatto morto}} + \\
 &\quad \>\,|\alpha_-|^2 \ket{\psi_-}\bra{\psi_-} \otimes \ket{\text{gatto vivo}}\bra{\text{gatto vivo}}

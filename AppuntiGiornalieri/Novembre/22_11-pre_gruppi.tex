@@ -10,12 +10,12 @@ Introduciamo qualche altro utile concetto matematico.
 Partiamo esaminando un particolar caso di \textit{simmetria fisica} nella seguente definizione:
 
 \begin{dfn}
-Se una \textbf{simmetria fisica}\index{Simmetria!dinamica} lascia \textbf{invariata}\marginpar{Simmetria dinamica} \textbf{l'Hamiltoniana}, allora è detta \textbf{simmetria dinamica}\index{Simmetria dinamica}. Matematicamente, se $U$ è la rappresentazione del gruppo che descrive tale simmetria, che \textit{agisce} su un ket come $\ket{\psi'} = U\ket{\psi}$, l'Hamiltoniana rimane invariata se rimangono invariati i suoi elementi di matrice:
+Se una \textbf{simmetria fisica}\index{Simmetria!dinamica} lascia \textbf{invariata}\marginpar{Simmetria dinamica} \textbf{l'Hamiltoniana}, allora è detta \textbf{simmetria dinamica}\index{Simmetria dinamica}. Matematicamente, sia $U$ la rappresentazione del gruppo che descrive tale simmetria, che \textit{agisce} su un ket come $\ket{\psi'} = U\ket{\psi}$, e supponiamo che $H$ sia ben definita in $D(H)$ denso. Se $U$ descrive una simmetria fisica, allora vale:
 \begin{align*}
-\bra{x'}H\ket{x'} \overset{!}{=} \bra{x}H\ket{x}\Rightarrow \bra{Ux} H \ket{Ux}=\bra{x}U^\dag H U \ket{x} \overset{!}{=} \bra{x}H\ket{x}
+\bra{x'}H'\ket{x'} \overset{!}{=} \bra{x}H\ket{x}\Rightarrow \bra{Ux} H' \ket{Ux}=\bra{x}U^\dag H' U \ket{x} \overset{!}{=} \bra{x}H\ket{x}
 \end{align*}
-ovvero se:
-\[ %il ^\dag non dovrebbe essere "dall'altro lato"? Fonte: https://en.wikipedia.org/wiki/Translation_operator_(quantum_mechanics)#Translational_invariance
+Perché $U$ sia una simmetria dinamica, deve essere anche $H' = H$, e quindi:
+\[
 H' \equiv UHU^\dag \textcolor{Red}{=} H
 \]
 \textit{Intuitivamente}, se $U$ è una traslazione, per trasformare $H\to H'$, con $H$ operatore che prende vettori in $\hs$ e li trasforma in $\hs$ bisogna \q{trasformare} \textit{input} e \textit{output} (esattamente come nella formula del cambio di base vista in algebra lineare). Perciò $H'$ si ottiene applicando $H$ al vettore \q{trasformato all'indietro} da $U^\dag$ (nell'esempio, traslato di $-t$), e poi traslando in avanti con $U$ il risultato del conto.\\
@@ -57,10 +57,10 @@ e ricordando che $U(\lambda)$ e $U(\lambda)^\dag$ calcolati per $\lambda=0$ coin
 Da (\ref{eqn:commutazione_evoluzione}) abbiamo allora ottenuto che il \textbf{generatore} di un gruppo a\marginpar{Generatore di una simmetria dinamica commuta con $H$} un parametro  derivato da una simmetria dinamica \textbf{commuta} con l'Hamiltoniana.\\
 Ma allora, in visuale di Heisenberg:
 \begin{equation}
-\frac{dA^H(t)}{dt}=\frac{[A^H(t),H]}{i\hbar}\underset{(a)}{=}\frac{U(t)[A,H]U(t)^\dag}{i\hbar} \underset{(\ref{eqn:commutazione_evoluzione})}{=} 0
+\frac{dA^H(t)}{dt}=\frac{[A^H(t),H]}{i\hbar}\underset{(a)}{=}\frac{U^\dag(t)[A,H]U(t)}{i\hbar} \underset{(\ref{eqn:commutazione_evoluzione})}{=} 0
 \label{eqn:conservazione}
 \end{equation}
-dove in $(a)$ si è usato $A^H(t)=U(t)AU(t)^\dag$, e si sono \q{portati fuori} gli $U$ grazie al fatto che $H$ è invariante rispetto alla loro azione.\\
+dove in $(a)$ si è usato $A^H(t)=U^\dag(t)AU(t)$, e si sono \q{portati fuori} gli $U$ grazie al fatto che $H$ è invariante rispetto alla loro azione.\\
 Abbiamo allora trovato che $A^H(t) \equiv A$, ovvero il generatore\marginpar{Il generatore di una simmetria dinamica è \textit{costante}} \textbf{non evolve} nel tempo. Questa è la versione quantistica delle \q{\textbf{costanti del moto}},\index{Simmetrie!costanti del moto} e la relazione (\ref{eqn:conservazione}) associa a simmetrie continue leggi di conservazione\footnote{Questo è anche il collegamento con l'analogo classico visto a Fisica Matematica con il \textit{teorema di Noether}}.\\
 
 Finora ci siamo concentrati sulle proprietà \q{di gruppo}: abbiamo definito una simmetria, e fatto uso di risultati di \textit{teoria delle rappresentazioni} per concretizzare l'\textit{azione} di un gruppo sui sistemi che ci interessano.\\
@@ -170,7 +170,7 @@ Per cui basta sapere la rappresentazione degli elementi di base, e le \textit{co
 
 Una rappresentazione $\mathcal{D}$ dell'\textbf{algebra} di Lie $\mathfrak{g}$ è \textit{indotta} da una rappresentazione $D$ stavolta del \textbf{gruppo} di Lie $G$ su $V$. Ricordando che $D(g) \in \mathcal{L}(V)$ si ha:
 \begin{equation}
-\hlc{Yellow}{\frac{d}{dx_\alpha}D(g(0,\dots,0,x_\alpha,0,\dots, 0)\Big|_{x_\alpha=0}}= \hlc{SkyBlue}{\mathcal{D}(e_\alpha)} \quad \alpha = 1,\dots, n
+\hlc{Yellow}{\frac{d}{dx_\alpha}D(g(0,\dots,0,x_\alpha,0,\dots, 0))\Big|_{x_\alpha=0}}= \hlc{SkyBlue}{\mathcal{D}(e_\alpha)} \quad \alpha = 1,\dots, n
 \label{eqn:rappresentazioni-gruppo-algebra}
 \end{equation}
 E tali $\mathcal{D}(e_\alpha)$ formano una \textit{rappresentazione} di $\mathfrak{g}$ in $V$ (o in un dominio $\subseteq V$ in cui è ben definita, per evitare i problemi di dominio che potrebbero sorgere in spazi $\infty$-dimensionali).\\
@@ -182,7 +182,7 @@ Allora utilizzando (\ref{eqn:rappresentazioni-gruppo-algebra}) possiamo ricavare
 \underbrace{A}_{-\frac{H}{\hbar}}=\frac{1}{i}\frac{dU(t)}{dt}\Big|_{t=0}\Rightarrow \frac{d}{dt} D(g(x_1))\Big|_{x_1=0}=
 \hlc{Yellow}{\frac{d}{dt}U(t)\Big|_{t=0}}=\hlc{SkyBlue}{\frac{H}{i\hbar}} = \mathcal{D}(e_1)
 \]
-Dato che $G$ è isomorfo a $\bb{R}$, possiamo parametrizzarlo \textit{canonicamente} con se stesso, ossia tramite la parametrizzazione $g(t)=t$. Possiamo allroa calcolare esplicitamente il generatore del gruppo, secondo l'espressione in (\ref{eqn:spazio-tangente-gruppo}):
+Dato che $G$ è isomorfo a $\bb{R}$, possiamo parametrizzarlo \textit{canonicamente} con se stesso, ossia tramite la parametrizzazione $g(t)=t$. Possiamo allora calcolare esplicitamente il generatore del gruppo, secondo l'espressione in (\ref{eqn:spazio-tangente-gruppo}):
 \[
 \frac{dg(t)}{dt}\Big|_{t=0}\Rightarrow 
 \frac{dt}{dt} \Big|_{t=0} = \hlc{ForestGreen}{1} = e_1

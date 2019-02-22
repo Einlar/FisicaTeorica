@@ -116,7 +116,7 @@ Vediamo la relazione di $\vec{L}$ con le rotazioni. Calcoliamo prima:
 \end{align*}
 
 Analogamente a quanto trovato per le traslazioni spaziali, i cui generatori erano dati dal momento (lineare), ci aspettiamo che il momento angolare funga da generatore delle rotazioni. Procediamo, allora, \textit{a ritroso}, partendo da $e_3 = L_3/\hbar$ come generatore di un gruppo di matrici, e verifichiamo che da esso si ottengano effettivamente le rotazioni attorno all'asse $\hat{z}$.\\
-Come già visto, $e_3$ è un elemento dell'algebra di Lie $\mathfrak{g}$ del gruppo di operatori unitari $U(\varphi)$ che, come vogliamo verificare, rappresenta su $\hs$ le rotazioni. Il passaggio da $e_3$ a $U$ è dato, come già visto, dalla mappa esponenziale:
+Come già visto, $e_3$ è un elemento dell'algebra di Lie $\mathfrak{g}$ del gruppo di operatori unitari $U(\varphi)$ che, come vogliamo verificare, rappresenta su $\hs$ le rotazioni. Il passaggio da $e_3$ a $U(\varphi)$ è dato, come già visto, dalla mappa esponenziale:
 \begin{align*}
 U(\varphi) = \exp\left(-i\varphi\frac{L_3}{\hbar}\right)
 \end{align*}
@@ -145,11 +145,12 @@ Con un po' di formalismo in più si giunge allora alla \textit{formula di Hadama
 \[
 e^{-A} B e^A = \sum_{n=0}^\infty \frac{1}{n!} \underbrace{[[[\dots [}_{n \text{ volte}}B,\underbrace{A],A],A],\dots,A]}_{n \text{ volte}}
 \]
+dove la differenza di segno è puramente convenzionale, e serve per considerare una rotazione di $\varphi$ positivo come \textit{antioraria}.\\
 In questi conti stiamo ignorando ogni problema di dominio: per esempio non è detto a priori che le potenze $n$-esime di $A$ siano definite. Il tutto, in ogni caso, funziona all'interno del formalismo (ben più avanzato) degli spazi di Hilbert equipaggiati, che però non esploriamo.\\
 
 Svolgiamo lo stesso conto per gli operatori che ci interessano, ossia poniamo nella formula di Hadamard:
 \begin{align*}
-A = -i\frac{\varphi}{\hbar}L_3\qquad B = X_1
+A = i\frac{\varphi}{\hbar}L_3\qquad B = X_1
 \end{align*}
 Calcolando i vari termini, ci accorgiamo della comparsa delle espansioni di $\sin$ e $\cos$:
 \begin{align*}

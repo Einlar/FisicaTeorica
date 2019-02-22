@@ -97,7 +97,7 @@ Diversamente dal caso classico abbiamo perciò modificato la \q{fisica} (il comp
 \end{center}
 
 
-Ad esempio, nel caso dell'\textbf{esperimento delle due fenditure}\index{Esperimento delle due fenditure}, se spariamo un elettrone alla volta contro lo schermo, e non lo osserviamo tra le fenditure e lo schermo, lo stato del sistema sarà dato da:
+Ad esempio, nel caso dell'\textbf{esperimento delle due fenditure}\index{Esperimento delle due fenditure}, se spariamo un elettrone alla volta contro lo schermo,\marginpar{Esperimento delle due fenditure e misure quantistiche} e non lo osserviamo tra le fenditure e lo schermo, lo stato del sistema sarà dato da:
 \[
 \ket{\psi}_{\cancel{\text{oss}}}=\frac{1}{\sqrt{2}}(\ket{\psi_1}+\ket{\psi_2})
 \]
@@ -134,17 +134,17 @@ dove non vi è il termine di interferenza, che invece compariva facendo il quadr
 Occupiamoci ora di esaminare l'evoluzione nel tempo delle medie e delle fluttuazioni degli operatori posizione $X$ e momento $P$ applicati ad una particella libera di muoversi in una dimensione.\\
 L'hamiltoniana del sistema è data da:
 \[
-H=\frac{p^2}{2m};\quad x^H(t)=U^\dag(t)\,x\,U(t)
+H=\frac{P^2}{2m};\quad X^H(t)=U^\dag(t)\,X\,U(t)
 \]
-Adottiamo, per questo esempio, la visuale di Heisenberg (evoluzione delle osservabili, stati costanti), per cui la media di un operatore (per esempio $x$) evolve come:
+Adottiamo, per questo esempio, la visuale di Heisenberg (evoluzione delle osservabili, stati costanti), per cui la media di un operatore (per esempio $X$) evolve come:
 \[
-\langle x \rangle_{\psi(t)}=\langle x^H(t)\rangle_\psi
+\langle X \rangle_{\psi(t)}=\langle X^H(t)\rangle_\psi
 \]
-dove $x^H(t)$ obbedisce all'equazione di Born-Heisenberg-Jordan\footnote{Si noti che la $H$ all'apice della $x^H(t)$ sta per \textit{Heisenberg}, mentre l'altra $H$ che compare nella formula indica l'hamiltoniana del sistema}:
+dove $X^H(t)$ obbedisce all'equazione di Born-Heisenberg-Jordan\footnote{Si noti che la $H$ all'apice della $X^H(t)$ sta per \textit{Heisenberg}, mentre l'altra $H$ che compare nella formula indica l'hamiltoniana del sistema}:
 \begin{equation}
-\frac{dx^H(t)}{dt}=\frac{[x^H(t),H]}{i\hbar} =
+\frac{dX^H(t)}{dt}=\frac{[X^H(t),H]}{i\hbar} =
 \frac{
-U^\dag(t)\,x\,\hlc{Yellow}{U(t)\,H}-\hlc{SkyBlue}{H\,U^\dag(t)}\,x\,U(t)
+U^\dag(t)\,X\,\hlc{Yellow}{U(t)\,H}-\hlc{SkyBlue}{H\,U^\dag(t)}\,X\,U(t)
 }{i\hbar}
 \label{eqn:BHJ}
 \end{equation}
@@ -154,13 +154,13 @@ U(t)=\exp\left(-\frac{i}{\hbar}tH\right)
 \]
 si ha che $U(t)$ commuta\footnote{Se non commutasse non sarebbe possibile calcolarlo, dato che farlo modificherebbe $H$, e di conseguenza anche $U(t)$ che dipende da $H$, procedendo così in un loop infinito.} con $H$, ossia $H\,U(t)=U(t)\,H$, e allora possiamo riarrangiare le $U$ e \q{portarle fuori} da (\ref{eqn:BHJ}):
 \begin{equation}
-\frac{dx^H(t)}{dt}=\frac{U^\dag(t)\,x\,\hlc{Yellow}{H\,U(t)}-\hlc{SkyBlue}{U^\dag(t)\,H}\,x\,U(t)}{i\hbar} 
-=U^\dag(t) \frac{[x,H]}{i\hbar}U(t)
+\frac{dX^H(t)}{dt}=\frac{U^\dag(t)\,X\,\hlc{Yellow}{H\,U(t)}-\hlc{SkyBlue}{U^\dag(t)\,H}\,X\,U(t)}{i\hbar} 
+=U^\dag(t) \frac{[X,H]}{i\hbar}U(t)
 \label{eqn:BHJ-2}
 \end{equation}
 In particolare:
 \begin{equation}
-[x,H]=\left[x,\frac{p^2}{2m}\right] = \frac{1}{2m}[x,p\cdot p]\underset{(a)}{=}\frac{1}{2m}([x,p]p+p[x,p])=\frac{i\hbar}{m}p
+[X,H]=\left[x,\frac{P^2}{2m}\right] = \frac{1}{2m}[X,P\cdot P]\underset{(a)}{=}\frac{1}{2m}([X,P]P+P[X,P])=\frac{i\hbar}{m}P
 \label{eqn:commutatore}
 \end{equation}
 dove in (a) abbiamo usato la formula per il commutatore:
@@ -169,19 +169,19 @@ dove in (a) abbiamo usato la formula per il commutatore:
 \]
 Sostituendo (\ref{eqn:commutatore}) in (\ref{eqn:BHJ-2}):
 \begin{equation}
-\frac{dx^H(t)}{dt}
-=U^t(H)\frac{\bcancel{i\hbar}}{m}\frac{p}{\bcancel{i\hbar}}U(t)=\frac{p^H(t)}{m}
+\frac{dX^H(t)}{dt}
+=U^t(H)\frac{\bcancel{i\hbar}}{m}\frac{P}{\bcancel{i\hbar}}U(t)=\frac{P^H(t)}{m}
 \label{eqn:BHJ-3}
 \end{equation}
-Come ci aspettiamo, la \textit{velocità} è data dal momento diviso la massa.\\
+Come ci aspettiamo, la \textit{velocità}\marginpar{Formula \q{classica} per la velocità di una particella libera} è data dal momento diviso la massa.\\
 Esaminiamo quindi l'evoluzione del momento:
 \[
-\frac{dp^H(t)}{dt}=\frac{[p^H(t),H]}{i\hbar}=U^\dag(t)\left[p,\frac{p^2}{2m}\right]U(t)=0
+\frac{dP^H(t)}{dt}=\frac{[P^H(t),H]}{i\hbar}=U^\dag(t)\left[P,\frac{P^2}{2m}\right]U(t)=0
 \]
-dato che $p$ commuta con $p^2$.\\
-Ma allora $p^H(t)=p$ è costante (rimane lo stesso), e quindi, sostituendo in (\ref{eqn:BHJ-3}) e integrando tra gli istanti $0$ e $t$:
+dato che $P$ commuta con $P^2$.\\
+Ma allora $P^H(t)=P$ è costante (rimane lo stesso), e quindi, sostituendo in (\ref{eqn:BHJ-3}) e integrando tra gli istanti $0$ e $t$:
 \[
-\frac{dx^H(t)}{dt}=\frac{p}{m}\Rightarrow x^H(t)=x_0+t\frac{p}{m}
+\frac{dX^H(t)}{dt}=\frac{P}{m}\Rightarrow X^H(t)=x_0+t\frac{p}{m}
 \]
 dove $x_0$ è l'operatore posizione al tempo iniziale $t=0$. Passando ai valor medi si ritrova la \textit{legge classica}:
 \[
@@ -288,7 +288,7 @@ Si ha allora:
 \end{align}
 Normalizzando:
 \begin{align*}
-\span \int_0^{a_1} dx\,|A|^2 \sin^2 k_1 x \overset{!}{=} 1\\
+\int_0^{a_1} dx\,|A|^2 \sin^2 k_1 x &\overset{!}{=} 1\\
 A^2 \int_0^{a_1} \left(\frac{1}{2}-\frac{\cos(2k_1 x)}{2}\right)dx &= A^2 \left[
 \frac{1}{2}x-\frac{1}{4k_1}\sin(2k_1 x)
 \right ]_0^{a_1} = \\
@@ -442,7 +442,7 @@ integrabile per parti, come richiesto nel definire $D(H)$, e perciò, comee si d
 Consideriamo invece il caso di $\mathcal{E}\in \sigma_C(H)$. Dato che ora parliamo di autofunzioni \textit{generalizzate} nello spazio di Schwartz $\mathcal{S}'$ non possiamo più usare la richiesta di regolarità (che si applica in $\hs$) come prima. Ipotizziamo allora per assurdo che \q{fondendo} due $\varphi_\mathcal{E}$ si ottenga una funzione non continua. Essendo le singole $\varphi_\mathcal{E}$ limitate, l'unico modo perché ciò avvenga è che ci sia un salto, ossia per esempio si abbia $\varphi_{\mathcal{E}}(x_i^-)\neq \varphi_{\mathcal{E}}(x_i^+)$.\\
 Ma un salto ha localmente l'andamento di una \q{funzione di Heaviside}, la cui derivata (distribuzionale) è la delta di Dirac. Perciò avremo (localmente) $\varphi_{\mathcal{E}}'\sim \delta$ e $\varphi_{\mathcal{E}}''\sim \delta'$, ma il potenziale $V(x)$ non presenta alcuna $\delta$ o $\delta'$, e quindi l'equazione di Schrodinger non potrebbe essere soddisfatta da una $\varphi$ del genere.\\
 Stessa cosa se ci fosse una discontinuità nella derivata, ossia $\varphi_\mathcal{E}'(x_i^-)\neq \varphi_\mathcal{E}(x_i^+)$, dato che $\varphi_{\mathcal{E}}''\sim\delta$. Perciò l'unica è che la \q{fusione} delle $\varphi_\mathcal{E}$ produca una funzione \textit{continua}.
-\item $\varphi_{\mathcal{E}}(x)$ non può crescere esponenzialmente per $x\to\pm \infty$. Infatti, non può essere $\mathcal{E}\in \sigma_P(H)$, dato che $\varphi_{\mathcal{E}}\notin \hs$, e neanche $\mathcal{E}\in \sigma_C(H)$, dato che $\varphi_\mathcal{E}\notin \mathcal{S}'(\bb{R})$
+\item $\varphi_{\mathcal{E}}(x)$ non può crescere esponenzialmente per $x\to\pm \infty$. Infatti, non può essere $\mathcal{E}\in \sigma_P(H)$, dato che $\varphi_{\mathcal{E}}\notin \hs$ (essendo non normalizzabile), e neanche $\mathcal{E}\in \sigma_C(H)$, dato che $\varphi_\mathcal{E}\notin \mathcal{S}'(\bb{R})$ (dato che cresce esponenzialmente)
 \end{itemize} 
 \end{enumerate}
 
