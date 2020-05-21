@@ -8,6 +8,30 @@ Ci occupiamo ora di introdurre il \textbf{formalismo matematico} che utilizzerem
 Si definiscono \textbf{osservabili}\footnote{\textit{Sostantivo femminile}} \marginpar{Osservabile} le quantità fisiche $O$ che possiamo misurare in linea di principio (ad un certo istante), come ad esempio \textit{posizione}, \textit{impulso}, \textit{energia}.\\
 Lo \textbf{spettro} $\sigma(O)$ dell'osservabile $O$ è l'insieme dei valori che possiamo ottenere con una misura di $O$. Ovviamente deve essere $\sigma(O) \subseteq \bb{R}$, in quanto lo spettro di un osservabile deve essere confrontabile con l'esperimento, e le misure sono numeri reali.\\
 
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+%Straight Lines [id:da27846539722124186] 
+\draw    (120,150) -- (428,150) ;
+\draw [shift={(430,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da17770457076107338] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=2.25]    (170,150) -- (210,150) ;
+%Straight Lines [id:da09934995394761348] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=2.25]    (220,150) -- (230,150) ;
+%Straight Lines [id:da7555893739350281] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=2.25]    (255,150) -- (330,150) ;
+%Straight Lines [id:da6066958001552576] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=2.25]    (350,150) -- (360,150) ;
+% Text Node
+\draw (378.5,130) node   {$O$};
+% Text Node
+\draw (261.5,130) node [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$\sigma ( O)$};
+% Text Node
+\draw (431.5,130) node   {$\mathbb{R}$};
+\end{tikzpicture}
+\end{center}
+
 In \textbf{Meccanica Classica} (\MC), nel formalismo hamiltoniano, ad un sistema sono associate le coordinate $q=\langle q_1,\dots, q_n\rangle$ (posizioni) e i momenti coniugati $p=\langle p_1,\dots, p_n\rangle$, dove $n$ è il numero di gradi di libertà. Lo spazio delle coppie $(q,p)$ è detto \textbf{spazio delle fasi} e lo denoteremo con $\Omega$.\\
 Le osservabili sono \textit{funzioni reali} su $\Omega$ e formano un'algebra abeliana su $\bb{R}$, per addizione e moltiplicazioni puntuali (ossia, se ho un'osservabile $f(q,p)$ e una $g(q,p)$ esiste sempre l'osservabile-prodotto $(fg)(q,p)=f(q,p)g(q,p)$ e, essendo un'algebra abeliana, vale la proprietà commutativa $f(q,p)g(q,p)=g(q,p)f(q,p)$).\\
 Tale struttura algebrica appena definita è necessaria perché osservabili che contengono prodotti per scalari, somme e prodotti di altre osservabili siano ben definiti. Un esempio è l'energia: $O=\mathcal{H}(q,p)=\frac{1}{2m} p\cdot p+V(q)$.\\
@@ -41,14 +65,14 @@ Heisenberg partì considerando una grandezza osservabile $q(t)$ periodica con fr
 \[
 q(t) = \dots + q_{-2}e^{-i2\omega t} + q_{-1}e^{-i\omega t} + q_0 + q_1 e^{i\omega t} + q_2 e^{i2\omega t} + \dots
 \]
-Per prima cosa dobbiamo assicurarci che, essendo $q(t)$ un'osservabile, sia reale. Ciò avviene se imponiamo che $q_n = q_{-n}^*$ $\forall n\in \bb{Z}\setminus\{0\}$, cioè che se un coefficiente di Fourier $q_n = u_n + iv_n$, il suo \q{corrispondente} sia il suo complesso coniugato: $q_{-n} = q_{n}^* = u_n - iv_n$. Così facendo i termini immaginari di ogni coppia si cancellano:
+Per prima cosa dobbiamo assicurarci che, essendo $q(t)$ un'osservabile, sia reale. Per permettere questo una condizione sufficiente è $q_n = q_{-n}^*$ $\forall n\in \bb{Z}\setminus\{0\}$, cioè che se un coefficiente di Fourier $q_n = u_n + iv_n$, il suo \q{corrispondente} sia il suo complesso coniugato: $q_{-n} = q_{n}^* = u_n - iv_n$. Così facendo i termini immaginari di ogni coppia si cancellano:
 \begin{align*}
 q_n e^{in\omega t} + q_{-n}e^{-in\omega t} &= (u_n + iv_n)e^{in\omega t} + (u_n - iv_n)e^{-in\omega t} =\\
 &= (u_n + iv_n)(\cos(n\omega t)+i\sin(n\omega t)) + (u_n-iv_n)(\cos(n\omega t) \bm{-} i\sin(n\omega t)) =\\
 &= 2u_n\cos(n\omega t)-2v_n\sin(n\omega t)
 \end{align*}
 e il risultato $q(t)$ sarà reale.\\
-È facile verificare che, se $a(t)$ e $b(t)$ rispettano questa proprietà, allora anche le loro somme la rispettano, e anche le loro derivate (come ci aspettiamo: la somma di reali è reale).\\
+È facile verificare che, se $a(t)$ e $b(t)$ rispettano questa proprietà, allora anche le loro somme la rispettano, e anche le loro derivate (come ci aspettiamo: la somma di reali è reale, la derivata di reali è reale).\\
 Esaminiamone il prodotto, raccogliendo i termini con \q{la stessa periodicità}:
 \begin{align*}
 c(t) = a(t)b(t) &= \dots + (\dots +a_{-2}b_1 + a_{-1}b_0 + a_0 b_{-1} + a_1 b_{-2} + \dots )e^{-i\omega t} +\\
@@ -72,7 +96,7 @@ q(t) = \begin{pmatrix}
 Tale rappresentazione molto strana ha un suo perché, che ora esamineremo.\\
 Sia $q_{mn}$ l'elemento di riga $m$-esima e colonna $n$-esima (qui valgono anche indici negativi). Per esempio $q_{00} = q_0$, e $q_{10} = q_1 e^{i\omega t}$. In generale:
 \[
-a_{mn} = a_{n-m}e^{i(n-m)\omega t}; \quad b_{mn} = b_{n-m}e^{i(n-m)\omega_t}
+a_{mn} = a_{n-m}e^{i(n-m)\omega t}; \quad b_{mn} = b_{n-m}e^{i(n-m)\omega t}
 \]
 Vale poi $a_{mn} = a^*_{nm}$ (perché siamo partiti da una serie a somma reale).\\
 È definita poi la somma di osservabili (sommando le matrici). Per il prodotto, invece, notiamo che, per $c(t) = a(t) b(t)$, il termine $c_{mn}$ è dato dal prodotto scalare tra la riga $m$-esima della matrice di $a$ e la colonna $n$-esima della matrice di $b$ (che sono uguali se non per il fatto che la seconda è \q{shiftata} di $n-m$ in avanti rispetto alla prima):
@@ -96,20 +120,20 @@ Possiamo quindi modificare la matrice di prima cambiandone le frequenze seguendo
 Heisenberg congetturò che tutte le osservabili nell'atomo dovessero assumere la forma di termini di matrici, della forma $q_{mn}(t) = q_{mn}e^{i\omega_{mn}t}$ (dove $q_{mn}$ potrebbe essere, per esempio, l'intensità di una riga di emissione e $\omega_{mn}$ la sua pulsazione).\\
 Ciò ha profonde conseguenze, poiché viola tutte le considerazioni intuitive fatte in \MC:
 \begin{itemize}
-    \item Le osservabili sono descritte da \textbf{matrici} con termini \textbf{complessi}
-    \item Il prodotto tra osservabili è un prodotto matriciale (che non è detto essere commutativo)
+    \item Le osservabili sono descritte da \textbf{matrici} con termini \textbf{complessi};
+    \item Il prodotto tra osservabili è un prodotto matriciale (che non è detto neppure essere commutativo, dunque l'algebra non è abeliana).
 \end{itemize}
 %[Domanda]: Ma con osservabile si intende l'intera matrice o il singolo elemento dato dai due indici? E tali singoli elementi sono funzioni complesse? - Risposta (Marchetti): i due indici indicano l'elemento mn-esimo della matrice, e l'operatore va considerato come la matrice intera. In notazione, a volte si indica q(m,n) per l'intera matrice, immaginando di "far scorrere" gli indici con -\infty < n,m < +\infty
 In effetti, confrontando questa intuizione con la quantizzazione di Planck, Heisenberg dimostrò che per un sistema unidimensionale, la posizione $q$, e il momento $p$ verificano:
 \[
-[qp - pq]_{mn} = i\hbar \delta_{mn}
+[q,p]_{mn} \equiv [qp - pq]_{mn} = i\hbar \delta_{mn}
 \]
 E cioè la commutatività viene meno (l'espressione tra parentesi è detta \textit{commutatore}).\\
-Inoltre le matrici devono essere infinito-dimensionali. Infatti, deve valere:
+Inoltre le matrici devono essere infinito-dimensionali. Infatti, se per assurdo le matrici fossero finito-dimensionali allora sarebbe definita una traccia, e dovrebbe valere:
 \[
-\op{Tr}(qp) = \op{Tr}(pq) \Rightarrow \op{Tr}(qp-pq) = 0 \neq \op{Tr}(i\hbar \bb{I})
+\op{Tr}(qp) = \op{Tr}(pq) \quad \Rightarrow \quad \op{Tr}(qp-pq) = 0 \neq \op{Tr}(i\hbar \bb{I}) = i \hbar
 \]
-($\op{Tr}$ è la traccia di una matrice).\\
+($\op{Tr}$ è la traccia di una matrice), ovvero un assurdo.\\
 L'unico modo perché le relazioni di commutazione siano consistenti è allora che la traccia non sia definita, e cioè che le matrici in questione siano infinito-dimensionali.\\
 
 \subsection{L'approccio di Schrödinger}
@@ -120,11 +144,11 @@ Scrivendo la sua equazione d'onda stazionaria per una particella con potenziale 
     \label{eqn:onda}
 \end{equation}
 si accorse che si poteva ricondurre il membro di sinistra all'Hamiltoniana classica: 
-\[H_{cl}\left(\vec{x},\vec{p}\right)=\frac{{\vec{p}}^2}{2m}+V(\vec{x})\]
+\[H_\mathrm{cl}\left(\vec{x},\vec{p}\right)=\frac{{\vec{p}}^2}{2m}+V(\vec{x})\]
 sostituendo $\vec{x}$ con un operatore che agisce su $\psi(\vec{x})$ come $\vec{x}\psi(\vec{x})$, e $\vec{p}$ con un operatore che agisce su $\psi(\vec{x})$ come $-i\hbar \vec{\nabla}\psi(\vec{x})$.\\
 Generalizzando, sostituì allora alle $\vec{x}$ e $\vec{p}$ classiche questi operatori:
 \[
-H_{\text{quant.}}(\vec{x}, -i\hbar \vec{\nabla})
+H_{\mathrm{quant}}(\vec{x}, -i\hbar \vec{\nabla})
 \]
 riscrivendo l'equazione (\ref{eqn:onda}) come:
 \begin{equation}
@@ -140,17 +164,19 @@ Dall'equazione (\ref{eqn:onda_op}), si ha che le $\mathcal{E}$ che risolvono l'e
 \[
 \hat{H}\psi = \mathcal{E}\psi
 \]
-si ha che \textbf{i valori ottenibili dalle misure non sono dati dal codominio delle osservabili}, ma risolvendo equazioni agli autovalori. Cade perciò anche l'ultima proprietà intuivia che avevamo osservato nella \MC.\\
+si nota che in questo caso \textbf{i valori ottenibili dalle misure non sono dati dal codominio delle osservabili}, ma (come verrà formalmente dimostrato più avanti) risolvendo equazioni agli autovalori. Cade perciò anche l'ultima proprietà intuitiva che avevamo osservato nella \MC.\\
 
-Restano aperte le seguenti questioni:
+Restano comunque aperte le seguenti questioni:
 \begin{itemize}
     \item Quali operatori corrispondono a osservabili?
     \item Come mai sono possibili rappresentazioni delle stesse osservabili come \q{oggetti matematici diversi} (per esempio negli approcci di Heisenberg e Schrödinger, $q_{mn}$ vs $\hat{x}$, $p_{mn}$ vs $-i\hbar \frac{d}{dx}$)
 \end{itemize}
 
+Le risposte a queste domande costituiscono alcuni dei concetti di base della \MQ.
+
 \section{Stati}
-Uno \textbf{stato} $\Sigma$ caratterizza l'informazione  su uno stato fisico.\marginpar{Stato} Dato un sistema $S$ si assume che tutti gli stati di $S$ possano essere ottenuti uno dall'altro con operazioni fisicamente eseguibili sul sistema.\\
-Gli stati con \textbf{informazione massimale} sono detti \textbf{puri},\marginpar{Stati puri vs. stati misti} quelli con informazione minore sono detti \textbf{misti}. Nel contesto della Meccanica (non statistica), spesso si omette l'aggettivo \q{puri}.
+Uno \textbf{stato} $\Sigma$ caratterizza l'informazione  su un sistema fisico.\marginpar{Stato} Dato un sistema $S$ si assume che tutti i suoi stati $\Sigma$ si possano ottenere l'uno dall'altro con operazioni fisicamente eseguibili sul sistema.\\
+Gli stati con \textbf{informazione massimale} sono detti \textbf{puri},\marginpar{Stati puri vs. stati misti} quelli con informazione minore sono detti \textbf{misti} (questa distinzione sarà più chiara in seguito). Nel contesto della Meccanica \emph{non} statistica, (dunque dove si ha sempre tutta l'informazione del sistema), spesso si omette l'aggettivo \q{puri}.
 
 \subsection{Stati in Meccanica Classica}
 In \MC gli \textbf{stati puri} sono descritti da punti nello spazio delle fasi, come $(q_0,p_0)\in\Omega$ e descrivono le \q{\textit{condizioni iniziali}}. 
@@ -159,30 +185,30 @@ Gli \textbf{stati misti} in \MC sono distribuzioni di probabilità $\rho(q,p)$ s
 \rho(q,p)\geq 0; \quad \int_\Omega \rho(q,p) dq\,dp = 1
 \]
 Ad esempio se il sistema è una molecola di un gas ideale monoatomico di massa $m$ e sappiamo che il gas è in equilibrio a temperatura $T$ e in un volume $V$, lo stato misto corrispondente è la distribuzione di Maxwell-Boltzmann:
-\[\rho_{MB}\left(\vec{x},\vec{p}\right)=\frac{\chi_V\left(\vec{x}\right)e^{-\frac{{\vec{p}}^2}{mkT}}}{\int d^3x\ d^3p\ \chi_V\left(\vec{x}\right)e^{-\frac{{\vec{p}}^2}{mkT}}}\quad \quad \chi_V(\vec{x}) = \begin{cases}
+\[\rho_\text{MB}\left(\vec{x},\vec{p}\right)=\frac{\chi_V\left(\vec{x}\right)e^{-\frac{{\vec{p}}^2}{mkT}}}{\int d^3x\ d^3p\ \chi_V\left(\vec{x}\right)e^{-\frac{{\vec{p}}^2}{mkT}}}\quad \quad \chi_V(\vec{x}) = \begin{cases}
 1 & \text{se }\vec{x}\in V\\
 0 & \text{se }\vec{x}\notin V
 \end{cases}
 \]
-Gli stati puri classici possono essere identificati anch'essi con distribuzioni di probabilità \q{concentrate in un solo punto} su $\Omega$:
+Gli stati puri classici possono essere identificati anch'essi con distribuzioni di probabilità \q{concentrate in un solo punto} su $\Omega$, utilizzando le distribuzioni delta di Dirac multi-dimensionali:
 \[
 q_0,p_0\in\Omega\rightarrow\rho_{q_0,p_0}\left(q,p\right)=\delta^{\left(N\right)}\left(q-q_0\right)\delta^{\left(N\right)}\left(p-p_0\right)
 \]
 dove $N$ è il numero di gradi di libertà del sistema.
-Notiamo che non essendo in generale $\Omega$ uno spazio vettoriale, non è possibile \q{sommare} stati puri classici.\\
+Notiamo che non essendo in generale $\Omega$ uno spazio vettoriale, non è possibile (e non avrebbe nemmeno senso fisico) \q{sommare} stati puri classici.\\
 
 \subsection{Stati in Meccanica Quantistica}
-Il primo indizio che non esiste uno \q{spazio delle fasi} in \MQ viene dalla soluzione di Planck del problema del corpo nero. Per riprodurre la formula dell'energia media per i suoi oscillatori armonici non poteva pesare con una distribuzione di probabilità i punti dello spazio delle fasi dell'oscillatore armonico che emetteva la radiazione, ma doveva considerare delle celle la cui area è $h$.\\ 
+Il primo indizio che non esiste uno \q{spazio delle fasi} in \MQ viene dalla soluzione di Planck del problema del corpo nero. Per riprodurre la formula dell'energia media per i suoi oscillatori armonici non poteva pesare con una distribuzione di probabilità tutti i punti dello spazio delle fasi dell'oscillatore armonico che emetteva la radiazione, ma doveva quantizzare lo spazio delle fasi, suddividendolo in cellette di area $h$, detta appunto \emph{costante di Planck}.\\ 
 Questo diviene più preciso con il principio di indeterminazione di Heisenberg (1927) per cui 
 $\Delta x \Delta p\geq \frac{\hbar}{2}$ ci indica l'impossibilità di conoscere con precisione arbitraria simultaneamente posizione e momento, cioè i punti di $\Omega$. Ma se sperimentalmente non posso definire \q{un punto} nello spazio delle fasi, allora pragmaticamente quel punto \q{non esiste}. Dobbiamo allora reinventare la nozione di spazio delle fasi.\\
-
-Come possiamo caratterizzare l'informazione massimale?
-L'ha scoperto Schrödinger: per eseguire i suoi conti per l'atomo di idrogeno doveva usare le funzioni d'onda $\psi(\vec{x})$, che perciò devono contenere le informazioni dello stato.
-Tuttavia, sapendo $\psi(\vec{x})$ (distribuzione della posizione) nulla so del momento $\vec{p}$. D'altro canto, le $\psi$ sono onde, e perciò si possono sommare e formano uno spazio vettoriale.\\
-Restano aperte le questioni:
+Se non utilizzando punti dello spazio delle fasi, come possiamo caratterizzare l'informazione massimale?
+Schrödinger fu il primo a dare una risposta: per eseguire i suoi conti per l'atomo di idrogeno doveva usare le funzioni d'onda $\psi(\vec{x})$, che contengono intrinsecamente le informazioni dello stato.
+Tuttavia, conoscendo la distribuzione sulla posizione $\psi(\vec{x})$ di una particella, non si conosce la distribuzione sul momento $\vec{p}$. D'altro canto, le $\psi$ sono onde, e perciò a differenza della \MC si possono sommare e formano uno spazio vettoriale. Pertanto si inizia a comprendere che lo spazio naturale degli stati in \MQ non è lo spazio delle fasi, costituito da punti, bensì uno spazio di funzioni, dato che ogni stato non può essere rappresentato da un punto, ma da una funzione. \\
+Restano in ogni caso aperte le questioni:
 \begin{itemize}
-    \item Qual è il corretto spazio vettoriale delle $\psi$?
-    \item Qual è lo spazio vettoriale degli stati per le $q_{nm}$, $p_{nm}$?
+    \item Qual è il corretto spazio vettoriale delle $\psi$ di Schrödinger?
+    \item Qual è lo spazio vettoriale degli stati per le $q_{nm}$, $p_{nm}$ di Heisenberg?
+    \item Questi due spazi vettoriali sono gli stessi?
     \item Come sono definiti gli stati misti? 
 \end{itemize}
 
@@ -202,48 +228,49 @@ Questo numero reale rappresenta la stima teorica del valor medio sperimentale\ma
 \end{equation}
 Ove l'esistenza del limite è assunta come fatto sperimentale.\\
 \lesson{4}{05/10/2018}
-In \textbf{\MC}, il valor medio dell'osservabile\marginpar{Valor medio in \MC} $O = f(q,p)$ in uno stato $\Sigma = \rho(q,p)$ è dato da:
+In \textbf{\MC}, in generale per gli \textbf{stati misti} il valor medio dell'osservabile\marginpar{Valor medio in \MC} $O = f(q,p)$ in uno stato $\Sigma = \rho(q,p)$ è dato da:
 \begin{equation}
 \langle O \rangle_\Sigma = \langle f\rangle_\rho = \int_\Omega dp\,dq\, \rho(q,p)\,f(q,p)
 \label{eqn:valor-medio-classico}
 \end{equation}
-In \textbf{\MQ},\marginpar{Valor medio in \MQ} la regola per gli \textbf{stati puri} ($\Sigma = \psi$) trovata da Born enuncia che $|\psi(x)|^2$ è proporzionale alla densità di probabilità di trovare la particella in $x$ se lo stato è descritto da $\psi$. Per renderla una densità di probabilità dividiamo per $\norm{\psi}^2$:
+In \textbf{\MQ},\marginpar{Valor medio in \MQ} la regola per gli \textbf{stati puri} ($\Sigma = \psi$) trovata da Born enuncia che $|\psi(x)|^2$ è proporzionale alla densità di probabilità di trovare la particella in $x$ se lo stato è descritto da $\psi$. Per renderla una densità di probabilità dividiamo per il fattore di normalizzazione $\norm{\psi}^2$:
 \[
 \avg{\hat{x}}_\psi = \int dx \,x \frac{|\psi(x)|^2}{\norm{\psi}^2}; \quad \quad \norm{\psi}^2 = \int dx |\psi(x)|^2 
 \]
-Dove $x$ sono i possibili valori, e la frazione costituisce la densità di probabilità.\\
-La generalizzazione di questa regola al momento $\hat{p}=-i\hbar \frac{d}{dx}$ ha mostrato che la corretta definizione è:
+Dove $x$ sono i possibili valori, e la frazione costituisce la densità di probabilità. Più avanti si vedrà come non vi sia alcuna analogia con la \eqref{eqn:valor-medio-classico}. Infatti il concetto di funzione d'onda quantistica non ha nulla a che vedere con quello di distribuzione di uno stato misto classico. \\
+La generalizzazione di questa regola all'osservabile momento $\hat{p}=-i\hbar \frac{d}{dx}$ ha mostrato che la corretta definizione è:
 \[
 \langle \hat{p} \rangle_\psi = \int dx \frac{\psi^*(x) \hat{p}\psi(x)}{\norm{\psi}^2} = \int dx \frac{\psi^*(x)}{\norm{\psi}^2} \left ( -i\hbar \frac{d}{dx}\psi(x) \right )
 \]
-Calcolando la trasformata di Fourier\footnote{CFR pag. 49 degli appunti di Fisica Moderna}: %CFR pag. 49 appunti \MQ [TO DO] riguardaci
+Calcolando la trasformata di Fourier\footnote{CFR pag. 49 degli appunti di Fisica Moderna} si ottiene: %CFR pag. 49 appunti \MQ [TO DO] riguardaci
 \[
 \langle \hat{p} \rangle_\psi = \int dp \frac{\tilde{\psi}^*(p)p\tilde{\psi}(p)}{\norm{\tilde{\psi}}^2} = \int dp\frac{|\tilde{\psi}(p)|^2}{\norm{\tilde{\psi}}^2}p
 \]
-Generalizzando perciò per un osservabile $O$ in \textbf{\MQ} si ha:
+È perciò possibile generalizzare tale regola ad una qualsiasi osservabile $O$:
 \begin{equation}
 \langle \hat{O}\rangle_\psi = \int \frac{\psi^*(x) \hat{O} \psi(x)}{\norm{\psi}^2} dx
 \label{eqn:valor-medio-MQ}
 \end{equation}
+Quest'ultima è dunque una regola per tutte le osservabili in \MQ.
 
 \begin{question}
 Come si giustifica matematicamente il passaggio da (\ref{eqn:valormediodef}) a (\ref{eqn:valor-medio-classico})-(\ref{eqn:valor-medio-MQ})?
 \label{q:giustificazione-prob}
 \end{question}
 %Segnalare domande che vengono fatte, magari numerarle e linkarle alla loro risposta [TO DO]
-\textbf{Nota tecnica}: Tecnicamente se $\sigma(O)$ è illimitato, $\langle O \rangle_\Sigma$ potrebbe non esistere per qualche stato $\Sigma$. Assumiamo quindi che noti $\langle O \rangle_\Sigma$  per tutti i $\Sigma$ per i quali è definito sia sufficiente a caratterizzare $O$ (\textbf{principio di minimalità}). (Cioè se conosco tutta l'informazione sperimentalmente ottenibile da $O$, conosco $O$. In parole povere mi limito solo ai casi in cui $\sigma(O)$ ha un valore definito).
+\textbf{Nota tecnica}: Se $\sigma(O)$ è illimitato, $\langle O \rangle_\Sigma$ potrebbe non esistere per qualche stato $\Sigma$. Assumiamo quindi che noti $\langle O \rangle_\Sigma$  per tutti i $\Sigma$ per i quali è definito sia sufficiente a caratterizzare $O$ (\textbf{principio di minimalità}). (Cioè se conosco tutta l'informazione sperimentalmente ottenibile da $O$, conosco $O$. In parole povere mi limito solo ai casi in cui $\langle O \rangle_\Sigma$ ha per ogni stato un valore definito).
 
 \subsection{Relazioni tra osservabili e stati}
 Poiché i \textbf{valori medi} sono tutto ciò che possiamo sperare di misurare in laboratorio, le relazioni tra \textbf{osservabili} e \textbf{stati} necessariamente fanno uso di questi. Facciamo quindi le seguenti definizioni:
 \begin{itemize}
-    \item Due osservabili \marginpar{Identità tra osservabili}  $O_1$ e $O_2$ tali che $\forall \Sigma$ in cui sono definiti si abbia $\langle O_1 \rangle_\Sigma = \langle O_2 \rangle_\Sigma$ sono lo stesso osservabile: $O_1 = O_2$.
-    \item Analogamente, \marginpar{Identità tra stati} se $\langle O \rangle_{\Sigma_1} = \langle O \rangle_{\Sigma_2}$ per ogni osservabile $O$, si ha che $\Sigma_1 = \Sigma_2$ (sono lo stesso stato).
-    \item La\marginpar{Stati e funzioni d'onda} relazione tra funzioni d'onda e stati è biunivoca solo a meno di un fattore moltiplicativo. Infatti, moltiplicare la funzione d'onda $\psi$ associata allo stato $\Sigma$, per un fattore complesso $\alpha$ costante produce gli stessi valori medi di ogni osservabile - e quindi descrive le stesse osservabili. Dalle definizioni date sopra si ha che $\alpha \psi$ corrisponde allo stesso stato $\Sigma$.
+    \item Due osservabili \marginpar{Identità tra osservabili}  $O_1$ e $O_2$ tali che $\forall \Sigma$ in cui sono definiti si abbia $\langle O_1 \rangle_\Sigma = \langle O_2 \rangle_\Sigma$ sono lo stesso osservabile: $O_1 = O_2$. In altre parole due osservabili sono uguali se, a parità di condizioni iniziali (stesso stato), forniscono lo stesso valore (medio) della misura.
+    \item Analogamente, \marginpar{Identità tra stati} se $\langle O \rangle_{\Sigma_1} = \langle O \rangle_{\Sigma_2}$ per ogni osservabile $O$, si ha che $\Sigma_1 = \Sigma_2$ (sono lo stesso stato). In altre parole, due stati sono uguali se, considerando la stessa osservabile, si ottiene lo stesso valore (medio) della misura.
+    \item La\marginpar{Stati e funzioni d'onda} relazione tra funzioni d'onda e stati è biunivoca solo a meno di un fattore moltiplicativo. Infatti, come si può verificare facilmente dalla \eqref{eqn:valor-medio-MQ}, moltiplicando la funzione d'onda $\psi$ associata allo stato $\Sigma$ per un qualsiasi numero complesso $\alpha$ (costante) si ottengono gli stessi valori medi (per qualsiasi osservabile). Dalle definizioni di identità date sopra segue che $\alpha \psi$ corrisponde allo stesso stato $\Sigma$.
 \end{itemize}
 
 \subsection{Complemento matematico: Teoria della misura}
-Cerchiamo ora di dare una risposta alla domanda (Q:\ref{q:giustificazione-prob}). Nello specifico, ci chiediamo quale sia la relazione \marginpar{Relazione tra $\langle O\rangle_\Sigma$ e la media}tra $\langle O \rangle_\Sigma$ (intesa come integrale sullo spazio delle fasi in \textit{\MC} (\ref{eqn:valor-medio-classico}) o di un operatore applicato ad una funzione d'onda in un certo modo per la \textit{\MQ} (\ref{eqn:valor-medio-MQ})) e $\lim_{N\to\infty} \frac{o_1 + \cdots + o_N}{N}$? Sappiamo sperimentalmente che sono identificabili, ma come giustificarlo teoricamente?\\
-Supponiamo che le misure dell'osservabile $O$ (che quindi fanno parte di $\sigma(O)$) siano \textbf{indipendenti} e con la stessa \textbf{distribuzione di probabilità} $P_\Sigma^O$.\\
+Cerchiamo ora di dare una risposta alla domanda (Q:\ref{q:giustificazione-prob}). Nello specifico, ci chiediamo quale sia la relazione \marginpar{Relazione tra $\langle O\rangle_\Sigma$ e la media}tra $\langle O \rangle_\Sigma$ (definito come integrale sullo spazio delle fasi in \textit{\MC} (\ref{eqn:valor-medio-classico}) o di un operatore applicato ad una funzione d'onda in un certo modo per la \textit{\MQ} (\ref{eqn:valor-medio-MQ})) e $\lim_{N\to\infty} \frac{o_1 + \cdots + o_N}{N}$? Sappiamo sperimentalmente che sono identificabili, ma come giustificarlo teoricamente?\\
+Supponiamo che le misure dell'osservabile $O$ (che quindi fanno parte di $\sigma(O)$) siano \textbf{indipendenti} e con la stessa \textbf{distribuzione di probabilità} $P_\Sigma^O$, e che il valor medio di $P^O_\Sigma$ esista per il principio di minimalità.\\
 Allora sotto un'assunzione di \textbf{regolarità},\marginpar{Convergenza della media al valor medio} la successione $\frac{1}{N}\sum_{i=1}^{N}o^{\left(i\right)}$ con $o^{(i)}$, $i=1\dots N$ nello stato $\Sigma$, converge (quasi ovunque rispetto a $P_\Sigma^O$) al valor medio $\langle O \rangle_\Sigma$  per $N\to\infty$ (legge forte dei grandi numeri).\\
 Nel parlare di \textit{distribuzioni di probabilità} stiamo però facendo riferimento ad una \textit{struttura probabilistica} propria delle osservabili, e che dobbiamo giustificare.\\
 Per far ciò, diamo prima qualche cenno alla teoria della misura\footnote{Qui per \q{misura} si intende un'operazione in senso matematico, che a priori non ha nulla a che fare con una \q{misura fisica}} su $\bb{R}$.\\
@@ -251,17 +278,17 @@ Trascureremo dettagli matematici come il fatto che si considerano solo insiemi \
 \begin{dfn}
 Una misura $\mu$ su $\bb{R}$ è una mappa dagli insiemi (misurabili) di $\bb{R}$, detti boreliani, $\mathcal{B}(\bb{R})$ in $\left[0,\ +\infty\right]$ che soddisfa:
 \begin{enumerate}
-    \item $\mu \left(\emptyset\right)=0$ (la misura di un insieme vuoto è nulla)
-    \item $\mu$ è \textbf{numerabilmente additiva}: se $\left\{\Delta_i\right\}_{i\in I}$ è una famiglia numerabile di boreliani disgiunti ($\Delta_1 \cap \Delta_j=\emptyset, i\neq j$), allora $\mu\left(\cup_{i\in I}\Delta_i\right)= \sum_{i\in I}\mu\left(\Delta_i\right)$
+    \item $\mu \left(\emptyset\right)=0$ (la misura di un insieme vuoto è nulla);
+    \item $\mu$ è \textbf{numerabilmente additiva}: se $\left\{\Delta_i\right\}_{i\in I}$ è una famiglia numerabile di boreliani disgiunti ($\Delta_1 \cap \Delta_j=\emptyset, i\neq j$), allora $\mu\left(\cup_{i\in I}\Delta_i\right)= \sum_{i\in I}\mu\left(\Delta_i\right)$.
     %Serve anche che \mu non coincida con +\infty per tutti gli insiemi?
 \end{enumerate}
 \end{dfn}
 Le misure \q{\textit{regolari}}\marginpar{Misura regolare su $\bb{R}$} su $\bb{R}$ sono tutte generate da funzioni \textbf{monotone crescenti} $\alpha\left(\lambda\right)$, $\lambda \in \bb{R}$ e definite nel seguente modo.\\
 Sia $\mu_\alpha$ la misura. Allora la misura di un aperto $]a,b[ \subset \bb{R}$ è data da:
-\[ \mu_\alpha\left(\right]a,b\left[\right)=\lim_{\epsilon\rightarrow0} \alpha \left(b-\epsilon\right) - \alpha \left(a+\epsilon\right)\]
-Allora è definita la misura di ogni $\Delta \in \mathcal{B}(\bb{R})$, ricordando che ogni aperto di $\bb{R}$ è un'unione numerabile di aperti disgiunti, come:
+\[ \mu_\alpha\left(\right]a,b\left[\right)=\lim_{\epsilon\rightarrow0} \left[ \alpha \left(b-\epsilon\right) - \alpha \left(a+\epsilon\right) \right] \]
+In questo modo è definita la misura di ogni $\Delta \in \mathcal{B}(\bb{R})$, ricordando che ogni aperto di $\bb{R}$ è un'unione numerabile di aperti disgiunti, come:
 \[
-\mu_\alpha\left(\Delta\right)=\inf_{\Delta\subset A}{\mu_\alpha(A),\text{\ A\ aperto\ di }\mathbb{R}}
+\mu_\alpha\left(\Delta\right)=\inf_{\Delta\subset A}{\mu_\alpha(A), \quad \text{\ $A$\ aperto\ di }\mathbb{R}}
 \]
 Le misure $\mu_\alpha$ si dicono misure di Lebesgue-Stieltjes.\\
 Esempi:
@@ -269,7 +296,7 @@ Esempi:
     \item $\alpha \left(\lambda\right)=\lambda$ è la \textbf{misura di Lebesgue}
 	$\mu_{\alpha=\lambda}\left(\right]a,b\left[\right)=b-a$\\
 	Si dimostra immediatamente che la \q{misura di un punto} è nulla:
-	\[ 0\leq \mu_{\alpha=\lambda}\left(\{x\}\right)=\inf_{\left\{x\right\}\subset A}{\mu_{\alpha=\lambda}\left(A\right)\le\inf_n{\mu_{\alpha=\lambda}\left(\right]x-\frac{1}{n},x+\frac{1}{n}\left[\right)=\inf_n{\frac{2}{n}=0}}} \]
+	\[ 0\leq \mu_{\alpha=\lambda}\left(\{x\}\right)=\inf_{\left\{x\right\}\subset A}{\mu_{\alpha=\lambda}\left(A\right)\le\inf_n{\mu_{\alpha=\lambda}\left(\left]x-\frac{1}{n},x+\frac{1}{n}\right[\right)=\inf_n{\frac{2}{n}=0}}} \]
 	\item $\alpha \left(\lambda\right)=H\left(\lambda\right)$ è la \textbf{misura di Dirac}, con $H(\lambda)$ la funzione di Heaviside (che vale $0$ per $\lambda <0$, e $1$ altrimenti).\\
 	$\mu_{\alpha=H}\left(\right]a,b\left[\right)=1$ se $0\in]a,b[$ e $0$ altrimenti\footnote{Calcolando con la definizione, per un intervallo a destra di $0$, che non include $0$, il computo dà $1-1 = 0$, e a sinistra si ha $0-0 = 0$. Un intervallo con un estremo che coincide con $0$ ha analogamente misura nulla, essendo un intervallo per definizione aperto, per cui $0$ è escluso.}\\
 	In effetti, la misura di Dirac bada solo allo $0$: $\mu_H\left(\left\{0\right\}\right)=1$
@@ -281,6 +308,12 @@ Dividiamo il codominio di $f$ in intervallini di ampiezza $2^{-n}$ e consideriam
 Allora:
 \[ 
 \int f\left(x\right)d\alpha \left(x\right)\equiv \lim_{n\rightarrow\infty}\sum_{m=1}^{\infty}{\frac{m-1}{2^n} \mu_\alpha\left (f^{-1}\left(\ \left [\frac{m-1}{2^n},\frac{m}{2^n}\right [\>\right)\right )}\]
+
+\begin{figure}[H]
+\input{Tikz/Lebesgue.tex}
+\caption{Interpretazione grafica dell'integrale di Lebesgue\label{fig:lebesgue}}
+\end{figure}
+
 Qualche \textbf{esempio}:
 \begin{enumerate}
     \item $\alpha = \lambda$, $\int f\left(\lambda\right)d\lambda$ è l'integrale di Lebesgue.
@@ -292,24 +325,25 @@ Qualche \textbf{esempio}:
 	\item $\alpha \left(\lambda\right)=H\left(\lambda\right)$ Allora:
 	\[ \int f\left(\lambda\right)dH\left(\lambda\right)=f\left(0\right)\equiv \int f\left(x\right)\delta \left(\lambda\right)d\lambda \]
 	Quindi $H$ è la misura di Dirac\footnote{Si noti che, al punto precedente, abbiamo chiesto che la derivata della misura $d\alpha(\lambda)/d\lambda$ sia localmente integrabile. Perciò, visto che per la funzione di Heaviside $H$ la derivata nel senso normale non è definita - c'è un \q{gradino} - possiamo usare quella distribuzionale, e si ha $dH(\lambda)/d\lambda=\delta(\lambda)$. CFR appunti del corso di metodi matematici per la dimostrazione.}.
-	\item Esistono misure di L-S che \q{non pesano i punti} (come invece succede caso della misura di Dirac), ma per cui non esiste $\alpha^\prime\left(\lambda\right)$ tale che $d\alpha=\alpha^\prime\left(\lambda\right)d\lambda$. Tali misure sono dette singolarmente continue rispetto alla misura di Lebesgue.
+	\item Per completezza si fa presente che esistono misure di L-S che \q{non pesano i punti} (come invece succede caso della misura di Dirac), ma per cui comunque non esiste $\alpha^\prime\left(\lambda\right)$ tale che $d\alpha=\alpha^\prime\left(\lambda\right)d\lambda$. Tali misure sono dette \emph{singolarmente continue} rispetto alla misura di Lebesgue.
 \end{enumerate}
 
 \subsection{La struttura probabilistica}
 Fatte le opportune premesse matematiche, il seguente teorema ci consentirà di collegare osservabili alla loro struttura probabilistica.
 \begin{thm}
-Sia\marginpar{Teorema di Riesz-Markov} $F$ un \textbf{funzionale lineare positivo} sulle funzioni continue su $\bb{R}$ (che svaniscono all'infinito), cioè:
-\[
-F:C_0\left(\mathbb{R}\right)\to \bb{R} 
-\]
-dove $C_0(\bb{R})$ è l'insieme delle funzioni continue che svaniscono all'infinito, e $F$ è tale che $\forall f,g\in C_0\left(\mathbb{R}\right)$, $\forall a,b\in \bb{R}$ valga $F\left(af+bg\right)=aF\left(f\right)+bF(g)$ (linearità), e se $f\geq 0$ allora $F\left(f\right)\geq 0$ (positività: $F$ \q{non cambia il segno} di $f$).\\
-Esiste allora una \textbf{funzione monotona crescente} $\alpha_F\left(\lambda\right)$ su $\bb{R}$ tale che: 
+\label{thm:riesz-markov}
+Sia\marginpar{Teorema di Riesz-Markov} $C_0(\bb{R})$ l'insieme delle funzioni continue definite su $\bb{R}$ che svaniscono all'infinito, e sia $F:C_0\left(\mathbb{R}\right)\to \bb{R}$  un \textbf{funzionale lineare positivo}, cioè tale che
+\begin{enumerate}
+\item $\forall f,g\in C_0\left(\mathbb{R}\right)$, $\forall a,b\in \bb{R}$ valga $F\left(af+bg\right)=aF\left(f\right)+bF(g)$ (linearità);
+\item se $f\geq 0$ allora $F\left(f\right)\geq 0$ (positività: $F$ \q{non cambia il segno} di $f$).\\
+\end{enumerate}
+Allora esiste una \textbf{funzione monotona crescente} $\alpha_F\left(\lambda\right)$ su $\bb{R}$ tale che: 
 \[
 F\left(f\right)=\int f\left(\lambda\right)d\alpha_F\left(\lambda\right)
 \]
 \end{thm}
 In altre parole, il teorema di Riesz-Markov fa sì che ogni funzionale lineare e positivo $F$ definisca una misura $\alpha_F$ (la si può pensare proprio come un \q{metro}, una \q{scala di misura}) tale che integrare una funzione $f$ utilizzando quella misura equivale ad applicare il funzionale $F$ alla funzione $f$ stessa.\\
-Ora mostriamo che, con opportune assunzioni, il valore medio delle osservabili in uno stato definisce un funzionale lineare positivo a cui applicare Riesz-Markov, in modo da associare ad ogni valor medio una \q{struttura probabilistica}.\\
+Ora mostriamo che, con opportune assunzioni, il valore medio delle osservabili in uno stato definisce un funzionale lineare positivo a cui applicare Riesz-Markov, in modo da associare ad ogni valor medio una \emph{misura di probabilità}, giustificando così la \q{struttura probabilistica}.\\
 Se $O$ è un'osservabile con spettro $\sigma \left(O\right)$ è naturale richiedere che, se $g$ è una funzione reale continua su $\bb{R}$ che si annulla all'infinito, esista un'osservabile $g(O)$ con spettro $\sigma \left(g\left(O\right)\right)=g\left(\sigma\left(O\right)\right)$. Ciò corrisponde ad usare,  processo di misura\footnote{La misura va intesa qui come l'operazione fisica di misura, non la misura matematica} di $O$, invece della scala $\lambda$, la scala $g\left(\lambda\right)$ (come si fa, per esempio, nell'uso di una scala logaritmica).\\
 Il valor medio di $g(O)$ è dato da:
 \begin{equation}
@@ -322,8 +356,8 @@ Dall'espressione in (\ref{eqn:medio-g}) segue poi che, per due funzioni degli os
 \langle a f(O)+bg(O)\rangle_\Sigma = a\langle f(O)\rangle_\Sigma + b\langle g(O)\rangle_\Sigma
 \]
 (Questa proprietà di linearità si può vedere utilizzando la definizione, o ricordandosi le proprietà della \textit{speranza matematica} viste in Sperimentazioni 1).\\
-Perciò il valor medio della funzione di un'osservabile è lineare e positivo. Partendo da questo possiamo definire un funzionale e applicare Riesz-Markov.\\
-Consideriamo\marginpar{Funzionale $F$ \q{valor medio}} quindi $F: f\in C_0(\bb{R})\mapsto \langle f(O)\rangle_\Sigma$, ossia il funzionale che associa ad ogni funzione continua che si annulla all'infinito il valor medio dell'osservabile $f(O)$ (che è ben definito per le funzioni su $C_0(\bb{R})$). Per quanto abbiamo appena visto, $F$ è un funzionale lineare positivo, e quindi per Riesz-Markov esiste una funzione monotona crescente che denotiamo $P_\Sigma^O(\lambda)$ tale che $\forall g \in C_0(\bb{R})$ si possa scrivere: 
+Perciò il valor medio sperimentale della funzione di un'osservabile è lineare e positivo, e dunque se fosse associabile ad un funzionale  rispetterebbe le ipotesi del teorema \ref{thm:riesz-markov}. \\
+Consideriamo\marginpar{Funzionale $F$ \q{valor medio}} quindi $F: f\in C_0(\bb{R})\mapsto \langle f(O)\rangle_\Sigma$, ossia il funzionale che associa ad ogni funzione continua che si annulla all'infinito il valor medio sperimentale dell'osservabile $f(O)$ (che è ben definito per le funzioni su $C_0(\bb{R})$). Per quanto abbiamo appena visto, $F$ è un funzionale lineare positivo, e quindi per Riesz-Markov esiste una funzione monotona crescente che denotiamo $P_\Sigma^O(\lambda)$ tale che $\forall g \in C_0(\bb{R})$ si possa scrivere: 
 \begin{equation}
 \langle g(O)\rangle_\Sigma = \int_{\bb{R}} g(\lambda) dP_\Sigma^O(\lambda)
     \label{eqn:valor-medio-riesz}
@@ -333,7 +367,7 @@ con integrale inteso in senso di Lebesgue-Stieltjes. Sempre rifacendosi a quanto
 dP_\Sigma^O\left(\lambda\right)=\frac{dP_\Sigma^O\left(\lambda\right)}{d\lambda}d\lambda 
 \label{eqn:psigma-change}
 \end{equation}
-Se inoltre introduciamo l'osservabile identità I che dà sempre $1$ come risultato della misura, per cui $\left\langle\mathbb{I}\right\rangle_\Sigma=1$, allora estendendo\footnote{Non è una funzione che si annulla ad infinito, quindi non appartiene a $C_0(\bb{R})$ e non potremmo \q{applicare} il funzionale valor medio ad essa. Allo stesso tempo il suo valor medio è ben definito, in quanto è una funzione che assume \textit{un solo valore}, e ciò ci libera dalla restrizione che avevamo adottato. Inoltre la scelta dell'operatore identità non è arbitraria: avremmo potuto usare una qualsiasi funzione costante, per cui il valor medio è \q{ben definito a priori} e ottenere lo stesso risultato. Alternativamente possiamo vedere la funzione $f\equiv 1$ come limite, immaginando di considerare una funzione $\mathcal{C}^0$ che vale $1$ entro un intervallo e poi decresce a $0$ e \q{allargare} all'infinito tale intervallo.} (\ref{eqn:valor-medio-riesz}) a $I$ dà:
+Se inoltre si considera $g$ come funzione costante $g \equiv 1$, si  ottiene l'osservabile identità $g(O) = \mathbb{I}$ che dà sempre $1$ come risultato della misura, per cui $\left\langle\mathbb{I}\right\rangle_\Sigma=1$, allora, dato un qualsiasi stato $\Sigma$ e una qualsiasi osservabile $O$,  estendendo\footnote{Non è una funzione che si annulla ad infinito, quindi non appartiene a $C_0(\bb{R})$ e non potremmo \q{applicare} il funzionale valor medio ad essa. Allo stesso tempo il suo valor medio è ben definito, in quanto è una funzione che assume \textit{un solo valore}, e ciò ci libera dalla restrizione che avevamo adottato. Inoltre la scelta dell'operatore identità è arbitraria: avremmo potuto usare una qualsiasi funzione costante, per cui il valor medio è \q{ben definito a priori} e ottenere lo stesso risultato. Alternativamente possiamo vedere la funzione $f\equiv 1$ come limite, immaginando di considerare una funzione $\mathcal{C}^0$ che vale $1$ entro un intervallo e poi decresce a $0$ e \q{allargare} all'infinito tale intervallo.} (\ref{eqn:valor-medio-riesz}) a $\mathbb{I}$ dà:
 \[
 \langle \bb{I}\rangle_\Sigma = 1 = \int_\bb{R} dP_\Sigma^O (\lambda)
 \]
@@ -357,7 +391,7 @@ dove il passaggio (a) è giustificato dal teorema fondamentale del calcolo, e $\
 \[
 \langle \chi_\Delta(O)\rangle_\Sigma = \lim_{N\to \infty} \frac{\chi_\Delta(o_1) + \cdots + \chi_\Delta(o_N)}{N}
 \]
-\textit{Poiché $\chi_\Delta$ è $1$ solo quando $O \in \Delta$, il numeratore è il numero di volte per cui l'osservabile \q{è comparso} dentro all'intervallo $\Delta$, mentre il denominatore è il numero totale di volte per cui si è misurato l'osservabile. Ripetendo il discorso dei funzionali lineari positivi e del teorema di Riesz è possibile riscrivere ciò con un opportuno integrale, esattamente come abbiamo fatto sopra.}\\
+\textit{Poiché $\chi_\Delta$ è $1$ solo quando $o_i \in \Delta$, il numeratore è il numero di volte per cui l'osservabile \q{è comparso} dentro all'intervallo $\Delta$, mentre il denominatore è il numero totale di volte per cui si è misurato l'osservabile. Ripetendo il discorso dei funzionali lineari positivi e del teorema di Riesz è possibile riscrivere ciò con un opportuno integrale, esattamente come abbiamo fatto sopra.}\\
 In particolare se $\Delta= ]-\infty, \lambda]$ avremo:
 \begin{equation}
 P_\Sigma^O(]-\infty,\lambda]) =
@@ -387,7 +421,7 @@ Poiché la relazione vale per tutti i $\Sigma$, posso omettere l'indicazione e d
 \]
 dove $dP^O$, per come è definita la derivata distribuzionale della funzione di Heaviside, è una $\delta$ di Dirac centrata sul valore dell'osservabile. Ma allora, rimuovendo il valor medio, si ottiene infine, formalmente:
 \begin{equation}
-O = \int_\bb{R} \lambda\, dP^O \Rightarrow f(O) = \int_\bb{R} f(\lambda)\, dP^O(\lambda)
+O = \int_\bb{R} \lambda\, dP^O \quad \Rightarrow \quad f(O) = \int_\bb{R} f(\lambda)\, dP^O(\lambda)
 \label{eqn:osservabileformale}
 \end{equation}
 Analogamente a quanto abbiamo fatto per passare da $dP_\Sigma^O(\lambda)$ a $P_\Sigma^O(\lambda)$, potremmo passare da $dP^O(\lambda) = dH(\lambda-O)$ a $P^O(\lambda)$, che costituisce un nuovo osservabile dato da:
@@ -454,11 +488,11 @@ Usando (\ref{eqn:valormedio}):
 che come funzione di $a$ ha un minimo per $a=\left\langle O\right\rangle_\Sigma$, infatti:
 \begin{align*}
     \frac{d}{da}&\int (\lambda-a)^2 dP_\Sigma^O(\lambda) = -2\int (\lambda-a)dP_\Sigma^O(\lambda) = -2(\langle O \rangle_\Sigma -a) = 0 \text{ per } a = \langle O \rangle_\Sigma \\
-    \frac{d^2}{d\alpha^2}&\int\left(\lambda-a\right)^2 dP_\Sigma^O\left(\lambda\right)=2
+    \frac{d^2}{d\alpha^2}&\int\left(\lambda-a\right)^2 dP_\Sigma^O\left(\lambda\right) = 2 > 0
 \end{align*}
 \begin{dfn}
 Uno stato \marginpar{Autostato} $\Sigma$ per cui $(\Delta O)_{\Sigma, \langle O \rangle_\Sigma} \equiv \langle \Delta O \rangle_\Sigma = 0$ è detto \textbf{autostato} di $O$ relativo all'autovalore $a = \langle O \rangle_\Sigma$.\\
-In altre parole, in un autostato la fluttuazione attorno alla misura $a$ di un osservabile $O$ è esattamente nulla.
+In altre parole, se  $\Sigma$ è autostato di $O$ allora qualsiasi misura di $O$ darà come risultato $a$, cioè il valor medio di $O$.
 \end{dfn}
 \textbf{Nota:} Se $\Sigma$ è un autostato di $O$ relativo ad $a$, una misura di $O$ su $\Sigma$ dà con probabilità $1$ il risultato $a$, e quindi $a \in\sigma(O)$.\\
 In \textbf{\MC} tutti gli stati puri\marginpar{In \MC tutti gli stati puri sono autostati} sono autostati di tutte le osservabili. Infatti: $O=f(q,p)$, e uno stato puro 

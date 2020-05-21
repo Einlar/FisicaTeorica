@@ -1,0 +1,39 @@
+\newgeometry{total={170mm,257mm}, left=20mm, top=20mm}
+%Impostazioni booktab (Rimuove quello spazio odioso tra righe)
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\extrarowheight}{.75ex}
+\begin{center}
+		\line (1,0){350} \\
+		\textsc{\normalsize Trascrizione degli appunti delle lezioni di}\\
+		[0.25in]
+		\huge{\bfseries Istituzioni di Fisica teorica}\\
+		[2mm]
+		\textsc{\normalsize Tenute dal Prof. \textit{Pieralberto Marchetti}}
+		\vspace{-0.5em}\\
+		\textsc{\normalsize Presso l'Università di Padova}\\
+		\vspace{-1em}
+		\line (1,0){350} \\
+        [0.2cm]
+        \textsc{\normalsize A cura di: \textit{Francesco Manzali}, \textit{Mattia Morgavi}}\\
+		\textsc{\normalsize Anno accademico 2018-2019}\\ 
+		{\scriptsize Sorgente disponibile a \url{https://github.com/Einlar/FisicaTeorica}}\\
+        {\scriptsize Compilato il \today}
+\end{center}
+
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth 
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother

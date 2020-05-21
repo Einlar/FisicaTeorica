@@ -50,12 +50,13 @@
 \usepackage{gensymb}
 \usetikzlibrary{patterns}
 
+
+
 %%BOOKTAB
 \setlength{\aboverulesep}{0pt}
 \setlength{\belowrulesep}{0pt}
 \setlength{\extrarowheight}{.75ex}
 \setlength\parindent{0pt} %Rimuove indentazione
-
 
 %%GEOMETRIA
 \usepackage[a4paper]{geometry}
@@ -75,7 +76,6 @@
 }
 \makeatother
  
-
 %%COMANDI
 \newcommand{\q}[1]{``#1''}
 \newcommand{\lamb}[2]{\Lambda^{#1}_{\>{#2}}}
@@ -108,6 +108,13 @@
 \DeclareRobustCommand{\MQ}{{\small\textsc{MQ}}\xspace}
 \DeclareRobustCommand{\MC}{{\small\textsc{MC}}\xspace}
 %Prima era \small\textsc{MQ}\xspace
+
+\newcommand{\nobracket}{}
+\newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\providecommand{\xRightarrow}[2][]{\mathop{\Longrightarrow}\limits_{#1}^{#2}}
 
 %%TESTATINE
 \usepackage{fancyhdr}
